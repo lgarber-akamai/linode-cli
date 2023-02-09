@@ -30,6 +30,10 @@ jobs:
         with:
           version: ${{ steps.previoustag.outputs.tag }}
 
+      - uses: rickstaa/action-create-tag@v1
+        with:
+          tag: ${{ steps.semvers.outputs.v_minor }}
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
