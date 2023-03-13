@@ -15,6 +15,7 @@ from terminaltables import PorcelainTable
 BOLD = "\033[1m"
 NOT_BOLD = "\033[0m"
 
+
 # plugin-scoped variables
 # setup terminal states
 orig_term = termios.tcgetattr(sys.stdin.fileno())
