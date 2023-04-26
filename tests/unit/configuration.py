@@ -13,6 +13,8 @@ from unittest.mock import call, mock_open, patch
 import requests_mock
 
 from linodecli import configuration
+from linodecli.configuration import _get_config_path
+from linodecli.configuration.helpers import CONFIG_DIR, CONFIG_NAME
 
 
 class ConfigurationTests(unittest.TestCase):
@@ -364,3 +366,19 @@ mysql_engine = mysql/8.0.26"""
         self.assertEqual(
             conf.get_value("postgresql_engine"), "postgresql/test-engine"
         )
+
+    # NOTE: This test will need to be ported to PyTest before the next normal release
+    def test_get_config_path_gha(self):
+        """
+        Tests that the Linode CLI attempts to load the correct config
+        in a pseudo-GHA environment.
+        """
+
+        tmp_path = "/home/runner/actions-runner/_work/_temp"
+
+        self.assertEqual(_get_config_path(), f"{CONFIG_DIR}/{CONFIG_NAME}")
+
+        with patch(
+            "os.getenv", lambda v: tmp_path if v == "RUNNER_TEMP" else ""
+        ), patch("os.path.exists", lambda *k: True):
+            self.assertEqual(_get_config_path(), f"{tmp_path}/{CONFIG_NAME}")

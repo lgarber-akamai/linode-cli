@@ -6,6 +6,7 @@ used elsewhere.
 import argparse
 import os
 import sys
+from pathlib import Path
 
 from .auth import (
     _check_full_access,
@@ -279,9 +280,13 @@ class CLIConfig:
         to save values they've set, and is used internally to update the config
         on disk when a new user if configured.
         """
-        if not os.path.exists(f"{os.path.expanduser('~')}/.config"):
-            os.makedirs(f"{os.path.expanduser('~')}/.config")
-        with open(_get_config_path(), "w", encoding="utf-8") as f:
+        config_file_path = Path(_get_config_path())
+        config_path = config_file_path.parent.absolute()
+
+        if not os.path.exists(config_path):
+            os.makedirs(config_path)
+
+        with open(config_file_path.absolute(), "w", encoding="utf-8") as f:
             self.config.write(f)
 
     def configure(

@@ -37,6 +37,12 @@ def _get_config_path():
     """
     Returns the path to the config file.
     """
+
+    # Support temporary config files in GHA runner environments.
+    gha_runner_temp = os.getenv("RUNNER_TEMP")
+    if gha_runner_temp is not None and os.path.exists(gha_runner_temp):
+        return f"{gha_runner_temp}/{CONFIG_NAME}"
+
     path = f"{LEGACY_CONFIG_DIR}/{LEGACY_CONFIG_NAME}"
     if os.path.exists(path):
         return path
