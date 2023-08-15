@@ -4,7 +4,7 @@ Handles formatting the output of commands used in Linode CLI
 import json
 from enum import Enum
 from sys import stdout
-from typing import IO, List, Optional, Union, cast
+from typing import IO, Any, Dict, List, Optional, Union, cast
 
 from rich import box
 from rich import print as rprint
@@ -12,7 +12,7 @@ from rich.console import OverflowMethod
 from rich.table import Column, Table
 from rich.text import Text
 
-from linodecli.baked.response import OpenAPIResponse
+from linodecli.baked.response import OpenAPIResponse, OpenAPIResponseAttr
 
 
 class OutputMode(Enum):
@@ -58,11 +58,28 @@ class OutputHandler:  # pylint: disable=too-few-public-methods,too-many-instance
 
     def print(
         self,
-        response_model: OpenAPIResponse,
         data: List[Union[str, dict]],
+        columns: List[str],
         title: Optional[str] = None,
         to: IO[str] = stdout,
-        columns: Optional[List[str]] = None,
+    ):  # pylint: disable=too-many-arguments
+        """
+        :param data: The data to display
+        :type data: list[str] or list[dict]
+        :param title: The title to display on a table
+        :type title: Optional[str]
+        :param to: Where to print output to
+        :type to: stdout, stderr or file
+        :param columns: The columns to display
+        :type columns: Optional[List[str]]
+        """
+        self._print(columns, data, columns, title, to)
+
+    def print_response(
+        self,
+        response_model: OpenAPIResponse,
+        data: List[Union[str, dict]],
+        to: IO[str] = stdout,
     ):  # pylint: disable=too-many-arguments
         """
         :param response_model: The Model corresponding to this response
@@ -76,7 +93,21 @@ class OutputHandler:  # pylint: disable=too-few-public-methods,too-many-instance
         :param columns: The columns to display
         :type columns: Optional[List[str]]
         """
+        for table in [""] + response_model.subtables:
+            new_data = self._resolve_data_for_table(table, data)
 
+            columns = self._get_columns(
+                response_model.get_attributes_for_table(table)
+            )
+
+            if len(columns) < 1:
+                continue
+
+            header = [c.column_name for c in columns]
+
+            self._print(header, new_data, columns, table, to)
+
+    def _print(self, header, data, columns, title, to):
         # We need to use lambdas here since we don't want unused function params
         output_mode_to_func = {
             OutputMode.table: lambda: self._table_output(
@@ -94,44 +125,53 @@ class OutputHandler:  # pylint: disable=too-few-public-methods,too-many-instance
             ),
         }
 
-        if columns is None:
-            columns = self._get_columns(response_model)
-            header = [c.column_name for c in columns]
-        else:
-            header = columns
-
         if self.mode not in output_mode_to_func:
             raise RuntimeError(f"Unknown output mode: {self.mode}")
 
         output_mode_to_func[self.mode]()
 
-    def _get_columns(self, response_model):
+    @staticmethod
+    def _resolve_data_for_table(path: str, data: List[Dict[str, Any]]):
+        if len(data) == 0 or path == "":
+            return data
+
+        current_data = data[0]
+
+        for v in path.split("."):
+            if v not in current_data:
+                raise ValueError(f"Sublist path not found in data: {path}")
+
+            current_data = current_data[v]
+
+        return (
+            current_data if isinstance(current_data, list) else [current_data]
+        )
+
+    def _get_columns(self, attrs: List[OpenAPIResponseAttr]):
         """
         Based on the configured columns, returns columns from a response model
         """
         if self.columns is None:
             columns = [
                 attr
-                for attr in sorted(
-                    response_model.attrs, key=lambda c: c.display
-                )
+                for attr in sorted(attrs, key=lambda c: c.display)
                 if attr.display
             ]
         elif self.columns == "*":
-            columns = list(response_model.attrs)
+            columns = list(attrs)
         else:
             columns = []
             for col in self.columns.split(","):
-                for attr in response_model.attrs:
+                for attr in attrs:
                     if attr.column_name == col:
-                        response_model.attrs.remove(attr)
+                        attrs.remove(attr)
                         columns.append(attr)
                         continue
 
         if not columns:
             # either they selected nothing, or the model wasn't setup for CLI
             # display - either way, display everything
-            columns = response_model.attrs
+            columns = attrs
 
         return columns
 
@@ -141,6 +181,7 @@ class OutputHandler:  # pylint: disable=too-few-public-methods,too-many-instance
         """
         Pretty-prints data in a table
         """
+
         content = self._build_output_content(
             data,
             columns,

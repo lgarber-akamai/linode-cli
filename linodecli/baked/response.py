@@ -1,6 +1,8 @@
 """
 Converting the processed OpenAPI Responses into something the CLI can work with
 """
+pass
+
 from .colors import colorize_string
 
 
@@ -27,7 +29,7 @@ class OpenAPIResponseAttr:
     from it.
     """
 
-    def __init__(self, name, schema, prefix=None):
+    def __init__(self, name, schema, prefix=None, table=""):
         """
         :param name: The key that held this schema in the properties list, representing
                      its name in a response.
@@ -40,6 +42,12 @@ class OpenAPIResponseAttr:
         """
         #: The name of this attribute, which is the full json path to it within the schema
         self.name = name if prefix is None else prefix + "." + name
+
+        self.relative_path = (
+            self.name[len(table) + 1 :] if table != "" else self.name
+        )
+
+        self.table = table
 
         #: If this attribute is filterable in GET requests
         self.filterable = schema.extensions.get("linode-filterable")
@@ -89,10 +97,15 @@ class OpenAPIResponseAttr:
         :param model: adjusted JSON data from response
         """
         value = model
-        for part in self.name.split("."):
-            if value is None or value == {}:
+        for part in self.relative_path.split("."):
+            if value is None or value == {} or part not in value:
                 return None
-            value = value[part]
+
+            try:
+                value = value[part]
+            except:
+                import epdb; epdb.serve()
+
         return value
 
     def render_value(self, model, colorize=True):
@@ -116,7 +129,7 @@ class OpenAPIResponseAttr:
             value = colorize_string(value, color)
         if value is None:
             # Prints the word None if you don't change it
-            value = ""
+            value = "null"
         return value
 
     def get_string(self, model):
@@ -133,31 +146,6 @@ class OpenAPIResponseAttr:
         return value
 
 
-def _parse_response_model(schema, prefix=None):
-    """
-    Recursively parses all properties of this schema to create a flattened set of
-    OpenAPIResponseAttr objects that allow the CLI to display this response in a
-    terminal.
-    :param schema: The schema to parse.  Every item in this schemas properties will
-                   become a new OpenAPIResponseAttr instance, and this process is
-                   recursive to include the properties of properties and so on.
-    :type schema: openapi3.Schema
-    :returns: The list of parsed OpenAPIResponseAttr objects representing this schema
-    :rtype: List[OpenAPIResponseAttr]
-    """
-    attrs = []
-
-    if schema.properties is not None:
-        for k, v in schema.properties.items():
-            if v.type == "object":
-                pref = prefix + "." + k if prefix else k
-                attrs += _parse_response_model(v, prefix=pref)
-            else:
-                attrs.append(OpenAPIResponseAttr(k, v, prefix=prefix))
-
-    return attrs
-
-
 class OpenAPIResponse:
     """
     This object represents a single Response as defined by a MediaType in the
@@ -171,6 +159,7 @@ class OpenAPIResponse:
         :type response: openapi3.MediaType
         """
         self.is_paginated = _is_paginated(response)
+        self.subtables = response.extensions.get("linode-cli-subtables") or []
 
         schema_override = response.extensions.get("linode-cli-use-schema")
         if schema_override:
@@ -178,17 +167,69 @@ class OpenAPIResponse:
                 response.path, {"schema": schema_override}, response._root
             )
             override._resolve_references()
-            self.attrs = _parse_response_model(override.schema)
+            self.attrs = self._parse_response_model(override.schema)
         elif self.is_paginated:
             # for paginated responses, the model we're parsing is the item in the paginated
             # response, not the pagination envelope
-            self.attrs = _parse_response_model(
+            self.attrs = self._parse_response_model(
                 response.schema.properties["data"].items
             )
         else:
-            self.attrs = _parse_response_model(response.schema)
+            self.attrs = self._parse_response_model(response.schema)
+
         self.rows = response.schema.extensions.get("linode-cli-rows")
         self.nested_list = response.extensions.get("linode-cli-nested-list")
+
+    def _parse_response_model(self, schema, prefix=None):
+        """
+        Recursively parses all properties of this schema to create a flattened set of
+        OpenAPIResponseAttr objects that allow the CLI to display this response in a
+        terminal.
+        :param schema: The schema to parse.  Every item in this schemas properties will
+                       become a new OpenAPIResponseAttr instance, and this process is
+                       recursive to include the properties of properties and so on.
+        :type schema: openapi3.Schema
+        :returns: The list of parsed OpenAPIResponseAttr objects representing this schema
+        :rtype: List[OpenAPIResponseAttr]
+        """
+        attrs = []
+
+        if schema.properties is not None:
+            for k, v in schema.properties.items():
+                pref = prefix + "." + k if prefix else k
+
+                if v.type == "object":
+                    attrs += self._parse_response_model(v, prefix=pref)
+                elif v.type == "array" and self._get_subtable(pref) != "":
+                    attrs += self._parse_response_model(v.items, prefix=pref)
+                else:
+                    attrs.append(
+                        OpenAPIResponseAttr(
+                            k,
+                            v,
+                            prefix=prefix,
+                            table=self._get_subtable(pref),
+                        )
+                    )
+
+        return attrs
+
+    def _get_subtable(self, path: str):
+        """
+        Returns the subtable that the given path falls under.
+        """
+        for table in self.subtables:
+            print(path, table)
+            if path.startswith(table):
+                return table
+
+        return ""
+
+    def get_attributes_for_table(self, table: str):
+        if table != "" and table not in self.subtables:
+            raise ValueError(f"Invalid table {table}")
+
+        return [v for v in self.attrs if v.table == table]
 
     def fix_json(self, json):
         """
