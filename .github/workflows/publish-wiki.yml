@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
 
+concurrency:
+  group: publish-wiki
+  cancel-in-progress: true
+permissions:
+  contents: write
 jobs:
   publish-wiki:
     runs-on: ubuntu-latest
@@ -19,9 +24,4 @@ jobs:
           private_key: ${{ secrets.CLI_RELEASE_PRIVATE_KEY }}
           repository: lgarber-akamai/linode-cli
 
-      - name: Upload Documentation to Wiki
-        uses: SwiftDocOrg/github-wiki-publish-action@v1
-        with:
-          path: "wiki"
-        env:
-          GH_PERSONAL_ACCESS_TOKEN: ${{ steps.generate_token.outputs.token }}
+      - uses: Andrew-Chen-Wang/github-wiki-action@v4
