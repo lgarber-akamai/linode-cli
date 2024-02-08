@@ -398,9 +398,24 @@ def action_help(cli, command, action):
                 if op.method in {"post", "put"} and arg.required
                 else ""
             )
-            nullable_fmt = " (nullable)" if arg.nullable else ""
+
+            extensions = []
+
+            if arg.nullable:
+                extensions.append("nullable")
+
+            if arg.format == "json":
+                extensions.append("JSON")
+
+            if arg.list:
+                extensions.append("list")
+
+            extension_str = (
+                f" ({', '.join(extensions)})" if len(extensions) > 0 else ""
+            )
+
             print(
-                f"  --{arg.path}: {is_required}{arg.description}{nullable_fmt}"
+                f"  --{arg.path}: {is_required}{arg.description}{extension_str}"
             )
 
 

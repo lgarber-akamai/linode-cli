@@ -9,7 +9,13 @@ class OpenAPIRequestArg:
     """
 
     def __init__(
-        self, name, schema, required, prefix=None, list_parent=None
+        self,
+        name,
+        schema,
+        required,
+        prefix=None,
+        is_list=False,
+        list_parent=None,
     ):  # pylint: disable=too-many-arguments
         """
         Parses a single Schema node into a argument the CLI can use when making
@@ -23,6 +29,12 @@ class OpenAPIRequestArg:
         :param prefix: The prefix for this arg's path, used in the actual argument
                        to the CLI to ensure unique arg names
         :type prefix: str
+        :type is_list: bool
+        :param is_list: Specifies whether this argument is a list.
+                        NOTE: This should be false for child fields of a list.
+        :type list_parent: Optional[str]
+        :param list_parent: If applicable, the path of the list this field is
+                            a child of.
         """
         #: The name of this argument, mostly used for display and docs
         self.name = name
@@ -50,6 +62,10 @@ class OpenAPIRequestArg:
             schema.extensions.get("linode-cli-format") or schema.format or None
         )
 
+        # If this argument is a list of objects, the format should always be JSON.
+        if is_list:
+            self.format = "json"
+
         #: The type accepted for this argument. This will ultimately determine what
         #: we accept in the ArgumentParser
         self.datatype = (
@@ -61,6 +77,9 @@ class OpenAPIRequestArg:
 
         #: Whether the argument is a field in a nested list.
         self.list_item = list_parent is not None
+
+        #: Whether the argument is a list object.
+        self.list = is_list
 
         #: The name of the list this argument falls under.
         #: This allows nested dictionaries to be specified in lists of objects.
@@ -119,6 +138,15 @@ def _parse_request_model(schema, prefix=None, list_parent=None):
                 # handle lists of objects as a special case, where each property
                 # of the object in the list is its own argument
                 pref = prefix + "." + k if prefix else k
+
+                # Create a request argument for this list so
+                # lists can be specified using JSON.
+                args.append(
+                    OpenAPIRequestArg(
+                        k, v.items, required=False, prefix=prefix, is_list=True
+                    )
+                )
+
                 args += _parse_request_model(
                     v.items, prefix=pref, list_parent=pref
                 )

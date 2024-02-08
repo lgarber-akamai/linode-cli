@@ -256,12 +256,18 @@ def _build_request_body(ctx, operation, parsed_args) -> Optional[str]:
     expanded_json = {}
 
     # expand paths
+    print(parsed_args)
     for k, v in vars(parsed_args).items():
+        if v is None:
+            continue
+
         cur = expanded_json
         for part in k.split(".")[:-1]:
             if part not in cur:
                 cur[part] = {}
             cur = cur[part]
+
+        print(k, v, cur)
         cur[k.split(".")[-1]] = v
 
     return json.dumps(_traverse_request_body(expanded_json))

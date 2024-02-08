@@ -127,12 +127,20 @@ class ListArgumentAction(argparse.Action):
         dest_list = getattr(namespace, self.dest)
         dest_length = len(dest_list)
         dest_parent = self.dest.split(".")[:-1]
+        dest_parent_path = ".".join(dest_parent)
 
         # If this isn't a nested structure,
         # append and return early
         if len(dest_parent) < 1:
             dest_list.append(values)
             return
+
+        # If the destination list has been explicitly defined as JSON,
+        # user should not be allowed to explicitly specify child fields.
+        if getattr(namespace, dest_parent_path) is not None:
+            raise argparse.ArgumentError(
+                f"Cannot specify --{self.dest} because --{dest_parent_path} has already been specified."
+            )
 
         # A list of adjacent fields
         adjacent_keys = [
