@@ -90,7 +90,7 @@ class OpenAPIRequestArg:
         self.prefix = prefix
 
         #: Whether null is an acceptable value for this attribute
-        self.nullable = schema.nullable
+        self.nullable = schema.nullable or is_list
 
         # handle the type for list values if this is an array
         if self.datatype == "array" and schema.items:
