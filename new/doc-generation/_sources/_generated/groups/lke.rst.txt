@@ -947,9 +947,8 @@ Creates a new Node Pool for the designated Kubernetes cluster.
     linode-cli lke pool-create [-h] [--labels.key key]
     	[--labels.value value] [--type type] [--autoscaler.max max]
     	[--autoscaler.min min] [--autoscaler.enabled enabled]
-    	[--count count] [--disks disks] [--taints taints]
-    	[--taints.value value] [--taints.key key]
-    	[--taints.effect effect] [--tags tags] clusterId
+    	[--count count] [--disks disks] [--taints taints] [--tags tags]
+    	clusterId
 
 
 .. cssclass:: action-subheading
@@ -1009,18 +1008,6 @@ Creates a new Node Pool for the designated Kubernetes cluster.
       - :action-argument-required:`Yes`
       - integer
       - The number of nodes in the Node Pool.
-    * - :code:`--taints.effect`
-      - :action-argument-required:`Yes`
-      - string
-      - The Kubernetes taint effect.
-    * - :code:`--taints.key`
-      - :action-argument-required:`Yes`
-      - string
-      - The Kubernetes taint key.
-    * - :code:`--taints.value`
-      - :action-argument-required:`Yes`
-      - string
-      - The Kubernetes taint value.
     * - :code:`--type`
       - :action-argument-required:`Yes`
       - string
@@ -1055,8 +1042,8 @@ Creates a new Node Pool for the designated Kubernetes cluster.
       - An array of tags applied to this object.
     * - :code:`--taints`
       - No
-      - object
-      - N/A
+      - array
+      - Kubernetes taints to add to node pool nodes.
 
 
 ------------
@@ -1192,8 +1179,7 @@ Updates a node pool's count, labels and taints, and autoscaler configuration.
     linode-cli lke pool-update [-h] [--labels.value value]
     	[--labels.key key] [--autoscaler.enabled enabled]
     	[--autoscaler.min min] [--autoscaler.max max] [--count count]
-    	[--taints taints] [--taints.value value] [--taints.key key]
-    	[--taints.effect effect] clusterId poolId
+    	[--taints taints] clusterId poolId
 
 
 .. cssclass:: action-subheading
@@ -1250,18 +1236,6 @@ Updates a node pool's count, labels and taints, and autoscaler configuration.
       - Type
       - Description
 
-    * - :code:`--taints.effect`
-      - :action-argument-required:`Yes`
-      - string
-      - The Kubernetes taint effect.
-    * - :code:`--taints.key`
-      - :action-argument-required:`Yes`
-      - string
-      - The Kubernetes taint key.
-    * - :code:`--taints.value`
-      - :action-argument-required:`Yes`
-      - string
-      - The Kubernetes taint value.
     * - :code:`--autoscaler.enabled`
       - No
       - boolean
@@ -1288,8 +1262,8 @@ Updates a node pool's count, labels and taints, and autoscaler configuration.
       - The Kubernetes label value.
     * - :code:`--taints`
       - No
-      - object
-      - N/A
+      - array
+      - Kubernetes taints to add to node pool nodes.
 
 
 ------------
