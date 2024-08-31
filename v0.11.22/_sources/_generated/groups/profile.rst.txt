@@ -1,0 +1,1004 @@
+.. role:: action-subheading
+.. role:: action-subheading-description
+.. role:: action-argument-required
+
+Profile
+=======
+
+This section details Profile-related Linode CLI commands.
+
+.. _profile_update:
+
+`update <https://techdocs.akamai.com/linode-api/reference/put-profile>`_
+------------------------------------------------------------------------
+
+
+Update information in your Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile update [-h]
+    	[--two_factor_auth two_factor_auth]
+    	[--authorized_keys authorized_keys]
+    	[--ip_whitelist_enabled ip_whitelist_enabled] [--email email]
+    	[--email_notifications email_notifications]
+    	[--restricted restricted] [--timezone timezone]
+    	[--lish_auth_method lish_auth_method]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile update \
+    	--email example-user@gmail.com \
+    	--timezone US/Eastern \
+    	--email_notifications true \
+    	--list_auth_method keys_only \
+    	--two_factor_auth true \
+    	--restricted false
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--authentication_type`
+      - No
+      - string
+      - This account's Cloud Manager authentication type.
+    * - :code:`--authorized_keys`
+      - No
+      - array[string]
+      - The list of SSH Keys authorized to use Lish for your User.
+    * - :code:`--email`
+      - No
+      - string
+      - Your email address.
+    * - :code:`--email_notifications`
+      - No
+      - boolean
+      - If true, you will receive email notifications about account activity.
+    * - :code:`--ip_whitelist_enabled`
+      - No
+      - boolean
+      - If true, logins for your User will only be allowed from whitelisted IPs.
+    * - :code:`--lish_auth_method`
+      - No
+      - string
+      - The authentication methods that are allowed when connecting to `the Linode Shell (Lish) <https://www.linode.com/docs/guides/lish/>`_.
+    * - :code:`--referrals`
+      - No
+      - object
+      - Information about your status in our referral program.
+    * - :code:`--restricted`
+      - No
+      - boolean
+      - If true, your User has restrictions on what can be accessed on your Account.
+    * - :code:`--timezone`
+      - No
+      - string
+      - The timezone you prefer to see times in.
+    * - :code:`--two_factor_auth`
+      - No
+      - boolean
+      - If true, logins from untrusted computers will require Two Factor Authentication.
+    * - :code:`--uid`
+      - No
+      - integer
+      - Your unique ID in our system.
+    * - :code:`--username`
+      - No
+      - string
+      - Your username, used for logging in to our system.
+    * - :code:`--verified_phone_number`
+      - No
+      - string
+      - The phone number verified for this Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
+
+
+------------
+
+.. _profile_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-profile>`_
+----------------------------------------------------------------------
+
+
+Returns information about the current User.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile view [-h] [--order-by {}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile view
+
+
+
+------------
+
+.. _profile_app-delete:
+
+`app-delete <https://techdocs.akamai.com/linode-api/reference/delete-profile-app>`_
+-----------------------------------------------------------------------------------
+
+
+Expires this app token.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile app-delete [-h] appId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile app-delete 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`appId`
+      - integer
+      - The authorized app ID to manage.
+
+
+------------
+
+.. _profile_app-view:
+
+`app-view <https://techdocs.akamai.com/linode-api/reference/get-profile-app>`_
+------------------------------------------------------------------------------
+
+
+Returns information about a single app you've authorized to access your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile app-view [-h] [--expiry expiry]
+    	[--created created] [--label label]
+    	[--order-by {expiry,created,label}] [--order {asc,desc}] appId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile app-view 1234
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`appId`
+      - integer
+      - The authorized app ID to manage.
+
+
+------------
+
+.. _profile_apps-list:
+
+`apps-list <https://techdocs.akamai.com/linode-api/reference/get-profile-apps>`_
+--------------------------------------------------------------------------------
+
+
+This is a collection of OAuth apps that you've given access to your Account, and includes the level of access granted.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile apps-list [-h] [--label label]
+    	[--expiry expiry] [--created created]
+    	[--order-by {label,expiry,created}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile apps-list
+
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--created`
+      - *string*
+      - When this app was authorized.
+    * - :code:`--expiry`
+      - *string*
+      - When the app's access to your account expires.
+    * - :code:`--label`
+      - *string*
+      - The name of the application you've authorized.
+
+
+------------
+
+.. _profile_device-revoke:
+
+`device-revoke <https://techdocs.akamai.com/linode-api/reference/delete-trusted-device>`_
+-----------------------------------------------------------------------------------------
+
+
+Revoke an active TrustedDevice for your User.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile device-revoke [-h] deviceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile device-revoke 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`deviceId`
+      - integer
+      - The ID of the TrustedDevice.
+
+
+------------
+
+.. _profile_device-view:
+
+`device-view <https://techdocs.akamai.com/linode-api/reference/get-trusted-device>`_
+------------------------------------------------------------------------------------
+
+
+Returns a single active TrustedDevice for your User.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile device-view [-h] [--order-by {}]
+    	[--order {asc,desc}] deviceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile device-view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`deviceId`
+      - integer
+      - The ID of the TrustedDevice.
+
+
+------------
+
+.. _profile_devices-list:
+
+`devices-list <https://techdocs.akamai.com/linode-api/reference/get-devices>`_
+------------------------------------------------------------------------------
+
+
+Returns a paginated list of active TrustedDevices for your User.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile devices-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile devices-list
+
+
+
+------------
+
+.. _profile_login-view:
+
+`login-view <https://techdocs.akamai.com/linode-api/reference/get-profile-login>`_
+----------------------------------------------------------------------------------
+
+
+Returns a login object displaying information about a successful account login from this user.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile login-view [-h] [--order-by {}]
+    	[--order {asc,desc}] loginId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile login-view 1234
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`loginId`
+      - integer
+      - The ID of the login object to access.
+
+
+------------
+
+.. _profile_logins-list:
+
+`logins-list <https://techdocs.akamai.com/linode-api/reference/get-profile-logins>`_
+------------------------------------------------------------------------------------
+
+
+Returns a collection of successful account logins from this user during the last 90 days.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile logins-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile logins-list
+
+
+
+------------
+
+.. _profile_tfa-confirm:
+
+`tfa-confirm <https://techdocs.akamai.com/linode-api/reference/post-tfa-confirm>`_
+----------------------------------------------------------------------------------
+
+
+Confirms that you can successfully generate Two Factor codes and enables TFA on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile tfa-confirm [-h] [--tfa_code tfa_code]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile tfa-confirm \
+    	--tfa_code 213456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--tfa_code`
+      - No
+      - string
+      - The Two Factor code you generated with your Two Factor secret.
+
+
+------------
+
+.. _profile_tfa-disable:
+
+`tfa-disable <https://techdocs.akamai.com/linode-api/reference/post-tfa-disable>`_
+----------------------------------------------------------------------------------
+
+
+Disables Two Factor Authentication for your User.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile tfa-disable [-h]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile tfa-disable
+
+
+
+------------
+
+.. _profile_tfa-enable:
+
+`tfa-enable <https://techdocs.akamai.com/linode-api/reference/post-tfa-enable>`_
+--------------------------------------------------------------------------------
+
+
+Generates a Two Factor secret for your User.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile tfa-enable [-h]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile tfa-enable
+
+
+
+------------
+
+.. _profile_token-create:
+
+`token-create <https://techdocs.akamai.com/linode-api/reference/post-personal-access-token>`_
+---------------------------------------------------------------------------------------------
+
+
+Creates a Personal Access Token for your User.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile token-create [-h] [--expiry expiry]
+    	[--scopes scopes] [--label label]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile token-create \
+    	--scopes '*' \
+    	--expiry '2018-01-01T13:46:32' \
+    	--label linode-cli
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--expiry`
+      - No
+      - string
+      - When this token should be valid until.
+    * - :code:`--label`
+      - No
+      - string
+      - This token's label.
+    * - :code:`--scopes`
+      - No
+      - string
+      - The access `scopes <https://techdocs.akamai.com/linode-api/reference/get-started#oauth-reference>`_ to grant to the created token.
+
+
+------------
+
+.. _profile_token-delete:
+
+`token-delete <https://techdocs.akamai.com/linode-api/reference/delete-personal-access-token>`_
+-----------------------------------------------------------------------------------------------
+
+
+Revokes a Personal Access Token.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile token-delete [-h] tokenId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile token-delete 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`tokenId`
+      - integer
+      - The ID of the token to access.
+
+
+------------
+
+.. _profile_token-update:
+
+`token-update <https://techdocs.akamai.com/linode-api/reference/put-personal-access-token>`_
+--------------------------------------------------------------------------------------------
+
+
+Updates a Personal Access Token.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile token-update [-h] [--label label] tokenId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile token-update 123 \
+    	--label linode-cli
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`tokenId`
+      - integer
+      - The ID of the token to access.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--created`
+      - No
+      - string
+      - The date and time this token was created.
+    * - :code:`--expiry`
+      - No
+      - string
+      - When this token will expire.
+    * - :code:`--id`
+      - No
+      - integer
+      - This token's unique ID, which can be used to revoke it.
+    * - :code:`--label`
+      - No
+      - string
+      - This token's label.
+    * - :code:`--scopes`
+      - No
+      - string
+      - The scopes this token was created with.
+    * - :code:`--token`
+      - No
+      - string
+      - The token used to access the API.
+
+
+------------
+
+.. _profile_token-view:
+
+`token-view <https://techdocs.akamai.com/linode-api/reference/get-personal-access-token>`_
+------------------------------------------------------------------------------------------
+
+
+Returns a single Personal Access Token.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile token-view [-h] [--created created]
+    	[--label label] [--order-by {created,label}]
+    	[--order {asc,desc}] tokenId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile token-view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`tokenId`
+      - integer
+      - The ID of the token to access.
+
+
+
+.. _profile_tokens-list:
+
+`tokens-list <https://techdocs.akamai.com/linode-api/reference/get-personal-access-tokens>`_
+--------------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Personal Access Tokens currently active for your User.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli profile tokens-list [-h] [--created created]
+    	[--label label] [--order-by {created,label}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli profile tokens-list
+
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--created`
+      - *string*
+      - The date and time this token was created.
+    * - :code:`--label`
+      - *string*
+      - This token's label.
+
+
+

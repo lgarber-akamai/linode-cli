@@ -1,0 +1,240 @@
+.. role:: action-subheading
+.. role:: action-subheading-description
+.. role:: action-argument-required
+
+Events
+======
+
+This section details Event-related Linode CLI commands.
+
+.. _events_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-events>`_
+---------------------------------------------------------------------
+
+
+Returns a collection of Event objects representing actions taken on your Account from the last 90 days.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli events list [-h] [--read read] [--id id]
+    	[--created created] [--entity.id entity.id]
+    	[--entity.type entity.type] [--action action]
+    	[--order-by {read,id,created,entity.id,entity.type,action}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli events list
+
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--action`
+      - *string*
+      - The action that caused this Event.
+    * - :code:`--created`
+      - *string*
+      - When this Event was created.
+    * - :code:`--entity.id`
+      - *integer*
+      - The unique ID for an Event's entity.
+    * - :code:`--entity.type`
+      - *string*
+      - The type of entity that is being referenced by the Event.
+    * - :code:`--id`
+      - *integer*
+      - The unique ID of this Event.
+    * - :code:`--read`
+      - *boolean*
+      - If this Event has been read.
+
+
+------------
+
+.. _events_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-event>`_
+--------------------------------------------------------------------
+
+
+Returns a single Event object.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli events view [-h] [--action action]
+    	[--entity.type entity.type] [--entity.id entity.id]
+    	[--created created] [--read read] [--id id]
+    	[--order-by {action,entity.type,entity.id,created,read,id}]
+    	[--order {asc,desc}] eventId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli events view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`eventId`
+      - integer
+      - The ID of the Event.
+
+
+------------
+
+.. _events_mark-read:
+
+`mark-read <https://techdocs.akamai.com/linode-api/reference/post-event-read>`_
+-------------------------------------------------------------------------------
+
+
+Marks a single Event as read.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli events mark-read [-h] eventId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli events mark-read 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`eventId`
+      - integer
+      - The ID of the Event to designate as read.
+
+
+
+.. _events_mark-seen:
+
+`mark-seen <https://techdocs.akamai.com/linode-api/reference/post-event-seen>`_
+-------------------------------------------------------------------------------
+
+
+Marks all Events up to and including this Event by ID as seen.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli events mark-seen [-h] eventId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli events mark-seen 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`eventId`
+      - integer
+      - The ID of the Event to designate as seen.
+
+
+
