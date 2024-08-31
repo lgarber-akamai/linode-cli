@@ -8,7 +8,7 @@ from pathlib import Path
 
 from jinja2 import Environment, PackageLoader, select_autoescape
 
-from linodecli import CLI
+from linodecli.cli import CLI
 from linodecli.documentation.template_data import BuildMeta, Root
 
 TEMPLATE_NAME_GROUP = "group.rst.j2"
