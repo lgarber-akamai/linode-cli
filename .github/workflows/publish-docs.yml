@@ -119,6 +119,11 @@ jobs:
         run: |
           rm -rf latest && cp -r ${{ github.ref_name }} latest
 
+      - name: Create the index file
+        run: |
+          rm -f index.html
+          echo "<head><meta http-equiv='refresh' content='0; URL=latest/index.html'></head>" > index.html;
+
       - name: Commit and push this change
         run: |
           git config user.name "Documentation Publisher";
