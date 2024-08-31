@@ -1,0 +1,526 @@
+.. role:: action-subheading
+.. role:: action-subheading-description
+.. role:: action-argument-required
+
+Longview
+========
+
+This section details Longview-related Linode CLI commands.
+
+.. _longview_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-longview-client>`_
+---------------------------------------------------------------------------------
+
+
+Creates a Longview Client.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli longview create [-h] [--label label]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli longview create \
+    	--label client789
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--api_key`
+      - No
+      - string
+      - The API key for this Client, used when configuring the Longview Client application on your Linode.
+    * - :code:`--apps`
+      - No
+      - object
+      - The apps this Client is monitoring on your Linode.
+    * - :code:`--created`
+      - No
+      - string
+      - When this Longview Client was created.
+    * - :code:`--id`
+      - No
+      - integer
+      - This Client's unique ID.
+    * - :code:`--install_code`
+      - No
+      - string
+      - The install code for this Client, used when configuring the Longview Client application on your Linode.
+    * - :code:`--label`
+      - No
+      - string
+      - This Client's unique label.
+    * - :code:`--updated`
+      - No
+      - string
+      - When this Longview Client was last updated.
+
+
+------------
+
+.. _longview_delete:
+
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-longview-client>`_
+-----------------------------------------------------------------------------------
+
+
+Deletes a Longview Client from your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli longview delete [-h] clientId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli longview delete 789
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clientId`
+      - integer
+      - The Longview Client ID to access.
+
+
+------------
+
+.. _longview_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-longview-clients>`_
+-------------------------------------------------------------------------------
+
+
+Returns a paginated list of Longview Clients you have access to.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli longview list [-h] [--label label]
+    	[--order-by {label}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli longview list
+
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - *string*
+      - This Client's unique label.
+
+
+------------
+
+.. _longview_update:
+
+`update <https://techdocs.akamai.com/linode-api/reference/put-longview-client>`_
+--------------------------------------------------------------------------------
+
+
+Updates a Longview Client.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli longview update [-h] [--label label] clientId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli longview update 789 \
+    	--label client789
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clientId`
+      - integer
+      - The Longview Client ID to access.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--api_key`
+      - No
+      - string
+      - The API key for this Client, used when configuring the Longview Client application on your Linode.
+    * - :code:`--apps`
+      - No
+      - object
+      - The apps this Client is monitoring on your Linode.
+    * - :code:`--created`
+      - No
+      - string
+      - When this Longview Client was created.
+    * - :code:`--id`
+      - No
+      - integer
+      - This Client's unique ID.
+    * - :code:`--install_code`
+      - No
+      - string
+      - The install code for this Client, used when configuring the Longview Client application on your Linode.
+    * - :code:`--label`
+      - No
+      - string
+      - This Client's unique label.
+    * - :code:`--updated`
+      - No
+      - string
+      - When this Longview Client was last updated.
+
+
+------------
+
+.. _longview_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-longview-client>`_
+------------------------------------------------------------------------------
+
+
+Returns a single Longview Client you can access.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli longview view [-h] [--label label]
+    	[--order-by {label}] [--order {asc,desc}] clientId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli longview view 789
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clientId`
+      - integer
+      - The Longview Client ID to access.
+
+
+------------
+
+.. _longview_plan-update:
+
+`plan-update <https://techdocs.akamai.com/linode-api/reference/put-longview-plan>`_
+-----------------------------------------------------------------------------------
+
+
+Update your Longview plan to that of the given subscription ID.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli longview plan-update [-h]
+    	[--longview_subscription longview_subscription]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli longview plan-update --longview_subscription longview-10
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--longview_subscription`
+      - No
+      - string
+      - The subscription ID for a particular Longview plan.
+
+
+------------
+
+.. _longview_plan-view:
+
+`plan-view <https://techdocs.akamai.com/linode-api/reference/get-longview-plan>`_
+---------------------------------------------------------------------------------
+
+
+Get the details of your current Longview plan.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli longview plan-view [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli longview plan-view
+
+
+
+------------
+
+.. _longview_subscription-view:
+
+`subscription-view <https://techdocs.akamai.com/linode-api/reference/get-longview-subscription>`_
+-------------------------------------------------------------------------------------------------
+
+
+Get the Longview plan details as a single :code:`LongviewSubscription` object for the provided subscription ID.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli longview subscription-view [-h] [--order-by {}]
+    	[--order {asc,desc}] subscriptionId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli longview subscription-view \
+    	longview-10
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`subscriptionId`
+      - string
+      - The Longview Subscription to look up.
+
+
+
+.. _longview_subscriptions-list:
+
+`subscriptions-list <https://techdocs.akamai.com/linode-api/reference/get-longview-subscriptions>`_
+---------------------------------------------------------------------------------------------------
+
+
+Returns a paginated list of available Longview Subscriptions.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli longview subscriptions-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli longview subscriptions-list
+
+
+
+
