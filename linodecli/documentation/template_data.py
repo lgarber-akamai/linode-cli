@@ -6,11 +6,11 @@ from dataclasses import dataclass, field
 from io import StringIO
 from typing import Dict, List, Optional, Self
 
-from linodecli.cli import CLI
 from linodecli.baked import OpenAPIOperation
 from linodecli.baked.operation import OpenAPIOperationParameter
 from linodecli.baked.request import OpenAPIRequestArg
 from linodecli.baked.response import OpenAPIResponseAttr
+from linodecli.cli import CLI
 from linodecli.documentation.util import (
     _format_usage_text,
     _markdown_to_rst,
