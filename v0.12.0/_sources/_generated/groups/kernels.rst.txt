@@ -1,0 +1,134 @@
+.. role:: action-subheading
+.. role:: action-subheading-description
+.. role:: action-argument-required
+
+Kernels
+=======
+
+This section details Kernel-related Linode CLI commands.
+
+.. _kernels_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-kernels>`_
+----------------------------------------------------------------------
+
+
+Lists available Kernels.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli kernels list [-h] [--label label]
+    	[--architecture architecture] [--kvm kvm]
+    	[--deprecated deprecated] [--version version] [--pvops pvops]
+    	[--order-by {label,architecture,kvm,deprecated,version,pvops}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli kernels list
+
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--architecture`
+      - *string*
+      - The architecture of this Kernel.
+    * - :code:`--deprecated`
+      - *boolean*
+      - If this Kernel is marked as deprecated, this field has a value of true; otherwise, this field is false.
+    * - :code:`--kvm`
+      - *boolean*
+      - If this Kernel is suitable for KVM Linodes.
+    * - :code:`--label`
+      - *string*
+      - The friendly name of this Kernel.
+    * - :code:`--pvops`
+      - *boolean*
+      - If this Kernel is suitable for paravirtualized operations.
+    * - :code:`--version`
+      - *string*
+      - Linux Kernel version.
+
+
+
+.. _kernels_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-kernel>`_
+---------------------------------------------------------------------
+
+
+Returns information about a single Kernel.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli kernels view [-h] [--architecture architecture]
+    	[--label label] [--pvops pvops] [--version version]
+    	[--deprecated deprecated] [--kvm kvm]
+    	[--order-by {architecture,label,pvops,version,deprecated,kvm}]
+    	[--order {asc,desc}] kernelId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli kernels view latest-64bit
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`kernelId`
+      - string
+      - ID of the Kernel to look up.
+
+
+
