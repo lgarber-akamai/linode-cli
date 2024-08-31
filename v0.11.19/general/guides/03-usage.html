@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage &mdash; linode-cli  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=bfba4d87" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Customizing Output" href="04-output.html" />
+    <link rel="prev" title="Configuration" href="02-configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #009CDE" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            linode-cli
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                v0.0.0.dev+3e170d1 (API v4.177.1)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-configuration.html">Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-operations">Common Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specifying-list-arguments">Specifying List Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specifying-nested-arguments">Specifying Nested Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#special-arguments">Special Arguments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#null-values">Null Values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#empty-lists">Empty Lists</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#suppressing-defaults">Suppressing Defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#suppressing-warnings">Suppressing Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shell-completion">Shell Completion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04-output.html">Customizing Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-plugins.html">Plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/index.html">Commands</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #009CDE" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">linode-cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+      <li class="breadcrumb-item active">Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/general/guides/03-usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage">
+<span id="general-usage"></span><h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
+<p>The Linode CLI is invoked with the <code class="code docutils literal notranslate"><span class="pre">linode-cli</span></code>,
+or with either of its two aliases available: <code class="code docutils literal notranslate"><span class="pre">linode</span></code> and <code class="code docutils literal notranslate"><span class="pre">lin</span></code>.</p>
+<p>The CLI accepts two primary arguments, <em>command</em>  and <em>action</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>&lt;command&gt;<span class="w"> </span>&lt;action&gt;
+</pre></div>
+</div>
+<p><em>command</em> is the part of the CLI you are interacting with, for example “linodes”.
+You can see a list of all available commands by using <code class="code docutils literal notranslate"><span class="pre">--help</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>--help
+</pre></div>
+</div>
+<p><em>action</em> is the action you want to perform on a given command, for example “list”.
+You can see a list of all available actions for a command with the <code class="code docutils literal notranslate"><span class="pre">--help</span></code> for
+that command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>Some actions don’t require any parameters, but many do.  To see details on how
+to invoke a specific action, use <code class="code docutils literal notranslate"><span class="pre">--help</span></code> for that action:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>The first time you invoke the CLI, you will be asked to configure (see
+“Configuration” below for details), and optionally select some default values
+for “region,” “image,” and “type.” If you configure these defaults, you may
+omit them as parameters to actions and the default value will be used.</p>
+<section id="common-operations">
+<h2>Common Operations<a class="headerlink" href="#common-operations" title="Link to this heading"></a></h2>
+<p>List Linodes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>list
+</pre></div>
+</div>
+<p>List Linodes in a Region:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>list<span class="w"> </span>--region<span class="w"> </span>us-east
+</pre></div>
+</div>
+<p>Create a Linode:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span>--type<span class="w"> </span>g5-standard-2<span class="w"> </span>--region<span class="w"> </span>us-east<span class="w"> </span>--image<span class="w"> </span>linode/debian9<span class="w"> </span>--label<span class="w"> </span>cli-1<span class="w"> </span>--root_pass
+</pre></div>
+</div>
+<p>Create a Linode using default settings:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span>--label<span class="w"> </span>cli-2<span class="w"> </span>--root_pass
+</pre></div>
+</div>
+<p>Reboot a Linode:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>reboot<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p>View available Linode types:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>types
+</pre></div>
+</div>
+<p>View your Volumes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>list
+</pre></div>
+</div>
+<p>View your Domains:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>list
+</pre></div>
+</div>
+<p>View records for a single Domain:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-list<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p>View your user:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>profile<span class="w"> </span>view
+</pre></div>
+</div>
+</section>
+<section id="specifying-list-arguments">
+<h2>Specifying List Arguments<a class="headerlink" href="#specifying-list-arguments" title="Link to this heading"></a></h2>
+<p>When running certain commands, you may need to specify multiple values for a list
+argument. This can be done by specifying the argument multiple times for each
+value in the list. For example, to create a Linode with multiple <code class="code docutils literal notranslate"><span class="pre">tags</span></code>
+you can execute the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span>--region<span class="w"> </span>us-east<span class="w"> </span>--type<span class="w"> </span>g6-nanode-1<span class="w"> </span>--tags<span class="w"> </span>tag1<span class="w"> </span>--tags<span class="w"> </span>tag2
+</pre></div>
+</div>
+<p>Lists consisting of nested structures can also be expressed through the command line.
+Duplicated attribute will signal a different object.
+For example, to create a Linode with a public interface on <code class="code docutils literal notranslate"><span class="pre">eth0</span></code> and a VLAN interface
+on <code class="code docutils literal notranslate"><span class="pre">eth1</span></code> you can execute the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--region<span class="w"> </span>us-east<span class="w"> </span>--type<span class="w"> </span>g6-nanode-1<span class="w"> </span>--image<span class="w"> </span>linode/ubuntu22.04<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--root_pass<span class="w"> </span><span class="s2">&quot;myr00tp4ss123&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="c1"># The first interface (index 0) is defined with the public purpose</span>
+<span class="w">    </span>--interfaces.purpose<span class="w"> </span>public<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="c1"># The second interface (index 1) is defined with the vlan purpose.</span>
+<span class="w">    </span><span class="c1"># The duplicate `interfaces.purpose` here tells the CLI to start building a new interface object.</span>
+<span class="w">    </span>--interfaces.purpose<span class="w"> </span>vlan<span class="w"> </span>--interfaces.label<span class="w"> </span>my-vlan
+</pre></div>
+</div>
+</section>
+<section id="specifying-nested-arguments">
+<h2>Specifying Nested Arguments<a class="headerlink" href="#specifying-nested-arguments" title="Link to this heading"></a></h2>
+<p>When running certain commands, you may need to specify an argument that is nested
+in another field. These arguments can be specified using a <code class="code docutils literal notranslate"><span class="pre">.</span></code> delimited path to
+the argument. For example, to create a firewall with an inbound policy of <code class="code docutils literal notranslate"><span class="pre">DROP</span></code>
+and an outbound policy of <code class="code docutils literal notranslate"><span class="pre">ACCEPT</span></code>, you can execute the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>firewalls<span class="w"> </span>create<span class="w"> </span>--label<span class="w"> </span>example-firewall<span class="w"> </span>--rules.outbound_policy<span class="w"> </span>ACCEPT<span class="w"> </span>--rules.inbound_policy<span class="w"> </span>DROP
+</pre></div>
+</div>
+</section>
+<section id="special-arguments">
+<h2>Special Arguments<a class="headerlink" href="#special-arguments" title="Link to this heading"></a></h2>
+<p>In some cases, certain values for arguments may have unique functionality.</p>
+<section id="null-values">
+<h3>Null Values<a class="headerlink" href="#null-values" title="Link to this heading"></a></h3>
+<p>Arguments marked as nullable can be passed the value <code class="code docutils literal notranslate"><span class="pre">null</span></code> to send an explicit null value to the Linode API:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-update<span class="w"> </span>--rdns<span class="w"> </span>null<span class="w"> </span><span class="m">127</span>.0.0.1
+</pre></div>
+</div>
+</section>
+<section id="empty-lists">
+<h3>Empty Lists<a class="headerlink" href="#empty-lists" title="Link to this heading"></a></h3>
+<p>List arguments can be passed the value <code class="code docutils literal notranslate"><span class="pre">[]</span></code> to send an explicit empty list value to the Linode API:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-share<span class="w"> </span>--linode_id<span class="w"> </span><span class="m">12345</span><span class="w"> </span>--ips<span class="w"> </span><span class="o">[]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="suppressing-defaults">
+<h2>Suppressing Defaults<a class="headerlink" href="#suppressing-defaults" title="Link to this heading"></a></h2>
+<p>If you configured default values for <code class="code docutils literal notranslate"><span class="pre">image</span></code>, <code class="code docutils literal notranslate"><span class="pre">authorized_users</span></code>, <code class="code docutils literal notranslate"><span class="pre">region</span></code>,
+database <code class="code docutils literal notranslate"><span class="pre">engine</span></code>, and Linode <code class="code docutils literal notranslate"><span class="pre">type</span></code>, they will be sent for all requests that accept them
+if you do not specify a different value.  If you want to send a request <em>without</em> these
+arguments, you must invoke the CLI with the <code class="code docutils literal notranslate"><span class="pre">--no-defaults</span></code> option.</p>
+<p>For example, to create a Linode with no <code class="code docutils literal notranslate"><span class="pre">image</span></code> after a default Image has been
+configured, you would do this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span>--region<span class="w"> </span>us-east<span class="w"> </span>--type<span class="w"> </span>g5-standard-2<span class="w"> </span>--no-defaults
+</pre></div>
+</div>
+</section>
+<section id="suppressing-warnings">
+<h2>Suppressing Warnings<a class="headerlink" href="#suppressing-warnings" title="Link to this heading"></a></h2>
+<p>In some situations, like when the CLI is out of date, it will generate a warning
+in addition to its normal output.  If these warnings can interfere with your
+scripts or you otherwise want them disabled, simply add the <code class="code docutils literal notranslate"><span class="pre">--suppress-warnings</span></code>
+flag to prevent them from being emitted.</p>
+<p>## Suppressing Retries</p>
+<p>Sometimes the API responds with a error that can be ignored. For example a timeout
+or nginx response that can’t be parsed correctly, by default the CLI will retry
+calls on these errors we’ve identified. If you’d like to disable this behavior for
+any reason use the <code class="code docutils literal notranslate"><span class="pre">--no-retry</span></code> flag.</p>
+</section>
+<section id="shell-completion">
+<h2>Shell Completion<a class="headerlink" href="#shell-completion" title="Link to this heading"></a></h2>
+<p>To generate a completion file for a given shell type, use the <code class="code docutils literal notranslate"><span class="pre">completion</span></code> command;
+for example to generate completions for bash run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>completion<span class="w"> </span>bash
+</pre></div>
+</div>
+<p>The output of this command is suitable to be included in the relevant completion
+files to enable command completion on your shell.</p>
+<p>This command currently supports completions bash and fish shells.</p>
+<p>Use <code class="code docutils literal notranslate"><span class="pre">bashcompinit</span></code> on zsh with the bash completions for support on zsh shells.</p>
+<p class="rubric">Next Steps</p>
+<p>To continue to the next step of this guide, continue to the <a class="reference internal" href="04-output.html#general-output"><span class="std std-ref">Output page</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02-configuration.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04-output.html" class="btn btn-neutral float-right" title="Customizing Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Akamai Technologies Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

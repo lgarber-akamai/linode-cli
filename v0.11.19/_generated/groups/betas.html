@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Betas &mdash; linode-cli  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=bfba4d87" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Child Account" href="child-account.html" />
+    <link rel="prev" title="Account" href="account.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #009CDE" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            linode-cli
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                v0.0.0.dev+3e170d1 (API v4.177.1)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../commands/index.html">Commands</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Betas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#betas-enroll">enroll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#betas-enrolled">enrolled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#betas-list">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#betas-view">view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#betas-enrolled-view">enrolled-view</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="child-account.html">Child Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="default.html">Default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firewalls.html">Firewalls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linodes.html">Linodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lke.html">LKE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="longview.html">Longview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managed.html">Managed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodebalancers.html">NodeBalancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-storage.html">Object Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payment-methods.html">Payment Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="phone.html">Phone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="placement.html">Placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regions.html">Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-questions.html">Security Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service-transfers.html">Service Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sshkeys.html">SSH Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stackscripts.html">Stackscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html">Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tickets.html">Tickets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volumes.html">Volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpcs.html">VPCs</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #009CDE" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">linode-cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../commands/index.html">Commands</a></li>
+      <li class="breadcrumb-item active">Betas</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_generated/groups/betas.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="betas">
+<h1>Betas<a class="headerlink" href="#betas" title="Link to this heading"></a></h1>
+<p>This section details Beta-related Linode CLI commands.</p>
+<section id="betas-enroll">
+<span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-beta-program">enroll</a><a class="headerlink" href="#betas-enroll" title="Link to this heading"></a></h2>
+<p>Enroll your Account in an active Beta Program.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>betas<span class="w"> </span>enroll<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--id<span class="w"> </span>id<span class="o">]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>betas<span class="w"> </span>enroll<span class="w"> </span>--id<span class="w"> </span>example_open
+</pre></div>
+</div>
+<p class="action-subheading rubric">Arguments</p>
+<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>The unique identifier of the Beta Program.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="betas-enrolled">
+<span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-enrolled-beta-programs">enrolled</a><a class="headerlink" href="#betas-enrolled" title="Link to this heading"></a></h2>
+<p>Display all enrolled Beta Programs for your Account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>betas<span class="w"> </span>enrolled<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--enrolled<span class="w"> </span>enrolled<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--started<span class="w"> </span>started<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ended<span class="w"> </span>ended<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>enrolled,label,started,ended<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>betas<span class="w"> </span>enrolled
+</pre></div>
+</div>
+<p class="rubric">Filterable Attributes</p>
+<p><cite>Arguments used to define a filter for response entries.</cite></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ended</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The date-time that the Beta Program ended.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--enrolled</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The date-time of Account enrollment to the Beta Program.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The name of the Beta Program.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--started</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The start date-time of the Beta Program.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="betas-list">
+<span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-beta-programs">list</a><a class="headerlink" href="#betas-list" title="Link to this heading"></a></h2>
+<p>Display all active Beta Programs.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>betas<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--greenlight_only<span class="w"> </span>greenlight_only<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--started<span class="w"> </span>started<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ended<span class="w"> </span>ended<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>greenlight_only,label,started,ended<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>betas<span class="w"> </span>list
+</pre></div>
+</div>
+<p class="rubric">Filterable Attributes</p>
+<p><cite>Arguments used to define a filter for response entries.</cite></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ended</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The date-time that the Beta Program ended.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--greenlight_only</span></code></p></td>
+<td><p><em>boolean</em></p></td>
+<td><p>Whether the Beta Program requires <a class="reference external" href="https://www.linode.com/green-light/">Green Light</a> participation for enrollment.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The name of the Beta Program.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--started</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The start date-time of the Beta Program.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="betas-view">
+<span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-beta-program">view</a><a class="headerlink" href="#betas-view" title="Link to this heading"></a></h2>
+<p>Display information about a Beta Program.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>betas<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ended<span class="w"> </span>ended<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--greenlight_only<span class="w"> </span>greenlight_only<span class="o">]</span><span class="w"> </span><span class="o">[</span>--started<span class="w"> </span>started<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>ended,greenlight_only,started,label<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>betaId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>beta<span class="w"> </span>view<span class="w"> </span><span class="nv">$betaId</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">betaId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The ID of the Beta Program.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="betas-enrolled-view">
+<span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-enrolled-beta-program">enrolled-view</a><a class="headerlink" href="#betas-enrolled-view" title="Link to this heading"></a></h2>
+<p>Display an enrolled Beta Program for your Account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>betas<span class="w"> </span>enrolled-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--started<span class="w"> </span>started<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ended<span class="w"> </span>ended<span class="o">]</span><span class="w"> </span><span class="o">[</span>--enrolled<span class="w"> </span>enrolled<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>started,ended,enrolled,label<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>betaId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>betas<span class="w"> </span>enrolled-view<span class="w"> </span><span class="nv">$betaId</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">betaId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The ID of the Beta Program.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="account.html" class="btn btn-neutral float-left" title="Account" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="child-account.html" class="btn btn-neutral float-right" title="Child Account" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Akamai Technologies Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

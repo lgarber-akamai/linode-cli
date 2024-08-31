@@ -1,0 +1,148 @@
+.. role:: action-subheading
+.. role:: action-subheading-description
+.. role:: action-argument-required
+
+Tags
+====
+
+This section details Tag-related Linode CLI commands.
+
+.. _tags_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-tag>`_
+---------------------------------------------------------------------
+
+
+Creates a new Tag and optionally tags requested objects with it immediately.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli tags create [-h] [--linodes linodes]
+    	[--nodebalancers nodebalancers] [--domains domains]
+    	[--label label] [--volumes volumes]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli tags create \
+    	--label 'example tag' \
+    	--linodes 123 \
+    	--linodes 456 \
+    	--volumes 9082 \
+    	--volumes 10003
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The new Tag.
+    * - :code:`--domains`
+      - No
+      - array[integer]
+      - A list of Domain IDs to apply the new Tag to.
+    * - :code:`--linodes`
+      - No
+      - array[integer]
+      - A list of Linode IDs to apply the new Tag to.
+    * - :code:`--nodebalancers`
+      - No
+      - array[integer]
+      - A list of NodeBalancer IDs to apply the new Tag to.
+    * - :code:`--volumes`
+      - No
+      - array[integer]
+      - A list of Volume IDs to apply the new Tag to.
+
+
+------------
+
+.. _tags_delete:
+
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-ag>`_
+----------------------------------------------------------------------
+
+
+Remove a Tag from all objects and delete it.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli tags delete [-h] tagLabel
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`tagLabel`
+      - string
+      - N/A
+
+
+
+.. _tags_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-tags>`_
+-------------------------------------------------------------------
+
+
+Tags are User-defined labels attached to objects in your Account, such as Linodes.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli tags list [-h] [--order-by {}] [--order {asc,desc}]
+
+
+
+

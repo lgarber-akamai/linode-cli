@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account &mdash; linode-cli  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=bfba4d87" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Betas" href="betas.html" />
+    <link rel="prev" title="Commands" href="../../commands/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #009CDE" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            linode-cli
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                v0.0.0.dev+3e170d1 (API v4.177.1)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../commands/index.html">Commands</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#account-cancel">cancel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-settings">settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-transfer">transfer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-update">update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-view">view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-client-create">client-create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-client-delete">client-delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-client-reset-secret">client-reset-secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-client-update">client-update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-client-view">client-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-clients-list">clients-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-enable-managed">enable-managed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-get-account-availability">get-account-availability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-get-availability">get-availability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-invoice-items">invoice-items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-invoice-view">invoice-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-invoices-list">invoices-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-login-view">login-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-logins-list">logins-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-maintenance-list">maintenance-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-notifications-list">notifications-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-payment-create">payment-create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-payment-view">payment-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-payments-list">payments-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-promo-add">promo-add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-settings-update">settings-update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="betas.html">Betas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="child-account.html">Child Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="default.html">Default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firewalls.html">Firewalls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linodes.html">Linodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lke.html">LKE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="longview.html">Longview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managed.html">Managed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodebalancers.html">NodeBalancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-storage.html">Object Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payment-methods.html">Payment Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="phone.html">Phone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="placement.html">Placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regions.html">Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-questions.html">Security Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service-transfers.html">Service Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sshkeys.html">SSH Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stackscripts.html">Stackscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html">Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tickets.html">Tickets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volumes.html">Volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpcs.html">VPCs</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #009CDE" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">linode-cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../commands/index.html">Commands</a></li>
+      <li class="breadcrumb-item active">Account</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_generated/groups/account.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="account">
+<h1>Account<a class="headerlink" href="#account" title="Link to this heading"></a></h1>
+<p>This section details Account-related Linode CLI commands.</p>
+<section id="account-cancel">
+<span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-cancel-account">cancel</a><a class="headerlink" href="#account-cancel" title="Link to this heading"></a></h2>
+<p>Cancels an active Linode account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>cancel<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--comments<span class="w"> </span>comments<span class="o">]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>cancel<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--comments<span class="w"> </span><span class="s2">&quot;I&#39;m consolidating my accounts&quot;</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Arguments</p>
+<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--comments</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Any reason for cancelling the account, and any other comments you might have about your Linode service.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-settings">
+<span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-account-settings">settings</a><a class="headerlink" href="#account-settings" title="Link to this heading"></a></h2>
+<p>Returns information related to your Account settings: Managed service subscription, Longview subscription, and network helper.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>settings<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>settings
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="account-transfer">
+<span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-transfer">transfer</a><a class="headerlink" href="#account-transfer" title="Link to this heading"></a></h2>
+<p>Returns a Transfer object showing your network utilization, in GB, for the current month.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>transfer<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>transfer
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="account-update">
+<span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-account">update</a><a class="headerlink" href="#account-update" title="Link to this heading"></a></h2>
+<p>Updates contact and billing information related to your account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--city<span class="w"> </span>city<span class="o">]</span><span class="w"> </span><span class="o">[</span>--state<span class="w"> </span>state<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--first_name<span class="w"> </span>first_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>--zip<span class="w"> </span>zip<span class="o">]</span><span class="w"> </span><span class="o">[</span>--address_2<span class="w"> </span>address_2<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--company<span class="w"> </span>company<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--active_promotions.service_type<span class="w"> </span>service_type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--active_promotions.this_month_credit_remaining<span class="w"> </span>this_month_credit_remaining<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--active_promotions.expire_dt<span class="w"> </span>expire_dt<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--active_promotions.summary<span class="w"> </span>summary<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--active_promotions.credit_monthly_cap<span class="w"> </span>credit_monthly_cap<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--active_promotions.credit_remaining<span class="w"> </span>credit_remaining<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--active_promotions.image_url<span class="w"> </span>image_url<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--active_promotions.description<span class="w"> </span>description<span class="o">]</span><span class="w"> </span><span class="o">[</span>--phone<span class="w"> </span>phone<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--tax_id<span class="w"> </span>tax_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--email<span class="w"> </span>email<span class="o">]</span><span class="w"> </span><span class="o">[</span>--country<span class="w"> </span>country<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--last_name<span class="w"> </span>last_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>--address_1<span class="w"> </span>address_1<span class="o">]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>update<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--address_1<span class="w"> </span><span class="s2">&quot;123 Main St.&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--address_2<span class="w"> </span><span class="s2">&quot;Suite 101&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--city<span class="w"> </span>Philadelphia<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--company<span class="w"> </span>My<span class="w"> </span>Company<span class="w"> </span><span class="se">\ </span>LLC<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--country<span class="w"> </span>US<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--email<span class="w"> </span>jsmith@mycompany.com<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--first_name<span class="w"> </span>John<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--last_name<span class="w"> </span>Smith<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phone<span class="w"> </span><span class="m">555</span>-555-1212<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--state<span class="w"> </span>PA<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tax_id<span class="w"> </span>ATU99999999<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--zip<span class="w"> </span><span class="m">19102</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Arguments</p>
+<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--active_promotions</span></code></p></td>
+<td><p>No</p></td>
+<td><p>object</p></td>
+<td><p>Promotions generally offer a set amount of credit that can be used toward your Linode services, and the promotion expires after a specified date.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--active_promotions.credit_monthly_cap</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The amount available to spend per month.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--active_promotions.credit_remaining</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The total amount of credit left for this promotion.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--active_promotions.description</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>A detailed description of this promotion.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--active_promotions.expire_dt</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>When this promotion’s credits expire.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--active_promotions.image_url</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The location of an image for this promotion.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--active_promotions.service_type</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The service to which this promotion applies.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--active_promotions.summary</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Short details of this promotion.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--active_promotions.this_month_credit_remaining</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The amount of credit left for this month for this promotion.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--active_since</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The date and time the account was activated.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--address_1</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>First line of this Account’s billing address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--address_2</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Second line of this Account’s billing address.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--balance</span></code></p></td>
+<td><p>No</p></td>
+<td><p>number</p></td>
+<td><p>This Account’s balance, in US dollars.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--balance_uninvoiced</span></code></p></td>
+<td><p>No</p></td>
+<td><p>number</p></td>
+<td><p>This Account’s current estimated invoice in US dollars.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--billing_source</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The source of service charges for this Account, as determined by its relationship with Akamai.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--capabilities</span></code></p></td>
+<td><p>No</p></td>
+<td><p>array[string]</p></td>
+<td><p>A list of capabilities your account supports.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--city</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The city for this Account’s billing address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--company</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The company name associated with this Account.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--country</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The two-letter ISO 3166 country code of this Account’s billing address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--credit_card</span></code></p></td>
+<td><p>No</p></td>
+<td><p>object</p></td>
+<td><p>Credit Card information associated with this Account.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--email</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The email address of the person associated with this Account.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--euuid</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>An external unique identifier for this account.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--first_name</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The first name of the person associated with this Account.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--last_name</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The last name of the person associated with this Account.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--phone</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The phone number associated with this Account.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--state</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>If billing address is in the United States (US) or Canada (CA), only the two-letter ISO 3166 State or Province code are accepted.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--tax_id</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The tax identification number associated with this Account, for tax calculations in some countries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--zip</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The zip code of this Account’s billing address.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-view">
+<span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-account">view</a><a class="headerlink" href="#account-view" title="Link to this heading"></a></h2>
+<p>Returns the contact and billing information related to your Account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>view
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="account-client-create">
+<span id="id6"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-client">client-create</a><a class="headerlink" href="#account-client-create" title="Link to this heading"></a></h2>
+<p>Creates an OAuth Client, which can be used to allow users (using their Linode account) to log in to your own application, and optionally grant your application some amount of access to their Linodes or other entities.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>client-create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--redirect_uri<span class="w"> </span>redirect_uri<span class="o">]</span><span class="w"> </span><span class="o">[</span>--public<span class="w"> </span>public<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>client-create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--label<span class="w"> </span>Test_Client_1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--redirect_uri<span class="w"> </span>https://example.org/callback
+</pre></div>
+</div>
+<p class="action-subheading rubric">Arguments</p>
+<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>The name of this application.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--redirect_uri</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>The location a successful log in from <a class="reference external" href="https://login.linode.com">login.linode.com</a> should be redirected to for this client.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The OAuth Client ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--public</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>If this is a public or private OAuth Client.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--secret</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The OAuth Client secret, used in the OAuth exchange.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--status</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The status of this application.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--thumbnail_url</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The URL where this client’s thumbnail may be viewed, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if this client does not have a thumbnail set.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-client-delete">
+<span id="id7"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-client">client-delete</a><a class="headerlink" href="#account-client-delete" title="Link to this heading"></a></h2>
+<p>Deletes an OAuth Client registered with Linode.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>client-delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>clientId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>client-delete<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>edc6790ea9db4d224c5c
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">clientId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The OAuth Client ID to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-client-reset-secret">
+<span id="id8"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-reset-client-secret">client-reset-secret</a><a class="headerlink" href="#account-client-reset-secret" title="Link to this heading"></a></h2>
+<p>Resets the OAuth Client secret for a client you own, and returns the OAuth Client with the plaintext secret.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>client-reset-secret<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>clientId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>client-reset-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>edc6790ea9db4d224c5c
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">clientId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The OAuth Client ID to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-client-update">
+<span id="id9"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-client">client-update</a><a class="headerlink" href="#account-client-update" title="Link to this heading"></a></h2>
+<p>Update information about an OAuth Client on your Account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>client-update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--public<span class="w"> </span>public<span class="o">]</span><span class="w"> </span><span class="o">[</span>--redirect_uri<span class="w"> </span>redirect_uri<span class="o">]</span><span class="w"> </span>clientId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>client-update<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>edc6790ea9db4d224c5c<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--label<span class="w"> </span>Test_Client_1
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">clientId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The OAuth Client ID to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading rubric">Arguments</p>
+<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The OAuth Client ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The name of this application.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--public</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>If this is a public or private OAuth Client.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--redirect_uri</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The location a successful log in from <a class="reference external" href="https://login.linode.com">login.linode.com</a> should be redirected to for this client.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--secret</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The OAuth Client secret, used in the OAuth exchange.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--status</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The status of this application.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--thumbnail_url</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The URL where this client’s thumbnail may be viewed, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if this client does not have a thumbnail set.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-client-view">
+<span id="id11"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-client">client-view</a><a class="headerlink" href="#account-client-view" title="Link to this heading"></a></h2>
+<p>Returns information about a single OAuth client.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>client-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--public<span class="w"> </span>public<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,public<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>clientId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>client-view<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>edc6790ea9db4d224c5c
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">clientId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The OAuth Client ID to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-clients-list">
+<span id="id12"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-clients">clients-list</a><a class="headerlink" href="#account-clients-list" title="Link to this heading"></a></h2>
+<p>Returns a paginated list of OAuth Clients registered to your Account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>clients-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--public<span class="w"> </span>public<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,public<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>clients-list
+</pre></div>
+</div>
+<p class="rubric">Filterable Attributes</p>
+<p><cite>Arguments used to define a filter for response entries.</cite></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The name of this application.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--public</span></code></p></td>
+<td><p><em>boolean</em></p></td>
+<td><p>If this is a public or private OAuth Client.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-enable-managed">
+<span id="id13"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-enable-account-managed">enable-managed</a><a class="headerlink" href="#account-enable-managed" title="Link to this heading"></a></h2>
+<p>Enables Linode Managed for the entire account and sends a welcome email to the account’s associated email address.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>enable-managed<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>enable-managed
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="account-get-account-availability">
+<span id="id14"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-account-availability">get-account-availability</a><a class="headerlink" href="#account-get-account-availability" title="Link to this heading"></a></h2>
+<p>View the available services for your account in a specific region.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>get-account-availability<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>id
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>get-account-availability<span class="w"> </span>us-east
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The slug for the applicable data center.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-get-availability">
+<span id="id15"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-availability">get-availability</a><a class="headerlink" href="#account-get-availability" title="Link to this heading"></a></h2>
+<p>Returns a paginated list of the services available to you, for all Linode regions.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>get-availability<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>get-availability
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="account-invoice-items">
+<span id="id16"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-invoice-items">invoice-items</a><a class="headerlink" href="#account-invoice-items" title="Link to this heading"></a></h2>
+<p>Returns a paginated list of Invoice items.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>invoice-items<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>invoiceId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>invoice-items<span class="w"> </span><span class="m">123</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">invoiceId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The ID of the Invoice.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-invoice-view">
+<span id="id17"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-invoice">invoice-view</a><a class="headerlink" href="#account-invoice-view" title="Link to this heading"></a></h2>
+<p>Returns a single Invoice object.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>invoice-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--total<span class="w"> </span>total<span class="o">]</span><span class="w"> </span><span class="o">[</span>--date<span class="w"> </span>date<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--billing_source<span class="w"> </span>billing_source<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,total,date,billing_source<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>invoiceId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>invoice-view<span class="w"> </span><span class="m">123</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">invoiceId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The ID of the Invoice.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-invoices-list">
+<span id="id18"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-invoices">invoices-list</a><a class="headerlink" href="#account-invoices-list" title="Link to this heading"></a></h2>
+<p>Returns a paginated list of Invoices against your Account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>invoices-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--total<span class="w"> </span>total<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--date<span class="w"> </span>date<span class="o">]</span><span class="w"> </span><span class="o">[</span>--billing_source<span class="w"> </span>billing_source<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>total,date,billing_source,label<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>invoices-list
+</pre></div>
+</div>
+<p class="rubric">Filterable Attributes</p>
+<p><cite>Arguments used to define a filter for response entries.</cite></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--billing_source</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">akamai</span></code>: This Invoice was generated according to the terms of an agreement between the customer and Akamai.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--date</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>When this Invoice was generated.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The Invoice’s display label.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--total</span></code></p></td>
+<td><p><em>number</em></p></td>
+<td><p>The amount of the Invoice after taxes in US Dollars.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-login-view">
+<span id="id19"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-account-login">login-view</a><a class="headerlink" href="#account-login-view" title="Link to this heading"></a></h2>
+<p>Returns a Login object that displays information about a successful login.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>login-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>loginId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>login-view<span class="w"> </span><span class="m">1234</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">loginId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The ID of the login object to access.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-logins-list">
+<span id="id20"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-account-logins">logins-list</a><a class="headerlink" href="#account-logins-list" title="Link to this heading"></a></h2>
+<p>Returns a collection of successful logins for all users on the account during the last 90 days.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>logins-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>logins-list
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="account-maintenance-list">
+<span id="id21"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-maintenance">maintenance-list</a><a class="headerlink" href="#account-maintenance-list" title="Link to this heading"></a></h2>
+<p>Returns a collection of Maintenance objects for any entity a user has permissions to view.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>maintenance-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--when<span class="w"> </span>when<span class="o">]</span><span class="w"> </span><span class="o">[</span>--status<span class="w"> </span>status<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>type,when,status<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>maintenance-list
+</pre></div>
+</div>
+<p class="rubric">Filterable Attributes</p>
+<p><cite>Arguments used to define a filter for response entries.</cite></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--status</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The maintenance status.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The type of maintenance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--when</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>When the maintenance will begin.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-notifications-list">
+<span id="id22"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-notifications">notifications-list</a><a class="headerlink" href="#account-notifications-list" title="Link to this heading"></a></h2>
+<p>Returns a collection of Notification objects representing important, often time-sensitive items related to your Account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>notifications-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>notifications-list
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="account-payment-create">
+<span id="id23"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-payment">payment-create</a><a class="headerlink" href="#account-payment-create" title="Link to this heading"></a></h2>
+<p>Makes a Payment to your Account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>payment-create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--usd<span class="w"> </span>usd<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--payment_method_id<span class="w"> </span>payment_method_id<span class="o">]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>payment-create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--usd<span class="w"> </span><span class="m">120</span>.50<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--payment_method_id<span class="w"> </span><span class="m">123</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Arguments</p>
+<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--payment_method_id</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The ID of the Payment Method to apply to the Payment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--usd</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The amount in US Dollars of the Payment.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-payment-view">
+<span id="id24"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-payment">payment-view</a><a class="headerlink" href="#account-payment-view" title="Link to this heading"></a></h2>
+<p>Returns information about a specific Payment.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>payment-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>paymentId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>payment-view<span class="w"> </span><span class="m">123</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">paymentId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The ID of the Payment to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="account-payments-list">
+<span id="id25"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-payments">payments-list</a><a class="headerlink" href="#account-payments-list" title="Link to this heading"></a></h2>
+<p>Returns a paginated list of Payments made on this Account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>payments-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>payments-list
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="account-promo-add">
+<span id="id26"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-promo-credit">promo-add</a><a class="headerlink" href="#account-promo-add" title="Link to this heading"></a></h2>
+<p>Adds an expiring Promo Credit to your account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>promo-add<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--promo_code<span class="w"> </span>promo_code<span class="o">]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>promo-add<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--promo-code<span class="w"> </span>abcdefABCDEF1234567890
+</pre></div>
+</div>
+<p class="action-subheading rubric">Arguments</p>
+<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--promo_code</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>The Promo Code.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="account-settings-update">
+<span id="id27"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-account-settings">settings-update</a><a class="headerlink" href="#account-settings-update" title="Link to this heading"></a></h2>
+<p>Updates your account settings.</p>
+<p class="action-subheading rubric">Usage</p>
+<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>settings-update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--backups_enabled<span class="w"> </span>backups_enabled<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--network_helper<span class="w"> </span>network_helper<span class="o">]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>account<span class="w"> </span>settings-update<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--network_helper<span class="w"> </span><span class="nb">false</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Arguments</p>
+<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups_enabled</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>Account-wide backups default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--longview_subscription</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The Longview Pro tier you are currently subscribed to.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--managed</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>Our 24/7 incident response service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--network_helper</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>Enables network helper across all users by default for new Linodes and Linode Configs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--object_storage</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>A string describing the status of this account’s Object Storage service enrollment.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../commands/index.html" class="btn btn-neutral float-left" title="Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="betas.html" class="btn btn-neutral float-right" title="Betas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Akamai Technologies Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
