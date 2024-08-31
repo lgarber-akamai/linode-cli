@@ -1,0 +1,44 @@
+name: Build Documentation
+
+on:
+  push:
+    branches: [ "static/docs" ]
+
+jobs:
+  publish:
+    name: Publish the documentation
+    runs-on: ubuntu-latest
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Make sure we avoid a race condition =)
+    concurrency:
+      group: "docs-publish"
+      cancel-in-progress: false
+    permissions:
+      pages: write
+      id-token: write
+    if: (github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'dev' || github.ref_name == 'new/doc-generation' )) || (github.ref_type == 'tag')
+    steps:
+      - name: Checkout the documentation branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: "recursive"
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Push the rendered documentation site to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
