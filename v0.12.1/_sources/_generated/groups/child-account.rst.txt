@@ -1,0 +1,206 @@
+.. role:: action-subheading
+.. role:: action-subheading-description
+.. role:: action-argument-required
+
+Child Account
+=============
+
+This section details Child Account-related Linode CLI commands.
+
+.. _child-account_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-child-account-token>`_
+-------------------------------------------------------------------------------------
+
+
+Create a short-lived bearer token for a parent user on a child account, using the :code:`euuid` of that child account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli child-account create [-h] euuid
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli child-account create A1BC2DEF-34GH-567I-J890KLMN12O34P56
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`euuid`
+      - string
+      - The child account to look up.
+
+
+------------
+
+.. _child-account_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-child-accounts>`_
+-----------------------------------------------------------------------------
+
+
+Returns a paginated list of basic information for the child accounts that exist for your parent account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli child-account list [-h] [--zip zip]
+    	[--address_2 address_2] [--first_name first_name]
+    	[--city city] [--state state] [--address_1 address_1]
+    	[--country country] [--last_name last_name] [--email email]
+    	[--phone phone] [--company company]
+    	[--order-by {zip,address_2,first_name,city,state,address_1,country,last_name,email,phone,company}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli child-account list
+
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--address_1`
+      - *string*
+      - First line of this child account's billing address.
+    * - :code:`--address_2`
+      - *string*
+      - Second line of this child account's billing address, if applicable.
+    * - :code:`--city`
+      - *string*
+      - The city for this child account's billing address.
+    * - :code:`--company`
+      - *string*
+      - The company name for the owner of this child account.
+    * - :code:`--country`
+      - *string*
+      - The two-letter ISO 3166 country code for this child account's billing address.
+    * - :code:`--email`
+      - *string*
+      - The email address of the owner of this child account.
+    * - :code:`--first_name`
+      - *string*
+      - The first name of the owner of this child account.
+    * - :code:`--last_name`
+      - *string*
+      - The last name of the owner of this child account.
+    * - :code:`--phone`
+      - *string*
+      - The phone number for the owner of this child account.
+    * - :code:`--state`
+      - *string*
+      - The state or province for the billing address (:code:`address_1` and `address_2, if applicable`).
+    * - :code:`--zip`
+      - *string*
+      - The zip code of this Account's billing address.
+
+
+
+.. _child-account_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-child-account>`_
+----------------------------------------------------------------------------
+
+
+View a specific child account based on its :code:`euuid`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli child-account view [-h] [--phone phone]
+    	[--company company] [--email email] [--last_name last_name]
+    	[--country country] [--address_1 address_1] [--city city]
+    	[--state state] [--first_name first_name]
+    	[--address_2 address_2] [--zip zip]
+    	[--order-by {phone,company,email,last_name,country,address_1,city,state,first_name,address_2,zip}]
+    	[--order {asc,desc}] euuid
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli child-account view A1BC2DEF-34GH-567I-J890KLMN12O34P56
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`euuid`
+      - string
+      - The child account to look up.
+
+
+

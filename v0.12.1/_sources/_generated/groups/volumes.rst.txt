@@ -1,0 +1,659 @@
+.. role:: action-subheading
+.. role:: action-subheading-description
+.. role:: action-argument-required
+
+Volumes
+=======
+
+This section details Volume-related Linode CLI commands.
+
+.. _volumes_attach:
+
+`attach <https://techdocs.akamai.com/linode-api/reference/post-attach-volume>`_
+-------------------------------------------------------------------------------
+
+
+Attaches a Volume on your Account to an existing Linode on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli volumes attach [-h] [--linode_id linode_id]
+    	[--config_id config_id]
+    	[--persist_across_boots persist_across_boots] volumeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli volumes attach 12345 \
+    	--linode_id 12346 \
+    	--config_id 23456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`volumeId`
+      - integer
+      - ID of the Volume to attach.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--linode_id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The ID of the Linode to attach the volume to.
+    * - :code:`--config_id`
+      - No
+      - integer
+      - The ID of the Linode Config to include this Volume in.
+    * - :code:`--persist_across_boots`
+      - No
+      - boolean
+      - Defaults to true, if false is provided, the Volume will not be attached to the Linode Config.
+
+
+------------
+
+.. _volumes_clone:
+
+`clone <https://techdocs.akamai.com/linode-api/reference/post-clone-volume>`_
+-----------------------------------------------------------------------------
+
+
+Creates a Volume on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli volumes clone [-h] [--label label] volumeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli volumes clone 12345 \
+    	--label my-volume
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`volumeId`
+      - integer
+      - ID of the Volume to clone.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The Volume's label is for display purposes only.
+
+
+------------
+
+.. _volumes_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-volume>`_
+------------------------------------------------------------------------
+
+
+Creates a Volume on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli volumes create [-h] [--config_id config_id]
+    	[--linode_id linode_id] [--region region] [--size size]
+    	[--tags tags] [--label label]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli volumes create \
+    	--label my-volume \
+    	--size 20 \
+    	--linode_id 12346 \
+    	--no-defaults
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The Volume's label, which is also used in the :code:`filesystem_path` of the resulting volume.
+    * - :code:`--config_id`
+      - No
+      - integer
+      - When creating a Volume attached to a Linode, the ID of the Linode Config to include the new Volume in.
+    * - :code:`--linode_id`
+      - No
+      - integer
+      - The Linode this volume should be attached to upon creation.
+    * - :code:`--region`
+      - No
+      - string
+      - The Region to deploy this Volume in.
+    * - :code:`--size`
+      - No
+      - integer
+      - The initial size of this volume, in GB.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of Tags applied to this object.
+
+
+------------
+
+.. _volumes_delete:
+
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-volume>`_
+--------------------------------------------------------------------------
+
+
+Deletes a Volume you have permission to :code:`read_write`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli volumes delete [-h] volumeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli volumes delete 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`volumeId`
+      - integer
+      - ID of the Volume to look up.
+
+
+------------
+
+.. _volumes_detach:
+
+`detach <https://techdocs.akamai.com/linode-api/reference/post-detach-volume>`_
+-------------------------------------------------------------------------------
+
+
+Detaches a Volume on your Account from a Linode on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli volumes detach [-h] volumeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli volumes detach 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`volumeId`
+      - integer
+      - ID of the Volume to detach.
+
+
+------------
+
+.. _volumes_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-volumes>`_
+----------------------------------------------------------------------
+
+
+Returns a paginated list of Volumes you have permission to view.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli volumes list [-h] [--label label] [--tags [tags] ]
+    	[--order-by {label,tags}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli volumes list
+
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - *string*
+      - The Volume's label is for display purposes only.
+    * - :code:`--tags`
+      - *array[string]*
+      - An array of Tags applied to this object.
+
+
+------------
+
+.. _volumes_resize:
+
+`resize <https://techdocs.akamai.com/linode-api/reference/post-resize-volume>`_
+-------------------------------------------------------------------------------
+
+
+Resize an existing Volume on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli volumes resize [-h] [--size size] volumeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli volumes resize 12345 \
+    	--size 30
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`volumeId`
+      - integer
+      - ID of the Volume to resize.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--size`
+      - :action-argument-required:`Yes`
+      - integer
+      - The Volume's size, in GiB.
+
+
+------------
+
+.. _volumes_update:
+
+`update <https://techdocs.akamai.com/linode-api/reference/put-volume>`_
+-----------------------------------------------------------------------
+
+
+Updates a Volume that you have permission to :code:`read_write`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli volumes update [-h] [--tags tags] [--label label]
+    	volumeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli volumes update 12345 \
+    	--label my_volume
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`volumeId`
+      - integer
+      - ID of the Volume to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--created`
+      - No
+      - string
+      - When this Volume was created.
+    * - :code:`--filesystem_path`
+      - No
+      - string
+      - The full filesystem path for the Volume based on the Volume's label.
+    * - :code:`--hardware_type`
+      - No
+      - string
+      - The storage type of this Volume.
+    * - :code:`--id`
+      - No
+      - integer
+      - The unique ID of this Volume.
+    * - :code:`--label`
+      - No
+      - string
+      - The Volume's label is for display purposes only.
+    * - :code:`--linode_id`
+      - No
+      - integer
+      - If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.
+    * - :code:`--linode_label`
+      - No
+      - string
+      - If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.
+    * - :code:`--region`
+      - No
+      - string
+      - The unique ID of this Region.
+    * - :code:`--size`
+      - No
+      - integer
+      - The Volume's size, in GiB.
+    * - :code:`--status`
+      - No
+      - string
+      - The current status of the volume.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of Tags applied to this object.
+    * - :code:`--updated`
+      - No
+      - string
+      - When this Volume was last updated.
+
+
+
+.. _volumes_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-volume>`_
+---------------------------------------------------------------------
+
+
+Get information about a single Volume.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli volumes view [-h] [--label label] [--tags [tags] ]
+    	[--order-by {label,tags}] [--order {asc,desc}] volumeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli volumes view 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`volumeId`
+      - integer
+      - ID of the Volume to look up.
+
+
+
