@@ -1,0 +1,75 @@
+.. role:: action-subheading
+.. role:: action-subheading-description
+.. role:: action-argument-required
+
+Default
+=======
+
+This section details Default-related Linode CLI commands.
+
+.. _default_ip-list:
+
+`ip-list <https://techdocs.akamai.com/linode-api/reference/get-vpcs-ips>`_
+--------------------------------------------------------------------------
+
+
+Returns a paginated list of all VPC IP addresses and address ranges on your account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli default ip-list [-h] [--linode_id linode_id]
+    	[--vpc_id vpc_id] [--region region] [--config_id config_id]
+    	[--active active]
+    	[--order-by {linode_id,vpc_id,region,config_id,active}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli vpcs ip list
+
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--active`
+      - *boolean*
+      - Returns :code:`true` if the VPC interface is in use, meaning that the Linode was powered on using the :code:`config_id` to which the interface belongs.
+    * - :code:`--config_id`
+      - *integer*
+      - The globally general entity identifier for the Linode configuration profile where the VPC is included.
+    * - :code:`--linode_id`
+      - *integer*
+      - The identifier for the Linode the VPC interface currently belongs to.
+    * - :code:`--region`
+      - *string*
+      - The region of the VPC.
+    * - :code:`--vpc_id`
+      - *integer*
+      - The unique globally general API entity identifier for the VPC.
+
+
+
