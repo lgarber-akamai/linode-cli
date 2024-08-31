@@ -1,0 +1,4466 @@
+.. role:: action-subheading
+.. role:: action-subheading-description
+.. role:: action-argument-required
+
+Linodes
+=======
+
+This section details Linode-related Linode CLI commands.
+
+.. _linodes_boot:
+
+`boot <https://techdocs.akamai.com/linode-api/reference/post-boot-linode-instance>`_
+------------------------------------------------------------------------------------
+
+
+Boots a Linode you have permission to modify.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes boot [-h] [--config_id config_id] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes boot 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The ID of the Linode to boot.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--config_id`
+      - No
+      - integer
+      - The Linode Config ID to boot into.
+
+
+------------
+
+.. _linodes_clone:
+
+`clone <https://techdocs.akamai.com/linode-api/reference/post-clone-linode-instance>`_
+--------------------------------------------------------------------------------------
+
+
+You can clone your Linode's existing Disks or Configuration profiles to another Linode on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes clone [-h] [--placement_group.id id]
+    	[--configs configs] [--region region]
+    	[--private_ip private_ip] [--label label]
+    	[--backups_enabled backups_enabled] [--type type]
+    	[--linode_id linode_id] [--group group] [--disks disks]
+    	[--metadata.user_data user_data] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes clone 123 \
+    	--linode_id 124 \
+    	--region us-east \
+    	--type g6-standard-2 \
+    	--label cloned-linode \
+    	--backups_enabled true \
+    	--placement_group.id 528 \
+    	--disks 25674 \
+    	--configs 23456 \
+    	--private_ip true \
+    	--metadata.user_data I2Nsb3VkLWNvbmZpZw==
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to clone.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--placement_group.id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The placement group's ID.
+    * - :code:`--backups_enabled`
+      - No
+      - boolean
+      - If this field is set to :code:`true`, the created Linode will automatically be enrolled in the Linode Backup service.
+    * - :code:`--configs`
+      - No
+      - array[integer]
+      - An array of configuration profile IDs.
+    * - :code:`--disks`
+      - No
+      - array[integer]
+      - An array of disk IDs.
+    * - :code:`--group`
+      - No
+      - string
+      - A label used to group Linodes for display.
+    * - :code:`--label`
+      - No
+      - string
+      - The label to assign this Linode when cloning to a new Linode.
+    * - :code:`--linode_id`
+      - No
+      - integer
+      - If an existing Linode is the target for the clone, the ID of that Linode.
+    * - :code:`--metadata.user_data`
+      - No
+      - string
+      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
+    * - :code:`--private_ip`
+      - No
+      - boolean
+      - If true, the created Linode will have private networking enabled and assigned a private IPv4 address.
+    * - :code:`--region`
+      - No
+      - string
+      - This is the Region where the Linode will be deployed.
+    * - :code:`--type`
+      - No
+      - string
+      - A Linode's Type determines what resources are available to it, including disk space, memory, and virtual cpus.
+
+
+------------
+
+.. _linodes_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-linode-instance>`_
+---------------------------------------------------------------------------------
+
+
+Creates a Linode Instance on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes create [-h] [--metadata.user_data user_data]
+    	[--stackscript_data stackscript_data] [--booted booted]
+    	[--root_pass [ROOT_PASS] ]
+    	[--authorized_users authorized_users]
+    	[--authorized_keys authorized_keys] [--image image]
+    	[--stackscript_id stackscript_id] [--label label]
+    	[--backups_enabled backups_enabled] [--type type]
+    	[--placement_group.id id] [--swap_size swap_size]
+    	[--firewall_id firewall_id] [--backup_id backup_id]
+    	[--group group] [--tags tags] [--interfaces interfaces]
+    	[--interfaces.ipv4.vpc vpc]
+    	[--interfaces.ipv4.nat_1_1 nat_1_1]
+    	[--interfaces.active active] [--interfaces.purpose purpose]
+    	[--interfaces.subnet_id subnet_id]
+    	[--interfaces.primary primary] [--interfaces.label label]
+    	[--interfaces.ipam_address ipam_address]
+    	[--interfaces.ip_ranges ip_ranges] [--region region]
+    	[--private_ip private_ip]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes create \
+    	--label linode123 \
+    	--root_pass aComplex@Password \
+    	--booted true \
+    	--stackscript_id 10079 \
+    	--stackscript_data '{"gh_username": "linode"}' \
+    	--region us-east \
+    	--disk_encryption enabled\
+    	--placement_group.id 528 \
+    	--type g6-standard-2 \
+    	--authorized_keys "ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer" \
+    	--authorized_users "myUser" \
+    	--authorized_users "secondaryUser" \
+    	--metadata.user_data "I2Nsb3VkLWNvbmZpZw==" \
+    	--firewall_id 9000
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--interfaces.purpose`
+      - :action-argument-required:`Yes`
+      - string
+      - The type of Interface.
+    * - :code:`--region`
+      - :action-argument-required:`Yes`
+      - string
+      - The `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the Linode will be located.
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - The `Linode type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ of the Linode you are creating.
+    * - :code:`--authorized_keys`
+      - No
+      - array[string]
+      - A list of public SSH keys that will be automatically appended to the root user's :code:`~/.ssh/authorized_keys` file when deploying from an Image.
+    * - :code:`--authorized_users`
+      - No
+      - array[string]
+      - A list of usernames.
+    * - :code:`--backup_id`
+      - No
+      - integer
+      - A Backup ID from another Linode's available backups.
+    * - :code:`--backups_enabled`
+      - No
+      - boolean
+      - If this field is set to :code:`true`, the created Linode will automatically be enrolled in the Linode Backup service.
+    * - :code:`--booted`
+      - No
+      - boolean
+      - This field defaults to :code:`true` if the Linode is created with an Image or from a Backup.
+    * - :code:`--firewall_id`
+      - No
+      - integer
+      - The :code:`id` of the Firewall to attach this Linode to upon creation.
+    * - :code:`--group`
+      - No
+      - string
+      - A deprecated property denoting a group label for this Linode.
+    * - :code:`--image`
+      - No
+      - string
+      - An Image ID to deploy the Linode Disk from.
+    * - :code:`--interfaces`
+      - No
+      - object
+      - The Network Interface to apply to this Linode's configuration profile.
+    * - :code:`--interfaces.active`
+      - No
+      - boolean
+      - Returns :code:`true` if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.
+    * - :code:`--interfaces.id`
+      - No
+      - integer
+      - The unique ID representing this Interface.
+    * - :code:`--interfaces.ip_ranges`
+      - No
+      - object
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+    * - :code:`--interfaces.ipam_address`
+      - No
+      - string
+      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+    * - :code:`--interfaces.ipv4.nat_1_1`
+      - No
+      - string
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+    * - :code:`--interfaces.ipv4.vpc`
+      - No
+      - string
+      - The VPC Subnet IPv4 address for this Interface.
+    * - :code:`--interfaces.label`
+      - No
+      - string
+      - The name of this Interface.
+    * - :code:`--interfaces.primary`
+      - No
+      - boolean
+      - The primary Interface is configured as the default route to the Linode.
+    * - :code:`--interfaces.subnet_id`
+      - No
+      - integer
+      - The :code:`id` of the VPC Subnet for this Interface.
+    * - :code:`--interfaces.vpc_id`
+      - No
+      - integer
+      - The :code:`id` of the VPC configured for this Interface.
+    * - :code:`--label`
+      - No
+      - string
+      - The Linode's label is for display purposes only.
+    * - :code:`--metadata.user_data`
+      - No
+      - string
+      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
+    * - :code:`--placement_group.id`
+      - No
+      - integer
+      - The placement group's ID.
+    * - :code:`--private_ip`
+      - No
+      - boolean
+      - If true, the created Linode will have private networking enabled and assigned a private IPv4 address.
+    * - :code:`--root_pass`
+      - No
+      - string
+      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image.
+    * - :code:`--stackscript_data`
+      - No
+      - object
+      - This field is required only if the StackScript being deployed requires input data from the User for successful completion.
+    * - :code:`--stackscript_id`
+      - No
+      - integer
+      - A StackScript ID that will cause the referenced StackScript to be run during deployment of this Linode.
+    * - :code:`--swap_size`
+      - No
+      - integer
+      - When deploying from an Image, this field is optional, otherwise it is ignored.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of tags applied to this object.
+
+
+------------
+
+.. _linodes_delete:
+
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-linode-instance>`_
+-----------------------------------------------------------------------------------
+
+
+Deletes a Linode you have permission to :code:`read_write`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes delete [-h] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes delete 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+
+------------
+
+.. _linodes_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-linode-instances>`_
+-------------------------------------------------------------------------------
+
+
+Returns a paginated list of Linodes you have permission to view.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes list [-h] [--group group] [--tags [tags] ]
+    	[--id id] [--region region] [--ipv4 [ipv4] ] [--label label]
+    	[--image image]
+    	[--placement_group.label placement_group.label]
+    	[--placement_group.placement_group_type placement_group.placement_group_type]
+    	[--order-by {group,tags,id,region,ipv4,label,image,placement_group.label,placement_group.placement_group_type}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes list
+
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--group`
+      - *string*
+      - A deprecated property denoting a group label for this Linode.
+    * - :code:`--id`
+      - *integer*
+      - This Linode's ID which must be provided for all operations impacting this Linode.
+    * - :code:`--image`
+      - *string*
+      - An Image ID to deploy the Linode Disk from.
+    * - :code:`--ipv4`
+      - *array[string]*
+      - This Linode's IPv4 Addresses.
+    * - :code:`--label`
+      - *string*
+      - The Linode's label is for display purposes only.
+    * - :code:`--placement_group.label`
+      - *string*
+      - The unique name set for the placement group.
+    * - :code:`--placement_group.placement_group_type`
+      - *string*
+      - How compute instances are distributed in your placement group.
+    * - :code:`--region`
+      - *string*
+      - This is the `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the Linode was deployed.
+    * - :code:`--tags`
+      - *array[string]*
+      - An array of tags applied to this object.
+
+
+------------
+
+.. _linodes_migrate:
+
+`migrate <https://techdocs.akamai.com/linode-api/reference/post-migrate-linode-instance>`_
+------------------------------------------------------------------------------------------
+
+
+Initiate a pending host migration that has been scheduled by Linode or initiate a cross data center (DC) migration.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes migrate [-h] [--region region]
+    	[--placement_group.id id] [--type type] [--upgrade upgrade]
+    	linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes migrate 123 \ --region us-central \ --placement_group.id 528
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to migrate.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--placement_group.id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The placement group's ID.
+    * - :code:`--region`
+      - No
+      - string
+      - The region to which the Linode will be migrated.
+    * - :code:`--type`
+      - No
+      - string
+      - Type of migration used in moving to a new host or Linode type.
+    * - :code:`--upgrade`
+      - No
+      - boolean
+      - When initiating a cross DC migration, setting this value to true will also ensure that the Linode is upgraded to the latest generation of hardware that corresponds to your Linode's Type, if any free upgrades are available for it.
+
+
+------------
+
+.. _linodes_nodebalancers:
+
+`nodebalancers <https://techdocs.akamai.com/linode-api/reference/get-linode-node-balancers>`_
+---------------------------------------------------------------------------------------------
+
+
+Returns a list of NodeBalancers that are assigned to this Linode and readable by the requesting User.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes nodebalancers [-h] [--label label]
+    	[--region region] [--ipv4 ipv4] [--tags [tags] ]
+    	[--order-by {label,region,ipv4,tags}] [--order {asc,desc}]
+    	linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes nodebalancers 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--ipv4`
+      - *string*
+      - This NodeBalancer's public IPv4 address.
+    * - :code:`--label`
+      - *string*
+      - This NodeBalancer's label.
+    * - :code:`--region`
+      - *string*
+      - The Region where this NodeBalancer is located.
+    * - :code:`--tags`
+      - *array[string]*
+      - An array of Tags applied to this object.
+
+
+------------
+
+.. _linodes_reboot:
+
+`reboot <https://techdocs.akamai.com/linode-api/reference/post-reboot-linode-instance>`_
+----------------------------------------------------------------------------------------
+
+
+Reboots a Linode you have permission to modify.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes reboot [-h] [--config_id config_id] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes reboot 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the linode to reboot.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--config_id`
+      - No
+      - integer
+      - The Linode Config ID to reboot into.
+
+
+------------
+
+.. _linodes_rebuild:
+
+`rebuild <https://techdocs.akamai.com/linode-api/reference/post-rebuild-linode-instance>`_
+------------------------------------------------------------------------------------------
+
+
+Rebuilds a Linode you have the :code:`read_write` permission to modify.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes rebuild [-h]
+    	[--authorized_users authorized_users] [--root_pass [ROOT_PASS]
+    	] [--booted booted] [--stackscript_data stackscript_data]
+    	[--metadata.user_data user_data]
+    	[--stackscript_id stackscript_id] [--image image]
+    	[--authorized_keys authorized_keys] [--type type] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes rebuild 123 \
+    	--image "linode/debian9" \
+    	--root_pass aComplex@Password \
+    	--disk_encryption disabled \
+    	--authorized_keys "ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer" \
+    	--authorized_users "myUsername" \
+    	--authorized_users "secondaryUsername" \
+    	--booted true \
+    	--stackscript_id 10079 \
+    	--stackscript_data '{"gh_username": "linode"}' \
+    	--type "g6-standard-2" \
+    	--metadata.userdata "I2Nsb3VkLWNvbmZpZw=="
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to rebuild.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--image`
+      - :action-argument-required:`Yes`
+      - string
+      - An Image ID to deploy the Linode Disk from.
+    * - :code:`--root_pass`
+      - :action-argument-required:`Yes`
+      - string
+      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image.
+    * - :code:`--authorized_keys`
+      - No
+      - array[string]
+      - A list of public SSH keys that will be automatically appended to the root user's :code:`~/.ssh/authorized_keys` file when deploying from an Image.
+    * - :code:`--authorized_users`
+      - No
+      - array[string]
+      - A list of usernames.
+    * - :code:`--booted`
+      - No
+      - boolean
+      - This field defaults to :code:`true` if the Linode is created with an Image or from a Backup.
+    * - :code:`--metadata.user_data`
+      - No
+      - string
+      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
+    * - :code:`--stackscript_data`
+      - No
+      - object
+      - This field is required only if the StackScript being deployed requires input data from the User for successful completion.
+    * - :code:`--stackscript_id`
+      - No
+      - integer
+      - A StackScript ID that will cause the referenced StackScript to be run during deployment of this Linode.
+    * - :code:`--type`
+      - No
+      - string
+      - The ID of the `Linode type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ to resize to with this request.
+
+
+------------
+
+.. _linodes_rescue:
+
+`rescue <https://techdocs.akamai.com/linode-api/reference/post-rescue-linode-instance>`_
+----------------------------------------------------------------------------------------
+
+
+Rescue Mode is a safe environment for performing many system recovery and disk management tasks.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes rescue [-h]
+    	[--devices.sdd.volume_id volume_id]
+    	[--devices.sdd.disk_id disk_id]
+    	[--devices.sdb.disk_id disk_id]
+    	[--devices.sdb.volume_id volume_id]
+    	[--devices.sdg.volume_id volume_id]
+    	[--devices.sdg.disk_id disk_id]
+    	[--devices.sdf.volume_id volume_id]
+    	[--devices.sdf.disk_id disk_id]
+    	[--devices.sda.disk_id disk_id]
+    	[--devices.sda.volume_id volume_id]
+    	[--devices.sde.disk_id disk_id]
+    	[--devices.sde.volume_id volume_id]
+    	[--devices.sdc.disk_id disk_id]
+    	[--devices.sdc.volume_id volume_id] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes rescue 123 \
+    	--devices.sda.disk_id 124458
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to rescue.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--devices.sda.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sda.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdb.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdb.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdc.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdc.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdd.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdd.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sde.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sde.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdf.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdf.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdg.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdg.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+
+
+------------
+
+.. _linodes_resize:
+
+`resize <https://techdocs.akamai.com/linode-api/reference/post-resize-linode-instance>`_
+----------------------------------------------------------------------------------------
+
+
+Resizes a Linode you have the :code:`read_write` permission to a different Type.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes resize [-h] [--migration_type migration_type]
+    	[--type type]
+    	[--allow_auto_disk_resize allow_auto_disk_resize] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes resize 123 \
+    	--type g6-standard-2
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to resize.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - The ID representing the Linode Type.
+    * - :code:`--allow_auto_disk_resize`
+      - No
+      - boolean
+      - Automatically resize disks when resizing a Linode.
+    * - :code:`--migration_type`
+      - No
+      - string
+      - Type of migration used in moving to a new host or Linode type.
+
+
+------------
+
+.. _linodes_shutdown:
+
+`shutdown <https://techdocs.akamai.com/linode-api/reference/post-shutdown-linode-instance>`_
+--------------------------------------------------------------------------------------------
+
+
+Shuts down a Linode you have permission to modify.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes shutdown [-h] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes shutdown 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to shutdown.
+
+
+------------
+
+.. _linodes_snapshot:
+
+`snapshot <https://techdocs.akamai.com/linode-api/reference/post-snapshot>`_
+----------------------------------------------------------------------------
+
+
+Creates a snapshot backup of a Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes snapshot [-h] [--label label] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes snapshot 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The ID of the Linode the backups belong to.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The label for the new snapshot.
+
+
+------------
+
+.. _linodes_types:
+
+`types <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_
+----------------------------------------------------------------------------
+
+
+Returns collection of Linode Types, including pricing and specifications for each Type.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes types [-h] [--network_out network_out]
+    	[--memory memory] [--disk disk] [--class class] [--gpus gpus]
+    	[--vcpus vcpus] [--transfer transfer] [--label label]
+    	[--order-by {network_out,memory,disk,class,gpus,vcpus,transfer,label}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes types
+
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--class`
+      - *string*
+      - The class of the Linode Type.
+    * - :code:`--disk`
+      - *integer*
+      - The Disk size, in MB, of the Linode Type.
+    * - :code:`--gpus`
+      - *integer*
+      - The number of GPUs this Linode Type offers.
+    * - :code:`--label`
+      - *string*
+      - The Linode Type's label is for display purposes only.
+    * - :code:`--memory`
+      - *integer*
+      - Amount of RAM included in this Linode Type.
+    * - :code:`--network_out`
+      - *integer*
+      - The Mbits outbound bandwidth allocation.
+    * - :code:`--transfer`
+      - *integer*
+      - The monthly outbound transfer amount, in MB.
+    * - :code:`--vcpus`
+      - *integer*
+      - The number of VCPU cores this Linode Type offers.
+
+
+------------
+
+.. _linodes_update:
+
+`update <https://techdocs.akamai.com/linode-api/reference/put-linode-instance>`_
+--------------------------------------------------------------------------------
+
+
+Updates a Linode that you have permission to :code:`read_write`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes update [-h] [--backups.schedule.day day]
+    	[--backups.schedule.window window]
+    	[--alerts.network_in network_in]
+    	[--alerts.network_out network_out] [--alerts.io io]
+    	[--alerts.cpu cpu] [--alerts.transfer_quota transfer_quota]
+    	[--group group] [--tags tags] [--label label]
+    	[--watchdog_enabled watchdog_enabled] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes update 7833080 \
+    	--label linode123 \
+    	--backups.schedule.day "Saturday" \
+    	--backups.schedule.window "W22" \
+    	--alerts.cpu 180 \
+    	--alerts.network_in 10 \
+    	--alerts.network_out 10 \
+    	--alerts.transfer_quota 80 \
+    	--alerts.io 10000
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--alerts.cpu`
+      - No
+      - integer
+      - The percentage of CPU usage required to trigger an alert.
+    * - :code:`--alerts.io`
+      - No
+      - integer
+      - The amount of disk IO operation per second required to trigger an alert.
+    * - :code:`--alerts.network_in`
+      - No
+      - integer
+      - The amount of incoming traffic, in Mbit/s, required to trigger an alert.
+    * - :code:`--alerts.network_out`
+      - No
+      - integer
+      - The amount of outbound traffic, in Mbit/s, required to trigger an alert.
+    * - :code:`--alerts.transfer_quota`
+      - No
+      - integer
+      - The percentage of network transfer that may be used before an alert is triggered.
+    * - :code:`--backups.available`
+      - No
+      - boolean
+      - Whether Backups for this Linode are available for restoration.
+    * - :code:`--backups.enabled`
+      - No
+      - boolean
+      - If this Linode has the Backup service enabled.
+    * - :code:`--backups.last_successful`
+      - No
+      - string
+      - The last successful backup date.
+    * - :code:`--backups.schedule.day`
+      - No
+      - string
+      - The day of the week that your Linode's weekly Backup is taken.
+    * - :code:`--backups.schedule.window`
+      - No
+      - string
+      - The window in which your backups will be taken, in UTC.
+    * - :code:`--created`
+      - No
+      - string
+      - When this Linode was created.
+    * - :code:`--group`
+      - No
+      - string
+      - A deprecated property denoting a group label for this Linode.
+    * - :code:`--has_user_data`
+      - No
+      - boolean
+      - Whether this compute instance was provisioned utilizing :code:`user_data` provided via the Metadata service.
+    * - :code:`--host_uuid`
+      - No
+      - string
+      - The Linode's host machine, as a UUID.
+    * - :code:`--hypervisor`
+      - No
+      - string
+      - The virtualization software powering this Linode.
+    * - :code:`--id`
+      - No
+      - integer
+      - This Linode's ID which must be provided for all operations impacting this Linode.
+    * - :code:`--image`
+      - No
+      - string
+      - An Image ID to deploy the Linode Disk from.
+    * - :code:`--ipv4`
+      - No
+      - array[string]
+      - This Linode's IPv4 Addresses.
+    * - :code:`--ipv6`
+      - No
+      - string
+      - This Linode's IPv6 SLAAC address.
+    * - :code:`--label`
+      - No
+      - string
+      - The Linode's label is for display purposes only.
+    * - :code:`--placement_group`
+      - No
+      - object
+      - Details on the `placement group <https://www.linode.com/docs/products/compute/compute-instances/guides/placement-groups/>`_ that this Linode belongs to.
+    * - :code:`--region`
+      - No
+      - string
+      - This is the `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the Linode was deployed.
+    * - :code:`--specs`
+      - No
+      - object
+      - Information about the resources available to this Linode.
+    * - :code:`--status`
+      - No
+      - string
+      - A brief description of this Linode's current state.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of tags applied to this object.
+    * - :code:`--type`
+      - No
+      - string
+      - This is the `Linode type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ that this Linode was deployed with.
+    * - :code:`--updated`
+      - No
+      - string
+      - When this Linode was last updated.
+    * - :code:`--watchdog_enabled`
+      - No
+      - boolean
+      - The watchdog, named Lassie, is a Shutdown Watchdog that monitors your Linode and will reboot it if it powers off unexpectedly.
+
+
+------------
+
+.. _linodes_upgrade:
+
+`upgrade <https://techdocs.akamai.com/linode-api/reference/post-mutate-linode-instance>`_
+-----------------------------------------------------------------------------------------
+
+
+Linodes created with now-deprecated Types are entitled to a free upgrade to the next generation.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes upgrade [-h]
+    	[--allow_auto_disk_resize allow_auto_disk_resize] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes upgrade 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to mutate.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--allow_auto_disk_resize`
+      - No
+      - boolean
+      - Automatically resize disks when resizing a Linode.
+
+
+------------
+
+.. _linodes_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-linode-instance>`_
+------------------------------------------------------------------------------
+
+
+Get a specific Linode by ID.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes view [-h] [--group group] [--tags [tags] ]
+    	[--id id] [--region region] [--ipv4 [ipv4] ] [--label label]
+    	[--placement_group.label placement_group.label]
+    	[--placement_group.placement_group_type placement_group.placement_group_type]
+    	[--image image]
+    	[--order-by {group,tags,id,region,ipv4,label,placement_group.label,placement_group.placement_group_type,image}]
+    	[--order {asc,desc}] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+
+------------
+
+.. _linodes_volumes:
+
+`volumes <https://techdocs.akamai.com/linode-api/reference/get-linode-volumes>`_
+--------------------------------------------------------------------------------
+
+
+View Block Storage Volumes attached to this Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes volumes [-h] [--tags [tags] ] [--label label]
+    	[--order-by {tags,label}] [--order {asc,desc}] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linode volumes 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - *string*
+      - The Volume's label is for display purposes only.
+    * - :code:`--tags`
+      - *array[string]*
+      - An array of Tags applied to this object.
+
+
+------------
+
+.. _linodes_backup-restore:
+
+`backup-restore <https://techdocs.akamai.com/linode-api/reference/post-restore-backup>`_
+----------------------------------------------------------------------------------------
+
+
+Restores a Linode's Backup to the specified Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes backup-restore [-h] [--overwrite overwrite]
+    	[--linode_id linode_id] linodeId backupId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes backup-restore 123 123456 \
+    	--linode_id 234 \
+    	--overwrite true
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The ID of the Linode that the Backup belongs to.
+    * - :code:`backupId`
+      - integer
+      - The ID of the Backup to restore.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--linode_id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The ID of the Linode to restore a Backup to.
+    * - :code:`--overwrite`
+      - No
+      - boolean
+      - If True, deletes all Disks and Configs on the target Linode before restoring.
+
+
+------------
+
+.. _linodes_backup-view:
+
+`backup-view <https://techdocs.akamai.com/linode-api/reference/get-backup>`_
+----------------------------------------------------------------------------
+
+
+Returns information about a Backup.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes backup-view [-h] [--order-by {}]
+    	[--order {asc,desc}] linodeId backupId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes backup-view 123 123456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The ID of the Linode the Backup belongs to.
+    * - :code:`backupId`
+      - integer
+      - The ID of the Backup to look up.
+
+
+------------
+
+.. _linodes_backups-cancel:
+
+`backups-cancel <https://techdocs.akamai.com/linode-api/reference/post-cancel-backups>`_
+----------------------------------------------------------------------------------------
+
+
+Cancels the Backup service on the given Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes backups-cancel [-h] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes backups-cancel 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The ID of the Linode to cancel backup service for.
+
+
+------------
+
+.. _linodes_backups-enable:
+
+`backups-enable <https://techdocs.akamai.com/linode-api/reference/post-enable-backups>`_
+----------------------------------------------------------------------------------------
+
+
+Enables backups for the specified Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes backups-enable [-h] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes backups-enable 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The ID of the Linode to enable backup service for.
+
+
+------------
+
+.. _linodes_backups-list:
+
+`backups-list <https://techdocs.akamai.com/linode-api/reference/get-backups>`_
+------------------------------------------------------------------------------
+
+
+Returns information about this Linode's available backups.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes backups-list [-h] [--order-by {}]
+    	[--order {asc,desc}] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes backups-list 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The ID of the Linode the backups belong to.
+
+
+------------
+
+.. _linodes_config-create:
+
+`config-create <https://techdocs.akamai.com/linode-api/reference/post-add-linode-config>`_
+------------------------------------------------------------------------------------------
+
+
+Adds a new Configuration profile to a Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes config-create [-h] [--label label]
+    	[--helpers.network network]
+    	[--helpers.devtmpfs_automount devtmpfs_automount]
+    	[--helpers.distro distro] [--helpers.modules_dep modules_dep]
+    	[--helpers.updatedb_disabled updatedb_disabled]
+    	[--run_level run_level] [--memory_limit memory_limit]
+    	[--kernel kernel] [--comments comments]
+    	[--root_device root_device] [--interfaces interfaces]
+    	[--interfaces.purpose purpose] [--interfaces.label label]
+    	[--interfaces.ipam_address ipam_address]
+    	[--interfaces.primary primary]
+    	[--interfaces.ip_ranges ip_ranges]
+    	[--interfaces.subnet_id subnet_id]
+    	[--interfaces.ipv4.vpc vpc]
+    	[--interfaces.ipv4.nat_1_1 nat_1_1]
+    	[--interfaces.active active]
+    	[--devices.sde.volume_id volume_id]
+    	[--devices.sde.disk_id disk_id]
+    	[--devices.sda.disk_id disk_id]
+    	[--devices.sda.volume_id volume_id]
+    	[--devices.sdc.disk_id disk_id]
+    	[--devices.sdc.volume_id volume_id]
+    	[--devices.sdg.volume_id volume_id]
+    	[--devices.sdg.disk_id disk_id]
+    	[--devices.sdb.volume_id volume_id]
+    	[--devices.sdb.disk_id disk_id]
+    	[--devices.sdd.volume_id volume_id]
+    	[--devices.sdd.disk_id disk_id]
+    	[--devices.sdh.disk_id disk_id]
+    	[--devices.sdh.volume_id volume_id]
+    	[--devices.sdf.disk_id disk_id]
+    	[--devices.sdf.volume_id volume_id] [--virt_mode virt_mode]
+    	linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-create 7590910 \
+    	--label "My Config" \
+    	--devices.sda.disk_id 123456 \
+    	--devices.sdb.disk_id 123457
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up Configuration profiles for.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--interfaces.purpose`
+      - :action-argument-required:`Yes`
+      - string
+      - The type of Interface.
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The Config's label is for display purposes only.
+    * - :code:`--comments`
+      - No
+      - string
+      - Optional field for arbitrary User comments on this Config.
+    * - :code:`--devices.sda.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sda.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdb.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdb.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdc.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdc.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdd.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdd.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sde.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sde.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdf.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdf.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdg.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdg.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdh.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdh.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--helpers.devtmpfs_automount`
+      - No
+      - boolean
+      - Populates the /dev directory early during boot without udev.
+    * - :code:`--helpers.distro`
+      - No
+      - boolean
+      - Helps maintain correct inittab/upstart console device.
+    * - :code:`--helpers.modules_dep`
+      - No
+      - boolean
+      - Creates a modules dependency file for the Kernel you run.
+    * - :code:`--helpers.network`
+      - No
+      - boolean
+      - Automatically configures static networking.
+    * - :code:`--helpers.updatedb_disabled`
+      - No
+      - boolean
+      - Disables updatedb cron job to avoid disk thrashing.
+    * - :code:`--id`
+      - No
+      - integer
+      - The ID of this Config.
+    * - :code:`--interfaces`
+      - No
+      - object
+      - The Network Interface to apply to this Linode's configuration profile.
+    * - :code:`--interfaces.active`
+      - No
+      - boolean
+      - Returns :code:`true` if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.
+    * - :code:`--interfaces.id`
+      - No
+      - integer
+      - The unique ID representing this Interface.
+    * - :code:`--interfaces.ip_ranges`
+      - No
+      - object
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+    * - :code:`--interfaces.ipam_address`
+      - No
+      - string
+      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+    * - :code:`--interfaces.ipv4.nat_1_1`
+      - No
+      - string
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+    * - :code:`--interfaces.ipv4.vpc`
+      - No
+      - string
+      - The VPC Subnet IPv4 address for this Interface.
+    * - :code:`--interfaces.label`
+      - No
+      - string
+      - The name of this Interface.
+    * - :code:`--interfaces.primary`
+      - No
+      - boolean
+      - The primary Interface is configured as the default route to the Linode.
+    * - :code:`--interfaces.subnet_id`
+      - No
+      - integer
+      - The :code:`id` of the VPC Subnet for this Interface.
+    * - :code:`--interfaces.vpc_id`
+      - No
+      - integer
+      - The :code:`id` of the VPC configured for this Interface.
+    * - :code:`--kernel`
+      - No
+      - string
+      - A Kernel ID to boot a Linode with.
+    * - :code:`--memory_limit`
+      - No
+      - integer
+      - Defaults to the total RAM of the Linode.
+    * - :code:`--root_device`
+      - No
+      - string
+      - The root device to boot.
+    * - :code:`--run_level`
+      - No
+      - string
+      - Defines the state of your Linode after booting.
+    * - :code:`--virt_mode`
+      - No
+      - string
+      - Controls the virtualization mode.
+
+
+------------
+
+.. _linodes_config-delete:
+
+`config-delete <https://techdocs.akamai.com/linode-api/reference/delete-linode-config>`_
+----------------------------------------------------------------------------------------
+
+
+Deletes the specified Configuration profile from the specified Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes config-delete [-h] linodeId configId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-delete 123 23456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The :code:`id` of the Linode.
+    * - :code:`configId`
+      - integer
+      - The :code:`id` of the Configuration Profile.
+
+
+------------
+
+.. _linodes_config-interface-add:
+
+`config-interface-add <https://techdocs.akamai.com/linode-api/reference/post-linode-config-interface>`_
+-------------------------------------------------------------------------------------------------------
+
+
+Creates and appends a single Interface to the end of the :code:`interfaces` array for an existing Configuration Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-add [-h]
+    	[--subnet_id subnet_id] [--label label] [--primary primary]
+    	[--ipam_address ipam_address] [--ip_ranges ip_ranges]
+    	[--purpose purpose] [--ipv4.vpc vpc] [--ipv4.nat_1_1 nat_1_1]
+    	[--active active] linodeId configId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-add $linodeId $configId \
+    	--purpose vpc \
+    	--primary false \
+    	--subnet_id 101 \
+    	--ipv4.vpc "10.0.1.2" \
+    	--ipv4.nat_1_1 "203.0.113.2"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The :code:`id` of the Linode.
+    * - :code:`configId`
+      - integer
+      - The :code:`id` of the Configuration Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--purpose`
+      - :action-argument-required:`Yes`
+      - string
+      - The type of Interface.
+    * - :code:`--active`
+      - No
+      - boolean
+      - Returns :code:`true` if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.
+    * - :code:`--id`
+      - No
+      - integer
+      - The unique ID representing this Interface.
+    * - :code:`--ip_ranges`
+      - No
+      - array[string]
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+    * - :code:`--ipam_address`
+      - No
+      - string
+      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+    * - :code:`--ipv4.nat_1_1`
+      - No
+      - string
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+    * - :code:`--ipv4.vpc`
+      - No
+      - string
+      - The VPC Subnet IPv4 address for this Interface.
+    * - :code:`--label`
+      - No
+      - string
+      - The name of this Interface.
+    * - :code:`--primary`
+      - No
+      - boolean
+      - The primary Interface is configured as the default route to the Linode.
+    * - :code:`--subnet_id`
+      - No
+      - integer
+      - The :code:`id` of the VPC Subnet for this Interface.
+    * - :code:`--vpc_id`
+      - No
+      - integer
+      - The :code:`id` of the VPC configured for this Interface.
+
+
+------------
+
+.. _linodes_config-interface-delete:
+
+`config-interface-delete <https://techdocs.akamai.com/linode-api/reference/delete-linode-config-interface>`_
+------------------------------------------------------------------------------------------------------------
+
+
+Deletes an Interface from the Configuration Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-delete [-h] linodeId configId
+    	interfaceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-delete $linodeId $configId $interfaceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The :code:`id` of the Linode.
+    * - :code:`configId`
+      - integer
+      - The :code:`id` of the Configuration Profile.
+    * - :code:`interfaceId`
+      - integer
+      - The :code:`id` of the Linode Configuration Profile Interface.
+
+
+------------
+
+.. _linodes_config-interface-update:
+
+`config-interface-update <https://techdocs.akamai.com/linode-api/reference/put-linode-config-interface>`_
+---------------------------------------------------------------------------------------------------------
+
+
+Updates a :code:`vpc` or :code:`public` purpose Interface for this Configuration Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-update [-h]
+    	[--ip_ranges ip_ranges] [--primary primary]
+    	[--ipv4.nat_1_1 nat_1_1] [--ipv4.vpc vpc] linodeId configId
+    	interfaceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-update $linodeId $configId $interfaceId \
+    	--primary true \
+    	--ipv4.vpc "10.0.1.2" \
+    	--ipv4.nat_1_1 "203.0.113.2"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The :code:`id` of the Linode.
+    * - :code:`configId`
+      - integer
+      - The :code:`id` of the Configuration Profile.
+    * - :code:`interfaceId`
+      - integer
+      - The :code:`id` of the Linode Configuration Profile Interface.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--ip_ranges`
+      - No
+      - array[string]
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+    * - :code:`--ipv4.nat_1_1`
+      - No
+      - string
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+    * - :code:`--ipv4.vpc`
+      - No
+      - string
+      - The VPC Subnet IPv4 address for this Interface.
+    * - :code:`--primary`
+      - No
+      - boolean
+      - The primary Interface is configured as the default route to the Linode.
+
+
+------------
+
+.. _linodes_config-interface-view:
+
+`config-interface-view <https://techdocs.akamai.com/linode-api/reference/get-linode-config-interface>`_
+-------------------------------------------------------------------------------------------------------
+
+
+Returns a single Configuration Profile Interface.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-view [-h] [--label label]
+    	[--order-by {label}] [--order {asc,desc}] linodeId configId
+    	interfaceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-view $linodeId $configId $interfaceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The :code:`id` of the Linode.
+    * - :code:`configId`
+      - integer
+      - The :code:`id` of the Configuration Profile.
+    * - :code:`interfaceId`
+      - integer
+      - The :code:`id` of the Linode Configuration Profile Interface.
+
+
+------------
+
+.. _linodes_config-interfaces-list:
+
+`config-interfaces-list <https://techdocs.akamai.com/linode-api/reference/get-linode-config-interfaces>`_
+---------------------------------------------------------------------------------------------------------
+
+
+Returns an ordered array of all Interfaces associated with this Configuration Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes config-interfaces-list [-h] [--label label]
+    	[--order-by {label}] [--order {asc,desc}] linodeId configId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interfaces-list $linodeId $configId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The :code:`id` of the Linode.
+    * - :code:`configId`
+      - integer
+      - The :code:`id` of the Configuration Profile.
+
+
+------------
+
+.. _linodes_config-interfaces-order:
+
+`config-interfaces-order <https://techdocs.akamai.com/linode-api/reference/post-linode-config-interfaces>`_
+-----------------------------------------------------------------------------------------------------------
+
+
+Reorders the existing Interfaces of a Configuration Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes config-interfaces-order [-h] [--ids ids]
+    	linodeId configId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interfaces-order $linodeId $configId \
+    	--ids 101 --ids 102 --ids 103
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The :code:`id` of the Linode.
+    * - :code:`configId`
+      - integer
+      - The :code:`id` of the Configuration Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--ids`
+      - :action-argument-required:`Yes`
+      - array[integer]
+      - An ordered array of existing Configuration Profile Interface :code:`id`s.
+
+
+------------
+
+.. _linodes_config-update:
+
+`config-update <https://techdocs.akamai.com/linode-api/reference/put-linode-config>`_
+-------------------------------------------------------------------------------------
+
+
+Updates a Configuration profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes config-update [-h]
+    	[--memory_limit memory_limit] [--kernel kernel]
+    	[--label label] [--helpers.network network]
+    	[--helpers.devtmpfs_automount devtmpfs_automount]
+    	[--helpers.distro distro] [--helpers.modules_dep modules_dep]
+    	[--helpers.updatedb_disabled updatedb_disabled]
+    	[--root_device root_device] [--comments comments]
+    	[--run_level run_level] [--virt_mode virt_mode]
+    	[--interfaces interfaces] [--interfaces.active active]
+    	[--interfaces.ipv4.nat_1_1 nat_1_1]
+    	[--interfaces.ipv4.vpc vpc]
+    	[--interfaces.subnet_id subnet_id]
+    	[--interfaces.ip_ranges ip_ranges]
+    	[--interfaces.ipam_address ipam_address]
+    	[--interfaces.primary primary] [--interfaces.label label]
+    	[--interfaces.purpose purpose]
+    	[--devices.sdg.volume_id volume_id]
+    	[--devices.sdg.disk_id disk_id]
+    	[--devices.sdb.disk_id disk_id]
+    	[--devices.sdb.volume_id volume_id]
+    	[--devices.sdd.volume_id volume_id]
+    	[--devices.sdd.disk_id disk_id]
+    	[--devices.sdh.volume_id volume_id]
+    	[--devices.sdh.disk_id disk_id]
+    	[--devices.sdf.disk_id disk_id]
+    	[--devices.sdf.volume_id volume_id]
+    	[--devices.sde.volume_id volume_id]
+    	[--devices.sde.disk_id disk_id]
+    	[--devices.sda.disk_id disk_id]
+    	[--devices.sda.volume_id volume_id]
+    	[--devices.sdc.disk_id disk_id]
+    	[--devices.sdc.volume_id volume_id] linodeId configId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-update 123 23456 \
+    	--kernel "linode/latest-64bit" \
+    	--comments "This is my main Config" \
+    	--memory_limit 2048 \
+    	--run_level default \
+    	--virt_mode paravirt \
+    	--helpers.updatedb_disabled true \
+    	--helpers.distro true \
+    	--helpers.modules_dep true \
+    	--helpers.network true \
+    	--helpers.devtmpfs_automount false \
+    	--label "My Config" \
+    	--devices.sda.disk_id 123456 \
+    	--devices.sdb.disk_id 123457
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The :code:`id` of the Linode.
+    * - :code:`configId`
+      - integer
+      - The :code:`id` of the Configuration Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--interfaces.purpose`
+      - :action-argument-required:`Yes`
+      - string
+      - The type of Interface.
+    * - :code:`--comments`
+      - No
+      - string
+      - Optional field for arbitrary User comments on this Config.
+    * - :code:`--devices.sda.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sda.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdb.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdb.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdc.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdc.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdd.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdd.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sde.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sde.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdf.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdf.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdg.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdg.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdh.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdh.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--helpers.devtmpfs_automount`
+      - No
+      - boolean
+      - Populates the /dev directory early during boot without udev.
+    * - :code:`--helpers.distro`
+      - No
+      - boolean
+      - Helps maintain correct inittab/upstart console device.
+    * - :code:`--helpers.modules_dep`
+      - No
+      - boolean
+      - Creates a modules dependency file for the Kernel you run.
+    * - :code:`--helpers.network`
+      - No
+      - boolean
+      - Automatically configures static networking.
+    * - :code:`--helpers.updatedb_disabled`
+      - No
+      - boolean
+      - Disables updatedb cron job to avoid disk thrashing.
+    * - :code:`--id`
+      - No
+      - integer
+      - The ID of this Config.
+    * - :code:`--interfaces`
+      - No
+      - object
+      - The Network Interface to apply to this Linode's configuration profile.
+    * - :code:`--interfaces.active`
+      - No
+      - boolean
+      - Returns :code:`true` if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.
+    * - :code:`--interfaces.id`
+      - No
+      - integer
+      - The unique ID representing this Interface.
+    * - :code:`--interfaces.ip_ranges`
+      - No
+      - object
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+    * - :code:`--interfaces.ipam_address`
+      - No
+      - string
+      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+    * - :code:`--interfaces.ipv4.nat_1_1`
+      - No
+      - string
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+    * - :code:`--interfaces.ipv4.vpc`
+      - No
+      - string
+      - The VPC Subnet IPv4 address for this Interface.
+    * - :code:`--interfaces.label`
+      - No
+      - string
+      - The name of this Interface.
+    * - :code:`--interfaces.primary`
+      - No
+      - boolean
+      - The primary Interface is configured as the default route to the Linode.
+    * - :code:`--interfaces.subnet_id`
+      - No
+      - integer
+      - The :code:`id` of the VPC Subnet for this Interface.
+    * - :code:`--interfaces.vpc_id`
+      - No
+      - integer
+      - The :code:`id` of the VPC configured for this Interface.
+    * - :code:`--kernel`
+      - No
+      - string
+      - A Kernel ID to boot a Linode with.
+    * - :code:`--label`
+      - No
+      - string
+      - The Config's label is for display purposes only.
+    * - :code:`--memory_limit`
+      - No
+      - integer
+      - Defaults to the total RAM of the Linode.
+    * - :code:`--root_device`
+      - No
+      - string
+      - The root device to boot.
+    * - :code:`--run_level`
+      - No
+      - string
+      - Defines the state of your Linode after booting.
+    * - :code:`--virt_mode`
+      - No
+      - string
+      - Controls the virtualization mode.
+
+
+------------
+
+.. _linodes_config-view:
+
+`config-view <https://techdocs.akamai.com/linode-api/reference/get-linode-config>`_
+-----------------------------------------------------------------------------------
+
+
+Returns information about a specific Configuration profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes config-view [-h] [--label label]
+    	[--interfaces.label interfaces.label]
+    	[--order-by {label,interfaces.label}] [--order {asc,desc}]
+    	linodeId configId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-view 123 23456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The :code:`id` of the Linode.
+    * - :code:`configId`
+      - integer
+      - The :code:`id` of the Configuration Profile.
+
+
+------------
+
+.. _linodes_configs-list:
+
+`configs-list <https://techdocs.akamai.com/linode-api/reference/get-linode-configs>`_
+-------------------------------------------------------------------------------------
+
+
+Lists Configuration profiles associated with a Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes configs-list [-h] [--label label]
+    	[--interfaces.label interfaces.label]
+    	[--order-by {label,interfaces.label}] [--order {asc,desc}]
+    	linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes configs-list 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up Configuration profiles for.
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--interfaces.label`
+      - *string*
+      - The name of this Interface.
+    * - :code:`--label`
+      - *string*
+      - The Config's label is for display purposes only.
+
+
+------------
+
+.. _linodes_disk-clone:
+
+`disk-clone <https://techdocs.akamai.com/linode-api/reference/post-clone-linode-disk>`_
+---------------------------------------------------------------------------------------
+
+
+Copies a disk, byte-for-byte, into a new Disk belonging to the same Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes disk-clone [-h] linodeId diskId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+    * - :code:`diskId`
+      - integer
+      - ID of the Disk to clone.
+
+
+------------
+
+.. _linodes_disk-create:
+
+`disk-create <https://techdocs.akamai.com/linode-api/reference/post-add-linode-disk>`_
+--------------------------------------------------------------------------------------
+
+
+Adds a new Disk to a Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes disk-create [-h]
+    	[--authorized_keys authorized_keys] [--size size]
+    	[--stackscript_id stackscript_id] [--image image] [--root_pass
+    	[ROOT_PASS] ] [--stackscript_data stackscript_data]
+    	[--authorized_users authorized_users]
+    	[--filesystem filesystem] [--label label] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-create 123 \
+    	--size 1300 \
+    	--authorized_keys "ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer" \
+    	--authorized_users "myUser" \
+    	--authorized_users "secondaryUser" \
+    	--root_pass aComplex@Password \
+    	--image "linode/debian9" \
+    	--stackscript_id 10079 \
+    	--stackscript_data '{"gh_username": "linode"}'
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--size`
+      - :action-argument-required:`Yes`
+      - integer
+      - The size of the Disk in MB.
+    * - :code:`--authorized_keys`
+      - No
+      - array[string]
+      - A list of public SSH keys that will be automatically appended to the root user's :code:`~/.ssh/authorized_keys` file when deploying from an Image.
+    * - :code:`--authorized_users`
+      - No
+      - array[string]
+      - A list of usernames.
+    * - :code:`--filesystem`
+      - No
+      - string
+      - The Disk filesystem can be one of:    - raw - No filesystem, just a raw binary stream.
+    * - :code:`--image`
+      - No
+      - string
+      - An Image ID to deploy the Linode Disk from.
+    * - :code:`--label`
+      - No
+      - string
+      - The Disk's label is for display purposes only.
+    * - :code:`--root_pass`
+      - No
+      - string
+      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image.
+    * - :code:`--stackscript_data`
+      - No
+      - object
+      - This field is required only if the StackScript being deployed requires input data from the User for successful completion.
+    * - :code:`--stackscript_id`
+      - No
+      - integer
+      - A StackScript ID that will cause the referenced StackScript to be run during deployment of this Linode.
+
+
+------------
+
+.. _linodes_disk-delete:
+
+`disk-delete <https://techdocs.akamai.com/linode-api/reference/delete-disk>`_
+-----------------------------------------------------------------------------
+
+
+Deletes a Disk you have permission to :code:`read_write`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes disk-delete [-h] linodeId diskId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-delete 123 24674
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+    * - :code:`diskId`
+      - integer
+      - ID of the Disk to look up.
+
+
+------------
+
+.. _linodes_disk-reset-password:
+
+`disk-reset-password <https://techdocs.akamai.com/linode-api/reference/post-reset-disk-password>`_
+--------------------------------------------------------------------------------------------------
+
+
+Resets the password of a Disk you have permission to :code:`read_write`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes disk-reset-password [-h]
+    	[--password password] linodeId diskId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-reset-password \
+    	123 25674 \
+    	--password aComplex@Password
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+    * - :code:`diskId`
+      - integer
+      - ID of the Disk to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--password`
+      - :action-argument-required:`Yes`
+      - string
+      - The new root password for the OS installed on this Disk.
+
+
+------------
+
+.. _linodes_disk-resize:
+
+`disk-resize <https://techdocs.akamai.com/linode-api/reference/post-resize-disk>`_
+----------------------------------------------------------------------------------
+
+
+Resizes a Disk you have permission to :code:`read_write`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes disk-resize [-h] [--size size] linodeId diskId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-resize 123 25674 \
+    	--size 2048
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+    * - :code:`diskId`
+      - integer
+      - ID of the Disk to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--size`
+      - :action-argument-required:`Yes`
+      - integer
+      - The desired size, in MB, of the disk.
+
+
+------------
+
+.. _linodes_disk-update:
+
+`disk-update <https://techdocs.akamai.com/linode-api/reference/put-disk>`_
+--------------------------------------------------------------------------
+
+
+Updates a Disk that you have permission to :code:`read_write`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes disk-update [-h] [--label label] linodeId
+    	diskId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-update 123 25674 \
+    	--label "Debian 9 Disk"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+    * - :code:`diskId`
+      - integer
+      - ID of the Disk to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - No
+      - string
+      - The Disk's label is for display purposes only.
+
+
+------------
+
+.. _linodes_disk-view:
+
+`disk-view <https://techdocs.akamai.com/linode-api/reference/get-linode-disk>`_
+-------------------------------------------------------------------------------
+
+
+View Disk information for a Disk associated with this Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes disk-view [-h] [--label label] [--size size]
+    	[--order-by {label,size}] [--order {asc,desc}] linodeId diskId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-view 123 25674
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+    * - :code:`diskId`
+      - integer
+      - ID of the Disk to look up.
+
+
+------------
+
+.. _linodes_disks-list:
+
+`disks-list <https://techdocs.akamai.com/linode-api/reference/get-linode-disks>`_
+---------------------------------------------------------------------------------
+
+
+View Disk information for Disks associated with this Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes disks-list [-h] [--label label] [--size size]
+    	[--order-by {label,size}] [--order {asc,desc}] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes disks-list 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - *string*
+      - The Disk's label is for display purposes only.
+    * - :code:`--size`
+      - *integer*
+      - The size of the Disk in MB.
+
+
+------------
+
+.. _linodes_firewalls-list:
+
+`firewalls-list <https://techdocs.akamai.com/linode-api/reference/get-linode-firewalls>`_
+-----------------------------------------------------------------------------------------
+
+
+View Firewall information for Firewalls assigned to this Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes firewalls-list [-h] [--label label]
+    	[--updated updated] [--tags [tags] ] [--id id]
+    	[--created created]
+    	[--order-by {label,updated,tags,id,created}]
+    	[--order {asc,desc}] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes firewalls-list 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to access.
+
+.. rubric:: Filterable Attributes
+
+`Arguments used to define a filter for response entries.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--created`
+      - *string*
+      - When this Firewall was created.
+    * - :code:`--id`
+      - *integer*
+      - The Firewall's unique ID.
+    * - :code:`--label`
+      - *string*
+      - The Firewall's label, for display purposes only.
+    * - :code:`--tags`
+      - *array[string]*
+      - An array of tags applied to this object.
+    * - :code:`--updated`
+      - *string*
+      - When this Firewall was last updated.
+
+
+------------
+
+.. _linodes_ip-add:
+
+`ip-add <https://techdocs.akamai.com/linode-api/reference/post-add-linode-ip>`_
+-------------------------------------------------------------------------------
+
+
+Allocates a public or private IPv4 address to a Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes ip-add [-h] [--type type] [--public public]
+    	linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes ip-add 123 \
+    	--type ipv4 \
+    	--public true
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--public`
+      - :action-argument-required:`Yes`
+      - boolean
+      - Whether to create a public or private IPv4 address.
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - The type of address you are allocating.
+
+
+------------
+
+.. _linodes_ip-delete:
+
+`ip-delete <https://techdocs.akamai.com/linode-api/reference/delete-linode-ip>`_
+--------------------------------------------------------------------------------
+
+
+Deletes a public or private IPv4 address associated with this Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes ip-delete [-h] linodeId address
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes ip-delete 97.107.143.141
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The ID of the Linode.
+    * - :code:`address`
+      - string
+      - The IP address.
+
+
+------------
+
+.. _linodes_ip-update:
+
+`ip-update <https://techdocs.akamai.com/linode-api/reference/put-linode-ip>`_
+-----------------------------------------------------------------------------
+
+
+Updates the reverse DNS (RDNS) for a Linode's IP Address.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes ip-update [-h] [--rdns rdns] linodeId address
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes ip-update 123 \
+    	203.0.113.1 \
+    	--rdns test.example.org
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The ID of the Linode.
+    * - :code:`address`
+      - string
+      - The IP address.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--rdns`
+      - :action-argument-required:`Yes`
+      - string
+      - The reverse DNS assigned to this address.
+
+
+------------
+
+.. _linodes_ip-view:
+
+`ip-view <https://techdocs.akamai.com/linode-api/reference/get-linode-ip>`_
+---------------------------------------------------------------------------
+
+
+View information about the specified IP address associated with the specified Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes ip-view [-h] [--order-by {}]
+    	[--order {asc,desc}] linodeId address
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes ip-view 123 97.107.143.141
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The ID of the Linode.
+    * - :code:`address`
+      - string
+      - The IP address.
+
+
+------------
+
+.. _linodes_ips-list:
+
+`ips-list <https://techdocs.akamai.com/linode-api/reference/get-linode-ips>`_
+-----------------------------------------------------------------------------
+
+
+Returns networking information for a single Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes ips-list [-h]
+    	[--ipv4.vpc.config_id ipv4.vpc.config_id]
+    	[--ipv4.vpc.linode_id ipv4.vpc.linode_id]
+    	[--ipv4.vpc.region ipv4.vpc.region]
+    	[--ipv4.vpc.active ipv4.vpc.active]
+    	[--ipv4.vpc.vpc_id ipv4.vpc.vpc_id]
+    	[--ipv6.link_local.region ipv6.link_local.region]
+    	[--ipv6.slaac.region ipv6.slaac.region]
+    	[--order-by {ipv4.vpc.config_id,ipv4.vpc.linode_id,ipv4.vpc.region,ipv4.vpc.active,ipv4.vpc.vpc_id,ipv6.link_local.region,ipv6.slaac.region}]
+    	[--order {asc,desc}] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes ips-list 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+
+------------
+
+.. _linodes_linode-reset-password:
+
+`linode-reset-password <https://techdocs.akamai.com/linode-api/reference/post-reset-linode-password>`_
+------------------------------------------------------------------------------------------------------
+
+
+Resets the root password for this Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes linode-reset-password [-h]
+    	[--root_pass root_pass] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes linode-reset-password 123 a$eCure4assw0rd!43v51
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode for which to reset its root password.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+:action-subheading-description:`Additional fields used to execute this request.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 10 65
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--root_pass`
+      - :action-argument-required:`Yes`
+      - string
+      - The root user's password on this Linode.
+
+
+------------
+
+.. _linodes_transfer-view:
+
+`transfer-view <https://techdocs.akamai.com/linode-api/reference/get-linode-transfer>`_
+---------------------------------------------------------------------------------------
+
+
+Returns a Linode's network transfer pool statistics for the current month.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes transfer-view [-h] [--order-by {}]
+    	[--order {asc,desc}] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes transfer-view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+
+
+.. _linodes_type-view:
+
+`type-view <https://techdocs.akamai.com/linode-api/reference/get-linode-type>`_
+-------------------------------------------------------------------------------
+
+
+Returns information about a specific Linode Type, including pricing and specifications.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+:action-subheading-description:`The format accepted by this command.`
+
+..  code-block:: bash
+
+    linode-cli linodes type-view [-h] [--network_out network_out]
+    	[--memory memory] [--disk disk] [--class class] [--gpus gpus]
+    	[--vcpus vcpus] [--transfer transfer] [--label label]
+    	[--order-by {network_out,memory,disk,class,gpus,vcpus,transfer,label}]
+    	[--order {asc,desc}] typeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+:action-subheading-description:`Examples of how this command might be used.`
+
+
+..  code-block:: bash
+
+    linode-cli linodes type-view g6-standard-2
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`typeId`
+      - string
+      - The ID of the Linode Type to look up.
+
+
+
