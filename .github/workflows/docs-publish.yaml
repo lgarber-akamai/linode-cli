@@ -6,7 +6,7 @@ on:
 
 jobs:
   publish:
-    name: Publish the documentation
+    name: Publish Documentation
     runs-on: ubuntu-latest
 
     # Deploy to the github-pages environment
@@ -21,7 +21,6 @@ jobs:
     permissions:
       pages: write
       id-token: write
-    if: (github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'dev' || github.ref_name == 'new/doc-generation' )) || (github.ref_type == 'tag')
     steps:
       - name: Checkout the documentation branch
         uses: actions/checkout@v4
