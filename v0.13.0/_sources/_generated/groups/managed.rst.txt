@@ -1,0 +1,1887 @@
+.. role:: action-argument-required
+
+Managed
+=======
+
+This section details Managed-related Linode CLI commands.
+
+.. _commands_managed_contact-view:
+
+`contact-view <https://techdocs.akamai.com/linode-api/reference/get-managed-contact>`_
+--------------------------------------------------------------------------------------
+
+
+Returns a single Managed Contact.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed contact-view [-h] [--group group]
+    	[--order-by {group}] [--order {asc,desc}] contactId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed contact-view 567
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`contactId`
+      - integer
+      - The ID of the contact to access.
+
+
+------------
+
+.. _commands_managed_contact-create:
+
+`contact-create <https://techdocs.akamai.com/linode-api/reference/post-managed-contact>`_
+-----------------------------------------------------------------------------------------
+
+
+Creates a Managed Contact.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed contact-create [-h] [--email email]
+    	[--name name] [--phone.primary primary]
+    	[--phone.secondary secondary] [--group group]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed contact-create \
+    	--name "John Doe" \
+    	--email "john.doe@example.org" \
+    	--phone.primary "123-456-7890"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--email`
+      - No
+      - string
+      - The address to email this Contact to alert them of issues.
+    * - :code:`--group`
+      - No
+      - string
+      - A grouping for this Contact.
+    * - :code:`--id`
+      - No
+      - integer
+      - This Contact's unique ID.
+    * - :code:`--name`
+      - No
+      - string
+      - The name of this Contact.
+    * - :code:`--updated`
+      - No
+      - string
+      - When this Contact was last updated.
+.. _commands_managed_contact-create_argument_sections_phone:
+
+.. cssclass:: action-argument-section-header
+
+    phone
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--phone.primary`
+      - No
+      - string
+      - This Contact's primary phone number.
+    * - :code:`--phone.secondary`
+      - No
+      - string
+      - This Contact's secondary phone number.
+
+
+------------
+
+.. _commands_managed_contact-update:
+
+`contact-update <https://techdocs.akamai.com/linode-api/reference/put-managed-contact>`_
+----------------------------------------------------------------------------------------
+
+
+Updates information about a Managed Contact.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed contact-update [-h] [--email email]
+    	[--name name] [--group group] [--phone.secondary secondary]
+    	[--phone.primary primary] contactId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed contact-update 567 \
+    	--name "John Doe" \
+    	--email "john.doe@example.org" \
+    	--phone.primary "123-456-7890"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`contactId`
+      - integer
+      - The ID of the contact to access.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--email`
+      - No
+      - string
+      - The address to email this Contact to alert them of issues.
+    * - :code:`--group`
+      - No
+      - string
+      - A grouping for this Contact.
+    * - :code:`--id`
+      - No
+      - integer
+      - This Contact's unique ID.
+    * - :code:`--name`
+      - No
+      - string
+      - The name of this Contact.
+    * - :code:`--updated`
+      - No
+      - string
+      - When this Contact was last updated.
+.. _commands_managed_contact-update_argument_sections_phone:
+
+.. cssclass:: action-argument-section-header
+
+    phone
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--phone.primary`
+      - No
+      - string
+      - This Contact's primary phone number.
+    * - :code:`--phone.secondary`
+      - No
+      - string
+      - This Contact's secondary phone number.
+
+
+------------
+
+.. _commands_managed_contact-delete:
+
+`contact-delete <https://techdocs.akamai.com/linode-api/reference/delete-managed-contact>`_
+-------------------------------------------------------------------------------------------
+
+
+Deletes a Managed Contact.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed contact-delete [-h] contactId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed contact-delete 567
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`contactId`
+      - integer
+      - The ID of the contact to access.
+
+
+------------
+
+.. _commands_managed_contacts-list:
+
+`contacts-list <https://techdocs.akamai.com/linode-api/reference/get-managed-contacts>`_
+----------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Managed Contacts on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed contacts-list [-h] [--group group]
+    	[--order-by {group}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed contacts-list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--group`
+      - *string*
+      - A grouping for this Contact.
+
+
+------------
+
+.. _commands_managed_credential-view:
+
+`credential-view <https://techdocs.akamai.com/linode-api/reference/get-managed-credential>`_
+--------------------------------------------------------------------------------------------
+
+
+Returns a single Managed Credential.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed credential-view [-h] [--order-by {}]
+    	[--order {asc,desc}] credentialId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-view 9991
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`credentialId`
+      - integer
+      - The ID of the Credential to access.
+
+
+------------
+
+.. _commands_managed_credential-create:
+
+`credential-create <https://techdocs.akamai.com/linode-api/reference/post-managed-credential>`_
+-----------------------------------------------------------------------------------------------
+
+
+Creates a Managed Credential.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed credential-create [-h] [--label label]
+    	[--username username] [--password password]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-create \
+    	--label prod-password-1 \
+    	--username johndoe \
+    	--password s3cur3P@ssw0rd
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The unique label for this Credential.
+    * - :code:`--password`
+      - :action-argument-required:`Yes`
+      - string
+      - The password to use when accessing the Managed Service.
+    * - :code:`--id`
+      - No
+      - integer
+      - This Credential's unique ID.
+    * - :code:`--last_decrypted`
+      - No
+      - string
+      - The date this Credential was last decrypted by a member of Linode special forces.
+    * - :code:`--username`
+      - No
+      - string
+      - The username to use when accessing the Managed Service.
+
+
+------------
+
+.. _commands_managed_credential-update:
+
+`credential-update <https://techdocs.akamai.com/linode-api/reference/put-managed-credential>`_
+----------------------------------------------------------------------------------------------
+
+
+Updates the label of a Managed Credential.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed credential-update [-h] [--label label]
+    	credentialId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-update 9991 \
+    	--label prod-password-1
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`credentialId`
+      - integer
+      - The ID of the Credential to access.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--id`
+      - No
+      - integer
+      - This Credential's unique ID.
+    * - :code:`--label`
+      - No
+      - string
+      - The unique label for this Credential.
+    * - :code:`--last_decrypted`
+      - No
+      - string
+      - The date this Credential was last decrypted by a member of Linode special forces.
+
+
+------------
+
+.. _commands_managed_credential-update-username-password:
+
+`credential-update-username-password <https://techdocs.akamai.com/linode-api/reference/post-managed-credential-username-password>`_
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+Updates the username and password for a Managed Credential.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed credential-update-username-password [-h]
+    	[--username username] [--password password] credentialId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-update-username-password 9991 \
+    	--username johndoe \
+    	--password s3cur3P@ssw0rd
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`credentialId`
+      - integer
+      - The ID of the Credential to update.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--password`
+      - :action-argument-required:`Yes`
+      - string
+      - The password to use when accessing the Managed Service.
+    * - :code:`--username`
+      - No
+      - string
+      - The username to use when accessing the Managed Service.
+
+
+------------
+
+.. _commands_managed_credential-revoke:
+
+`credential-revoke <https://techdocs.akamai.com/linode-api/reference/post-managed-credential-revoke>`_
+------------------------------------------------------------------------------------------------------
+
+
+Deletes a Managed Credential.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed credential-revoke [-h] credentialId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-revoke 9991
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`credentialId`
+      - integer
+      - The ID of the Credential to access.
+
+
+------------
+
+.. _commands_managed_credential-sshkey-view:
+
+`credential-sshkey-view <https://techdocs.akamai.com/linode-api/reference/get-managed-ssh-key>`_
+------------------------------------------------------------------------------------------------
+
+
+Returns the unique SSH public key assigned to your Linode account's Managed service.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed credential-sshkey-view [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-sshkey-view
+
+
+
+------------
+
+.. _commands_managed_credentials-list:
+
+`credentials-list <https://techdocs.akamai.com/linode-api/reference/get-managed-credentials>`_
+----------------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Managed Credentials on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed credentials-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed credentials-list
+
+
+
+------------
+
+.. _commands_managed_issue-view:
+
+`issue-view <https://techdocs.akamai.com/linode-api/reference/get-managed-issue>`_
+----------------------------------------------------------------------------------
+
+
+Returns a single Issue that is impacting or did impact one of your Managed Services.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed issue-view [-h] [--order-by {}]
+    	[--order {asc,desc}] issueId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed issue-view 823
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`issueId`
+      - integer
+      - The Issue to look up.
+
+
+------------
+
+.. _commands_managed_issues-list:
+
+`issues-list <https://techdocs.akamai.com/linode-api/reference/get-managed-issues>`_
+------------------------------------------------------------------------------------
+
+
+Returns a paginated list of recent and ongoing issues detected on your Managed Services.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed issues-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed issues-list
+
+
+
+------------
+
+.. _commands_managed_linode-setting-view:
+
+`linode-setting-view <https://techdocs.akamai.com/linode-api/reference/get-managed-linode-setting>`_
+----------------------------------------------------------------------------------------------------
+
+
+Returns a single Linode's Managed settings.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed linode-setting-view [-h] [--order-by {}]
+    	[--order {asc,desc}] linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed linode-setting-view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The Linode ID whose settings we are accessing.
+
+
+------------
+
+.. _commands_managed_linode-setting-update:
+
+`linode-setting-update <https://techdocs.akamai.com/linode-api/reference/put-managed-linode-setting>`_
+------------------------------------------------------------------------------------------------------
+
+
+Updates a single Linode's Managed settings.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed linode-setting-update [-h] [--ssh.ip ip]
+    	[--ssh.port port] [--ssh.user user] [--ssh.access access]
+    	linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed linode-setting-update \
+    	7833234 \
+    	--ssh.access true \
+    	--ssh.user linode \
+    	--ssh.port 22 \
+    	--ssh.ip 203.0.113.1
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The Linode ID whose settings we are accessing.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--group`
+      - No
+      - string
+      - The group of the Linode these Settings are for.
+    * - :code:`--id`
+      - No
+      - integer
+      - The ID of the Linode these Settings are for.
+    * - :code:`--label`
+      - No
+      - string
+      - The label of the Linode these Settings are for.
+.. _commands_managed_linode-setting-update_argument_sections_ssh:
+
+.. cssclass:: action-argument-section-header
+
+    ssh
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--ssh.access`
+      - No
+      - boolean
+      - If true, Linode special forces may access this Linode over ssh to respond to Issues.
+    * - :code:`--ssh.ip`
+      - No
+      - string
+      - The IP Linode special forces should use to access this Linode when responding to an Issue.
+    * - :code:`--ssh.port`
+      - No
+      - integer
+      - The port Linode special forces should use to access this Linode over ssh to respond to an Issue.
+    * - :code:`--ssh.user`
+      - No
+      - string
+      - The specific user, if any, Linode's special forces should use when accessing this Linode to respond to an issue.
+
+
+------------
+
+.. _commands_managed_linode-settings-list:
+
+`linode-settings-list <https://techdocs.akamai.com/linode-api/reference/get-managed-linode-settings>`_
+------------------------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Managed Settings for your Linodes.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed linode-settings-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed linode-settings-list
+
+
+
+------------
+
+.. _commands_managed_service-view:
+
+`service-view <https://techdocs.akamai.com/linode-api/reference/get-managed-service>`_
+--------------------------------------------------------------------------------------
+
+
+Returns information about a single Managed Service on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed service-view [-h] [--order-by {}]
+    	[--order {asc,desc}] serviceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed service-view 9994
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`serviceId`
+      - integer
+      - The ID of the Managed Service to access.
+
+
+------------
+
+.. _commands_managed_service-create:
+
+`service-create <https://techdocs.akamai.com/linode-api/reference/post-managed-service>`_
+-----------------------------------------------------------------------------------------
+
+
+Creates a Managed Service.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed service-create [-h]
+    	[--credentials credentials]
+    	[--consultation_group consultation_group] [--region region]
+    	[--service_type service_type] [--timeout timeout]
+    	[--label label] [--notes notes] [--address address]
+    	[--body body]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed service-create \
+    	--service_type url \
+    	--label prod-1 \
+    	--address "https://example.org" \
+    	--timeout 30 \
+    	--body "it worked" \
+    	--consultation_group on-call \
+    	--notes "The service name is \
+    		my-cool-application" \
+    	--credentials 9991
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--address`
+      - :action-argument-required:`Yes`
+      - string
+      - The URL at which this Service is monitored.
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The label for this Service.
+    * - :code:`--service_type`
+      - :action-argument-required:`Yes`
+      - string
+      - How this Service is monitored.
+    * - :code:`--timeout`
+      - :action-argument-required:`Yes`
+      - integer
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+    * - :code:`--body`
+      - No
+      - string
+      - What to expect to find in the response body for the Service to be considered up.
+    * - :code:`--consultation_group`
+      - No
+      - string
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+    * - :code:`--created`
+      - No
+      - string
+      - When this Managed Service was created.
+    * - :code:`--credentials`
+      - No
+      - array[integer]
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+    * - :code:`--id`
+      - No
+      - integer
+      - This Service's unique ID.
+    * - :code:`--notes`
+      - No
+      - string
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+    * - :code:`--region`
+      - No
+      - string
+      - The Region in which this Service is located.
+    * - :code:`--status`
+      - No
+      - string
+      - The current status of this Service.
+    * - :code:`--updated`
+      - No
+      - string
+      - When this Managed Service was last updated.
+
+
+------------
+
+.. _commands_managed_service-update:
+
+`service-update <https://techdocs.akamai.com/linode-api/reference/put-managed-service>`_
+----------------------------------------------------------------------------------------
+
+
+Updates information about a Managed Service.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed service-update [-h] [--region region]
+    	[--service_type service_type] [--credentials credentials]
+    	[--consultation_group consultation_group] [--address address]
+    	[--notes notes] [--body body] [--timeout timeout]
+    	[--label label] serviceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed service-update 9994 \
+    	--service_type url \
+    	--label prod-1 \
+    	--address "https://example.org" \
+    	--timeout 30 \
+    	--body "it worked" \
+    	--consultation_group on-call \
+    	--notes "The service name is my-cool-application" \
+    	--credentials 9991
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`serviceId`
+      - integer
+      - The ID of the Managed Service to access.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--address`
+      - No
+      - string
+      - The URL at which this Service is monitored.
+    * - :code:`--body`
+      - No
+      - string
+      - What to expect to find in the response body for the Service to be considered up.
+    * - :code:`--consultation_group`
+      - No
+      - string
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+    * - :code:`--created`
+      - No
+      - string
+      - When this Managed Service was created.
+    * - :code:`--credentials`
+      - No
+      - array[integer]
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+    * - :code:`--id`
+      - No
+      - integer
+      - This Service's unique ID.
+    * - :code:`--label`
+      - No
+      - string
+      - The label for this Service.
+    * - :code:`--notes`
+      - No
+      - string
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+    * - :code:`--region`
+      - No
+      - string
+      - The Region in which this Service is located.
+    * - :code:`--service_type`
+      - No
+      - string
+      - How this Service is monitored.
+    * - :code:`--status`
+      - No
+      - string
+      - The current status of this Service.
+    * - :code:`--timeout`
+      - No
+      - integer
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+    * - :code:`--updated`
+      - No
+      - string
+      - When this Managed Service was last updated.
+
+
+------------
+
+.. _commands_managed_service-delete:
+
+`service-delete <https://techdocs.akamai.com/linode-api/reference/delete-managed-service>`_
+-------------------------------------------------------------------------------------------
+
+
+Deletes a Managed Service.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed service-delete [-h] serviceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed service-delete 9994
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`serviceId`
+      - integer
+      - The ID of the Managed Service to access.
+
+
+------------
+
+.. _commands_managed_service-disable:
+
+`service-disable <https://techdocs.akamai.com/linode-api/reference/post-disable-managed-service>`_
+--------------------------------------------------------------------------------------------------
+
+
+Temporarily disables monitoring of a Managed Service.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed service-disable [-h] serviceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed service-disable 9994
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`serviceId`
+      - integer
+      - The ID of the Managed Service to disable.
+
+
+------------
+
+.. _commands_managed_service-enable:
+
+`service-enable <https://techdocs.akamai.com/linode-api/reference/post-enable-managed-service>`_
+------------------------------------------------------------------------------------------------
+
+
+Enables monitoring of a Managed Service.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed service-enable [-h] serviceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed service-enable 9994
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`serviceId`
+      - integer
+      - The ID of the Managed Service to enable.
+
+
+------------
+
+.. _commands_managed_services-list:
+
+`services-list <https://techdocs.akamai.com/linode-api/reference/get-managed-services>`_
+----------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Managed Services on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed services-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed services-list
+
+
+
+
+.. _commands_managed_stats-list:
+
+`stats-list <https://techdocs.akamai.com/linode-api/reference/get-managed-stats>`_
+----------------------------------------------------------------------------------
+
+
+Returns a list of Managed Stats on your Account in the form of x and y data points.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli managed stats-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli managed stats-list
+
+
+
+

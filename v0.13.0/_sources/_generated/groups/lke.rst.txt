@@ -1,0 +1,1930 @@
+.. role:: action-argument-required
+
+LKE
+===
+
+This section details LKE-related Linode CLI commands.
+
+.. _commands_lke_regenerate:
+
+`regenerate <https://techdocs.akamai.com/linode-api/reference/post-lke-cluster-regenerate>`_
+--------------------------------------------------------------------------------------------
+
+
+Regenerate the Kubeconfig file and/or the service account token for a Cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke regenerate [-h] [--kubeconfig kubeconfig]
+    	[--servicetoken servicetoken] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke regenerate 12345 \
+    	--kubeconfig true \
+    	--servicetoken true
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the target Kubernetes cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--kubeconfig`
+      - No
+      - boolean
+      - Whether to delete and regenerate the Kubeconfig file for this Cluster.
+    * - :code:`--servicetoken`
+      - No
+      - boolean
+      - Whether to delete and regenerate the service access token for this Cluster.
+
+
+------------
+
+.. _commands_lke_api-endpoints-list:
+
+`api-endpoints-list <https://techdocs.akamai.com/linode-api/reference/get-lke-cluster-api-endpoints>`_
+------------------------------------------------------------------------------------------------------
+
+
+List the Kubernetes API server endpoints for this cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke api-endpoints-list [-h] [--order-by {}]
+    	[--order {asc,desc}] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke api-endpoints-list 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+
+
+------------
+
+.. _commands_lke_cluster-view:
+
+`cluster-view <https://techdocs.akamai.com/linode-api/reference/get-lke-cluster>`_
+----------------------------------------------------------------------------------
+
+
+Get a specific Cluster by ID.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke cluster-view [-h] [--label label]
+    	[--k8s_version k8s_version] [--region region] [--tags [tags] ]
+    	[--order-by {label,k8s_version,region,tags}]
+    	[--order {asc,desc}] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke cluster-view 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+
+
+------------
+
+.. _commands_lke_cluster-create:
+
+`cluster-create <https://techdocs.akamai.com/linode-api/reference/post-lke-cluster>`_
+-------------------------------------------------------------------------------------
+
+
+Creates a Kubernetes cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke cluster-create [-h] [--tags tags]
+    	[--region region] [--label label]
+    	[--control_plane.high_availability high_availability]
+    	[--k8s_version k8s_version] [--node_pools node_pools]
+    	[--node_pools.taints taints] [--node_pools.disks disks]
+    	[--node_pools.count count] [--node_pools.tags tags]
+    	[--node_pools.type type] [--node_pools.labels.value value]
+    	[--node_pools.labels.key key]
+    	[--node_pools.autoscaler.enabled enabled]
+    	[--node_pools.autoscaler.max max]
+    	[--node_pools.autoscaler.min min]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke cluster-create \
+    	--label cluster12345 \
+    	--region us-central \
+    	--k8s_version 1.27 \
+    	--control_plane.high_availability true \
+    	--node_pools.type g6-standard-4 --node_pools.count 6 \
+    	--node_pools.type g6-standard-8 --node_pools.count 3 \
+    	--node_pools.autoscaler.enabled true \
+    	--node_pools.autoscaler.max 12 \
+    	--node_pools.autoscaler.min 3 \
+    	--tags ecomm
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--k8s_version`
+      - :action-argument-required:`Yes`
+      - string
+      - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - This Kubernetes cluster's unique label for display purposes only.
+    * - :code:`--region`
+      - :action-argument-required:`Yes`
+      - string
+      - This Kubernetes cluster's location.
+    * - :code:`--node_pools`
+        :ref:`(section) <commands_lke_cluster-create_argument_sections_node_pools>`
+      - No
+      - object
+      - Specifies a collection of Linodes which will be members of a Kubernetes cluster.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of tags applied to the Kubernetes cluster.
+.. _commands_lke_cluster-create_argument_sections_control_plane:
+
+.. cssclass:: action-argument-section-header
+
+    control_plane
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--control_plane.high_availability`
+      - No
+      - boolean
+      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
+.. _commands_lke_cluster-create_argument_sections_node_pools:
+
+.. cssclass:: action-argument-section-header
+
+    node_pools
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--node_pools.count`
+      - :action-argument-required:`Yes`
+      - integer
+      - The number of nodes in the Node Pool.
+    * - :code:`--node_pools.type`
+      - :action-argument-required:`Yes`
+      - string
+      - The Linode Type for all of the nodes in the Node Pool.
+    * - :code:`--node_pools.disks`
+      - No
+      - object
+      - This Node Pool's custom disk layout.
+    * - :code:`--node_pools.tags`
+      - No
+      - object
+      - An array of tags applied to this object.
+    * - :code:`--node_pools.taints`
+      - No
+      - object
+      - Kubernetes taints to add to node pool nodes.
+.. _commands_lke_cluster-create_argument_sections_node_pools.autoscaler:
+
+.. cssclass:: action-argument-section-header
+
+    node_pools.autoscaler
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--node_pools.autoscaler.enabled`
+      - No
+      - boolean
+      - Whether autoscaling is enabled for this Node Pool.
+    * - :code:`--node_pools.autoscaler.max`
+      - No
+      - integer
+      - The maximum number of nodes to autoscale to.
+    * - :code:`--node_pools.autoscaler.min`
+      - No
+      - integer
+      - The minimum number of nodes to autoscale to.
+.. _commands_lke_cluster-create_argument_sections_node_pools.labels:
+
+.. cssclass:: action-argument-section-header
+
+    node_pools.labels
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--node_pools.labels.key`
+      - No
+      - string
+      - The Kubernetes label key.
+    * - :code:`--node_pools.labels.value`
+      - No
+      - string
+      - The Kubernetes label value.
+
+
+------------
+
+.. _commands_lke_cluster-update:
+
+`cluster-update <https://techdocs.akamai.com/linode-api/reference/put-lke-cluster>`_
+------------------------------------------------------------------------------------
+
+
+Updates a Kubernetes cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke cluster-update [-h] [--label label]
+    	[--k8s_version k8s_version]
+    	[--control_plane.high_availability high_availability]
+    	[--tags tags] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke cluster-update 12345 \
+    	--label lkecluster54321 \
+    	--control_plane.high_availability true \
+    	--k8s_version 1.27 \
+    	--tags ecomm \
+    	--tags blog \
+    	--tags prod \
+    	--tags monitoring
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--k8s_version`
+      - No
+      - string
+      - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>.
+    * - :code:`--label`
+      - No
+      - string
+      - This Kubernetes cluster's unique label for display purposes only.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of tags applied to the Kubernetes cluster.
+.. _commands_lke_cluster-update_argument_sections_control_plane:
+
+.. cssclass:: action-argument-section-header
+
+    control_plane
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--control_plane.high_availability`
+      - No
+      - boolean
+      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
+
+
+------------
+
+.. _commands_lke_cluster-delete:
+
+`cluster-delete <https://techdocs.akamai.com/linode-api/reference/delete-lke-cluster>`_
+---------------------------------------------------------------------------------------
+
+
+Deletes a Cluster you have permission to :code:`read_write`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke cluster-delete [-h] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke cluster-delete 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+
+
+------------
+
+.. _commands_lke_cluster-dashboard-url:
+
+`cluster-dashboard-url <https://techdocs.akamai.com/linode-api/reference/get-lke-cluster-dashboard>`_
+-----------------------------------------------------------------------------------------------------
+
+
+Get a [Kubernetes Dashboard](https://github.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke cluster-dashboard-url [-h] [--order-by {}]
+    	[--order {asc,desc}] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke cluster-dashboard-url 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+
+
+------------
+
+.. _commands_lke_cluster-nodes-recycle:
+
+`cluster-nodes-recycle <https://techdocs.akamai.com/linode-api/reference/post-lke-cluster-recycle>`_
+----------------------------------------------------------------------------------------------------
+
+
+Recycles all nodes in all pools of a designated Kubernetes Cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke cluster-nodes-recycle [-h] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke cluster-nodes-recycle 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster which contains nodes to be recycled.
+
+
+------------
+
+.. _commands_lke_clusters-list:
+
+`clusters-list <https://techdocs.akamai.com/linode-api/reference/get-lke-clusters>`_
+------------------------------------------------------------------------------------
+
+
+Lists current Kubernetes clusters available on your account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke clusters-list [-h] [--k8s_version k8s_version]
+    	[--label label] [--region region] [--tags [tags] ]
+    	[--order-by {k8s_version,label,region,tags}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke clusters-list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--k8s_version`
+      - *string*
+      - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
+    * - :code:`--label`
+      - *string*
+      - This Kubernetes cluster's unique label for display purposes only.
+    * - :code:`--region`
+      - *string*
+      - This Kubernetes cluster's location.
+    * - :code:`--tags`
+      - *array[string]*
+      - An array of tags applied to the Kubernetes cluster.
+
+
+------------
+
+.. _commands_lke_kubeconfig-view:
+
+`kubeconfig-view <https://techdocs.akamai.com/linode-api/reference/get-lke-cluster-kubeconfig>`_
+------------------------------------------------------------------------------------------------
+
+
+Get the Kubeconfig file for a Cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke kubeconfig-view [-h] [--order-by {}]
+    	[--order {asc,desc}] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke kubeconfig-view 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+
+
+------------
+
+.. _commands_lke_kubeconfig-delete:
+
+`kubeconfig-delete <https://techdocs.akamai.com/linode-api/reference/delete-lke-cluster-kubeconfig>`_
+-----------------------------------------------------------------------------------------------------
+
+
+Delete and regenerate the Kubeconfig file for a Cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke kubeconfig-delete [-h] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke kubeconfig-delete 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+
+
+------------
+
+.. _commands_lke_node-view:
+
+`node-view <https://techdocs.akamai.com/linode-api/reference/get-lke-cluster-node>`_
+------------------------------------------------------------------------------------
+
+
+Returns the values for a specified node object.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke node-view [-h] [--order-by {}]
+    	[--order {asc,desc}] clusterId nodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke node-view 123456 12345-6aa78910bc
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster containing the Node.
+    * - :code:`nodeId`
+      - integer
+      - The ID of the Node to access.
+
+
+------------
+
+.. _commands_lke_node-delete:
+
+`node-delete <https://techdocs.akamai.com/linode-api/reference/delete-lke-cluster-node>`_
+-----------------------------------------------------------------------------------------
+
+
+Deletes a specific Node from a Node Pool.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke node-delete [-h] clusterId nodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke node-delete 12345 12345-6aa78910bc
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster containing the Node.
+    * - :code:`nodeId`
+      - integer
+      - The ID of the Node to access.
+
+
+------------
+
+.. _commands_lke_node-recycle:
+
+`node-recycle <https://techdocs.akamai.com/linode-api/reference/post-lke-cluster-node-recycle>`_
+------------------------------------------------------------------------------------------------
+
+
+Recycles an individual Node in the designated Kubernetes Cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke node-recycle [-h] clusterId nodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke node-recycle 12345 12345-6aa78910bc
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster containing the Node.
+    * - :code:`nodeId`
+      - string
+      - ID of the Node to be recycled.
+
+
+------------
+
+.. _commands_lke_pool-view:
+
+`pool-view <https://techdocs.akamai.com/linode-api/reference/get-lke-node-pool>`_
+---------------------------------------------------------------------------------
+
+
+Get a specific Node Pool by ID.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke pool-view [-h] [--id id] [--tags [tags] ]
+    	[--order-by {id,tags}] [--order {asc,desc}] clusterId poolId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke pool-view 12345 456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+    * - :code:`poolId`
+      - integer
+      - ID of the Pool to look up.
+
+
+------------
+
+.. _commands_lke_pool-create:
+
+`pool-create <https://techdocs.akamai.com/linode-api/reference/post-lke-cluster-pools>`_
+----------------------------------------------------------------------------------------
+
+
+Creates a new Node Pool for the designated Kubernetes cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke pool-create [-h] [--labels.key key]
+    	[--labels.value value] [--type type] [--autoscaler.max max]
+    	[--autoscaler.min min] [--autoscaler.enabled enabled]
+    	[--count count] [--disks disks] [--taints taints] [--tags tags]
+    	clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke pool-create 12345 \
+    	--type g6-standard-4 \
+    	--count 6 \
+    	--tags example-tag \
+    	--autoscaler.enabled true \
+    	--autoscaler.max 12 \
+    	--autoscaler.min 3
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--count`
+      - :action-argument-required:`Yes`
+      - integer
+      - The number of nodes in the Node Pool.
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - The Linode Type for all of the nodes in the Node Pool.
+    * - :code:`--disks`
+      - No
+      - object
+      - This Node Pool's custom disk layout.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of tags applied to this object.
+    * - :code:`--taints`
+      - No
+      - array
+      - Kubernetes taints to add to node pool nodes.
+.. _commands_lke_pool-create_argument_sections_autoscaler:
+
+.. cssclass:: action-argument-section-header
+
+    autoscaler
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--autoscaler.enabled`
+      - No
+      - boolean
+      - Whether autoscaling is enabled for this Node Pool.
+    * - :code:`--autoscaler.max`
+      - No
+      - integer
+      - The maximum number of nodes to autoscale to.
+    * - :code:`--autoscaler.min`
+      - No
+      - integer
+      - The minimum number of nodes to autoscale to.
+.. _commands_lke_pool-create_argument_sections_labels:
+
+.. cssclass:: action-argument-section-header
+
+    labels
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--labels.key`
+      - No
+      - string
+      - The Kubernetes label key.
+    * - :code:`--labels.value`
+      - No
+      - string
+      - The Kubernetes label value.
+
+
+------------
+
+.. _commands_lke_pool-update:
+
+`pool-update <https://techdocs.akamai.com/linode-api/reference/put-lke-node-pool>`_
+-----------------------------------------------------------------------------------
+
+
+Updates a node pool's count, labels and taints, and autoscaler configuration.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke pool-update [-h] [--labels.value value]
+    	[--labels.key key] [--autoscaler.enabled enabled]
+    	[--autoscaler.min min] [--autoscaler.max max] [--count count]
+    	[--taints taints] clusterId poolId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke pool-update 12345 456 \
+    	--count 6 \
+    	--autoscaler.enabled true \
+    	--autoscaler.max 12 \
+    	--autoscaler.min 3
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+    * - :code:`poolId`
+      - integer
+      - ID of the Pool to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--count`
+      - No
+      - integer
+      - The number of nodes in the Node Pool.
+    * - :code:`--taints`
+      - No
+      - array
+      - Kubernetes taints to add to node pool nodes.
+.. _commands_lke_pool-update_argument_sections_autoscaler:
+
+.. cssclass:: action-argument-section-header
+
+    autoscaler
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--autoscaler.enabled`
+      - No
+      - boolean
+      - Whether autoscaling is enabled for this Node Pool.
+    * - :code:`--autoscaler.max`
+      - No
+      - integer
+      - The maximum number of nodes to autoscale to.
+    * - :code:`--autoscaler.min`
+      - No
+      - integer
+      - The minimum number of nodes to autoscale to.
+.. _commands_lke_pool-update_argument_sections_labels:
+
+.. cssclass:: action-argument-section-header
+
+    labels
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--labels.key`
+      - No
+      - string
+      - The Kubernetes label key.
+    * - :code:`--labels.value`
+      - No
+      - string
+      - The Kubernetes label value.
+
+
+------------
+
+.. _commands_lke_pool-delete:
+
+`pool-delete <https://techdocs.akamai.com/linode-api/reference/delete-lke-node-pool>`_
+--------------------------------------------------------------------------------------
+
+
+Delete a specific Node Pool from a Kubernetes cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke pool-delete [-h] clusterId poolId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke pool-delete 12345 456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+    * - :code:`poolId`
+      - integer
+      - ID of the Pool to look up.
+
+
+------------
+
+.. _commands_lke_pool-recycle:
+
+`pool-recycle <https://techdocs.akamai.com/linode-api/reference/post-lke-cluster-pool-recycle>`_
+------------------------------------------------------------------------------------------------
+
+
+Recycles a Node Pool for the designated Kubernetes Cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke pool-recycle [-h] clusterId poolId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke pool-recycle 12345 456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster this Node Pool is attached to.
+    * - :code:`poolId`
+      - integer
+      - ID of the Node Pool to be recycled.
+
+
+------------
+
+.. _commands_lke_pools-list:
+
+`pools-list <https://techdocs.akamai.com/linode-api/reference/get-lke-cluster-pools>`_
+--------------------------------------------------------------------------------------
+
+
+Returns all active Node Pools on a Kubernetes cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke pools-list [-h] [--order-by {}]
+    	[--order {asc,desc}] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke pools-list 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the Kubernetes cluster to look up.
+
+
+------------
+
+.. _commands_lke_service-token-delete:
+
+`service-token-delete <https://techdocs.akamai.com/linode-api/reference/delete-lke-service-token>`_
+---------------------------------------------------------------------------------------------------
+
+
+Delete and regenerate the service account token for a Cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke service-token-delete [-h] clusterId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke service-token-delete 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clusterId`
+      - integer
+      - ID of the target Kubernetes cluster.
+
+
+------------
+
+.. _commands_lke_version-view:
+
+`version-view <https://techdocs.akamai.com/linode-api/reference/get-lke-version>`_
+----------------------------------------------------------------------------------
+
+
+View a Kubernetes version available for deployment to a Kubernetes cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke version-view [-h] [--order-by {}]
+    	[--order {asc,desc}] version
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke version-view 1.27
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`version`
+      - string
+      - The LKE version to view.
+
+
+
+.. _commands_lke_versions-list:
+
+`versions-list <https://techdocs.akamai.com/linode-api/reference/get-lke-versions>`_
+------------------------------------------------------------------------------------
+
+
+List the Kubernetes versions available for deployment to a Kubernetes cluster.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli lke versions-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli lke versions-list
+
+
+
+
