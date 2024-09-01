@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 Users
@@ -7,147 +5,7 @@ Users
 
 This section details User-related Linode CLI commands.
 
-.. _users_create:
-
-`create <https://techdocs.akamai.com/linode-api/reference/post-user>`_
-----------------------------------------------------------------------
-
-
-Creates a user on your account.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli users create [-h] [--username username]
-    	[--restricted restricted] [--email email]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli users create \
-    	--username example_user \
-    	--email example_user@linode.com \
-    	--restricted true
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-:action-subheading-description:`Additional fields used to execute this request.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 10 65
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--email`
-      - :action-argument-required:`Yes`
-      - string
-      - The email address for the User.
-    * - :code:`--username`
-      - :action-argument-required:`Yes`
-      - string
-      - The User's username.
-    * - :code:`--last_login`
-      - No
-      - object
-      - Information for the most recent login attempt for this User.
-    * - :code:`--password_created`
-      - No
-      - string
-      - The date and time when this User's current password was created.
-    * - :code:`--restricted`
-      - No
-      - boolean
-      - If true, the User must be granted access to perform actions or access entities on this Account.
-    * - :code:`--ssh_keys`
-      - No
-      - array[string]
-      - A list of SSH Key labels added by this User.
-    * - :code:`--tfa_enabled`
-      - No
-      - boolean
-      - A boolean value indicating if the User has Two Factor Authentication (TFA) enabled.
-    * - :code:`--verified_phone_number`
-      - No
-      - string
-      - The phone number verified for this User Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
-
-
-------------
-
-.. _users_delete:
-
-`delete <https://techdocs.akamai.com/linode-api/reference/delete-user>`_
-------------------------------------------------------------------------
-
-
-Deletes a user.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli users delete [-h] username
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli users delete example_user
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`username`
-      - string
-      - The username to look up.
-
-
-------------
-
-.. _users_list:
+.. _commands_users_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-users>`_
 --------------------------------------------------------------------
@@ -159,7 +17,10 @@ Returns a paginated list of all users on your account.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -171,7 +32,9 @@ Returns a paginated list of all users on your account.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -179,9 +42,17 @@ Returns a paginated list of all users on your account.
     linode-cli users list
 
 
-.. rubric:: Filterable Attributes
+.. cssclass:: action-subheading
 
-`Arguments used to define a filter for response entries.`
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
@@ -199,7 +70,168 @@ Returns a paginated list of all users on your account.
 
 ------------
 
-.. _users_update:
+.. _commands_users_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-user>`_
+-------------------------------------------------------------------
+
+
+Returns information about a single user on your account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli users view [-h] [--username username]
+    	[--order-by {username}] [--order {asc,desc}] username
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli users view example_user
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`username`
+      - string
+      - The username to look up.
+
+
+------------
+
+.. _commands_users_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-user>`_
+----------------------------------------------------------------------
+
+
+Creates a user on your account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli users create [-h] [--username username]
+    	[--restricted restricted] [--email email]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli users create \
+    	--username example_user \
+    	--email example_user@linode.com \
+    	--restricted true
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--email`
+      - :action-argument-required:`Yes`
+      - string
+      - The email address for the User.
+    * - :code:`--username`
+      - :action-argument-required:`Yes`
+      - string
+      - The User's username.
+    * - :code:`--last_login`
+      - No
+      - object
+      - Information for the most recent login attempt for this User.
+    * - :code:`--password_created`
+      - No
+      - string
+      - The date and time when this User's current password was created.
+    * - :code:`--restricted`
+      - No
+      - boolean
+      - If true, the User must be granted access to perform actions or access entities on this Account.
+    * - :code:`--ssh_keys`
+      - No
+      - array[string]
+      - A list of SSH Key labels added by this User.
+    * - :code:`--tfa_enabled`
+      - No
+      - boolean
+      - A boolean value indicating if the User has Two Factor Authentication (TFA) enabled.
+    * - :code:`--verified_phone_number`
+      - No
+      - string
+      - The phone number verified for this User Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
+
+
+------------
+
+.. _commands_users_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-user>`_
 ---------------------------------------------------------------------
@@ -211,7 +243,10 @@ Update information about a user on your account, including its restricted status
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -223,7 +258,9 @@ Update information about a user on your account, including its restricted status
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -238,7 +275,12 @@ Update information about a user on your account, including its restricted status
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -257,12 +299,17 @@ Update information about a user on your account, including its restricted status
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -304,43 +351,52 @@ Update information about a user on your account, including its restricted status
 
 
 
-.. _users_view:
+.. _commands_users_delete:
 
-`view <https://techdocs.akamai.com/linode-api/reference/get-user>`_
--------------------------------------------------------------------
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-user>`_
+------------------------------------------------------------------------
 
 
-Returns information about a single user on your account.
+Deletes a user.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli users view [-h] [--username username]
-    	[--order-by {username}] [--order {asc,desc}] username
+    linode-cli users delete [-h] username
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli users view example_user
+    linode-cli users delete example_user
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1

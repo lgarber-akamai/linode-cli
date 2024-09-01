@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 Firewalls
@@ -7,170 +5,7 @@ Firewalls
 
 This section details Firewall-related Linode CLI commands.
 
-.. _firewalls_create:
-
-`create <https://techdocs.akamai.com/linode-api/reference/post-firewalls>`_
----------------------------------------------------------------------------
-
-
-Creates a Firewall to filter network traffic.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli firewalls create [-h] [--rules.inbound inbound]
-    	[--rules.outbound outbound]
-    	[--rules.inbound_policy inbound_policy]
-    	[--rules.outbound_policy outbound_policy]
-    	[--devices.linodes linodes]
-    	[--devices.nodebalancers nodebalancers] [--label label]
-    	[--tags tags]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli firewalls create \
-    	--label example-firewall \
-    	--rules.outbound_policy ACCEPT \
-    	--rules.inbound_policy DROP \
-    	--rules.inbound '[{"protocol": "TCP", "ports": "22, 80, 8080, 443", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"], "ipv6": ["2001:DB8::/128"]}, "action": "ACCEPT"}]' \
-    	--rules.outbound '[{"protocol": "TCP", "ports": "49152-65535", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"],"ipv6": ["2001:DB8::/128"]}, "action": "DROP", "label": "outbound-rule123", "description": "An example outbound rule description."}]'
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-:action-subheading-description:`Additional fields used to execute this request.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 10 65
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
-      - The Firewall's label, for display purposes only.
-    * - :code:`--rules.inbound_policy`
-      - :action-argument-required:`Yes`
-      - string
-      - The default behavior for inbound traffic.
-    * - :code:`--rules.outbound_policy`
-      - :action-argument-required:`Yes`
-      - string
-      - The default behavior for outbound traffic.
-    * - :code:`--created`
-      - No
-      - string
-      - When this Firewall was created.
-    * - :code:`--devices.linodes`
-      - No
-      - array[integer]
-      - An array of Linode IDs.
-    * - :code:`--devices.nodebalancers`
-      - No
-      - array[integer]
-      - An array containing a NodeBalancer ID.
-    * - :code:`--id`
-      - No
-      - integer
-      - The Firewall's unique ID.
-    * - :code:`--rules.inbound`
-      - No
-      - object
-      - The inbound rules for the firewall, as a JSON array.
-    * - :code:`--rules.outbound`
-      - No
-      - object
-      - The outbound rules for the firewall, as a JSON array.
-    * - :code:`--status`
-      - No
-      - string
-      - The status of this Firewall.
-    * - :code:`--tags`
-      - No
-      - array[string]
-      - An array of tags applied to this object.
-    * - :code:`--updated`
-      - No
-      - string
-      - When this Firewall was last updated.
-
-
-------------
-
-.. _firewalls_delete:
-
-`delete <https://techdocs.akamai.com/linode-api/reference/delete-firewall>`_
-----------------------------------------------------------------------------
-
-
-Delete a Firewall resource by its ID.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli firewalls delete [-h] firewallId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli firewalls delete 123
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`firewallId`
-      - integer
-      - ID of the Firewall to access.
-
-
-------------
-
-.. _firewalls_list:
+.. _commands_firewalls_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-firewalls>`_
 ------------------------------------------------------------------------
@@ -182,7 +17,10 @@ Returns a paginated list of accessible Firewalls.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -196,7 +34,9 @@ Returns a paginated list of accessible Firewalls.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -204,9 +44,17 @@ Returns a paginated list of accessible Firewalls.
     linode-cli firewalls list
 
 
-.. rubric:: Filterable Attributes
+.. cssclass:: action-subheading
 
-`Arguments used to define a filter for response entries.`
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
@@ -236,7 +84,229 @@ Returns a paginated list of accessible Firewalls.
 
 ------------
 
-.. _firewalls_update:
+.. _commands_firewalls_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-firewall>`_
+-----------------------------------------------------------------------
+
+
+Get a specific Firewall resource by its ID.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli firewalls view [-h] [--created created] [--tags [tags] ]
+    	[--id id] [--updated updated] [--label label]
+    	[--order-by {created,tags,id,updated,label}]
+    	[--order {asc,desc}] firewallId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli firewalls view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`firewallId`
+      - integer
+      - ID of the Firewall to access.
+
+
+------------
+
+.. _commands_firewalls_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-firewalls>`_
+---------------------------------------------------------------------------
+
+
+Creates a Firewall to filter network traffic.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli firewalls create [-h] [--rules.inbound inbound]
+    	[--rules.outbound outbound]
+    	[--rules.inbound_policy inbound_policy]
+    	[--rules.outbound_policy outbound_policy]
+    	[--devices.linodes linodes]
+    	[--devices.nodebalancers nodebalancers] [--label label]
+    	[--tags tags]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli firewalls create \
+    	--label example-firewall \
+    	--rules.outbound_policy ACCEPT \
+    	--rules.inbound_policy DROP \
+    	--rules.inbound '[{"protocol": "TCP", "ports": "22, 80, 8080, 443", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"], "ipv6": ["2001:DB8::/128"]}, "action": "ACCEPT"}]' \
+    	--rules.outbound '[{"protocol": "TCP", "ports": "49152-65535", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"],"ipv6": ["2001:DB8::/128"]}, "action": "DROP", "label": "outbound-rule123", "description": "An example outbound rule description."}]'
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The Firewall's label, for display purposes only.
+    * - :code:`--created`
+      - No
+      - string
+      - When this Firewall was created.
+    * - :code:`--id`
+      - No
+      - integer
+      - The Firewall's unique ID.
+    * - :code:`--status`
+      - No
+      - string
+      - The status of this Firewall.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of tags applied to this object.
+    * - :code:`--updated`
+      - No
+      - string
+      - When this Firewall was last updated.
+.. _commands_firewalls_create_argument_sections_devices:
+
+.. cssclass:: action-argument-section-header
+
+    devices
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--devices.linodes`
+      - No
+      - array[integer]
+      - An array of Linode IDs.
+    * - :code:`--devices.nodebalancers`
+      - No
+      - array[integer]
+      - An array containing a NodeBalancer ID.
+.. _commands_firewalls_create_argument_sections_rules:
+
+.. cssclass:: action-argument-section-header
+
+    rules
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--rules.inbound_policy`
+      - :action-argument-required:`Yes`
+      - string
+      - The default behavior for inbound traffic.
+    * - :code:`--rules.outbound_policy`
+      - :action-argument-required:`Yes`
+      - string
+      - The default behavior for outbound traffic.
+    * - :code:`--rules.inbound`
+      - No
+      - object
+      - The inbound rules for the firewall, as a JSON array.
+    * - :code:`--rules.outbound`
+      - No
+      - object
+      - The outbound rules for the firewall, as a JSON array.
+
+
+------------
+
+.. _commands_firewalls_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-firewall>`_
 -------------------------------------------------------------------------
@@ -248,7 +318,10 @@ Updates information for a Firewall.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -260,7 +333,9 @@ Updates information for a Firewall.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -273,7 +348,12 @@ Updates information for a Firewall.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -292,12 +372,17 @@ Updates information for a Firewall.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -320,45 +405,52 @@ Updates information for a Firewall.
 
 ------------
 
-.. _firewalls_view:
+.. _commands_firewalls_delete:
 
-`view <https://techdocs.akamai.com/linode-api/reference/get-firewall>`_
------------------------------------------------------------------------
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-firewall>`_
+----------------------------------------------------------------------------
 
 
-Get a specific Firewall resource by its ID.
+Delete a Firewall resource by its ID.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli firewalls view [-h] [--created created] [--tags [tags] ]
-    	[--id id] [--updated updated] [--label label]
-    	[--order-by {created,tags,id,updated,label}]
-    	[--order {asc,desc}] firewallId
+    linode-cli firewalls delete [-h] firewallId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli firewalls view 123
+    linode-cli firewalls delete 123
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -376,7 +468,77 @@ Get a specific Firewall resource by its ID.
 
 ------------
 
-.. _firewalls_device-create:
+.. _commands_firewalls_device-view:
+
+`device-view <https://techdocs.akamai.com/linode-api/reference/get-firewall-device>`_
+-------------------------------------------------------------------------------------
+
+
+Returns information for a Firewall Device, which assigns a Firewall to a service (referred to as the Device's :code:`entity`).
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli firewalls device-view [-h] [--updated updated]
+    	[--created created] [--id id]
+    	[--order-by {updated,created,id}] [--order {asc,desc}]
+    	firewallId deviceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli firewalls device-view \
+    	123 456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`firewallId`
+      - integer
+      - ID of the Firewall to access.
+    * - :code:`deviceId`
+      - integer
+      - ID of the Firewall Device to access.
+
+
+------------
+
+.. _commands_firewalls_device-create:
 
 `device-create <https://techdocs.akamai.com/linode-api/reference/post-firewall-device>`_
 ----------------------------------------------------------------------------------------
@@ -388,7 +550,10 @@ Creates a Firewall Device, which assigns a Firewall to a service (referred to as
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -400,7 +565,9 @@ Creates a Firewall Device, which assigns a Firewall to a service (referred to as
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -414,7 +581,12 @@ Creates a Firewall Device, which assigns a Firewall to a service (referred to as
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -433,12 +605,17 @@ Creates a Firewall Device, which assigns a Firewall to a service (referred to as
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -465,7 +642,7 @@ Creates a Firewall Device, which assigns a Firewall to a service (referred to as
 
 ------------
 
-.. _firewalls_device-delete:
+.. _commands_firewalls_device-delete:
 
 `device-delete <https://techdocs.akamai.com/linode-api/reference/delete-firewall-device>`_
 ------------------------------------------------------------------------------------------
@@ -477,7 +654,10 @@ Removes a Firewall Device, which removes a Firewall from the service it was assi
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -488,7 +668,9 @@ Removes a Firewall Device, which removes a Firewall from the service it was assi
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -500,7 +682,12 @@ Removes a Firewall Device, which removes a Firewall from the service it was assi
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -521,67 +708,7 @@ Removes a Firewall Device, which removes a Firewall from the service it was assi
 
 ------------
 
-.. _firewalls_device-view:
-
-`device-view <https://techdocs.akamai.com/linode-api/reference/get-firewall-device>`_
--------------------------------------------------------------------------------------
-
-
-Returns information for a Firewall Device, which assigns a Firewall to a service (referred to as the Device's :code:`entity`).
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli firewalls device-view [-h] [--updated updated]
-    	[--created created] [--id id]
-    	[--order-by {updated,created,id}] [--order {asc,desc}]
-    	firewallId deviceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli firewalls device-view \
-    	123 456
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`firewallId`
-      - integer
-      - ID of the Firewall to access.
-    * - :code:`deviceId`
-      - integer
-      - ID of the Firewall Device to access.
-
-
-------------
-
-.. _firewalls_devices-list:
+.. _commands_firewalls_devices-list:
 
 `devices-list <https://techdocs.akamai.com/linode-api/reference/get-firewall-devices>`_
 ---------------------------------------------------------------------------------------
@@ -593,7 +720,10 @@ Returns a paginated list of a Firewall's Devices.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -607,7 +737,9 @@ Returns a paginated list of a Firewall's Devices.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -619,7 +751,12 @@ Returns a paginated list of a Firewall's Devices.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -634,9 +771,17 @@ Returns a paginated list of a Firewall's Devices.
       - integer
       - ID of the Firewall to access.
 
-.. rubric:: Filterable Attributes
+.. cssclass:: action-subheading
 
-`Arguments used to define a filter for response entries.`
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
@@ -660,7 +805,7 @@ Returns a paginated list of a Firewall's Devices.
 
 ------------
 
-.. _firewalls_rules-list:
+.. _commands_firewalls_rules-list:
 
 `rules-list <https://techdocs.akamai.com/linode-api/reference/get-firewall-rules>`_
 -----------------------------------------------------------------------------------
@@ -672,7 +817,10 @@ Returns the inbound and outbound Rules for a Firewall.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -684,7 +832,9 @@ Returns the inbound and outbound Rules for a Firewall.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -696,7 +846,12 @@ Returns the inbound and outbound Rules for a Firewall.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -713,7 +868,7 @@ Returns the inbound and outbound Rules for a Firewall.
 
 
 
-.. _firewalls_rules-update:
+.. _commands_firewalls_rules-update:
 
 `rules-update <https://techdocs.akamai.com/linode-api/reference/put-firewall-rules>`_
 -------------------------------------------------------------------------------------
@@ -725,7 +880,10 @@ Updates the inbound and outbound Rules for a Firewall.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -738,7 +896,9 @@ Updates the inbound and outbound Rules for a Firewall.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -752,7 +912,12 @@ Updates the inbound and outbound Rules for a Firewall.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -771,12 +936,17 @@ Updates the inbound and outbound Rules for a Firewall.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required

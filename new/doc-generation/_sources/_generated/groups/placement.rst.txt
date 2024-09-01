@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 Placement
@@ -7,7 +5,7 @@ Placement
 
 This section details Placement-related Linode CLI commands.
 
-.. _placement_assign-linode:
+.. _commands_placement_assign-linode:
 
 `assign-linode <https://techdocs.akamai.com/linode-api/reference/post-group-add-linode>`_
 -----------------------------------------------------------------------------------------
@@ -19,7 +17,10 @@ Add one or more compute instances to your placement group.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -31,7 +32,9 @@ Add one or more compute instances to your placement group.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -45,7 +48,12 @@ Add one or more compute instances to your placement group.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -64,12 +72,17 @@ Add one or more compute instances to your placement group.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -84,7 +97,73 @@ Add one or more compute instances to your placement group.
 
 ------------
 
-.. _placement_group-create:
+.. _commands_placement_group-view:
+
+`group-view <https://techdocs.akamai.com/linode-api/reference/get-placement-group>`_
+------------------------------------------------------------------------------------
+
+
+View a specific placement group by ID.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli placement group-view [-h] [--region region]
+    	[--placement_group_type placement_group_type] [--label label]
+    	[--order-by {region,placement_group_type,label}]
+    	[--order {asc,desc}] groupId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli placement view 528
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`groupId`
+      - integer
+      - ID of the placement group to look up.
+
+
+------------
+
+.. _commands_placement_group-create:
 
 `group-create <https://techdocs.akamai.com/linode-api/reference/post-placement-group>`_
 ---------------------------------------------------------------------------------------
@@ -96,7 +175,10 @@ Creates a placement group on your account.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -109,7 +191,9 @@ Creates a placement group on your account.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -125,12 +209,17 @@ Creates a placement group on your account.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -157,60 +246,7 @@ Creates a placement group on your account.
 
 ------------
 
-.. _placement_group-delete:
-
-`group-delete <https://techdocs.akamai.com/linode-api/reference/delete-placement-group>`_
------------------------------------------------------------------------------------------
-
-
-Deletes a placement group you have permission to :code:`read_write`.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli placement group-delete [-h] groupId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli placement delete 528
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`groupId`
-      - integer
-      - ID of the placement group to look up.
-
-
-------------
-
-.. _placement_group-update:
+.. _commands_placement_group-update:
 
 `group-update <https://techdocs.akamai.com/linode-api/reference/put-placement-group>`_
 --------------------------------------------------------------------------------------
@@ -222,7 +258,10 @@ Change the :code:`label` for a specific placement group.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -233,7 +272,9 @@ Change the :code:`label` for a specific placement group.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -246,7 +287,12 @@ Change the :code:`label` for a specific placement group.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -265,12 +311,17 @@ Change the :code:`label` for a specific placement group.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -285,45 +336,52 @@ Change the :code:`label` for a specific placement group.
 
 ------------
 
-.. _placement_group-view:
+.. _commands_placement_group-delete:
 
-`group-view <https://techdocs.akamai.com/linode-api/reference/get-placement-group>`_
-------------------------------------------------------------------------------------
+`group-delete <https://techdocs.akamai.com/linode-api/reference/delete-placement-group>`_
+-----------------------------------------------------------------------------------------
 
 
-View a specific placement group by ID.
+Deletes a placement group you have permission to :code:`read_write`.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli placement group-view [-h] [--region region]
-    	[--placement_group_type placement_group_type] [--label label]
-    	[--order-by {region,placement_group_type,label}]
-    	[--order {asc,desc}] groupId
+    linode-cli placement group-delete [-h] groupId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli placement view 528
+    linode-cli placement delete 528
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -341,7 +399,7 @@ View a specific placement group by ID.
 
 ------------
 
-.. _placement_groups-list:
+.. _commands_placement_groups-list:
 
 `groups-list <https://techdocs.akamai.com/linode-api/reference/get-placement-groups>`_
 --------------------------------------------------------------------------------------
@@ -353,7 +411,10 @@ Returns a paginated list of placement groups you have permission to view.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -368,7 +429,9 @@ Returns a paginated list of placement groups you have permission to view.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -376,9 +439,17 @@ Returns a paginated list of placement groups you have permission to view.
     linode-cli placement-list
 
 
-.. rubric:: Filterable Attributes
+.. cssclass:: action-subheading
 
-`Arguments used to define a filter for response entries.`
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
@@ -401,7 +472,7 @@ Returns a paginated list of placement groups you have permission to view.
 
 
 
-.. _placement_unassign-linode:
+.. _commands_placement_unassign-linode:
 
 `unassign-linode <https://techdocs.akamai.com/linode-api/reference/post-group-unassign>`_
 -----------------------------------------------------------------------------------------
@@ -413,7 +484,10 @@ Remove one or more compute instances from your placement group.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -424,7 +498,9 @@ Remove one or more compute instances from your placement group.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -437,7 +513,12 @@ Remove one or more compute instances from your placement group.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1

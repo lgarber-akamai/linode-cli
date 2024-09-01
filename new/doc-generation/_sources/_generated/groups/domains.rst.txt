@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 Domains
@@ -7,309 +5,7 @@ Domains
 
 This section details Domain-related Linode CLI commands.
 
-.. _domains_clone:
-
-`clone <https://techdocs.akamai.com/linode-api/reference/post-clone-domain>`_
------------------------------------------------------------------------------
-
-
-Clones a Domain and all associated DNS records from a Domain that is registered in Linode's DNS manager.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli domains clone [-h] [--domain domain] domainId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli domains clone 123 --domain example.com
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`domainId`
-      - string
-      - ID of the Domain to clone.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-:action-subheading-description:`Additional fields used to execute this request.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 10 65
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--domain`
-      - :action-argument-required:`Yes`
-      - string
-      - The new domain for the clone.
-
-
-------------
-
-.. _domains_create:
-
-`create <https://techdocs.akamai.com/linode-api/reference/post-domain>`_
-------------------------------------------------------------------------
-
-
-Adds a new Domain to Linode's DNS Manager.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli domains create [-h] [--master_ips master_ips]
-    	[--ttl_sec ttl_sec] [--retry_sec retry_sec]
-    	[--axfr_ips axfr_ips] [--soa_email soa_email]
-    	[--description description] [--type type]
-    	[--refresh_sec refresh_sec] [--tags tags] [--status status]
-    	[--domain domain] [--group group] [--expire_sec expire_sec]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli domains create \
-    	--type master \
-    	--domain example.org \
-    	--soa_email admin@example.org
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-:action-subheading-description:`Additional fields used to execute this request.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 10 65
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--domain`
-      - :action-argument-required:`Yes`
-      - string
-      - The domain this Domain represents.
-    * - :code:`--type`
-      - :action-argument-required:`Yes`
-      - string
-      - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
-    * - :code:`--axfr_ips`
-      - No
-      - array[string]
-      - The list of IPs that may perform a zone transfer for this Domain.
-    * - :code:`--description`
-      - No
-      - string
-      - A description for this Domain.
-    * - :code:`--expire_sec`
-      - No
-      - integer
-      - The amount of time in seconds that may pass before this Domain is no longer authoritative.
-    * - :code:`--group`
-      - No
-      - string
-      - The group this Domain belongs to.
-    * - :code:`--id`
-      - No
-      - integer
-      - This Domain's unique ID.
-    * - :code:`--master_ips`
-      - No
-      - array[string]
-      - The IP addresses representing the master DNS for this Domain.
-    * - :code:`--refresh_sec`
-      - No
-      - integer
-      - The amount of time in seconds before this Domain should be refreshed.
-    * - :code:`--retry_sec`
-      - No
-      - integer
-      - The interval, in seconds, at which a failed refresh should be retried.
-    * - :code:`--soa_email`
-      - No
-      - string
-      - Start of Authority email address.
-    * - :code:`--status`
-      - No
-      - string
-      - Used to control whether this Domain is currently being rendered.
-    * - :code:`--tags`
-      - No
-      - array[string]
-      - An array of tags applied to this object.
-    * - :code:`--ttl_sec`
-      - No
-      - integer
-      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
-
-
-------------
-
-.. _domains_delete:
-
-`delete <https://techdocs.akamai.com/linode-api/reference/delete-domain>`_
---------------------------------------------------------------------------
-
-
-Deletes a Domain from Linode's DNS Manager.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli domains delete [-h] domainId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli domains delete 1234
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`domainId`
-      - integer
-      - The ID of the Domain to access.
-
-
-------------
-
-.. _domains_import:
-
-`import <https://techdocs.akamai.com/linode-api/reference/post-import-domain>`_
--------------------------------------------------------------------------------
-
-
-Imports a domain zone from a remote nameserver.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli domains import [-h] [--domain domain]
-    	[--remote_nameserver remote_nameserver]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli domains import --domain example.com --remote_nameserver examplenameserver.com
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-:action-subheading-description:`Additional fields used to execute this request.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 10 65
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--domain`
-      - :action-argument-required:`Yes`
-      - string
-      - The domain to import.
-    * - :code:`--remote_nameserver`
-      - :action-argument-required:`Yes`
-      - string
-      - The remote nameserver that allows zone transfers (AXFR).
-
-
-------------
-
-.. _domains_list:
+.. _commands_domains_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-domains>`_
 ----------------------------------------------------------------------
@@ -321,7 +17,10 @@ This is a collection of Domains that you have registered in Linode's DNS Manager
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -334,7 +33,9 @@ This is a collection of Domains that you have registered in Linode's DNS Manager
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -342,9 +43,17 @@ This is a collection of Domains that you have registered in Linode's DNS Manager
     linode-cli domains list
 
 
-.. rubric:: Filterable Attributes
+.. cssclass:: action-subheading
 
-`Arguments used to define a filter for response entries.`
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
@@ -368,7 +77,197 @@ This is a collection of Domains that you have registered in Linode's DNS Manager
 
 ------------
 
-.. _domains_update:
+.. _commands_domains_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-domain>`_
+---------------------------------------------------------------------
+
+
+This is a single Domain that you have registered in Linode's DNS Manager.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli domains view [-h] [--tags [tags] ] [--group group]
+    	[--domain domain] [--order-by {tags,group,domain}]
+    	[--order {asc,desc}] domainId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli domains view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`domainId`
+      - integer
+      - The ID of the Domain to access.
+
+
+------------
+
+.. _commands_domains_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-domain>`_
+------------------------------------------------------------------------
+
+
+Adds a new Domain to Linode's DNS Manager.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli domains create [-h] [--master_ips master_ips]
+    	[--ttl_sec ttl_sec] [--retry_sec retry_sec]
+    	[--axfr_ips axfr_ips] [--soa_email soa_email]
+    	[--description description] [--type type]
+    	[--refresh_sec refresh_sec] [--tags tags] [--status status]
+    	[--domain domain] [--group group] [--expire_sec expire_sec]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli domains create \
+    	--type master \
+    	--domain example.org \
+    	--soa_email admin@example.org
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--domain`
+      - :action-argument-required:`Yes`
+      - string
+      - The domain this Domain represents.
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
+    * - :code:`--axfr_ips`
+      - No
+      - array[string]
+      - The list of IPs that may perform a zone transfer for this Domain.
+    * - :code:`--description`
+      - No
+      - string
+      - A description for this Domain.
+    * - :code:`--expire_sec`
+      - No
+      - integer
+      - The amount of time in seconds that may pass before this Domain is no longer authoritative.
+    * - :code:`--group`
+      - No
+      - string
+      - The group this Domain belongs to.
+    * - :code:`--id`
+      - No
+      - integer
+      - This Domain's unique ID.
+    * - :code:`--master_ips`
+      - No
+      - array[string]
+      - The IP addresses representing the master DNS for this Domain.
+    * - :code:`--refresh_sec`
+      - No
+      - integer
+      - The amount of time in seconds before this Domain should be refreshed.
+    * - :code:`--retry_sec`
+      - No
+      - integer
+      - The interval, in seconds, at which a failed refresh should be retried.
+    * - :code:`--soa_email`
+      - No
+      - string
+      - Start of Authority email address.
+    * - :code:`--status`
+      - No
+      - string
+      - Used to control whether this Domain is currently being rendered.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of tags applied to this object.
+    * - :code:`--ttl_sec`
+      - No
+      - integer
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+
+
+------------
+
+.. _commands_domains_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-domain>`_
 -----------------------------------------------------------------------
@@ -380,7 +279,10 @@ Update information about a Domain in Linode's DNS Manager.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -396,7 +298,9 @@ Update information about a Domain in Linode's DNS Manager.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -410,7 +314,12 @@ Update information about a Domain in Linode's DNS Manager.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -429,12 +338,17 @@ Update information about a Domain in Linode's DNS Manager.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -501,44 +415,52 @@ Update information about a Domain in Linode's DNS Manager.
 
 ------------
 
-.. _domains_view:
+.. _commands_domains_delete:
 
-`view <https://techdocs.akamai.com/linode-api/reference/get-domain>`_
----------------------------------------------------------------------
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-domain>`_
+--------------------------------------------------------------------------
 
 
-This is a single Domain that you have registered in Linode's DNS Manager.
+Deletes a Domain from Linode's DNS Manager.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli domains view [-h] [--tags [tags] ] [--group group]
-    	[--domain domain] [--order-by {tags,group,domain}]
-    	[--order {asc,desc}] domainId
+    linode-cli domains delete [-h] domainId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli domains view 123
+    linode-cli domains delete 1234
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -556,7 +478,335 @@ This is a single Domain that you have registered in Linode's DNS Manager.
 
 ------------
 
-.. _domains_records-create:
+.. _commands_domains_clone:
+
+`clone <https://techdocs.akamai.com/linode-api/reference/post-clone-domain>`_
+-----------------------------------------------------------------------------
+
+
+Clones a Domain and all associated DNS records from a Domain that is registered in Linode's DNS manager.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli domains clone [-h] [--domain domain] domainId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli domains clone 123 --domain example.com
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`domainId`
+      - string
+      - ID of the Domain to clone.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--domain`
+      - :action-argument-required:`Yes`
+      - string
+      - The new domain for the clone.
+
+
+------------
+
+.. _commands_domains_import:
+
+`import <https://techdocs.akamai.com/linode-api/reference/post-import-domain>`_
+-------------------------------------------------------------------------------
+
+
+Imports a domain zone from a remote nameserver.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli domains import [-h] [--domain domain]
+    	[--remote_nameserver remote_nameserver]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli domains import --domain example.com --remote_nameserver examplenameserver.com
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--domain`
+      - :action-argument-required:`Yes`
+      - string
+      - The domain to import.
+    * - :code:`--remote_nameserver`
+      - :action-argument-required:`Yes`
+      - string
+      - The remote nameserver that allows zone transfers (AXFR).
+
+
+------------
+
+.. _commands_domains_records-list:
+
+`records-list <https://techdocs.akamai.com/linode-api/reference/get-domain-records>`_
+-------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Records configured on a Domain in Linode's DNS Manager.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli domains records-list [-h] [--tag tag] [--name name]
+    	[--target target] [--type type]
+    	[--order-by {tag,name,target,type}] [--order {asc,desc}]
+    	domainId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli domains records-list 1234
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`domainId`
+      - integer
+      - The ID of the Domain we are accessing Records for.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--name`
+      - *string*
+      - The name of this Record.
+    * - :code:`--tag`
+      - *string*
+      - The tag portion of a CAA record.
+    * - :code:`--target`
+      - *string*
+      - The target for this Record.
+    * - :code:`--type`
+      - *string*
+      - The type of Record this is in the DNS system.
+
+
+------------
+
+.. _commands_domains_records-view:
+
+`records-view <https://techdocs.akamai.com/linode-api/reference/get-domain-record>`_
+------------------------------------------------------------------------------------
+
+
+View a single Record on this Domain.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli domains records-view [-h] [--target target]
+    	[--tag tag] [--name name] [--type type]
+    	[--order-by {target,tag,name,type}] [--order {asc,desc}]
+    	domainId recordId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli domains records-view 123 234
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`domainId`
+      - integer
+      - The ID of the Domain whose Record you are accessing.
+    * - :code:`recordId`
+      - integer
+      - The ID of the Record you are accessing.
+
+
+------------
+
+.. _commands_domains_records-create:
 
 `records-create <https://techdocs.akamai.com/linode-api/reference/post-domain-record>`_
 ---------------------------------------------------------------------------------------
@@ -568,7 +818,10 @@ Adds a new Domain Record to the zonefile this Domain represents.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -582,7 +835,9 @@ Adds a new Domain Record to the zonefile this Domain represents.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -601,7 +856,12 @@ Adds a new Domain Record to the zonefile this Domain represents.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -620,12 +880,17 @@ Adds a new Domain Record to the zonefile this Domain represents.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -688,145 +953,7 @@ Adds a new Domain Record to the zonefile this Domain represents.
 
 ------------
 
-.. _domains_records-delete:
-
-`records-delete <https://techdocs.akamai.com/linode-api/reference/delete-domain-record>`_
------------------------------------------------------------------------------------------
-
-
-Deletes a Record on this Domain.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli domains records-delete [-h] domainId recordId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli domains records-delete 123 234
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`domainId`
-      - integer
-      - The ID of the Domain whose Record you are accessing.
-    * - :code:`recordId`
-      - integer
-      - The ID of the Record you are accessing.
-
-
-------------
-
-.. _domains_records-list:
-
-`records-list <https://techdocs.akamai.com/linode-api/reference/get-domain-records>`_
--------------------------------------------------------------------------------------
-
-
-Returns a paginated list of Records configured on a Domain in Linode's DNS Manager.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli domains records-list [-h] [--tag tag] [--name name]
-    	[--target target] [--type type]
-    	[--order-by {tag,name,target,type}] [--order {asc,desc}]
-    	domainId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli domains records-list 1234
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`domainId`
-      - integer
-      - The ID of the Domain we are accessing Records for.
-
-.. rubric:: Filterable Attributes
-
-`Arguments used to define a filter for response entries.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`--name`
-      - *string*
-      - The name of this Record.
-    * - :code:`--tag`
-      - *string*
-      - The tag portion of a CAA record.
-    * - :code:`--target`
-      - *string*
-      - The target for this Record.
-    * - :code:`--type`
-      - *string*
-      - The type of Record this is in the DNS system.
-
-
-------------
-
-.. _domains_records-update:
+.. _commands_domains_records-update:
 
 `records-update <https://techdocs.akamai.com/linode-api/reference/put-domain-record>`_
 --------------------------------------------------------------------------------------
@@ -838,7 +965,10 @@ Updates a single Record on this Domain.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -852,7 +982,9 @@ Updates a single Record on this Domain.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -870,7 +1002,12 @@ Updates a single Record on this Domain.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -892,12 +1029,17 @@ Updates a single Record on this Domain.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -944,45 +1086,52 @@ Updates a single Record on this Domain.
 
 ------------
 
-.. _domains_records-view:
+.. _commands_domains_records-delete:
 
-`records-view <https://techdocs.akamai.com/linode-api/reference/get-domain-record>`_
-------------------------------------------------------------------------------------
+`records-delete <https://techdocs.akamai.com/linode-api/reference/delete-domain-record>`_
+-----------------------------------------------------------------------------------------
 
 
-View a single Record on this Domain.
+Deletes a Record on this Domain.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli domains records-view [-h] [--target target]
-    	[--tag tag] [--name name] [--type type]
-    	[--order-by {target,tag,name,type}] [--order {asc,desc}]
-    	domainId recordId
+    linode-cli domains records-delete [-h] domainId recordId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli domains records-view 123 234
+    linode-cli domains records-delete 123 234
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -1002,7 +1151,7 @@ View a single Record on this Domain.
 
 
 
-.. _domains_zone-file:
+.. _commands_domains_zone-file:
 
 `zone-file <https://techdocs.akamai.com/linode-api/reference/get-domain-zone>`_
 -------------------------------------------------------------------------------
@@ -1014,7 +1163,10 @@ Returns the zone file for the last rendered zone for the specified domain.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -1026,7 +1178,9 @@ Returns the zone file for the last rendered zone for the specified domain.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1038,7 +1192,12 @@ Returns the zone file for the last rendered zone for the specified domain.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1

@@ -7,7 +7,7 @@
   <title>Domains &mdash; linode-cli  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=bfba4d87" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=f1c3abea" />
 
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+5d05cc1 (API v4.176.0)
+                v0.0.0.dev+d7488ca (API v4.176.0)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -63,19 +63,19 @@
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="default.html">Default</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Domains</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#domains-clone">clone</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-create">create</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-delete">delete</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-import">import</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-list">list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-update">update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-view">view</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-records-create">records-create</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-records-delete">records-delete</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-records-list">records-list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-records-update">records-update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-records-view">records-view</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#domains-zone-file">zone-file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-list">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-view">view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-create">create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-update">update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-delete">delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-clone">clone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-import">import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-records-list">records-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-records-view">records-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-records-create">records-create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-records-update">records-update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-records-delete">records-delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-domains-zone-file">zone-file</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
@@ -136,22 +136,70 @@
   <section id="domains">
 <h1>Domains<a class="headerlink" href="#domains" title="Link to this heading"></a></h1>
 <p>This section details Domain-related Linode CLI commands.</p>
-<section id="domains-clone">
-<span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-clone-domain">clone</a><a class="headerlink" href="#domains-clone" title="Link to this heading"></a></h2>
-<p>Clones a Domain and all associated DNS records from a Domain that is registered in Linode’s DNS manager.</p>
+<section id="commands-domains-list">
+<span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domains">list</a><a class="headerlink" href="#commands-domains-list" title="Link to this heading"></a></h2>
+<p>This is a collection of Domains that you have registered in Linode’s DNS Manager.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>clone<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span><span class="w"> </span>domainId
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>group,domain,tags<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>clone<span class="w"> </span><span class="m">123</span><span class="w"> </span>--domain<span class="w"> </span>example.com
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>list
+</pre></div>
+</div>
+<p class="action-subheading rubric">Filterable Attributes</p>
+<p class="action-subheading-description">Arguments used to define a filter for response entries.</p>
+<table class="action-filterable-field-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The domain this Domain represents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--group</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The group this Domain belongs to.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
+<td><p><em>array[string]</em></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-domains-view">
+<span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain">view</a><a class="headerlink" href="#commands-domains-view" title="Link to this heading"></a></h2>
+<p>This is a single Domain that you have registered in Linode’s DNS Manager.</p>
+<p class="action-subheading rubric">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>tags,group,domain<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>domainId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>view<span class="w"> </span><span class="m">123</span>
 </pre></div>
 </div>
 <p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 10.0%" />
@@ -165,42 +213,18 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>string</p></td>
-<td><p>ID of the Domain to clone.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-subheading rubric">Arguments</p>
-<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
-<table class="docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 65.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The new domain for the clone.</p></td>
+<td><p>integer</p></td>
+<td><p>The ID of the Domain to access.</p></td>
 </tr>
 </tbody>
 </table>
 <hr class="docutils" />
 </section>
-<section id="domains-create">
-<span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-domain">create</a><a class="headerlink" href="#domains-create" title="Link to this heading"></a></h2>
+<section id="commands-domains-create">
+<span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-domain">create</a><a class="headerlink" href="#commands-domains-create" title="Link to this heading"></a></h2>
 <p>Adds a new Domain to Linode’s DNS Manager.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<p class="action-subheading-description">The format accepted by this command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--master_ips<span class="w"> </span>master_ips<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--ttl_sec<span class="w"> </span>ttl_sec<span class="o">]</span><span class="w"> </span><span class="o">[</span>--retry_sec<span class="w"> </span>retry_sec<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--axfr_ips<span class="w"> </span>axfr_ips<span class="o">]</span><span class="w"> </span><span class="o">[</span>--soa_email<span class="w"> </span>soa_email<span class="o">]</span>
@@ -210,7 +234,7 @@
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--type<span class="w"> </span>master<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--domain<span class="w"> </span>example.org<span class="w"> </span><span class="se">\</span>
@@ -218,13 +242,13 @@
 </pre></div>
 </div>
 <p class="action-subheading rubric">Arguments</p>
-<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
+<col style="width: 1.0%" />
 <col style="width: 10.0%" />
 <col style="width: 10.0%" />
-<col style="width: 65.0%" />
+<col style="width: 79.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -308,138 +332,11 @@
 </table>
 <hr class="docutils" />
 </section>
-<section id="domains-delete">
-<span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-domain">delete</a><a class="headerlink" href="#domains-delete" title="Link to this heading"></a></h2>
-<p>Deletes a Domain from Linode’s DNS Manager.</p>
-<p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>domainId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>delete<span class="w"> </span><span class="m">1234</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>The ID of the Domain to access.</p></td>
-</tr>
-</tbody>
-</table>
-<hr class="docutils" />
-</section>
-<section id="domains-import">
-<span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-import-domain">import</a><a class="headerlink" href="#domains-import" title="Link to this heading"></a></h2>
-<p>Imports a domain zone from a remote nameserver.</p>
-<p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>import<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--remote_nameserver<span class="w"> </span>remote_nameserver<span class="o">]</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>import<span class="w"> </span>--domain<span class="w"> </span>example.com<span class="w"> </span>--remote_nameserver<span class="w"> </span>examplenameserver.com
-</pre></div>
-</div>
-<p class="action-subheading rubric">Arguments</p>
-<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
-<table class="docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 65.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The domain to import.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--remote_nameserver</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The remote nameserver that allows zone transfers (AXFR).</p></td>
-</tr>
-</tbody>
-</table>
-<hr class="docutils" />
-</section>
-<section id="domains-list">
-<span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domains">list</a><a class="headerlink" href="#domains-list" title="Link to this heading"></a></h2>
-<p>This is a collection of Domains that you have registered in Linode’s DNS Manager.</p>
-<p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>group,domain,tags<span class="o">}]</span>
-<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>list
-</pre></div>
-</div>
-<p class="rubric">Filterable Attributes</p>
-<p><cite>Arguments used to define a filter for response entries.</cite></p>
-<table class="docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
-<td><p><em>string</em></p></td>
-<td><p>The domain this Domain represents.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--group</span></code></p></td>
-<td><p><em>string</em></p></td>
-<td><p>The group this Domain belongs to.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
-<td><p><em>array[string]</em></p></td>
-<td><p>An array of tags applied to this object.</p></td>
-</tr>
-</tbody>
-</table>
-<hr class="docutils" />
-</section>
-<section id="domains-update">
-<span id="id6"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-domain">update</a><a class="headerlink" href="#domains-update" title="Link to this heading"></a></h2>
+<section id="commands-domains-update">
+<span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-domain">update</a><a class="headerlink" href="#commands-domains-update" title="Link to this heading"></a></h2>
 <p>Update information about a Domain in Linode’s DNS Manager.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<p class="action-subheading-description">The format accepted by this command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ttl_sec<span class="w"> </span>ttl_sec<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--retry_sec<span class="w"> </span>retry_sec<span class="o">]</span><span class="w"> </span><span class="o">[</span>--master_ips<span class="w"> </span>master_ips<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--description<span class="w"> </span>description<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
@@ -449,15 +346,15 @@
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>update<span class="w"> </span><span class="m">1234</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--retry_sec<span class="w"> </span><span class="m">7200</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--ttl_sec<span class="w"> </span><span class="m">300</span>
 </pre></div>
 </div>
 <p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 10.0%" />
@@ -477,13 +374,13 @@
 </tbody>
 </table>
 <p class="action-subheading rubric">Arguments</p>
-<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
+<col style="width: 1.0%" />
 <col style="width: 10.0%" />
 <col style="width: 10.0%" />
-<col style="width: 65.0%" />
+<col style="width: 79.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -567,24 +464,22 @@
 </table>
 <hr class="docutils" />
 </section>
-<section id="domains-view">
-<span id="id7"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain">view</a><a class="headerlink" href="#domains-view" title="Link to this heading"></a></h2>
-<p>This is a single Domain that you have registered in Linode’s DNS Manager.</p>
+<section id="commands-domains-delete">
+<span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-domain">delete</a><a class="headerlink" href="#commands-domains-delete" title="Link to this heading"></a></h2>
+<p>Deletes a Domain from Linode’s DNS Manager.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>tags,group,domain<span class="o">}]</span>
-<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>domainId
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>domainId
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>view<span class="w"> </span><span class="m">123</span>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>delete<span class="w"> </span><span class="m">1234</span>
 </pre></div>
 </div>
 <p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 10.0%" />
@@ -605,11 +500,231 @@
 </table>
 <hr class="docutils" />
 </section>
-<section id="domains-records-create">
-<span id="id8"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-domain-record">records-create</a><a class="headerlink" href="#domains-records-create" title="Link to this heading"></a></h2>
+<section id="commands-domains-clone">
+<span id="id6"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-clone-domain">clone</a><a class="headerlink" href="#commands-domains-clone" title="Link to this heading"></a></h2>
+<p>Clones a Domain and all associated DNS records from a Domain that is registered in Linode’s DNS manager.</p>
+<p class="action-subheading rubric">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>clone<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span><span class="w"> </span>domainId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>clone<span class="w"> </span><span class="m">123</span><span class="w"> </span>--domain<span class="w"> </span>example.com
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>ID of the Domain to clone.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 79.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>The new domain for the clone.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-domains-import">
+<span id="id7"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-import-domain">import</a><a class="headerlink" href="#commands-domains-import" title="Link to this heading"></a></h2>
+<p>Imports a domain zone from a remote nameserver.</p>
+<p class="action-subheading rubric">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>import<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--remote_nameserver<span class="w"> </span>remote_nameserver<span class="o">]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>import<span class="w"> </span>--domain<span class="w"> </span>example.com<span class="w"> </span>--remote_nameserver<span class="w"> </span>examplenameserver.com
+</pre></div>
+</div>
+<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 79.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>The domain to import.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--remote_nameserver</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>The remote nameserver that allows zone transfers (AXFR).</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-domains-records-list">
+<span id="id8"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain-records">records-list</a><a class="headerlink" href="#commands-domains-records-list" title="Link to this heading"></a></h2>
+<p>Returns a paginated list of Records configured on a Domain in Linode’s DNS Manager.</p>
+<p class="action-subheading rubric">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tag<span class="w"> </span>tag<span class="o">]</span><span class="w"> </span><span class="o">[</span>--name<span class="w"> </span>name<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--target<span class="w"> </span>target<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>tag,name,target,type<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+<span class="w">    </span>domainId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-list<span class="w"> </span><span class="m">1234</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The ID of the Domain we are accessing Records for.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading rubric">Filterable Attributes</p>
+<p class="action-subheading-description">Arguments used to define a filter for response entries.</p>
+<table class="action-filterable-field-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--name</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The name of this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--tag</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The tag portion of a CAA record.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--target</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The target for this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The type of Record this is in the DNS system.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-domains-records-view">
+<span id="id9"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain-record">records-view</a><a class="headerlink" href="#commands-domains-records-view" title="Link to this heading"></a></h2>
+<p>View a single Record on this Domain.</p>
+<p class="action-subheading rubric">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--target<span class="w"> </span>target<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--tag<span class="w"> </span>tag<span class="o">]</span><span class="w"> </span><span class="o">[</span>--name<span class="w"> </span>name<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>target,tag,name,type<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+<span class="w">    </span>domainId<span class="w"> </span>recordId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-view<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">234</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The ID of the Domain whose Record you are accessing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">recordId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The ID of the Record you are accessing.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-domains-records-create">
+<span id="id10"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-domain-record">records-create</a><a class="headerlink" href="#commands-domains-records-create" title="Link to this heading"></a></h2>
 <p>Adds a new Domain Record to the zonefile this Domain represents.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<p class="action-subheading-description">The format accepted by this command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--weight<span class="w"> </span>weight<span class="o">]</span><span class="w"> </span><span class="o">[</span>--service<span class="w"> </span>service<span class="o">]</span><span class="w"> </span><span class="o">[</span>--priority<span class="w"> </span>priority<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--ttl_sec<span class="w"> </span>ttl_sec<span class="o">]</span><span class="w"> </span><span class="o">[</span>--port<span class="w"> </span>port<span class="o">]</span><span class="w"> </span><span class="o">[</span>--protocol<span class="w"> </span>protocol<span class="o">]</span>
@@ -617,7 +732,7 @@
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-create<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--type<span class="w"> </span>A<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--name<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="se">\</span>
@@ -629,8 +744,8 @@
 </pre></div>
 </div>
 <p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 10.0%" />
@@ -650,13 +765,13 @@
 </tbody>
 </table>
 <p class="action-subheading rubric">Arguments</p>
-<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
+<col style="width: 1.0%" />
 <col style="width: 10.0%" />
 <col style="width: 10.0%" />
-<col style="width: 65.0%" />
+<col style="width: 79.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -735,123 +850,11 @@
 </table>
 <hr class="docutils" />
 </section>
-<section id="domains-records-delete">
-<span id="id9"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-domain-record">records-delete</a><a class="headerlink" href="#domains-records-delete" title="Link to this heading"></a></h2>
-<p>Deletes a Record on this Domain.</p>
-<p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>domainId<span class="w"> </span>recordId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-delete<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">234</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>The ID of the Domain whose Record you are accessing.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">recordId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>The ID of the Record you are accessing.</p></td>
-</tr>
-</tbody>
-</table>
-<hr class="docutils" />
-</section>
-<section id="domains-records-list">
-<span id="id10"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain-records">records-list</a><a class="headerlink" href="#domains-records-list" title="Link to this heading"></a></h2>
-<p>Returns a paginated list of Records configured on a Domain in Linode’s DNS Manager.</p>
-<p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tag<span class="w"> </span>tag<span class="o">]</span><span class="w"> </span><span class="o">[</span>--name<span class="w"> </span>name<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--target<span class="w"> </span>target<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>tag,name,target,type<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
-<span class="w">    </span>domainId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-list<span class="w"> </span><span class="m">1234</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>The ID of the Domain we are accessing Records for.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Filterable Attributes</p>
-<p><cite>Arguments used to define a filter for response entries.</cite></p>
-<table class="docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--name</span></code></p></td>
-<td><p><em>string</em></p></td>
-<td><p>The name of this Record.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--tag</span></code></p></td>
-<td><p><em>string</em></p></td>
-<td><p>The tag portion of a CAA record.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--target</span></code></p></td>
-<td><p><em>string</em></p></td>
-<td><p>The target for this Record.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
-<td><p><em>string</em></p></td>
-<td><p>The type of Record this is in the DNS system.</p></td>
-</tr>
-</tbody>
-</table>
-<hr class="docutils" />
-</section>
-<section id="domains-records-update">
-<span id="id11"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-domain-record">records-update</a><a class="headerlink" href="#domains-records-update" title="Link to this heading"></a></h2>
+<section id="commands-domains-records-update">
+<span id="id11"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-domain-record">records-update</a><a class="headerlink" href="#commands-domains-records-update" title="Link to this heading"></a></h2>
 <p>Updates a single Record on this Domain.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<p class="action-subheading-description">The format accepted by this command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ttl_sec<span class="w"> </span>ttl_sec<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--priority<span class="w"> </span>priority<span class="o">]</span><span class="w"> </span><span class="o">[</span>--service<span class="w"> </span>service<span class="o">]</span><span class="w"> </span><span class="o">[</span>--port<span class="w"> </span>port<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--name<span class="w"> </span>name<span class="o">]</span><span class="w"> </span><span class="o">[</span>--weight<span class="w"> </span>weight<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tag<span class="w"> </span>tag<span class="o">]</span>
@@ -859,7 +862,7 @@
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-update<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">234</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--name<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--target<span class="w"> </span><span class="m">203</span>.0.113.1<span class="w"> </span><span class="se">\</span>
@@ -870,8 +873,8 @@
 </pre></div>
 </div>
 <p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 10.0%" />
@@ -895,13 +898,13 @@
 </tbody>
 </table>
 <p class="action-subheading rubric">Arguments</p>
-<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
+<col style="width: 1.0%" />
 <col style="width: 10.0%" />
 <col style="width: 10.0%" />
-<col style="width: 65.0%" />
+<col style="width: 79.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -960,25 +963,22 @@
 </table>
 <hr class="docutils" />
 </section>
-<section id="domains-records-view">
-<span id="id12"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain-record">records-view</a><a class="headerlink" href="#domains-records-view" title="Link to this heading"></a></h2>
-<p>View a single Record on this Domain.</p>
+<section id="commands-domains-records-delete">
+<span id="id12"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-domain-record">records-delete</a><a class="headerlink" href="#commands-domains-records-delete" title="Link to this heading"></a></h2>
+<p>Deletes a Record on this Domain.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--target<span class="w"> </span>target<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--tag<span class="w"> </span>tag<span class="o">]</span><span class="w"> </span><span class="o">[</span>--name<span class="w"> </span>name<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>target,tag,name,type<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
-<span class="w">    </span>domainId<span class="w"> </span>recordId
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>domainId<span class="w"> </span>recordId
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-view<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">234</span>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-delete<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">234</span>
 </pre></div>
 </div>
 <p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 10.0%" />
@@ -1002,23 +1002,23 @@
 </tbody>
 </table>
 </section>
-<section id="domains-zone-file">
-<span id="id13"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain-zone">zone-file</a><a class="headerlink" href="#domains-zone-file" title="Link to this heading"></a></h2>
+<section id="commands-domains-zone-file">
+<span id="id13"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain-zone">zone-file</a><a class="headerlink" href="#commands-domains-zone-file" title="Link to this heading"></a></h2>
 <p>Returns the zone file for the last rendered zone for the specified domain.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<p class="action-subheading-description">The format accepted by this command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>zone-file<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
 <span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>domainId
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>zone-file<span class="w"> </span><span class="m">123</span>
 </pre></div>
 </div>
 <p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 10.0%" />

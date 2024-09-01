@@ -7,7 +7,7 @@
   <title>Stackscripts &mdash; linode-cli  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=bfba4d87" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=f1c3abea" />
 
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+5d05cc1 (API v4.176.0)
+                v0.0.0.dev+d7488ca (API v4.176.0)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -83,11 +83,11 @@
 <li class="toctree-l2"><a class="reference internal" href="service-transfers.html">Service Transfers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sshkeys.html">SSH Keys</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Stackscripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#stackscripts-create">create</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#stackscripts-delete">delete</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#stackscripts-list">list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#stackscripts-update">update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#stackscripts-view">view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-stackscripts-list">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-stackscripts-view">view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-stackscripts-create">create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-stackscripts-update">update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-stackscripts-delete">delete</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tags.html">Tags</a></li>
@@ -128,197 +128,11 @@
   <section id="stackscripts">
 <h1>Stackscripts<a class="headerlink" href="#stackscripts" title="Link to this heading"></a></h1>
 <p>This section details Stackscript-related Linode CLI commands.</p>
-<section id="stackscripts-create">
-<span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-stack-script">create</a><a class="headerlink" href="#stackscripts-create" title="Link to this heading"></a></h2>
-<p>Creates a StackScript in your Account.</p>
-<p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--description<span class="w"> </span>description<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--script<span class="w"> </span>script<span class="o">]</span><span class="w"> </span><span class="o">[</span>--images<span class="w"> </span>images<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--rev_note<span class="w"> </span>rev_note<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--user_defined_fields<span class="w"> </span>user_defined_fields<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--is_public<span class="w"> </span>is_public<span class="o">]</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--label<span class="w"> </span>a-stackscript<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;This StackScript install and configures MySQL&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--images<span class="w"> </span><span class="s2">&quot;linode/debian9&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--images<span class="w"> </span><span class="s2">&quot;linode/debian8&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--is_public<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--rev_note<span class="w"> </span><span class="s2">&quot;Set up MySQL&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--script<span class="w"> </span><span class="s1">&#39;#!/bin/bash&#39;</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Arguments</p>
-<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
-<table class="docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 65.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--images</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>array[string]</p></td>
-<td><p>An array of Image IDs.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The StackScript’s label is for display purposes only.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--script</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The script to execute when provisioning a new Linode with this StackScript.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.example</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>An example value for the field.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.label</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>A human-readable label for the field that will serve as the input prompt for entering the value during deployment.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.name</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The name of the field.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--created</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The date this StackScript was created.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--deployments_active</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>Count of currently active, deployed Linodes created from this StackScript.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--deployments_total</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The total number of times this StackScript has been deployed.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--description</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>A description for the StackScript.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The unique ID of this StackScript.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--is_public</span></code></p></td>
-<td><p>No</p></td>
-<td><p>boolean</p></td>
-<td><p>This determines whether other users can use your StackScript.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--mine</span></code></p></td>
-<td><p>No</p></td>
-<td><p>boolean</p></td>
-<td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--rev_note</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>This field allows you to add notes for the set of revisions made to this StackScript.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--updated</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The date this StackScript was last updated.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields</span></code></p></td>
-<td><p>No</p></td>
-<td><p>object</p></td>
-<td><p>A custom field defined by the User with a special syntax within a StackScript.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.default</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The default value.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.manyOf</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>A list of acceptable values for the field in any quantity, combination or order.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.oneOf</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>A list of acceptable single values for the field.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_gravatar_id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The Gravatar ID for the User who created the StackScript.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--username</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The User who created the StackScript.</p></td>
-</tr>
-</tbody>
-</table>
-<hr class="docutils" />
-</section>
-<section id="stackscripts-delete">
-<span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-stack-script">delete</a><a class="headerlink" href="#stackscripts-delete" title="Link to this heading"></a></h2>
-<p>Deletes a private StackScript you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
-<p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>stackscriptId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>delete<span class="w"> </span><span class="m">10079</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">stackscriptId</span></code></p></td>
-<td><p>string</p></td>
-<td><p>The ID of the StackScript to look up.</p></td>
-</tr>
-</tbody>
-</table>
-<hr class="docutils" />
-</section>
-<section id="stackscripts-list">
-<span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-stack-scripts">list</a><a class="headerlink" href="#stackscripts-list" title="Link to this heading"></a></h2>
+<section id="commands-stackscripts-list">
+<span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-stack-scripts">list</a><a class="headerlink" href="#commands-stackscripts-list" title="Link to this heading"></a></h2>
 <p>If the request is not authenticated, only public StackScripts are returned.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
+<p class="action-subheading-description">The format accepted by this command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--description<span class="w"> </span>description<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--deployments_total<span class="w"> </span>deployments_total<span class="o">]</span><span class="w"> </span><span class="o">[</span>--rev_note<span class="w"> </span>rev_note<span class="o">]</span>
@@ -328,13 +142,13 @@
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>list
 </pre></div>
 </div>
-<p class="rubric">Filterable Attributes</p>
-<p><cite>Arguments used to define a filter for response entries.</cite></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading rubric">Filterable Attributes</p>
+<p class="action-subheading-description">Arguments used to define a filter for response entries.</p>
+<table class="action-filterable-field-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 10.0%" />
@@ -375,33 +189,27 @@
 </table>
 <hr class="docutils" />
 </section>
-<section id="stackscripts-update">
-<span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-stack-script">update</a><a class="headerlink" href="#stackscripts-update" title="Link to this heading"></a></h2>
-<p>Updates a StackScript.</p>
+<section id="commands-stackscripts-view">
+<span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-stack-script">view</a><a class="headerlink" href="#commands-stackscripts-view" title="Link to this heading"></a></h2>
+<p>Returns all of the information about a specified StackScript, including the contents of the script.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--description<span class="w"> </span>description<span class="o">]</span><span class="w"> </span><span class="o">[</span>--script<span class="w"> </span>script<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--images<span class="w"> </span>images<span class="o">]</span><span class="w"> </span><span class="o">[</span>--user_defined_fields<span class="w"> </span>user_defined_fields<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--rev_note<span class="w"> </span>rev_note<span class="o">]</span><span class="w"> </span><span class="o">[</span>--is_public<span class="w"> </span>is_public<span class="o">]</span><span class="w"> </span>stackscriptId
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--deployments_total<span class="w"> </span>deployments_total<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--description<span class="w"> </span>description<span class="o">]</span><span class="w"> </span><span class="o">[</span>--mine<span class="w"> </span>mine<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--is_public<span class="w"> </span>is_public<span class="o">]</span><span class="w"> </span><span class="o">[</span>--rev_note<span class="w"> </span>rev_note<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>deployments_total,label,description,mine,is_public,rev_note<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>stackscriptId
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>update<span class="w"> </span><span class="m">10079</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--label<span class="w"> </span>a-stackscript<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;This StackScript installs \</span>
-<span class="s2">            and configures MySQL&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--images<span class="w"> </span><span class="s2">&quot;linode/debian9&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--images<span class="w"> </span><span class="s2">&quot;linode/debian8&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--is_public<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--rev_note<span class="w"> </span><span class="s2">&quot;Set up MySQL&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--script<span class="w"> </span><span class="s1">&#39;#!/bin/bash&#39;</span>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>view<span class="w"> </span><span class="m">10079</span>
 </pre></div>
 </div>
 <p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 10.0%" />
@@ -420,14 +228,40 @@
 </tr>
 </tbody>
 </table>
+<hr class="docutils" />
+</section>
+<section id="commands-stackscripts-create">
+<span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-stack-script">create</a><a class="headerlink" href="#commands-stackscripts-create" title="Link to this heading"></a></h2>
+<p>Creates a StackScript in your Account.</p>
+<p class="action-subheading rubric">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--description<span class="w"> </span>description<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--script<span class="w"> </span>script<span class="o">]</span><span class="w"> </span><span class="o">[</span>--images<span class="w"> </span>images<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--rev_note<span class="w"> </span>rev_note<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--user_defined_fields<span class="w"> </span>user_defined_fields<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--is_public<span class="w"> </span>is_public<span class="o">]</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--label<span class="w"> </span>a-stackscript<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;This StackScript install and configures MySQL&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--images<span class="w"> </span><span class="s2">&quot;linode/debian9&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--images<span class="w"> </span><span class="s2">&quot;linode/debian8&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--is_public<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--rev_note<span class="w"> </span><span class="s2">&quot;Set up MySQL&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--script<span class="w"> </span><span class="s1">&#39;#!/bin/bash&#39;</span>
+</pre></div>
+</div>
 <p class="action-subheading rubric">Arguments</p>
-<p><span class="action-subheading-description">Additional fields used to execute this request.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
+<col style="width: 1.0%" />
 <col style="width: 10.0%" />
 <col style="width: 10.0%" />
-<col style="width: 65.0%" />
+<col style="width: 79.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -437,20 +271,20 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.example</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--images</span></code></p></td>
 <td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>An example value for the field.</p></td>
+<td><p>array[string]</p></td>
+<td><p>An array of Image IDs.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.label</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
 <td><p><span class="action-argument-required">Yes</span></p></td>
 <td><p>string</p></td>
-<td><p>A human-readable label for the field that will serve as the input prompt for entering the value during deployment.</p></td>
+<td><p>The StackScript’s label is for display purposes only.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.name</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--script</span></code></p></td>
 <td><p><span class="action-argument-required">Yes</span></p></td>
 <td><p>string</p></td>
-<td><p>The name of the field.</p></td>
+<td><p>The script to execute when provisioning a new Linode with this StackScript.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--created</span></code></p></td>
 <td><p>No</p></td>
@@ -477,20 +311,10 @@
 <td><p>integer</p></td>
 <td><p>The unique ID of this StackScript.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--images</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
-<td><p>An array of Image IDs.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--is_public</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--is_public</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>This determines whether other users can use your StackScript.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The StackScript’s label is for display purposes only.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--mine</span></code></p></td>
 <td><p>No</p></td>
@@ -502,35 +326,16 @@
 <td><p>string</p></td>
 <td><p>This field allows you to add notes for the set of revisions made to this StackScript.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--script</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The script to execute when provisioning a new Linode with this StackScript.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--updated</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--updated</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>The date this StackScript was last updated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields</span></code>
+<a class="reference internal" href="#commands-stackscripts-create-argument-sections-user-defined-fields"><span class="std std-ref">(section)</span></a></p></td>
 <td><p>No</p></td>
 <td><p>object</p></td>
 <td><p>A custom field defined by the User with a special syntax within a StackScript.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.default</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The default value.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.manyOf</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>A list of acceptable values for the field in any quantity, combination or order.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.oneOf</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>A list of acceptable single values for the field.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_gravatar_id</span></code></p></td>
 <td><p>No</p></td>
@@ -544,28 +349,261 @@
 </tr>
 </tbody>
 </table>
+<p class="action-argument-section-header" id="commands-stackscripts-create-argument-sections-user-defined-fields">user_defined_fields</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 79.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.example</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>An example value for the field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.label</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>A human-readable label for the field that will serve as the input prompt for entering the value during deployment.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.name</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>The name of the field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.default</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The default value.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.manyOf</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>A list of acceptable values for the field in any quantity, combination or order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.oneOf</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>A list of acceptable single values for the field.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
 </section>
-<section id="stackscripts-view">
-<span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-stack-script">view</a><a class="headerlink" href="#stackscripts-view" title="Link to this heading"></a></h2>
-<p>Returns all of the information about a specified StackScript, including the contents of the script.</p>
+<section id="commands-stackscripts-update">
+<span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-stack-script">update</a><a class="headerlink" href="#commands-stackscripts-update" title="Link to this heading"></a></h2>
+<p>Updates a StackScript.</p>
 <p class="action-subheading rubric">Usage</p>
-<p><span class="action-subheading-description">The format accepted by this command.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--deployments_total<span class="w"> </span>deployments_total<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--description<span class="w"> </span>description<span class="o">]</span><span class="w"> </span><span class="o">[</span>--mine<span class="w"> </span>mine<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--is_public<span class="w"> </span>is_public<span class="o">]</span><span class="w"> </span><span class="o">[</span>--rev_note<span class="w"> </span>rev_note<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>deployments_total,label,description,mine,is_public,rev_note<span class="o">}]</span>
-<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>stackscriptId
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--description<span class="w"> </span>description<span class="o">]</span><span class="w"> </span><span class="o">[</span>--script<span class="w"> </span>script<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--images<span class="w"> </span>images<span class="o">]</span><span class="w"> </span><span class="o">[</span>--user_defined_fields<span class="w"> </span>user_defined_fields<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--rev_note<span class="w"> </span>rev_note<span class="o">]</span><span class="w"> </span><span class="o">[</span>--is_public<span class="w"> </span>is_public<span class="o">]</span><span class="w"> </span>stackscriptId
 </pre></div>
 </div>
 <p class="action-subheading rubric">Sample</p>
-<p><span class="action-subheading-description">Examples of how this command might be used.</span></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>view<span class="w"> </span><span class="m">10079</span>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>update<span class="w"> </span><span class="m">10079</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--label<span class="w"> </span>a-stackscript<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;This StackScript installs \</span>
+<span class="s2">            and configures MySQL&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--images<span class="w"> </span><span class="s2">&quot;linode/debian9&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--images<span class="w"> </span><span class="s2">&quot;linode/debian8&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--is_public<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--rev_note<span class="w"> </span><span class="s2">&quot;Set up MySQL&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--script<span class="w"> </span><span class="s1">&#39;#!/bin/bash&#39;</span>
 </pre></div>
 </div>
 <p class="action-subheading rubric">Parameters</p>
-<p><span class="action-subheading-description">Positional parameters used to define the resource this command should target.</span></p>
-<table class="docutils align-default" style="width: 100%">
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">stackscriptId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The ID of the StackScript to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 79.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--created</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The date this StackScript was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--deployments_active</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>Count of currently active, deployed Linodes created from this StackScript.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--deployments_total</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The total number of times this StackScript has been deployed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--description</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>A description for the StackScript.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The unique ID of this StackScript.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--images</span></code></p></td>
+<td><p>No</p></td>
+<td><p>array[string]</p></td>
+<td><p>An array of Image IDs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--is_public</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>This determines whether other users can use your StackScript.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The StackScript’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--mine</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--rev_note</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>This field allows you to add notes for the set of revisions made to this StackScript.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--script</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The script to execute when provisioning a new Linode with this StackScript.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--updated</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The date this StackScript was last updated.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields</span></code>
+<a class="reference internal" href="#commands-stackscripts-update-argument-sections-user-defined-fields"><span class="std std-ref">(section)</span></a></p></td>
+<td><p>No</p></td>
+<td><p>object</p></td>
+<td><p>A custom field defined by the User with a special syntax within a StackScript.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_gravatar_id</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The Gravatar ID for the User who created the StackScript.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--username</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The User who created the StackScript.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-argument-section-header" id="commands-stackscripts-update-argument-sections-user-defined-fields">user_defined_fields</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 79.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.example</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>An example value for the field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.label</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>A human-readable label for the field that will serve as the input prompt for entering the value during deployment.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.name</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>The name of the field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.default</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The default value.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.manyOf</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>A list of acceptable values for the field in any quantity, combination or order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--user_defined_fields.oneOf</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>A list of acceptable single values for the field.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="commands-stackscripts-delete">
+<span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-stack-script">delete</a><a class="headerlink" href="#commands-stackscripts-delete" title="Link to this heading"></a></h2>
+<p>Deletes a private StackScript you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
+<p class="action-subheading rubric">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>stackscriptId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>stackscripts<span class="w"> </span>delete<span class="w"> </span><span class="m">10079</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 10.0%" />

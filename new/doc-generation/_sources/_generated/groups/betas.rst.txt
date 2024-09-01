@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 Betas
@@ -7,125 +5,7 @@ Betas
 
 This section details Beta-related Linode CLI commands.
 
-.. _betas_enroll:
-
-`enroll <https://techdocs.akamai.com/linode-api/reference/post-beta-program>`_
-------------------------------------------------------------------------------
-
-
-Enroll your Account in an active Beta Program.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli betas enroll [-h] [--id id]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli betas enroll --id example_open
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-:action-subheading-description:`Additional fields used to execute this request.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 10 65
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--id`
-      - :action-argument-required:`Yes`
-      - string
-      - The unique identifier of the Beta Program.
-
-
-------------
-
-.. _betas_enrolled:
-
-`enrolled <https://techdocs.akamai.com/linode-api/reference/get-enrolled-beta-programs>`_
------------------------------------------------------------------------------------------
-
-
-Display all enrolled Beta Programs for your Account.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli betas enrolled [-h] [--enrolled enrolled]
-    	[--label label] [--started started] [--ended ended]
-    	[--order-by {enrolled,label,started,ended}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli betas enrolled
-
-
-.. rubric:: Filterable Attributes
-
-`Arguments used to define a filter for response entries.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`--ended`
-      - *string*
-      - The date-time that the Beta Program ended.
-    * - :code:`--enrolled`
-      - *string*
-      - The date-time of Account enrollment to the Beta Program.
-    * - :code:`--label`
-      - *string*
-      - The name of the Beta Program.
-    * - :code:`--started`
-      - *string*
-      - The start date-time of the Beta Program.
-
-
-------------
-
-.. _betas_list:
+.. _commands_betas_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-beta-programs>`_
 ----------------------------------------------------------------------------
@@ -137,7 +17,10 @@ Display all active Beta Programs.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -151,7 +34,9 @@ Display all active Beta Programs.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -159,9 +44,17 @@ Display all active Beta Programs.
     linode-cli betas list
 
 
-.. rubric:: Filterable Attributes
+.. cssclass:: action-subheading
 
-`Arguments used to define a filter for response entries.`
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
@@ -188,7 +81,7 @@ Display all active Beta Programs.
 
 ------------
 
-.. _betas_view:
+.. _commands_betas_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-beta-program>`_
 ---------------------------------------------------------------------------
@@ -200,7 +93,10 @@ Display information about a Beta Program.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -215,7 +111,9 @@ Display information about a Beta Program.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -227,7 +125,12 @@ Display information about a Beta Program.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -243,8 +146,149 @@ Display information about a Beta Program.
       - The ID of the Beta Program.
 
 
+------------
 
-.. _betas_enrolled-view:
+.. _commands_betas_enroll:
+
+`enroll <https://techdocs.akamai.com/linode-api/reference/post-beta-program>`_
+------------------------------------------------------------------------------
+
+
+Enroll your Account in an active Beta Program.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli betas enroll [-h] [--id id]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli betas enroll --id example_open
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--id`
+      - :action-argument-required:`Yes`
+      - string
+      - The unique identifier of the Beta Program.
+
+
+------------
+
+.. _commands_betas_enrolled:
+
+`enrolled <https://techdocs.akamai.com/linode-api/reference/get-enrolled-beta-programs>`_
+-----------------------------------------------------------------------------------------
+
+
+Display all enrolled Beta Programs for your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli betas enrolled [-h] [--enrolled enrolled]
+    	[--label label] [--started started] [--ended ended]
+    	[--order-by {enrolled,label,started,ended}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli betas enrolled
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--ended`
+      - *string*
+      - The date-time that the Beta Program ended.
+    * - :code:`--enrolled`
+      - *string*
+      - The date-time of Account enrollment to the Beta Program.
+    * - :code:`--label`
+      - *string*
+      - The name of the Beta Program.
+    * - :code:`--started`
+      - *string*
+      - The start date-time of the Beta Program.
+
+
+
+.. _commands_betas_enrolled-view:
 
 `enrolled-view <https://techdocs.akamai.com/linode-api/reference/get-enrolled-beta-program>`_
 ---------------------------------------------------------------------------------------------
@@ -256,7 +300,10 @@ Display an enrolled Beta Program for your Account.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -270,7 +317,9 @@ Display an enrolled Beta Program for your Account.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -282,7 +331,12 @@ Display an enrolled Beta Program for your Account.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1

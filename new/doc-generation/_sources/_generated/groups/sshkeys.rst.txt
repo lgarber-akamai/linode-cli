@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 SSH Keys
@@ -7,7 +5,110 @@ SSH Keys
 
 This section details SSH Key-related Linode CLI commands.
 
-.. _sshkeys_create:
+.. _commands_sshkeys_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-ssh-keys>`_
+-----------------------------------------------------------------------
+
+
+Returns a collection of SSH Keys you've added to your Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli sshkeys list [-h] [--order-by {}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli sshkeys list
+
+
+
+------------
+
+.. _commands_sshkeys_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-ssh-key>`_
+----------------------------------------------------------------------
+
+
+Returns a single SSH Key object identified by :code:`id` that you have access to view.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli sshkeys view [-h] [--order-by {}] [--order {asc,desc}]
+    	sshKeyId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli sshkeys view 42
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`sshKeyId`
+      - integer
+      - The ID of the SSHKey.
+
+
+------------
+
+.. _commands_sshkeys_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-add-ssh-key>`_
 -----------------------------------------------------------------------------
@@ -19,7 +120,10 @@ Adds an SSH Key to your Account profile.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -31,7 +135,9 @@ Adds an SSH Key to your Account profile.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -45,12 +151,17 @@ Adds an SSH Key to your Account profile.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -77,94 +188,7 @@ Adds an SSH Key to your Account profile.
 
 ------------
 
-.. _sshkeys_delete:
-
-`delete <https://techdocs.akamai.com/linode-api/reference/delete-ssh-key>`_
----------------------------------------------------------------------------
-
-
-Deletes an SSH Key you have access to.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli sshkeys delete [-h] sshKeyId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli sshkeys delete 42
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`sshKeyId`
-      - integer
-      - The ID of the SSHKey.
-
-
-------------
-
-.. _sshkeys_list:
-
-`list <https://techdocs.akamai.com/linode-api/reference/get-ssh-keys>`_
------------------------------------------------------------------------
-
-
-Returns a collection of SSH Keys you've added to your Profile.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli sshkeys list [-h] [--order-by {}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli sshkeys list
-
-
-
-------------
-
-.. _sshkeys_update:
+.. _commands_sshkeys_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-ssh-key>`_
 ------------------------------------------------------------------------
@@ -176,7 +200,10 @@ Updates an SSH Key that you have permission to :code:`read_write`.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -187,7 +214,9 @@ Updates an SSH Key that you have permission to :code:`read_write`.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -200,7 +229,12 @@ Updates an SSH Key that you have permission to :code:`read_write`.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -219,12 +253,17 @@ Updates an SSH Key that you have permission to :code:`read_write`.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -238,43 +277,52 @@ Updates an SSH Key that you have permission to :code:`read_write`.
 
 
 
-.. _sshkeys_view:
+.. _commands_sshkeys_delete:
 
-`view <https://techdocs.akamai.com/linode-api/reference/get-ssh-key>`_
-----------------------------------------------------------------------
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-ssh-key>`_
+---------------------------------------------------------------------------
 
 
-Returns a single SSH Key object identified by :code:`id` that you have access to view.
+Deletes an SSH Key you have access to.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli sshkeys view [-h] [--order-by {}] [--order {asc,desc}]
-    	sshKeyId
+    linode-cli sshkeys delete [-h] sshKeyId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli sshkeys view 42
+    linode-cli sshkeys delete 42
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1

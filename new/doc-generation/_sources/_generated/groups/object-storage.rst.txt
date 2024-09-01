@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 Object Storage
@@ -7,7 +5,7 @@ Object Storage
 
 This section details Object Storage-related Linode CLI commands.
 
-.. _object-storage_cancel:
+.. _commands_object-storage_cancel:
 
 `cancel <https://techdocs.akamai.com/linode-api/reference/post-cancel-object-storage>`_
 ---------------------------------------------------------------------------------------
@@ -19,7 +17,10 @@ Cancel Object Storage on an Account.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -30,7 +31,9 @@ Cancel Object Storage on an Account.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -41,7 +44,7 @@ Cancel Object Storage on an Account.
 
 ------------
 
-.. _object-storage_clusters-list:
+.. _commands_object-storage_clusters-list:
 
 `clusters-list <https://techdocs.akamai.com/linode-api/reference/get-object-storage-clusters>`_
 -----------------------------------------------------------------------------------------------
@@ -55,7 +58,10 @@ Returns a paginated list of available Object Storage legacy clusters.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -67,7 +73,9 @@ Returns a paginated list of available Object Storage legacy clusters.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -78,7 +86,7 @@ Returns a paginated list of available Object Storage legacy clusters.
 
 ------------
 
-.. _object-storage_clusters-view:
+.. _commands_object-storage_clusters-view:
 
 `clusters-view <https://techdocs.akamai.com/linode-api/reference/get-object-storage-cluster>`_
 ----------------------------------------------------------------------------------------------
@@ -92,7 +100,10 @@ __Deprecated__ Returns a single Object Storage cluster.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -104,7 +115,9 @@ __Deprecated__ Returns a single Object Storage cluster.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -116,7 +129,12 @@ __Deprecated__ Returns a single Object Storage cluster.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -134,7 +152,112 @@ __Deprecated__ Returns a single Object Storage cluster.
 
 ------------
 
-.. _object-storage_keys-create:
+.. _commands_object-storage_keys-list:
+
+`keys-list <https://techdocs.akamai.com/linode-api/reference/get-object-storage-keys>`_
+---------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Object Storage keys for authenticating to the Object Storage S3 API.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli object-storage keys-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli object-storage keys-list
+
+
+
+------------
+
+.. _commands_object-storage_keys-view:
+
+`keys-view <https://techdocs.akamai.com/linode-api/reference/get-object-storage-key>`_
+--------------------------------------------------------------------------------------
+
+
+Returns a single Object Storage key provisioned for your account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli object-storage keys-view [-h] [--order-by {}]
+    	[--order {asc,desc}] keyId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli object-storage keys-view \
+    	--keyId 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`keyId`
+      - integer
+      - The key to look up.
+
+
+------------
+
+.. _commands_object-storage_keys-create:
 
 `keys-create <https://techdocs.akamai.com/linode-api/reference/post-object-storage-keys>`_
 ------------------------------------------------------------------------------------------
@@ -146,7 +269,10 @@ Provisions a new Object Storage key for authenticating to the Object Storage S3 
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -161,7 +287,9 @@ Provisions a new Object Storage key for authenticating to the Object Storage S3 
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -175,12 +303,17 @@ Provisions a new Object Storage key for authenticating to the Object Storage S3 
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -188,9 +321,36 @@ Provisions a new Object Storage key for authenticating to the Object Storage S3 
       - Description
 
     * - :code:`--bucket_access`
+        :ref:`(section) <commands_object-storage_keys-create_argument_sections_bucket_access>`
       - No
       - object
       - N/A
+    * - :code:`--label`
+      - No
+      - string
+      - The label for the Object Storage key, for display purposes only.
+    * - :code:`--regions`
+      - No
+      - array[string]
+      - You can use a key to create new buckets in regions set in this array.
+.. _commands_object-storage_keys-create_argument_sections_bucket_access:
+
+.. cssclass:: action-argument-section-header
+
+    bucket_access
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
     * - :code:`--bucket_access.bucket_name`
       - No
       - string
@@ -203,107 +363,11 @@ Provisions a new Object Storage key for authenticating to the Object Storage S3 
       - No
       - string
       - The region where the :code:`bucket_name` you want the key to access is located.
-    * - :code:`--label`
-      - No
-      - string
-      - The label for the Object Storage key, for display purposes only.
-    * - :code:`--regions`
-      - No
-      - array[string]
-      - You can use a key to create new buckets in regions set in this array.
 
 
 ------------
 
-.. _object-storage_keys-delete:
-
-`keys-delete <https://techdocs.akamai.com/linode-api/reference/delete-object-storage-key>`_
--------------------------------------------------------------------------------------------
-
-
-Revokes an Object Storage Key.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli object-storage keys-delete [-h] keyId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli object-storage keys-delete 12345
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`keyId`
-      - integer
-      - The key to look up.
-
-
-------------
-
-.. _object-storage_keys-list:
-
-`keys-list <https://techdocs.akamai.com/linode-api/reference/get-object-storage-keys>`_
----------------------------------------------------------------------------------------
-
-
-Returns a paginated list of Object Storage keys for authenticating to the Object Storage S3 API.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli object-storage keys-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli object-storage keys-list
-
-
-
-------------
-
-.. _object-storage_keys-update:
+.. _commands_object-storage_keys-update:
 
 `keys-update <https://techdocs.akamai.com/linode-api/reference/put-object-storage-key>`_
 ----------------------------------------------------------------------------------------
@@ -315,7 +379,10 @@ Updates an Object Storage key on your account.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -327,7 +394,9 @@ Updates an Object Storage key on your account.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -341,7 +410,12 @@ Updates an Object Storage key on your account.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -360,12 +434,17 @@ Updates an Object Storage key on your account.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -384,44 +463,52 @@ Updates an Object Storage key on your account.
 
 ------------
 
-.. _object-storage_keys-view:
+.. _commands_object-storage_keys-delete:
 
-`keys-view <https://techdocs.akamai.com/linode-api/reference/get-object-storage-key>`_
---------------------------------------------------------------------------------------
+`keys-delete <https://techdocs.akamai.com/linode-api/reference/delete-object-storage-key>`_
+-------------------------------------------------------------------------------------------
 
 
-Returns a single Object Storage key provisioned for your account.
+Revokes an Object Storage Key.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli object-storage keys-view [-h] [--order-by {}]
-    	[--order {asc,desc}] keyId
+    linode-cli object-storage keys-delete [-h] keyId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli object-storage keys-view \
-    	--keyId 12345
+    linode-cli object-storage keys-delete 12345
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -439,35 +526,41 @@ Returns a single Object Storage key provisioned for your account.
 
 ------------
 
-.. _object-storage_ssl-delete:
+.. _commands_object-storage_ssl-view:
 
-`ssl-delete <https://techdocs.akamai.com/linode-api/reference/delete-object-storage-ssl>`_
-------------------------------------------------------------------------------------------
+`ssl-view <https://techdocs.akamai.com/linode-api/reference/get-object-storage-ssl>`_
+-------------------------------------------------------------------------------------
 
 
-Deletes this Object Storage bucket's user uploaded TLS/SSL certificate and private key.
+Returns a boolean value indicating if this bucket has a corresponding TLS/SSL certificate that was uploaded by an Account user.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli object-storage ssl-delete [-h] regionId bucket
+    linode-cli object-storage ssl-view [-h] [--order-by {}]
+    	[--order {asc,desc}] regionId bucket
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli object-storage ssl-delete \
+    linode-cli object-storage ssl-view \
     	us-east-1 example-bucket
 
 
@@ -475,7 +568,12 @@ Deletes this Object Storage bucket's user uploaded TLS/SSL certificate and priva
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -496,7 +594,73 @@ Deletes this Object Storage bucket's user uploaded TLS/SSL certificate and priva
 
 ------------
 
-.. _object-storage_ssl-upload:
+.. _commands_object-storage_ssl-delete:
+
+`ssl-delete <https://techdocs.akamai.com/linode-api/reference/delete-object-storage-ssl>`_
+------------------------------------------------------------------------------------------
+
+
+Deletes this Object Storage bucket's user uploaded TLS/SSL certificate and private key.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli object-storage ssl-delete [-h] regionId bucket
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli object-storage ssl-delete \
+    	us-east-1 example-bucket
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`regionId`
+      - string
+      - Identifies a region where this bucket lives.
+    * - :code:`bucket`
+      - string
+      - The bucket name.
+
+
+
+.. _commands_object-storage_ssl-upload:
 
 `ssl-upload <https://techdocs.akamai.com/linode-api/reference/post-object-storage-ssl>`_
 ----------------------------------------------------------------------------------------
@@ -508,7 +672,10 @@ Upload a TLS/SSL certificate and private key to be served when you visit your Ob
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -521,7 +688,9 @@ Upload a TLS/SSL certificate and private key to be served when you visit your Ob
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -540,7 +709,12 @@ Upload a TLS/SSL certificate and private key to be served when you visit your Ob
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -562,12 +736,17 @@ Upload a TLS/SSL certificate and private key to be served when you visit your Ob
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -582,63 +761,6 @@ Upload a TLS/SSL certificate and private key to be served when you visit your Ob
       - :action-argument-required:`Yes`
       - string
       - The private key associated with this TLS/SSL certificate.
-
-
-
-.. _object-storage_ssl-view:
-
-`ssl-view <https://techdocs.akamai.com/linode-api/reference/get-object-storage-ssl>`_
--------------------------------------------------------------------------------------
-
-
-Returns a boolean value indicating if this bucket has a corresponding TLS/SSL certificate that was uploaded by an Account user.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli object-storage ssl-view [-h] [--order-by {}]
-    	[--order {asc,desc}] regionId bucket
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli object-storage ssl-view \
-    	us-east-1 example-bucket
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`regionId`
-      - string
-      - Identifies a region where this bucket lives.
-    * - :code:`bucket`
-      - string
-      - The bucket name.
 
 
 

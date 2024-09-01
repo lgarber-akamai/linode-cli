@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 Stackscripts
@@ -7,206 +5,7 @@ Stackscripts
 
 This section details Stackscript-related Linode CLI commands.
 
-.. _stackscripts_create:
-
-`create <https://techdocs.akamai.com/linode-api/reference/post-add-stack-script>`_
-----------------------------------------------------------------------------------
-
-
-Creates a StackScript in your Account.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli stackscripts create [-h] [--description description]
-    	[--label label] [--script script] [--images images]
-    	[--rev_note rev_note]
-    	[--user_defined_fields user_defined_fields]
-    	[--is_public is_public]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli stackscripts create \
-    	--label a-stackscript \
-    	--description "This StackScript install and configures MySQL" \
-    	--images "linode/debian9" \
-    	--images "linode/debian8" \
-    	--is_public true \
-    	--rev_note "Set up MySQL" \
-    	--script '#!/bin/bash'
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-:action-subheading-description:`Additional fields used to execute this request.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 10 65
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--images`
-      - :action-argument-required:`Yes`
-      - array[string]
-      - An array of Image IDs.
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
-      - The StackScript's label is for display purposes only.
-    * - :code:`--script`
-      - :action-argument-required:`Yes`
-      - string
-      - The script to execute when provisioning a new Linode with this StackScript.
-    * - :code:`--user_defined_fields.example`
-      - :action-argument-required:`Yes`
-      - string
-      - An example value for the field.
-    * - :code:`--user_defined_fields.label`
-      - :action-argument-required:`Yes`
-      - string
-      - A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
-    * - :code:`--user_defined_fields.name`
-      - :action-argument-required:`Yes`
-      - string
-      - The name of the field.
-    * - :code:`--created`
-      - No
-      - string
-      - The date this StackScript was created.
-    * - :code:`--deployments_active`
-      - No
-      - integer
-      - Count of currently active, deployed Linodes created from this StackScript.
-    * - :code:`--deployments_total`
-      - No
-      - integer
-      - The total number of times this StackScript has been deployed.
-    * - :code:`--description`
-      - No
-      - string
-      - A description for the StackScript.
-    * - :code:`--id`
-      - No
-      - integer
-      - The unique ID of this StackScript.
-    * - :code:`--is_public`
-      - No
-      - boolean
-      - This determines whether other users can use your StackScript.
-    * - :code:`--mine`
-      - No
-      - boolean
-      - Returns :code:`true` if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.
-    * - :code:`--rev_note`
-      - No
-      - string
-      - This field allows you to add notes for the set of revisions made to this StackScript.
-    * - :code:`--updated`
-      - No
-      - string
-      - The date this StackScript was last updated.
-    * - :code:`--user_defined_fields`
-      - No
-      - object
-      - A custom field defined by the User with a special syntax within a StackScript.
-    * - :code:`--user_defined_fields.default`
-      - No
-      - string
-      - The default value.
-    * - :code:`--user_defined_fields.manyOf`
-      - No
-      - string
-      - A list of acceptable values for the field in any quantity, combination or order.
-    * - :code:`--user_defined_fields.oneOf`
-      - No
-      - string
-      - A list of acceptable single values for the field.
-    * - :code:`--user_gravatar_id`
-      - No
-      - string
-      - The Gravatar ID for the User who created the StackScript.
-    * - :code:`--username`
-      - No
-      - string
-      - The User who created the StackScript.
-
-
-------------
-
-.. _stackscripts_delete:
-
-`delete <https://techdocs.akamai.com/linode-api/reference/delete-stack-script>`_
---------------------------------------------------------------------------------
-
-
-Deletes a private StackScript you have permission to :code:`read_write`.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli stackscripts delete [-h] stackscriptId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli stackscripts delete 10079
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`stackscriptId`
-      - string
-      - The ID of the StackScript to look up.
-
-
-------------
-
-.. _stackscripts_list:
+.. _commands_stackscripts_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-stack-scripts>`_
 ----------------------------------------------------------------------------
@@ -218,7 +17,10 @@ If the request is not authenticated, only public StackScripts are returned.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -234,7 +36,9 @@ If the request is not authenticated, only public StackScripts are returned.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -242,9 +46,17 @@ If the request is not authenticated, only public StackScripts are returned.
     linode-cli stackscripts list
 
 
-.. rubric:: Filterable Attributes
+.. cssclass:: action-subheading
 
-`Arguments used to define a filter for response entries.`
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
@@ -277,7 +89,250 @@ If the request is not authenticated, only public StackScripts are returned.
 
 ------------
 
-.. _stackscripts_update:
+.. _commands_stackscripts_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-stack-script>`_
+---------------------------------------------------------------------------
+
+
+Returns all of the information about a specified StackScript, including the contents of the script.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli stackscripts view [-h]
+    	[--deployments_total deployments_total] [--label label]
+    	[--description description] [--mine mine]
+    	[--is_public is_public] [--rev_note rev_note]
+    	[--order-by {deployments_total,label,description,mine,is_public,rev_note}]
+    	[--order {asc,desc}] stackscriptId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli stackscripts view 10079
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`stackscriptId`
+      - string
+      - The ID of the StackScript to look up.
+
+
+------------
+
+.. _commands_stackscripts_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-add-stack-script>`_
+----------------------------------------------------------------------------------
+
+
+Creates a StackScript in your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli stackscripts create [-h] [--description description]
+    	[--label label] [--script script] [--images images]
+    	[--rev_note rev_note]
+    	[--user_defined_fields user_defined_fields]
+    	[--is_public is_public]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli stackscripts create \
+    	--label a-stackscript \
+    	--description "This StackScript install and configures MySQL" \
+    	--images "linode/debian9" \
+    	--images "linode/debian8" \
+    	--is_public true \
+    	--rev_note "Set up MySQL" \
+    	--script '#!/bin/bash'
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--images`
+      - :action-argument-required:`Yes`
+      - array[string]
+      - An array of Image IDs.
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The StackScript's label is for display purposes only.
+    * - :code:`--script`
+      - :action-argument-required:`Yes`
+      - string
+      - The script to execute when provisioning a new Linode with this StackScript.
+    * - :code:`--created`
+      - No
+      - string
+      - The date this StackScript was created.
+    * - :code:`--deployments_active`
+      - No
+      - integer
+      - Count of currently active, deployed Linodes created from this StackScript.
+    * - :code:`--deployments_total`
+      - No
+      - integer
+      - The total number of times this StackScript has been deployed.
+    * - :code:`--description`
+      - No
+      - string
+      - A description for the StackScript.
+    * - :code:`--id`
+      - No
+      - integer
+      - The unique ID of this StackScript.
+    * - :code:`--is_public`
+      - No
+      - boolean
+      - This determines whether other users can use your StackScript.
+    * - :code:`--mine`
+      - No
+      - boolean
+      - Returns :code:`true` if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.
+    * - :code:`--rev_note`
+      - No
+      - string
+      - This field allows you to add notes for the set of revisions made to this StackScript.
+    * - :code:`--updated`
+      - No
+      - string
+      - The date this StackScript was last updated.
+    * - :code:`--user_defined_fields`
+        :ref:`(section) <commands_stackscripts_create_argument_sections_user_defined_fields>`
+      - No
+      - object
+      - A custom field defined by the User with a special syntax within a StackScript.
+    * - :code:`--user_gravatar_id`
+      - No
+      - string
+      - The Gravatar ID for the User who created the StackScript.
+    * - :code:`--username`
+      - No
+      - string
+      - The User who created the StackScript.
+.. _commands_stackscripts_create_argument_sections_user_defined_fields:
+
+.. cssclass:: action-argument-section-header
+
+    user_defined_fields
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--user_defined_fields.example`
+      - :action-argument-required:`Yes`
+      - string
+      - An example value for the field.
+    * - :code:`--user_defined_fields.label`
+      - :action-argument-required:`Yes`
+      - string
+      - A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
+    * - :code:`--user_defined_fields.name`
+      - :action-argument-required:`Yes`
+      - string
+      - The name of the field.
+    * - :code:`--user_defined_fields.default`
+      - No
+      - string
+      - The default value.
+    * - :code:`--user_defined_fields.manyOf`
+      - No
+      - string
+      - A list of acceptable values for the field in any quantity, combination or order.
+    * - :code:`--user_defined_fields.oneOf`
+      - No
+      - string
+      - A list of acceptable single values for the field.
+
+
+------------
+
+.. _commands_stackscripts_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-stack-script>`_
 -----------------------------------------------------------------------------
@@ -289,7 +344,10 @@ Updates a StackScript.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -303,7 +361,9 @@ Updates a StackScript.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -323,7 +383,12 @@ Updates a StackScript.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -342,30 +407,23 @@ Updates a StackScript.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--user_defined_fields.example`
-      - :action-argument-required:`Yes`
-      - string
-      - An example value for the field.
-    * - :code:`--user_defined_fields.label`
-      - :action-argument-required:`Yes`
-      - string
-      - A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
-    * - :code:`--user_defined_fields.name`
-      - :action-argument-required:`Yes`
-      - string
-      - The name of the field.
     * - :code:`--created`
       - No
       - string
@@ -415,9 +473,48 @@ Updates a StackScript.
       - string
       - The date this StackScript was last updated.
     * - :code:`--user_defined_fields`
+        :ref:`(section) <commands_stackscripts_update_argument_sections_user_defined_fields>`
       - No
       - object
       - A custom field defined by the User with a special syntax within a StackScript.
+    * - :code:`--user_gravatar_id`
+      - No
+      - string
+      - The Gravatar ID for the User who created the StackScript.
+    * - :code:`--username`
+      - No
+      - string
+      - The User who created the StackScript.
+.. _commands_stackscripts_update_argument_sections_user_defined_fields:
+
+.. cssclass:: action-argument-section-header
+
+    user_defined_fields
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--user_defined_fields.example`
+      - :action-argument-required:`Yes`
+      - string
+      - An example value for the field.
+    * - :code:`--user_defined_fields.label`
+      - :action-argument-required:`Yes`
+      - string
+      - A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
+    * - :code:`--user_defined_fields.name`
+      - :action-argument-required:`Yes`
+      - string
+      - The name of the field.
     * - :code:`--user_defined_fields.default`
       - No
       - string
@@ -430,58 +527,55 @@ Updates a StackScript.
       - No
       - string
       - A list of acceptable single values for the field.
-    * - :code:`--user_gravatar_id`
-      - No
-      - string
-      - The Gravatar ID for the User who created the StackScript.
-    * - :code:`--username`
-      - No
-      - string
-      - The User who created the StackScript.
 
 
 
-.. _stackscripts_view:
+.. _commands_stackscripts_delete:
 
-`view <https://techdocs.akamai.com/linode-api/reference/get-stack-script>`_
----------------------------------------------------------------------------
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-stack-script>`_
+--------------------------------------------------------------------------------
 
 
-Returns all of the information about a specified StackScript, including the contents of the script.
+Deletes a private StackScript you have permission to :code:`read_write`.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli stackscripts view [-h]
-    	[--deployments_total deployments_total] [--label label]
-    	[--description description] [--mine mine]
-    	[--is_public is_public] [--rev_note rev_note]
-    	[--order-by {deployments_total,label,description,mine,is_public,rev_note}]
-    	[--order {asc,desc}] stackscriptId
+    linode-cli stackscripts delete [-h] stackscriptId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli stackscripts view 10079
+    linode-cli stackscripts delete 10079
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1

@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 Tickets
@@ -7,42 +5,127 @@ Tickets
 
 This section details Ticket-related Linode CLI commands.
 
-.. _tickets_close:
+.. _commands_tickets_list:
 
-`close <https://techdocs.akamai.com/linode-api/reference/post-close-ticket>`_
------------------------------------------------------------------------------
+`list <https://techdocs.akamai.com/linode-api/reference/get-tickets>`_
+----------------------------------------------------------------------
 
 
-Closes a Support Ticket you have access to modify.
+Returns a collection of Support Tickets on your Account.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli tickets close [-h] ticketId
+    linode-cli tickets list [-h] [--opened opened]
+    	[--updated updated] [--closed closed]
+    	[--order-by {opened,updated,closed}] [--order {asc,desc}]
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli tickets close 11223344
+    linode-cli tickets list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--closed`
+      - *string*
+      - The date and time this Ticket was closed.
+    * - :code:`--opened`
+      - *string*
+      - The date and time this Ticket was created.
+    * - :code:`--updated`
+      - *string*
+      - The date and time this Ticket was last updated.
+
+
+------------
+
+.. _commands_tickets_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-ticket>`_
+---------------------------------------------------------------------
+
+
+Returns a Support Ticket under your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli tickets view [-h] [--opened opened]
+    	[--updated updated] [--closed closed]
+    	[--order-by {opened,updated,closed}] [--order {asc,desc}]
+    	ticketId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli tickets view 11223344
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -60,7 +143,7 @@ Closes a Support Ticket you have access to modify.
 
 ------------
 
-.. _tickets_create:
+.. _commands_tickets_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-ticket>`_
 ------------------------------------------------------------------------
@@ -72,7 +155,10 @@ Open a Support Ticket.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -90,7 +176,9 @@ Open a Support Ticket.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -105,12 +193,17 @@ Open a Support Ticket.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -177,102 +270,52 @@ Open a Support Ticket.
 
 ------------
 
-.. _tickets_list:
+.. _commands_tickets_close:
 
-`list <https://techdocs.akamai.com/linode-api/reference/get-tickets>`_
-----------------------------------------------------------------------
+`close <https://techdocs.akamai.com/linode-api/reference/post-close-ticket>`_
+-----------------------------------------------------------------------------
 
 
-Returns a collection of Support Tickets on your Account.
+Closes a Support Ticket you have access to modify.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli tickets list [-h] [--opened opened]
-    	[--updated updated] [--closed closed]
-    	[--order-by {opened,updated,closed}] [--order {asc,desc}]
+    linode-cli tickets close [-h] ticketId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli tickets list
-
-
-.. rubric:: Filterable Attributes
-
-`Arguments used to define a filter for response entries.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`--closed`
-      - *string*
-      - The date and time this Ticket was closed.
-    * - :code:`--opened`
-      - *string*
-      - The date and time this Ticket was created.
-    * - :code:`--updated`
-      - *string*
-      - The date and time this Ticket was last updated.
-
-
-------------
-
-.. _tickets_replies:
-
-`replies <https://techdocs.akamai.com/linode-api/reference/get-ticket-replies>`_
---------------------------------------------------------------------------------
-
-
-Returns a collection of replies to a Support Ticket on your Account.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli tickets replies [-h] [--order-by {}]
-    	[--order {asc,desc}] ticketId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli tickets replies 11223344
+    linode-cli tickets close 11223344
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -290,7 +333,70 @@ Returns a collection of replies to a Support Ticket on your Account.
 
 ------------
 
-.. _tickets_reply:
+.. _commands_tickets_replies:
+
+`replies <https://techdocs.akamai.com/linode-api/reference/get-ticket-replies>`_
+--------------------------------------------------------------------------------
+
+
+Returns a collection of replies to a Support Ticket on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli tickets replies [-h] [--order-by {}]
+    	[--order {asc,desc}] ticketId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli tickets replies 11223344
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`ticketId`
+      - integer
+      - The ID of the Support Ticket.
+
+
+
+.. _commands_tickets_reply:
 
 `reply <https://techdocs.akamai.com/linode-api/reference/post-ticket-reply>`_
 -----------------------------------------------------------------------------
@@ -302,7 +408,10 @@ Adds a reply to an existing Support Ticket.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -314,7 +423,9 @@ Adds a reply to an existing Support Ticket.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -327,7 +438,12 @@ Adds a reply to an existing Support Ticket.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -346,12 +462,17 @@ Adds a reply to an existing Support Ticket.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -362,61 +483,6 @@ Adds a reply to an existing Support Ticket.
       - :action-argument-required:`Yes`
       - string
       - The content of your reply.
-
-
-
-.. _tickets_view:
-
-`view <https://techdocs.akamai.com/linode-api/reference/get-ticket>`_
----------------------------------------------------------------------
-
-
-Returns a Support Ticket under your Account.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli tickets view [-h] [--opened opened]
-    	[--updated updated] [--closed closed]
-    	[--order-by {opened,updated,closed}] [--order {asc,desc}]
-    	ticketId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli tickets view 11223344
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`ticketId`
-      - integer
-      - The ID of the Support Ticket.
 
 
 

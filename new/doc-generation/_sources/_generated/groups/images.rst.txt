@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 Images
@@ -7,137 +5,7 @@ Images
 
 This section details Image-related Linode CLI commands.
 
-.. _images_create:
-
-`create <https://techdocs.akamai.com/linode-api/reference/post-image>`_
------------------------------------------------------------------------
-
-
-Captures a private, gold-master image from a Linode disk.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli images create [-h] [--disk_id disk_id]
-    	[--cloud_init cloud_init] [--label label]
-    	[--description description] [--tags tags]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli images create \
-    	--label this_is_a_label \
-    	--description "A longer description \
-    		of the image" \
-    	--disk_id 123
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-:action-subheading-description:`Additional fields used to execute this request.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 10 65
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--disk_id`
-      - :action-argument-required:`Yes`
-      - integer
-      - The ID of the Linode Disk that this image will be created from.
-    * - :code:`--cloud_init`
-      - No
-      - boolean
-      - Whether this image supports `cloud-init <https://www.linode.com/docs/guides/write-files-with-cloud-init/>`_.
-    * - :code:`--description`
-      - No
-      - string
-      - A detailed description of this image.
-    * - :code:`--label`
-      - No
-      - string
-      - A short title of this image.
-    * - :code:`--tags`
-      - No
-      - array[string]
-      - Tags used for organizational purposes.
-
-
-------------
-
-.. _images_delete:
-
-`delete <https://techdocs.akamai.com/linode-api/reference/delete-image>`_
--------------------------------------------------------------------------
-
-
-Deletes a private image you have permission to :code:`read_write`.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli images delete [-h] imageId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli images delete 12345
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`imageId`
-      - string
-      - The unique identifier assigned to the image after creation.
-
-
-------------
-
-.. _images_list:
+.. _commands_images_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-images>`_
 ---------------------------------------------------------------------
@@ -149,7 +17,10 @@ Returns a paginated list of images.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -165,7 +36,9 @@ Returns a paginated list of images.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -173,9 +46,17 @@ Returns a paginated list of images.
     linode-cli images list
 
 
-.. rubric:: Filterable Attributes
+.. cssclass:: action-subheading
 
-`Arguments used to define a filter for response entries.`
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
@@ -214,43 +95,57 @@ Returns a paginated list of images.
 
 ------------
 
-.. _images_replicate:
+.. _commands_images_view:
 
-`replicate <https://techdocs.akamai.com/linode-api/reference/post-replicate-image>`_
-------------------------------------------------------------------------------------
+`view <https://techdocs.akamai.com/linode-api/reference/get-image>`_
+--------------------------------------------------------------------
 
 
-Target an existing image and replicate it to another compute region.
+Get information about a single image.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli images replicate [-h] [--regions regions] imageId
+    linode-cli images view [-h] [--status status]
+    	[--is_public is_public] [--deprecated deprecated]
+    	[--size size] [--tags [tags] ] [--vendor vendor] [--label label]
+    	[--type type]
+    	[--order-by {status,is_public,deprecated,size,tags,vendor,label,type}]
+    	[--order {asc,desc}] imageId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli images update private/12345/regions \
-    	--regions "us-iad, us-west"
+    linode-cli images view linode/debian9
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -265,31 +160,97 @@ Target an existing image and replicate it to another compute region.
       - string
       - The unique identifier assigned to the image after creation.
 
+
+------------
+
+.. _commands_images_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-image>`_
+-----------------------------------------------------------------------
+
+
+Captures a private, gold-master image from a Linode disk.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli images create [-h] [--disk_id disk_id]
+    	[--cloud_init cloud_init] [--label label]
+    	[--description description] [--tags tags]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli images create \
+    	--label this_is_a_label \
+    	--description "A longer description \
+    		of the image" \
+    	--disk_id 123
+
+
 .. cssclass:: action-subheading
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--regions`
+    * - :code:`--disk_id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The ID of the Linode Disk that this image will be created from.
+    * - :code:`--cloud_init`
+      - No
+      - boolean
+      - Whether this image supports `cloud-init <https://www.linode.com/docs/guides/write-files-with-cloud-init/>`_.
+    * - :code:`--description`
+      - No
+      - string
+      - A detailed description of this image.
+    * - :code:`--label`
+      - No
+      - string
+      - A short title of this image.
+    * - :code:`--tags`
       - No
       - array[string]
-      - The unique identifier for each compute region.
+      - Tags used for organizational purposes.
 
 
 ------------
 
-.. _images_update:
+.. _commands_images_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-image>`_
 ----------------------------------------------------------------------
@@ -301,7 +262,10 @@ Updates a private image that you have permission to :code:`read_write`.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -314,7 +278,9 @@ Updates a private image that you have permission to :code:`read_write`.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -329,7 +295,12 @@ Updates a private image that you have permission to :code:`read_write`.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -348,12 +319,17 @@ Updates a private image that you have permission to :code:`read_write`.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -401,17 +377,10 @@ Updates a private image that you have permission to :code:`read_write`.
       - string
       - A short description of the image.
     * - :code:`--regions`
+        :ref:`(section) <commands_images_update_argument_sections_regions>`
       - No
       - object
       - N/A
-    * - :code:`--regions.region`
-      - No
-      - string
-      - The unique identifier for the core compute or distributed compute region where this image is located.
-    * - :code:`--regions.status`
-      - No
-      - string
-      - The status of the image in this :code:`region`.
     * - :code:`--size`
       - No
       - integer
@@ -440,11 +409,189 @@ Updates a private image that you have permission to :code:`read_write`.
       - No
       - string
       - The upstream distribution vendor.
+.. _commands_images_update_argument_sections_regions:
+
+.. cssclass:: action-argument-section-header
+
+    regions
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--regions.region`
+      - No
+      - string
+      - The unique identifier for the core compute or distributed compute region where this image is located.
+    * - :code:`--regions.status`
+      - No
+      - string
+      - The status of the image in this :code:`region`.
 
 
 ------------
 
-.. _images_upload:
+.. _commands_images_delete:
+
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-image>`_
+-------------------------------------------------------------------------
+
+
+Deletes a private image you have permission to :code:`read_write`.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli images delete [-h] imageId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli images delete 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`imageId`
+      - string
+      - The unique identifier assigned to the image after creation.
+
+
+------------
+
+.. _commands_images_replicate:
+
+`replicate <https://techdocs.akamai.com/linode-api/reference/post-replicate-image>`_
+------------------------------------------------------------------------------------
+
+
+Target an existing image and replicate it to another compute region.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli images replicate [-h] [--regions regions] imageId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli images update private/12345/regions \
+    	--regions "us-iad, us-west"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`imageId`
+      - string
+      - The unique identifier assigned to the image after creation.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--regions`
+      - No
+      - array[string]
+      - The unique identifier for each compute region.
+
+
+
+.. _commands_images_upload:
 
 `upload <https://techdocs.akamai.com/linode-api/reference/post-upload-image>`_
 ------------------------------------------------------------------------------
@@ -456,7 +603,10 @@ Creates a new private image instance and returns a URL as the :code:`upload_to` 
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -469,7 +619,9 @@ Creates a new private image instance and returns a URL as the :code:`upload_to` 
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -492,12 +644,17 @@ Creates a new private image instance and returns a URL as the :code:`upload_to` 
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -524,63 +681,6 @@ Creates a new private image instance and returns a URL as the :code:`upload_to` 
       - No
       - array[string]
       - Tags you can use to organize images.
-
-
-
-.. _images_view:
-
-`view <https://techdocs.akamai.com/linode-api/reference/get-image>`_
---------------------------------------------------------------------
-
-
-Get information about a single image.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli images view [-h] [--status status]
-    	[--is_public is_public] [--deprecated deprecated]
-    	[--size size] [--tags [tags] ] [--vendor vendor] [--label label]
-    	[--type type]
-    	[--order-by {status,is_public,deprecated,size,tags,vendor,label,type}]
-    	[--order {asc,desc}] imageId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli images view linode/debian9
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`imageId`
-      - string
-      - The unique identifier assigned to the image after creation.
 
 
 

@@ -1,5 +1,3 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 NodeBalancer
@@ -7,7 +5,148 @@ NodeBalancer
 
 This section details NodeBalancer-related Linode CLI commands.
 
-.. _nodebalancers_create:
+.. _commands_nodebalancers_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-node-balancers>`_
+-----------------------------------------------------------------------------
+
+
+Returns a paginated list of NodeBalancers you have access to.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli nodebalancers list [-h] [--ipv4 ipv4]
+    	[--region region] [--tags [tags] ] [--label label]
+    	[--order-by {ipv4,region,tags,label}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli nodebalancers list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--ipv4`
+      - *string*
+      - This NodeBalancer's public IPv4 address.
+    * - :code:`--label`
+      - *string*
+      - This NodeBalancer's label.
+    * - :code:`--region`
+      - *string*
+      - The Region where this NodeBalancer is located.
+    * - :code:`--tags`
+      - *array[string]*
+      - An array of Tags applied to this object.
+
+
+------------
+
+.. _commands_nodebalancers_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-node-balancer>`_
+----------------------------------------------------------------------------
+
+
+Returns a single NodeBalancer you can access.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli nodebalancers view [-h] [--label label]
+    	[--region region] [--ipv4 ipv4] [--tags [tags] ]
+    	[--order-by {label,region,ipv4,tags}] [--order {asc,desc}]
+    	nodeBalancerId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli nodebalancers view 12345
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`nodeBalancerId`
+      - integer
+      - The ID of the NodeBalancer to access.
+
+
+------------
+
+.. _commands_nodebalancers_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-node-balancer>`_
 -------------------------------------------------------------------------------
@@ -19,7 +158,10 @@ Creates a NodeBalancer in the requested Region.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -49,7 +191,9 @@ Creates a NodeBalancer in the requested Region.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -64,12 +208,17 @@ Creates a NodeBalancer in the requested Region.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -85,9 +234,40 @@ Creates a NodeBalancer in the requested Region.
       - integer
       - Throttle connections per second.
     * - :code:`--configs`
+        :ref:`(section) <commands_nodebalancers_create_argument_sections_configs>`
       - No
       - object
       - A request object representing a NodeBalancer Config, including Nodes.
+    * - :code:`--firewall_id`
+      - No
+      - integer
+      - The ID of the Firewall to assign to the NodeBalancer.
+    * - :code:`--label`
+      - No
+      - string
+      - This NodeBalancer's label.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of Tags applied to this object.
+.. _commands_nodebalancers_create_argument_sections_configs:
+
+.. cssclass:: action-argument-section-header
+
+    configs
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
     * - :code:`--configs.algorithm`
       - No
       - string
@@ -125,9 +305,52 @@ Creates a NodeBalancer in the requested Region.
       - string
       - What ciphers to use for SSL connections served by this NodeBalancer.
     * - :code:`--configs.nodes`
+        :ref:`(section) <commands_nodebalancers_create_argument_sections_configs.nodes>`
       - No
       - object
       - A NodeBalancerNode represents a single backend serving requests for a single port of a NodeBalancer.
+    * - :code:`--configs.port`
+      - No
+      - integer
+      - The port this Config is for.
+    * - :code:`--configs.protocol`
+      - No
+      - string
+      - The protocol this port is configured to serve.
+    * - :code:`--configs.proxy_protocol`
+      - No
+      - string
+      - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
+    * - :code:`--configs.ssl_cert`
+      - No
+      - string
+      - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
+    * - :code:`--configs.ssl_key`
+      - No
+      - string
+      - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
+    * - :code:`--configs.stickiness`
+      - No
+      - string
+      - Controls how session stickiness is handled on this port.
+.. _commands_nodebalancers_create_argument_sections_configs.nodes:
+
+.. cssclass:: action-argument-section-header
+
+    configs.nodes
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
     * - :code:`--configs.nodes.address`
       - No
       - string
@@ -160,247 +383,11 @@ Creates a NodeBalancer in the requested Region.
       - No
       - integer
       - Used when picking a backend to serve a request and is not pinned to a single backend yet.
-    * - :code:`--configs.port`
-      - No
-      - integer
-      - The port this Config is for.
-    * - :code:`--configs.protocol`
-      - No
-      - string
-      - The protocol this port is configured to serve.
-    * - :code:`--configs.proxy_protocol`
-      - No
-      - string
-      - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :code:`--configs.ssl_cert`
-      - No
-      - string
-      - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :code:`--configs.ssl_key`
-      - No
-      - string
-      - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :code:`--configs.stickiness`
-      - No
-      - string
-      - Controls how session stickiness is handled on this port.
-    * - :code:`--firewall_id`
-      - No
-      - integer
-      - The ID of the Firewall to assign to the NodeBalancer.
-    * - :code:`--label`
-      - No
-      - string
-      - This NodeBalancer's label.
-    * - :code:`--tags`
-      - No
-      - array[string]
-      - An array of Tags applied to this object.
 
 
 ------------
 
-.. _nodebalancers_delete:
-
-`delete <https://techdocs.akamai.com/linode-api/reference/delete-node-balancer>`_
----------------------------------------------------------------------------------
-
-
-Deletes a NodeBalancer.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli nodebalancers delete [-h] nodeBalancerId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli nodebalancers delete 12345
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`nodeBalancerId`
-      - integer
-      - The ID of the NodeBalancer to access.
-
-
-------------
-
-.. _nodebalancers_firewalls:
-
-`firewalls <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-firewalls>`_
--------------------------------------------------------------------------------------------
-
-
-View information for Firewalls assigned to this NodeBalancer.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli nodebalancers firewalls [-h] [--created created]
-    	[--id id] [--tags [tags] ] [--updated updated] [--label label]
-    	[--order-by {created,id,tags,updated,label}]
-    	[--order {asc,desc}] nodeBalancerId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli nodebalancers firewalls $nodeBalancerId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`nodeBalancerId`
-      - integer
-      - The ID of the NodeBalancer to access.
-
-.. rubric:: Filterable Attributes
-
-`Arguments used to define a filter for response entries.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`--created`
-      - *string*
-      - When this Firewall was created.
-    * - :code:`--id`
-      - *integer*
-      - The Firewall's unique ID.
-    * - :code:`--label`
-      - *string*
-      - The Firewall's label, for display purposes only.
-    * - :code:`--tags`
-      - *array[string]*
-      - An array of tags applied to this object.
-    * - :code:`--updated`
-      - *string*
-      - When this Firewall was last updated.
-
-
-------------
-
-.. _nodebalancers_list:
-
-`list <https://techdocs.akamai.com/linode-api/reference/get-node-balancers>`_
------------------------------------------------------------------------------
-
-
-Returns a paginated list of NodeBalancers you have access to.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli nodebalancers list [-h] [--ipv4 ipv4]
-    	[--region region] [--tags [tags] ] [--label label]
-    	[--order-by {ipv4,region,tags,label}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli nodebalancers list
-
-
-.. rubric:: Filterable Attributes
-
-`Arguments used to define a filter for response entries.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`--ipv4`
-      - *string*
-      - This NodeBalancer's public IPv4 address.
-    * - :code:`--label`
-      - *string*
-      - This NodeBalancer's label.
-    * - :code:`--region`
-      - *string*
-      - The Region where this NodeBalancer is located.
-    * - :code:`--tags`
-      - *array[string]*
-      - An array of Tags applied to this object.
-
-
-------------
-
-.. _nodebalancers_update:
+.. _commands_nodebalancers_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-node-balancer>`_
 ------------------------------------------------------------------------------
@@ -412,7 +399,10 @@ Updates information about a NodeBalancer you can access.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -425,7 +415,9 @@ Updates information about a NodeBalancer you can access.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -439,7 +431,12 @@ Updates information about a NodeBalancer you can access.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -458,12 +455,17 @@ Updates information about a NodeBalancer you can access.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -518,45 +520,52 @@ Updates information about a NodeBalancer you can access.
 
 ------------
 
-.. _nodebalancers_view:
+.. _commands_nodebalancers_delete:
 
-`view <https://techdocs.akamai.com/linode-api/reference/get-node-balancer>`_
-----------------------------------------------------------------------------
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-node-balancer>`_
+---------------------------------------------------------------------------------
 
 
-Returns a single NodeBalancer you can access.
+Deletes a NodeBalancer.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli nodebalancers view [-h] [--label label]
-    	[--region region] [--ipv4 ipv4] [--tags [tags] ]
-    	[--order-by {label,region,ipv4,tags}] [--order {asc,desc}]
-    	nodeBalancerId
+    linode-cli nodebalancers delete [-h] nodeBalancerId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli nodebalancers view 12345
+    linode-cli nodebalancers delete 12345
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -574,7 +583,178 @@ Returns a single NodeBalancer you can access.
 
 ------------
 
-.. _nodebalancers_config-create:
+.. _commands_nodebalancers_firewalls:
+
+`firewalls <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-firewalls>`_
+-------------------------------------------------------------------------------------------
+
+
+View information for Firewalls assigned to this NodeBalancer.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli nodebalancers firewalls [-h] [--created created]
+    	[--id id] [--tags [tags] ] [--updated updated] [--label label]
+    	[--order-by {created,id,tags,updated,label}]
+    	[--order {asc,desc}] nodeBalancerId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli nodebalancers firewalls $nodeBalancerId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`nodeBalancerId`
+      - integer
+      - The ID of the NodeBalancer to access.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--created`
+      - *string*
+      - When this Firewall was created.
+    * - :code:`--id`
+      - *integer*
+      - The Firewall's unique ID.
+    * - :code:`--label`
+      - *string*
+      - The Firewall's label, for display purposes only.
+    * - :code:`--tags`
+      - *array[string]*
+      - An array of tags applied to this object.
+    * - :code:`--updated`
+      - *string*
+      - When this Firewall was last updated.
+
+
+------------
+
+.. _commands_nodebalancers_config-view:
+
+`config-view <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-config>`_
+------------------------------------------------------------------------------------------
+
+
+Returns configuration information for a single port of this NodeBalancer.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli nodebalancers config-view [-h] [--order-by {}]
+    	[--order {asc,desc}] nodeBalancerId configId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli nodebalancers config-view \
+    	12345 4567
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`nodeBalancerId`
+      - integer
+      - The ID of the NodeBalancer to access.
+    * - :code:`configId`
+      - integer
+      - The ID of the Config to access.
+
+
+------------
+
+.. _commands_nodebalancers_config-create:
 
 `config-create <https://techdocs.akamai.com/linode-api/reference/post-node-balancer-config>`_
 ---------------------------------------------------------------------------------------------
@@ -586,7 +766,10 @@ Creates a NodeBalancer Config, which allows the NodeBalancer to accept traffic o
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -605,7 +788,9 @@ Creates a NodeBalancer Config, which allows the NodeBalancer to accept traffic o
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -636,7 +821,12 @@ Creates a NodeBalancer Config, which allows the NodeBalancer to accept traffic o
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -655,12 +845,17 @@ Creates a NodeBalancer Config, which allows the NodeBalancer to accept traffic o
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -751,7 +946,203 @@ Creates a NodeBalancer Config, which allows the NodeBalancer to accept traffic o
 
 ------------
 
-.. _nodebalancers_config-delete:
+.. _commands_nodebalancers_config-update:
+
+`config-update <https://techdocs.akamai.com/linode-api/reference/put-node-balancer-config>`_
+--------------------------------------------------------------------------------------------
+
+
+Updates the configuration for a single port on a NodeBalancer.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli nodebalancers config-update [-h]
+    	[--ssl_cert ssl_cert] [--check_attempts check_attempts]
+    	[--port port] [--check_interval check_interval]
+    	[--proxy_protocol proxy_protocol] [--check check]
+    	[--ssl_key ssl_key] [--check_passive check_passive]
+    	[--check_path check_path] [--check_timeout check_timeout]
+    	[--algorithm algorithm] [--protocol protocol]
+    	[--check_body check_body] [--cipher_suite cipher_suite]
+    	[--stickiness stickiness] nodeBalancerId configId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli nodebalancers config-update \
+    	12345 4567 \
+    	--port 443 \
+    	--protocol https \
+    	--algorithm roundrobin \
+    	--stickiness http_cookie \
+    	--check http_body \
+    	--check_interval 90 \
+    	--check_timeout 10 \
+    	--check_attempts 3 \
+    	--check_path "/test" \
+    	--check_body "it works" \
+    	--check_passive true \
+    	--proxy_protocol "none" \
+    	--ssl_cert "-----BEGIN CERTIFICATE-----
+    							CERTIFICATE_INFORMATION
+    							-----END CERTIFICATE-----" \
+    	--ssl_key "-----BEGIN PRIVATE KEY-----
+    						 PRIVATE_KEY_INFORMATION
+    						 -----END PRIVATE KEY-----" \
+    	--cipher_suite recommended
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`nodeBalancerId`
+      - integer
+      - The ID of the NodeBalancer to access.
+    * - :code:`configId`
+      - integer
+      - The ID of the Config to access.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--algorithm`
+      - No
+      - string
+      - What algorithm this NodeBalancer should use for routing traffic to backends.
+    * - :code:`--check`
+      - No
+      - string
+      - The type of check to perform against backends to ensure they are serving requests.
+    * - :code:`--check_attempts`
+      - No
+      - integer
+      - How many times to attempt a check before considering a backend to be down.
+    * - :code:`--check_body`
+      - No
+      - string
+      - This value must be present in the response body of the check in order for it to pass.
+    * - :code:`--check_interval`
+      - No
+      - integer
+      - How often, in seconds, to check that backends are up and serving requests.
+    * - :code:`--check_passive`
+      - No
+      - boolean
+      - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
+    * - :code:`--check_path`
+      - No
+      - string
+      - The URL path to check on each backend.
+    * - :code:`--check_timeout`
+      - No
+      - integer
+      - How long, in seconds, to wait for a check attempt before considering it failed.
+    * - :code:`--cipher_suite`
+      - No
+      - string
+      - What ciphers to use for SSL connections served by this NodeBalancer.
+    * - :code:`--id`
+      - No
+      - integer
+      - This config's unique ID.
+    * - :code:`--nodebalancer_id`
+      - No
+      - integer
+      - The ID for the NodeBalancer this config belongs to.
+    * - :code:`--nodes_status`
+      - No
+      - object
+      - A structure containing information about the health of the backends for this port.
+    * - :code:`--port`
+      - No
+      - integer
+      - The port this Config is for.
+    * - :code:`--protocol`
+      - No
+      - string
+      - The protocol this port is configured to serve.
+    * - :code:`--proxy_protocol`
+      - No
+      - string
+      - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
+    * - :code:`--ssl_cert`
+      - No
+      - string
+      - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
+    * - :code:`--ssl_commonname`
+      - No
+      - string
+      - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
+    * - :code:`--ssl_fingerprint`
+      - No
+      - string
+      - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
+    * - :code:`--ssl_key`
+      - No
+      - string
+      - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
+    * - :code:`--stickiness`
+      - No
+      - string
+      - Controls how session stickiness is handled on this port.
+
+
+------------
+
+.. _commands_nodebalancers_config-delete:
 
 `config-delete <https://techdocs.akamai.com/linode-api/reference/delete-node-balancer-config>`_
 -----------------------------------------------------------------------------------------------
@@ -763,7 +1154,10 @@ Deletes the Config for a port of this NodeBalancer.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -775,7 +1169,9 @@ Deletes the Config for a port of this NodeBalancer.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -788,7 +1184,12 @@ Deletes the Config for a port of this NodeBalancer.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -809,7 +1210,7 @@ Deletes the Config for a port of this NodeBalancer.
 
 ------------
 
-.. _nodebalancers_config-rebuild:
+.. _commands_nodebalancers_config-rebuild:
 
 `config-rebuild <https://techdocs.akamai.com/linode-api/reference/post-rebuild-node-balancer-config>`_
 ------------------------------------------------------------------------------------------------------
@@ -821,7 +1222,10 @@ Rebuilds a NodeBalancer Config and its Nodes that you have permission to modify.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -842,7 +1246,9 @@ Rebuilds a NodeBalancer Config and its Nodes that you have permission to modify.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -876,7 +1282,12 @@ Rebuilds a NodeBalancer Config and its Nodes that you have permission to modify.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -898,12 +1309,17 @@ Rebuilds a NodeBalancer Config and its Nodes that you have permission to modify.
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -955,9 +1371,64 @@ Rebuilds a NodeBalancer Config and its Nodes that you have permission to modify.
       - integer
       - The ID for the NodeBalancer this config belongs to.
     * - :code:`--nodes`
+        :ref:`(section) <commands_nodebalancers_config-rebuild_argument_sections_nodes>`
       - No
       - object
       - NodeBalancer Node request object including ID.
+    * - :code:`--nodes_status`
+      - No
+      - object
+      - A structure containing information about the health of the backends for this port.
+    * - :code:`--port`
+      - No
+      - integer
+      - The port this Config is for.
+    * - :code:`--protocol`
+      - No
+      - string
+      - The protocol this port is configured to serve.
+    * - :code:`--proxy_protocol`
+      - No
+      - string
+      - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
+    * - :code:`--ssl_cert`
+      - No
+      - string
+      - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
+    * - :code:`--ssl_commonname`
+      - No
+      - string
+      - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
+    * - :code:`--ssl_fingerprint`
+      - No
+      - string
+      - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
+    * - :code:`--ssl_key`
+      - No
+      - string
+      - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
+    * - :code:`--stickiness`
+      - No
+      - string
+      - Controls how session stickiness is handled on this port.
+.. _commands_nodebalancers_config-rebuild_argument_sections_nodes:
+
+.. cssclass:: action-argument-section-header
+
+    nodes
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
     * - :code:`--nodes.address`
       - No
       - string
@@ -978,286 +1449,11 @@ Rebuilds a NodeBalancer Config and its Nodes that you have permission to modify.
       - No
       - integer
       - Used when picking a backend to serve a request and is not pinned to a single backend yet.
-    * - :code:`--nodes_status`
-      - No
-      - object
-      - A structure containing information about the health of the backends for this port.
-    * - :code:`--port`
-      - No
-      - integer
-      - The port this Config is for.
-    * - :code:`--protocol`
-      - No
-      - string
-      - The protocol this port is configured to serve.
-    * - :code:`--proxy_protocol`
-      - No
-      - string
-      - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :code:`--ssl_cert`
-      - No
-      - string
-      - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :code:`--ssl_commonname`
-      - No
-      - string
-      - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :code:`--ssl_fingerprint`
-      - No
-      - string
-      - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :code:`--ssl_key`
-      - No
-      - string
-      - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :code:`--stickiness`
-      - No
-      - string
-      - Controls how session stickiness is handled on this port.
 
 
 ------------
 
-.. _nodebalancers_config-update:
-
-`config-update <https://techdocs.akamai.com/linode-api/reference/put-node-balancer-config>`_
---------------------------------------------------------------------------------------------
-
-
-Updates the configuration for a single port on a NodeBalancer.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli nodebalancers config-update [-h]
-    	[--ssl_cert ssl_cert] [--check_attempts check_attempts]
-    	[--port port] [--check_interval check_interval]
-    	[--proxy_protocol proxy_protocol] [--check check]
-    	[--ssl_key ssl_key] [--check_passive check_passive]
-    	[--check_path check_path] [--check_timeout check_timeout]
-    	[--algorithm algorithm] [--protocol protocol]
-    	[--check_body check_body] [--cipher_suite cipher_suite]
-    	[--stickiness stickiness] nodeBalancerId configId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli nodebalancers config-update \
-    	12345 4567 \
-    	--port 443 \
-    	--protocol https \
-    	--algorithm roundrobin \
-    	--stickiness http_cookie \
-    	--check http_body \
-    	--check_interval 90 \
-    	--check_timeout 10 \
-    	--check_attempts 3 \
-    	--check_path "/test" \
-    	--check_body "it works" \
-    	--check_passive true \
-    	--proxy_protocol "none" \
-    	--ssl_cert "-----BEGIN CERTIFICATE-----
-    							CERTIFICATE_INFORMATION
-    							-----END CERTIFICATE-----" \
-    	--ssl_key "-----BEGIN PRIVATE KEY-----
-    						 PRIVATE_KEY_INFORMATION
-    						 -----END PRIVATE KEY-----" \
-    	--cipher_suite recommended
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`nodeBalancerId`
-      - integer
-      - The ID of the NodeBalancer to access.
-    * - :code:`configId`
-      - integer
-      - The ID of the Config to access.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-:action-subheading-description:`Additional fields used to execute this request.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 10 65
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--algorithm`
-      - No
-      - string
-      - What algorithm this NodeBalancer should use for routing traffic to backends.
-    * - :code:`--check`
-      - No
-      - string
-      - The type of check to perform against backends to ensure they are serving requests.
-    * - :code:`--check_attempts`
-      - No
-      - integer
-      - How many times to attempt a check before considering a backend to be down.
-    * - :code:`--check_body`
-      - No
-      - string
-      - This value must be present in the response body of the check in order for it to pass.
-    * - :code:`--check_interval`
-      - No
-      - integer
-      - How often, in seconds, to check that backends are up and serving requests.
-    * - :code:`--check_passive`
-      - No
-      - boolean
-      - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
-    * - :code:`--check_path`
-      - No
-      - string
-      - The URL path to check on each backend.
-    * - :code:`--check_timeout`
-      - No
-      - integer
-      - How long, in seconds, to wait for a check attempt before considering it failed.
-    * - :code:`--cipher_suite`
-      - No
-      - string
-      - What ciphers to use for SSL connections served by this NodeBalancer.
-    * - :code:`--id`
-      - No
-      - integer
-      - This config's unique ID.
-    * - :code:`--nodebalancer_id`
-      - No
-      - integer
-      - The ID for the NodeBalancer this config belongs to.
-    * - :code:`--nodes_status`
-      - No
-      - object
-      - A structure containing information about the health of the backends for this port.
-    * - :code:`--port`
-      - No
-      - integer
-      - The port this Config is for.
-    * - :code:`--protocol`
-      - No
-      - string
-      - The protocol this port is configured to serve.
-    * - :code:`--proxy_protocol`
-      - No
-      - string
-      - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :code:`--ssl_cert`
-      - No
-      - string
-      - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :code:`--ssl_commonname`
-      - No
-      - string
-      - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :code:`--ssl_fingerprint`
-      - No
-      - string
-      - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :code:`--ssl_key`
-      - No
-      - string
-      - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :code:`--stickiness`
-      - No
-      - string
-      - Controls how session stickiness is handled on this port.
-
-
-------------
-
-.. _nodebalancers_config-view:
-
-`config-view <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-config>`_
-------------------------------------------------------------------------------------------
-
-
-Returns configuration information for a single port of this NodeBalancer.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli nodebalancers config-view [-h] [--order-by {}]
-    	[--order {asc,desc}] nodeBalancerId configId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli nodebalancers config-view \
-    	12345 4567
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`nodeBalancerId`
-      - integer
-      - The ID of the NodeBalancer to access.
-    * - :code:`configId`
-      - integer
-      - The ID of the Config to access.
-
-
-------------
-
-.. _nodebalancers_configs-list:
+.. _commands_nodebalancers_configs-list:
 
 `configs-list <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-configs>`_
 --------------------------------------------------------------------------------------------
@@ -1269,7 +1465,10 @@ Returns a paginated list of NodeBalancer Configs associated with this NodeBalanc
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -1281,7 +1480,9 @@ Returns a paginated list of NodeBalancer Configs associated with this NodeBalanc
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1293,7 +1494,12 @@ Returns a paginated list of NodeBalancer Configs associated with this NodeBalanc
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -1311,7 +1517,77 @@ Returns a paginated list of NodeBalancer Configs associated with this NodeBalanc
 
 ------------
 
-.. _nodebalancers_node-create:
+.. _commands_nodebalancers_node-view:
+
+`node-view <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-node>`_
+--------------------------------------------------------------------------------------
+
+
+Returns information about a single Node, a backend for this NodeBalancer's configured port.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli nodebalancers node-view [-h] [--order-by {}]
+    	[--order {asc,desc}] nodeBalancerId configId nodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli nodebalancers node-view 12345 4567 54321
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`nodeBalancerId`
+      - integer
+      - The ID of the NodeBalancer to access.
+    * - :code:`configId`
+      - integer
+      - The ID of the Config to access.
+    * - :code:`nodeId`
+      - integer
+      - The ID of the Node to access.
+
+
+------------
+
+.. _commands_nodebalancers_node-create:
 
 `node-create <https://techdocs.akamai.com/linode-api/reference/post-node-balancer-node>`_
 -----------------------------------------------------------------------------------------
@@ -1323,7 +1599,10 @@ Creates a NodeBalancer Node, a backend that can accept traffic for this NodeBala
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -1336,7 +1615,9 @@ Creates a NodeBalancer Node, a backend that can accept traffic for this NodeBala
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1353,7 +1634,12 @@ Creates a NodeBalancer Node, a backend that can accept traffic for this NodeBala
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -1375,12 +1661,17 @@ Creates a NodeBalancer Node, a backend that can accept traffic for this NodeBala
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -1423,68 +1714,7 @@ Creates a NodeBalancer Node, a backend that can accept traffic for this NodeBala
 
 ------------
 
-.. _nodebalancers_node-delete:
-
-`node-delete <https://techdocs.akamai.com/linode-api/reference/delete-node-balancer-config-node>`_
---------------------------------------------------------------------------------------------------
-
-
-Deletes a Node from this Config.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-:action-subheading-description:`The format accepted by this command.`
-
-..  code-block:: bash
-
-    linode-cli nodebalancers node-delete [-h] nodeBalancerId configId
-    	nodeId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-:action-subheading-description:`Examples of how this command might be used.`
-
-
-..  code-block:: bash
-
-    linode-cli nodebalancers node-delete \
-    	12345 4567 54321
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`nodeBalancerId`
-      - integer
-      - The ID of the NodeBalancer to access.
-    * - :code:`configId`
-      - integer
-      - The ID of the Config to access.
-    * - :code:`nodeId`
-      - integer
-      - The ID of the Node to access.
-
-
-------------
-
-.. _nodebalancers_node-update:
+.. _commands_nodebalancers_node-update:
 
 `node-update <https://techdocs.akamai.com/linode-api/reference/put-node-balancer-node>`_
 ----------------------------------------------------------------------------------------
@@ -1496,7 +1726,10 @@ Updates information about a Node, a backend for this NodeBalancer's configured p
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -1509,7 +1742,9 @@ Updates information about a Node, a backend for this NodeBalancer's configured p
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1526,7 +1761,12 @@ Updates information about a Node, a backend for this NodeBalancer's configured p
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -1551,12 +1791,17 @@ Updates information about a Node, a backend for this NodeBalancer's configured p
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
@@ -1599,43 +1844,54 @@ Updates information about a Node, a backend for this NodeBalancer's configured p
 
 ------------
 
-.. _nodebalancers_node-view:
+.. _commands_nodebalancers_node-delete:
 
-`node-view <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-node>`_
---------------------------------------------------------------------------------------
+`node-delete <https://techdocs.akamai.com/linode-api/reference/delete-node-balancer-config-node>`_
+--------------------------------------------------------------------------------------------------
 
 
-Returns information about a single Node, a backend for this NodeBalancer's configured port.
+Deletes a Node from this Config.
 
 .. cssclass:: action-subheading
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
-    linode-cli nodebalancers node-view [-h] [--order-by {}]
-    	[--order {asc,desc}] nodeBalancerId configId nodeId
+    linode-cli nodebalancers node-delete [-h] nodeBalancerId configId
+    	nodeId
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
-    linode-cli nodebalancers node-view 12345 4567 54321
+    linode-cli nodebalancers node-delete \
+    	12345 4567 54321
 
 
 .. cssclass:: action-subheading
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -1658,7 +1914,7 @@ Returns information about a single Node, a backend for this NodeBalancer's confi
 
 
 
-.. _nodebalancers_nodes-list:
+.. _commands_nodebalancers_nodes-list:
 
 `nodes-list <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-config-nodes>`_
 -----------------------------------------------------------------------------------------------
@@ -1670,7 +1926,10 @@ Returns a paginated list of NodeBalancer nodes associated with this Config.
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -1682,7 +1941,9 @@ Returns a paginated list of NodeBalancer nodes associated with this Config.
 
     .. rubric:: Sample
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1694,7 +1955,12 @@ Returns a paginated list of NodeBalancer nodes associated with this Config.
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
