@@ -1,11 +1,9 @@
-.. role:: action-subheading
-.. role:: action-subheading-description
 .. role:: action-argument-required
 
 {% macro action_details(action) %}
 {% set action_title = action.action[0] %}
 {% set action_title_format = "`%s <%s>`_" % (action_title, action.api_documentation_url) if action.api_documentation_url else action_title %}
-.. _{{ action.command }}_{{ action.action[0] }}:
+.. _commands_{{ action.command }}_{{ action.action[0] }}:
 
 {{ action_title_format }}
 {{ "-" * (action_title_format | length) }}
@@ -26,7 +24,10 @@
 
     .. rubric:: Usage
 
-:action-subheading-description:`The format accepted by this command.`
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
 
 ..  code-block:: bash
 
@@ -40,7 +41,9 @@
     .. rubric:: Sample{% if action.samples | length > 1 %}s{% endif %}
 
 
-:action-subheading-description:`Examples of how this command might be used.`
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
 
 {% for sample in action.samples %}
 
@@ -56,7 +59,12 @@
 
     .. rubric:: Parameters
 
-:action-subheading-description:`Positional parameters used to define the resource this command should target.`
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
 
 ..  list-table::
     :header-rows: 1
@@ -74,38 +82,63 @@
 
 {% endfor %}
 {% endif %}
-{% if action.arguments | length > 0 %}
+{% if action.argument_sections | length > 0 %}
 
 .. cssclass:: action-subheading
 
     .. rubric:: Arguments
 
-:action-subheading-description:`Additional fields used to execute this request.`
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+{% for section in action.argument_sections %}
+{% if section.name | length > 0 %}
+.. _commands_{{ action.command }}_{{ action.action[0] }}_argument_sections_{{ section.name }}:
+
+.. cssclass:: action-argument-section-header
+
+    {{ section.name }}
+{% endif %}
+
+.. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 10 65
+    :widths: 1 10 10 79
 
     * - Name
       - Required
       - Type
       - Description
 
-{% for argument in action.arguments %}
+{% for argument in section.arguments %}
     * - :code:`--{{ argument.path }}`
+    {% if argument.is_parent and argument.path in action.argument_sections_names %}
+        :ref:`(section) <commands_{{ action.command }}_{{ action.action[0] }}_argument_sections_{{ argument.path }}>`
+    {% endif %}
       - {% if argument.required %}:action-argument-required:`Yes`{% else %}No{% endif %}
 
       - {{ argument.type }}
       - {% if argument.description %}{{ argument.description }}{% else %}N/A{% endif %}
 
 {% endfor %}
+{% endfor %}
 {% endif %}
 {% if action.filterable_attrs | length > 0 %}
 
-.. rubric:: Filterable Attributes
+.. cssclass:: action-subheading
 
-`Arguments used to define a filter for response entries.`
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1

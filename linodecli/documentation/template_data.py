@@ -2,9 +2,10 @@
 Contains all structures used to render documentation templates.
 """
 
+from collections import defaultdict
 from dataclasses import dataclass, field
 from io import StringIO
-from typing import Dict, List, Optional, Self
+from typing import Dict, List, Optional, Self, Set
 
 from linodecli.baked import OpenAPIOperation
 from linodecli.baked.operation import OpenAPIOperationParameter
@@ -146,6 +147,16 @@ class Param:
 
 
 @dataclass
+class ArgumentSection:
+    """
+    Represents a single section of arguments.
+    """
+
+    name: str
+    arguments: List[Argument]
+
+
+@dataclass
 class Action:
     """
     Represents a single generated Linode CLI command/action.
@@ -164,7 +175,8 @@ class Action:
     filterable_attrs: List[FilterableAttribute] = field(
         default_factory=lambda: []
     )
-    arguments: List[Argument] = field(default_factory=lambda: [])
+    argument_sections: List[ArgumentSection] = field(default_factory=lambda: [])
+    argument_sections_names: Set[str] = field(default_factory=lambda: {})
 
     @classmethod
     def from_openapi(cls, operation: OpenAPIOperation) -> Self:
@@ -206,14 +218,28 @@ class Action:
             ]
 
         if operation.args:
-            result.arguments = sorted(
+            sections = defaultdict(lambda: [])
+
+            for arg in operation.args:
+                if not isinstance(arg, OpenAPIRequestArg):
+                    continue
+
+                sections[arg.prefix or ""].append(Argument.from_openapi(arg))
+
+            result.argument_sections = sorted(
                 [
-                    Argument.from_openapi(arg)
-                    for arg in operation.args
-                    if isinstance(arg, OpenAPIRequestArg)
+                    ArgumentSection(
+                        name=k,
+                        arguments=sorted(
+                            v, key=lambda arg: (not arg.required, arg.path)
+                        ),
+                    )
+                    for k, v in sections.items()
                 ],
-                key=lambda arg: (not arg.required, arg.path),
+                key=lambda section: section.name,
             )
+
+            result.argument_sections_names = set(sections.keys())
 
         if operation.method == "get" and operation.response_model.is_paginated:
             result.filterable_attrs = sorted(

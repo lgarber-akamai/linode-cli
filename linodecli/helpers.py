@@ -6,7 +6,7 @@ import glob
 import os
 from argparse import ArgumentParser
 from pathlib import Path
-from typing import Callable, List, Optional, TypeVar
+from typing import Any, Callable, List, Optional, TypeVar
 from urllib.parse import urlparse
 
 API_HOST_OVERRIDE = os.getenv("LINODE_CLI_API_HOST")
@@ -137,19 +137,20 @@ def sorted_actions_smart(
     :returns: The ordered actions.
     """
 
-    result = []
-    root_actions, other_actions = [], []
+    def __key(action: T) -> Any:
+        name = key(action)
 
-    for action in sorted(actions, key=key):
-        action_key = key(action)
+        # Prioritize CRUD operations
+        for i, crud_operation in enumerate(
+            ["list", "view", "create", "update", "delete"]
+        ):
+            name = name.replace(crud_operation, str(i))
 
-        if "-" not in action_key:
-            root_actions.append(action)
-            continue
+        return (
+            # Prioritize root operations
+            "-" in name,
+            # Sort everything else
+            name,
+        )
 
-        other_actions.append(action)
-
-    result.extend(root_actions)
-    result.extend(other_actions)
-
-    return result
+    return sorted(actions, key=__key)
