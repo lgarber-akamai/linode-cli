@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+b6dd2d3 (API v4.176.0)
+                v0.0.0.dev+2b2caf7 (API v4.176.0)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -839,6 +839,16 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--region</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">region</a> where the Linode will be located.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-types">Linode type</a> of the Linode you are creating.</p></td>
+</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--authorized_keys</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">array[string]</span></p></td>
@@ -904,40 +914,30 @@
 <td><p><span class="action-table-field-type">boolean</span></p></td>
 <td><p>If true, the created Linode will have private networking enabled and assigned a private IPv4 address.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--region</span></p></td>
-<td><p><span class="action-table-field-required">Yes</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">region</a> where the Linode will be located.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--root_pass</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--root_pass</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>This sets the root user’s password on a newly-created Linode Disk when deploying from an Image.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--stackscript_data</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--stackscript_data</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">object</span></p></td>
 <td><p>This field is required only if the StackScript being deployed requires input data from the User for successful completion.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--stackscript_id</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--stackscript_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>A StackScript ID that will cause the referenced StackScript to be run during deployment of this Linode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--swap_size</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--swap_size</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>When deploying from an Image, this field is optional, otherwise it is ignored.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>An array of tags applied to this object.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span></p></td>
-<td><p><span class="action-table-field-required">Yes</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-types">Linode type</a> of the Linode you are creating.</p></td>
 </tr>
 </tbody>
 </table>
@@ -957,50 +957,50 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.active</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">boolean</span></p></td>
-<td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.id</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">integer</span></p></td>
-<td><p>The unique ID representing this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">json</span></p></td>
-<td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The name of this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">boolean</span></p></td>
-<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
-</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.purpose</span></p></td>
 <td><p><span class="action-table-field-required">Yes</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The type of Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.active</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
+<td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p>The unique ID representing this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The name of this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
+<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.subnet_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
@@ -1888,45 +1888,45 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="action-table-field-name">--backups_enabled</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--placement_group.id</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p>The placement group’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--backups_enabled</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">boolean</span></p></td>
 <td><p>If this field is set to <code class="code docutils literal notranslate"><span class="pre">true</span></code>, the created Linode will automatically be enrolled in the Linode Backup service.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--configs</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--configs</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">array[integer]</span></p></td>
 <td><p>An array of configuration profile IDs.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--disks</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--disks</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">array[integer]</span></p></td>
 <td><p>An array of disk IDs.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--group</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--group</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>A label used to group Linodes for display.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The label to assign this Linode when cloning to a new Linode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--linode_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--linode_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>If an existing Linode is the target for the clone, the ID of that Linode.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--metadata.user_data</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--metadata.user_data</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--placement_group.id</span></p></td>
-<td><p><span class="action-table-field-required">Yes</span></p></td>
-<td><p><span class="action-table-field-type">integer</span></p></td>
-<td><p>The placement group’s ID.</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--private_ip</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
@@ -2561,6 +2561,16 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--image</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>An Image ID to deploy the Linode Disk from.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--root_pass</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>This sets the root user’s password on a newly-created Linode Disk when deploying from an Image.</p></td>
+</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--authorized_keys</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">array[string]</span></p></td>
@@ -2576,20 +2586,10 @@
 <td><p><span class="action-table-field-type">boolean</span></p></td>
 <td><p>This field defaults to <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Linode is created with an Image or from a Backup.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--image</span></p></td>
-<td><p><span class="action-table-field-required">Yes</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>An Image ID to deploy the Linode Disk from.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--metadata.user_data</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--metadata.user_data</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--root_pass</span></p></td>
-<td><p><span class="action-table-field-required">Yes</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>This sets the root user’s password on a newly-created Linode Disk when deploying from an Image.</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--stackscript_data</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
@@ -3044,20 +3044,20 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="action-table-field-name">--allow_auto_disk_resize</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">boolean</span></p></td>
-<td><p>Automatically resize disks when resizing a Linode.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--migration_type</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>Type of migration used in moving to a new host or Linode type.</p></td>
-</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--type</span></p></td>
 <td><p><span class="action-table-field-required">Yes</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The ID representing the Linode Type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--allow_auto_disk_resize</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
+<td><p>Automatically resize disks when resizing a Linode.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--migration_type</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>Type of migration used in moving to a new host or Linode type.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4413,135 +4413,135 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="action-table-field-name">--comments</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The Config’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--comments</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>Optional field for arbitrary User comments on this Config.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sda.disk_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sda.disk_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sda.volume_id</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sda.volume_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdb.disk_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdb.disk_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdb.volume_id</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdb.volume_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdc.disk_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdc.disk_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdc.volume_id</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdc.volume_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdd.disk_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdd.disk_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdd.volume_id</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdd.volume_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sde.disk_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sde.disk_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sde.volume_id</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sde.volume_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdf.disk_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdf.disk_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdf.volume_id</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdf.volume_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdg.disk_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdg.disk_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdg.volume_id</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdg.volume_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdh.disk_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdh.disk_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdh.volume_id</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdh.volume_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--helpers.devtmpfs_automount</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--helpers.devtmpfs_automount</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">boolean</span></p></td>
 <td><p>Populates the /dev directory early during boot without udev.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--helpers.distro</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--helpers.distro</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">boolean</span></p></td>
 <td><p>Helps maintain correct inittab/upstart console device.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--helpers.modules_dep</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--helpers.modules_dep</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">boolean</span></p></td>
 <td><p>Creates a modules dependency file for the Kernel you run.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--helpers.network</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--helpers.network</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">boolean</span></p></td>
 <td><p>Automatically configures static networking.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--helpers.updatedb_disabled</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--helpers.updatedb_disabled</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">boolean</span></p></td>
 <td><p>Disables updatedb cron job to avoid disk thrashing.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--id</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of this Config.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces</span> <a class="reference internal" href="#commands-linodes-config-create-argument-sections-interfaces"><span class="std std-ref">(section)</span></a></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces</span> <a class="reference internal" href="#commands-linodes-config-create-argument-sections-interfaces"><span class="std std-ref">(section)</span></a></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p>The Network Interface to apply to this Linode’s configuration profile.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--kernel</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--kernel</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>A Kernel ID to boot a Linode with.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
-<td><p><span class="action-table-field-required">Yes</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The Config’s label is for display purposes only.</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--memory_limit</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
@@ -4581,50 +4581,50 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.active</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">boolean</span></p></td>
-<td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.id</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">integer</span></p></td>
-<td><p>The unique ID representing this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">json</span></p></td>
-<td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The name of this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">boolean</span></p></td>
-<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
-</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.purpose</span></p></td>
 <td><p><span class="action-table-field-required">Yes</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The type of Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.active</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
+<td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p>The unique ID representing this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The name of this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
+<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.subnet_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
@@ -5144,50 +5144,50 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.active</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">boolean</span></p></td>
-<td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.id</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">integer</span></p></td>
-<td><p>The unique ID representing this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">json</span></p></td>
-<td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The name of this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">boolean</span></p></td>
-<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
-</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.purpose</span></p></td>
 <td><p><span class="action-table-field-required">Yes</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The type of Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.active</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
+<td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p>The unique ID representing this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The name of this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
+<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.subnet_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
@@ -5697,50 +5697,50 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="action-table-field-name">--active</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">boolean</span></p></td>
-<td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--id</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">integer</span></p></td>
-<td><p>The unique ID representing this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--ip_ranges</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">array[string]</span></p></td>
-<td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--ipam_address</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--ipv4.nat_1_1</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--ipv4.vpc</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The name of this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--primary</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">boolean</span></p></td>
-<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
-</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--purpose</span></p></td>
 <td><p><span class="action-table-field-required">Yes</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The type of Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--active</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
+<td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p>The unique ID representing this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--ip_ranges</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--ipam_address</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--ipv4.nat_1_1</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--ipv4.vpc</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The name of this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--primary</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
+<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="action-table-field-name">--subnet_id</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
@@ -6719,40 +6719,40 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="action-table-field-name">--authorized_keys</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">array[string]</span></p></td>
-<td><p>A list of public SSH keys that will be automatically appended to the root user’s <code class="code docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code> file when deploying from an Image.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--authorized_users</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">array[string]</span></p></td>
-<td><p>A list of usernames.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--filesystem</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The Disk filesystem can be one of:    - raw - No filesystem, just a raw binary stream.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--image</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>An Image ID to deploy the Linode Disk from.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The Disk’s label is for display purposes only.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--root_pass</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>This sets the root user’s password on a newly-created Linode Disk when deploying from an Image.</p></td>
-</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--size</span></p></td>
 <td><p><span class="action-table-field-required">Yes</span></p></td>
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The size of the Disk in MB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--authorized_keys</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>A list of public SSH keys that will be automatically appended to the root user’s <code class="code docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code> file when deploying from an Image.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--authorized_users</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>A list of usernames.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--filesystem</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The Disk filesystem can be one of:    - raw - No filesystem, just a raw binary stream.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--image</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>An Image ID to deploy the Linode Disk from.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The Disk’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--root_pass</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>This sets the root user’s password on a newly-created Linode Disk when deploying from an Image.</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="action-table-field-name">--stackscript_data</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>

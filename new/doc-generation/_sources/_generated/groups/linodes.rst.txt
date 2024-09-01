@@ -893,6 +893,16 @@ Additional fields used to execute this request.
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-region` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the Linode will be located.
+
+    * - :action-table-field-name:`\-\-type` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The `Linode type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ of the Linode you are creating.
+
     * - :action-table-field-name:`\-\-authorized_keys` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
@@ -958,11 +968,6 @@ Additional fields used to execute this request.
       - :action-table-field-type:`boolean`
       - If true, the created Linode will have private networking enabled and assigned a private IPv4 address.
 
-    * - :action-table-field-name:`\-\-region` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - The `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the Linode will be located.
-
     * - :action-table-field-name:`\-\-root_pass` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
@@ -988,11 +993,6 @@ Additional fields used to execute this request.
       - :action-table-field-type:`array[string]`
       - An array of tags applied to this object.
 
-    * - :action-table-field-name:`\-\-type` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - The `Linode type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ of the Linode you are creating.
-
 
 
 
@@ -1015,6 +1015,11 @@ interfaces
       - Required
       - Type
       - Description
+
+    * - :action-table-field-name:`\-\-interfaces.purpose` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The type of Interface.
 
     * - :action-table-field-name:`\-\-interfaces.active` 
       - :action-table-field-optional:`No`
@@ -1055,11 +1060,6 @@ interfaces
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - The primary Interface is configured as the default route to the Linode.
-
-    * - :action-table-field-name:`\-\-interfaces.purpose` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - The type of Interface.
 
     * - :action-table-field-name:`\-\-interfaces.subnet_id` 
       - :action-table-field-optional:`No`
@@ -2286,6 +2286,11 @@ Additional fields used to execute this request.
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-placement_group.id` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
+      - The placement group's ID.
+
     * - :action-table-field-name:`\-\-backups_enabled` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
@@ -2320,11 +2325,6 @@ Additional fields used to execute this request.
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
-
-    * - :action-table-field-name:`\-\-placement_group.id` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`integer`
-      - The placement group's ID.
 
     * - :action-table-field-name:`\-\-private_ip` 
       - :action-table-field-optional:`No`
@@ -3303,6 +3303,16 @@ Additional fields used to execute this request.
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-image` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - An Image ID to deploy the Linode Disk from.
+
+    * - :action-table-field-name:`\-\-root_pass` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image.
+
     * - :action-table-field-name:`\-\-authorized_keys` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
@@ -3318,20 +3328,10 @@ Additional fields used to execute this request.
       - :action-table-field-type:`boolean`
       - This field defaults to :code:`true` if the Linode is created with an Image or from a Backup.
 
-    * - :action-table-field-name:`\-\-image` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - An Image ID to deploy the Linode Disk from.
-
     * - :action-table-field-name:`\-\-metadata.user_data` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
-
-    * - :action-table-field-name:`\-\-root_pass` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image.
 
     * - :action-table-field-name:`\-\-stackscript_data` 
       - :action-table-field-optional:`No`
@@ -3964,6 +3964,11 @@ Additional fields used to execute this request.
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-type` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The ID representing the Linode Type.
+
     * - :action-table-field-name:`\-\-allow_auto_disk_resize` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
@@ -3973,11 +3978,6 @@ Additional fields used to execute this request.
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Type of migration used in moving to a new host or Linode type.
-
-    * - :action-table-field-name:`\-\-type` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - The ID representing the Linode Type.
 
 
 
@@ -6222,6 +6222,11 @@ Additional fields used to execute this request.
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-label` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The Config's label is for display purposes only.
+
     * - :action-table-field-name:`\-\-comments` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
@@ -6347,11 +6352,6 @@ Additional fields used to execute this request.
       - :action-table-field-type:`string`
       - A Kernel ID to boot a Linode with.
 
-    * - :action-table-field-name:`\-\-label` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - The Config's label is for display purposes only.
-
     * - :action-table-field-name:`\-\-memory_limit` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
@@ -6395,6 +6395,11 @@ interfaces
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-interfaces.purpose` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The type of Interface.
+
     * - :action-table-field-name:`\-\-interfaces.active` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
@@ -6434,11 +6439,6 @@ interfaces
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - The primary Interface is configured as the default route to the Linode.
-
-    * - :action-table-field-name:`\-\-interfaces.purpose` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - The type of Interface.
 
     * - :action-table-field-name:`\-\-interfaces.subnet_id` 
       - :action-table-field-optional:`No`
@@ -7064,6 +7064,11 @@ interfaces
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-interfaces.purpose` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The type of Interface.
+
     * - :action-table-field-name:`\-\-interfaces.active` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
@@ -7103,11 +7108,6 @@ interfaces
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - The primary Interface is configured as the default route to the Linode.
-
-    * - :action-table-field-name:`\-\-interfaces.purpose` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - The type of Interface.
 
     * - :action-table-field-name:`\-\-interfaces.subnet_id` 
       - :action-table-field-optional:`No`
@@ -7850,6 +7850,11 @@ Additional fields used to execute this request.
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-purpose` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The type of Interface.
+
     * - :action-table-field-name:`\-\-active` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
@@ -7889,11 +7894,6 @@ Additional fields used to execute this request.
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - The primary Interface is configured as the default route to the Linode.
-
-    * - :action-table-field-name:`\-\-purpose` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - The type of Interface.
 
     * - :action-table-field-name:`\-\-subnet_id` 
       - :action-table-field-optional:`No`
@@ -9436,6 +9436,11 @@ Additional fields used to execute this request.
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-size` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
+      - The size of the Disk in MB.
+
     * - :action-table-field-name:`\-\-authorized_keys` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
@@ -9465,11 +9470,6 @@ Additional fields used to execute this request.
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This sets the root user's password on a newly-created Linode Disk when deploying from an Image.
-
-    * - :action-table-field-name:`\-\-size` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`integer`
-      - The size of the Disk in MB.
 
     * - :action-table-field-name:`\-\-stackscript_data` 
       - :action-table-field-optional:`No`

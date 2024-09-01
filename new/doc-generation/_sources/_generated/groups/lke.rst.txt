@@ -533,11 +533,6 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-control_plane.high_availability` 
-      - :action-table-field-optional:`No`
-      - :action-table-field-type:`boolean`
-      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
-
     * - :action-table-field-name:`\-\-k8s_version` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
@@ -548,15 +543,20 @@ Additional fields used to execute this request.
       - :action-table-field-type:`string`
       - This Kubernetes cluster's unique label for display purposes only.
 
-    * - :action-table-field-name:`\-\-node_pools` :ref:`(section) <commands_lke_cluster-create_argument_sections_node_pools>`
-      - :action-table-field-optional:`No`
-      - :action-table-field-type:`json`
-      - Specifies a collection of Linodes which will be members of a Kubernetes cluster.
-
     * - :action-table-field-name:`\-\-region` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - This Kubernetes cluster's location.
+
+    * - :action-table-field-name:`\-\-control_plane.high_availability` 
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
+      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
+
+    * - :action-table-field-name:`\-\-node_pools` :ref:`(section) <commands_lke_cluster-create_argument_sections_node_pools>`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`json`
+      - Specifies a collection of Linodes which will be members of a Kubernetes cluster.
 
     * - :action-table-field-name:`\-\-tags` 
       - :action-table-field-optional:`No`
@@ -586,6 +586,16 @@ node_pools
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-node_pools.count` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
+      - The number of nodes in the Node Pool.
+
+    * - :action-table-field-name:`\-\-node_pools.type` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The Linode Type for all of the nodes in the Node Pool.
+
     * - :action-table-field-name:`\-\-node_pools.autoscaler.enabled` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
@@ -600,11 +610,6 @@ node_pools
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The minimum number of nodes to autoscale to.
-
-    * - :action-table-field-name:`\-\-node_pools.count` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`integer`
-      - The number of nodes in the Node Pool.
 
     * - :action-table-field-name:`\-\-node_pools.disks` 
       - :action-table-field-optional:`No`
@@ -630,11 +635,6 @@ node_pools
       - :action-table-field-optional:`No`
       - :action-table-field-type:`json`
       - Kubernetes taints to add to node pool nodes.
-
-    * - :action-table-field-name:`\-\-node_pools.type` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - The Linode Type for all of the nodes in the Node Pool.
 
 
 
@@ -2400,6 +2400,16 @@ Additional fields used to execute this request.
       - Type
       - Description
 
+    * - :action-table-field-name:`\-\-count` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
+      - The number of nodes in the Node Pool.
+
+    * - :action-table-field-name:`\-\-type` 
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The Linode Type for all of the nodes in the Node Pool.
+
     * - :action-table-field-name:`\-\-autoscaler.enabled` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
@@ -2414,11 +2424,6 @@ Additional fields used to execute this request.
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The minimum number of nodes to autoscale to.
-
-    * - :action-table-field-name:`\-\-count` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`integer`
-      - The number of nodes in the Node Pool.
 
     * - :action-table-field-name:`\-\-disks` 
       - :action-table-field-optional:`No`
@@ -2444,11 +2449,6 @@ Additional fields used to execute this request.
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array`
       - Kubernetes taints to add to node pool nodes.
-
-    * - :action-table-field-name:`\-\-type` 
-      - :action-table-field-required:`Yes`
-      - :action-table-field-type:`string`
-      - The Linode Type for all of the nodes in the Node Pool.
 
 
 

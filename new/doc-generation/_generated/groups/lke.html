@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+b6dd2d3 (API v4.176.0)
+                v0.0.0.dev+2b2caf7 (API v4.176.0)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -406,30 +406,30 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="action-table-field-name">--control_plane.high_availability</span></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">boolean</span></p></td>
-<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--k8s_version</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--k8s_version</span></p></td>
 <td><p><span class="action-table-field-required">Yes</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version will be deployed.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
 <td><p><span class="action-table-field-required">Yes</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools</span> <a class="reference internal" href="#commands-lke-cluster-create-argument-sections-node-pools"><span class="std std-ref">(section)</span></a></p></td>
-<td><p><span class="action-table-field-optional">No</span></p></td>
-<td><p><span class="action-table-field-type">json</span></p></td>
-<td><p>Specifies a collection of Linodes which will be members of a Kubernetes cluster.</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--region</span></p></td>
 <td><p><span class="action-table-field-required">Yes</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>This Kubernetes cluster’s location.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--control_plane.high_availability</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
+<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools</span> <a class="reference internal" href="#commands-lke-cluster-create-argument-sections-node-pools"><span class="std std-ref">(section)</span></a></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p>Specifies a collection of Linodes which will be members of a Kubernetes cluster.</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
@@ -454,6 +454,16 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.count</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p>The number of nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.type</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
+</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.autoscaler.enabled</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">boolean</span></p></td>
@@ -469,40 +479,30 @@
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The minimum number of nodes to autoscale to.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.count</span></p></td>
-<td><p><span class="action-table-field-required">Yes</span></p></td>
-<td><p><span class="action-table-field-type">integer</span></p></td>
-<td><p>The number of nodes in the Node Pool.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.disks</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.disks</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p>This field should be omitted except for special use cases.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.labels.key</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.labels.key</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The Kubernetes label key.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.labels.value</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.labels.value</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The Kubernetes label value.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.tags</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.tags</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p>An array of tags applied to this object.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.taints</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.taints</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p>Kubernetes taints to add to node pool nodes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.type</span></p></td>
-<td><p><span class="action-table-field-required">Yes</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1426,6 +1426,16 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--count</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p>The number of nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
+</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--autoscaler.enabled</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">boolean</span></p></td>
@@ -1441,40 +1451,30 @@
 <td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The minimum number of nodes to autoscale to.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--count</span></p></td>
-<td><p><span class="action-table-field-required">Yes</span></p></td>
-<td><p><span class="action-table-field-type">integer</span></p></td>
-<td><p>The number of nodes in the Node Pool.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--disks</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--disks</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p>This field should be omitted except for special use cases.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--labels.key</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--labels.key</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The Kubernetes label key.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--labels.value</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--labels.value</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The Kubernetes label value.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>An array of tags applied to this object.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--taints</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--taints</span></p></td>
 <td><p><span class="action-table-field-optional">No</span></p></td>
 <td><p><span class="action-table-field-type">array</span></p></td>
 <td><p>Kubernetes taints to add to node pool nodes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span></p></td>
-<td><p><span class="action-table-field-required">Yes</span></p></td>
-<td><p><span class="action-table-field-type">string</span></p></td>
-<td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
 </tr>
 </tbody>
 </table>
