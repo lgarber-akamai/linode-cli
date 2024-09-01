@@ -1,0 +1,2569 @@
+.. role:: action-argument-required
+
+Databases
+=========
+
+This section details Database-related Linode CLI commands.
+
+.. _commands_databases_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-databases-instances>`_
+----------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases list [-h] [--region region]
+    	[--status status] [--engine engine] [--label label]
+    	[--type type] [--version version]
+    	[--order-by {region,status,engine,label,type,version}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--engine`
+      - *string*
+      - The Managed Database engine type.
+    * - :code:`--label`
+      - *string*
+      - A unique, user-defined string referring to the Managed Database.
+    * - :code:`--region`
+      - *string*
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :code:`--status`
+      - *string*
+      - The operating status of the Managed Database.
+    * - :code:`--type`
+      - *string*
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :code:`--version`
+      - *string*
+      - The Managed Database engine version.
+
+
+------------
+
+.. _commands_databases_engines:
+
+`engines <https://techdocs.akamai.com/linode-api/reference/get-databases-engines>`_
+-----------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases engines [-h] [--engine engine]
+    	[--version version] [--order-by {engine,version}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases engines
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--engine`
+      - *string*
+      - The Managed Database engine type.
+    * - :code:`--version`
+      - *string*
+      - The Managed Database engine version.
+
+
+------------
+
+.. _commands_databases_types:
+
+`types <https://techdocs.akamai.com/linode-api/reference/get-databases-types>`_
+-------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases types [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases types
+
+
+
+------------
+
+.. _commands_databases_engine-view:
+
+`engine-view <https://techdocs.akamai.com/linode-api/reference/get-databases-engine>`_
+--------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases engine-view [-h] [--version version]
+    	[--engine engine] [--order-by {version,engine}]
+    	[--order {asc,desc}] engineId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases engine-view mysql/5.7.30
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`engineId`
+      - string
+      - The ID of the Managed Database engine.
+
+
+------------
+
+.. _commands_databases_mysql-list:
+
+`mysql-list <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instances>`_
+----------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-list [-h] [--region region]
+    	[--status status] [--engine engine] [--version version]
+    	[--type type] [--label label]
+    	[--order-by {region,status,engine,version,type,label}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--engine`
+      - *string*
+      - The Managed Database engine type.
+    * - :code:`--label`
+      - *string*
+      - A unique, user-defined string referring to the Managed Database.
+    * - :code:`--region`
+      - *string*
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :code:`--status`
+      - *string*
+      - The operating status of the Managed Database.
+    * - :code:`--type`
+      - *string*
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :code:`--version`
+      - *string*
+      - The Managed Database engine version.
+
+
+------------
+
+.. _commands_databases_mysql-view:
+
+`mysql-view <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance>`_
+---------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-view [-h] [--engine engine]
+    	[--version version] [--type type] [--label label]
+    	[--region region] [--status status]
+    	[--order-by {engine,version,type,label,region,status}]
+    	[--order {asc,desc}] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+
+------------
+
+.. _commands_databases_mysql-create:
+
+`mysql-create <https://techdocs.akamai.com/linode-api/reference/post-databases-mysql-instances>`_
+-------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-create [-h] [--type type]
+    	[--label label] [--allow_list allow_list]
+    	[--encrypted encrypted] [--cluster_size cluster_size]
+    	[--replication_type replication_type]
+    	[--ssl_connection ssl_connection] [--region region]
+    	[--engine engine]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-create \
+    	--label example-db1 \
+    	--region us-east \
+    	--type g6-dedicated-2 \
+    	--cluster_size 3 \
+    	--engine mysql/8.0.26 \
+    	--encrypted false \
+    	--ssl_connection false \
+    	--replication_type semi_synch \
+    	--allow_list 203.0.113.1 \
+    	--allow_list 192.0.1.0/24
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--engine`
+      - :action-argument-required:`Yes`
+      - string
+      - The Managed Database engine in engine/version format.
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - A unique, user-defined string referring to the Managed Database.
+    * - :code:`--region`
+      - :action-argument-required:`Yes`
+      - string
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :code:`--allow_list`
+      - No
+      - array[string]
+      - A list of IP addresses that can access the Managed Database.
+    * - :code:`--cluster_size`
+      - No
+      - integer
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :code:`--encrypted`
+      - No
+      - boolean
+      - Whether the Managed Databases is encrypted.
+    * - :code:`--replication_type`
+      - No
+      - string
+      - The replication method used for the Managed Database.
+    * - :code:`--ssl_connection`
+      - No
+      - boolean
+      - Whether to require SSL credentials to establish a connection to the Managed Database.
+
+
+------------
+
+.. _commands_databases_mysql-update:
+
+`mysql-update <https://techdocs.akamai.com/linode-api/reference/put-databases-mysql-instance>`_
+-----------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-update [-h] [--allow_list allow_list]
+    	[--label label] [--type type] [--updates.frequency frequency]
+    	[--updates.week_of_month week_of_month]
+    	[--updates.day_of_week day_of_week]
+    	[--updates.duration duration]
+    	[--updates.hour_of_day hour_of_day] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-update 123 \
+    	--label example-db \
+    	--allow_list 203.0.113.1 \
+    	--allow_list 192.0.1.0/24 \
+    	--type g6-standard-1 \
+    	--updates.frequency monthly \
+    	--updates.duration 3 \
+    	--updates.hour_of_day 12 \
+    	--updates.day_of_week 4 \
+    	--updates.week_of_month 3
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--allow_list`
+      - No
+      - array[string]
+      - A list of IP addresses that can access the Managed Database.
+    * - :code:`--label`
+      - No
+      - string
+      - A unique, user-defined string referring to the Managed Database.
+    * - :code:`--type`
+      - No
+      - string
+      - Request re-sizing of your cluster to a Linode Type with more disk space.
+.. _commands_databases_mysql-update_argument_sections_updates:
+
+.. cssclass:: action-argument-section-header
+
+    updates
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--updates.day_of_week`
+      - No
+      - integer
+      - The day to perform maintenance.
+    * - :code:`--updates.duration`
+      - No
+      - integer
+      - The maximum maintenance window time in hours.
+    * - :code:`--updates.frequency`
+      - No
+      - string
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :code:`--updates.hour_of_day`
+      - No
+      - integer
+      - The hour to begin maintenance based in UTC time.
+    * - :code:`--updates.week_of_month`
+      - No
+      - integer
+      - The week of the month to perform :code:`monthly` frequency updates.
+
+
+------------
+
+.. _commands_databases_mysql-delete:
+
+`mysql-delete <https://techdocs.akamai.com/linode-api/reference/delete-databases-mysql-instance>`_
+--------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-delete [-h] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-delete 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+
+------------
+
+.. _commands_databases_mysql-backup-view:
+
+`mysql-backup-view <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance-backup>`_
+-----------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-view [-h] [--created created]
+    	[--type type] [--order-by {created,type}] [--order {asc,desc}]
+    	instanceId backupId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-view 123 456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+    * - :code:`backupId`
+      - integer
+      - The ID of the Managed MySQL Database backup.
+
+
+------------
+
+.. _commands_databases_mysql-backup-delete:
+
+`mysql-backup-delete <https://techdocs.akamai.com/linode-api/reference/delete-database-mysql-instance-backup>`_
+---------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-delete [-h] instanceId backupId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-delete 123 456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+    * - :code:`backupId`
+      - integer
+      - The ID of the Managed MySQL Database backup.
+
+
+------------
+
+.. _commands_databases_mysql-backup-restore:
+
+`mysql-backup-restore <https://techdocs.akamai.com/linode-api/reference/post-databases-mysql-instance-backup-restore>`_
+-----------------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-restore [-h] instanceId
+    	backupId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-restore 123 456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed MySQL Database.
+    * - :code:`backupId`
+      - integer
+      - The ID of the Managed MySQL Database backup.
+
+
+------------
+
+.. _commands_databases_mysql-backup-snapshot:
+
+`mysql-backup-snapshot <https://techdocs.akamai.com/linode-api/reference/post-databases-mysql-instance-backup>`_
+----------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-snapshot [-h] [--label label]
+    	[--target target] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-snapshot 123 \
+    	--label snapshot1 \
+    	--target primary
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The label for the Database snapshot backup.
+    * - :code:`--target`
+      - No
+      - string
+      - The Database cluster target.
+
+
+------------
+
+.. _commands_databases_mysql-backups-list:
+
+`mysql-backups-list <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance-backups>`_
+-------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backups-list [-h] [--created created]
+    	[--type type] [--order-by {created,type}] [--order {asc,desc}]
+    	instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backups-list 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--created`
+      - *string*
+      - A time value given in a combined date and time format that represents when the database backup was created.
+    * - :code:`--type`
+      - *string*
+      - The type of database backup, determined by how the backup was created.
+
+
+------------
+
+.. _commands_databases_mysql-creds-view:
+
+`mysql-creds-view <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance-credentials>`_
+---------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-creds-view [-h] [--order-by {}]
+    	[--order {asc,desc}] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-creds-view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+
+------------
+
+.. _commands_databases_mysql-creds-reset:
+
+`mysql-creds-reset <https://techdocs.akamai.com/linode-api/reference/post-databases-mysql-instance-credentials-reset>`_
+-----------------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-creds-reset [-h] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-creds-reset 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed MySQL Database.
+
+
+------------
+
+.. _commands_databases_mysql-patch:
+
+`mysql-patch <https://techdocs.akamai.com/linode-api/reference/post-databases-mysql-instance-patch>`_
+-----------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-patch [-h] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-patch 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+
+------------
+
+.. _commands_databases_mysql-ssl-cert:
+
+`mysql-ssl-cert <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance-ssl>`_
+-----------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases mysql-ssl-cert [-h] [--order-by {}]
+    	[--order {asc,desc}] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-ssl-cert 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed MySQL Database.
+
+
+------------
+
+.. _commands_databases_postgresql-list:
+
+`postgresql-list <https://techdocs.akamai.com/linode-api/reference/get-databases-postgre-sql-instances>`_
+---------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-list [-h] [--version version]
+    	[--type type] [--label label] [--engine engine]
+    	[--status status] [--region region]
+    	[--order-by {version,type,label,engine,status,region}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--engine`
+      - *string*
+      - The Managed Database engine type.
+    * - :code:`--label`
+      - *string*
+      - A unique, user-defined string referring to the Managed Database.
+    * - :code:`--region`
+      - *string*
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :code:`--status`
+      - *string*
+      - The operating status of the Managed Database.
+    * - :code:`--type`
+      - *string*
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :code:`--version`
+      - *string*
+      - The Managed Database engine version.
+
+
+------------
+
+.. _commands_databases_postgresql-view:
+
+`postgresql-view <https://techdocs.akamai.com/linode-api/reference/get-databases-postgre-sql-instance>`_
+--------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-view [-h] [--region region]
+    	[--status status] [--engine engine] [--version version]
+    	[--label label] [--type type]
+    	[--order-by {region,status,engine,version,label,type}]
+    	[--order {asc,desc}] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+
+------------
+
+.. _commands_databases_postgresql-create:
+
+`postgresql-create <https://techdocs.akamai.com/linode-api/reference/post-databases-postgre-sql-instances>`_
+------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-create [-h] [--region region]
+    	[--engine engine]
+    	[--replication_commit_type replication_commit_type]
+    	[--ssl_connection ssl_connection]
+    	[--cluster_size cluster_size]
+    	[--replication_type replication_type] [--encrypted encrypted]
+    	[--allow_list allow_list] [--type type] [--label label]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-create \
+    	--label example-db \
+    	--region us-east \
+    	--type g6-dedicated-2 \
+    	--cluster_size 3 \
+    	--engine postgresql/13.2 \
+    	--encrypted false \
+    	--ssl_connection false \
+    	--replication_type asynch \
+    	--replication_commit_type local \
+    	--allow_list 203.0.113.1 \
+    	--allow_list 192.0.1.0/24
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--engine`
+      - :action-argument-required:`Yes`
+      - string
+      - The Managed Database engine in engine/version format.
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - A unique, user-defined string referring to the Managed Database.
+    * - :code:`--region`
+      - :action-argument-required:`Yes`
+      - string
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :code:`--allow_list`
+      - No
+      - array[string]
+      - A list of IP addresses that can access the Managed Database.
+    * - :code:`--cluster_size`
+      - No
+      - integer
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :code:`--encrypted`
+      - No
+      - boolean
+      - Whether the Managed Databases is encrypted.
+    * - :code:`--replication_commit_type`
+      - No
+      - string
+      - The synchronization level of the replicating server.
+    * - :code:`--replication_type`
+      - No
+      - string
+      - The replication method used for the Managed Database.
+    * - :code:`--ssl_connection`
+      - No
+      - boolean
+      - Whether to require SSL credentials to establish a connection to the Managed Database.
+
+
+------------
+
+.. _commands_databases_postgresql-update:
+
+`postgresql-update <https://techdocs.akamai.com/linode-api/reference/put-databases-postgre-sql-instance>`_
+----------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-update [-h]
+    	[--allow_list allow_list] [--type type] [--label label]
+    	[--updates.hour_of_day hour_of_day]
+    	[--updates.duration duration] [--updates.frequency frequency]
+    	[--updates.week_of_month week_of_month]
+    	[--updates.day_of_week day_of_week] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-update 123 \
+    	--label example-db \
+    	--allow_list 203.0.113.1 \
+    	--allow_list 192.0.1.0/24 \
+    	--type g6-standard-1 \
+    	--updates.frequency monthly \
+    	--updates.duration 3 \
+    	--updates.hour_of_day 12 \
+    	--updates.day_of_week 4 \
+    	--updates.week_of_month 3
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--allow_list`
+      - No
+      - array[string]
+      - A list of IP addresses that can access the Managed Database.
+    * - :code:`--label`
+      - No
+      - string
+      - A unique, user-defined string referring to the Managed Database.
+    * - :code:`--type`
+      - No
+      - string
+      - Request re-sizing of your cluster to a Linode Type with more disk space.
+.. _commands_databases_postgresql-update_argument_sections_updates:
+
+.. cssclass:: action-argument-section-header
+
+    updates
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--updates.day_of_week`
+      - No
+      - integer
+      - The day to perform maintenance.
+    * - :code:`--updates.duration`
+      - No
+      - integer
+      - The maximum maintenance window time in hours.
+    * - :code:`--updates.frequency`
+      - No
+      - string
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :code:`--updates.hour_of_day`
+      - No
+      - integer
+      - The hour to begin maintenance based in UTC time.
+    * - :code:`--updates.week_of_month`
+      - No
+      - integer
+      - The week of the month to perform :code:`monthly` frequency updates.
+
+
+------------
+
+.. _commands_databases_postgresql-delete:
+
+`postgresql-delete <https://techdocs.akamai.com/linode-api/reference/delete-databases-postgre-sql-instance>`_
+-------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-delete [-h] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-delete 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+
+------------
+
+.. _commands_databases_postgresql-backup-view:
+
+`postgresql-backup-view <https://techdocs.akamai.com/linode-api/reference/get-databases-postgresql-instance-backup>`_
+---------------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-view [-h] [--type type]
+    	[--created created] [--order-by {type,created}]
+    	[--order {asc,desc}] instanceId backupId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-view 123 456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+    * - :code:`backupId`
+      - integer
+      - The ID of the Managed PostgreSQL Database backup.
+
+
+------------
+
+.. _commands_databases_postgresql-backup-delete:
+
+`postgresql-backup-delete <https://techdocs.akamai.com/linode-api/reference/delete-database-postgre-sql-instance-backup>`_
+--------------------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-delete [-h] instanceId
+    	backupId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-delete 123 456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+    * - :code:`backupId`
+      - integer
+      - The ID of the Managed PostgreSQL Database backup.
+
+
+------------
+
+.. _commands_databases_postgresql-backup-restore:
+
+`postgresql-backup-restore <https://techdocs.akamai.com/linode-api/reference/post-databases-postgre-sql-instance-backup-restore>`_
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-restore [-h] instanceId
+    	backupId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-restore 123 456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+    * - :code:`backupId`
+      - integer
+      - The ID of the Managed PostgreSQL Database backup.
+
+
+------------
+
+.. _commands_databases_postgresql-backup-snapshot:
+
+`postgresql-backup-snapshot <https://techdocs.akamai.com/linode-api/reference/post-databases-postgre-sql-instance-backup>`_
+---------------------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-snapshot [-h]
+    	[--target target] [--label label] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-snapshot 123 \
+    	--label snapshot1 \
+    	--target primary
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The label for the Database snapshot backup.
+    * - :code:`--target`
+      - No
+      - string
+      - The Database cluster target.
+
+
+------------
+
+.. _commands_databases_postgresql-backups-list:
+
+`postgresql-backups-list <https://techdocs.akamai.com/linode-api/reference/get-databases-postgre-sql-instance-backups>`_
+------------------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backups-list [-h] [--type type]
+    	[--created created] [--order-by {type,created}]
+    	[--order {asc,desc}] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backups-list 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--created`
+      - *string*
+      - A time value given in a combined date and time format that represents when the database backup was created.
+    * - :code:`--type`
+      - *string*
+      - The type of database backup, determined by how the backup was created.
+
+
+------------
+
+.. _commands_databases_postgresql-creds-view:
+
+`postgresql-creds-view <https://techdocs.akamai.com/linode-api/reference/get-databases-postgre-sql-instance-credentials>`_
+--------------------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-creds-view [-h] [--order-by {}]
+    	[--order {asc,desc}] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-creds-view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+
+------------
+
+.. _commands_databases_postgresql-creds-reset:
+
+`postgresql-creds-reset <https://techdocs.akamai.com/linode-api/reference/post-databases-postgre-sql-instance-credentials-reset>`_
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-creds-reset [-h] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-creds-reset 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+
+------------
+
+.. _commands_databases_postgresql-patch:
+
+`postgresql-patch <https://techdocs.akamai.com/linode-api/reference/post-databases-postgre-sql-instance-patch>`_
+----------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-patch [-h] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-patch 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+
+------------
+
+.. _commands_databases_postgresql-ssl-cert:
+
+`postgresql-ssl-cert <https://techdocs.akamai.com/linode-api/reference/get-databases-postgresql-instance-ssl>`_
+---------------------------------------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-ssl-cert [-h] [--order-by {}]
+    	[--order {asc,desc}] instanceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-ssl-cert 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`instanceId`
+      - integer
+      - The ID of the Managed PostgreSQL Database.
+
+
+
+.. _commands_databases_type-view:
+
+`type-view <https://techdocs.akamai.com/linode-api/reference/get-databases-type>`_
+----------------------------------------------------------------------------------
+
+
+__This operation is currently only available for customers who already have an active Managed Database.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli databases type-view [-h] [--order-by {}]
+    	[--order {asc,desc}] typeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli databases type-view g6-nanode-1
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`typeId`
+      - string
+      - The ID of the Managed Database type.
+
+
+

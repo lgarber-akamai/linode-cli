@@ -1,0 +1,488 @@
+.. role:: action-argument-required
+
+Tickets
+=======
+
+This section details Ticket-related Linode CLI commands.
+
+.. _commands_tickets_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-tickets>`_
+----------------------------------------------------------------------
+
+
+Returns a collection of Support Tickets on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli tickets list [-h] [--opened opened]
+    	[--updated updated] [--closed closed]
+    	[--order-by {opened,updated,closed}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli tickets list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--closed`
+      - *string*
+      - The date and time this Ticket was closed.
+    * - :code:`--opened`
+      - *string*
+      - The date and time this Ticket was created.
+    * - :code:`--updated`
+      - *string*
+      - The date and time this Ticket was last updated.
+
+
+------------
+
+.. _commands_tickets_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-ticket>`_
+---------------------------------------------------------------------
+
+
+Returns a Support Ticket under your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli tickets view [-h] [--opened opened]
+    	[--updated updated] [--closed closed]
+    	[--order-by {opened,updated,closed}] [--order {asc,desc}]
+    	ticketId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli tickets view 11223344
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`ticketId`
+      - integer
+      - The ID of the Support Ticket.
+
+
+------------
+
+.. _commands_tickets_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-ticket>`_
+------------------------------------------------------------------------
+
+
+Open a Support Ticket.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli tickets create [-h] [--domain_id domain_id]
+    	[--nodebalancer_id nodebalancer_id]
+    	[--lkecluster_id lkecluster_id] [--summary summary]
+    	[--firewall_id firewall_id] [--description description]
+    	[--database_id database_id] [--vpc_id vpc_id]
+    	[--longviewclient_id longviewclient_id] [--region region]
+    	[--managed_issue managed_issue] [--volume_id volume_id]
+    	[--linode_id linode_id] [--vlan vlan]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli tickets create \
+    	--description "I'm having trouble setting the root password on my Linode. I tried following the instructions but something is not working and I'm not sure what I'm doing wrong. Can you please help me figure out how I can reset it?" \
+    	--linode_id 123 \
+    	--summary "Having trouble resetting root password on my Linode"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--description`
+      - :action-argument-required:`Yes`
+      - string
+      - The full details of the issue or question.
+    * - :code:`--summary`
+      - :action-argument-required:`Yes`
+      - string
+      - The summary or title for this SupportTicket.
+    * - :code:`--database_id`
+      - No
+      - integer
+      - The ID of the Managed Database this ticket is regarding, if relevant.
+    * - :code:`--domain_id`
+      - No
+      - integer
+      - The ID of the Domain this ticket is regarding, if relevant.
+    * - :code:`--firewall_id`
+      - No
+      - integer
+      - The ID of the Firewall this ticket is regarding, if relevant.
+    * - :code:`--linode_id`
+      - No
+      - integer
+      - The ID of the Linode this ticket is regarding, if relevant.
+    * - :code:`--lkecluster_id`
+      - No
+      - integer
+      - The ID of the Kubernetes cluster this ticket is regarding, if relevant.
+    * - :code:`--longviewclient_id`
+      - No
+      - integer
+      - The ID of the Longview client this ticket is regarding, if relevant.
+    * - :code:`--managed_issue`
+      - No
+      - boolean
+      - Designates if this ticket is related to a `Managed service <https://www.linode.com/products/managed/>`_.
+    * - :code:`--nodebalancer_id`
+      - No
+      - integer
+      - The ID of the NodeBalancer this ticket is regarding, if relevant.
+    * - :code:`--region`
+      - No
+      - string
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the associated VLAN this ticket is regarding.
+    * - :code:`--vlan`
+      - No
+      - string
+      - The label of the VLAN this ticket is regarding, if relevant.
+    * - :code:`--volume_id`
+      - No
+      - integer
+      - The ID of the Volume this ticket is regarding, if relevant.
+    * - :code:`--vpc_id`
+      - No
+      - integer
+      - The ID of the VPC this ticket is regarding, if relevant.
+
+
+------------
+
+.. _commands_tickets_close:
+
+`close <https://techdocs.akamai.com/linode-api/reference/post-close-ticket>`_
+-----------------------------------------------------------------------------
+
+
+Closes a Support Ticket you have access to modify.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli tickets close [-h] ticketId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli tickets close 11223344
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`ticketId`
+      - integer
+      - The ID of the Support Ticket.
+
+
+------------
+
+.. _commands_tickets_replies:
+
+`replies <https://techdocs.akamai.com/linode-api/reference/get-ticket-replies>`_
+--------------------------------------------------------------------------------
+
+
+Returns a collection of replies to a Support Ticket on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli tickets replies [-h] [--order-by {}]
+    	[--order {asc,desc}] ticketId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli tickets replies 11223344
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`ticketId`
+      - integer
+      - The ID of the Support Ticket.
+
+
+
+.. _commands_tickets_reply:
+
+`reply <https://techdocs.akamai.com/linode-api/reference/post-ticket-reply>`_
+-----------------------------------------------------------------------------
+
+
+Adds a reply to an existing Support Ticket.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli tickets reply [-h] [--description description]
+    	ticketId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli tickets reply 11223344 \
+    	--description "Thank you for your help. I was able to figure out what the problem was and I successfully reset my password. You guys are the best!"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`ticketId`
+      - integer
+      - The ID of the Support Ticket.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--description`
+      - :action-argument-required:`Yes`
+      - string
+      - The content of your reply.
+
+
+
