@@ -1,0 +1,182 @@
+.. role:: action-argument-required
+
+Phone
+=====
+
+This section details Phone-related Linode CLI commands.
+
+.. _commands_phone_delete:
+
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-profile-phone-number>`_
+----------------------------------------------------------------------------------------
+
+
+Delete the verified phone number for the User making this request.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli phone delete [-h]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli phone delete
+
+
+
+------------
+
+.. _commands_phone_verify:
+
+`verify <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_
+---------------------------------------------------------------------------------------------
+
+
+Verify a phone number by confirming the one-time code received via SMS message after running the `Send a phone number verification code <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number>`_ operation.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli phone verify [-h] [--otp_code otp_code]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli phone verify \
+    	--otp_code 123456
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--otp_code`
+      - :action-argument-required:`Yes`
+      - string
+      - The one-time code received via SMS message after running the `Send a phone number verification code <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number>`_ operation.
+
+
+
+.. _commands_phone_sms-code-send:
+
+`sms-code-send <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number>`_
+---------------------------------------------------------------------------------------------
+
+
+Send a one-time verification code via SMS message to the submitted phone number.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli phone sms-code-send [-h] [--iso_code iso_code]
+    	[--phone_number phone_number]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli phone sms-code-send \
+    	--iso-code US \
+    	--phone-number 555-555-5555
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--iso_code`
+      - :action-argument-required:`Yes`
+      - string
+      - The two-letter ISO 3166 country code associated with the phone number.
+    * - :code:`--phone_number`
+      - :action-argument-required:`Yes`
+      - string
+      - A valid phone number.
+
+
+
