@@ -5,7 +5,7 @@ This module contains logic related to string parsing and replacement.
 import functools
 import re
 from html import unescape
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 # Sentence delimiter, split on a period followed by any type of
 # whitespace (space, new line, tab, etc.)
@@ -121,27 +121,50 @@ def get_short_description(description: str) -> str:
     :rtype: set
     """
 
-    target_sentences = REGEX_SENTENCE_DELIMITER.split(description)
+    def __simplify(sentence: str) -> Optional[str]:
+        # Edge case for descriptions starting with a note
+        if sentence.lower().startswith("__note__"):
+            return None
 
-    # Strip TechDocs notes from each sentence
-    stripped_sentences = iter(
-        REGEX_TECHDOCS_PREFIX.sub("", sentence.lstrip()).lstrip()
-        for sentence in target_sentences
+        sentence = strip_techdocs_prefixes(sentence)
+
+        # Check that the sentence still has content after stripping prefixes
+        if len(sentence) < 2:
+            return None
+
+        return sentence + "."
+
+    # Find the first relevant sentence
+    result = next(
+        simplified
+        for simplified in iter(
+            __simplify(sentence)
+            for sentence in REGEX_SENTENCE_DELIMITER.split(description)
+        )
+        if simplified is not None
     )
 
-    # Narrow down relevant sentences
-    relevant_sentences = [
-        sentence for sentence in stripped_sentences if len(sentence) > 2
-    ]
+    print(result)
 
-    if len(relevant_sentences) < 1:
+    if result is None:
         raise ValueError(
             f"description does not contain any relevant lines: {description}",
         )
 
-    print(relevant_sentences[0])
+    return result
 
-    return relevant_sentences[0] + "."
+
+def strip_techdocs_prefixes(description: str) -> str:
+    """
+    Removes all bold prefixes from the given description.
+
+    :param description: The description of a CLI argument.
+    :type description: str
+
+    :returns: The stripped description
+    :rtype: str
+    """
+    return REGEX_TECHDOCS_PREFIX.sub("", description.lstrip()).lstrip()
 
 
 def process_arg_description(description: str) -> Tuple[str, str]:

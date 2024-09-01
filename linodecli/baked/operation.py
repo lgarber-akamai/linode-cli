@@ -361,7 +361,9 @@ class OpenAPIOperation:
             self.action = action
 
         self.summary = operation.summary
-        self.description = operation.description.split(".")[0] + "."
+        self.description_rich, self.description = process_arg_description(
+            operation.description or ""
+        )
 
         # The apiVersion attribute should not be specified as a positional argument
         self.params = [
