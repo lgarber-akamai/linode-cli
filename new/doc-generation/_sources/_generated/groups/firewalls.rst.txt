@@ -222,14 +222,38 @@ Creates a Firewall to filter network traffic.
       - :action-argument-required:`Yes`
       - string
       - The Firewall's label, for display purposes only.
+    * - :code:`--rules.inbound_policy`
+      - :action-argument-required:`Yes`
+      - string
+      - The default behavior for inbound traffic.
+    * - :code:`--rules.outbound_policy`
+      - :action-argument-required:`Yes`
+      - string
+      - The default behavior for outbound traffic.
     * - :code:`--created`
       - No
       - string
       - When this Firewall was created.
+    * - :code:`--devices.linodes`
+      - No
+      - array[integer]
+      - An array of Linode IDs.
+    * - :code:`--devices.nodebalancers`
+      - No
+      - array[integer]
+      - An array containing a NodeBalancer ID.
     * - :code:`--id`
       - No
       - integer
       - The Firewall's unique ID.
+    * - :code:`--rules.inbound`
+      - No
+      - json
+      - The inbound rules for the firewall, as a JSON array.
+    * - :code:`--rules.outbound`
+      - No
+      - json
+      - The outbound rules for the firewall, as a JSON array.
     * - :code:`--status`
       - No
       - string
@@ -242,66 +266,6 @@ Creates a Firewall to filter network traffic.
       - No
       - string
       - When this Firewall was last updated.
-.. _commands_firewalls_create_argument_sections_devices:
-
-.. cssclass:: action-argument-section-header
-
-    devices
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.linodes`
-      - No
-      - array[integer]
-      - An array of Linode IDs.
-    * - :code:`--devices.nodebalancers`
-      - No
-      - array[integer]
-      - An array containing a NodeBalancer ID.
-.. _commands_firewalls_create_argument_sections_rules:
-
-.. cssclass:: action-argument-section-header
-
-    rules
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--rules.inbound_policy`
-      - :action-argument-required:`Yes`
-      - string
-      - The default behavior for inbound traffic.
-    * - :code:`--rules.outbound_policy`
-      - :action-argument-required:`Yes`
-      - string
-      - The default behavior for outbound traffic.
-    * - :code:`--rules.inbound`
-      - No
-      - object
-      - The inbound rules for the firewall, as a JSON array.
-    * - :code:`--rules.outbound`
-      - No
-      - object
-      - The outbound rules for the firewall, as a JSON array.
 
 
 ------------
@@ -955,7 +919,7 @@ Updates the inbound and outbound Rules for a Firewall.
 
     * - :code:`--inbound`
       - No
-      - object
+      - json
       - The inbound rules for the firewall, as a JSON array.
     * - :code:`--inbound_policy`
       - No
@@ -963,7 +927,7 @@ Updates the inbound and outbound Rules for a Firewall.
       - The default behavior for inbound traffic.
     * - :code:`--outbound`
       - No
-      - object
+      - json
       - The outbound rules for the firewall, as a JSON array.
     * - :code:`--outbound_policy`
       - No

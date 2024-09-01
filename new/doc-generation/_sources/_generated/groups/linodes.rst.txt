@@ -299,12 +299,20 @@ Creates a Linode Instance on your Account.
     * - :code:`--interfaces`
         :ref:`(section) <commands_linodes_create_argument_sections_interfaces>`
       - No
-      - object
+      - json
       - The Network Interface to apply to this Linode's configuration profile.
     * - :code:`--label`
       - No
       - string
       - The Linode's label is for display purposes only.
+    * - :code:`--metadata.user_data`
+      - No
+      - string
+      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
+    * - :code:`--placement_group.id`
+      - No
+      - integer
+      - The placement group's ID.
     * - :code:`--private_ip`
       - No
       - boolean
@@ -361,12 +369,20 @@ Creates a Linode Instance on your Account.
       - The unique ID representing this Interface.
     * - :code:`--interfaces.ip_ranges`
       - No
-      - object
+      - json
       - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
     * - :code:`--interfaces.ipam_address`
       - No
       - string
       - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+    * - :code:`--interfaces.ipv4.nat_1_1`
+      - No
+      - string
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+    * - :code:`--interfaces.ipv4.vpc`
+      - No
+      - string
+      - The VPC Subnet IPv4 address for this Interface.
     * - :code:`--interfaces.label`
       - No
       - string
@@ -383,76 +399,6 @@ Creates a Linode Instance on your Account.
       - No
       - integer
       - The :code:`id` of the VPC configured for this Interface.
-.. _commands_linodes_create_argument_sections_interfaces.ipv4:
-
-.. cssclass:: action-argument-section-header
-
-    interfaces.ipv4
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--interfaces.ipv4.nat_1_1`
-      - No
-      - string
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
-    * - :code:`--interfaces.ipv4.vpc`
-      - No
-      - string
-      - The VPC Subnet IPv4 address for this Interface.
-.. _commands_linodes_create_argument_sections_metadata:
-
-.. cssclass:: action-argument-section-header
-
-    metadata
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--metadata.user_data`
-      - No
-      - string
-      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
-.. _commands_linodes_create_argument_sections_placement_group:
-
-.. cssclass:: action-argument-section-header
-
-    placement_group
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--placement_group.id`
-      - No
-      - integer
-      - The placement group's ID.
 
 
 ------------
@@ -552,6 +498,46 @@ Updates a Linode that you have permission to :code:`read_write`.
       - Type
       - Description
 
+    * - :code:`--alerts.cpu`
+      - No
+      - integer
+      - The percentage of CPU usage required to trigger an alert.
+    * - :code:`--alerts.io`
+      - No
+      - integer
+      - The amount of disk IO operation per second required to trigger an alert.
+    * - :code:`--alerts.network_in`
+      - No
+      - integer
+      - The amount of incoming traffic, in Mbit/s, required to trigger an alert.
+    * - :code:`--alerts.network_out`
+      - No
+      - integer
+      - The amount of outbound traffic, in Mbit/s, required to trigger an alert.
+    * - :code:`--alerts.transfer_quota`
+      - No
+      - integer
+      - The percentage of network transfer that may be used before an alert is triggered.
+    * - :code:`--backups.available`
+      - No
+      - boolean
+      - Whether Backups for this Linode are available for restoration.
+    * - :code:`--backups.enabled`
+      - No
+      - boolean
+      - If this Linode has the Backup service enabled.
+    * - :code:`--backups.last_successful`
+      - No
+      - string
+      - The last successful backup date.
+    * - :code:`--backups.schedule.day`
+      - No
+      - string
+      - The day of the week that your Linode's weekly Backup is taken.
+    * - :code:`--backups.schedule.window`
+      - No
+      - string
+      - The window in which your backups will be taken, in UTC.
     * - :code:`--created`
       - No
       - string
@@ -624,100 +610,6 @@ Updates a Linode that you have permission to :code:`read_write`.
       - No
       - boolean
       - The watchdog, named Lassie, is a Shutdown Watchdog that monitors your Linode and will reboot it if it powers off unexpectedly.
-.. _commands_linodes_update_argument_sections_alerts:
-
-.. cssclass:: action-argument-section-header
-
-    alerts
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--alerts.cpu`
-      - No
-      - integer
-      - The percentage of CPU usage required to trigger an alert.
-    * - :code:`--alerts.io`
-      - No
-      - integer
-      - The amount of disk IO operation per second required to trigger an alert.
-    * - :code:`--alerts.network_in`
-      - No
-      - integer
-      - The amount of incoming traffic, in Mbit/s, required to trigger an alert.
-    * - :code:`--alerts.network_out`
-      - No
-      - integer
-      - The amount of outbound traffic, in Mbit/s, required to trigger an alert.
-    * - :code:`--alerts.transfer_quota`
-      - No
-      - integer
-      - The percentage of network transfer that may be used before an alert is triggered.
-.. _commands_linodes_update_argument_sections_backups:
-
-.. cssclass:: action-argument-section-header
-
-    backups
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--backups.available`
-      - No
-      - boolean
-      - Whether Backups for this Linode are available for restoration.
-    * - :code:`--backups.enabled`
-      - No
-      - boolean
-      - If this Linode has the Backup service enabled.
-    * - :code:`--backups.last_successful`
-      - No
-      - string
-      - The last successful backup date.
-.. _commands_linodes_update_argument_sections_backups.schedule:
-
-.. cssclass:: action-argument-section-header
-
-    backups.schedule
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--backups.schedule.day`
-      - No
-      - string
-      - The day of the week that your Linode's weekly Backup is taken.
-    * - :code:`--backups.schedule.window`
-      - No
-      - string
-      - The window in which your backups will be taken, in UTC.
 
 
 ------------
@@ -970,6 +862,10 @@ You can clone your Linode's existing Disks or Configuration profiles to another 
       - Type
       - Description
 
+    * - :code:`--placement_group.id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The placement group's ID.
     * - :code:`--backups_enabled`
       - No
       - boolean
@@ -994,6 +890,10 @@ You can clone your Linode's existing Disks or Configuration profiles to another 
       - No
       - integer
       - If an existing Linode is the target for the clone, the ID of that Linode.
+    * - :code:`--metadata.user_data`
+      - No
+      - string
+      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
     * - :code:`--private_ip`
       - No
       - boolean
@@ -1006,50 +906,6 @@ You can clone your Linode's existing Disks or Configuration profiles to another 
       - No
       - string
       - A Linode's Type determines what resources are available to it, including disk space, memory, and virtual cpus.
-.. _commands_linodes_clone_argument_sections_metadata:
-
-.. cssclass:: action-argument-section-header
-
-    metadata
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--metadata.user_data`
-      - No
-      - string
-      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
-.. _commands_linodes_clone_argument_sections_placement_group:
-
-.. cssclass:: action-argument-section-header
-
-    placement_group
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--placement_group.id`
-      - :action-argument-required:`Yes`
-      - integer
-      - The placement group's ID.
 
 
 ------------
@@ -1137,6 +993,10 @@ Initiate a pending host migration that has been scheduled by Linode or initiate 
       - Type
       - Description
 
+    * - :code:`--placement_group.id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The placement group's ID.
     * - :code:`--region`
       - No
       - string
@@ -1149,28 +1009,6 @@ Initiate a pending host migration that has been scheduled by Linode or initiate 
       - No
       - boolean
       - When initiating a cross DC migration, setting this value to true will also ensure that the Linode is upgraded to the latest generation of hardware that corresponds to your Linode's Type, if any free upgrades are available for it.
-.. _commands_linodes_migrate_argument_sections_placement_group:
-
-.. cssclass:: action-argument-section-header
-
-    placement_group
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--placement_group.id`
-      - :action-argument-required:`Yes`
-      - integer
-      - The placement group's ID.
 
 
 ------------
@@ -1481,6 +1319,10 @@ Rebuilds a Linode you have the :code:`read_write` permission to modify.
       - No
       - boolean
       - This field defaults to :code:`true` if the Linode is created with an Image or from a Backup.
+    * - :code:`--metadata.user_data`
+      - No
+      - string
+      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
     * - :code:`--stackscript_data`
       - No
       - object
@@ -1493,28 +1335,6 @@ Rebuilds a Linode you have the :code:`read_write` permission to modify.
       - No
       - string
       - The ID of the `Linode type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ to resize to with this request.
-.. _commands_linodes_rebuild_argument_sections_metadata:
-
-.. cssclass:: action-argument-section-header
-
-    metadata
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--metadata.user_data`
-      - No
-      - string
-      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
 
 
 ------------
@@ -1602,11 +1422,6 @@ Rescue Mode is a safe environment for performing many system recovery and disk m
 
     Additional fields used to execute this request.
 
-.. _commands_linodes_rescue_argument_sections_devices.sda:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sda
 
 .. rst-class:: action-argument-section-table
 
@@ -1628,24 +1443,6 @@ Rescue Mode is a safe environment for performing many system recovery and disk m
       - No
       - integer
       - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_rescue_argument_sections_devices.sdb:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdb
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
     * - :code:`--devices.sdb.disk_id`
       - No
       - integer
@@ -1654,24 +1451,6 @@ Rescue Mode is a safe environment for performing many system recovery and disk m
       - No
       - integer
       - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_rescue_argument_sections_devices.sdc:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdc
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
     * - :code:`--devices.sdc.disk_id`
       - No
       - integer
@@ -1680,24 +1459,6 @@ Rescue Mode is a safe environment for performing many system recovery and disk m
       - No
       - integer
       - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_rescue_argument_sections_devices.sdd:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdd
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
     * - :code:`--devices.sdd.disk_id`
       - No
       - integer
@@ -1706,24 +1467,6 @@ Rescue Mode is a safe environment for performing many system recovery and disk m
       - No
       - integer
       - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_rescue_argument_sections_devices.sde:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sde
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
     * - :code:`--devices.sde.disk_id`
       - No
       - integer
@@ -1732,24 +1475,6 @@ Rescue Mode is a safe environment for performing many system recovery and disk m
       - No
       - integer
       - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_rescue_argument_sections_devices.sdf:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdf
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
     * - :code:`--devices.sdf.disk_id`
       - No
       - integer
@@ -1758,24 +1483,6 @@ Rescue Mode is a safe environment for performing many system recovery and disk m
       - No
       - integer
       - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_rescue_argument_sections_devices.sdg:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdg
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
     * - :code:`--devices.sdg.disk_id`
       - No
       - integer
@@ -2860,6 +2567,90 @@ Adds a new Configuration profile to a Linode.
       - No
       - string
       - Optional field for arbitrary User comments on this Config.
+    * - :code:`--devices.sda.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sda.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdb.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdb.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdc.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdc.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdd.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdd.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sde.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sde.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdf.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdf.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdg.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdg.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdh.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdh.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--helpers.devtmpfs_automount`
+      - No
+      - boolean
+      - Populates the /dev directory early during boot without udev.
+    * - :code:`--helpers.distro`
+      - No
+      - boolean
+      - Helps maintain correct inittab/upstart console device.
+    * - :code:`--helpers.modules_dep`
+      - No
+      - boolean
+      - Creates a modules dependency file for the Kernel you run.
+    * - :code:`--helpers.network`
+      - No
+      - boolean
+      - Automatically configures static networking.
+    * - :code:`--helpers.updatedb_disabled`
+      - No
+      - boolean
+      - Disables updatedb cron job to avoid disk thrashing.
     * - :code:`--id`
       - No
       - integer
@@ -2867,7 +2658,7 @@ Adds a new Configuration profile to a Linode.
     * - :code:`--interfaces`
         :ref:`(section) <commands_linodes_config-create_argument_sections_interfaces>`
       - No
-      - object
+      - json
       - The Network Interface to apply to this Linode's configuration profile.
     * - :code:`--kernel`
       - No
@@ -2889,252 +2680,6 @@ Adds a new Configuration profile to a Linode.
       - No
       - string
       - Controls the virtualization mode.
-.. _commands_linodes_config-create_argument_sections_devices.sda:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sda
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sda.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sda.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-create_argument_sections_devices.sdb:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdb
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdb.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdb.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-create_argument_sections_devices.sdc:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdc
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdc.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdc.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-create_argument_sections_devices.sdd:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdd
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdd.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdd.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-create_argument_sections_devices.sde:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sde
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sde.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sde.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-create_argument_sections_devices.sdf:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdf
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdf.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdf.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-create_argument_sections_devices.sdg:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdg
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdg.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdg.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-create_argument_sections_devices.sdh:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdh
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdh.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdh.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-create_argument_sections_helpers:
-
-.. cssclass:: action-argument-section-header
-
-    helpers
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--helpers.devtmpfs_automount`
-      - No
-      - boolean
-      - Populates the /dev directory early during boot without udev.
-    * - :code:`--helpers.distro`
-      - No
-      - boolean
-      - Helps maintain correct inittab/upstart console device.
-    * - :code:`--helpers.modules_dep`
-      - No
-      - boolean
-      - Creates a modules dependency file for the Kernel you run.
-    * - :code:`--helpers.network`
-      - No
-      - boolean
-      - Automatically configures static networking.
-    * - :code:`--helpers.updatedb_disabled`
-      - No
-      - boolean
-      - Disables updatedb cron job to avoid disk thrashing.
 .. _commands_linodes_config-create_argument_sections_interfaces:
 
 .. cssclass:: action-argument-section-header
@@ -3167,12 +2712,20 @@ Adds a new Configuration profile to a Linode.
       - The unique ID representing this Interface.
     * - :code:`--interfaces.ip_ranges`
       - No
-      - object
+      - json
       - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
     * - :code:`--interfaces.ipam_address`
       - No
       - string
       - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+    * - :code:`--interfaces.ipv4.nat_1_1`
+      - No
+      - string
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+    * - :code:`--interfaces.ipv4.vpc`
+      - No
+      - string
+      - The VPC Subnet IPv4 address for this Interface.
     * - :code:`--interfaces.label`
       - No
       - string
@@ -3189,32 +2742,6 @@ Adds a new Configuration profile to a Linode.
       - No
       - integer
       - The :code:`id` of the VPC configured for this Interface.
-.. _commands_linodes_config-create_argument_sections_interfaces.ipv4:
-
-.. cssclass:: action-argument-section-header
-
-    interfaces.ipv4
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--interfaces.ipv4.nat_1_1`
-      - No
-      - string
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
-    * - :code:`--interfaces.ipv4.vpc`
-      - No
-      - string
-      - The VPC Subnet IPv4 address for this Interface.
 
 
 ------------
@@ -3351,6 +2878,90 @@ Updates a Configuration profile.
       - No
       - string
       - Optional field for arbitrary User comments on this Config.
+    * - :code:`--devices.sda.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sda.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdb.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdb.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdc.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdc.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdd.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdd.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sde.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sde.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdf.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdf.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdg.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdg.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--devices.sdh.disk_id`
+      - No
+      - integer
+      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
+    * - :code:`--devices.sdh.volume_id`
+      - No
+      - integer
+      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
+    * - :code:`--helpers.devtmpfs_automount`
+      - No
+      - boolean
+      - Populates the /dev directory early during boot without udev.
+    * - :code:`--helpers.distro`
+      - No
+      - boolean
+      - Helps maintain correct inittab/upstart console device.
+    * - :code:`--helpers.modules_dep`
+      - No
+      - boolean
+      - Creates a modules dependency file for the Kernel you run.
+    * - :code:`--helpers.network`
+      - No
+      - boolean
+      - Automatically configures static networking.
+    * - :code:`--helpers.updatedb_disabled`
+      - No
+      - boolean
+      - Disables updatedb cron job to avoid disk thrashing.
     * - :code:`--id`
       - No
       - integer
@@ -3358,7 +2969,7 @@ Updates a Configuration profile.
     * - :code:`--interfaces`
         :ref:`(section) <commands_linodes_config-update_argument_sections_interfaces>`
       - No
-      - object
+      - json
       - The Network Interface to apply to this Linode's configuration profile.
     * - :code:`--kernel`
       - No
@@ -3384,252 +2995,6 @@ Updates a Configuration profile.
       - No
       - string
       - Controls the virtualization mode.
-.. _commands_linodes_config-update_argument_sections_devices.sda:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sda
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sda.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sda.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-update_argument_sections_devices.sdb:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdb
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdb.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdb.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-update_argument_sections_devices.sdc:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdc
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdc.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdc.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-update_argument_sections_devices.sdd:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdd
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdd.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdd.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-update_argument_sections_devices.sde:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sde
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sde.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sde.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-update_argument_sections_devices.sdf:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdf
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdf.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdf.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-update_argument_sections_devices.sdg:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdg
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdg.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdg.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-update_argument_sections_devices.sdh:
-
-.. cssclass:: action-argument-section-header
-
-    devices.sdh
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--devices.sdh.disk_id`
-      - No
-      - integer
-      - The Disk ID, or :code:`null` if a Volume is assigned to this slot.
-    * - :code:`--devices.sdh.volume_id`
-      - No
-      - integer
-      - The Volume ID, or :code:`null` if a Disk is assigned to this slot.
-.. _commands_linodes_config-update_argument_sections_helpers:
-
-.. cssclass:: action-argument-section-header
-
-    helpers
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--helpers.devtmpfs_automount`
-      - No
-      - boolean
-      - Populates the /dev directory early during boot without udev.
-    * - :code:`--helpers.distro`
-      - No
-      - boolean
-      - Helps maintain correct inittab/upstart console device.
-    * - :code:`--helpers.modules_dep`
-      - No
-      - boolean
-      - Creates a modules dependency file for the Kernel you run.
-    * - :code:`--helpers.network`
-      - No
-      - boolean
-      - Automatically configures static networking.
-    * - :code:`--helpers.updatedb_disabled`
-      - No
-      - boolean
-      - Disables updatedb cron job to avoid disk thrashing.
 .. _commands_linodes_config-update_argument_sections_interfaces:
 
 .. cssclass:: action-argument-section-header
@@ -3662,12 +3027,20 @@ Updates a Configuration profile.
       - The unique ID representing this Interface.
     * - :code:`--interfaces.ip_ranges`
       - No
-      - object
+      - json
       - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
     * - :code:`--interfaces.ipam_address`
       - No
       - string
       - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+    * - :code:`--interfaces.ipv4.nat_1_1`
+      - No
+      - string
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+    * - :code:`--interfaces.ipv4.vpc`
+      - No
+      - string
+      - The VPC Subnet IPv4 address for this Interface.
     * - :code:`--interfaces.label`
       - No
       - string
@@ -3684,32 +3057,6 @@ Updates a Configuration profile.
       - No
       - integer
       - The :code:`id` of the VPC configured for this Interface.
-.. _commands_linodes_config-update_argument_sections_interfaces.ipv4:
-
-.. cssclass:: action-argument-section-header
-
-    interfaces.ipv4
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--interfaces.ipv4.nat_1_1`
-      - No
-      - string
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
-    * - :code:`--interfaces.ipv4.vpc`
-      - No
-      - string
-      - The VPC Subnet IPv4 address for this Interface.
 
 
 ------------
@@ -3964,6 +3311,14 @@ Creates and appends a single Interface to the end of the :code:`interfaces` arra
       - No
       - string
       - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+    * - :code:`--ipv4.nat_1_1`
+      - No
+      - string
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+    * - :code:`--ipv4.vpc`
+      - No
+      - string
+      - The VPC Subnet IPv4 address for this Interface.
     * - :code:`--label`
       - No
       - string
@@ -3980,32 +3335,6 @@ Creates and appends a single Interface to the end of the :code:`interfaces` arra
       - No
       - integer
       - The :code:`id` of the VPC configured for this Interface.
-.. _commands_linodes_config-interface-add_argument_sections_ipv4:
-
-.. cssclass:: action-argument-section-header
-
-    ipv4
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--ipv4.nat_1_1`
-      - No
-      - string
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
-    * - :code:`--ipv4.vpc`
-      - No
-      - string
-      - The VPC Subnet IPv4 address for this Interface.
 
 
 ------------
@@ -4107,28 +3436,6 @@ Updates a :code:`vpc` or :code:`public` purpose Interface for this Configuration
       - No
       - array[string]
       - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
-    * - :code:`--primary`
-      - No
-      - boolean
-      - The primary Interface is configured as the default route to the Linode.
-.. _commands_linodes_config-interface-update_argument_sections_ipv4:
-
-.. cssclass:: action-argument-section-header
-
-    ipv4
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
     * - :code:`--ipv4.nat_1_1`
       - No
       - string
@@ -4137,6 +3444,10 @@ Updates a :code:`vpc` or :code:`public` purpose Interface for this Configuration
       - No
       - string
       - The VPC Subnet IPv4 address for this Interface.
+    * - :code:`--primary`
+      - No
+      - boolean
+      - The primary Interface is configured as the default route to the Linode.
 
 
 ------------

@@ -320,37 +320,19 @@ Creates a Kubernetes cluster.
       - :action-argument-required:`Yes`
       - string
       - This Kubernetes cluster's location.
+    * - :code:`--control_plane.high_availability`
+      - No
+      - boolean
+      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
     * - :code:`--node_pools`
         :ref:`(section) <commands_lke_cluster-create_argument_sections_node_pools>`
       - No
-      - object
+      - json
       - Specifies a collection of Linodes which will be members of a Kubernetes cluster.
     * - :code:`--tags`
       - No
       - array[string]
       - An array of tags applied to the Kubernetes cluster.
-.. _commands_lke_cluster-create_argument_sections_control_plane:
-
-.. cssclass:: action-argument-section-header
-
-    control_plane
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--control_plane.high_availability`
-      - No
-      - boolean
-      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 .. _commands_lke_cluster-create_argument_sections_node_pools:
 
 .. cssclass:: action-argument-section-header
@@ -377,36 +359,6 @@ Creates a Kubernetes cluster.
       - :action-argument-required:`Yes`
       - string
       - The Linode Type for all of the nodes in the Node Pool.
-    * - :code:`--node_pools.disks`
-      - No
-      - object
-      - This field should be omitted except for special use cases.
-    * - :code:`--node_pools.tags`
-      - No
-      - object
-      - An array of tags applied to this object.
-    * - :code:`--node_pools.taints`
-      - No
-      - object
-      - Kubernetes taints to add to node pool nodes.
-.. _commands_lke_cluster-create_argument_sections_node_pools.autoscaler:
-
-.. cssclass:: action-argument-section-header
-
-    node_pools.autoscaler
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
     * - :code:`--node_pools.autoscaler.enabled`
       - No
       - boolean
@@ -419,24 +371,10 @@ Creates a Kubernetes cluster.
       - No
       - integer
       - The minimum number of nodes to autoscale to.
-.. _commands_lke_cluster-create_argument_sections_node_pools.labels:
-
-.. cssclass:: action-argument-section-header
-
-    node_pools.labels
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
+    * - :code:`--node_pools.disks`
+      - No
+      - json
+      - This field should be omitted except for special use cases.
     * - :code:`--node_pools.labels.key`
       - No
       - string
@@ -445,6 +383,14 @@ Creates a Kubernetes cluster.
       - No
       - string
       - The Kubernetes label value.
+    * - :code:`--node_pools.tags`
+      - No
+      - json
+      - An array of tags applied to this object.
+    * - :code:`--node_pools.taints`
+      - No
+      - json
+      - Kubernetes taints to add to node pool nodes.
 
 
 ------------
@@ -540,6 +486,10 @@ Updates a Kubernetes cluster.
       - Type
       - Description
 
+    * - :code:`--control_plane.high_availability`
+      - No
+      - boolean
+      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
     * - :code:`--k8s_version`
       - No
       - string
@@ -552,28 +502,6 @@ Updates a Kubernetes cluster.
       - No
       - array[string]
       - An array of tags applied to the Kubernetes cluster.
-.. _commands_lke_cluster-update_argument_sections_control_plane:
-
-.. cssclass:: action-argument-section-header
-
-    control_plane
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--control_plane.high_availability`
-      - No
-      - boolean
-      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
 
 ------------
@@ -1336,36 +1264,6 @@ Creates a new Node Pool for the designated Kubernetes cluster.
       - :action-argument-required:`Yes`
       - string
       - The Linode Type for all of the nodes in the Node Pool.
-    * - :code:`--disks`
-      - No
-      - object
-      - This field should be omitted except for special use cases.
-    * - :code:`--tags`
-      - No
-      - array[string]
-      - An array of tags applied to this object.
-    * - :code:`--taints`
-      - No
-      - array
-      - Kubernetes taints to add to node pool nodes.
-.. _commands_lke_pool-create_argument_sections_autoscaler:
-
-.. cssclass:: action-argument-section-header
-
-    autoscaler
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
     * - :code:`--autoscaler.enabled`
       - No
       - boolean
@@ -1378,24 +1276,10 @@ Creates a new Node Pool for the designated Kubernetes cluster.
       - No
       - integer
       - The minimum number of nodes to autoscale to.
-.. _commands_lke_pool-create_argument_sections_labels:
-
-.. cssclass:: action-argument-section-header
-
-    labels
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
+    * - :code:`--disks`
+      - No
+      - json
+      - This field should be omitted except for special use cases.
     * - :code:`--labels.key`
       - No
       - string
@@ -1404,6 +1288,14 @@ Creates a new Node Pool for the designated Kubernetes cluster.
       - No
       - string
       - The Kubernetes label value.
+    * - :code:`--tags`
+      - No
+      - array[string]
+      - An array of tags applied to this object.
+    * - :code:`--taints`
+      - No
+      - array
+      - Kubernetes taints to add to node pool nodes.
 
 
 ------------
@@ -1499,32 +1391,6 @@ Updates a node pool's count, labels and taints, and autoscaler configuration.
       - Type
       - Description
 
-    * - :code:`--count`
-      - No
-      - integer
-      - The number of nodes in the Node Pool.
-    * - :code:`--taints`
-      - No
-      - array
-      - Kubernetes taints to add to node pool nodes.
-.. _commands_lke_pool-update_argument_sections_autoscaler:
-
-.. cssclass:: action-argument-section-header
-
-    autoscaler
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
     * - :code:`--autoscaler.enabled`
       - No
       - boolean
@@ -1537,24 +1403,10 @@ Updates a node pool's count, labels and taints, and autoscaler configuration.
       - No
       - integer
       - The minimum number of nodes to autoscale to.
-.. _commands_lke_pool-update_argument_sections_labels:
-
-.. cssclass:: action-argument-section-header
-
-    labels
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
+    * - :code:`--count`
+      - No
+      - integer
+      - The number of nodes in the Node Pool.
     * - :code:`--labels.key`
       - No
       - string
@@ -1563,6 +1415,10 @@ Updates a node pool's count, labels and taints, and autoscaler configuration.
       - No
       - string
       - The Kubernetes label value.
+    * - :code:`--taints`
+      - No
+      - array
+      - Kubernetes taints to add to node pool nodes.
 
 
 ------------

@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+03715f9 (API v4.176.0)
+                v0.0.0.dev+5239b95 (API v4.176.0)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -404,13 +404,23 @@
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces</span></code>
 <a class="reference internal" href="#commands-linodes-create-argument-sections-interfaces"><span class="std std-ref">(section)</span></a></p></td>
 <td><p>No</p></td>
-<td><p>object</p></td>
+<td><p>json</p></td>
 <td><p>The Network Interface to apply to this Linode’s configuration profile.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>The Linode’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--metadata.user_data</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--placement_group.id</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The placement group’s ID.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--private_ip</span></code></p></td>
 <td><p>No</p></td>
@@ -477,13 +487,23 @@
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ip_ranges</span></code></p></td>
 <td><p>No</p></td>
-<td><p>object</p></td>
+<td><p>json</p></td>
 <td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipam_address</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.nat_1_1</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.vpc</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.label</span></code></p></td>
 <td><p>No</p></td>
@@ -504,80 +524,6 @@
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-create-argument-sections-interfaces-ipv4">interfaces.ipv4</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.nat_1_1</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.vpc</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-create-argument-sections-metadata">metadata</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--metadata.user_data</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-create-argument-sections-placement-group">placement_group</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--placement_group.id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The placement group’s ID.</p></td>
 </tr>
 </tbody>
 </table>
@@ -648,6 +594,56 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--alerts.cpu</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The percentage of CPU usage required to trigger an alert.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--alerts.io</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The amount of disk IO operation per second required to trigger an alert.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--alerts.network_in</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The amount of incoming traffic, in Mbit/s, required to trigger an alert.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--alerts.network_out</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The amount of outbound traffic, in Mbit/s, required to trigger an alert.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--alerts.transfer_quota</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The percentage of network transfer that may be used before an alert is triggered.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups.available</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>Whether Backups for this Linode are available for restoration.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups.enabled</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>If this Linode has the Backup service enabled.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups.last_successful</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The last successful backup date.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups.schedule.day</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The day of the week that your Linode’s weekly Backup is taken.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups.schedule.window</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The window in which your backups will be taken, in UTC.</p></td>
+</tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--created</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
@@ -737,110 +733,6 @@
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>The watchdog, named Lassie, is a Shutdown Watchdog that monitors your Linode and will reboot it if it powers off unexpectedly.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-update-argument-sections-alerts">alerts</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--alerts.cpu</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The percentage of CPU usage required to trigger an alert.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--alerts.io</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The amount of disk IO operation per second required to trigger an alert.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--alerts.network_in</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The amount of incoming traffic, in Mbit/s, required to trigger an alert.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--alerts.network_out</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The amount of outbound traffic, in Mbit/s, required to trigger an alert.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--alerts.transfer_quota</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The percentage of network transfer that may be used before an alert is triggered.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-update-argument-sections-backups">backups</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups.available</span></code></p></td>
-<td><p>No</p></td>
-<td><p>boolean</p></td>
-<td><p>Whether Backups for this Linode are available for restoration.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups.enabled</span></code></p></td>
-<td><p>No</p></td>
-<td><p>boolean</p></td>
-<td><p>If this Linode has the Backup service enabled.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups.last_successful</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The last successful backup date.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-update-argument-sections-backups-schedule">backups.schedule</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups.schedule.day</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The day of the week that your Linode’s weekly Backup is taken.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups.schedule.window</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The window in which your backups will be taken, in UTC.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1008,35 +900,45 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups_enabled</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--placement_group.id</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>integer</p></td>
+<td><p>The placement group’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--backups_enabled</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>If this field is set to <code class="code docutils literal notranslate"><span class="pre">true</span></code>, the created Linode will automatically be enrolled in the Linode Backup service.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--configs</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--configs</span></code></p></td>
 <td><p>No</p></td>
 <td><p>array[integer]</p></td>
 <td><p>An array of configuration profile IDs.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--disks</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--disks</span></code></p></td>
 <td><p>No</p></td>
 <td><p>array[integer]</p></td>
 <td><p>An array of disk IDs.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--group</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--group</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>A label used to group Linodes for display.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>The label to assign this Linode when cloning to a new Linode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--linode_id</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--linode_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>If an existing Linode is the target for the clone, the ID of that Linode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--metadata.user_data</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--private_ip</span></code></p></td>
 <td><p>No</p></td>
@@ -1052,52 +954,6 @@
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>A Linode’s Type determines what resources are available to it, including disk space, memory, and virtual cpus.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-clone-argument-sections-metadata">metadata</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--metadata.user_data</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-clone-argument-sections-placement-group">placement_group</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--placement_group.id</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>integer</p></td>
-<td><p>The placement group’s ID.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1156,43 +1012,25 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--region</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The region to which the Linode will be migrated.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>Type of migration used in moving to a new host or Linode type.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--upgrade</span></code></p></td>
-<td><p>No</p></td>
-<td><p>boolean</p></td>
-<td><p>When initiating a cross DC migration, setting this value to true will also ensure that the Linode is upgraded to the latest generation of hardware that corresponds to your Linode’s Type, if any free upgrades are available for it.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-migrate-argument-sections-placement-group">placement_group</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--placement_group.id</span></code></p></td>
 <td><p><span class="action-argument-required">Yes</span></p></td>
 <td><p>integer</p></td>
 <td><p>The placement group’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--region</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The region to which the Linode will be migrated.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Type of migration used in moving to a new host or Linode type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--upgrade</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>When initiating a cross DC migration, setting this value to true will also ensure that the Linode is upgraded to the latest generation of hardware that corresponds to your Linode’s Type, if any free upgrades are available for it.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1422,43 +1260,25 @@
 <td><p>boolean</p></td>
 <td><p>This field defaults to <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Linode is created with an Image or from a Backup.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--stackscript_data</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--metadata.user_data</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--stackscript_data</span></code></p></td>
 <td><p>No</p></td>
 <td><p>object</p></td>
 <td><p>This field is required only if the StackScript being deployed requires input data from the User for successful completion.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--stackscript_id</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--stackscript_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>A StackScript ID that will cause the referenced StackScript to be run during deployment of this Linode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>The ID of the <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-types">Linode type</a> to resize to with this request.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-rebuild-argument-sections-metadata">metadata</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--metadata.user_data</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1515,7 +1335,6 @@
 </table>
 <p class="action-subheading rubric">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
-<p class="action-argument-section-header" id="commands-linodes-rescue-argument-sections-devices-sda">devices.sda</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
@@ -1541,24 +1360,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-rescue-argument-sections-devices-sdb">devices.sdb</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdb.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -1569,24 +1370,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-rescue-argument-sections-devices-sdc">devices.sdc</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdc.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -1597,24 +1380,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-rescue-argument-sections-devices-sdd">devices.sdd</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdd.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -1625,24 +1390,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-rescue-argument-sections-devices-sde">devices.sde</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sde.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -1653,24 +1400,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-rescue-argument-sections-devices-sdf">devices.sdf</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdf.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -1681,24 +1410,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-rescue-argument-sections-devices-sdg">devices.sdg</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdg.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -2434,60 +2145,6 @@
 <td><p>string</p></td>
 <td><p>Optional field for arbitrary User comments on this Config.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The ID of this Config.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces</span></code>
-<a class="reference internal" href="#commands-linodes-config-create-argument-sections-interfaces"><span class="std std-ref">(section)</span></a></p></td>
-<td><p>No</p></td>
-<td><p>object</p></td>
-<td><p>The Network Interface to apply to this Linode’s configuration profile.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--kernel</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>A Kernel ID to boot a Linode with.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--memory_limit</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>Defaults to the total RAM of the Linode.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--root_device</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The root device to boot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--run_level</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>Defines the state of your Linode after booting.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--virt_mode</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>Controls the virtualization mode.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-create-argument-sections-devices-sda">devices.sda</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sda.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -2498,24 +2155,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-create-argument-sections-devices-sdb">devices.sdb</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdb.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -2526,24 +2165,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-create-argument-sections-devices-sdc">devices.sdc</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdc.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -2554,24 +2175,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-create-argument-sections-devices-sdd">devices.sdd</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdd.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -2582,24 +2185,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-create-argument-sections-devices-sde">devices.sde</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sde.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -2610,24 +2195,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-create-argument-sections-devices-sdf">devices.sdf</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdf.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -2638,24 +2205,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-create-argument-sections-devices-sdg">devices.sdg</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdg.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -2666,24 +2215,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-create-argument-sections-devices-sdh">devices.sdh</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdh.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
@@ -2694,24 +2225,6 @@
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-create-argument-sections-helpers">helpers</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.devtmpfs_automount</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
@@ -2736,6 +2249,42 @@
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>Disables updatedb cron job to avoid disk thrashing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The ID of this Config.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces</span></code>
+<a class="reference internal" href="#commands-linodes-config-create-argument-sections-interfaces"><span class="std std-ref">(section)</span></a></p></td>
+<td><p>No</p></td>
+<td><p>json</p></td>
+<td><p>The Network Interface to apply to this Linode’s configuration profile.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--kernel</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>A Kernel ID to boot a Linode with.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--memory_limit</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>Defaults to the total RAM of the Linode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--root_device</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The root device to boot.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--run_level</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Defines the state of your Linode after booting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--virt_mode</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Controls the virtualization mode.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2772,13 +2321,23 @@
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ip_ranges</span></code></p></td>
 <td><p>No</p></td>
-<td><p>object</p></td>
+<td><p>json</p></td>
 <td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipam_address</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.nat_1_1</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.vpc</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.label</span></code></p></td>
 <td><p>No</p></td>
@@ -2799,34 +2358,6 @@
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-create-argument-sections-interfaces-ipv4">interfaces.ipv4</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.nat_1_1</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.vpc</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2936,313 +2467,151 @@
 <td><p>string</p></td>
 <td><p>Optional field for arbitrary User comments on this Config.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The ID of this Config.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces</span></code>
-<a class="reference internal" href="#commands-linodes-config-update-argument-sections-interfaces"><span class="std std-ref">(section)</span></a></p></td>
-<td><p>No</p></td>
-<td><p>object</p></td>
-<td><p>The Network Interface to apply to this Linode’s configuration profile.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--kernel</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>A Kernel ID to boot a Linode with.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The Config’s label is for display purposes only.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--memory_limit</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>Defaults to the total RAM of the Linode.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--root_device</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The root device to boot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--run_level</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>Defines the state of your Linode after booting.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--virt_mode</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>Controls the virtualization mode.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-update-argument-sections-devices-sda">devices.sda</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sda.disk_id</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sda.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sda.volume_id</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sda.volume_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-update-argument-sections-devices-sdb">devices.sdb</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdb.disk_id</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdb.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdb.volume_id</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdb.volume_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-update-argument-sections-devices-sdc">devices.sdc</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdc.disk_id</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdc.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdc.volume_id</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdc.volume_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-update-argument-sections-devices-sdd">devices.sdd</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdd.disk_id</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdd.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdd.volume_id</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdd.volume_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-update-argument-sections-devices-sde">devices.sde</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sde.disk_id</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sde.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sde.volume_id</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sde.volume_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-update-argument-sections-devices-sdf">devices.sdf</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdf.disk_id</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdf.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdf.volume_id</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdf.volume_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-update-argument-sections-devices-sdg">devices.sdg</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdg.disk_id</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdg.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdg.volume_id</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdg.volume_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-update-argument-sections-devices-sdh">devices.sdh</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdh.disk_id</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdh.disk_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdh.volume_id</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--devices.sdh.volume_id</span></code></p></td>
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-update-argument-sections-helpers">helpers</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.devtmpfs_automount</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.devtmpfs_automount</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>Populates the /dev directory early during boot without udev.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.distro</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.distro</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>Helps maintain correct inittab/upstart console device.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.modules_dep</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.modules_dep</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>Creates a modules dependency file for the Kernel you run.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.network</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.network</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>Automatically configures static networking.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.updatedb_disabled</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--helpers.updatedb_disabled</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>Disables updatedb cron job to avoid disk thrashing.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The ID of this Config.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces</span></code>
+<a class="reference internal" href="#commands-linodes-config-update-argument-sections-interfaces"><span class="std std-ref">(section)</span></a></p></td>
+<td><p>No</p></td>
+<td><p>json</p></td>
+<td><p>The Network Interface to apply to this Linode’s configuration profile.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--kernel</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>A Kernel ID to boot a Linode with.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The Config’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--memory_limit</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>Defaults to the total RAM of the Linode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--root_device</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The root device to boot.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--run_level</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Defines the state of your Linode after booting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--virt_mode</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>Controls the virtualization mode.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3279,13 +2648,23 @@
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ip_ranges</span></code></p></td>
 <td><p>No</p></td>
-<td><p>object</p></td>
+<td><p>json</p></td>
 <td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipam_address</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.nat_1_1</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.vpc</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.label</span></code></p></td>
 <td><p>No</p></td>
@@ -3306,34 +2685,6 @@
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-update-argument-sections-interfaces-ipv4">interfaces.ipv4</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.nat_1_1</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--interfaces.ipv4.vpc</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3514,6 +2865,16 @@
 <td><p>string</p></td>
 <td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.nat_1_1</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.vpc</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
+</tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
@@ -3533,34 +2894,6 @@
 <td><p>No</p></td>
 <td><p>integer</p></td>
 <td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-interface-add-argument-sections-ipv4">ipv4</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.nat_1_1</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.vpc</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3636,38 +2969,20 @@
 <td><p>array[string]</p></td>
 <td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--primary</span></code></p></td>
-<td><p>No</p></td>
-<td><p>boolean</p></td>
-<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-interface-update-argument-sections-ipv4">ipv4</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.nat_1_1</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.nat_1_1</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.vpc</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.vpc</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--primary</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
 </tr>
 </tbody>
 </table>

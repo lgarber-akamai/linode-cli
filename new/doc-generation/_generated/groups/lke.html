@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+03715f9 (API v4.176.0)
+                v0.0.0.dev+5239b95 (API v4.176.0)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -355,39 +355,21 @@
 <td><p>string</p></td>
 <td><p>This Kubernetes cluster’s location.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--node_pools</span></code>
-<a class="reference internal" href="#commands-lke-cluster-create-argument-sections-node-pools"><span class="std std-ref">(section)</span></a></p></td>
-<td><p>No</p></td>
-<td><p>object</p></td>
-<td><p>Specifies a collection of Linodes which will be members of a Kubernetes cluster.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
-<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-lke-cluster-create-argument-sections-control-plane">control_plane</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--control_plane.high_availability</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--control_plane.high_availability</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--node_pools</span></code>
+<a class="reference internal" href="#commands-lke-cluster-create-argument-sections-node-pools"><span class="std std-ref">(section)</span></a></p></td>
+<td><p>No</p></td>
+<td><p>json</p></td>
+<td><p>Specifies a collection of Linodes which will be members of a Kubernetes cluster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
+<td><p>No</p></td>
+<td><p>array[string]</p></td>
+<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
 </tr>
 </tbody>
 </table>
@@ -417,39 +399,6 @@
 <td><p>string</p></td>
 <td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--node_pools.disks</span></code></p></td>
-<td><p>No</p></td>
-<td><p>object</p></td>
-<td><p>This field should be omitted except for special use cases.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--node_pools.tags</span></code></p></td>
-<td><p>No</p></td>
-<td><p>object</p></td>
-<td><p>An array of tags applied to this object.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--node_pools.taints</span></code></p></td>
-<td><p>No</p></td>
-<td><p>object</p></td>
-<td><p>Kubernetes taints to add to node pool nodes.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-lke-cluster-create-argument-sections-node-pools-autoscaler">node_pools.autoscaler</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--node_pools.autoscaler.enabled</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
@@ -465,24 +414,11 @@
 <td><p>integer</p></td>
 <td><p>The minimum number of nodes to autoscale to.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-lke-cluster-create-argument-sections-node-pools-labels">node_pools.labels</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--node_pools.disks</span></code></p></td>
+<td><p>No</p></td>
+<td><p>json</p></td>
+<td><p>This field should be omitted except for special use cases.</p></td>
 </tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--node_pools.labels.key</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
@@ -492,6 +428,16 @@
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>The Kubernetes label value.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--node_pools.tags</span></code></p></td>
+<td><p>No</p></td>
+<td><p>json</p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--node_pools.taints</span></code></p></td>
+<td><p>No</p></td>
+<td><p>json</p></td>
+<td><p>Kubernetes taints to add to node pool nodes.</p></td>
 </tr>
 </tbody>
 </table>
@@ -558,43 +504,25 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--k8s_version</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
-<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-lke-cluster-update-argument-sections-control-plane">control_plane</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--control_plane.high_availability</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
 <td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--k8s_version</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
+<td><p>No</p></td>
+<td><p>array[string]</p></td>
+<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1066,39 +994,6 @@
 <td><p>string</p></td>
 <td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--disks</span></code></p></td>
-<td><p>No</p></td>
-<td><p>object</p></td>
-<td><p>This field should be omitted except for special use cases.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
-<td><p>An array of tags applied to this object.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--taints</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array</p></td>
-<td><p>Kubernetes taints to add to node pool nodes.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-lke-pool-create-argument-sections-autoscaler">autoscaler</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--autoscaler.enabled</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
@@ -1114,24 +1009,11 @@
 <td><p>integer</p></td>
 <td><p>The minimum number of nodes to autoscale to.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-lke-pool-create-argument-sections-labels">labels</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--disks</span></code></p></td>
+<td><p>No</p></td>
+<td><p>json</p></td>
+<td><p>This field should be omitted except for special use cases.</p></td>
 </tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--labels.key</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
@@ -1141,6 +1023,16 @@
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>The Kubernetes label value.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
+<td><p>No</p></td>
+<td><p>array[string]</p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--taints</span></code></p></td>
+<td><p>No</p></td>
+<td><p>array</p></td>
+<td><p>Kubernetes taints to add to node pool nodes.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1208,34 +1100,6 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--count</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
-<td><p>The number of nodes in the Node Pool.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--taints</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array</p></td>
-<td><p>Kubernetes taints to add to node pool nodes.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-lke-pool-update-argument-sections-autoscaler">autoscaler</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--autoscaler.enabled</span></code></p></td>
 <td><p>No</p></td>
 <td><p>boolean</p></td>
@@ -1251,24 +1115,11 @@
 <td><p>integer</p></td>
 <td><p>The minimum number of nodes to autoscale to.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-lke-pool-update-argument-sections-labels">labels</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--count</span></code></p></td>
+<td><p>No</p></td>
+<td><p>integer</p></td>
+<td><p>The number of nodes in the Node Pool.</p></td>
 </tr>
-</thead>
-<tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--labels.key</span></code></p></td>
 <td><p>No</p></td>
 <td><p>string</p></td>
@@ -1278,6 +1129,11 @@
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>The Kubernetes label value.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--taints</span></code></p></td>
+<td><p>No</p></td>
+<td><p>array</p></td>
+<td><p>Kubernetes taints to add to node pool nodes.</p></td>
 </tr>
 </tbody>
 </table>
