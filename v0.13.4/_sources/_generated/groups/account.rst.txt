@@ -1,0 +1,1772 @@
+.. role:: action-argument-required
+
+Account
+=======
+
+This section details Account-related Linode CLI commands.
+
+.. _commands_account_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-account>`_
+----------------------------------------------------------------------
+
+
+Returns the contact and billing information related to your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account view [-h] [--order-by {}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account view
+
+
+
+------------
+
+.. _commands_account_update:
+
+`update <https://techdocs.akamai.com/linode-api/reference/put-account>`_
+------------------------------------------------------------------------
+
+
+Updates contact and billing information related to your account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account update [-h] [--city city] [--state state]
+    	[--first_name first_name] [--zip zip] [--address_2 address_2]
+    	[--company company]
+    	[--active_promotions.service_type service_type]
+    	[--active_promotions.this_month_credit_remaining this_month_credit_remaining]
+    	[--active_promotions.expire_dt expire_dt]
+    	[--active_promotions.summary summary]
+    	[--active_promotions.credit_monthly_cap credit_monthly_cap]
+    	[--active_promotions.credit_remaining credit_remaining]
+    	[--active_promotions.image_url image_url]
+    	[--active_promotions.description description] [--phone phone]
+    	[--tax_id tax_id] [--email email] [--country country]
+    	[--last_name last_name] [--address_1 address_1]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account update \
+    	--address_1 "123 Main St." \
+    	--address_2 "Suite 101" \
+    	--city Philadelphia \
+    	--company My Company \ LLC \
+    	--country US \
+    	--email jsmith@mycompany.com \
+    	--first_name John \
+    	--last_name Smith \
+    	--phone 555-555-1212 \
+    	--state PA \
+    	--tax_id ATU99999999 \
+    	--zip 19102
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--active_promotions`
+        :ref:`(section) <commands_account_update_argument_sections_active_promotions>`
+      - No
+      - object
+      - Promotions generally offer a set amount of credit that can be used toward your Linode services, and the promotion expires after a specified date.
+    * - :code:`--active_since`
+      - No
+      - string
+      - The date and time the account was activated.
+    * - :code:`--address_1`
+      - No
+      - string
+      - First line of this Account's billing address.
+    * - :code:`--address_2`
+      - No
+      - string
+      - Second line of this Account's billing address.
+    * - :code:`--balance`
+      - No
+      - number
+      - This Account's balance, in US dollars.
+    * - :code:`--balance_uninvoiced`
+      - No
+      - number
+      - This Account's current estimated invoice in US dollars.
+    * - :code:`--billing_source`
+      - No
+      - string
+      - The source of service charges for this Account, as determined by its relationship with Akamai.
+    * - :code:`--capabilities`
+      - No
+      - array[string]
+      - A list of capabilities your account supports.
+    * - :code:`--city`
+      - No
+      - string
+      - The city for this Account's billing address.
+    * - :code:`--company`
+      - No
+      - string
+      - The company name associated with this Account.
+    * - :code:`--country`
+      - No
+      - string
+      - The two-letter ISO 3166 country code of this Account's billing address.
+    * - :code:`--credit_card`
+      - No
+      - object
+      - Credit Card information associated with this Account.
+    * - :code:`--email`
+      - No
+      - string
+      - The email address of the person associated with this Account.
+    * - :code:`--euuid`
+      - No
+      - string
+      - An external unique identifier for this account.
+    * - :code:`--first_name`
+      - No
+      - string
+      - The first name of the person associated with this Account.
+    * - :code:`--last_name`
+      - No
+      - string
+      - The last name of the person associated with this Account.
+    * - :code:`--phone`
+      - No
+      - string
+      - The phone number associated with this Account.
+    * - :code:`--state`
+      - No
+      - string
+      - If billing address is in the United States (US) or Canada (CA), only the two-letter ISO 3166 State or Province code are accepted.
+    * - :code:`--tax_id`
+      - No
+      - string
+      - The tax identification number associated with this Account, for tax calculations in some countries.
+    * - :code:`--zip`
+      - No
+      - string
+      - The zip code of this Account's billing address.
+.. _commands_account_update_argument_sections_active_promotions:
+
+.. cssclass:: action-argument-section-header
+
+    active_promotions
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--active_promotions.credit_monthly_cap`
+      - No
+      - string
+      - The amount available to spend per month.
+    * - :code:`--active_promotions.credit_remaining`
+      - No
+      - string
+      - The total amount of credit left for this promotion.
+    * - :code:`--active_promotions.description`
+      - No
+      - string
+      - A detailed description of this promotion.
+    * - :code:`--active_promotions.expire_dt`
+      - No
+      - string
+      - When this promotion's credits expire.
+    * - :code:`--active_promotions.image_url`
+      - No
+      - string
+      - The location of an image for this promotion.
+    * - :code:`--active_promotions.service_type`
+      - No
+      - string
+      - The service to which this promotion applies.
+    * - :code:`--active_promotions.summary`
+      - No
+      - string
+      - Short details of this promotion.
+    * - :code:`--active_promotions.this_month_credit_remaining`
+      - No
+      - string
+      - The amount of credit left for this month for this promotion.
+
+
+------------
+
+.. _commands_account_cancel:
+
+`cancel <https://techdocs.akamai.com/linode-api/reference/post-cancel-account>`_
+--------------------------------------------------------------------------------
+
+
+Cancels an active Linode account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account cancel [-h] [--comments comments]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account cancel \
+    	--comments "I'm consolidating my accounts"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--comments`
+      - No
+      - string
+      - Any reason for cancelling the account, and any other comments you might have about your Linode service.
+
+
+------------
+
+.. _commands_account_settings:
+
+`settings <https://techdocs.akamai.com/linode-api/reference/get-account-settings>`_
+-----------------------------------------------------------------------------------
+
+
+Returns information related to your Account settings: Managed service subscription, Longview subscription, and network helper.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account settings [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account settings
+
+
+
+------------
+
+.. _commands_account_transfer:
+
+`transfer <https://techdocs.akamai.com/linode-api/reference/get-transfer>`_
+---------------------------------------------------------------------------
+
+
+Returns a Transfer object showing your network utilization, in GB, for the current month.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account transfer [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account transfer
+
+
+
+------------
+
+.. _commands_account_client-view:
+
+`client-view <https://techdocs.akamai.com/linode-api/reference/get-client>`_
+----------------------------------------------------------------------------
+
+
+Returns information about a single OAuth client.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account client-view [-h] [--label label]
+    	[--public public] [--order-by {label,public}]
+    	[--order {asc,desc}] clientId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account client-view \
+    	edc6790ea9db4d224c5c
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clientId`
+      - string
+      - The OAuth Client ID to look up.
+
+
+------------
+
+.. _commands_account_client-create:
+
+`client-create <https://techdocs.akamai.com/linode-api/reference/post-client>`_
+-------------------------------------------------------------------------------
+
+
+Creates an OAuth Client, which can be used to allow users (using their Linode account) to log in to your own application, and optionally grant your application some amount of access to their Linodes or other entities.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account client-create [-h]
+    	[--redirect_uri redirect_uri] [--public public]
+    	[--label label]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account client-create \
+    	--label Test_Client_1 \
+    	--redirect_uri https://example.org/callback
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - :action-argument-required:`Yes`
+      - string
+      - The name of this application.
+    * - :code:`--redirect_uri`
+      - :action-argument-required:`Yes`
+      - string
+      - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
+    * - :code:`--id`
+      - No
+      - string
+      - The OAuth Client ID.
+    * - :code:`--public`
+      - No
+      - boolean
+      - If this is a public or private OAuth Client.
+    * - :code:`--secret`
+      - No
+      - string
+      - The OAuth Client secret, used in the OAuth exchange.
+    * - :code:`--status`
+      - No
+      - string
+      - The status of this application.
+    * - :code:`--thumbnail_url`
+      - No
+      - string
+      - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+
+------------
+
+.. _commands_account_client-update:
+
+`client-update <https://techdocs.akamai.com/linode-api/reference/put-client>`_
+------------------------------------------------------------------------------
+
+
+Update information about an OAuth Client on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account client-update [-h] [--label label]
+    	[--public public] [--redirect_uri redirect_uri] clientId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account client-update \
+    	edc6790ea9db4d224c5c \
+    	--label Test_Client_1
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clientId`
+      - string
+      - The OAuth Client ID to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--id`
+      - No
+      - string
+      - The OAuth Client ID.
+    * - :code:`--label`
+      - No
+      - string
+      - The name of this application.
+    * - :code:`--public`
+      - No
+      - boolean
+      - If this is a public or private OAuth Client.
+    * - :code:`--redirect_uri`
+      - No
+      - string
+      - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
+    * - :code:`--secret`
+      - No
+      - string
+      - The OAuth Client secret, used in the OAuth exchange.
+    * - :code:`--status`
+      - No
+      - string
+      - The status of this application.
+    * - :code:`--thumbnail_url`
+      - No
+      - string
+      - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+
+------------
+
+.. _commands_account_client-delete:
+
+`client-delete <https://techdocs.akamai.com/linode-api/reference/delete-client>`_
+---------------------------------------------------------------------------------
+
+
+Deletes an OAuth Client registered with Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account client-delete [-h] clientId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account client-delete \
+    	edc6790ea9db4d224c5c
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clientId`
+      - string
+      - The OAuth Client ID to look up.
+
+
+------------
+
+.. _commands_account_client-reset-secret:
+
+`client-reset-secret <https://techdocs.akamai.com/linode-api/reference/post-reset-client-secret>`_
+--------------------------------------------------------------------------------------------------
+
+
+Resets the OAuth Client secret for a client you own, and returns the OAuth Client with the plaintext secret.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account client-reset-secret [-h] clientId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account client-reset-secret \
+    	edc6790ea9db4d224c5c
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`clientId`
+      - string
+      - The OAuth Client ID to look up.
+
+
+------------
+
+.. _commands_account_clients-list:
+
+`clients-list <https://techdocs.akamai.com/linode-api/reference/get-clients>`_
+------------------------------------------------------------------------------
+
+
+Returns a paginated list of OAuth Clients registered to your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account clients-list [-h] [--label label]
+    	[--public public] [--order-by {label,public}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account clients-list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--label`
+      - *string*
+      - The name of this application.
+    * - :code:`--public`
+      - *boolean*
+      - If this is a public or private OAuth Client.
+
+
+------------
+
+.. _commands_account_enable-managed:
+
+`enable-managed <https://techdocs.akamai.com/linode-api/reference/post-enable-account-managed>`_
+------------------------------------------------------------------------------------------------
+
+
+Enables Linode Managed for the entire account and sends a welcome email to the account's associated email address.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account enable-managed [-h]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account enable-managed
+
+
+
+------------
+
+.. _commands_account_get-account-availability:
+
+`get-account-availability <https://techdocs.akamai.com/linode-api/reference/get-account-availability>`_
+-------------------------------------------------------------------------------------------------------
+
+
+View the available services for your account in a specific region.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account get-account-availability [-h] [--order-by {}]
+    	[--order {asc,desc}] id
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account get-account-availability us-east
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`id`
+      - string
+      - The slug for the applicable data center.
+
+
+------------
+
+.. _commands_account_get-availability:
+
+`get-availability <https://techdocs.akamai.com/linode-api/reference/get-availability>`_
+---------------------------------------------------------------------------------------
+
+
+Returns a paginated list of the services available to you, for all Linode regions.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account get-availability [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account get-availability
+
+
+
+------------
+
+.. _commands_account_invoice-view:
+
+`invoice-view <https://techdocs.akamai.com/linode-api/reference/get-invoice>`_
+------------------------------------------------------------------------------
+
+
+Returns a single Invoice object.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account invoice-view [-h] [--label label]
+    	[--total total] [--date date]
+    	[--billing_source billing_source]
+    	[--order-by {label,total,date,billing_source}]
+    	[--order {asc,desc}] invoiceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account invoice-view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`invoiceId`
+      - integer
+      - The ID of the Invoice.
+
+
+------------
+
+.. _commands_account_invoice-items:
+
+`invoice-items <https://techdocs.akamai.com/linode-api/reference/get-invoice-items>`_
+-------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Invoice items.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account invoice-items [-h] [--order-by {}]
+    	[--order {asc,desc}] invoiceId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account invoice-items 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`invoiceId`
+      - integer
+      - The ID of the Invoice.
+
+
+------------
+
+.. _commands_account_invoices-list:
+
+`invoices-list <https://techdocs.akamai.com/linode-api/reference/get-invoices>`_
+--------------------------------------------------------------------------------
+
+
+Returns a paginated list of Invoices against your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account invoices-list [-h] [--total total]
+    	[--date date] [--billing_source billing_source]
+    	[--label label]
+    	[--order-by {total,date,billing_source,label}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account invoices-list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--billing_source`
+      - *string*
+      - :code:`akamai`: This Invoice was generated according to the terms of an agreement between the customer and Akamai.
+    * - :code:`--date`
+      - *string*
+      - When this Invoice was generated.
+    * - :code:`--label`
+      - *string*
+      - The Invoice's display label.
+    * - :code:`--total`
+      - *number*
+      - The amount of the Invoice after taxes in US Dollars.
+
+
+------------
+
+.. _commands_account_login-view:
+
+`login-view <https://techdocs.akamai.com/linode-api/reference/get-account-login>`_
+----------------------------------------------------------------------------------
+
+
+Returns a Login object that displays information about a successful login.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account login-view [-h] [--order-by {}]
+    	[--order {asc,desc}] loginId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account login-view 1234
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`loginId`
+      - integer
+      - The ID of the login object to access.
+
+
+------------
+
+.. _commands_account_logins-list:
+
+`logins-list <https://techdocs.akamai.com/linode-api/reference/get-account-logins>`_
+------------------------------------------------------------------------------------
+
+
+Returns a collection of successful logins for all users on the account during the last 90 days.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account logins-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account logins-list
+
+
+
+------------
+
+.. _commands_account_maintenance-list:
+
+`maintenance-list <https://techdocs.akamai.com/linode-api/reference/get-maintenance>`_
+--------------------------------------------------------------------------------------
+
+
+Returns a collection of Maintenance objects for any entity a user has permissions to view.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account maintenance-list [-h] [--type type]
+    	[--when when] [--status status]
+    	[--order-by {type,when,status}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account maintenance-list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--status`
+      - *string*
+      - The maintenance status.
+    * - :code:`--type`
+      - *string*
+      - The type of maintenance.
+    * - :code:`--when`
+      - *string*
+      - When the maintenance will begin.
+
+
+------------
+
+.. _commands_account_notifications-list:
+
+`notifications-list <https://techdocs.akamai.com/linode-api/reference/get-notifications>`_
+------------------------------------------------------------------------------------------
+
+
+Returns a collection of Notification objects representing important, often time-sensitive items related to your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account notifications-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account notifications-list
+
+
+
+------------
+
+.. _commands_account_payment-view:
+
+`payment-view <https://techdocs.akamai.com/linode-api/reference/get-payment>`_
+------------------------------------------------------------------------------
+
+
+Returns information about a specific Payment.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account payment-view [-h] [--order-by {}]
+    	[--order {asc,desc}] paymentId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account payment-view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`paymentId`
+      - integer
+      - The ID of the Payment to look up.
+
+
+------------
+
+.. _commands_account_payment-create:
+
+`payment-create <https://techdocs.akamai.com/linode-api/reference/post-payment>`_
+---------------------------------------------------------------------------------
+
+
+Makes a Payment to your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account payment-create [-h] [--usd usd]
+    	[--payment_method_id payment_method_id]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account payment-create \
+    	--usd 120.50 \
+    	--payment_method_id 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--payment_method_id`
+      - No
+      - integer
+      - The ID of the Payment Method to apply to the Payment.
+    * - :code:`--usd`
+      - No
+      - string
+      - The amount in US Dollars of the Payment.
+
+
+------------
+
+.. _commands_account_payments-list:
+
+`payments-list <https://techdocs.akamai.com/linode-api/reference/get-payments>`_
+--------------------------------------------------------------------------------
+
+
+Returns a paginated list of Payments made on this Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account payments-list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account payments-list
+
+
+
+------------
+
+.. _commands_account_promo-add:
+
+`promo-add <https://techdocs.akamai.com/linode-api/reference/post-promo-credit>`_
+---------------------------------------------------------------------------------
+
+
+Adds an expiring Promo Credit to your account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account promo-add [-h] [--promo_code promo_code]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account \
+    	promo-add \
+    	--promo-code abcdefABCDEF1234567890
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--promo_code`
+      - :action-argument-required:`Yes`
+      - string
+      - The Promo Code.
+
+
+
+.. _commands_account_settings-update:
+
+`settings-update <https://techdocs.akamai.com/linode-api/reference/put-account-settings>`_
+------------------------------------------------------------------------------------------
+
+
+Updates your account settings.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli account settings-update [-h]
+    	[--backups_enabled backups_enabled]
+    	[--network_helper network_helper]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli account settings-update \
+    	--network_helper false
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--backups_enabled`
+      - No
+      - boolean
+      - Account-wide backups default.
+    * - :code:`--longview_subscription`
+      - No
+      - string
+      - The Longview Pro tier you are currently subscribed to.
+    * - :code:`--managed`
+      - No
+      - boolean
+      - Our 24/7 incident response service.
+    * - :code:`--network_helper`
+      - No
+      - boolean
+      - Enables network helper across all users by default for new Linodes and Linode Configs.
+    * - :code:`--object_storage`
+      - No
+      - string
+      - A string describing the status of this account's Object Storage service enrollment.
+
+
+

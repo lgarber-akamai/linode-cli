@@ -1,0 +1,277 @@
+.. role:: action-argument-required
+
+Regions
+=======
+
+This section details Region-related Linode CLI commands.
+
+.. _commands_regions_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-regions>`_
+----------------------------------------------------------------------
+
+
+Lists the Regions available for Linode services.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli regions list [-h] [--site-type site-type]
+    	[--country country] [--order-by {site-type,country}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli regions list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--country`
+      - *string*
+      - The country where this Region resides.
+    * - :code:`--site-type`
+      - *string*
+      - This region's site type.
+
+
+------------
+
+.. _commands_regions_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-region>`_
+---------------------------------------------------------------------
+
+
+Returns a single Region.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli regions view [-h] [--site-type site-type]
+    	[--country country] [--order-by {site-type,country}]
+    	[--order {asc,desc}] regionId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli regions view us-east
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`regionId`
+      - string
+      - ID of the Region to look up.
+
+
+------------
+
+.. _commands_regions_list-avail:
+
+`list-avail <https://techdocs.akamai.com/linode-api/reference/get-regions-availability>`_
+-----------------------------------------------------------------------------------------
+
+
+Returns availability data for all Regions.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli regions list-avail [-h] [--plan plan]
+    	[--available available] [--region region]
+    	[--order-by {plan,available,region}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli regions list-avail
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--available`
+      - *boolean*
+      - Whether the compute instance type is available in the region.
+    * - :code:`--plan`
+      - *string*
+      - The compute instance `Type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ ID.
+    * - :code:`--region`
+      - *string*
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID.
+
+
+
+.. _commands_regions_view-avail:
+
+`view-avail <https://techdocs.akamai.com/linode-api/reference/get-region-availability>`_
+----------------------------------------------------------------------------------------
+
+
+Returns availability data for a single Region.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli regions view-avail [-h] [--region region]
+    	[--available available] [--plan plan]
+    	[--order-by {region,available,plan}] [--order {asc,desc}]
+    	regionId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli regions view-avail us-east
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`regionId`
+      - string
+      - ID of the Region to look up.
+
+
+
