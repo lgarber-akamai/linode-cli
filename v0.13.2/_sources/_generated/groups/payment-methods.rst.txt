@@ -1,0 +1,347 @@
+.. role:: action-argument-required
+
+Payment Methods
+===============
+
+This section details Payment Method-related Linode CLI commands.
+
+.. _commands_payment-methods_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-payment-methods>`_
+------------------------------------------------------------------------------
+
+
+Returns a paginated list of Payment Methods for this Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli payment-methods list [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli payment-methods list
+
+
+
+------------
+
+.. _commands_payment-methods_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-payment-method>`_
+-----------------------------------------------------------------------------
+
+
+View the details of the specified Payment Method.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli payment-methods view [-h] [--order-by {}]
+    	[--order {asc,desc}] paymentMethodId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli payment-methods view 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`paymentMethodId`
+      - integer
+      - The ID of the Payment Method to look up.
+
+
+------------
+
+.. _commands_payment-methods_add:
+
+`add <https://techdocs.akamai.com/linode-api/reference/post-payment-method>`_
+-----------------------------------------------------------------------------
+
+
+Adds a Payment Method to your Account with the option to set it as the default method.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli payment-methods add [-h] [--is_default is_default]
+    	[--data.expiry_year expiry_year] [--data.cvv cvv]
+    	[--data.card_number card_number]
+    	[--data.expiry_month expiry_month] [--type type]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli payment-methods add \
+    	--type credit_card \
+    	--is_default true \
+    	--data.card_number 4111111111111111 \
+    	--data.expiry_month 11 \
+    	--data.expiry_year 2020 \
+    	--data.cvv 111
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--is_default`
+      - :action-argument-required:`Yes`
+      - boolean
+      - Whether this Payment Method is the default method for automatically processing service charges.
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - The type of Payment Method.
+.. _commands_payment-methods_add_argument_sections_data:
+
+.. cssclass:: action-argument-section-header
+
+    data
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--data.card_number`
+      - :action-argument-required:`Yes`
+      - string
+      - Your credit card number.
+    * - :code:`--data.cvv`
+      - :action-argument-required:`Yes`
+      - string
+      - CVV (Card Verification Value) of the credit card, typically found on the back of the card.
+    * - :code:`--data.expiry_month`
+      - :action-argument-required:`Yes`
+      - integer
+      - A value from 1-12 representing the expiration month of your credit card.
+    * - :code:`--data.expiry_year`
+      - :action-argument-required:`Yes`
+      - integer
+      - A four-digit integer representing the expiration year of your credit card.
+
+
+------------
+
+.. _commands_payment-methods_delete:
+
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-payment-method>`_
+----------------------------------------------------------------------------------
+
+
+Deactivate the specified Payment Method.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli payment-methods delete [-h] paymentMethodId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli payment-methods delete 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`paymentMethodId`
+      - integer
+      - The ID of the Payment Method to look up.
+
+
+
+.. _commands_payment-methods_default:
+
+`default <https://techdocs.akamai.com/linode-api/reference/post-make-payment-method-default>`_
+----------------------------------------------------------------------------------------------
+
+
+Make the specified Payment Method the default method for automatically processing payments.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli payment-methods default [-h] paymentMethodId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli payment-methods default 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`paymentMethodId`
+      - integer
+      - The ID of the Payment Method to make default.
+
+
+
