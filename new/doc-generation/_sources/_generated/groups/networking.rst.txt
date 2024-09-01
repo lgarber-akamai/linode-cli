@@ -69,6 +69,83 @@ Returns information about a single IP Address on your Account.
 
 ------------
 
+.. _commands_networking_ip-add:
+
+`ip-add <https://techdocs.akamai.com/linode-api/reference/post-allocate-ip>`_
+-----------------------------------------------------------------------------
+
+
+Allocates a new IPv4 Address on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking ip-add [-h] [--type type] [--public public]
+    	[--linode_id linode_id]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking ip-add \
+    	--type ipv4 \
+    	--public true \
+    	--linode_id 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--linode_id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The ID of a Linode you have access to that this address will be allocated to.
+    * - :code:`--public`
+      - :action-argument-required:`Yes`
+      - boolean
+      - Whether to create a public or private IPv4 address.
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - The type of address you are requesting.
+
+
+------------
+
 .. _commands_networking_ip-update:
 
 `ip-update <https://techdocs.akamai.com/linode-api/reference/put-ip>`_
@@ -156,83 +233,6 @@ Sets RDNS on an IP Address.
       - :action-argument-required:`Yes`
       - string
       - The reverse DNS assigned to this address.
-
-
-------------
-
-.. _commands_networking_ip-add:
-
-`ip-add <https://techdocs.akamai.com/linode-api/reference/post-allocate-ip>`_
------------------------------------------------------------------------------
-
-
-Allocates a new IPv4 Address on your Account.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking ip-add [-h] [--type type] [--public public]
-    	[--linode_id linode_id]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
-
-
-..  code-block:: bash
-
-    linode-cli networking ip-add \
-    	--type ipv4 \
-    	--public true \
-    	--linode_id 123
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-.. cssclass:: action-subheading-description
-
-    Additional fields used to execute this request.
-
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--linode_id`
-      - :action-argument-required:`Yes`
-      - integer
-      - The ID of a Linode you have access to that this address will be allocated to.
-    * - :code:`--public`
-      - :action-argument-required:`Yes`
-      - boolean
-      - Whether to create a public or private IPv4 address.
-    * - :code:`--type`
-      - :action-argument-required:`Yes`
-      - string
-      - The type of address you are requesting.
 
 
 ------------

@@ -3851,6 +3851,165 @@ Returns a single Configuration Profile Interface.
 
 ------------
 
+.. _commands_linodes_config-interface-add:
+
+`config-interface-add <https://techdocs.akamai.com/linode-api/reference/post-linode-config-interface>`_
+-------------------------------------------------------------------------------------------------------
+
+
+Creates and appends a single Interface to the end of the :code:`interfaces` array for an existing Configuration Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-add [-h]
+    	[--subnet_id subnet_id] [--label label] [--primary primary]
+    	[--ipam_address ipam_address] [--ip_ranges ip_ranges]
+    	[--purpose purpose] [--ipv4.vpc vpc] [--ipv4.nat_1_1 nat_1_1]
+    	[--active active] linodeId configId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-add $linodeId $configId \
+    	--purpose vpc \
+    	--primary false \
+    	--subnet_id 101 \
+    	--ipv4.vpc "10.0.1.2" \
+    	--ipv4.nat_1_1 "203.0.113.2"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - The :code:`id` of the Linode.
+    * - :code:`configId`
+      - integer
+      - The :code:`id` of the Configuration Profile.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--purpose`
+      - :action-argument-required:`Yes`
+      - string
+      - The type of Interface.
+    * - :code:`--active`
+      - No
+      - boolean
+      - Returns :code:`true` if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.
+    * - :code:`--id`
+      - No
+      - integer
+      - The unique ID representing this Interface.
+    * - :code:`--ip_ranges`
+      - No
+      - array[string]
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+    * - :code:`--ipam_address`
+      - No
+      - string
+      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+    * - :code:`--label`
+      - No
+      - string
+      - The name of this Interface.
+    * - :code:`--primary`
+      - No
+      - boolean
+      - The primary Interface is configured as the default route to the Linode.
+    * - :code:`--subnet_id`
+      - No
+      - integer
+      - The :code:`id` of the VPC Subnet for this Interface.
+    * - :code:`--vpc_id`
+      - No
+      - integer
+      - The :code:`id` of the VPC configured for this Interface.
+.. _commands_linodes_config-interface-add_argument_sections_ipv4:
+
+.. cssclass:: action-argument-section-header
+
+    ipv4
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--ipv4.nat_1_1`
+      - No
+      - string
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+    * - :code:`--ipv4.vpc`
+      - No
+      - string
+      - The VPC Subnet IPv4 address for this Interface.
+
+
+------------
+
 .. _commands_linodes_config-interface-update:
 
 `config-interface-update <https://techdocs.akamai.com/linode-api/reference/put-linode-config-interface>`_
@@ -4048,165 +4207,6 @@ Deletes an Interface from the Configuration Profile.
     * - :code:`interfaceId`
       - integer
       - The :code:`id` of the Linode Configuration Profile Interface.
-
-
-------------
-
-.. _commands_linodes_config-interface-add:
-
-`config-interface-add <https://techdocs.akamai.com/linode-api/reference/post-linode-config-interface>`_
--------------------------------------------------------------------------------------------------------
-
-
-Creates and appends a single Interface to the end of the :code:`interfaces` array for an existing Configuration Profile.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli linodes config-interface-add [-h]
-    	[--subnet_id subnet_id] [--label label] [--primary primary]
-    	[--ipam_address ipam_address] [--ip_ranges ip_ranges]
-    	[--purpose purpose] [--ipv4.vpc vpc] [--ipv4.nat_1_1 nat_1_1]
-    	[--active active] linodeId configId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
-
-
-..  code-block:: bash
-
-    linode-cli linodes config-interface-add $linodeId $configId \
-    	--purpose vpc \
-    	--primary false \
-    	--subnet_id 101 \
-    	--ipv4.vpc "10.0.1.2" \
-    	--ipv4.nat_1_1 "203.0.113.2"
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-.. cssclass:: action-subheading-description
-
-    Positional parameters used to define the resource this command should target.
-
-
-.. rst-class:: action-parameter-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`linodeId`
-      - integer
-      - The :code:`id` of the Linode.
-    * - :code:`configId`
-      - integer
-      - The :code:`id` of the Configuration Profile.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-.. cssclass:: action-subheading-description
-
-    Additional fields used to execute this request.
-
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--purpose`
-      - :action-argument-required:`Yes`
-      - string
-      - The type of Interface.
-    * - :code:`--active`
-      - No
-      - boolean
-      - Returns :code:`true` if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.
-    * - :code:`--id`
-      - No
-      - integer
-      - The unique ID representing this Interface.
-    * - :code:`--ip_ranges`
-      - No
-      - array[string]
-      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
-    * - :code:`--ipam_address`
-      - No
-      - string
-      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
-    * - :code:`--label`
-      - No
-      - string
-      - The name of this Interface.
-    * - :code:`--primary`
-      - No
-      - boolean
-      - The primary Interface is configured as the default route to the Linode.
-    * - :code:`--subnet_id`
-      - No
-      - integer
-      - The :code:`id` of the VPC Subnet for this Interface.
-    * - :code:`--vpc_id`
-      - No
-      - integer
-      - The :code:`id` of the VPC configured for this Interface.
-.. _commands_linodes_config-interface-add_argument_sections_ipv4:
-
-.. cssclass:: action-argument-section-header
-
-    ipv4
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--ipv4.nat_1_1`
-      - No
-      - string
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
-    * - :code:`--ipv4.vpc`
-      - No
-      - string
-      - The VPC Subnet IPv4 address for this Interface.
 
 
 ------------
@@ -5330,6 +5330,102 @@ View information about the specified IP address associated with the specified Li
 
 ------------
 
+.. _commands_linodes_ip-add:
+
+`ip-add <https://techdocs.akamai.com/linode-api/reference/post-add-linode-ip>`_
+-------------------------------------------------------------------------------
+
+
+Allocates a public or private IPv4 address to a Linode.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli linodes ip-add [-h] [--type type] [--public public]
+    	linodeId
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli linodes ip-add 123 \
+    	--type ipv4 \
+    	--public true
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`linodeId`
+      - integer
+      - ID of the Linode to look up.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--public`
+      - :action-argument-required:`Yes`
+      - boolean
+      - Whether to create a public or private IPv4 address.
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - The type of address you are allocating.
+
+
+------------
+
 .. _commands_linodes_ip-update:
 
 `ip-update <https://techdocs.akamai.com/linode-api/reference/put-linode-ip>`_
@@ -5486,102 +5582,6 @@ Deletes a public or private IPv4 address associated with this Linode.
     * - :code:`address`
       - string
       - The IP address.
-
-
-------------
-
-.. _commands_linodes_ip-add:
-
-`ip-add <https://techdocs.akamai.com/linode-api/reference/post-add-linode-ip>`_
--------------------------------------------------------------------------------
-
-
-Allocates a public or private IPv4 address to a Linode.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Usage
-
-
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli linodes ip-add [-h] [--type type] [--public public]
-    	linodeId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
-
-
-..  code-block:: bash
-
-    linode-cli linodes ip-add 123 \
-    	--type ipv4 \
-    	--public true
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-.. cssclass:: action-subheading-description
-
-    Positional parameters used to define the resource this command should target.
-
-
-.. rst-class:: action-parameter-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 15 10 75
-
-    * - Name
-      - Type
-      - Description
-
-    * - :code:`linodeId`
-      - integer
-      - ID of the Linode to look up.
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Arguments
-
-.. cssclass:: action-subheading-description
-
-    Additional fields used to execute this request.
-
-
-.. rst-class:: action-argument-section-table
-
-..  list-table::
-    :header-rows: 1
-    :width: 100%
-    :widths: 1 10 10 79
-
-    * - Name
-      - Required
-      - Type
-      - Description
-
-    * - :code:`--public`
-      - :action-argument-required:`Yes`
-      - boolean
-      - Whether to create a public or private IPv4 address.
-    * - :code:`--type`
-      - :action-argument-required:`Yes`
-      - string
-      - The type of address you are allocating.
 
 
 ------------

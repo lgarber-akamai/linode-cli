@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+d7488ca (API v4.176.0)
+                v0.0.0.dev+8a57771 (API v4.176.0)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -96,9 +96,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-config-update">config-update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-config-delete">config-delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-config-interface-view">config-interface-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-linodes-config-interface-add">config-interface-add</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-config-interface-update">config-interface-update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-config-interface-delete">config-interface-delete</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#commands-linodes-config-interface-add">config-interface-add</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-config-interfaces-list">config-interfaces-list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-config-interfaces-order">config-interfaces-order</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-configs-list">configs-list</a></li>
@@ -112,9 +112,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-disks-list">disks-list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-firewalls-list">firewalls-list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-ip-view">ip-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-linodes-ip-add">ip-add</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-ip-update">ip-update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-ip-delete">ip-delete</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#commands-linodes-ip-add">ip-add</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-ips-list">ips-list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-linode-reset-password">linode-reset-password</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands-linodes-transfer-view">transfer-view</a></li>
@@ -3425,160 +3425,8 @@
 </table>
 <hr class="docutils" />
 </section>
-<section id="commands-linodes-config-interface-update">
-<span id="id35"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-config-interface">config-interface-update</a><a class="headerlink" href="#commands-linodes-config-interface-update" title="Link to this heading"></a></h2>
-<p>Updates a <code class="code docutils literal notranslate"><span class="pre">vpc</span></code> or <code class="code docutils literal notranslate"><span class="pre">public</span></code> purpose Interface for this Configuration Profile.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--ip_ranges<span class="w"> </span>ip_ranges<span class="o">]</span><span class="w"> </span><span class="o">[</span>--primary<span class="w"> </span>primary<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--ipv4.nat_1_1<span class="w"> </span>nat_1_1<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ipv4.vpc<span class="w"> </span>vpc<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
-<span class="w">    </span>interfaceId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
-<p class="action-subheading-description">Examples of how this command might be used.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-update<span class="w"> </span><span class="nv">$linodeId</span><span class="w"> </span><span class="nv">$configId</span><span class="w"> </span><span class="nv">$interfaceId</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--primary<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--ipv4.vpc<span class="w"> </span><span class="s2">&quot;10.0.1.2&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--ipv4.nat_1_1<span class="w"> </span><span class="s2">&quot;203.0.113.2&quot;</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Parameters</p>
-<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
-<table class="action-parameter-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">linodeId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Linode.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">configId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Configuration Profile.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">interfaceId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Linode Configuration Profile Interface.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-subheading rubric">Arguments</p>
-<p class="action-subheading-description">Additional fields used to execute this request.</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ip_ranges</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
-<td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--primary</span></code></p></td>
-<td><p>No</p></td>
-<td><p>boolean</p></td>
-<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-argument-section-header" id="commands-linodes-config-interface-update-argument-sections-ipv4">ipv4</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.nat_1_1</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.vpc</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
-<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
-</tr>
-</tbody>
-</table>
-<hr class="docutils" />
-</section>
-<section id="commands-linodes-config-interface-delete">
-<span id="id36"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-config-interface">config-interface-delete</a><a class="headerlink" href="#commands-linodes-config-interface-delete" title="Link to this heading"></a></h2>
-<p>Deletes an Interface from the Configuration Profile.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
-<span class="w">    </span>interfaceId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
-<p class="action-subheading-description">Examples of how this command might be used.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-delete<span class="w"> </span><span class="nv">$linodeId</span><span class="w"> </span><span class="nv">$configId</span><span class="w"> </span><span class="nv">$interfaceId</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Parameters</p>
-<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
-<table class="action-parameter-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">linodeId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Linode.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">configId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Configuration Profile.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">interfaceId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Linode Configuration Profile Interface.</p></td>
-</tr>
-</tbody>
-</table>
-<hr class="docutils" />
-</section>
 <section id="commands-linodes-config-interface-add">
-<span id="id37"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-linode-config-interface">config-interface-add</a><a class="headerlink" href="#commands-linodes-config-interface-add" title="Link to this heading"></a></h2>
+<span id="id35"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-linode-config-interface">config-interface-add</a><a class="headerlink" href="#commands-linodes-config-interface-add" title="Link to this heading"></a></h2>
 <p>Creates and appends a single Interface to the end of the <code class="code docutils literal notranslate"><span class="pre">interfaces</span></code> array for an existing Configuration Profile.</p>
 <p class="action-subheading rubric">Usage</p>
 <p class="action-subheading-description">The format accepted by this command.</p>
@@ -3713,6 +3561,158 @@
 <td><p>No</p></td>
 <td><p>string</p></td>
 <td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-linodes-config-interface-update">
+<span id="id36"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-config-interface">config-interface-update</a><a class="headerlink" href="#commands-linodes-config-interface-update" title="Link to this heading"></a></h2>
+<p>Updates a <code class="code docutils literal notranslate"><span class="pre">vpc</span></code> or <code class="code docutils literal notranslate"><span class="pre">public</span></code> purpose Interface for this Configuration Profile.</p>
+<p class="action-subheading rubric">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ip_ranges<span class="w"> </span>ip_ranges<span class="o">]</span><span class="w"> </span><span class="o">[</span>--primary<span class="w"> </span>primary<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ipv4.nat_1_1<span class="w"> </span>nat_1_1<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ipv4.vpc<span class="w"> </span>vpc<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
+<span class="w">    </span>interfaceId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-update<span class="w"> </span><span class="nv">$linodeId</span><span class="w"> </span><span class="nv">$configId</span><span class="w"> </span><span class="nv">$interfaceId</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--primary<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ipv4.vpc<span class="w"> </span><span class="s2">&quot;10.0.1.2&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ipv4.nat_1_1<span class="w"> </span><span class="s2">&quot;203.0.113.2&quot;</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">linodeId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Linode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">configId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Configuration Profile.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">interfaceId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Linode Configuration Profile Interface.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 79.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ip_ranges</span></code></p></td>
+<td><p>No</p></td>
+<td><p>array[string]</p></td>
+<td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--primary</span></code></p></td>
+<td><p>No</p></td>
+<td><p>boolean</p></td>
+<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-argument-section-header" id="commands-linodes-config-interface-update-argument-sections-ipv4">ipv4</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 79.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.nat_1_1</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--ipv4.vpc</span></code></p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-linodes-config-interface-delete">
+<span id="id37"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-config-interface">config-interface-delete</a><a class="headerlink" href="#commands-linodes-config-interface-delete" title="Link to this heading"></a></h2>
+<p>Deletes an Interface from the Configuration Profile.</p>
+<p class="action-subheading rubric">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
+<span class="w">    </span>interfaceId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-delete<span class="w"> </span><span class="nv">$linodeId</span><span class="w"> </span><span class="nv">$configId</span><span class="w"> </span><span class="nv">$interfaceId</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">linodeId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Linode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">configId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Configuration Profile.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">interfaceId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the Linode Configuration Profile Interface.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4496,8 +4496,76 @@
 </table>
 <hr class="docutils" />
 </section>
+<section id="commands-linodes-ip-add">
+<span id="id53"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-ip">ip-add</a><a class="headerlink" href="#commands-linodes-ip-add" title="Link to this heading"></a></h2>
+<p>Allocates a public or private IPv4 address to a Linode.</p>
+<p class="action-subheading rubric">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-add<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span><span class="w"> </span><span class="o">[</span>--public<span class="w"> </span>public<span class="o">]</span>
+<span class="w">    </span>linodeId
+</pre></div>
+</div>
+<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-add<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--type<span class="w"> </span>ipv4<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--public<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 10.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">linodeId</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>ID of the Linode to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 79.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--public</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>boolean</p></td>
+<td><p>Whether to create a public or private IPv4 address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
+<td><p><span class="action-argument-required">Yes</span></p></td>
+<td><p>string</p></td>
+<td><p>The type of address you are allocating.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
 <section id="commands-linodes-ip-update">
-<span id="id53"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-ip">ip-update</a><a class="headerlink" href="#commands-linodes-ip-update" title="Link to this heading"></a></h2>
+<span id="id54"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-ip">ip-update</a><a class="headerlink" href="#commands-linodes-ip-update" title="Link to this heading"></a></h2>
 <p>Updates the reverse DNS (RDNS) for a Linode’s IP Address.</p>
 <p class="action-subheading rubric">Usage</p>
 <p class="action-subheading-description">The format accepted by this command.</p>
@@ -4563,7 +4631,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-ip-delete">
-<span id="id54"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-ip">ip-delete</a><a class="headerlink" href="#commands-linodes-ip-delete" title="Link to this heading"></a></h2>
+<span id="id55"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-ip">ip-delete</a><a class="headerlink" href="#commands-linodes-ip-delete" title="Link to this heading"></a></h2>
 <p>Deletes a public or private IPv4 address associated with this Linode.</p>
 <p class="action-subheading rubric">Usage</p>
 <p class="action-subheading-description">The format accepted by this command.</p>
@@ -4597,74 +4665,6 @@
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">address</span></code></p></td>
 <td><p>string</p></td>
 <td><p>The IP address.</p></td>
-</tr>
-</tbody>
-</table>
-<hr class="docutils" />
-</section>
-<section id="commands-linodes-ip-add">
-<span id="id55"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-ip">ip-add</a><a class="headerlink" href="#commands-linodes-ip-add" title="Link to this heading"></a></h2>
-<p>Allocates a public or private IPv4 address to a Linode.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-add<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span><span class="w"> </span><span class="o">[</span>--public<span class="w"> </span>public<span class="o">]</span>
-<span class="w">    </span>linodeId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
-<p class="action-subheading-description">Examples of how this command might be used.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-add<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--type<span class="w"> </span>ipv4<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--public<span class="w"> </span><span class="nb">true</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Parameters</p>
-<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
-<table class="action-parameter-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">linodeId</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>ID of the Linode to look up.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="action-subheading rubric">Arguments</p>
-<p class="action-subheading-description">Additional fields used to execute this request.</p>
-<table class="action-argument-section-table docutils align-default" style="width: 100%">
-<colgroup>
-<col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--public</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>boolean</p></td>
-<td><p>Whether to create a public or private IPv4 address.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The type of address you are allocating.</p></td>
 </tr>
 </tbody>
 </table>
