@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 VLANs
 =====
@@ -13,28 +19,13 @@ This section details VLAN-related Linode CLI commands.
 
 Returns a list of all Virtual Local Area Networks (VLANs) on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli vlans list [-h] [--region region] [--label label]
-    	[--order-by {region,label}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -42,32 +33,69 @@ Returns a list of all Virtual Local Area Networks (VLANs) on your Account.
     linode-cli vlans list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--label`
-      - *string*
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`string`
       - The name of this VLAN.
-    * - :code:`--region`
-      - *string*
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`string`
+      - This VLAN's data center region.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2020-01-01T00:01:01"`
+      - The date this VLAN was created.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"vlan-example"`
+      - The name of this VLAN.
+    * - :action-table-field-name:`linodes`
+      - :action-table-field-type:`array[integer]`
+      - :json:`[111, 222]`
+      - An array of Linode IDs attached to this VLAN.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"ap-west"`
       - This VLAN's data center region.
 
 

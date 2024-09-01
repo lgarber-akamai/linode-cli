@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Tickets
 =======
@@ -13,29 +19,13 @@ This section details Ticket-related Linode CLI commands.
 
 Returns a collection of Support Tickets on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli tickets list [-h] [--opened opened]
-    	[--updated updated] [--closed closed]
-    	[--order-by {opened,updated,closed}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -43,36 +33,139 @@ Returns a collection of Support Tickets on your Account.
     linode-cli tickets list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--closed`
-      - *string*
+    * - :action-table-field-name:`\-\-closed`
+      - :action-table-field-type:`string`
       - The date and time this Ticket was closed.
-    * - :code:`--opened`
-      - *string*
+    * - :action-table-field-name:`\-\-opened`
+      - :action-table-field-type:`string`
       - The date and time this Ticket was created.
-    * - :code:`--updated`
-      - *string*
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-type:`string`
       - The date and time this Ticket was last updated.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`attachments`
+      - :action-table-field-type:`array[string]`
+      - :json:`["screenshot.jpg", "screenshot.txt"]`
+      - A list of filenames representing attached files associated with this Ticket.
+    * - :action-table-field-name:`closable`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Support Ticket may be closed.
+    * - :action-table-field-name:`closed`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-04T16:07:03"`
+      - The date and time this Ticket was closed.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - :json:`"I am having trouble setting the root password on my Linode. I tried following the instructions but something is not working. Can you please help me figure out how I can reset it?"`
+      - The full details of the issue or question.
+    * - :action-table-field-name:`gravatar_id`
+      - :action-table-field-type:`string`
+      - :json:`"474a1b7373ae0be4132649e69c36ce30"`
+      - The Gravatar ID of the User who opened this Ticket.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`11223344`
+      - The ID of the Support Ticket.
+    * - :action-table-field-name:`opened`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-04T14:16:44"`
+      - The date and time this Ticket was created.
+    * - :action-table-field-name:`opened_by`
+      - :action-table-field-type:`string`
+      - :json:`"some_user"`
+      - The User who opened this Ticket.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"open"`
+      - The current status of this Ticket.
+    * - :action-table-field-name:`summary`
+      - :action-table-field-type:`string`
+      - :json:`"Having trouble resetting root password on my Linode"`
+      - The summary or title for this Ticket.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-04T16:07:03"`
+      - The date and time this Ticket was last updated.
+    * - :action-table-field-name:`updated_by`
+      - :action-table-field-type:`string`
+      - :json:`"some_other_user"`
+      - The User who last updated this Ticket.
+.. _commands_tickets_list_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id`
+      - :action-table-field-type:`integer`
+      - :json:`10400`
+      - The unique ID for this Ticket's entity.
+    * - :action-table-field-name:`entity.label`
+      - :action-table-field-type:`string`
+      - :json:`"linode123456"`
+      - The current label of this entity.
+    * - :action-table-field-name:`entity.type`
+      - :action-table-field-type:`string`
+      - :json:`"linode"`
+      - The type of entity this is related to.
+    * - :action-table-field-name:`entity.url`
+      - :action-table-field-type:`string`
+      - :json:`"/v4/linode/instances/123456"`
+      - The URL where you can access the object this event is for.
 
 
 ------------
@@ -85,30 +178,13 @@ Returns a collection of Support Tickets on your Account.
 
 Returns a Support Ticket under your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli tickets view [-h] [--opened opened]
-    	[--updated updated] [--closed closed]
-    	[--order-by {opened,updated,closed}] [--order {asc,desc}]
-    	ticketId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -116,13 +192,13 @@ Returns a Support Ticket under your Account.
     linode-cli tickets view 11223344
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -130,15 +206,120 @@ Returns a Support Ticket under your Account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`ticketId`
-      - integer
+    * - :action-table-field-name:`ticketId`
+      - :action-table-field-type:`integer`
       - The ID of the Support Ticket.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`attachments`
+      - :action-table-field-type:`array[string]`
+      - :json:`["screenshot.jpg", "screenshot.txt"]`
+      - A list of filenames representing attached files associated with this Ticket.
+    * - :action-table-field-name:`closable`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Support Ticket may be closed.
+    * - :action-table-field-name:`closed`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-04T16:07:03"`
+      - The date and time this Ticket was closed.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - :json:`"I am having trouble setting the root password on my Linode. I tried following the instructions but something is not working. Can you please help me figure out how I can reset it?"`
+      - The full details of the issue or question.
+    * - :action-table-field-name:`gravatar_id`
+      - :action-table-field-type:`string`
+      - :json:`"474a1b7373ae0be4132649e69c36ce30"`
+      - The Gravatar ID of the User who opened this Ticket.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`11223344`
+      - The ID of the Support Ticket.
+    * - :action-table-field-name:`opened`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-04T14:16:44"`
+      - The date and time this Ticket was created.
+    * - :action-table-field-name:`opened_by`
+      - :action-table-field-type:`string`
+      - :json:`"some_user"`
+      - The User who opened this Ticket.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"open"`
+      - The current status of this Ticket.
+    * - :action-table-field-name:`summary`
+      - :action-table-field-type:`string`
+      - :json:`"Having trouble resetting root password on my Linode"`
+      - The summary or title for this Ticket.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-04T16:07:03"`
+      - The date and time this Ticket was last updated.
+    * - :action-table-field-name:`updated_by`
+      - :action-table-field-type:`string`
+      - :json:`"some_other_user"`
+      - The User who last updated this Ticket.
+.. _commands_tickets_view_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id`
+      - :action-table-field-type:`integer`
+      - :json:`10400`
+      - The unique ID for this Ticket's entity.
+    * - :action-table-field-name:`entity.label`
+      - :action-table-field-type:`string`
+      - :json:`"linode123456"`
+      - The current label of this entity.
+    * - :action-table-field-name:`entity.type`
+      - :action-table-field-type:`string`
+      - :json:`"linode"`
+      - The type of entity this is related to.
+    * - :action-table-field-name:`entity.url`
+      - :action-table-field-type:`string`
+      - :json:`"/v4/linode/instances/123456"`
+      - The URL where you can access the object this event is for.
 
 
 ------------
@@ -151,34 +332,13 @@ Returns a Support Ticket under your Account.
 
 Open a Support Ticket.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli tickets create [-h] [--domain_id domain_id]
-    	[--nodebalancer_id nodebalancer_id]
-    	[--lkecluster_id lkecluster_id] [--summary summary]
-    	[--firewall_id firewall_id] [--description description]
-    	[--database_id database_id] [--vpc_id vpc_id]
-    	[--longviewclient_id longviewclient_id] [--region region]
-    	[--managed_issue managed_issue] [--volume_id volume_id]
-    	[--linode_id linode_id] [--vlan vlan]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -189,83 +349,187 @@ Open a Support Ticket.
     	--summary "Having trouble resetting root password on my Linode"
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--description`
-      - :action-argument-required:`Yes`
-      - string
-      - The full details of the issue or question.
-    * - :code:`--summary`
-      - :action-argument-required:`Yes`
-      - string
-      - The summary or title for this SupportTicket.
-    * - :code:`--database_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-database_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the Managed Database this ticket is regarding, if relevant.
-    * - :code:`--domain_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-description`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The full details of the issue or question.
+    * - :action-table-field-name:`\-\-domain_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the Domain this ticket is regarding, if relevant.
-    * - :code:`--firewall_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-firewall_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the Firewall this ticket is regarding, if relevant.
-    * - :code:`--linode_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-linode_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the Linode this ticket is regarding, if relevant.
-    * - :code:`--lkecluster_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-lkecluster_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the Kubernetes cluster this ticket is regarding, if relevant.
-    * - :code:`--longviewclient_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-longviewclient_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the Longview client this ticket is regarding, if relevant.
-    * - :code:`--managed_issue`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-managed_issue`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Designates if this ticket is related to a `Managed service <https://www.linode.com/products/managed/>`_.
-    * - :code:`--nodebalancer_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-nodebalancer_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the NodeBalancer this ticket is regarding, if relevant.
-    * - :code:`--region`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the associated VLAN this ticket is regarding.
-    * - :code:`--vlan`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-summary`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The summary or title for this SupportTicket.
+    * - :action-table-field-name:`\-\-vlan`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The label of the VLAN this ticket is regarding, if relevant.
-    * - :code:`--volume_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-volume_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the Volume this ticket is regarding, if relevant.
-    * - :code:`--vpc_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-vpc_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the VPC this ticket is regarding, if relevant.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`attachments`
+      - :action-table-field-type:`array[string]`
+      - :json:`["screenshot.jpg", "screenshot.txt"]`
+      - A list of filenames representing attached files associated with this Ticket.
+    * - :action-table-field-name:`closable`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Support Ticket may be closed.
+    * - :action-table-field-name:`closed`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-04T16:07:03"`
+      - The date and time this Ticket was closed.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - :json:`"I am having trouble setting the root password on my Linode. I tried following the instructions but something is not working. Can you please help me figure out how I can reset it?"`
+      - The full details of the issue or question.
+    * - :action-table-field-name:`gravatar_id`
+      - :action-table-field-type:`string`
+      - :json:`"474a1b7373ae0be4132649e69c36ce30"`
+      - The Gravatar ID of the User who opened this Ticket.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`11223344`
+      - The ID of the Support Ticket.
+    * - :action-table-field-name:`opened`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-04T14:16:44"`
+      - The date and time this Ticket was created.
+    * - :action-table-field-name:`opened_by`
+      - :action-table-field-type:`string`
+      - :json:`"some_user"`
+      - The User who opened this Ticket.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"open"`
+      - The current status of this Ticket.
+    * - :action-table-field-name:`summary`
+      - :action-table-field-type:`string`
+      - :json:`"Having trouble resetting root password on my Linode"`
+      - The summary or title for this Ticket.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-04T16:07:03"`
+      - The date and time this Ticket was last updated.
+    * - :action-table-field-name:`updated_by`
+      - :action-table-field-type:`string`
+      - :json:`"some_other_user"`
+      - The User who last updated this Ticket.
+.. _commands_tickets_create_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id`
+      - :action-table-field-type:`integer`
+      - :json:`10400`
+      - The unique ID for this Ticket's entity.
+    * - :action-table-field-name:`entity.label`
+      - :action-table-field-type:`string`
+      - :json:`"linode123456"`
+      - The current label of this entity.
+    * - :action-table-field-name:`entity.type`
+      - :action-table-field-type:`string`
+      - :json:`"linode"`
+      - The type of entity this is related to.
+    * - :action-table-field-name:`entity.url`
+      - :action-table-field-type:`string`
+      - :json:`"/v4/linode/instances/123456"`
+      - The URL where you can access the object this event is for.
 
 
 ------------
@@ -278,27 +542,13 @@ Open a Support Ticket.
 
 Closes a Support Ticket you have access to modify.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli tickets close [-h] ticketId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -306,13 +556,13 @@ Closes a Support Ticket you have access to modify.
     linode-cli tickets close 11223344
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -320,14 +570,14 @@ Closes a Support Ticket you have access to modify.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`ticketId`
-      - integer
+    * - :action-table-field-name:`ticketId`
+      - :action-table-field-type:`integer`
       - The ID of the Support Ticket.
 
 
@@ -341,28 +591,13 @@ Closes a Support Ticket you have access to modify.
 
 Returns a collection of replies to a Support Ticket on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli tickets replies [-h] [--order-by {}]
-    	[--order {asc,desc}] ticketId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -370,13 +605,13 @@ Returns a collection of replies to a Support Ticket on your Account.
     linode-cli tickets replies 11223344
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -384,15 +619,62 @@ Returns a collection of replies to a Support Ticket on your Account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`ticketId`
-      - integer
+    * - :action-table-field-name:`ticketId`
+      - :action-table-field-type:`integer`
       - The ID of the Support Ticket.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-02T14:31:41"`
+      - The date and time this Ticket reply was created.
+    * - :action-table-field-name:`created_by`
+      - :action-table-field-type:`string`
+      - :json:`"John Q. Linode"`
+      - The User who submitted this reply.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - :json:`"Hello,\\nI\u0027m sorry to hear that you are having trouble resetting the root password of your Linode. Just to be sure, have you tried to follow the instructions in our online documentation? The link is here:\\n \\nhttps://linode.com/docs/guides/reset-the-root-password-on-your-linode/ \\n\\nIf you have, please reply with any additional steps you have also taken.\\n\\nRegards, Linode Support Team"`
+      - The body of this Support Ticket reply.
+    * - :action-table-field-name:`from_linode`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If set to true, this reply came from a Linode employee.
+    * - :action-table-field-name:`gravatar_id`
+      - :action-table-field-type:`string`
+      - :json:`"474a1b7373ae0be4132649e69c36ce30"`
+      - The Gravatar ID of the User who created this reply.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`11223345`
+      - The unique ID of this Support Ticket reply.
 
 
 
@@ -404,28 +686,13 @@ Returns a collection of replies to a Support Ticket on your Account.
 
 Adds a reply to an existing Support Ticket.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli tickets reply [-h] [--description description]
-    	ticketId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -434,13 +701,13 @@ Adds a reply to an existing Support Ticket.
     	--description "Thank you for your help. I was able to figure out what the problem was and I successfully reset my password. You guys are the best!"
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -448,41 +715,87 @@ Adds a reply to an existing Support Ticket.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`ticketId`
-      - integer
+    * - :action-table-field-name:`ticketId`
+      - :action-table-field-type:`integer`
       - The ID of the Support Ticket.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--description`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-description`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The content of your reply.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2015-06-02T14:31:41"`
+      - The date and time this Ticket reply was created.
+    * - :action-table-field-name:`created_by`
+      - :action-table-field-type:`string`
+      - :json:`"John Q. Linode"`
+      - The User who submitted this reply.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - :json:`"Hello,\\nI\u0027m sorry to hear that you are having trouble resetting the root password of your Linode. Just to be sure, have you tried to follow the instructions in our online documentation? The link is here:\\n \\nhttps://linode.com/docs/guides/reset-the-root-password-on-your-linode/ \\n\\nIf you have, please reply with any additional steps you have also taken.\\n\\nRegards, Linode Support Team"`
+      - The body of this Support Ticket reply.
+    * - :action-table-field-name:`from_linode`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If set to true, this reply came from a Linode employee.
+    * - :action-table-field-name:`gravatar_id`
+      - :action-table-field-type:`string`
+      - :json:`"474a1b7373ae0be4132649e69c36ce30"`
+      - The Gravatar ID of the User who created this reply.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`11223345`
+      - The unique ID of this Support Ticket reply.
 
 
 

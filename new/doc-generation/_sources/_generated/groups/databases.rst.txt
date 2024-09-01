@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Databases
 =========
@@ -13,31 +19,13 @@ This section details Database-related Linode CLI commands.
 
 Display all Managed Databases that are accessible by your User, regardless of engine type.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases list [-h] [--region region]
-    	[--status status] [--engine engine] [--label label]
-    	[--type type] [--version version]
-    	[--order-by {region,status,engine,label,type,version}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -45,45 +33,182 @@ Display all Managed Databases that are accessible by your User, regardless of en
     linode-cli databases list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--engine`
-      - *string*
+    * - :action-table-field-name:`\-\-engine`
+      - :action-table-field-type:`string`
       - The Managed Database engine type.
-    * - :code:`--label`
-      - *string*
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`string`
       - A unique, user-defined string referring to the Managed Database.
-    * - :code:`--region`
-      - *string*
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`string`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
-    * - :code:`--status`
-      - *string*
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-type:`string`
       - The operating status of the Managed Database.
-    * - :code:`--type`
-      - *string*
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-type:`string`
       - The Linode Instance type used by the Managed Database for its nodes.
-    * - :code:`--version`
-      - *string*
+    * - :action-table-field-name:`\-\-version`
+      - :action-table-field-type:`string`
       - The Managed Database engine version.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`allow_list`
+      - :action-table-field-type:`array[string]`
+      - :json:`["203.0.113.1/32", "192.0.1.0/24"]`
+      - A list of IP addresses that can access the Managed Database.
+    * - :action-table-field-name:`cluster_size`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was created.
+    * - :action-table-field-name:`encrypted`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Managed Databases is encrypted.
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"mysql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - A unique ID that can be used to identify and reference the Managed Database.
+    * - :action-table-field-name:`instance_uri`
+      - :action-table-field-type:`string`
+      - :json:`"/v4/databases/mysql/instances/123"`
+      - Append this to :code:`https://api.linode.com` to run commands for the Managed Database.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example-db"`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The operating status of the Managed Database.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-dedicated-2"`
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was last updated.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"8.0.26"`
+      - The Managed Database engine version.
+.. _commands_databases_list_attribute_sections_hosts:
+
+.. rst-class:: action-section-header
+
+hosts
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`hosts.primary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-123-456-mysql-mysql-primary.servers.linodedb.net"`
+      - The primary host for the Managed Database.
+    * - :action-table-field-name:`hosts.secondary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-123-456-mysql-primary-private.servers.linodedb.net"`
+      - The secondary/private network host for the Managed Database.
+.. _commands_databases_list_attribute_sections_updates:
+
+.. rst-class:: action-section-header
+
+updates
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`updates.day_of_week`
+      - :action-table-field-type:`integer`
+      - :json:`1`
+      - The day to perform maintenance.
+    * - :action-table-field-name:`updates.duration`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The maximum maintenance window time in hours.
+    * - :action-table-field-name:`updates.frequency`
+      - :action-table-field-type:`string`
+      - :json:`"weekly"`
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :action-table-field-name:`updates.hour_of_day`
+      - :action-table-field-type:`integer`
+      - ?
+      - The hour to begin maintenance based in UTC time.
+    * - :action-table-field-name:`updates.week_of_month`
+      - :action-table-field-type:`integer`
+      - ?
+      - The week of the month to perform :code:`monthly` frequency updates.
 
 
 ------------
@@ -96,29 +221,13 @@ Display all Managed Databases that are accessible by your User, regardless of en
 
 Display all available Managed Database engine types and versions.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases engines [-h] [--engine engine]
-    	[--version version] [--order-by {engine,version}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -126,32 +235,73 @@ Display all available Managed Database engine types and versions.
     linode-cli databases engines
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--engine`
-      - *string*
+    * - :action-table-field-name:`\-\-engine`
+      - :action-table-field-type:`string`
       - The Managed Database engine type.
-    * - :code:`--version`
-      - *string*
+    * - :action-table-field-name:`\-\-version`
+      - :action-table-field-type:`string`
+      - The Managed Database engine version.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"mysql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"mysql/8.0.26"`
+      - The Managed Database engine ID in engine/version format.
+    * - :action-table-field-name:`total_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`15`
+      - The total disk size of the database in GB.
+    * - :action-table-field-name:`used_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The used space of the database in GB.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"8.0.26"`
       - The Managed Database engine version.
 
 
@@ -165,28 +315,13 @@ Display all available Managed Database engine types and versions.
 
 Display all Managed Database node types.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases types [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -205,29 +340,13 @@ Display all Managed Database node types.
 
 Display information for a single Managed Database engine type and version.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases engine-view [-h] [--version version]
-    	[--engine engine] [--order-by {version,engine}]
-    	[--order {asc,desc}] engineId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -235,13 +354,13 @@ Display information for a single Managed Database engine type and version.
     linode-cli databases engine-view mysql/5.7.30
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -249,15 +368,58 @@ Display information for a single Managed Database engine type and version.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`engineId`
-      - string
+    * - :action-table-field-name:`engineId`
+      - :action-table-field-type:`string`
       - The ID of the Managed Database engine.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"mysql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"mysql/8.0.26"`
+      - The Managed Database engine ID in engine/version format.
+    * - :action-table-field-name:`total_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`15`
+      - The total disk size of the database in GB.
+    * - :action-table-field-name:`used_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The used space of the database in GB.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"8.0.26"`
+      - The Managed Database engine version.
 
 
 ------------
@@ -270,31 +432,13 @@ Display information for a single Managed Database engine type and version.
 
 Display all accessible Managed MySQL Databases.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-list [-h] [--region region]
-    	[--status status] [--engine engine] [--version version]
-    	[--type type] [--label label]
-    	[--order-by {region,status,engine,version,type,label}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -302,45 +446,198 @@ Display all accessible Managed MySQL Databases.
     linode-cli databases mysql-list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--engine`
-      - *string*
+    * - :action-table-field-name:`\-\-engine`
+      - :action-table-field-type:`string`
       - The Managed Database engine type.
-    * - :code:`--label`
-      - *string*
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`string`
       - A unique, user-defined string referring to the Managed Database.
-    * - :code:`--region`
-      - *string*
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`string`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
-    * - :code:`--status`
-      - *string*
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-type:`string`
       - The operating status of the Managed Database.
-    * - :code:`--type`
-      - *string*
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-type:`string`
       - The Linode Instance type used by the Managed Database for its nodes.
-    * - :code:`--version`
-      - *string*
+    * - :action-table-field-name:`\-\-version`
+      - :action-table-field-type:`string`
       - The Managed Database engine version.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`allow_list`
+      - :action-table-field-type:`array[string]`
+      - :json:`["203.0.113.1/32", "192.0.1.0/24"]`
+      - A list of IP addresses that can access the Managed Database.
+    * - :action-table-field-name:`cluster_size`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was created.
+    * - :action-table-field-name:`encrypted`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Managed Databases is encrypted.
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"mysql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - A unique ID that can be used to identify and reference the Managed Database.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example-db"`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`3306`
+      - The access port for this Managed Database.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`replication_type`
+      - :action-table-field-type:`string`
+      - :json:`"semi_synch"`
+      - The replication method used for the Managed Database.
+    * - :action-table-field-name:`ssl_connection`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether to require SSL credentials to establish a connection to the Managed Database.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The operating status of the Managed Database.
+    * - :action-table-field-name:`total_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`15`
+      - The total disk size of the database in GB.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-dedicated-2"`
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was last updated.
+    * - :action-table-field-name:`used_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The used space of the database in GB.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"8.0.26"`
+      - The Managed Database engine version.
+.. _commands_databases_mysql-list_attribute_sections_hosts:
+
+.. rst-class:: action-section-header
+
+hosts
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`hosts.primary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-123-456-mysql-mysql-primary.servers.linodedb.net"`
+      - The primary host for the Managed Database.
+    * - :action-table-field-name:`hosts.secondary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-123-456-mysql-primary-private.servers.linodedb.net"`
+      - The secondary/private network host for the Managed Database.
+.. _commands_databases_mysql-list_attribute_sections_updates:
+
+.. rst-class:: action-section-header
+
+updates
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`updates.day_of_week`
+      - :action-table-field-type:`integer`
+      - :json:`1`
+      - The day to perform maintenance.
+    * - :action-table-field-name:`updates.duration`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The maximum maintenance window time in hours.
+    * - :action-table-field-name:`updates.frequency`
+      - :action-table-field-type:`string`
+      - :json:`"weekly"`
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :action-table-field-name:`updates.hour_of_day`
+      - :action-table-field-type:`integer`
+      - ?
+      - The hour to begin maintenance based in UTC time.
+    * - :action-table-field-name:`updates.week_of_month`
+      - :action-table-field-type:`integer`
+      - ?
+      - The week of the month to perform :code:`monthly` frequency updates.
 
 
 ------------
@@ -353,31 +650,13 @@ Display all accessible Managed MySQL Databases.
 
 Display information for a single, accessible Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-view [-h] [--engine engine]
-    	[--version version] [--type type] [--label label]
-    	[--region region] [--status status]
-    	[--order-by {engine,version,type,label,region,status}]
-    	[--order {asc,desc}] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -385,13 +664,13 @@ Display information for a single, accessible Managed MySQL Database.
     linode-cli databases mysql-view 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -399,15 +678,170 @@ Display information for a single, accessible Managed MySQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`allow_list`
+      - :action-table-field-type:`array[string]`
+      - :json:`["203.0.113.1/32", "192.0.1.0/24"]`
+      - A list of IP addresses that can access the Managed Database.
+    * - :action-table-field-name:`cluster_size`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was created.
+    * - :action-table-field-name:`encrypted`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Managed Databases is encrypted.
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"mysql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - A unique ID that can be used to identify and reference the Managed Database.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example-db"`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`3306`
+      - The access port for this Managed Database.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`replication_type`
+      - :action-table-field-type:`string`
+      - :json:`"semi_synch"`
+      - The replication method used for the Managed Database.
+    * - :action-table-field-name:`ssl_connection`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether to require SSL credentials to establish a connection to the Managed Database.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The operating status of the Managed Database.
+    * - :action-table-field-name:`total_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`15`
+      - The total disk size of the database in GB.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-dedicated-2"`
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was last updated.
+    * - :action-table-field-name:`used_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The used space of the database in GB.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"8.0.26"`
+      - The Managed Database engine version.
+.. _commands_databases_mysql-view_attribute_sections_hosts:
+
+.. rst-class:: action-section-header
+
+hosts
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`hosts.primary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-123-456-mysql-mysql-primary.servers.linodedb.net"`
+      - The primary host for the Managed Database.
+    * - :action-table-field-name:`hosts.secondary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-123-456-mysql-primary-private.servers.linodedb.net"`
+      - The secondary/private network host for the Managed Database.
+.. _commands_databases_mysql-view_attribute_sections_updates:
+
+.. rst-class:: action-section-header
+
+updates
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`updates.day_of_week`
+      - :action-table-field-type:`integer`
+      - :json:`1`
+      - The day to perform maintenance.
+    * - :action-table-field-name:`updates.duration`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The maximum maintenance window time in hours.
+    * - :action-table-field-name:`updates.frequency`
+      - :action-table-field-type:`string`
+      - :json:`"weekly"`
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :action-table-field-name:`updates.hour_of_day`
+      - :action-table-field-type:`integer`
+      - ?
+      - The hour to begin maintenance based in UTC time.
+    * - :action-table-field-name:`updates.week_of_month`
+      - :action-table-field-type:`integer`
+      - ?
+      - The week of the month to perform :code:`monthly` frequency updates.
 
 
 ------------
@@ -420,32 +854,13 @@ Display information for a single, accessible Managed MySQL Database.
 
 Provision a Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-create [-h] [--type type]
-    	[--label label] [--allow_list allow_list]
-    	[--encrypted encrypted] [--cluster_size cluster_size]
-    	[--replication_type replication_type]
-    	[--ssl_connection ssl_connection] [--region region]
-    	[--engine engine]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -463,63 +878,217 @@ Provision a Managed MySQL Database.
     	--allow_list 192.0.1.0/24
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--engine`
-      - :action-argument-required:`Yes`
-      - string
-      - The Managed Database engine in engine/version format.
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
-      - A unique, user-defined string referring to the Managed Database.
-    * - :code:`--region`
-      - :action-argument-required:`Yes`
-      - string
-      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
-    * - :code:`--type`
-      - :action-argument-required:`Yes`
-      - string
-      - The Linode Instance type used by the Managed Database for its nodes.
-    * - :code:`--allow_list`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-allow_list`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - A list of IP addresses that can access the Managed Database.
-    * - :code:`--cluster_size`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-cluster_size`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The number of Linode Instance nodes deployed to the Managed Database.
-    * - :code:`--encrypted`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-encrypted`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Whether the Managed Databases is encrypted.
-    * - :code:`--replication_type`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-engine`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The Managed Database engine in engine/version format.
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`\-\-replication_type`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The replication method used for the Managed Database.
-    * - :code:`--ssl_connection`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-ssl_connection`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The Linode Instance type used by the Managed Database for its nodes.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`allow_list`
+      - :action-table-field-type:`array[string]`
+      - :json:`["203.0.113.1/32", "192.0.1.0/24"]`
+      - A list of IP addresses that can access the Managed Database.
+    * - :action-table-field-name:`cluster_size`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was created.
+    * - :action-table-field-name:`encrypted`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Managed Databases is encrypted.
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"mysql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - A unique ID that can be used to identify and reference the Managed Database.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example-db"`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`3306`
+      - The access port for this Managed Database.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`replication_type`
+      - :action-table-field-type:`string`
+      - :json:`"semi_synch"`
+      - The replication method used for the Managed Database.
+    * - :action-table-field-name:`ssl_connection`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether to require SSL credentials to establish a connection to the Managed Database.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The operating status of the Managed Database.
+    * - :action-table-field-name:`total_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`15`
+      - The total disk size of the database in GB.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-dedicated-2"`
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was last updated.
+    * - :action-table-field-name:`used_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The used space of the database in GB.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"8.0.26"`
+      - The Managed Database engine version.
+.. _commands_databases_mysql-create_attribute_sections_hosts:
+
+.. rst-class:: action-section-header
+
+hosts
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`hosts.primary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-123-456-mysql-mysql-primary.servers.linodedb.net"`
+      - The primary host for the Managed Database.
+    * - :action-table-field-name:`hosts.secondary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-123-456-mysql-primary-private.servers.linodedb.net"`
+      - The secondary/private network host for the Managed Database.
+.. _commands_databases_mysql-create_attribute_sections_updates:
+
+.. rst-class:: action-section-header
+
+updates
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`updates.day_of_week`
+      - :action-table-field-type:`integer`
+      - :json:`1`
+      - The day to perform maintenance.
+    * - :action-table-field-name:`updates.duration`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The maximum maintenance window time in hours.
+    * - :action-table-field-name:`updates.frequency`
+      - :action-table-field-type:`string`
+      - :json:`"weekly"`
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :action-table-field-name:`updates.hour_of_day`
+      - :action-table-field-type:`integer`
+      - ?
+      - The hour to begin maintenance based in UTC time.
+    * - :action-table-field-name:`updates.week_of_month`
+      - :action-table-field-type:`integer`
+      - ?
+      - The week of the month to perform :code:`monthly` frequency updates.
 
 
 ------------
@@ -532,32 +1101,13 @@ Provision a Managed MySQL Database.
 
 Update a Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-update [-h] [--allow_list allow_list]
-    	[--label label] [--type type] [--updates.frequency frequency]
-    	[--updates.week_of_month week_of_month]
-    	[--updates.day_of_week day_of_week]
-    	[--updates.duration duration]
-    	[--updates.hour_of_day hour_of_day] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -574,13 +1124,13 @@ Update a Managed MySQL Database.
     	--updates.week_of_month 3
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -588,68 +1138,222 @@ Update a Managed MySQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--allow_list`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-allow_list`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - A list of IP addresses that can access the Managed Database.
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - A unique, user-defined string referring to the Managed Database.
-    * - :code:`--type`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Request re-sizing of your cluster to a Linode Type with more disk space.
-    * - :code:`--updates.day_of_week`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-updates.day_of_week`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The day to perform maintenance.
-    * - :code:`--updates.duration`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-updates.duration`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The maximum maintenance window time in hours.
-    * - :code:`--updates.frequency`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-updates.frequency`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Whether maintenance occurs on a weekly or monthly basis.
-    * - :code:`--updates.hour_of_day`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-updates.hour_of_day`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The hour to begin maintenance based in UTC time.
-    * - :code:`--updates.week_of_month`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-updates.week_of_month`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
+      - The week of the month to perform :code:`monthly` frequency updates.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`allow_list`
+      - :action-table-field-type:`array[string]`
+      - :json:`["203.0.113.1/32", "192.0.1.0/24"]`
+      - A list of IP addresses that can access the Managed Database.
+    * - :action-table-field-name:`cluster_size`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was created.
+    * - :action-table-field-name:`encrypted`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Managed Databases is encrypted.
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"mysql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - A unique ID that can be used to identify and reference the Managed Database.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example-db"`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`3306`
+      - The access port for this Managed Database.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`replication_type`
+      - :action-table-field-type:`string`
+      - :json:`"semi_synch"`
+      - The replication method used for the Managed Database.
+    * - :action-table-field-name:`ssl_connection`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether to require SSL credentials to establish a connection to the Managed Database.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The operating status of the Managed Database.
+    * - :action-table-field-name:`total_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`15`
+      - The total disk size of the database in GB.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-dedicated-2"`
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was last updated.
+    * - :action-table-field-name:`used_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The used space of the database in GB.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"8.0.26"`
+      - The Managed Database engine version.
+.. _commands_databases_mysql-update_attribute_sections_hosts:
+
+.. rst-class:: action-section-header
+
+hosts
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`hosts.primary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-123-456-mysql-mysql-primary.servers.linodedb.net"`
+      - The primary host for the Managed Database.
+    * - :action-table-field-name:`hosts.secondary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-123-456-mysql-primary-private.servers.linodedb.net"`
+      - The secondary/private network host for the Managed Database.
+.. _commands_databases_mysql-update_attribute_sections_updates:
+
+.. rst-class:: action-section-header
+
+updates
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`updates.day_of_week`
+      - :action-table-field-type:`integer`
+      - :json:`1`
+      - The day to perform maintenance.
+    * - :action-table-field-name:`updates.duration`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The maximum maintenance window time in hours.
+    * - :action-table-field-name:`updates.frequency`
+      - :action-table-field-type:`string`
+      - :json:`"weekly"`
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :action-table-field-name:`updates.hour_of_day`
+      - :action-table-field-type:`integer`
+      - ?
+      - The hour to begin maintenance based in UTC time.
+    * - :action-table-field-name:`updates.week_of_month`
+      - :action-table-field-type:`integer`
+      - ?
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -663,27 +1367,13 @@ Update a Managed MySQL Database.
 
 Remove a Managed MySQL Database from your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-delete [-h] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -691,13 +1381,13 @@ Remove a Managed MySQL Database from your Account.
     linode-cli databases mysql-delete 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -705,14 +1395,14 @@ Remove a Managed MySQL Database from your Account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -726,29 +1416,13 @@ Remove a Managed MySQL Database from your Account.
 
 Display information for a single backup for an accessible Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-backup-view [-h] [--created created]
-    	[--type type] [--order-by {created,type}] [--order {asc,desc}]
-    	instanceId backupId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -756,13 +1430,13 @@ Display information for a single backup for an accessible Managed MySQL Database
     linode-cli databases mysql-backup-view 123 456
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -770,18 +1444,57 @@ Display information for a single backup for an accessible Managed MySQL Database
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
-    * - :code:`backupId`
-      - integer
+    * - :action-table-field-name:`backupId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed MySQL Database backup.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - A time value given in a combined date and time format that represents when the database backup was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the database backup object.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Scheduled - 02/04/22 11:11 UTC-XcCRmI"`
+      - The database backup's label, for display purposes only.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"auto"`
+      - The type of database backup, determined by how the backup was created.
 
 
 ------------
@@ -794,27 +1507,13 @@ Display information for a single backup for an accessible Managed MySQL Database
 
 Delete a single backup for an accessible Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-backup-delete [-h] instanceId backupId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -822,13 +1521,13 @@ Delete a single backup for an accessible Managed MySQL Database.
     linode-cli databases mysql-backup-delete 123 456
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -836,17 +1535,17 @@ Delete a single backup for an accessible Managed MySQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
-    * - :code:`backupId`
-      - integer
+    * - :action-table-field-name:`backupId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed MySQL Database backup.
 
 
@@ -860,28 +1559,13 @@ Delete a single backup for an accessible Managed MySQL Database.
 
 Restore a backup to a Managed MySQL Database on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-backup-restore [-h] instanceId
-    	backupId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -889,13 +1573,13 @@ Restore a backup to a Managed MySQL Database on your Account.
     linode-cli databases mysql-backup-restore 123 456
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -903,17 +1587,17 @@ Restore a backup to a Managed MySQL Database on your Account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed MySQL Database.
-    * - :code:`backupId`
-      - integer
+    * - :action-table-field-name:`backupId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed MySQL Database backup.
 
 
@@ -927,28 +1611,13 @@ Restore a backup to a Managed MySQL Database on your Account.
 
 Creates a snapshot backup of a Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-backup-snapshot [-h] [--label label]
-    	[--target target] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -958,13 +1627,13 @@ Creates a snapshot backup of a Managed MySQL Database.
     	--target primary
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -972,44 +1641,43 @@ Creates a snapshot backup of a Managed MySQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The label for the Database snapshot backup.
-    * - :code:`--target`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-target`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Database cluster target.
 
 
@@ -1023,29 +1691,13 @@ Creates a snapshot backup of a Managed MySQL Database.
 
 Display all backups for an accessible Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-backups-list [-h] [--created created]
-    	[--type type] [--order-by {created,type}] [--order {asc,desc}]
-    	instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1053,13 +1705,13 @@ Display all backups for an accessible Managed MySQL Database.
     linode-cli databases mysql-backups-list 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1067,42 +1719,79 @@ Display all backups for an accessible Managed MySQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--created`
-      - *string*
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-type:`string`
       - A time value given in a combined date and time format that represents when the database backup was created.
-    * - :code:`--type`
-      - *string*
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-type:`string`
+      - The type of database backup, determined by how the backup was created.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - A time value given in a combined date and time format that represents when the database backup was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the database backup object.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Scheduled - 02/04/22 11:11 UTC-XcCRmI"`
+      - The database backup's label, for display purposes only.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"auto"`
       - The type of database backup, determined by how the backup was created.
 
 
@@ -1116,28 +1805,13 @@ Display all backups for an accessible Managed MySQL Database.
 
 Display the root username and password for an accessible Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-creds-view [-h] [--order-by {}]
-    	[--order {asc,desc}] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1145,13 +1819,13 @@ Display the root username and password for an accessible Managed MySQL Database.
     linode-cli databases mysql-creds-view 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1159,15 +1833,46 @@ Display the root username and password for an accessible Managed MySQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`password`
+      - :action-table-field-type:`string`
+      - :json:`"s3cur3P@ssw0rd"`
+      - The randomly-generated root password for the Managed Database instance.
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
+      - :json:`"linroot"`
+      - The root username for the Managed Database instance.
 
 
 ------------
@@ -1180,27 +1885,13 @@ Display the root username and password for an accessible Managed MySQL Database.
 
 Reset the root password for a Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-creds-reset [-h] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1208,13 +1899,13 @@ Reset the root password for a Managed MySQL Database.
     linode-cli databases mysql-creds-reset 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1222,14 +1913,14 @@ Reset the root password for a Managed MySQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed MySQL Database.
 
 
@@ -1243,27 +1934,13 @@ Reset the root password for a Managed MySQL Database.
 
 Apply security patches and updates to the underlying operating system of the Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-patch [-h] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1271,13 +1948,13 @@ Apply security patches and updates to the underlying operating system of the Man
     linode-cli databases mysql-patch 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1285,14 +1962,14 @@ Apply security patches and updates to the underlying operating system of the Man
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -1306,28 +1983,13 @@ Apply security patches and updates to the underlying operating system of the Man
 
 Display the SSL CA certificate for an accessible Managed MySQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases mysql-ssl-cert [-h] [--order-by {}]
-    	[--order {asc,desc}] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1335,13 +1997,13 @@ Display the SSL CA certificate for an accessible Managed MySQL Database.
     linode-cli databases mysql-ssl-cert 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1349,15 +2011,42 @@ Display the SSL CA certificate for an accessible Managed MySQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed MySQL Database.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ca_certificate`
+      - :action-table-field-type:`string`
+      - :json:`"LS0tLS1CRUdJ...=="`
+      - The base64-encoded SSL CA certificate for the Managed Database instance.
 
 
 ------------
@@ -1370,31 +2059,13 @@ Display the SSL CA certificate for an accessible Managed MySQL Database.
 
 Display all accessible Managed PostgreSQL Databases.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-list [-h] [--version version]
-    	[--type type] [--label label] [--engine engine]
-    	[--status status] [--region region]
-    	[--order-by {version,type,label,engine,status,region}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1402,45 +2073,202 @@ Display all accessible Managed PostgreSQL Databases.
     linode-cli databases postgresql-list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--engine`
-      - *string*
+    * - :action-table-field-name:`\-\-engine`
+      - :action-table-field-type:`string`
       - The Managed Database engine type.
-    * - :code:`--label`
-      - *string*
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`string`
       - A unique, user-defined string referring to the Managed Database.
-    * - :code:`--region`
-      - *string*
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`string`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
-    * - :code:`--status`
-      - *string*
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-type:`string`
       - The operating status of the Managed Database.
-    * - :code:`--type`
-      - *string*
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-type:`string`
       - The Linode Instance type used by the Managed Database for its nodes.
-    * - :code:`--version`
-      - *string*
+    * - :action-table-field-name:`\-\-version`
+      - :action-table-field-type:`string`
       - The Managed Database engine version.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`allow_list`
+      - :action-table-field-type:`array[string]`
+      - :json:`["203.0.113.1/32", "192.0.1.0/24"]`
+      - A list of IP addresses that can access the Managed Database.
+    * - :action-table-field-name:`cluster_size`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was created.
+    * - :action-table-field-name:`encrypted`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Managed Databases is encrypted.
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"postgresql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - A unique ID that can be used to identify and reference the Managed Database.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example-db"`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`3306`
+      - The access port for this Managed Database.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`replication_commit_type`
+      - :action-table-field-type:`string`
+      - :json:`"local"`
+      - The synchronization level of the replicating server.
+    * - :action-table-field-name:`replication_type`
+      - :action-table-field-type:`string`
+      - :json:`"async"`
+      - The replication method used for the Managed Database.
+    * - :action-table-field-name:`ssl_connection`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether to require SSL credentials to establish a connection to the Managed Database.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The operating status of the Managed Database.
+    * - :action-table-field-name:`total_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`15`
+      - The total disk size of the database in GB.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-dedicated-2"`
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was last updated.
+    * - :action-table-field-name:`used_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The used space of the database in GB.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"13.2"`
+      - The Managed Database engine version.
+.. _commands_databases_postgresql-list_attribute_sections_hosts:
+
+.. rst-class:: action-section-header
+
+hosts
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`hosts.primary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-0000-000-pgsql-primary.servers.linodedb.net"`
+      - The primary host for the Managed Database.
+    * - :action-table-field-name:`hosts.secondary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-0000-000-pgsql-primary-private.servers.linodedb.net"`
+      - The secondary/private network host for the Managed Database.
+.. _commands_databases_postgresql-list_attribute_sections_updates:
+
+.. rst-class:: action-section-header
+
+updates
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`updates.day_of_week`
+      - :action-table-field-type:`integer`
+      - :json:`1`
+      - The day to perform maintenance.
+    * - :action-table-field-name:`updates.duration`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The maximum maintenance window time in hours.
+    * - :action-table-field-name:`updates.frequency`
+      - :action-table-field-type:`string`
+      - :json:`"weekly"`
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :action-table-field-name:`updates.hour_of_day`
+      - :action-table-field-type:`integer`
+      - ?
+      - The hour to begin maintenance based in UTC time.
+    * - :action-table-field-name:`updates.week_of_month`
+      - :action-table-field-type:`integer`
+      - ?
+      - The week of the month to perform :code:`monthly` frequency updates.
 
 
 ------------
@@ -1453,31 +2281,13 @@ Display all accessible Managed PostgreSQL Databases.
 
 Display information for a single, accessible Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-view [-h] [--region region]
-    	[--status status] [--engine engine] [--version version]
-    	[--label label] [--type type]
-    	[--order-by {region,status,engine,version,label,type}]
-    	[--order {asc,desc}] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1485,13 +2295,13 @@ Display information for a single, accessible Managed PostgreSQL Database.
     linode-cli databases postgresql-view 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1499,15 +2309,174 @@ Display information for a single, accessible Managed PostgreSQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`allow_list`
+      - :action-table-field-type:`array[string]`
+      - :json:`["203.0.113.1/32", "192.0.1.0/24"]`
+      - A list of IP addresses that can access the Managed Database.
+    * - :action-table-field-name:`cluster_size`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was created.
+    * - :action-table-field-name:`encrypted`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Managed Databases is encrypted.
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"postgresql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - A unique ID that can be used to identify and reference the Managed Database.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example-db"`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`3306`
+      - The access port for this Managed Database.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`replication_commit_type`
+      - :action-table-field-type:`string`
+      - :json:`"local"`
+      - The synchronization level of the replicating server.
+    * - :action-table-field-name:`replication_type`
+      - :action-table-field-type:`string`
+      - :json:`"async"`
+      - The replication method used for the Managed Database.
+    * - :action-table-field-name:`ssl_connection`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether to require SSL credentials to establish a connection to the Managed Database.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The operating status of the Managed Database.
+    * - :action-table-field-name:`total_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`15`
+      - The total disk size of the database in GB.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-dedicated-2"`
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was last updated.
+    * - :action-table-field-name:`used_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The used space of the database in GB.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"13.2"`
+      - The Managed Database engine version.
+.. _commands_databases_postgresql-view_attribute_sections_hosts:
+
+.. rst-class:: action-section-header
+
+hosts
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`hosts.primary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-0000-000-pgsql-primary.servers.linodedb.net"`
+      - The primary host for the Managed Database.
+    * - :action-table-field-name:`hosts.secondary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-0000-000-pgsql-primary-private.servers.linodedb.net"`
+      - The secondary/private network host for the Managed Database.
+.. _commands_databases_postgresql-view_attribute_sections_updates:
+
+.. rst-class:: action-section-header
+
+updates
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`updates.day_of_week`
+      - :action-table-field-type:`integer`
+      - :json:`1`
+      - The day to perform maintenance.
+    * - :action-table-field-name:`updates.duration`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The maximum maintenance window time in hours.
+    * - :action-table-field-name:`updates.frequency`
+      - :action-table-field-type:`string`
+      - :json:`"weekly"`
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :action-table-field-name:`updates.hour_of_day`
+      - :action-table-field-type:`integer`
+      - ?
+      - The hour to begin maintenance based in UTC time.
+    * - :action-table-field-name:`updates.week_of_month`
+      - :action-table-field-type:`integer`
+      - ?
+      - The week of the month to perform :code:`monthly` frequency updates.
 
 
 ------------
@@ -1520,33 +2489,13 @@ Display information for a single, accessible Managed PostgreSQL Database.
 
 Provision a Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-create [-h] [--region region]
-    	[--engine engine]
-    	[--replication_commit_type replication_commit_type]
-    	[--ssl_connection ssl_connection]
-    	[--cluster_size cluster_size]
-    	[--replication_type replication_type] [--encrypted encrypted]
-    	[--allow_list allow_list] [--type type] [--label label]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1565,67 +2514,225 @@ Provision a Managed PostgreSQL Database.
     	--allow_list 192.0.1.0/24
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--engine`
-      - :action-argument-required:`Yes`
-      - string
-      - The Managed Database engine in engine/version format.
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
-      - A unique, user-defined string referring to the Managed Database.
-    * - :code:`--region`
-      - :action-argument-required:`Yes`
-      - string
-      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
-    * - :code:`--type`
-      - :action-argument-required:`Yes`
-      - string
-      - The Linode Instance type used by the Managed Database for its nodes.
-    * - :code:`--allow_list`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-allow_list`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - A list of IP addresses that can access the Managed Database.
-    * - :code:`--cluster_size`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-cluster_size`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The number of Linode Instance nodes deployed to the Managed Database.
-    * - :code:`--encrypted`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-encrypted`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Whether the Managed Databases is encrypted.
-    * - :code:`--replication_commit_type`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-engine`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The Managed Database engine in engine/version format.
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`\-\-replication_commit_type`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The synchronization level of the replicating server.
-    * - :code:`--replication_type`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-replication_type`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The replication method used for the Managed Database.
-    * - :code:`--ssl_connection`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-ssl_connection`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The Linode Instance type used by the Managed Database for its nodes.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`allow_list`
+      - :action-table-field-type:`array[string]`
+      - :json:`["203.0.113.1/32", "192.0.1.0/24"]`
+      - A list of IP addresses that can access the Managed Database.
+    * - :action-table-field-name:`cluster_size`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was created.
+    * - :action-table-field-name:`encrypted`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Managed Databases is encrypted.
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"postgresql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - A unique ID that can be used to identify and reference the Managed Database.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example-db"`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`3306`
+      - The access port for this Managed Database.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`replication_commit_type`
+      - :action-table-field-type:`string`
+      - :json:`"local"`
+      - The synchronization level of the replicating server.
+    * - :action-table-field-name:`replication_type`
+      - :action-table-field-type:`string`
+      - :json:`"async"`
+      - The replication method used for the Managed Database.
+    * - :action-table-field-name:`ssl_connection`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether to require SSL credentials to establish a connection to the Managed Database.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The operating status of the Managed Database.
+    * - :action-table-field-name:`total_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`15`
+      - The total disk size of the database in GB.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-dedicated-2"`
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was last updated.
+    * - :action-table-field-name:`used_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The used space of the database in GB.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"13.2"`
+      - The Managed Database engine version.
+.. _commands_databases_postgresql-create_attribute_sections_hosts:
+
+.. rst-class:: action-section-header
+
+hosts
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`hosts.primary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-0000-000-pgsql-primary.servers.linodedb.net"`
+      - The primary host for the Managed Database.
+    * - :action-table-field-name:`hosts.secondary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-0000-000-pgsql-primary-private.servers.linodedb.net"`
+      - The secondary/private network host for the Managed Database.
+.. _commands_databases_postgresql-create_attribute_sections_updates:
+
+.. rst-class:: action-section-header
+
+updates
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`updates.day_of_week`
+      - :action-table-field-type:`integer`
+      - :json:`1`
+      - The day to perform maintenance.
+    * - :action-table-field-name:`updates.duration`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The maximum maintenance window time in hours.
+    * - :action-table-field-name:`updates.frequency`
+      - :action-table-field-type:`string`
+      - :json:`"weekly"`
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :action-table-field-name:`updates.hour_of_day`
+      - :action-table-field-type:`integer`
+      - ?
+      - The hour to begin maintenance based in UTC time.
+    * - :action-table-field-name:`updates.week_of_month`
+      - :action-table-field-type:`integer`
+      - ?
+      - The week of the month to perform :code:`monthly` frequency updates.
 
 
 ------------
@@ -1638,32 +2745,13 @@ Provision a Managed PostgreSQL Database.
 
 Update a Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-update [-h]
-    	[--allow_list allow_list] [--type type] [--label label]
-    	[--updates.hour_of_day hour_of_day]
-    	[--updates.duration duration] [--updates.frequency frequency]
-    	[--updates.week_of_month week_of_month]
-    	[--updates.day_of_week day_of_week] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1680,13 +2768,13 @@ Update a Managed PostgreSQL Database.
     	--updates.week_of_month 3
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1694,68 +2782,226 @@ Update a Managed PostgreSQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--allow_list`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-allow_list`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - A list of IP addresses that can access the Managed Database.
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - A unique, user-defined string referring to the Managed Database.
-    * - :code:`--type`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Request re-sizing of your cluster to a Linode Type with more disk space.
-    * - :code:`--updates.day_of_week`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-updates.day_of_week`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The day to perform maintenance.
-    * - :code:`--updates.duration`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-updates.duration`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The maximum maintenance window time in hours.
-    * - :code:`--updates.frequency`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-updates.frequency`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Whether maintenance occurs on a weekly or monthly basis.
-    * - :code:`--updates.hour_of_day`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-updates.hour_of_day`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The hour to begin maintenance based in UTC time.
-    * - :code:`--updates.week_of_month`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-updates.week_of_month`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
+      - The week of the month to perform :code:`monthly` frequency updates.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`allow_list`
+      - :action-table-field-type:`array[string]`
+      - :json:`["203.0.113.1/32", "192.0.1.0/24"]`
+      - A list of IP addresses that can access the Managed Database.
+    * - :action-table-field-name:`cluster_size`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The number of Linode Instance nodes deployed to the Managed Database.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was created.
+    * - :action-table-field-name:`encrypted`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether the Managed Databases is encrypted.
+    * - :action-table-field-name:`engine`
+      - :action-table-field-type:`string`
+      - :json:`"postgresql"`
+      - The Managed Database engine type.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - A unique ID that can be used to identify and reference the Managed Database.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example-db"`
+      - A unique, user-defined string referring to the Managed Database.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`3306`
+      - The access port for this Managed Database.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
+    * - :action-table-field-name:`replication_commit_type`
+      - :action-table-field-type:`string`
+      - :json:`"local"`
+      - The synchronization level of the replicating server.
+    * - :action-table-field-name:`replication_type`
+      - :action-table-field-type:`string`
+      - :json:`"async"`
+      - The replication method used for the Managed Database.
+    * - :action-table-field-name:`ssl_connection`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether to require SSL credentials to establish a connection to the Managed Database.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The operating status of the Managed Database.
+    * - :action-table-field-name:`total_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`15`
+      - The total disk size of the database in GB.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-dedicated-2"`
+      - The Linode Instance type used by the Managed Database for its nodes.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - When this Managed Database was last updated.
+    * - :action-table-field-name:`used_disk_size_gb`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The used space of the database in GB.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"13.2"`
+      - The Managed Database engine version.
+.. _commands_databases_postgresql-update_attribute_sections_hosts:
+
+.. rst-class:: action-section-header
+
+hosts
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`hosts.primary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-0000-000-pgsql-primary.servers.linodedb.net"`
+      - The primary host for the Managed Database.
+    * - :action-table-field-name:`hosts.secondary`
+      - :action-table-field-type:`string`
+      - :json:`"lin-0000-000-pgsql-primary-private.servers.linodedb.net"`
+      - The secondary/private network host for the Managed Database.
+.. _commands_databases_postgresql-update_attribute_sections_updates:
+
+.. rst-class:: action-section-header
+
+updates
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`updates.day_of_week`
+      - :action-table-field-type:`integer`
+      - :json:`1`
+      - The day to perform maintenance.
+    * - :action-table-field-name:`updates.duration`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The maximum maintenance window time in hours.
+    * - :action-table-field-name:`updates.frequency`
+      - :action-table-field-type:`string`
+      - :json:`"weekly"`
+      - Whether maintenance occurs on a weekly or monthly basis.
+    * - :action-table-field-name:`updates.hour_of_day`
+      - :action-table-field-type:`integer`
+      - ?
+      - The hour to begin maintenance based in UTC time.
+    * - :action-table-field-name:`updates.week_of_month`
+      - :action-table-field-type:`integer`
+      - ?
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -1769,27 +3015,13 @@ Update a Managed PostgreSQL Database.
 
 Remove a Managed PostgreSQL Database from your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-delete [-h] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1797,13 +3029,13 @@ Remove a Managed PostgreSQL Database from your Account.
     linode-cli databases postgresql-delete 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1811,14 +3043,14 @@ Remove a Managed PostgreSQL Database from your Account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -1832,29 +3064,13 @@ Remove a Managed PostgreSQL Database from your Account.
 
 Display information for a single backup for an accessible Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-backup-view [-h] [--type type]
-    	[--created created] [--order-by {type,created}]
-    	[--order {asc,desc}] instanceId backupId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1862,13 +3078,13 @@ Display information for a single backup for an accessible Managed PostgreSQL Dat
     linode-cli databases postgresql-backup-view 123 456
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1876,18 +3092,57 @@ Display information for a single backup for an accessible Managed PostgreSQL Dat
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
-    * - :code:`backupId`
-      - integer
+    * - :action-table-field-name:`backupId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database backup.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - A time value given in a combined date and time format that represents when the database backup was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the database backup object.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Scheduled - 02/04/22 11:11 UTC-XcCRmI"`
+      - The database backup's label, for display purposes only.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"auto"`
+      - The type of database backup, determined by how the backup was created.
 
 
 ------------
@@ -1900,28 +3155,13 @@ Display information for a single backup for an accessible Managed PostgreSQL Dat
 
 Delete a single backup for an accessible Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-backup-delete [-h] instanceId
-    	backupId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1929,13 +3169,13 @@ Delete a single backup for an accessible Managed PostgreSQL Database.
     linode-cli databases postgresql-backup-delete 123 456
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1943,17 +3183,17 @@ Delete a single backup for an accessible Managed PostgreSQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
-    * - :code:`backupId`
-      - integer
+    * - :action-table-field-name:`backupId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database backup.
 
 
@@ -1967,28 +3207,13 @@ Delete a single backup for an accessible Managed PostgreSQL Database.
 
 Restore a backup to a Managed PostgreSQL Database on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-backup-restore [-h] instanceId
-    	backupId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1996,13 +3221,13 @@ Restore a backup to a Managed PostgreSQL Database on your Account.
     linode-cli databases postgresql-backup-restore 123 456
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -2010,17 +3235,17 @@ Restore a backup to a Managed PostgreSQL Database on your Account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
-    * - :code:`backupId`
-      - integer
+    * - :action-table-field-name:`backupId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database backup.
 
 
@@ -2034,28 +3259,13 @@ Restore a backup to a Managed PostgreSQL Database on your Account.
 
 Creates a snapshot backup of a Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-backup-snapshot [-h]
-    	[--target target] [--label label] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -2065,13 +3275,13 @@ Creates a snapshot backup of a Managed PostgreSQL Database.
     	--target primary
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -2079,44 +3289,43 @@ Creates a snapshot backup of a Managed PostgreSQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The label for the Database snapshot backup.
-    * - :code:`--target`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-target`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Database cluster target.
 
 
@@ -2130,29 +3339,13 @@ Creates a snapshot backup of a Managed PostgreSQL Database.
 
 Display all backups for an accessible Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-backups-list [-h] [--type type]
-    	[--created created] [--order-by {type,created}]
-    	[--order {asc,desc}] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -2160,13 +3353,13 @@ Display all backups for an accessible Managed PostgreSQL Database.
     linode-cli databases postgresql-backups-list 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -2174,42 +3367,79 @@ Display all backups for an accessible Managed PostgreSQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--created`
-      - *string*
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-type:`string`
       - A time value given in a combined date and time format that represents when the database backup was created.
-    * - :code:`--type`
-      - *string*
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-type:`string`
+      - The type of database backup, determined by how the backup was created.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2022-01-01T00:01:01"`
+      - A time value given in a combined date and time format that represents when the database backup was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the database backup object.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Scheduled - 02/04/22 11:11 UTC-XcCRmI"`
+      - The database backup's label, for display purposes only.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"auto"`
       - The type of database backup, determined by how the backup was created.
 
 
@@ -2223,28 +3453,13 @@ Display all backups for an accessible Managed PostgreSQL Database.
 
 Display the root username and password for an accessible Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-creds-view [-h] [--order-by {}]
-    	[--order {asc,desc}] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -2252,13 +3467,13 @@ Display the root username and password for an accessible Managed PostgreSQL Data
     linode-cli databases postgresql-creds-view 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -2266,15 +3481,46 @@ Display the root username and password for an accessible Managed PostgreSQL Data
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`password`
+      - :action-table-field-type:`string`
+      - :json:`"s3cur3P@ssw0rd"`
+      - The randomly-generated root password for the Managed Database instance.
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
+      - :json:`"linroot"`
+      - The root username for the Managed Database instance.
 
 
 ------------
@@ -2287,27 +3533,13 @@ Display the root username and password for an accessible Managed PostgreSQL Data
 
 Reset the root password for a Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-creds-reset [-h] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -2315,13 +3547,13 @@ Reset the root password for a Managed PostgreSQL Database.
     linode-cli databases postgresql-creds-reset 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -2329,14 +3561,14 @@ Reset the root password for a Managed PostgreSQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -2350,27 +3582,13 @@ Reset the root password for a Managed PostgreSQL Database.
 
 Apply security patches and updates to the underlying operating system of the Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-patch [-h] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -2378,13 +3596,13 @@ Apply security patches and updates to the underlying operating system of the Man
     linode-cli databases postgresql-patch 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -2392,14 +3610,14 @@ Apply security patches and updates to the underlying operating system of the Man
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -2413,28 +3631,13 @@ Apply security patches and updates to the underlying operating system of the Man
 
 Display the SSL CA certificate for an accessible Managed PostgreSQL Database.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases postgresql-ssl-cert [-h] [--order-by {}]
-    	[--order {asc,desc}] instanceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -2442,13 +3645,13 @@ Display the SSL CA certificate for an accessible Managed PostgreSQL Database.
     linode-cli databases postgresql-ssl-cert 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -2456,15 +3659,42 @@ Display the SSL CA certificate for an accessible Managed PostgreSQL Database.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`instanceId`
-      - integer
+    * - :action-table-field-name:`instanceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed PostgreSQL Database.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ca_certificate`
+      - :action-table-field-type:`string`
+      - :json:`"LS0tLS1CRUdJ...=="`
+      - The base64-encoded SSL CA certificate for the Managed Database instance.
 
 
 
@@ -2476,28 +3706,13 @@ Display the SSL CA certificate for an accessible Managed PostgreSQL Database.
 
 Display the details of a single Managed Database type.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli databases type-view [-h] [--order-by {}]
-    	[--order {asc,desc}] typeId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -2505,13 +3720,13 @@ Display the details of a single Managed Database type.
     linode-cli databases type-view g6-nanode-1
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -2519,15 +3734,80 @@ Display the details of a single Managed Database type.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`typeId`
-      - string
+    * - :action-table-field-name:`typeId`
+      - :action-table-field-type:`string`
       - The ID of the Managed Database type.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`_split`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+.. _commands_databases_type-view_attribute_sections_engines:
+
+.. rst-class:: action-section-header
+
+engines
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`engines.price.hourly`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+    * - :action-table-field-name:`engines.price.monthly`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+    * - :action-table-field-name:`engines.quantity`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
 
 
 

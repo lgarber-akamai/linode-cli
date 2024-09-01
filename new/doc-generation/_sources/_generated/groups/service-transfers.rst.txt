@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Service Transfers
 =================
@@ -13,29 +19,13 @@ This section details Service Transfer-related Linode CLI commands.
 
 Returns a collection of all created and accepted Service Transfers for this account, regardless of the user that created or accepted the transfer.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli service-transfers list [-h] [--status status]
-    	[--is_sender is_sender] [--order-by {status,is_sender}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -44,33 +34,100 @@ Returns a collection of all created and accepted Service Transfers for this acco
     	list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--is_sender`
-      - *boolean*
+    * - :action-table-field-name:`\-\-is_sender`
+      - :action-table-field-type:`boolean`
       - If the requesting account created this transfer.
-    * - :code:`--status`
-      - *string*
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-type:`string`
       - The status of the transfer request.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2021-02-11T16:37:03"`
+      - When this transfer was created.
+    * - :action-table-field-name:`expiry`
+      - :action-table-field-type:`string`
+      - :json:`"2021-02-12T16:37:03"`
+      - When this transfer expires.
+    * - :action-table-field-name:`is_sender`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If the requesting account created this transfer.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"pending"`
+      - The status of the transfer request.
+    * - :action-table-field-name:`token`
+      - :action-table-field-type:`string`
+      - :json:`"123E4567-E89B-12D3-A456-426614174000"`
+      - The token used to identify and accept or cancel this transfer.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2021-02-11T16:37:03"`
+      - When this transfer was last updated.
+.. _commands_service-transfers_list_attribute_sections_entities:
+
+.. rst-class:: action-section-header
+
+entities
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entities.linodes`
+      - :action-table-field-type:`array[integer]`
+      - :json:`[111, 222]`
+      - An array containing the IDs of each of the Linodes included in this transfer.
 
 
 ------------
@@ -83,29 +140,13 @@ Returns a collection of all created and accepted Service Transfers for this acco
 
 Returns the details of the Service Transfer for the provided token.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli service-transfers view [-h] [--status status]
-    	[--is_sender is_sender] [--order-by {status,is_sender}]
-    	[--order {asc,desc}] token
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -114,13 +155,13 @@ Returns the details of the Service Transfer for the provided token.
     	view 123E4567-E89B-12D3-A456-426614174000
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -128,15 +169,84 @@ Returns the details of the Service Transfer for the provided token.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`token`
-      - string
+    * - :action-table-field-name:`token`
+      - :action-table-field-type:`string`
       - The UUID of the Service Transfer.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2021-02-11T16:37:03"`
+      - When this transfer was created.
+    * - :action-table-field-name:`expiry`
+      - :action-table-field-type:`string`
+      - :json:`"2021-02-12T16:37:03"`
+      - When this transfer expires.
+    * - :action-table-field-name:`is_sender`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If the requesting account created this transfer.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"pending"`
+      - The status of the transfer request.
+    * - :action-table-field-name:`token`
+      - :action-table-field-type:`string`
+      - :json:`"123E4567-E89B-12D3-A456-426614174000"`
+      - The token used to identify and accept or cancel this transfer.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2021-02-11T16:37:03"`
+      - When this transfer was last updated.
+.. _commands_service-transfers_view_attribute_sections_entities:
+
+.. rst-class:: action-section-header
+
+entities
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entities.linodes`
+      - :action-table-field-type:`array[integer]`
+      - :json:`[111, 222]`
+      - An array containing the IDs of each of the Linodes included in this transfer.
 
 
 ------------
@@ -149,28 +259,13 @@ Returns the details of the Service Transfer for the provided token.
 
 Creates a transfer request for the specified services.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli service-transfers create [-h]
-    	[--entities.linodes linodes]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -181,30 +276,98 @@ Creates a transfer request for the specified services.
     	--entities.linodes 222
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--entities.linodes`
-      - No
-      - array[integer]
+    * - :action-table-field-name:`\-\-entities.linodes`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[integer]`
+      - An array containing the IDs of each of the Linodes included in this transfer.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2021-02-11T16:37:03"`
+      - When this transfer was created.
+    * - :action-table-field-name:`expiry`
+      - :action-table-field-type:`string`
+      - :json:`"2021-02-12T16:37:03"`
+      - When this transfer expires.
+    * - :action-table-field-name:`is_sender`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If the requesting account created this transfer.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"pending"`
+      - The status of the transfer request.
+    * - :action-table-field-name:`token`
+      - :action-table-field-type:`string`
+      - :json:`"123E4567-E89B-12D3-A456-426614174000"`
+      - The token used to identify and accept or cancel this transfer.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2021-02-11T16:37:03"`
+      - When this transfer was last updated.
+.. _commands_service-transfers_create_attribute_sections_entities:
+
+.. rst-class:: action-section-header
+
+entities
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entities.linodes`
+      - :action-table-field-type:`array[integer]`
+      - :json:`[111, 222]`
       - An array containing the IDs of each of the Linodes included in this transfer.
 
 
@@ -218,27 +381,13 @@ Creates a transfer request for the specified services.
 
 Accept a Service Transfer for the provided token to receive the services included in the transfer to your account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli service-transfers accept [-h] token
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -247,13 +396,13 @@ Accept a Service Transfer for the provided token to receive the services include
     	accept 123E4567-E89B-12D3-A456-426614174000
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -261,14 +410,14 @@ Accept a Service Transfer for the provided token to receive the services include
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`token`
-      - string
+    * - :action-table-field-name:`token`
+      - :action-table-field-type:`string`
       - The UUID of the Service Transfer.
 
 
@@ -281,27 +430,13 @@ Accept a Service Transfer for the provided token to receive the services include
 
 Cancels the Service Transfer for the provided token.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli service-transfers cancel [-h] token
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -310,13 +445,13 @@ Cancels the Service Transfer for the provided token.
     	cancel 123E4567-E89B-12D3-A456-426614174000
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -324,14 +459,14 @@ Cancels the Service Transfer for the provided token.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`token`
-      - string
+    * - :action-table-field-name:`token`
+      - :action-table-field-type:`string`
       - The UUID of the Service Transfer.
 
 

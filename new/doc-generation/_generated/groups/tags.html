@@ -7,7 +7,7 @@
   <title>Tags &mdash; linode-cli  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=f1c3abea" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=12819f8c" />
 
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+5239b95 (API v4.176.0)
+                v0.0.0.dev+d71948a (API v4.176.0)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -129,24 +129,36 @@
 <section id="commands-tags-list">
 <span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-tags">list</a><a class="headerlink" href="#commands-tags-list" title="Link to this heading"></a></h2>
 <p>Tags are User-defined labels attached to objects in your Account, such as Linodes.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>tags<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
-</pre></div>
-</div>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;example tag&quot;</span></code></p></td>
+<td><p>A Label used for organization of objects on your Account.</p></td>
+</tr>
+</tbody>
+</table>
 <hr class="docutils" />
 </section>
 <section id="commands-tags-create">
 <span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-tag">create</a><a class="headerlink" href="#commands-tags-create" title="Link to this heading"></a></h2>
 <p>Creates a new Tag and optionally tags requested objects with it immediately.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>tags<span class="w"> </span>create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--linodes<span class="w"> </span>linodes<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--nodebalancers<span class="w"> </span>nodebalancers<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domains<span class="w"> </span>domains<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--volumes<span class="w"> </span>volumes<span class="o">]</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>tags<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--label<span class="w"> </span><span class="s1">&#39;example tag&#39;</span><span class="w"> </span><span class="se">\</span>
@@ -156,14 +168,14 @@
 <span class="w">    </span>--volumes<span class="w"> </span><span class="m">10003</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -173,30 +185,54 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The new Tag.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--domains</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[integer]</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--domains</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[integer]</span></p></td>
 <td><p>A list of Domain IDs to apply the new Tag to.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--linodes</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[integer]</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The new Tag.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--linodes</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[integer]</span></p></td>
 <td><p>A list of Linode IDs to apply the new Tag to.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--nodebalancers</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[integer]</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--nodebalancers</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[integer]</span></p></td>
 <td><p>A list of NodeBalancer IDs to apply the new Tag to.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--volumes</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[integer]</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--volumes</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[integer]</span></p></td>
 <td><p>A list of Volume IDs to apply the new Tag to.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;example tag&quot;</span></code></p></td>
+<td><p>A Label used for organization of objects on your Account.</p></td>
 </tr>
 </tbody>
 </table>
@@ -204,18 +240,13 @@
 <section id="commands-tags-delete">
 <span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-ag">delete</a><a class="headerlink" href="#commands-tags-delete" title="Link to this heading"></a></h2>
 <p>Remove a Tag from all objects and delete it.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>tags<span class="w"> </span>delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>tagLabel
-</pre></div>
-</div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -224,8 +255,8 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">tagLabel</span></code></p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">tagLabel</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>N/A</p></td>
 </tr>
 </tbody>

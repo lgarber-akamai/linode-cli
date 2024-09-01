@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Regions
 =======
@@ -13,29 +19,13 @@ This section details Region-related Linode CLI commands.
 
 Lists the Regions available for Linode services.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli regions list [-h] [--site-type site-type]
-    	[--country country] [--order-by {site-type,country}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -43,33 +33,130 @@ Lists the Regions available for Linode services.
     linode-cli regions list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--country`
-      - *string*
+    * - :action-table-field-name:`\-\-country`
+      - :action-table-field-type:`string`
       - The country where this Region resides.
-    * - :code:`--site-type`
-      - *string*
+    * - :action-table-field-name:`\-\-site-type`
+      - :action-table-field-type:`string`
       - This region's site type.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`capabilities`
+      - :action-table-field-type:`array[string]`
+      - :json:`["Linodes", "NodeBalancers", "Block Storage", "Object Storage", "Placement Groups"]`
+      - A list of capabilities of this region.
+    * - :action-table-field-name:`country`
+      - :action-table-field-type:`string`
+      - :json:`"us"`
+      - The country where this Region resides.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The unique ID of this Region.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Newark, NJ, USA"`
+      - Detailed location information for this Region, including city, state or region, and country.
+    * - :action-table-field-name:`site-type`
+      - :action-table-field-type:`string`
+      - :json:`"core"`
+      - This region's site type.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"ok"`
+      - This region's current operational status.
+.. _commands_regions_list_attribute_sections_placement_group_limits:
+
+.. rst-class:: action-section-header
+
+placement_group_limits
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`placement_group_limits.maximum_linodes_per_pg`
+      - :action-table-field-type:`integer`
+      - :json:`5`
+      - The maximum number of compute instances you can include in a single placement group in this region.
+    * - :action-table-field-name:`placement_group_limits.maximum_pgs_per_customer`
+      - :action-table-field-type:`integer`
+      - :json:`10`
+      - The maximum number of placement groups you can have in this region.
+.. _commands_regions_list_attribute_sections_resolvers:
+
+.. rst-class:: action-section-header
+
+resolvers
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`resolvers.ipv4`
+      - :action-table-field-type:`string`
+      - :json:`"192.0.2.0,192.0.2.1"`
+      - The IPv4 addresses for this region's DNS resolvers, separated by commas.
+    * - :action-table-field-name:`resolvers.ipv6`
+      - :action-table-field-type:`string`
+      - :json:`"2001:0db8::,2001:0db8::1"`
+      - The IPv6 addresses for this region's DNS resolvers, separated by commas.
 
 
 ------------
@@ -82,29 +169,13 @@ Lists the Regions available for Linode services.
 
 Returns a single Region.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli regions view [-h] [--site-type site-type]
-    	[--country country] [--order-by {site-type,country}]
-    	[--order {asc,desc}] regionId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -112,13 +183,13 @@ Returns a single Region.
     linode-cli regions view us-east
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -126,15 +197,114 @@ Returns a single Region.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`regionId`
-      - string
+    * - :action-table-field-name:`regionId`
+      - :action-table-field-type:`string`
       - ID of the Region to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`capabilities`
+      - :action-table-field-type:`array[string]`
+      - :json:`["Linodes", "NodeBalancers", "Block Storage", "Object Storage", "Placement Groups"]`
+      - A list of capabilities of this region.
+    * - :action-table-field-name:`country`
+      - :action-table-field-type:`string`
+      - :json:`"us"`
+      - The country where this Region resides.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The unique ID of this Region.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Newark, NJ, USA"`
+      - Detailed location information for this Region, including city, state or region, and country.
+    * - :action-table-field-name:`site-type`
+      - :action-table-field-type:`string`
+      - :json:`"core"`
+      - This region's site type.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"ok"`
+      - This region's current operational status.
+.. _commands_regions_view_attribute_sections_placement_group_limits:
+
+.. rst-class:: action-section-header
+
+placement_group_limits
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`placement_group_limits.maximum_linodes_per_pg`
+      - :action-table-field-type:`integer`
+      - :json:`5`
+      - The maximum number of compute instances you can include in a single placement group in this region.
+    * - :action-table-field-name:`placement_group_limits.maximum_pgs_per_customer`
+      - :action-table-field-type:`integer`
+      - :json:`10`
+      - The maximum number of placement groups you can have in this region.
+.. _commands_regions_view_attribute_sections_resolvers:
+
+.. rst-class:: action-section-header
+
+resolvers
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`resolvers.ipv4`
+      - :action-table-field-type:`string`
+      - :json:`"192.0.2.0,192.0.2.1"`
+      - The IPv4 addresses for this region's DNS resolvers, separated by commas.
+    * - :action-table-field-name:`resolvers.ipv6`
+      - :action-table-field-type:`string`
+      - :json:`"2001:0db8::,2001:0db8::1"`
+      - The IPv6 addresses for this region's DNS resolvers, separated by commas.
 
 
 ------------
@@ -147,29 +317,13 @@ Returns a single Region.
 
 Returns availability data for all Regions.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli regions list-avail [-h] [--plan plan]
-    	[--available available] [--region region]
-    	[--order-by {plan,available,region}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -177,35 +331,68 @@ Returns availability data for all Regions.
     linode-cli regions list-avail
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--available`
-      - *boolean*
+    * - :action-table-field-name:`\-\-available`
+      - :action-table-field-type:`boolean`
       - Whether the compute instance type is available in the region.
-    * - :code:`--plan`
-      - *string*
+    * - :action-table-field-name:`\-\-plan`
+      - :action-table-field-type:`string`
       - The compute instance `Type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ ID.
-    * - :code:`--region`
-      - *string*
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`string`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`available`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether the compute instance type is available in the region.
+    * - :action-table-field-name:`plan`
+      - :action-table-field-type:`string`
+      - :json:`"gpu-rtx6000-1.1"`
+      - The compute instance `Type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ ID.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID.
 
 
@@ -218,30 +405,13 @@ Returns availability data for all Regions.
 
 Returns availability data for a single Region.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli regions view-avail [-h] [--region region]
-    	[--available available] [--plan plan]
-    	[--order-by {region,available,plan}] [--order {asc,desc}]
-    	regionId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -249,13 +419,13 @@ Returns availability data for a single Region.
     linode-cli regions view-avail us-east
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -263,15 +433,50 @@ Returns availability data for a single Region.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`regionId`
-      - string
+    * - :action-table-field-name:`regionId`
+      - :action-table-field-type:`string`
       - ID of the Region to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`available`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether the compute instance type is available in the region.
+    * - :action-table-field-name:`plan`
+      - :action-table-field-type:`string`
+      - :json:`"gpu-rtx6000-1.1"`
+      - The compute instance `Type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ ID.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID.
 
 
 

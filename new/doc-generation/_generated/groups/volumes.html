@@ -7,7 +7,7 @@
   <title>Volumes &mdash; linode-cli  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=f1c3abea" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=12819f8c" />
 
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+5239b95 (API v4.176.0)
+                v0.0.0.dev+d71948a (API v4.176.0)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -135,24 +135,18 @@
 <section id="commands-volumes-list">
 <span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-volumes">list</a><a class="headerlink" href="#commands-volumes-list" title="Link to this heading"></a></h2>
 <p>Returns a paginated list of Volumes you have permission to view.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,tags<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>list
 </pre></div>
 </div>
-<p class="action-subheading rubric">Filterable Attributes</p>
+<p class="action-subheading">Filterable Attributes</p>
 <p class="action-subheading-description">Arguments used to define a filter for response entries.</p>
 <table class="action-filterable-field-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -161,13 +155,92 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
-<td><p><em>string</em></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The Volume’s label is for display purposes only.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
-<td><p><em>array[string]</em></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>An array of Tags applied to this object.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">filesystem_path</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;/dev/disk/by-id/scsi-0Linode_Volume_my-volume&quot;</span></code></p></td>
+<td><p>The full filesystem path for the Volume based on the Volume’s label.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">hardware_type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;nvme&quot;</span></code></p></td>
+<td><p>The storage type of this Volume.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12345</span></code></p></td>
+<td><p>The unique ID of this Volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;my-volume&quot;</span></code></p></td>
+<td><p>The Volume’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12346</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;linode123&quot;</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;us-east&quot;</span></code></p></td>
+<td><p>The unique ID of this Region.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">size</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">30</span></code></p></td>
+<td><p>The Volume’s size, in GiB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>The current status of the volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of Tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was last updated.</p></td>
 </tr>
 </tbody>
 </table>
@@ -176,24 +249,18 @@
 <section id="commands-volumes-view">
 <span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-volume">view</a><a class="headerlink" href="#commands-volumes-view" title="Link to this heading"></a></h2>
 <p>Get information about a single Volume.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,tags<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>volumeId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>view<span class="w"> </span><span class="m">12345</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -202,9 +269,88 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">volumeId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">volumeId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>ID of the Volume to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">filesystem_path</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;/dev/disk/by-id/scsi-0Linode_Volume_my-volume&quot;</span></code></p></td>
+<td><p>The full filesystem path for the Volume based on the Volume’s label.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">hardware_type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;nvme&quot;</span></code></p></td>
+<td><p>The storage type of this Volume.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12345</span></code></p></td>
+<td><p>The unique ID of this Volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;my-volume&quot;</span></code></p></td>
+<td><p>The Volume’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12346</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;linode123&quot;</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;us-east&quot;</span></code></p></td>
+<td><p>The unique ID of this Region.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">size</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">30</span></code></p></td>
+<td><p>The Volume’s size, in GiB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>The current status of the volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of Tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was last updated.</p></td>
 </tr>
 </tbody>
 </table>
@@ -213,14 +359,7 @@
 <section id="commands-volumes-create">
 <span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-volume">create</a><a class="headerlink" href="#commands-volumes-create" title="Link to this heading"></a></h2>
 <p>Creates a Volume on your Account.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--config_id<span class="w"> </span>config_id<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--linode_id<span class="w"> </span>linode_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--region<span class="w"> </span>region<span class="o">]</span><span class="w"> </span><span class="o">[</span>--size<span class="w"> </span>size<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--tags<span class="w"> </span>tags<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--label<span class="w"> </span>my-volume<span class="w"> </span><span class="se">\</span>
@@ -229,14 +368,14 @@
 <span class="w">    </span>--no-defaults
 </pre></div>
 </div>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -246,35 +385,114 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The Volume’s label, which is also used in the <code class="code docutils literal notranslate"><span class="pre">filesystem_path</span></code> of the resulting volume.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--config_id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--config_id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>When creating a Volume attached to a Linode, the ID of the Linode Config to include the new Volume in.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--linode_id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The Volume’s label, which is also used in the <code class="code docutils literal notranslate"><span class="pre">filesystem_path</span></code> of the resulting volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--linode_id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Linode this volume should be attached to upon creation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--region</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--region</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The Region to deploy this Volume in.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--size</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--size</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The initial size of this volume, in GB.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>An array of Tags applied to this object.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">filesystem_path</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;/dev/disk/by-id/scsi-0Linode_Volume_my-volume&quot;</span></code></p></td>
+<td><p>The full filesystem path for the Volume based on the Volume’s label.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">hardware_type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;nvme&quot;</span></code></p></td>
+<td><p>The storage type of this Volume.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12345</span></code></p></td>
+<td><p>The unique ID of this Volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;my-volume&quot;</span></code></p></td>
+<td><p>The Volume’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12346</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;linode123&quot;</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;us-east&quot;</span></code></p></td>
+<td><p>The unique ID of this Region.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">size</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">30</span></code></p></td>
+<td><p>The Volume’s size, in GiB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>The current status of the volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of Tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was last updated.</p></td>
 </tr>
 </tbody>
 </table>
@@ -283,25 +501,19 @@
 <section id="commands-volumes-update">
 <span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-volume">update</a><a class="headerlink" href="#commands-volumes-update" title="Link to this heading"></a></h2>
 <p>Updates a Volume that you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span>tags<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
-<span class="w">    </span>volumeId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>update<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--label<span class="w"> </span>my_volume
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -310,20 +522,20 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">volumeId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">volumeId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>ID of the Volume to look up.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -333,64 +545,143 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--created</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--created</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>When this Volume was created.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--filesystem_path</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--filesystem_path</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The full filesystem path for the Volume based on the Volume’s label.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--hardware_type</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--hardware_type</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The storage type of this Volume.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The unique ID of this Volume.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The Volume’s label is for display purposes only.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--linode_id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--linode_id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--linode_label</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--linode_label</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--region</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--region</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The unique ID of this Region.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--size</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--size</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Volume’s size, in GiB.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--status</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--status</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The current status of the volume.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>An array of Tags applied to this object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--updated</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--updated</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>When this Volume was last updated.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">filesystem_path</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;/dev/disk/by-id/scsi-0Linode_Volume_my-volume&quot;</span></code></p></td>
+<td><p>The full filesystem path for the Volume based on the Volume’s label.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">hardware_type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;nvme&quot;</span></code></p></td>
+<td><p>The storage type of this Volume.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12345</span></code></p></td>
+<td><p>The unique ID of this Volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;my-volume&quot;</span></code></p></td>
+<td><p>The Volume’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12346</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;linode123&quot;</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;us-east&quot;</span></code></p></td>
+<td><p>The unique ID of this Region.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">size</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">30</span></code></p></td>
+<td><p>The Volume’s size, in GiB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>The current status of the volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of Tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
 <td><p>When this Volume was last updated.</p></td>
 </tr>
 </tbody>
@@ -400,23 +691,18 @@
 <section id="commands-volumes-delete">
 <span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-volume">delete</a><a class="headerlink" href="#commands-volumes-delete" title="Link to this heading"></a></h2>
 <p>Deletes a Volume you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>volumeId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>delete<span class="w"> </span><span class="m">12345</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -425,8 +711,8 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">volumeId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">volumeId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>ID of the Volume to look up.</p></td>
 </tr>
 </tbody>
@@ -436,27 +722,20 @@
 <section id="commands-volumes-attach">
 <span id="id6"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-attach-volume">attach</a><a class="headerlink" href="#commands-volumes-attach" title="Link to this heading"></a></h2>
 <p>Attaches a Volume on your Account to an existing Linode on your Account.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>attach<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--linode_id<span class="w"> </span>linode_id<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--config_id<span class="w"> </span>config_id<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--persist_across_boots<span class="w"> </span>persist_across_boots<span class="o">]</span><span class="w"> </span>volumeId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>attach<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--linode_id<span class="w"> </span><span class="m">12346</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--config_id<span class="w"> </span><span class="m">23456</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -465,20 +744,20 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">volumeId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">volumeId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>ID of the Volume to attach.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -488,20 +767,99 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--linode_id</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>integer</p></td>
-<td><p>The ID of the Linode to attach the volume to.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--config_id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--config_id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Linode Config to include this Volume in.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--persist_across_boots</span></code></p></td>
-<td><p>No</p></td>
-<td><p>boolean</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--linode_id</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p>The ID of the Linode to attach the volume to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--persist_across_boots</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">boolean</span></p></td>
 <td><p>Defaults to true, if false is provided, the Volume will not be attached to the Linode Config.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">filesystem_path</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;/dev/disk/by-id/scsi-0Linode_Volume_my-volume&quot;</span></code></p></td>
+<td><p>The full filesystem path for the Volume based on the Volume’s label.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">hardware_type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;nvme&quot;</span></code></p></td>
+<td><p>The storage type of this Volume.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12345</span></code></p></td>
+<td><p>The unique ID of this Volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;my-volume&quot;</span></code></p></td>
+<td><p>The Volume’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12346</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;linode123&quot;</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;us-east&quot;</span></code></p></td>
+<td><p>The unique ID of this Region.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">size</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">30</span></code></p></td>
+<td><p>The Volume’s size, in GiB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>The current status of the volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of Tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was last updated.</p></td>
 </tr>
 </tbody>
 </table>
@@ -510,24 +868,19 @@
 <section id="commands-volumes-clone">
 <span id="id7"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-clone-volume">clone</a><a class="headerlink" href="#commands-volumes-clone" title="Link to this heading"></a></h2>
 <p>Creates a Volume on your Account.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>clone<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span>volumeId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>clone<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--label<span class="w"> </span>my-volume
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -536,20 +889,20 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">volumeId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">volumeId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>ID of the Volume to clone.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -559,10 +912,89 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--label</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The Volume’s label is for display purposes only.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">filesystem_path</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;/dev/disk/by-id/scsi-0Linode_Volume_my-volume&quot;</span></code></p></td>
+<td><p>The full filesystem path for the Volume based on the Volume’s label.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">hardware_type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;nvme&quot;</span></code></p></td>
+<td><p>The storage type of this Volume.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12345</span></code></p></td>
+<td><p>The unique ID of this Volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;my-volume&quot;</span></code></p></td>
+<td><p>The Volume’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12346</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;linode123&quot;</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;us-east&quot;</span></code></p></td>
+<td><p>The unique ID of this Region.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">size</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">30</span></code></p></td>
+<td><p>The Volume’s size, in GiB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>The current status of the volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of Tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was last updated.</p></td>
 </tr>
 </tbody>
 </table>
@@ -571,23 +1003,18 @@
 <section id="commands-volumes-detach">
 <span id="id8"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-detach-volume">detach</a><a class="headerlink" href="#commands-volumes-detach" title="Link to this heading"></a></h2>
 <p>Detaches a Volume on your Account from a Linode on your Account.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>detach<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>volumeId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>detach<span class="w"> </span><span class="m">12345</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -596,8 +1023,8 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">volumeId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">volumeId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>ID of the Volume to detach.</p></td>
 </tr>
 </tbody>
@@ -606,24 +1033,19 @@
 <section id="commands-volumes-resize">
 <span id="id9"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-resize-volume">resize</a><a class="headerlink" href="#commands-volumes-resize" title="Link to this heading"></a></h2>
 <p>Resize an existing Volume on your Account.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>resize<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--size<span class="w"> </span>size<span class="o">]</span><span class="w"> </span>volumeId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>volumes<span class="w"> </span>resize<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--size<span class="w"> </span><span class="m">30</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -632,20 +1054,20 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">volumeId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">volumeId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>ID of the Volume to resize.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -655,10 +1077,89 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--size</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--size</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The Volume’s size, in GiB.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">filesystem_path</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;/dev/disk/by-id/scsi-0Linode_Volume_my-volume&quot;</span></code></p></td>
+<td><p>The full filesystem path for the Volume based on the Volume’s label.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">hardware_type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;nvme&quot;</span></code></p></td>
+<td><p>The storage type of this Volume.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12345</span></code></p></td>
+<td><p>The unique ID of this Volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;my-volume&quot;</span></code></p></td>
+<td><p>The Volume’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">12346</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_label</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;linode123&quot;</span></code></p></td>
+<td><p>If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;us-east&quot;</span></code></p></td>
+<td><p>The unique ID of this Region.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">size</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">30</span></code></p></td>
+<td><p>The Volume’s size, in GiB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>The current status of the volume.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of Tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Volume was last updated.</p></td>
 </tr>
 </tbody>
 </table>

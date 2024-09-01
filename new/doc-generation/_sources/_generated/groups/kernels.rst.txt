@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Kernels
 =======
@@ -13,31 +19,13 @@ This section details Kernel-related Linode CLI commands.
 
 Lists available Kernels.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli kernels list [-h] [--label label]
-    	[--architecture architecture] [--kvm kvm]
-    	[--deprecated deprecated] [--version version] [--pvops pvops]
-    	[--order-by {label,architecture,kvm,deprecated,version,pvops}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -45,44 +33,97 @@ Lists available Kernels.
     linode-cli kernels list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--architecture`
-      - *string*
+    * - :action-table-field-name:`\-\-architecture`
+      - :action-table-field-type:`string`
       - The architecture of this Kernel.
-    * - :code:`--deprecated`
-      - *boolean*
+    * - :action-table-field-name:`\-\-deprecated`
+      - :action-table-field-type:`boolean`
       - If this Kernel is marked as deprecated, this field has a value of true; otherwise, this field is false.
-    * - :code:`--kvm`
-      - *boolean*
+    * - :action-table-field-name:`\-\-kvm`
+      - :action-table-field-type:`boolean`
       - If this Kernel is suitable for KVM Linodes.
-    * - :code:`--label`
-      - *string*
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`string`
       - The friendly name of this Kernel.
-    * - :code:`--pvops`
-      - *boolean*
+    * - :action-table-field-name:`\-\-pvops`
+      - :action-table-field-type:`boolean`
       - If this Kernel is suitable for paravirtualized operations.
-    * - :code:`--version`
-      - *string*
+    * - :action-table-field-name:`\-\-version`
+      - :action-table-field-type:`string`
+      - Linux Kernel version.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`architecture`
+      - :action-table-field-type:`string`
+      - :json:`"x86_64"`
+      - The architecture of this Kernel.
+    * - :action-table-field-name:`built`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date on which this Kernel was built.
+    * - :action-table-field-name:`deprecated`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If this Kernel is marked as deprecated, this field has a value of true; otherwise, this field is false.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"linode/latest-64bit"`
+      - The unique ID of this Kernel.
+    * - :action-table-field-name:`kvm`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If this Kernel is suitable for KVM Linodes.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Latest 64 bit (4.15.7-x86_64-linode102)"`
+      - The friendly name of this Kernel.
+    * - :action-table-field-name:`pvops`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If this Kernel is suitable for paravirtualized operations.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"4.15.7"`
       - Linux Kernel version.
 
 
@@ -95,31 +136,13 @@ Lists available Kernels.
 
 Returns information about a single Kernel.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli kernels view [-h] [--architecture architecture]
-    	[--label label] [--pvops pvops] [--version version]
-    	[--deprecated deprecated] [--kvm kvm]
-    	[--order-by {architecture,label,pvops,version,deprecated,kvm}]
-    	[--order {asc,desc}] kernelId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -127,13 +150,13 @@ Returns information about a single Kernel.
     linode-cli kernels view latest-64bit
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -141,15 +164,70 @@ Returns information about a single Kernel.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`kernelId`
-      - string
+    * - :action-table-field-name:`kernelId`
+      - :action-table-field-type:`string`
       - ID of the Kernel to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`architecture`
+      - :action-table-field-type:`string`
+      - :json:`"x86_64"`
+      - The architecture of this Kernel.
+    * - :action-table-field-name:`built`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date on which this Kernel was built.
+    * - :action-table-field-name:`deprecated`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If this Kernel is marked as deprecated, this field has a value of true; otherwise, this field is false.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"linode/latest-64bit"`
+      - The unique ID of this Kernel.
+    * - :action-table-field-name:`kvm`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If this Kernel is suitable for KVM Linodes.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Latest 64 bit (4.15.7-x86_64-linode102)"`
+      - The friendly name of this Kernel.
+    * - :action-table-field-name:`pvops`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If this Kernel is suitable for paravirtualized operations.
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
+      - :json:`"4.15.7"`
+      - Linux Kernel version.
 
 
 

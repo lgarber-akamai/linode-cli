@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Tags
 ====
@@ -13,19 +19,32 @@ This section details Tag-related Linode CLI commands.
 
 Tags are User-defined labels attached to objects in your Account, such as Linodes.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Result Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
+The attributes returned by this command.
 
-    The format accepted by this command.
+.. rst-class:: action-attribute-table
 
-..  code-block:: bash
+.. rst-class:: action-attribute-section-table
 
-    linode-cli tags list [-h] [--order-by {}] [--order {asc,desc}]
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
 
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example tag"`
+      - A Label used for organization of objects on your Account.
 
 
 ------------
@@ -38,29 +57,13 @@ Tags are User-defined labels attached to objects in your Account, such as Linode
 
 Creates a new Tag and optionally tags requested objects with it immediately.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli tags create [-h] [--linodes linodes]
-    	[--nodebalancers nodebalancers] [--domains domains]
-    	[--label label] [--volumes volumes]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -73,47 +76,73 @@ Creates a new Tag and optionally tags requested objects with it immediately.
     	--volumes 10003
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
-      - The new Tag.
-    * - :code:`--domains`
-      - No
-      - array[integer]
+    * - :action-table-field-name:`\-\-domains`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[integer]`
       - A list of Domain IDs to apply the new Tag to.
-    * - :code:`--linodes`
-      - No
-      - array[integer]
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The new Tag.
+    * - :action-table-field-name:`\-\-linodes`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[integer]`
       - A list of Linode IDs to apply the new Tag to.
-    * - :code:`--nodebalancers`
-      - No
-      - array[integer]
+    * - :action-table-field-name:`\-\-nodebalancers`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[integer]`
       - A list of NodeBalancer IDs to apply the new Tag to.
-    * - :code:`--volumes`
-      - No
-      - array[integer]
+    * - :action-table-field-name:`\-\-volumes`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[integer]`
       - A list of Volume IDs to apply the new Tag to.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"example tag"`
+      - A Label used for organization of objects on your Account.
 
 
 
@@ -125,27 +154,13 @@ Creates a new Tag and optionally tags requested objects with it immediately.
 
 Remove a Tag from all objects and delete it.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Parameters
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli tags delete [-h] tagLabel
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Parameters
-
-.. cssclass:: action-subheading-description
-
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -153,14 +168,14 @@ Remove a Tag from all objects and delete it.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`tagLabel`
-      - string
+    * - :action-table-field-name:`tagLabel`
+      - :action-table-field-type:`string`
       - N/A
 
 

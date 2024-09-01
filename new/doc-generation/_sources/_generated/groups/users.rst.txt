@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Users
 =====
@@ -13,28 +19,13 @@ This section details User-related Linode CLI commands.
 
 Returns a paginated list of all users on your account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli users list [-h] [--username username]
-    	[--order-by {username}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -42,30 +33,109 @@ Returns a paginated list of all users on your account.
     linode-cli users list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--username`
-      - *string*
+    * - :action-table-field-name:`\-\-username`
+      - :action-table-field-type:`string`
       - The User's username.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"example_user@linode.com"`
+      - The email address for the User.
+    * - :action-table-field-name:`password_created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T01:01:01"`
+      - The date and time when this User's current password was created.
+    * - :action-table-field-name:`restricted`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If true, the User must be granted access to perform actions or access entities on this Account.
+    * - :action-table-field-name:`ssh_keys`
+      - :action-table-field-type:`array[string]`
+      - :json:`["home-pc", "laptop"]`
+      - A list of SSH Key labels added by this User.
+    * - :action-table-field-name:`tfa_enabled`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - A boolean value indicating if the User has Two Factor Authentication (TFA) enabled.
+    * - :action-table-field-name:`user_type`
+      - :action-table-field-type:`string`
+      - :json:`"parent"`
+      - If the user belongs to a `parent or child account <https://www.linode.com/docs/guides/parent-child-accounts/>`_ relationship, this defines the user type in the respective account.
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
+      - :json:`"example_user"`
+      - The User's username.
+    * - :action-table-field-name:`verified_phone_number`
+      - :action-table-field-type:`string`
+      - :json:`"+5555555555"`
+      - The phone number verified for this User Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
+.. _commands_users_list_attribute_sections_last_login:
+
+.. rst-class:: action-section-header
+
+last_login
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`last_login.login_datetime`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T01:01:01"`
+      - The date and time of this User's most recent login attempt.
+    * - :action-table-field-name:`last_login.status`
+      - :action-table-field-type:`string`
+      - :json:`"successful"`
+      - The result of the most recent login attempt for this User.
 
 
 ------------
@@ -78,28 +148,13 @@ Returns a paginated list of all users on your account.
 
 Returns information about a single user on your account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli users view [-h] [--username username]
-    	[--order-by {username}] [--order {asc,desc}] username
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -107,13 +162,13 @@ Returns information about a single user on your account.
     linode-cli users view example_user
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -121,15 +176,96 @@ Returns information about a single user on your account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`username`
-      - string
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
       - The username to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"example_user@linode.com"`
+      - The email address for the User.
+    * - :action-table-field-name:`password_created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T01:01:01"`
+      - The date and time when this User's current password was created.
+    * - :action-table-field-name:`restricted`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If true, the User must be granted access to perform actions or access entities on this Account.
+    * - :action-table-field-name:`ssh_keys`
+      - :action-table-field-type:`array[string]`
+      - :json:`["home-pc", "laptop"]`
+      - A list of SSH Key labels added by this User.
+    * - :action-table-field-name:`tfa_enabled`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - A boolean value indicating if the User has Two Factor Authentication (TFA) enabled.
+    * - :action-table-field-name:`user_type`
+      - :action-table-field-type:`string`
+      - :json:`"parent"`
+      - If the user belongs to a `parent or child account <https://www.linode.com/docs/guides/parent-child-accounts/>`_ relationship, this defines the user type in the respective account.
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
+      - :json:`"example_user"`
+      - The User's username.
+    * - :action-table-field-name:`verified_phone_number`
+      - :action-table-field-type:`string`
+      - :json:`"+5555555555"`
+      - The phone number verified for this User Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
+.. _commands_users_view_attribute_sections_last_login:
+
+.. rst-class:: action-section-header
+
+last_login
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`last_login.login_datetime`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T01:01:01"`
+      - The date and time of this User's most recent login attempt.
+    * - :action-table-field-name:`last_login.status`
+      - :action-table-field-type:`string`
+      - :json:`"successful"`
+      - The result of the most recent login attempt for this User.
 
 
 ------------
@@ -142,28 +278,13 @@ Returns information about a single user on your account.
 
 Creates a user on your account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli users create [-h] [--username username]
-    	[--restricted restricted] [--email email]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -174,59 +295,135 @@ Creates a user on your account.
     	--restricted true
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--email`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-email`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The email address for the User.
-    * - :code:`--username`
-      - :action-argument-required:`Yes`
-      - string
-      - The User's username.
-    * - :code:`--last_login`
-      - No
-      - object
+    * - :action-table-field-name:`\-\-last_login`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`object`
       - Information for the most recent login attempt for this User.
-    * - :code:`--password_created`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-password_created`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The date and time when this User's current password was created.
-    * - :code:`--restricted`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-restricted`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - If true, the User must be granted access to perform actions or access entities on this Account.
-    * - :code:`--ssh_keys`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-ssh_keys`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - A list of SSH Key labels added by this User.
-    * - :code:`--tfa_enabled`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-tfa_enabled`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - A boolean value indicating if the User has Two Factor Authentication (TFA) enabled.
-    * - :code:`--verified_phone_number`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-username`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The User's username.
+    * - :action-table-field-name:`\-\-verified_phone_number`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The phone number verified for this User Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"example_user@linode.com"`
+      - The email address for the User.
+    * - :action-table-field-name:`password_created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T01:01:01"`
+      - The date and time when this User's current password was created.
+    * - :action-table-field-name:`restricted`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If true, the User must be granted access to perform actions or access entities on this Account.
+    * - :action-table-field-name:`ssh_keys`
+      - :action-table-field-type:`array[string]`
+      - :json:`["home-pc", "laptop"]`
+      - A list of SSH Key labels added by this User.
+    * - :action-table-field-name:`tfa_enabled`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - A boolean value indicating if the User has Two Factor Authentication (TFA) enabled.
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
+      - :json:`"example_user"`
+      - The User's username.
+    * - :action-table-field-name:`verified_phone_number`
+      - :action-table-field-type:`string`
+      - :json:`"+5555555555"`
+      - The phone number verified for this User Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
+.. _commands_users_create_attribute_sections_last_login:
+
+.. rst-class:: action-section-header
+
+last_login
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`last_login.login_datetime`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T01:01:01"`
+      - The date and time of this User's most recent login attempt.
+    * - :action-table-field-name:`last_login.status`
+      - :action-table-field-type:`string`
+      - :json:`"successful"`
+      - The result of the most recent login attempt for this User.
 
 
 ------------
@@ -239,28 +436,13 @@ Creates a user on your account.
 
 Update information about a user on your account, including its restricted status.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli users update [-h] [--restricted restricted]
-    	[--email email] [--username username] username
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -271,13 +453,13 @@ Update information about a user on your account, including its restricted status
     	--restricted true
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -285,69 +467,149 @@ Update information about a user on your account, including its restricted status
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`username`
-      - string
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
       - The username to look up.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--email`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-email`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The email address for the User.
-    * - :code:`--last_login`
-      - No
-      - object
+    * - :action-table-field-name:`\-\-last_login`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`object`
       - Information for the most recent login attempt for this User.
-    * - :code:`--password_created`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-password_created`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The date and time when this User's current password was created.
-    * - :code:`--restricted`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-restricted`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - If true, the User must be granted access to perform actions or access entities on this Account.
-    * - :code:`--ssh_keys`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-ssh_keys`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - A list of SSH Key labels added by this User.
-    * - :code:`--tfa_enabled`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-tfa_enabled`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - A boolean value indicating if the User has Two Factor Authentication (TFA) enabled.
-    * - :code:`--username`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-username`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The User's username.
-    * - :code:`--verified_phone_number`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-verified_phone_number`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The phone number verified for this User Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"example_user@linode.com"`
+      - The email address for the User.
+    * - :action-table-field-name:`password_created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T01:01:01"`
+      - The date and time when this User's current password was created.
+    * - :action-table-field-name:`restricted`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If true, the User must be granted access to perform actions or access entities on this Account.
+    * - :action-table-field-name:`ssh_keys`
+      - :action-table-field-type:`array[string]`
+      - :json:`["home-pc", "laptop"]`
+      - A list of SSH Key labels added by this User.
+    * - :action-table-field-name:`tfa_enabled`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - A boolean value indicating if the User has Two Factor Authentication (TFA) enabled.
+    * - :action-table-field-name:`user_type`
+      - :action-table-field-type:`string`
+      - :json:`"parent"`
+      - If the user belongs to a `parent or child account <https://www.linode.com/docs/guides/parent-child-accounts/>`_ relationship, this defines the user type in the respective account.
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
+      - :json:`"example_user"`
+      - The User's username.
+    * - :action-table-field-name:`verified_phone_number`
+      - :action-table-field-type:`string`
+      - :json:`"+5555555555"`
+      - The phone number verified for this User Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
+.. _commands_users_update_attribute_sections_last_login:
+
+.. rst-class:: action-section-header
+
+last_login
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`last_login.login_datetime`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T01:01:01"`
+      - The date and time of this User's most recent login attempt.
+    * - :action-table-field-name:`last_login.status`
+      - :action-table-field-type:`string`
+      - :json:`"successful"`
+      - The result of the most recent login attempt for this User.
 
 
 
@@ -359,27 +621,13 @@ Update information about a user on your account, including its restricted status
 
 Deletes a user.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli users delete [-h] username
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -387,13 +635,13 @@ Deletes a user.
     linode-cli users delete example_user
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -401,14 +649,14 @@ Deletes a user.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`username`
-      - string
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
       - The username to look up.
 
 

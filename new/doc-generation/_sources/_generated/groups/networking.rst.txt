@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Networking
 ==========
@@ -13,28 +19,13 @@ This section details Networking-related Linode CLI commands.
 
 Returns information about a single IP Address on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking ip-view [-h] [--order-by {}]
-    	[--order {asc,desc}] address
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -42,13 +33,13 @@ Returns information about a single IP Address on your Account.
     linode-cli networking ip-view 97.107.143.141
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -56,15 +47,104 @@ Returns information about a single IP Address on your Account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`address`
-      - string
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
       - The address to operate on.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
+      - :json:`"97.107.143.141"`
+      - The IP address.
+    * - :action-table-field-name:`gateway`
+      - :action-table-field-type:`string`
+      - :json:`"97.107.143.1"`
+      - The default gateway for this address.
+    * - :action-table-field-name:`linode_id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the Linode this address currently belongs to.
+    * - :action-table-field-name:`prefix`
+      - :action-table-field-type:`integer`
+      - :json:`24`
+      - The number of bits set in the subnet mask.
+    * - :action-table-field-name:`public`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether this is a public or private IP address.
+    * - :action-table-field-name:`rdns`
+      - :action-table-field-type:`string`
+      - :json:`"test.example.org"`
+      - The reverse DNS assigned to this address.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The Region this IP address resides in.
+    * - :action-table-field-name:`subnet_mask`
+      - :action-table-field-type:`string`
+      - :json:`"255.255.255.0"`
+      - The mask that separates host bits from network bits for this address.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"ipv4"`
+      - The type of address this is.
+.. _commands_networking_ip-view_attribute_sections_vpc_nat_1_1:
+
+.. rst-class:: action-section-header
+
+vpc_nat_1_1
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`vpc_nat_1_1.address`
+      - :action-table-field-type:`string`
+      - :json:`"192.168.0.42"`
+      - The IPv4 address that is configured as a 1:1 NAT for this VPC interface.
+    * - :action-table-field-name:`vpc_nat_1_1.subnet_id`
+      - :action-table-field-type:`integer`
+      - :json:`101`
+      - The :code:`id` of the VPC Subnet for this Interface.
+    * - :action-table-field-name:`vpc_nat_1_1.vpc_id`
+      - :action-table-field-type:`integer`
+      - :json:`111`
+      - The :code:`id` of the VPC configured for this Interface.
 
 
 ------------
@@ -77,28 +157,13 @@ Returns information about a single IP Address on your Account.
 
 Allocates a new IPv4 Address on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking ip-add [-h] [--type type] [--public public]
-    	[--linode_id linode_id]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -109,39 +174,127 @@ Allocates a new IPv4 Address on your Account.
     	--linode_id 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--linode_id`
-      - :action-argument-required:`Yes`
-      - integer
+    * - :action-table-field-name:`\-\-linode_id`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
       - The ID of a Linode you have access to that this address will be allocated to.
-    * - :code:`--public`
-      - :action-argument-required:`Yes`
-      - boolean
+    * - :action-table-field-name:`\-\-public`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`boolean`
       - Whether to create a public or private IPv4 address.
-    * - :code:`--type`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The type of address you are requesting.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
+      - :json:`"97.107.143.141"`
+      - The IP address.
+    * - :action-table-field-name:`gateway`
+      - :action-table-field-type:`string`
+      - :json:`"97.107.143.1"`
+      - The default gateway for this address.
+    * - :action-table-field-name:`linode_id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the Linode this address currently belongs to.
+    * - :action-table-field-name:`prefix`
+      - :action-table-field-type:`integer`
+      - :json:`24`
+      - The number of bits set in the subnet mask.
+    * - :action-table-field-name:`public`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether this is a public or private IP address.
+    * - :action-table-field-name:`rdns`
+      - :action-table-field-type:`string`
+      - :json:`"test.example.org"`
+      - The reverse DNS assigned to this address.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The Region this IP address resides in.
+    * - :action-table-field-name:`subnet_mask`
+      - :action-table-field-type:`string`
+      - :json:`"255.255.255.0"`
+      - The mask that separates host bits from network bits for this address.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"ipv4"`
+      - The type of address this is.
+.. _commands_networking_ip-add_attribute_sections_vpc_nat_1_1:
+
+.. rst-class:: action-section-header
+
+vpc_nat_1_1
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`vpc_nat_1_1.address`
+      - :action-table-field-type:`string`
+      - :json:`"192.168.0.42"`
+      - The IPv4 address that is configured as a 1:1 NAT for this VPC interface.
+    * - :action-table-field-name:`vpc_nat_1_1.subnet_id`
+      - :action-table-field-type:`integer`
+      - :json:`101`
+      - The :code:`id` of the VPC Subnet for this Interface.
+    * - :action-table-field-name:`vpc_nat_1_1.vpc_id`
+      - :action-table-field-type:`integer`
+      - :json:`111`
+      - The :code:`id` of the VPC configured for this Interface.
 
 
 ------------
@@ -154,27 +307,13 @@ Allocates a new IPv4 Address on your Account.
 
 Sets RDNS on an IP Address.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking ip-update [-h] [--rdns rdns] address
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -184,13 +323,13 @@ Sets RDNS on an IP Address.
     	--rdns "test.example.org"
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -198,41 +337,129 @@ Sets RDNS on an IP Address.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`address`
-      - string
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
       - The address to operate on.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--rdns`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-rdns`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The reverse DNS assigned to this address.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
+      - :json:`"97.107.143.141"`
+      - The IP address.
+    * - :action-table-field-name:`gateway`
+      - :action-table-field-type:`string`
+      - :json:`"97.107.143.1"`
+      - The default gateway for this address.
+    * - :action-table-field-name:`linode_id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the Linode this address currently belongs to.
+    * - :action-table-field-name:`prefix`
+      - :action-table-field-type:`integer`
+      - :json:`24`
+      - The number of bits set in the subnet mask.
+    * - :action-table-field-name:`public`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether this is a public or private IP address.
+    * - :action-table-field-name:`rdns`
+      - :action-table-field-type:`string`
+      - :json:`"test.example.org"`
+      - The reverse DNS assigned to this address.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The Region this IP address resides in.
+    * - :action-table-field-name:`subnet_mask`
+      - :action-table-field-type:`string`
+      - :json:`"255.255.255.0"`
+      - The mask that separates host bits from network bits for this address.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"ipv4"`
+      - The type of address this is.
+.. _commands_networking_ip-update_attribute_sections_vpc_nat_1_1:
+
+.. rst-class:: action-section-header
+
+vpc_nat_1_1
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`vpc_nat_1_1.address`
+      - :action-table-field-type:`string`
+      - :json:`"192.168.0.42"`
+      - The IPv4 address that is configured as a 1:1 NAT for this VPC interface.
+    * - :action-table-field-name:`vpc_nat_1_1.subnet_id`
+      - :action-table-field-type:`integer`
+      - :json:`101`
+      - The :code:`id` of the VPC Subnet for this Interface.
+    * - :action-table-field-name:`vpc_nat_1_1.vpc_id`
+      - :action-table-field-type:`integer`
+      - :json:`111`
+      - The :code:`id` of the VPC configured for this Interface.
 
 
 ------------
@@ -245,29 +472,13 @@ Sets RDNS on an IP Address.
 
 Assign multiple IPv4 addresses and/or IPv6 ranges to multiple Linodes in one Region.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking ip-assign [-h] [--assignments assignments]
-    	[--assignments.linode_id linode_id]
-    	[--assignments.address address] [--region region]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -280,61 +491,60 @@ Assign multiple IPv4 addresses and/or IPv6 ranges to multiple Linodes in one Reg
     	--assignments.linode_id 234
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--region`
-      - :action-argument-required:`Yes`
-      - string
-      - The ID of the Region in which these assignments are to take place.
-    * - :code:`--assignments`
+    * - :action-table-field-name:`\-\-assignments`
         :ref:`(section) <commands_networking_ip-assign_argument_sections_assignments>`
-      - No
-      - json
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`json`
       - N/A
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The ID of the Region in which these assignments are to take place.
 .. _commands_networking_ip-assign_argument_sections_assignments:
 
-.. cssclass:: action-argument-section-header
+.. rst-class:: action-section-header
 
-    assignments
+assignments
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--assignments.address`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-assignments.address`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The IPv4 address or IPv6 range for this assignment.
-    * - :code:`--assignments.linode_id`
-      - :action-argument-required:`Yes`
-      - integer
+    * - :action-table-field-name:`\-\-assignments.linode_id`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
       - The ID of the Linode to assign this address to.
 
 
@@ -348,28 +558,13 @@ Assign multiple IPv4 addresses and/or IPv6 ranges to multiple Linodes in one Reg
 
 Configure shared IPs.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking ip-share [-h] [--ips ips]
-    	[--linode_id linode_id]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -380,34 +575,33 @@ Configure shared IPs.
     	--ips 2001:db8:3c4d:15::
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--ips`
-      - :action-argument-required:`Yes`
-      - array[string]
+    * - :action-table-field-name:`\-\-ips`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`array[string]`
       - A list of secondary Linode IPs to share with the primary Linode.
-    * - :code:`--linode_id`
-      - :action-argument-required:`Yes`
-      - integer
+    * - :action-table-field-name:`\-\-linode_id`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
       - The ID of the primary Linode that the addresses will be shared with.
 
 
@@ -421,30 +615,13 @@ Configure shared IPs.
 
 Returns a paginated list of IP addresses on your account, excluding private addresses.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking ips-list [-h] [--address address]
-    	[--region region] [--rdns rdns] [--prefix prefix] [--type type]
-    	[--order-by {address,region,rdns,prefix,type}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -452,42 +629,129 @@ Returns a paginated list of IP addresses on your account, excluding private addr
     linode-cli networking ips-list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--address`
-      - *string*
+    * - :action-table-field-name:`\-\-address`
+      - :action-table-field-type:`string`
       - The IP address.
-    * - :code:`--prefix`
-      - *integer*
+    * - :action-table-field-name:`\-\-prefix`
+      - :action-table-field-type:`integer`
       - The number of bits set in the subnet mask.
-    * - :code:`--rdns`
-      - *string*
+    * - :action-table-field-name:`\-\-rdns`
+      - :action-table-field-type:`string`
       - The reverse DNS assigned to this address.
-    * - :code:`--region`
-      - *string*
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`string`
       - The Region this IP address resides in.
-    * - :code:`--type`
-      - *string*
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-type:`string`
       - The type of address this is.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
+      - :json:`"192.0.2.141"`
+      - The IP address.
+    * - :action-table-field-name:`gateway`
+      - :action-table-field-type:`string`
+      - :json:`"192.0.2.1"`
+      - The default gateway for this address.
+    * - :action-table-field-name:`linode_id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the Linode this address currently belongs to.
+    * - :action-table-field-name:`prefix`
+      - :action-table-field-type:`integer`
+      - :json:`24`
+      - The number of bits set in the subnet mask.
+    * - :action-table-field-name:`public`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether this is a public or private IP address.
+    * - :action-table-field-name:`rdns`
+      - :action-table-field-type:`string`
+      - :json:`"test.example.org"`
+      - The reverse DNS assigned to this address.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The Region this IP address resides in.
+    * - :action-table-field-name:`subnet_mask`
+      - :action-table-field-type:`string`
+      - :json:`"255.255.255.0"`
+      - The mask that separates host bits from network bits for this address.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"ipv4"`
+      - The type of address this is.
+.. _commands_networking_ips-list_attribute_sections_vpc_nat_1_1:
+
+.. rst-class:: action-section-header
+
+vpc_nat_1_1
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`vpc_nat_1_1.address`
+      - :action-table-field-type:`string`
+      - :json:`"192.168.0.42"`
+      - The IPv4 address that is configured as a 1:1 NAT for this VPC interface.
+    * - :action-table-field-name:`vpc_nat_1_1.subnet_id`
+      - :action-table-field-type:`integer`
+      - :json:`101`
+      - The :code:`id` of the VPC Subnet for this Interface.
+    * - :action-table-field-name:`vpc_nat_1_1.vpc_id`
+      - :action-table-field-type:`integer`
+      - :json:`111`
+      - The :code:`id` of the VPC configured for this Interface.
 
 
 ------------
@@ -500,29 +764,13 @@ Returns a paginated list of IP addresses on your account, excluding private addr
 
 This operation is equivalent to `Assign IP addresses <https://techdocs.akamai.com/linode-api/reference/post-assign-ips>`_.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking post-assign-ipv4s [-h]
-    	[--assignments assignments] [--assignments.address address]
-    	[--assignments.linode_id linode_id] [--region region]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -535,61 +783,60 @@ This operation is equivalent to `Assign IP addresses <https://techdocs.akamai.co
     	--assignments.linode_id 234
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--region`
-      - :action-argument-required:`Yes`
-      - string
-      - The ID of the Region in which these assignments are to take place.
-    * - :code:`--assignments`
+    * - :action-table-field-name:`\-\-assignments`
         :ref:`(section) <commands_networking_post-assign-ipv4s_argument_sections_assignments>`
-      - No
-      - json
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`json`
       - N/A
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The ID of the Region in which these assignments are to take place.
 .. _commands_networking_post-assign-ipv4s_argument_sections_assignments:
 
-.. cssclass:: action-argument-section-header
+.. rst-class:: action-section-header
 
-    assignments
+assignments
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--assignments.address`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-assignments.address`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The IPv4 address or IPv6 range for this assignment.
-    * - :code:`--assignments.linode_id`
-      - :action-argument-required:`Yes`
-      - integer
+    * - :action-table-field-name:`\-\-assignments.linode_id`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
       - The ID of the Linode to assign this address to.
 
 
@@ -603,28 +850,13 @@ This operation is equivalent to `Assign IP addresses <https://techdocs.akamai.co
 
 This operation is equivalent to `Share IP addresses <https://techdocs.akamai.com/linode-api/reference/post-share-ips>`_.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking post-share-ipv4s [-h] [--ips ips]
-    	[--linode_id linode_id]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -635,34 +867,33 @@ This operation is equivalent to `Share IP addresses <https://techdocs.akamai.com
     	--ips 192.0.2.2
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--ips`
-      - :action-argument-required:`Yes`
-      - array[string]
+    * - :action-table-field-name:`\-\-ips`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`array[string]`
       - A list of secondary Linode IPs to share with the primary Linode.
-    * - :code:`--linode_id`
-      - :action-argument-required:`Yes`
-      - integer
+    * - :action-table-field-name:`\-\-linode_id`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
       - The ID of the primary Linode that the addresses will be shared with.
 
 
@@ -676,28 +907,13 @@ This operation is equivalent to `Share IP addresses <https://techdocs.akamai.com
 
 Displays the IPv6 pools on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking v6-pools [-h] [--region region]
-    	[--order-by {region}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -705,30 +921,67 @@ Displays the IPv6 pools on your Account.
     linode-cli networking v6-pools
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--region`
-      - *string*
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`string`
       - The region for this pool of IPv6 addresses.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`prefix`
+      - :action-table-field-type:`integer`
+      - :json:`124`
+      - The prefix length of the address.
+    * - :action-table-field-name:`range`
+      - :action-table-field-type:`string`
+      - :json:`"2600:3c01::2:5000:0"`
+      - The IPv6 range of addresses in this pool.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The region for this pool of IPv6 addresses.
+    * - :action-table-field-name:`route_target`
+      - :action-table-field-type:`string`
+      - :json:`"2600:3c01::2:5000:f"`
+      - The last address in this block of IPv6 addresses.
 
 
 ------------
@@ -741,28 +994,13 @@ Displays the IPv6 pools on your Account.
 
 View IPv6 range information.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking v6-range-view [-h] [--order-by {}]
-    	[--order {asc,desc}] range
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -770,13 +1008,13 @@ View IPv6 range information.
     linode-cli networking v6-range-view 2001:0db8::
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -784,15 +1022,58 @@ View IPv6 range information.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`range`
-      - string
+    * - :action-table-field-name:`range`
+      - :action-table-field-type:`string`
       - The IPv6 range to access.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`is_bgp`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Whether this IPv6 range is shared.
+    * - :action-table-field-name:`linodes`
+      - :action-table-field-type:`array[integer]`
+      - :json:`[123]`
+      - A list of Linodes targeted by this IPv6 range.
+    * - :action-table-field-name:`prefix`
+      - :action-table-field-type:`integer`
+      - :json:`64`
+      - The prefix length of the address.
+    * - :action-table-field-name:`range`
+      - :action-table-field-type:`string`
+      - :json:`"2600:3c01::"`
+      - The IPv6 address of this range.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The region for this range of IPv6 addresses.
 
 
 ------------
@@ -805,29 +1086,13 @@ View IPv6 range information.
 
 Creates an IPv6 Range and assigns it based on the provided Linode or route target IPv6 SLAAC address.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking v6-range-create [-h]
-    	[--prefix_length prefix_length] [--linode_id linode_id]
-    	[--route_target route_target]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -837,39 +1102,69 @@ Creates an IPv6 Range and assigns it based on the provided Linode or route targe
     	--prefix_length 64
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--prefix_length`
-      - :action-argument-required:`Yes`
-      - integer
-      - The prefix length of the IPv6 range.
-    * - :code:`--linode_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-linode_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the Linode to assign this range to.
-    * - :code:`--route_target`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-prefix_length`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
+      - The prefix length of the IPv6 range.
+    * - :action-table-field-name:`\-\-route_target`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The IPv6 SLAAC address to assign this range to.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`range`
+      - :action-table-field-type:`string`
+      - :json:`"2001:0db8::/64"`
+      - The IPv6 network range, including subnet and prefix length.
+    * - :action-table-field-name:`route_target`
+      - :action-table-field-type:`string`
+      - :json:`"2001:0db8::1"`
+      - The route target IPV6 SLAAC address for this range.
 
 
 ------------
@@ -882,27 +1177,13 @@ Creates an IPv6 Range and assigns it based on the provided Linode or route targe
 
 Removes this IPv6 range from your account and disconnects the range from any assigned Linodes.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking v6-range-delete [-h] range
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -910,13 +1191,13 @@ Removes this IPv6 range from your account and disconnects the range from any ass
     linode-cli networking v6-range-delete 2001:0db8::
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -924,14 +1205,14 @@ Removes this IPv6 range from your account and disconnects the range from any ass
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`range`
-      - string
+    * - :action-table-field-name:`range`
+      - :action-table-field-type:`string`
       - The IPv6 range to access.
 
 
@@ -944,34 +1225,58 @@ Removes this IPv6 range from your account and disconnects the range from any ass
 
 Displays the IPv6 ranges on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli networking v6-ranges [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli networking v6-ranges
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`prefix`
+      - :action-table-field-type:`integer`
+      - :json:`64`
+      - The prefix length of the address.
+    * - :action-table-field-name:`range`
+      - :action-table-field-type:`string`
+      - :json:`"2600:3c01::"`
+      - The IPv6 address of this range.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The region for this range of IPv6 addresses.
+    * - :action-table-field-name:`route_target`
+      - :action-table-field-type:`string`
+      - :json:`"2600:3c01::ffff:ffff:ffff:ffff"`
+      - The IPv6 SLAAC address.
 
 
 

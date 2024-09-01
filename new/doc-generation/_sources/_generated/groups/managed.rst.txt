@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Managed
 =======
@@ -13,28 +19,13 @@ This section details Managed-related Linode CLI commands.
 
 Returns a single Managed Contact.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed contact-view [-h] [--group group]
-    	[--order-by {group}] [--order {asc,desc}] contactId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -42,13 +33,13 @@ Returns a single Managed Contact.
     linode-cli managed contact-view 567
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -56,15 +47,84 @@ Returns a single Managed Contact.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`contactId`
-      - integer
+    * - :action-table-field-name:`contactId`
+      - :action-table-field-type:`integer`
       - The ID of the contact to access.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"john.doe@example.org"`
+      - The address to email this Contact to alert them of issues.
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - :json:`"on-call"`
+      - A grouping for this Contact.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`567`
+      - This Contact's unique ID.
+    * - :action-table-field-name:`name`
+      - :action-table-field-type:`string`
+      - :json:`"John Doe"`
+      - The name of this Contact.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Contact was last updated.
+.. _commands_managed_contact-view_attribute_sections_phone:
+
+.. rst-class:: action-section-header
+
+phone
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`phone.primary`
+      - :action-table-field-type:`string`
+      - :json:`"123-456-7890"`
+      - This Contact's primary phone number.
+    * - :action-table-field-name:`phone.secondary`
+      - :action-table-field-type:`string`
+      - ?
+      - This Contact's secondary phone number.
 
 
 ------------
@@ -77,29 +137,13 @@ Returns a single Managed Contact.
 
 Creates a Managed Contact.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed contact-create [-h] [--email email]
-    	[--name name] [--phone.primary primary]
-    	[--phone.secondary secondary] [--group group]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -110,55 +154,123 @@ Creates a Managed Contact.
     	--phone.primary "123-456-7890"
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--email`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-email`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The address to email this Contact to alert them of issues.
-    * - :code:`--group`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - A grouping for this Contact.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Contact's unique ID.
-    * - :code:`--name`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-name`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The name of this Contact.
-    * - :code:`--phone.primary`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-phone.primary`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - This Contact's primary phone number.
-    * - :code:`--phone.secondary`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-phone.secondary`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - This Contact's secondary phone number.
-    * - :code:`--updated`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this Contact was last updated.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"john.doe@example.org"`
+      - The address to email this Contact to alert them of issues.
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - :json:`"on-call"`
+      - A grouping for this Contact.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`567`
+      - This Contact's unique ID.
+    * - :action-table-field-name:`name`
+      - :action-table-field-type:`string`
+      - :json:`"John Doe"`
+      - The name of this Contact.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Contact was last updated.
+.. _commands_managed_contact-create_attribute_sections_phone:
+
+.. rst-class:: action-section-header
+
+phone
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`phone.primary`
+      - :action-table-field-type:`string`
+      - :json:`"123-456-7890"`
+      - This Contact's primary phone number.
+    * - :action-table-field-name:`phone.secondary`
+      - :action-table-field-type:`string`
+      - ?
+      - This Contact's secondary phone number.
 
 
 ------------
@@ -171,29 +283,13 @@ Creates a Managed Contact.
 
 Updates information about a Managed Contact.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed contact-update [-h] [--email email]
-    	[--name name] [--group group] [--phone.secondary secondary]
-    	[--phone.primary primary] contactId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -204,13 +300,13 @@ Updates information about a Managed Contact.
     	--phone.primary "123-456-7890"
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -218,65 +314,133 @@ Updates information about a Managed Contact.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`contactId`
-      - integer
+    * - :action-table-field-name:`contactId`
+      - :action-table-field-type:`integer`
       - The ID of the contact to access.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--email`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-email`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The address to email this Contact to alert them of issues.
-    * - :code:`--group`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - A grouping for this Contact.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Contact's unique ID.
-    * - :code:`--name`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-name`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The name of this Contact.
-    * - :code:`--phone.primary`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-phone.primary`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - This Contact's primary phone number.
-    * - :code:`--phone.secondary`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-phone.secondary`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - This Contact's secondary phone number.
-    * - :code:`--updated`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this Contact was last updated.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"john.doe@example.org"`
+      - The address to email this Contact to alert them of issues.
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - :json:`"on-call"`
+      - A grouping for this Contact.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`567`
+      - This Contact's unique ID.
+    * - :action-table-field-name:`name`
+      - :action-table-field-type:`string`
+      - :json:`"John Doe"`
+      - The name of this Contact.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Contact was last updated.
+.. _commands_managed_contact-update_attribute_sections_phone:
+
+.. rst-class:: action-section-header
+
+phone
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`phone.primary`
+      - :action-table-field-type:`string`
+      - :json:`"123-456-7890"`
+      - This Contact's primary phone number.
+    * - :action-table-field-name:`phone.secondary`
+      - :action-table-field-type:`string`
+      - ?
+      - This Contact's secondary phone number.
 
 
 ------------
@@ -289,27 +453,13 @@ Updates information about a Managed Contact.
 
 Deletes a Managed Contact.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed contact-delete [-h] contactId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -317,13 +467,13 @@ Deletes a Managed Contact.
     linode-cli managed contact-delete 567
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -331,14 +481,14 @@ Deletes a Managed Contact.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`contactId`
-      - integer
+    * - :action-table-field-name:`contactId`
+      - :action-table-field-type:`integer`
       - The ID of the contact to access.
 
 
@@ -352,28 +502,13 @@ Deletes a Managed Contact.
 
 Returns a paginated list of Managed Contacts on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed contacts-list [-h] [--group group]
-    	[--order-by {group}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -381,30 +516,97 @@ Returns a paginated list of Managed Contacts on your Account.
     linode-cli managed contacts-list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--group`
-      - *string*
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-type:`string`
       - A grouping for this Contact.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"john.doe@example.org"`
+      - The address to email this Contact to alert them of issues.
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - :json:`"on-call"`
+      - A grouping for this Contact.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`567`
+      - This Contact's unique ID.
+    * - :action-table-field-name:`name`
+      - :action-table-field-type:`string`
+      - :json:`"John Doe"`
+      - The name of this Contact.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Contact was last updated.
+.. _commands_managed_contacts-list_attribute_sections_phone:
+
+.. rst-class:: action-section-header
+
+phone
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`phone.primary`
+      - :action-table-field-type:`string`
+      - :json:`"123-456-7890"`
+      - This Contact's primary phone number.
+    * - :action-table-field-name:`phone.secondary`
+      - :action-table-field-type:`string`
+      - ?
+      - This Contact's secondary phone number.
 
 
 ------------
@@ -417,28 +619,13 @@ Returns a paginated list of Managed Contacts on your Account.
 
 Returns a single Managed Credential.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed credential-view [-h] [--order-by {}]
-    	[--order {asc,desc}] credentialId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -446,13 +633,13 @@ Returns a single Managed Credential.
     linode-cli managed credential-view 9991
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -460,15 +647,50 @@ Returns a single Managed Credential.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`credentialId`
-      - integer
+    * - :action-table-field-name:`credentialId`
+      - :action-table-field-type:`integer`
       - The ID of the Credential to access.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`9991`
+      - This Credential's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"prod-password-1"`
+      - The unique label for this Credential.
+    * - :action-table-field-name:`last_decrypted`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date this Credential was last decrypted by a member of Linode special forces.
 
 
 ------------
@@ -481,28 +703,13 @@ Returns a single Managed Credential.
 
 Creates a Managed Credential.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed credential-create [-h] [--label label]
-    	[--username username] [--password password]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -513,47 +720,81 @@ Creates a Managed Credential.
     	--password s3cur3P@ssw0rd
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
-      - The unique label for this Credential.
-    * - :code:`--password`
-      - :action-argument-required:`Yes`
-      - string
-      - The password to use when accessing the Managed Service.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Credential's unique ID.
-    * - :code:`--last_decrypted`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The unique label for this Credential.
+    * - :action-table-field-name:`\-\-last_decrypted`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The date this Credential was last decrypted by a member of Linode special forces.
-    * - :code:`--username`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-password`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The password to use when accessing the Managed Service.
+    * - :action-table-field-name:`\-\-username`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The username to use when accessing the Managed Service.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`9991`
+      - This Credential's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"prod-password-1"`
+      - The unique label for this Credential.
+    * - :action-table-field-name:`last_decrypted`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date this Credential was last decrypted by a member of Linode special forces.
 
 
 ------------
@@ -566,28 +807,13 @@ Creates a Managed Credential.
 
 Updates the label of a Managed Credential.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed credential-update [-h] [--label label]
-    	credentialId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -596,13 +822,13 @@ Updates the label of a Managed Credential.
     	--label prod-password-1
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -610,48 +836,82 @@ Updates the label of a Managed Credential.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`credentialId`
-      - integer
+    * - :action-table-field-name:`credentialId`
+      - :action-table-field-type:`integer`
       - The ID of the Credential to access.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Credential's unique ID.
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The unique label for this Credential.
-    * - :code:`--last_decrypted`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-last_decrypted`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
+      - The date this Credential was last decrypted by a member of Linode special forces.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`9991`
+      - This Credential's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"prod-password-1"`
+      - The unique label for this Credential.
+    * - :action-table-field-name:`last_decrypted`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
       - The date this Credential was last decrypted by a member of Linode special forces.
 
 
@@ -665,28 +925,13 @@ Updates the label of a Managed Credential.
 
 Updates the username and password for a Managed Credential.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed credential-update-username-password [-h]
-    	[--username username] [--password password] credentialId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -696,13 +941,13 @@ Updates the username and password for a Managed Credential.
     	--password s3cur3P@ssw0rd
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -710,44 +955,43 @@ Updates the username and password for a Managed Credential.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`credentialId`
-      - integer
+    * - :action-table-field-name:`credentialId`
+      - :action-table-field-type:`integer`
       - The ID of the Credential to update.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--password`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-password`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The password to use when accessing the Managed Service.
-    * - :code:`--username`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-username`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The username to use when accessing the Managed Service.
 
 
@@ -761,27 +1005,13 @@ Updates the username and password for a Managed Credential.
 
 Deletes a Managed Credential.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed credential-revoke [-h] credentialId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -789,13 +1019,13 @@ Deletes a Managed Credential.
     linode-cli managed credential-revoke 9991
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -803,14 +1033,14 @@ Deletes a Managed Credential.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`credentialId`
-      - integer
+    * - :action-table-field-name:`credentialId`
+      - :action-table-field-type:`integer`
       - The ID of the Credential to access.
 
 
@@ -824,34 +1054,46 @@ Deletes a Managed Credential.
 
 Returns the unique SSH public key assigned to your Linode account's Managed service.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed credential-sshkey-view [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli managed credential-sshkey-view
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ssh_key`
+      - :action-table-field-type:`string`
+      - :json:`"ssh-rsa AAAAB...oD2ZQ== managedservices@linode"`
+      - The unique SSH public key assigned to your Linode account's Managed service.
 
 
 ------------
@@ -864,34 +1106,54 @@ Returns the unique SSH public key assigned to your Linode account's Managed serv
 
 Returns a paginated list of Managed Credentials on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed credentials-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli managed credentials-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`9991`
+      - This Credential's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"prod-password-1"`
+      - The unique label for this Credential.
+    * - :action-table-field-name:`last_decrypted`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date this Credential was last decrypted by a member of Linode special forces.
 
 
 ------------
@@ -904,28 +1166,13 @@ Returns a paginated list of Managed Credentials on your Account.
 
 Returns a single Issue that is impacting or did impact one of your Managed Services.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed issue-view [-h] [--order-by {}]
-    	[--order {asc,desc}] issueId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -933,13 +1180,13 @@ Returns a single Issue that is impacting or did impact one of your Managed Servi
     linode-cli managed issue-view 823
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -947,15 +1194,84 @@ Returns a single Issue that is impacting or did impact one of your Managed Servi
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`issueId`
-      - integer
+    * - :action-table-field-name:`issueId`
+      - :action-table-field-type:`integer`
       - The Issue to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Issue was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`823`
+      - This Issue's unique ID.
+    * - :action-table-field-name:`services`
+      - :action-table-field-type:`array[integer]`
+      - :json:`654`
+      - An array of Managed Service IDs that were affected by this Issue.
+.. _commands_managed_issue-view_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id`
+      - :action-table-field-type:`integer`
+      - :json:`98765`
+      - This ticket's ID.
+    * - :action-table-field-name:`entity.label`
+      - :action-table-field-type:`string`
+      - :json:`"Managed Issue opened!"`
+      - The summary for this Ticket.
+    * - :action-table-field-name:`entity.type`
+      - :action-table-field-type:`string`
+      - :json:`"ticket"`
+      - The type of entity this is.
+    * - :action-table-field-name:`entity.url`
+      - :action-table-field-type:`string`
+      - :json:`"/support/tickets/98765"`
+      - The relative URL where you can access this Ticket.
 
 
 ------------
@@ -968,34 +1284,88 @@ Returns a single Issue that is impacting or did impact one of your Managed Servi
 
 Returns a paginated list of recent and ongoing issues detected on your Managed Services.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed issues-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli managed issues-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Issue was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`823`
+      - This Issue's unique ID.
+    * - :action-table-field-name:`services`
+      - :action-table-field-type:`array[integer]`
+      - :json:`654`
+      - An array of Managed Service IDs that were affected by this Issue.
+.. _commands_managed_issues-list_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id`
+      - :action-table-field-type:`integer`
+      - :json:`98765`
+      - This ticket's ID.
+    * - :action-table-field-name:`entity.label`
+      - :action-table-field-type:`string`
+      - :json:`"Managed Issue opened!"`
+      - The summary for this Ticket.
+    * - :action-table-field-name:`entity.type`
+      - :action-table-field-type:`string`
+      - :json:`"ticket"`
+      - The type of entity this is.
+    * - :action-table-field-name:`entity.url`
+      - :action-table-field-type:`string`
+      - :json:`"/support/tickets/98765"`
+      - The relative URL where you can access this Ticket.
 
 
 ------------
@@ -1008,28 +1378,13 @@ Returns a paginated list of recent and ongoing issues detected on your Managed S
 
 Returns a single Linode's Managed settings.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed linode-setting-view [-h] [--order-by {}]
-    	[--order {asc,desc}] linodeId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1037,13 +1392,13 @@ Returns a single Linode's Managed settings.
     linode-cli managed linode-setting-view 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1051,15 +1406,84 @@ Returns a single Linode's Managed settings.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`linodeId`
-      - integer
+    * - :action-table-field-name:`linodeId`
+      - :action-table-field-type:`integer`
       - The Linode ID whose settings we are accessing.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - :json:`"linodes"`
+      - The group of the Linode these Settings are for.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the Linode these Settings are for.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"linode123"`
+      - The label of the Linode these Settings are for.
+.. _commands_managed_linode-setting-view_attribute_sections_ssh:
+
+.. rst-class:: action-section-header
+
+ssh
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ssh.access`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If true, Linode special forces may access this Linode over ssh to respond to Issues.
+    * - :action-table-field-name:`ssh.ip`
+      - :action-table-field-type:`string`
+      - :json:`"203.0.113.1"`
+      - The IP Linode special forces should use to access this Linode when responding to an Issue.
+    * - :action-table-field-name:`ssh.port`
+      - :action-table-field-type:`integer`
+      - :json:`22`
+      - The port Linode special forces should use to access this Linode over ssh to respond to an Issue.
+    * - :action-table-field-name:`ssh.user`
+      - :action-table-field-type:`string`
+      - :json:`"linode"`
+      - The specific user, if any, Linode's special forces should use when accessing this Linode to respond to an issue.
 
 
 ------------
@@ -1072,29 +1496,13 @@ Returns a single Linode's Managed settings.
 
 Updates a single Linode's Managed settings.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed linode-setting-update [-h] [--ssh.ip ip]
-    	[--ssh.port port] [--ssh.user user] [--ssh.access access]
-    	linodeId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1107,13 +1515,13 @@ Updates a single Linode's Managed settings.
     	--ssh.ip 203.0.113.1
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1121,64 +1529,132 @@ Updates a single Linode's Managed settings.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`linodeId`
-      - integer
+    * - :action-table-field-name:`linodeId`
+      - :action-table-field-type:`integer`
       - The Linode ID whose settings we are accessing.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--group`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The group of the Linode these Settings are for.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the Linode these Settings are for.
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The label of the Linode these Settings are for.
-    * - :code:`--ssh.access`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-ssh.access`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - If true, Linode special forces may access this Linode over ssh to respond to Issues.
-    * - :code:`--ssh.ip`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-ssh.ip`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The IP Linode special forces should use to access this Linode when responding to an Issue.
-    * - :code:`--ssh.port`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-ssh.port`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The port Linode special forces should use to access this Linode over ssh to respond to an Issue.
-    * - :code:`--ssh.user`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-ssh.user`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
+      - The specific user, if any, Linode's special forces should use when accessing this Linode to respond to an issue.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - :json:`"linodes"`
+      - The group of the Linode these Settings are for.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the Linode these Settings are for.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"linode123"`
+      - The label of the Linode these Settings are for.
+.. _commands_managed_linode-setting-update_attribute_sections_ssh:
+
+.. rst-class:: action-section-header
+
+ssh
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ssh.access`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If true, Linode special forces may access this Linode over ssh to respond to Issues.
+    * - :action-table-field-name:`ssh.ip`
+      - :action-table-field-type:`string`
+      - :json:`"203.0.113.1"`
+      - The IP Linode special forces should use to access this Linode when responding to an Issue.
+    * - :action-table-field-name:`ssh.port`
+      - :action-table-field-type:`integer`
+      - :json:`22`
+      - The port Linode special forces should use to access this Linode over ssh to respond to an Issue.
+    * - :action-table-field-name:`ssh.user`
+      - :action-table-field-type:`string`
+      - :json:`"linode"`
       - The specific user, if any, Linode's special forces should use when accessing this Linode to respond to an issue.
 
 
@@ -1192,34 +1668,88 @@ Updates a single Linode's Managed settings.
 
 Returns a paginated list of Managed Settings for your Linodes.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed linode-settings-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli managed linode-settings-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - :json:`"linodes"`
+      - The group of the Linode these Settings are for.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The ID of the Linode these Settings are for.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"linode123"`
+      - The label of the Linode these Settings are for.
+.. _commands_managed_linode-settings-list_attribute_sections_ssh:
+
+.. rst-class:: action-section-header
+
+ssh
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ssh.access`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If true, Linode special forces may access this Linode over ssh to respond to Issues.
+    * - :action-table-field-name:`ssh.ip`
+      - :action-table-field-type:`string`
+      - :json:`"203.0.113.1"`
+      - The IP Linode special forces should use to access this Linode when responding to an Issue.
+    * - :action-table-field-name:`ssh.port`
+      - :action-table-field-type:`integer`
+      - :json:`22`
+      - The port Linode special forces should use to access this Linode over ssh to respond to an Issue.
+    * - :action-table-field-name:`ssh.user`
+      - :action-table-field-type:`string`
+      - :json:`"linode"`
+      - The specific user, if any, Linode's special forces should use when accessing this Linode to respond to an issue.
 
 
 ------------
@@ -1232,28 +1762,13 @@ Returns a paginated list of Managed Settings for your Linodes.
 
 Returns information about a single Managed Service on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed service-view [-h] [--order-by {}]
-    	[--order {asc,desc}] serviceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1261,13 +1776,13 @@ Returns information about a single Managed Service on your Account.
     linode-cli managed service-view 9994
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1275,15 +1790,90 @@ Returns information about a single Managed Service on your Account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`serviceId`
-      - integer
+    * - :action-table-field-name:`serviceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed Service to access.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org"`
+      - The URL at which this Service is monitored.
+    * - :action-table-field-name:`body`
+      - :action-table-field-type:`string`
+      - :json:`"it worked"`
+      - What to expect to find in the response body for the Service to be considered up.
+    * - :action-table-field-name:`consultation_group`
+      - :action-table-field-type:`string`
+      - :json:`"on-call"`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Managed Service was created.
+    * - :action-table-field-name:`credentials`
+      - :action-table-field-type:`array[integer]`
+      - :json:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`9944`
+      - This Service's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"prod-1"`
+      - The label for this Service.
+    * - :action-table-field-name:`notes`
+      - :action-table-field-type:`string`
+      - :json:`"The service name is my-cool-application"`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - ?
+      - The Region in which this Service is located.
+    * - :action-table-field-name:`service_type`
+      - :action-table-field-type:`string`
+      - :json:`"url"`
+      - How this Service is monitored.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"ok"`
+      - The current status of this Service.
+    * - :action-table-field-name:`timeout`
+      - :action-table-field-type:`integer`
+      - :json:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-03-01T00:01:01"`
+      - When this Managed Service was last updated.
 
 
 ------------
@@ -1296,32 +1886,13 @@ Returns information about a single Managed Service on your Account.
 
 Creates a Managed Service.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed service-create [-h]
-    	[--credentials credentials]
-    	[--consultation_group consultation_group] [--region region]
-    	[--service_type service_type] [--timeout timeout]
-    	[--label label] [--notes notes] [--address address]
-    	[--body body]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1338,78 +1909,152 @@ Creates a Managed Service.
     	--credentials 9991
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--address`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-address`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The URL at which this Service is monitored.
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
-      - The label for this Service.
-    * - :code:`--service_type`
-      - :action-argument-required:`Yes`
-      - string
-      - How this Service is monitored.
-    * - :code:`--timeout`
-      - :action-argument-required:`Yes`
-      - integer
-      - How long to wait, in seconds, for a response before considering the Service to be down.
-    * - :code:`--body`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-body`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - What to expect to find in the response body for the Service to be considered up.
-    * - :code:`--consultation_group`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-consultation_group`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
-    * - :code:`--created`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this Managed Service was created.
-    * - :code:`--credentials`
-      - No
-      - array[integer]
+    * - :action-table-field-name:`\-\-credentials`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[integer]`
       - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Service's unique ID.
-    * - :code:`--notes`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The label for this Service.
+    * - :action-table-field-name:`\-\-notes`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
-    * - :code:`--region`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Region in which this Service is located.
-    * - :code:`--status`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-service_type`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - How this Service is monitored.
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The current status of this Service.
-    * - :code:`--updated`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-timeout`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
+      - When this Managed Service was last updated.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org"`
+      - The URL at which this Service is monitored.
+    * - :action-table-field-name:`body`
+      - :action-table-field-type:`string`
+      - :json:`"it worked"`
+      - What to expect to find in the response body for the Service to be considered up.
+    * - :action-table-field-name:`consultation_group`
+      - :action-table-field-type:`string`
+      - :json:`"on-call"`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Managed Service was created.
+    * - :action-table-field-name:`credentials`
+      - :action-table-field-type:`array[integer]`
+      - :json:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`9944`
+      - This Service's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"prod-1"`
+      - The label for this Service.
+    * - :action-table-field-name:`notes`
+      - :action-table-field-type:`string`
+      - :json:`"The service name is my-cool-application"`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - ?
+      - The Region in which this Service is located.
+    * - :action-table-field-name:`service_type`
+      - :action-table-field-type:`string`
+      - :json:`"url"`
+      - How this Service is monitored.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"ok"`
+      - The current status of this Service.
+    * - :action-table-field-name:`timeout`
+      - :action-table-field-type:`integer`
+      - :json:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-03-01T00:01:01"`
       - When this Managed Service was last updated.
 
 
@@ -1423,31 +2068,13 @@ Creates a Managed Service.
 
 Updates information about a Managed Service.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed service-update [-h] [--region region]
-    	[--service_type service_type] [--credentials credentials]
-    	[--consultation_group consultation_group] [--address address]
-    	[--notes notes] [--body body] [--timeout timeout]
-    	[--label label] serviceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1463,13 +2090,13 @@ Updates information about a Managed Service.
     	--credentials 9991
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1477,88 +2104,162 @@ Updates information about a Managed Service.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`serviceId`
-      - integer
+    * - :action-table-field-name:`serviceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed Service to access.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--address`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-address`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The URL at which this Service is monitored.
-    * - :code:`--body`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-body`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - What to expect to find in the response body for the Service to be considered up.
-    * - :code:`--consultation_group`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-consultation_group`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
-    * - :code:`--created`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this Managed Service was created.
-    * - :code:`--credentials`
-      - No
-      - array[integer]
+    * - :action-table-field-name:`\-\-credentials`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[integer]`
       - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Service's unique ID.
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The label for this Service.
-    * - :code:`--notes`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-notes`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
-    * - :code:`--region`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Region in which this Service is located.
-    * - :code:`--service_type`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-service_type`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - How this Service is monitored.
-    * - :code:`--status`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The current status of this Service.
-    * - :code:`--timeout`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-timeout`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - How long to wait, in seconds, for a response before considering the Service to be down.
-    * - :code:`--updated`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
+      - When this Managed Service was last updated.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org"`
+      - The URL at which this Service is monitored.
+    * - :action-table-field-name:`body`
+      - :action-table-field-type:`string`
+      - :json:`"it worked"`
+      - What to expect to find in the response body for the Service to be considered up.
+    * - :action-table-field-name:`consultation_group`
+      - :action-table-field-type:`string`
+      - :json:`"on-call"`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Managed Service was created.
+    * - :action-table-field-name:`credentials`
+      - :action-table-field-type:`array[integer]`
+      - :json:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`9944`
+      - This Service's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"prod-1"`
+      - The label for this Service.
+    * - :action-table-field-name:`notes`
+      - :action-table-field-type:`string`
+      - :json:`"The service name is my-cool-application"`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - ?
+      - The Region in which this Service is located.
+    * - :action-table-field-name:`service_type`
+      - :action-table-field-type:`string`
+      - :json:`"url"`
+      - How this Service is monitored.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"ok"`
+      - The current status of this Service.
+    * - :action-table-field-name:`timeout`
+      - :action-table-field-type:`integer`
+      - :json:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-03-01T00:01:01"`
       - When this Managed Service was last updated.
 
 
@@ -1572,27 +2273,13 @@ Updates information about a Managed Service.
 
 Deletes a Managed Service.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed service-delete [-h] serviceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1600,13 +2287,13 @@ Deletes a Managed Service.
     linode-cli managed service-delete 9994
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1614,14 +2301,14 @@ Deletes a Managed Service.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`serviceId`
-      - integer
+    * - :action-table-field-name:`serviceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed Service to access.
 
 
@@ -1635,27 +2322,13 @@ Deletes a Managed Service.
 
 Temporarily disables monitoring of a Managed Service.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed service-disable [-h] serviceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1663,13 +2336,13 @@ Temporarily disables monitoring of a Managed Service.
     linode-cli managed service-disable 9994
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1677,15 +2350,90 @@ Temporarily disables monitoring of a Managed Service.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`serviceId`
-      - integer
+    * - :action-table-field-name:`serviceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed Service to disable.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org"`
+      - The URL at which this Service is monitored.
+    * - :action-table-field-name:`body`
+      - :action-table-field-type:`string`
+      - :json:`"it worked"`
+      - What to expect to find in the response body for the Service to be considered up.
+    * - :action-table-field-name:`consultation_group`
+      - :action-table-field-type:`string`
+      - :json:`"on-call"`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Managed Service was created.
+    * - :action-table-field-name:`credentials`
+      - :action-table-field-type:`array[integer]`
+      - :json:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`9944`
+      - This Service's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"prod-1"`
+      - The label for this Service.
+    * - :action-table-field-name:`notes`
+      - :action-table-field-type:`string`
+      - :json:`"The service name is my-cool-application"`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - ?
+      - The Region in which this Service is located.
+    * - :action-table-field-name:`service_type`
+      - :action-table-field-type:`string`
+      - :json:`"url"`
+      - How this Service is monitored.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"ok"`
+      - The current status of this Service.
+    * - :action-table-field-name:`timeout`
+      - :action-table-field-type:`integer`
+      - :json:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-03-01T00:01:01"`
+      - When this Managed Service was last updated.
 
 
 ------------
@@ -1698,27 +2446,13 @@ Temporarily disables monitoring of a Managed Service.
 
 Enables monitoring of a Managed Service.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed service-enable [-h] serviceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1726,13 +2460,13 @@ Enables monitoring of a Managed Service.
     linode-cli managed service-enable 9994
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1740,15 +2474,90 @@ Enables monitoring of a Managed Service.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`serviceId`
-      - integer
+    * - :action-table-field-name:`serviceId`
+      - :action-table-field-type:`integer`
       - The ID of the Managed Service to enable.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org"`
+      - The URL at which this Service is monitored.
+    * - :action-table-field-name:`body`
+      - :action-table-field-type:`string`
+      - :json:`"it worked"`
+      - What to expect to find in the response body for the Service to be considered up.
+    * - :action-table-field-name:`consultation_group`
+      - :action-table-field-type:`string`
+      - :json:`"on-call"`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Managed Service was created.
+    * - :action-table-field-name:`credentials`
+      - :action-table-field-type:`array[integer]`
+      - :json:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`9944`
+      - This Service's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"prod-1"`
+      - The label for this Service.
+    * - :action-table-field-name:`notes`
+      - :action-table-field-type:`string`
+      - :json:`"The service name is my-cool-application"`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - ?
+      - The Region in which this Service is located.
+    * - :action-table-field-name:`service_type`
+      - :action-table-field-type:`string`
+      - :json:`"url"`
+      - How this Service is monitored.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"ok"`
+      - The current status of this Service.
+    * - :action-table-field-name:`timeout`
+      - :action-table-field-type:`integer`
+      - :json:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-03-01T00:01:01"`
+      - When this Managed Service was last updated.
 
 
 ------------
@@ -1761,34 +2570,94 @@ Enables monitoring of a Managed Service.
 
 Returns a paginated list of Managed Services on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed services-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli managed services-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org"`
+      - The URL at which this Service is monitored.
+    * - :action-table-field-name:`body`
+      - :action-table-field-type:`string`
+      - :json:`"it worked"`
+      - What to expect to find in the response body for the Service to be considered up.
+    * - :action-table-field-name:`consultation_group`
+      - :action-table-field-type:`string`
+      - :json:`"on-call"`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Managed Service was created.
+    * - :action-table-field-name:`credentials`
+      - :action-table-field-type:`array[integer]`
+      - :json:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`9944`
+      - This Service's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"prod-1"`
+      - The label for this Service.
+    * - :action-table-field-name:`notes`
+      - :action-table-field-type:`string`
+      - :json:`"The service name is my-cool-application"`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - ?
+      - The Region in which this Service is located.
+    * - :action-table-field-name:`service_type`
+      - :action-table-field-type:`string`
+      - :json:`"url"`
+      - How this Service is monitored.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"ok"`
+      - The current status of this Service.
+    * - :action-table-field-name:`timeout`
+      - :action-table-field-type:`integer`
+      - :json:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-03-01T00:01:01"`
+      - When this Managed Service was last updated.
 
 
 
@@ -1800,28 +2669,13 @@ Returns a paginated list of Managed Services on your Account.
 
 Returns a list of Managed Stats on your Account in the form of x and y data points.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli managed stats-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash

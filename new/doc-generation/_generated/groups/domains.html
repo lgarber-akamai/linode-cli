@@ -7,7 +7,7 @@
   <title>Domains &mdash; linode-cli  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=f1c3abea" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=12819f8c" />
 
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+5239b95 (API v4.176.0)
+                v0.0.0.dev+d71948a (API v4.176.0)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -139,25 +139,18 @@
 <section id="commands-domains-list">
 <span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domains">list</a><a class="headerlink" href="#commands-domains-list" title="Link to this heading"></a></h2>
 <p>This is a collection of Domains that you have registered in Linode’s DNS Manager.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>group,domain,tags<span class="o">}]</span>
-<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>list
 </pre></div>
 </div>
-<p class="action-subheading rubric">Filterable Attributes</p>
+<p class="action-subheading">Filterable Attributes</p>
 <p class="action-subheading-description">Arguments used to define a filter for response entries.</p>
 <table class="action-filterable-field-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -166,17 +159,106 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
-<td><p><em>string</em></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--domain</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The domain this Domain represents.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--group</span></code></p></td>
-<td><p><em>string</em></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--group</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The group this Domain belongs to.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
-<td><p><em>array[string]</em></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>An array of tags applied to this object.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">axfr_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The list of IPs that may perform a zone transfer for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">description</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>A description for this Domain.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">domain</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;example.org&quot;</span></code></p></td>
+<td><p>The domain this Domain represents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">expire_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds that may pass before this Domain is no longer authoritative.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">group</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The group this Domain belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">1234</span></code></p></td>
+<td><p>This Domain’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">master_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The IP addresses representing the master DNS for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">refresh_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds before this Domain should be refreshed.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">retry_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The interval, in seconds, at which a failed refresh should be retried.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">soa_email</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;admin@example.org&quot;</span></code></p></td>
+<td><p>Start of Authority email address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>Used to control whether this Domain is currently being rendered.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">ttl_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;master&quot;</span></code></p></td>
+<td><p>Whether this Domain represents the authoritative source of information for the domain it describes (<code class="code docutils literal notranslate"><span class="pre">master</span></code>), or whether it is a read-only copy of a master (<code class="code docutils literal notranslate"><span class="pre">slave</span></code>).</p></td>
 </tr>
 </tbody>
 </table>
@@ -185,25 +267,18 @@
 <section id="commands-domains-view">
 <span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain">view</a><a class="headerlink" href="#commands-domains-view" title="Link to this heading"></a></h2>
 <p>This is a single Domain that you have registered in Linode’s DNS Manager.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>tags,group,domain<span class="o">}]</span>
-<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>domainId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>view<span class="w"> </span><span class="m">123</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -212,9 +287,98 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">domainId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Domain to access.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">axfr_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The list of IPs that may perform a zone transfer for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">description</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>A description for this Domain.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">domain</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;example.org&quot;</span></code></p></td>
+<td><p>The domain this Domain represents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">expire_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds that may pass before this Domain is no longer authoritative.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">group</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The group this Domain belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">1234</span></code></p></td>
+<td><p>This Domain’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">master_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The IP addresses representing the master DNS for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">refresh_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds before this Domain should be refreshed.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">retry_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The interval, in seconds, at which a failed refresh should be retried.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">soa_email</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;admin@example.org&quot;</span></code></p></td>
+<td><p>Start of Authority email address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>Used to control whether this Domain is currently being rendered.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">ttl_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;master&quot;</span></code></p></td>
+<td><p>Whether this Domain represents the authoritative source of information for the domain it describes (<code class="code docutils literal notranslate"><span class="pre">master</span></code>), or whether it is a read-only copy of a master (<code class="code docutils literal notranslate"><span class="pre">slave</span></code>).</p></td>
 </tr>
 </tbody>
 </table>
@@ -223,17 +387,7 @@
 <section id="commands-domains-create">
 <span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-domain">create</a><a class="headerlink" href="#commands-domains-create" title="Link to this heading"></a></h2>
 <p>Adds a new Domain to Linode’s DNS Manager.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--master_ips<span class="w"> </span>master_ips<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--ttl_sec<span class="w"> </span>ttl_sec<span class="o">]</span><span class="w"> </span><span class="o">[</span>--retry_sec<span class="w"> </span>retry_sec<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--axfr_ips<span class="w"> </span>axfr_ips<span class="o">]</span><span class="w"> </span><span class="o">[</span>--soa_email<span class="w"> </span>soa_email<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--description<span class="w"> </span>description<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--refresh_sec<span class="w"> </span>refresh_sec<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span>tags<span class="o">]</span><span class="w"> </span><span class="o">[</span>--status<span class="w"> </span>status<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span><span class="w"> </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span><span class="w"> </span><span class="o">[</span>--expire_sec<span class="w"> </span>expire_sec<span class="o">]</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--type<span class="w"> </span>master<span class="w"> </span><span class="se">\</span>
@@ -241,14 +395,14 @@
 <span class="w">    </span>--soa_email<span class="w"> </span>admin@example.org
 </pre></div>
 </div>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -258,75 +412,164 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The domain this Domain represents.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>Whether this Domain represents the authoritative source of information for the domain it describes (<code class="code docutils literal notranslate"><span class="pre">master</span></code>), or whether it is a read-only copy of a master (<code class="code docutils literal notranslate"><span class="pre">slave</span></code>).</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--axfr_ips</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--axfr_ips</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>The list of IPs that may perform a zone transfer for this Domain.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--description</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--description</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>A description for this Domain.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--expire_sec</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--domain</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The domain this Domain represents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--expire_sec</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The amount of time in seconds that may pass before this Domain is no longer authoritative.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--group</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--group</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The group this Domain belongs to.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>This Domain’s unique ID.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--master_ips</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--master_ips</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>The IP addresses representing the master DNS for this Domain.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--refresh_sec</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--refresh_sec</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The amount of time in seconds before this Domain should be refreshed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--retry_sec</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--retry_sec</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The interval, in seconds, at which a failed refresh should be retried.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--soa_email</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--soa_email</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>Start of Authority email address.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--status</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--status</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>Used to control whether this Domain is currently being rendered.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>An array of tags applied to this object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--ttl_sec</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--ttl_sec</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>Whether this Domain represents the authoritative source of information for the domain it describes (<code class="code docutils literal notranslate"><span class="pre">master</span></code>), or whether it is a read-only copy of a master (<code class="code docutils literal notranslate"><span class="pre">slave</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">axfr_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The list of IPs that may perform a zone transfer for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">description</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>A description for this Domain.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">domain</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;example.org&quot;</span></code></p></td>
+<td><p>The domain this Domain represents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">expire_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds that may pass before this Domain is no longer authoritative.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">group</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The group this Domain belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">1234</span></code></p></td>
+<td><p>This Domain’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">master_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The IP addresses representing the master DNS for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">refresh_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds before this Domain should be refreshed.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">retry_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The interval, in seconds, at which a failed refresh should be retried.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">soa_email</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;admin@example.org&quot;</span></code></p></td>
+<td><p>Start of Authority email address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>Used to control whether this Domain is currently being rendered.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">ttl_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;master&quot;</span></code></p></td>
+<td><p>Whether this Domain represents the authoritative source of information for the domain it describes (<code class="code docutils literal notranslate"><span class="pre">master</span></code>), or whether it is a read-only copy of a master (<code class="code docutils literal notranslate"><span class="pre">slave</span></code>).</p></td>
 </tr>
 </tbody>
 </table>
@@ -335,30 +578,20 @@
 <section id="commands-domains-update">
 <span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-domain">update</a><a class="headerlink" href="#commands-domains-update" title="Link to this heading"></a></h2>
 <p>Update information about a Domain in Linode’s DNS Manager.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ttl_sec<span class="w"> </span>ttl_sec<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--retry_sec<span class="w"> </span>retry_sec<span class="o">]</span><span class="w"> </span><span class="o">[</span>--master_ips<span class="w"> </span>master_ips<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--description<span class="w"> </span>description<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--soa_email<span class="w"> </span>soa_email<span class="o">]</span><span class="w"> </span><span class="o">[</span>--axfr_ips<span class="w"> </span>axfr_ips<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span>tags<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--refresh_sec<span class="w"> </span>refresh_sec<span class="o">]</span><span class="w"> </span><span class="o">[</span>--expire_sec<span class="w"> </span>expire_sec<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span><span class="w"> </span><span class="o">[</span>--status<span class="w"> </span>status<span class="o">]</span><span class="w"> </span>domainId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>update<span class="w"> </span><span class="m">1234</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--retry_sec<span class="w"> </span><span class="m">7200</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--ttl_sec<span class="w"> </span><span class="m">300</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -367,20 +600,20 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">domainId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Domain to access.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -390,74 +623,163 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--axfr_ips</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--axfr_ips</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>The list of IPs that may perform a zone transfer for this Domain.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--description</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--description</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>A description for this Domain.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--domain</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The domain this Domain represents.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--expire_sec</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--expire_sec</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The amount of time in seconds that may pass before this Domain is no longer authoritative.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--group</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--group</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The group this Domain belongs to.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>This Domain’s unique ID.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--master_ips</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--master_ips</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>The IP addresses representing the master DNS for this Domain.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--refresh_sec</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--refresh_sec</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The amount of time in seconds before this Domain should be refreshed.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--retry_sec</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--retry_sec</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The interval, in seconds, at which a failed refresh should be retried.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--soa_email</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--soa_email</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>Start of Authority email address.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--status</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--status</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>Used to control whether this Domain is currently being rendered.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--tags</span></code></p></td>
-<td><p>No</p></td>
-<td><p>array[string]</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
 <td><p>An array of tags applied to this object.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ttl_sec</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--ttl_sec</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>Whether this Domain represents the authoritative source of information for the domain it describes (<code class="code docutils literal notranslate"><span class="pre">master</span></code>), or whether it is a read-only copy of a master (<code class="code docutils literal notranslate"><span class="pre">slave</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">axfr_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The list of IPs that may perform a zone transfer for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">description</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>A description for this Domain.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">domain</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;example.org&quot;</span></code></p></td>
+<td><p>The domain this Domain represents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">expire_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds that may pass before this Domain is no longer authoritative.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">group</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The group this Domain belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">1234</span></code></p></td>
+<td><p>This Domain’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">master_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The IP addresses representing the master DNS for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">refresh_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds before this Domain should be refreshed.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">retry_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The interval, in seconds, at which a failed refresh should be retried.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">soa_email</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;admin@example.org&quot;</span></code></p></td>
+<td><p>Start of Authority email address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>Used to control whether this Domain is currently being rendered.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">ttl_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;master&quot;</span></code></p></td>
 <td><p>Whether this Domain represents the authoritative source of information for the domain it describes (<code class="code docutils literal notranslate"><span class="pre">master</span></code>), or whether it is a read-only copy of a master (<code class="code docutils literal notranslate"><span class="pre">slave</span></code>).</p></td>
 </tr>
 </tbody>
@@ -467,23 +789,18 @@
 <section id="commands-domains-delete">
 <span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-domain">delete</a><a class="headerlink" href="#commands-domains-delete" title="Link to this heading"></a></h2>
 <p>Deletes a Domain from Linode’s DNS Manager.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>domainId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>delete<span class="w"> </span><span class="m">1234</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -492,8 +809,8 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">domainId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Domain to access.</p></td>
 </tr>
 </tbody>
@@ -503,23 +820,18 @@
 <section id="commands-domains-clone">
 <span id="id6"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-clone-domain">clone</a><a class="headerlink" href="#commands-domains-clone" title="Link to this heading"></a></h2>
 <p>Clones a Domain and all associated DNS records from a Domain that is registered in Linode’s DNS manager.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>clone<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span><span class="w"> </span>domainId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>clone<span class="w"> </span><span class="m">123</span><span class="w"> </span>--domain<span class="w"> </span>example.com
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -528,20 +840,20 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">domainId</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>ID of the Domain to clone.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -551,10 +863,99 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--domain</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The new domain for the clone.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">axfr_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The list of IPs that may perform a zone transfer for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">description</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>A description for this Domain.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">domain</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;example.org&quot;</span></code></p></td>
+<td><p>The domain this Domain represents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">expire_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds that may pass before this Domain is no longer authoritative.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">group</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The group this Domain belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">1234</span></code></p></td>
+<td><p>This Domain’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">master_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The IP addresses representing the master DNS for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">refresh_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds before this Domain should be refreshed.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">retry_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The interval, in seconds, at which a failed refresh should be retried.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">soa_email</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;admin@example.org&quot;</span></code></p></td>
+<td><p>Start of Authority email address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>Used to control whether this Domain is currently being rendered.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">ttl_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;master&quot;</span></code></p></td>
+<td><p>Whether this Domain represents the authoritative source of information for the domain it describes (<code class="code docutils literal notranslate"><span class="pre">master</span></code>), or whether it is a read-only copy of a master (<code class="code docutils literal notranslate"><span class="pre">slave</span></code>).</p></td>
 </tr>
 </tbody>
 </table>
@@ -563,25 +964,19 @@
 <section id="commands-domains-import">
 <span id="id7"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-import-domain">import</a><a class="headerlink" href="#commands-domains-import" title="Link to this heading"></a></h2>
 <p>Imports a domain zone from a remote nameserver.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>import<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--domain<span class="w"> </span>domain<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--remote_nameserver<span class="w"> </span>remote_nameserver<span class="o">]</span>
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>import<span class="w"> </span>--domain<span class="w"> </span>example.com<span class="w"> </span>--remote_nameserver<span class="w"> </span>examplenameserver.com
 </pre></div>
 </div>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -591,15 +986,104 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--domain</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--domain</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The domain to import.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--remote_nameserver</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--remote_nameserver</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The remote nameserver that allows zone transfers (AXFR).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">axfr_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The list of IPs that may perform a zone transfer for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">description</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>A description for this Domain.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">domain</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;example.org&quot;</span></code></p></td>
+<td><p>The domain this Domain represents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">expire_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds that may pass before this Domain is no longer authoritative.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">group</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The group this Domain belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">1234</span></code></p></td>
+<td><p>This Domain’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">master_ips</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p>?</p></td>
+<td><p>The IP addresses representing the master DNS for this Domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">refresh_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The amount of time in seconds before this Domain should be refreshed.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">retry_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>The interval, in seconds, at which a failed refresh should be retried.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">soa_email</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;admin@example.org&quot;</span></code></p></td>
+<td><p>Start of Authority email address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;active&quot;</span></code></p></td>
+<td><p>Used to control whether this Domain is currently being rendered.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;example tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;another example&quot;</span><span class="p">]</span></code></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">ttl_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">300</span></code></p></td>
+<td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;master&quot;</span></code></p></td>
+<td><p>Whether this Domain represents the authoritative source of information for the domain it describes (<code class="code docutils literal notranslate"><span class="pre">master</span></code>), or whether it is a read-only copy of a master (<code class="code docutils literal notranslate"><span class="pre">slave</span></code>).</p></td>
 </tr>
 </tbody>
 </table>
@@ -608,26 +1092,18 @@
 <section id="commands-domains-records-list">
 <span id="id8"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain-records">records-list</a><a class="headerlink" href="#commands-domains-records-list" title="Link to this heading"></a></h2>
 <p>Returns a paginated list of Records configured on a Domain in Linode’s DNS Manager.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tag<span class="w"> </span>tag<span class="o">]</span><span class="w"> </span><span class="o">[</span>--name<span class="w"> </span>name<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--target<span class="w"> </span>target<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>tag,name,target,type<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
-<span class="w">    </span>domainId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-list<span class="w"> </span><span class="m">1234</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -636,19 +1112,19 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">domainId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Domain we are accessing Records for.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="action-subheading rubric">Filterable Attributes</p>
+<p class="action-subheading">Filterable Attributes</p>
 <p class="action-subheading-description">Arguments used to define a filter for response entries.</p>
 <table class="action-filterable-field-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -657,21 +1133,105 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--name</span></code></p></td>
-<td><p><em>string</em></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--name</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The name of this Record.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--tag</span></code></p></td>
-<td><p><em>string</em></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tag</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The tag portion of a CAA record.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--target</span></code></p></td>
-<td><p><em>string</em></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--target</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The target for this Record.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
-<td><p><em>string</em></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The type of Record this is in the DNS system.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Domain Record was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">123456</span></code></p></td>
+<td><p>This Record’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">name</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;test&quot;</span></code></p></td>
+<td><p>The name of this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">port</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">80</span></code></p></td>
+<td><p>The port this Record points to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">priority</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">50</span></code></p></td>
+<td><p>The priority of the target host for this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">protocol</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The protocol this Record’s service communicates with.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">service</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The name of the service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tag</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The tag portion of a CAA record.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">target</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;192.0.2.0&quot;</span></code></p></td>
+<td><p>The target for this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">ttl_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">604800</span></code></p></td>
+<td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;A&quot;</span></code></p></td>
+<td><p>The type of Record this is in the DNS system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Domain Record was last updated.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">weight</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">50</span></code></p></td>
+<td><p>The relative weight of this Record used in the case of identical priority.</p></td>
 </tr>
 </tbody>
 </table>
@@ -680,26 +1240,18 @@
 <section id="commands-domains-records-view">
 <span id="id9"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain-record">records-view</a><a class="headerlink" href="#commands-domains-records-view" title="Link to this heading"></a></h2>
 <p>View a single Record on this Domain.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--target<span class="w"> </span>target<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--tag<span class="w"> </span>tag<span class="o">]</span><span class="w"> </span><span class="o">[</span>--name<span class="w"> </span>name<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>target,tag,name,type<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
-<span class="w">    </span>domainId<span class="w"> </span>recordId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-view<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">234</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -708,13 +1260,97 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">domainId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Domain whose Record you are accessing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">recordId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">recordId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Record you are accessing.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Domain Record was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">123456</span></code></p></td>
+<td><p>This Record’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">name</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;test&quot;</span></code></p></td>
+<td><p>The name of this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">port</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">80</span></code></p></td>
+<td><p>The port this Record points to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">priority</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">50</span></code></p></td>
+<td><p>The priority of the target host for this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">protocol</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The protocol this Record’s service communicates with.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">service</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The name of the service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tag</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The tag portion of a CAA record.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">target</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;192.0.2.0&quot;</span></code></p></td>
+<td><p>The target for this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">ttl_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">604800</span></code></p></td>
+<td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;A&quot;</span></code></p></td>
+<td><p>The type of Record this is in the DNS system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Domain Record was last updated.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">weight</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">50</span></code></p></td>
+<td><p>The relative weight of this Record used in the case of identical priority.</p></td>
 </tr>
 </tbody>
 </table>
@@ -723,15 +1359,7 @@
 <section id="commands-domains-records-create">
 <span id="id10"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-domain-record">records-create</a><a class="headerlink" href="#commands-domains-records-create" title="Link to this heading"></a></h2>
 <p>Adds a new Domain Record to the zonefile this Domain represents.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--weight<span class="w"> </span>weight<span class="o">]</span><span class="w"> </span><span class="o">[</span>--service<span class="w"> </span>service<span class="o">]</span><span class="w"> </span><span class="o">[</span>--priority<span class="w"> </span>priority<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--ttl_sec<span class="w"> </span>ttl_sec<span class="o">]</span><span class="w"> </span><span class="o">[</span>--port<span class="w"> </span>port<span class="o">]</span><span class="w"> </span><span class="o">[</span>--protocol<span class="w"> </span>protocol<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--tag<span class="w"> </span>tag<span class="o">]</span><span class="w"> </span><span class="o">[</span>--name<span class="w"> </span>name<span class="o">]</span><span class="w"> </span><span class="o">[</span>--target<span class="w"> </span>target<span class="o">]</span><span class="w"> </span>domainId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-create<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--type<span class="w"> </span>A<span class="w"> </span><span class="se">\</span>
@@ -743,13 +1371,13 @@
 <span class="w">    </span>--ttl_sec<span class="w"> </span><span class="m">604800</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -758,20 +1386,20 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">domainId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Domain we are accessing Records for.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -781,69 +1409,153 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--type</span></code></p></td>
-<td><p><span class="action-argument-required">Yes</span></p></td>
-<td><p>string</p></td>
-<td><p>The type of Record this is in the DNS system.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--created</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--created</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>When this Domain Record was created.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--id</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--id</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>This Record’s unique ID.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--name</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--name</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The name of this Record.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--port</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--port</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The port this Record points to.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--priority</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--priority</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The priority of the target host for this Record.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--protocol</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--protocol</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The protocol this Record’s service communicates with.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--service</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--service</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The name of the service.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--tag</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tag</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The tag portion of a CAA record.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--target</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--target</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The target for this Record.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--ttl_sec</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--ttl_sec</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--updated</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--type</span></p></td>
+<td><p><span class="action-table-field-required">Yes</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>The type of Record this is in the DNS system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--updated</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>When this Domain Record was last updated.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--weight</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--weight</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p>The relative weight of this Record used in the case of identical priority.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Domain Record was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">123456</span></code></p></td>
+<td><p>This Record’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">name</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;test&quot;</span></code></p></td>
+<td><p>The name of this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">port</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">80</span></code></p></td>
+<td><p>The port this Record points to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">priority</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">50</span></code></p></td>
+<td><p>The priority of the target host for this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">protocol</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The protocol this Record’s service communicates with.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">service</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The name of the service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tag</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The tag portion of a CAA record.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">target</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;192.0.2.0&quot;</span></code></p></td>
+<td><p>The target for this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">ttl_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">604800</span></code></p></td>
+<td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;A&quot;</span></code></p></td>
+<td><p>The type of Record this is in the DNS system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Domain Record was last updated.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">weight</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">50</span></code></p></td>
 <td><p>The relative weight of this Record used in the case of identical priority.</p></td>
 </tr>
 </tbody>
@@ -853,15 +1565,7 @@
 <section id="commands-domains-records-update">
 <span id="id11"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-domain-record">records-update</a><a class="headerlink" href="#commands-domains-records-update" title="Link to this heading"></a></h2>
 <p>Updates a single Record on this Domain.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ttl_sec<span class="w"> </span>ttl_sec<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--priority<span class="w"> </span>priority<span class="o">]</span><span class="w"> </span><span class="o">[</span>--service<span class="w"> </span>service<span class="o">]</span><span class="w"> </span><span class="o">[</span>--port<span class="w"> </span>port<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--name<span class="w"> </span>name<span class="o">]</span><span class="w"> </span><span class="o">[</span>--weight<span class="w"> </span>weight<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tag<span class="w"> </span>tag<span class="o">]</span>
-<span class="w">    </span><span class="o">[</span>--protocol<span class="w"> </span>protocol<span class="o">]</span><span class="w"> </span><span class="o">[</span>--target<span class="w"> </span>target<span class="o">]</span><span class="w"> </span>domainId<span class="w"> </span>recordId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-update<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">234</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--name<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="se">\</span>
@@ -872,13 +1576,13 @@
 <span class="w">    </span>--ttl_sec<span class="w"> </span><span class="m">604800</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -887,24 +1591,24 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">domainId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Domain whose Record you are accessing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">recordId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">recordId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Record you are accessing.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="action-subheading rubric">Arguments</p>
+<p class="action-subheading">Arguments</p>
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 1.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 79.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -914,49 +1618,133 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--name</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--name</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The name of this Record.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--port</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--port</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The port this Record points to.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--priority</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--priority</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The priority of the target host for this Record.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--protocol</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--protocol</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The protocol this Record’s service communicates with.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--service</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--service</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The name of the service.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--tag</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tag</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The tag portion of a CAA record.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--target</span></code></p></td>
-<td><p>No</p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--target</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>The target for this Record.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">--ttl_sec</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--ttl_sec</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">--weight</span></code></p></td>
-<td><p>No</p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--weight</span></p></td>
+<td><p><span class="action-table-field-optional">No</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p>The relative weight of this Record used in the case of identical priority.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Domain Record was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">123456</span></code></p></td>
+<td><p>This Record’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">name</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;test&quot;</span></code></p></td>
+<td><p>The name of this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">port</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">80</span></code></p></td>
+<td><p>The port this Record points to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">priority</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">50</span></code></p></td>
+<td><p>The priority of the target host for this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">protocol</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The protocol this Record’s service communicates with.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">service</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The name of the service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tag</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p>?</p></td>
+<td><p>The tag portion of a CAA record.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">target</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;192.0.2.0&quot;</span></code></p></td>
+<td><p>The target for this Record.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">ttl_sec</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">604800</span></code></p></td>
+<td><p>“Time to Live” - the amount of time in seconds that this Domain’s records may be cached by resolvers or other domain servers.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;A&quot;</span></code></p></td>
+<td><p>The type of Record this is in the DNS system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="s2">&quot;2018-01-01T00:01:01&quot;</span></code></p></td>
+<td><p>When this Domain Record was last updated.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">weight</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="mi">50</span></code></p></td>
 <td><p>The relative weight of this Record used in the case of identical priority.</p></td>
 </tr>
 </tbody>
@@ -966,23 +1754,18 @@
 <section id="commands-domains-records-delete">
 <span id="id12"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-domain-record">records-delete</a><a class="headerlink" href="#commands-domains-records-delete" title="Link to this heading"></a></h2>
 <p>Deletes a Record on this Domain.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>domainId<span class="w"> </span>recordId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>records-delete<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">234</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -991,12 +1774,12 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">domainId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Domain whose Record you are accessing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">recordId</span></code></p></td>
-<td><p>integer</p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">recordId</span></p></td>
+<td><p><span class="action-table-field-type">integer</span></p></td>
 <td><p>The ID of the Record you are accessing.</p></td>
 </tr>
 </tbody>
@@ -1005,24 +1788,18 @@
 <section id="commands-domains-zone-file">
 <span id="id13"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-domain-zone">zone-file</a><a class="headerlink" href="#commands-domains-zone-file" title="Link to this heading"></a></h2>
 <p>Returns the zone file for the last rendered zone for the specified domain.</p>
-<p class="action-subheading rubric">Usage</p>
-<p class="action-subheading-description">The format accepted by this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>zone-file<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
-<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>domainId
-</pre></div>
-</div>
-<p class="action-subheading rubric">Sample</p>
+<p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>domains<span class="w"> </span>zone-file<span class="w"> </span><span class="m">123</span>
 </pre></div>
 </div>
-<p class="action-subheading rubric">Parameters</p>
+<p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-<col style="width: 75.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -1031,9 +1808,33 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">domainId</span></code></p></td>
-<td><p>string</p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">domainId</span></p></td>
+<td><p><span class="action-table-field-type">string</span></p></td>
 <td><p>ID of the Domain.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-table action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">zone_file</span></p></td>
+<td><p><span class="action-table-field-type">array[string]</span></p></td>
+<td><p><code class="code highlight json JSON docutils literal highlight-JSON"><span class="p">[</span><span class="s2">&quot;; example.com [123]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;$TTL 864000&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@  IN  SOA  ns1.linode.com. user.example.com. 2021000066 14400 14400 1209600 86400&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@    NS  ns1.linode.com.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@    NS  ns2.linode.com.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@    NS  ns3.linode.com.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@    NS  ns4.linode.com.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@    NS  ns5.linode.com.&quot;</span><span class="p">]</span></code></p></td>
+<td><p>The lines of the zone file for the last rendered zone for this domain.</p></td>
 </tr>
 </tbody>
 </table>

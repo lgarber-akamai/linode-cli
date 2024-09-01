@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Payment Methods
 ===============
@@ -13,34 +19,62 @@ This section details Payment Method-related Linode CLI commands.
 
 Returns a paginated list of Payment Methods for this Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli payment-methods list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli payment-methods list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-15T00:01:01"`
+      - When the Payment Method was added to the Account.
+    * - :action-table-field-name:`data`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The unique ID of this Payment Method.
+    * - :action-table-field-name:`is_default`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether this Payment Method is the default method for automatically processing service charges.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"credit_card"`
+      - The type of Payment Method.
 
 
 ------------
@@ -53,28 +87,13 @@ Returns a paginated list of Payment Methods for this Account.
 
 View the details of the specified Payment Method.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli payment-methods view [-h] [--order-by {}]
-    	[--order {asc,desc}] paymentMethodId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -82,13 +101,13 @@ View the details of the specified Payment Method.
     linode-cli payment-methods view 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -96,15 +115,58 @@ View the details of the specified Payment Method.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`paymentMethodId`
-      - integer
+    * - :action-table-field-name:`paymentMethodId`
+      - :action-table-field-type:`integer`
       - The ID of the Payment Method to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-15T00:01:01"`
+      - When the Payment Method was added to the Account.
+    * - :action-table-field-name:`data`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The unique ID of this Payment Method.
+    * - :action-table-field-name:`is_default`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether this Payment Method is the default method for automatically processing service charges.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"credit_card"`
+      - The type of Payment Method.
 
 
 ------------
@@ -117,30 +179,13 @@ View the details of the specified Payment Method.
 
 Adds a Payment Method to your Account with the option to set it as the default method.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli payment-methods add [-h] [--is_default is_default]
-    	[--data.expiry_year expiry_year] [--data.cvv cvv]
-    	[--data.card_number card_number]
-    	[--data.expiry_month expiry_month] [--type type]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -154,50 +199,49 @@ Adds a Payment Method to your Account with the option to set it as the default m
     	--data.cvv 111
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--data.card_number`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-data.card_number`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - Your credit card number.
-    * - :code:`--data.cvv`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-data.cvv`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - CVV (Card Verification Value) of the credit card, typically found on the back of the card.
-    * - :code:`--data.expiry_month`
-      - :action-argument-required:`Yes`
-      - integer
+    * - :action-table-field-name:`\-\-data.expiry_month`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
       - A value from 1-12 representing the expiration month of your credit card.
-    * - :code:`--data.expiry_year`
-      - :action-argument-required:`Yes`
-      - integer
+    * - :action-table-field-name:`\-\-data.expiry_year`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
       - A four-digit integer representing the expiration year of your credit card.
-    * - :code:`--is_default`
-      - :action-argument-required:`Yes`
-      - boolean
+    * - :action-table-field-name:`\-\-is_default`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`boolean`
       - Whether this Payment Method is the default method for automatically processing service charges.
-    * - :code:`--type`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The type of Payment Method.
 
 
@@ -211,27 +255,13 @@ Adds a Payment Method to your Account with the option to set it as the default m
 
 Deactivate the specified Payment Method.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli payment-methods delete [-h] paymentMethodId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -239,13 +269,13 @@ Deactivate the specified Payment Method.
     linode-cli payment-methods delete 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -253,14 +283,14 @@ Deactivate the specified Payment Method.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`paymentMethodId`
-      - integer
+    * - :action-table-field-name:`paymentMethodId`
+      - :action-table-field-type:`integer`
       - The ID of the Payment Method to look up.
 
 
@@ -273,27 +303,13 @@ Deactivate the specified Payment Method.
 
 Make the specified Payment Method the default method for automatically processing payments.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli payment-methods default [-h] paymentMethodId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -301,13 +317,13 @@ Make the specified Payment Method the default method for automatically processin
     linode-cli payment-methods default 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -315,14 +331,14 @@ Make the specified Payment Method the default method for automatically processin
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`paymentMethodId`
-      - integer
+    * - :action-table-field-name:`paymentMethodId`
+      - :action-table-field-type:`integer`
       - The ID of the Payment Method to make default.
 
 

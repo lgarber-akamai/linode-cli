@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Child Account
 =============
@@ -13,33 +19,13 @@ This section details Child Account-related Linode CLI commands.
 
 Returns a paginated list of basic information for the child accounts that exist for your parent account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli child-account list [-h] [--zip zip]
-    	[--address_2 address_2] [--first_name first_name]
-    	[--city city] [--state state] [--address_1 address_1]
-    	[--country country] [--last_name last_name] [--email email]
-    	[--phone phone] [--company company]
-    	[--order-by {zip,address_2,first_name,city,state,address_1,country,last_name,email,phone,company}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -47,60 +33,179 @@ Returns a paginated list of basic information for the child accounts that exist 
     linode-cli child-account list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--address_1`
-      - *string*
+    * - :action-table-field-name:`\-\-address_1`
+      - :action-table-field-type:`string`
       - First line of this child account's billing address.
-    * - :code:`--address_2`
-      - *string*
+    * - :action-table-field-name:`\-\-address_2`
+      - :action-table-field-type:`string`
       - Second line of this child account's billing address, if applicable.
-    * - :code:`--city`
-      - *string*
+    * - :action-table-field-name:`\-\-city`
+      - :action-table-field-type:`string`
       - The city for this child account's billing address.
-    * - :code:`--company`
-      - *string*
+    * - :action-table-field-name:`\-\-company`
+      - :action-table-field-type:`string`
       - The company name for the owner of this child account.
-    * - :code:`--country`
-      - *string*
+    * - :action-table-field-name:`\-\-country`
+      - :action-table-field-type:`string`
       - The two-letter ISO 3166 country code for this child account's billing address.
-    * - :code:`--email`
-      - *string*
+    * - :action-table-field-name:`\-\-email`
+      - :action-table-field-type:`string`
       - The email address of the owner of this child account.
-    * - :code:`--first_name`
-      - *string*
+    * - :action-table-field-name:`\-\-first_name`
+      - :action-table-field-type:`string`
       - The first name of the owner of this child account.
-    * - :code:`--last_name`
-      - *string*
+    * - :action-table-field-name:`\-\-last_name`
+      - :action-table-field-type:`string`
       - The last name of the owner of this child account.
-    * - :code:`--phone`
-      - *string*
+    * - :action-table-field-name:`\-\-phone`
+      - :action-table-field-type:`string`
       - The phone number for the owner of this child account.
-    * - :code:`--state`
-      - *string*
+    * - :action-table-field-name:`\-\-state`
+      - :action-table-field-type:`string`
       - The state or province for the billing address (:code:`address_1` and `address_2, if applicable`).
-    * - :code:`--zip`
-      - *string*
+    * - :action-table-field-name:`\-\-zip`
+      - :action-table-field-type:`string`
       - The zip code of this Account's billing address.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`active_since`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The activation date and time for the child account.
+    * - :action-table-field-name:`address_1`
+      - :action-table-field-type:`string`
+      - :json:`"123 Main Street"`
+      - First line of this child account's billing address.
+    * - :action-table-field-name:`address_2`
+      - :action-table-field-type:`string`
+      - :json:`"Suite A"`
+      - Second line of this child account's billing address, if applicable.
+    * - :action-table-field-name:`balance`
+      - :action-table-field-type:`number`
+      - :json:`200`
+      - This child account's balance, in US dollars.
+    * - :action-table-field-name:`balance_uninvoiced`
+      - :action-table-field-type:`number`
+      - :json:`145`
+      - This child account's current estimated invoice in US dollars.
+    * - :action-table-field-name:`billing_source`
+      - :action-table-field-type:`string`
+      - :json:`"external"`
+      - The source of service charges for this account, as determined by its relationship with Akamai.
+    * - :action-table-field-name:`capabilities`
+      - :action-table-field-type:`array[string]`
+      - :json:`["Linodes", "NodeBalancers", "Block Storage", "Object Storage"]`
+      - A list of the capabilities the child account supports.
+    * - :action-table-field-name:`city`
+      - :action-table-field-type:`string`
+      - :json:`"San Diego"`
+      - The city for this child account's billing address.
+    * - :action-table-field-name:`company`
+      - :action-table-field-type:`string`
+      - :json:`"Acme"`
+      - The company name for the owner of this child account.
+    * - :action-table-field-name:`country`
+      - :action-table-field-type:`string`
+      - :json:`"US"`
+      - The two-letter ISO 3166 country code for this child account's billing address.
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"john.smith@linode.com"`
+      - The email address of the owner of this child account.
+    * - :action-table-field-name:`euuid`
+      - :action-table-field-type:`string`
+      - :json:`"A1BC2DEF-34GH-567I-J890KLMN12O34P56"`
+      - An external, unique identifier that Akamai assigned to the child account.
+    * - :action-table-field-name:`first_name`
+      - :action-table-field-type:`string`
+      - :json:`"John"`
+      - The first name of the owner of this child account.
+    * - :action-table-field-name:`last_name`
+      - :action-table-field-type:`string`
+      - :json:`"Smith"`
+      - The last name of the owner of this child account.
+    * - :action-table-field-name:`phone`
+      - :action-table-field-type:`string`
+      - :json:`"858-555-1212"`
+      - The phone number for the owner of this child account.
+    * - :action-table-field-name:`state`
+      - :action-table-field-type:`string`
+      - :json:`"CA"`
+      - The state or province for the billing address (:code:`address_1` and `address_2, if applicable`).
+    * - :action-table-field-name:`tax_id`
+      - :action-table-field-type:`string`
+      - :json:`"ATU99999999"`
+      - The tax identification number for this child account.
+    * - :action-table-field-name:`zip`
+      - :action-table-field-type:`string`
+      - :json:`"92111-1234"`
+      - The zip code of this Account's billing address.
+.. _commands_child-account_list_attribute_sections_credit_card:
+
+.. rst-class:: action-section-header
+
+credit_card
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`credit_card.expiry`
+      - :action-table-field-type:`string`
+      - :json:`"11/2024"`
+      - The expiration month and year of the credit card.
+    * - :action-table-field-name:`credit_card.last_four`
+      - :action-table-field-type:`string`
+      - :json:`1111`
+      - The last four digits of the credit card.
 
 
 ------------
@@ -113,33 +218,13 @@ Returns a paginated list of basic information for the child accounts that exist 
 
 View a specific child account based on its :code:`euuid`.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli child-account view [-h] [--phone phone]
-    	[--company company] [--email email] [--last_name last_name]
-    	[--country country] [--address_1 address_1] [--city city]
-    	[--state state] [--first_name first_name]
-    	[--address_2 address_2] [--zip zip]
-    	[--order-by {phone,company,email,last_name,country,address_1,city,state,first_name,address_2,zip}]
-    	[--order {asc,desc}] euuid
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -147,13 +232,13 @@ View a specific child account based on its :code:`euuid`.
     linode-cli child-account view A1BC2DEF-34GH-567I-J890KLMN12O34P56
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -161,15 +246,136 @@ View a specific child account based on its :code:`euuid`.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`euuid`
-      - string
+    * - :action-table-field-name:`euuid`
+      - :action-table-field-type:`string`
       - The child account to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`active_since`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The activation date and time for the child account.
+    * - :action-table-field-name:`address_1`
+      - :action-table-field-type:`string`
+      - :json:`"123 Main Street"`
+      - First line of this child account's billing address.
+    * - :action-table-field-name:`address_2`
+      - :action-table-field-type:`string`
+      - :json:`"Suite A"`
+      - Second line of this child account's billing address, if applicable.
+    * - :action-table-field-name:`balance`
+      - :action-table-field-type:`number`
+      - :json:`200`
+      - This child account's balance, in US dollars.
+    * - :action-table-field-name:`balance_uninvoiced`
+      - :action-table-field-type:`number`
+      - :json:`145`
+      - This child account's current estimated invoice in US dollars.
+    * - :action-table-field-name:`billing_source`
+      - :action-table-field-type:`string`
+      - :json:`"external"`
+      - The source of service charges for this account, as determined by its relationship with Akamai.
+    * - :action-table-field-name:`capabilities`
+      - :action-table-field-type:`array[string]`
+      - :json:`["Linodes", "NodeBalancers", "Block Storage", "Object Storage"]`
+      - A list of the capabilities the child account supports.
+    * - :action-table-field-name:`city`
+      - :action-table-field-type:`string`
+      - :json:`"San Diego"`
+      - The city for this child account's billing address.
+    * - :action-table-field-name:`company`
+      - :action-table-field-type:`string`
+      - :json:`"Acme"`
+      - The company name for the owner of this child account.
+    * - :action-table-field-name:`country`
+      - :action-table-field-type:`string`
+      - :json:`"US"`
+      - The two-letter ISO 3166 country code for this child account's billing address.
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"john.smith@linode.com"`
+      - The email address of the owner of this child account.
+    * - :action-table-field-name:`euuid`
+      - :action-table-field-type:`string`
+      - :json:`"A1BC2DEF-34GH-567I-J890KLMN12O34P56"`
+      - An external, unique identifier that Akamai assigned to the child account.
+    * - :action-table-field-name:`first_name`
+      - :action-table-field-type:`string`
+      - :json:`"John"`
+      - The first name of the owner of this child account.
+    * - :action-table-field-name:`last_name`
+      - :action-table-field-type:`string`
+      - :json:`"Smith"`
+      - The last name of the owner of this child account.
+    * - :action-table-field-name:`phone`
+      - :action-table-field-type:`string`
+      - :json:`"858-555-1212"`
+      - The phone number for the owner of this child account.
+    * - :action-table-field-name:`state`
+      - :action-table-field-type:`string`
+      - :json:`"CA"`
+      - The state or province for the billing address (:code:`address_1` and `address_2, if applicable`).
+    * - :action-table-field-name:`tax_id`
+      - :action-table-field-type:`string`
+      - :json:`"ATU99999999"`
+      - The tax identification number for this child account.
+    * - :action-table-field-name:`zip`
+      - :action-table-field-type:`string`
+      - :json:`"92111-1234"`
+      - The zip code of this Account's billing address.
+.. _commands_child-account_view_attribute_sections_credit_card:
+
+.. rst-class:: action-section-header
+
+credit_card
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`credit_card.expiry`
+      - :action-table-field-type:`string`
+      - :json:`"11/2024"`
+      - The expiration month and year of the credit card.
+    * - :action-table-field-name:`credit_card.last_four`
+      - :action-table-field-type:`string`
+      - :json:`1111`
+      - The last four digits of the credit card.
 
 
 
@@ -181,27 +387,13 @@ View a specific child account based on its :code:`euuid`.
 
 Create a short-lived bearer token for a parent user on a child account, using the :code:`euuid` of that child account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli child-account create [-h] euuid
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -209,13 +401,13 @@ Create a short-lived bearer token for a parent user on a child account, using th
     linode-cli child-account create A1BC2DEF-34GH-567I-J890KLMN12O34P56
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -223,15 +415,62 @@ Create a short-lived bearer token for a parent user on a child account, using th
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`euuid`
-      - string
+    * - :action-table-field-name:`euuid`
+      - :action-table-field-type:`string`
       - The child account to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2024-05-01T00:01:01"`
+      - The date and time this token was created.
+    * - :action-table-field-name:`expiry`
+      - :action-table-field-type:`string`
+      - :json:`"2024-05-01T00:16:01"`
+      - When this token expires.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`918`
+      - The proxy user token's unique ID, which can be used to revoke it.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"parent1_1234_2024-05-01T00:01:01"`
+      - The name of the token.
+    * - :action-table-field-name:`scopes`
+      - :action-table-field-type:`string`
+      - :json:`"*"`
+      - The scopes this token was created with.
+    * - :action-table-field-name:`token`
+      - :action-table-field-type:`string`
+      - :json:`"abcdefghijklmnop"`
+      - The proxy user token that can be used to access the API and CLI.
 
 
 

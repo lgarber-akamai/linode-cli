@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 SSH Keys
 ========
@@ -13,33 +19,58 @@ This section details SSH Key-related Linode CLI commands.
 
 Returns a collection of SSH Keys you've added to your Profile.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli sshkeys list [-h] [--order-by {}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli sshkeys list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date this key was added.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`42`
+      - The unique identifier of an SSH Key object.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"My SSH Key"`
+      - A label for the SSH Key.
+    * - :action-table-field-name:`ssh_key`
+      - :action-table-field-type:`string`
+      - :json:`"ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer"`
+      - The public SSH Key, which is used to authenticate to the root user of the Linodes you deploy.
 
 
 ------------
@@ -52,28 +83,13 @@ Returns a collection of SSH Keys you've added to your Profile.
 
 Returns a single SSH Key object identified by :code:`id` that you have access to view.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli sshkeys view [-h] [--order-by {}] [--order {asc,desc}]
-    	sshKeyId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -81,13 +97,13 @@ Returns a single SSH Key object identified by :code:`id` that you have access to
     linode-cli sshkeys view 42
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -95,15 +111,54 @@ Returns a single SSH Key object identified by :code:`id` that you have access to
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`sshKeyId`
-      - integer
+    * - :action-table-field-name:`sshKeyId`
+      - :action-table-field-type:`integer`
       - The ID of the SSHKey.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date this key was added.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`42`
+      - The unique identifier of an SSH Key object.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"My SSH Key"`
+      - A label for the SSH Key.
+    * - :action-table-field-name:`ssh_key`
+      - :action-table-field-type:`string`
+      - :json:`"ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer"`
+      - The public SSH Key, which is used to authenticate to the root user of the Linodes you deploy.
 
 
 ------------
@@ -116,28 +171,13 @@ Returns a single SSH Key object identified by :code:`id` that you have access to
 
 Adds an SSH Key to your Account profile.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli sshkeys create [-h] [--label label]
-    	[--ssh_key ssh_key]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -147,42 +187,80 @@ Adds an SSH Key to your Account profile.
     	--ssh_key "ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer"
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--created`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The date this key was added.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The unique identifier of an SSH Key object.
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - A label for the SSH Key.
-    * - :code:`--ssh_key`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-ssh_key`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
+      - The public SSH Key, which is used to authenticate to the root user of the Linodes you deploy.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date this key was added.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`42`
+      - The unique identifier of an SSH Key object.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"My SSH Key"`
+      - A label for the SSH Key.
+    * - :action-table-field-name:`ssh_key`
+      - :action-table-field-type:`string`
+      - :json:`"ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer"`
       - The public SSH Key, which is used to authenticate to the root user of the Linodes you deploy.
 
 
@@ -196,27 +274,13 @@ Adds an SSH Key to your Account profile.
 
 Updates an SSH Key that you have permission to :code:`read_write`.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli sshkeys update [-h] [--label label] sshKeyId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -225,13 +289,13 @@ Updates an SSH Key that you have permission to :code:`read_write`.
     	--label "my laptop"
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -239,41 +303,79 @@ Updates an SSH Key that you have permission to :code:`read_write`.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`sshKeyId`
-      - integer
+    * - :action-table-field-name:`sshKeyId`
+      - :action-table-field-type:`integer`
       - The ID of the SSHKey.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - A label for the SSH Key.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date this key was added.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`42`
+      - The unique identifier of an SSH Key object.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"My SSH Key"`
+      - A label for the SSH Key.
+    * - :action-table-field-name:`ssh_key`
+      - :action-table-field-type:`string`
+      - :json:`"ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer"`
+      - The public SSH Key, which is used to authenticate to the root user of the Linodes you deploy.
 
 
 
@@ -285,27 +387,13 @@ Updates an SSH Key that you have permission to :code:`read_write`.
 
 Deletes an SSH Key you have access to.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli sshkeys delete [-h] sshKeyId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -313,13 +401,13 @@ Deletes an SSH Key you have access to.
     linode-cli sshkeys delete 42
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -327,14 +415,14 @@ Deletes an SSH Key you have access to.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`sshKeyId`
-      - integer
+    * - :action-table-field-name:`sshKeyId`
+      - :action-table-field-type:`integer`
       - The ID of the SSHKey.
 
 

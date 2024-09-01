@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Object Storage
 ==============
@@ -13,27 +19,13 @@ This section details Object Storage-related Linode CLI commands.
 
 Cancel Object Storage on an Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage cancel [-h]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -54,34 +46,62 @@ Cancel Object Storage on an Account.
 
 Returns a paginated list of available Object Storage legacy clusters.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage clusters-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli object-storage clusters-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`domain`
+      - :action-table-field-type:`string`
+      - :json:`"us-east-1.linodeobjects.com"`
+      - The base URL for this cluster, used for connecting with third-party clients.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"us-east-1"`
+      - The unique ID for this cluster.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The region where this cluster is located.
+    * - :action-table-field-name:`static_site_domain`
+      - :action-table-field-type:`string`
+      - :json:`"website-us-east-1.linodeobjects.com"`
+      - The base URL for this cluster used when hosting static sites.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"available"`
+      - This cluster's status.
 
 
 ------------
@@ -96,28 +116,13 @@ Returns a paginated list of available Object Storage legacy clusters.
 
 Returns a single Object Storage cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage clusters-view [-h] [--order-by {}]
-    	[--order {asc,desc}] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -125,13 +130,13 @@ Returns a single Object Storage cluster.
     linode-cli object-storage clusters-view us-east-1
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -139,15 +144,58 @@ Returns a single Object Storage cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - string
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`string`
       - Identifies a cluster where this bucket lives.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`domain`
+      - :action-table-field-type:`string`
+      - :json:`"us-east-1.linodeobjects.com"`
+      - The base URL for this cluster, used for connecting with third-party clients.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"us-east-1"`
+      - The unique ID for this cluster.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The region where this cluster is located.
+    * - :action-table-field-name:`static_site_domain`
+      - :action-table-field-type:`string`
+      - :json:`"website-us-east-1.linodeobjects.com"`
+      - The base URL for this cluster used when hosting static sites.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"available"`
+      - This cluster's status.
 
 
 ------------
@@ -160,34 +208,122 @@ Returns a single Object Storage cluster.
 
 Returns a paginated list of Object Storage keys for authenticating to the Object Storage S3 API.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage keys-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli object-storage keys-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`access_key`
+      - :action-table-field-type:`string`
+      - :json:`"KVAKUTGBA4WTR2NSJQ81"`
+      - A unique string chosen by the API to identify this key.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - This Object Storage key's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"my-key"`
+      - The label given to this key.
+    * - :action-table-field-name:`limited`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether this Object Storage key limits access to specific buckets and permissions.
+    * - :action-table-field-name:`secret_key`
+      - :action-table-field-type:`string`
+      - ?
+      - This Object Storage key's secret key.
+.. _commands_object-storage_keys-list_attribute_sections_bucket_access:
+
+.. rst-class:: action-section-header
+
+bucket_access
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`bucket_access.bucket_name`
+      - :action-table-field-type:`string`
+      - :json:`"example-bucket"`
+      - The name of the bucket the key can access in the :code:`region`.
+    * - :action-table-field-name:`bucket_access.cluster`
+      - :action-table-field-type:`string`
+      - :json:`"us-west-1"`
+      - Identifies the legacy cluster where this key can be used.
+    * - :action-table-field-name:`bucket_access.permissions`
+      - :action-table-field-type:`string`
+      - :json:`"read_only"`
+      - The level of access the key grants to the :code:`bucket_name`.
+    * - :action-table-field-name:`bucket_access.region`
+      - :action-table-field-type:`string`
+      - :json:`"us-west"`
+      - The region where the Object Store :code:`bucket_name` resides.
+.. _commands_object-storage_keys-list_attribute_sections_regions:
+
+.. rst-class:: action-section-header
+
+regions
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`regions.id`
+      - :action-table-field-type:`string`
+      - :json:`"us-west"`
+      - Identifies each region where you can use the Object Storage key.
+    * - :action-table-field-name:`regions.s3_endpoint`
+      - :action-table-field-type:`string`
+      - :json:`"us-west-00.linodeobjects.com"`
+      - The S3-compatible hostname you can use to access the Object Storage buckets in this region.
 
 
 ------------
@@ -200,28 +336,13 @@ Returns a paginated list of Object Storage keys for authenticating to the Object
 
 Returns a single Object Storage key provisioned for your account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage keys-view [-h] [--order-by {}]
-    	[--order {asc,desc}] keyId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -230,13 +351,13 @@ Returns a single Object Storage key provisioned for your account.
     	--keyId 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -244,15 +365,118 @@ Returns a single Object Storage key provisioned for your account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`keyId`
-      - integer
+    * - :action-table-field-name:`keyId`
+      - :action-table-field-type:`integer`
       - The key to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`access_key`
+      - :action-table-field-type:`string`
+      - :json:`"KVAKUTGBA4WTR2NSJQ81"`
+      - A unique string chosen by the API to identify this key.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - This Object Storage key's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"my-key"`
+      - The label given to this key.
+    * - :action-table-field-name:`limited`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether this Object Storage key limits access to specific buckets and permissions.
+    * - :action-table-field-name:`secret_key`
+      - :action-table-field-type:`string`
+      - ?
+      - This Object Storage key's secret key.
+.. _commands_object-storage_keys-view_attribute_sections_bucket_access:
+
+.. rst-class:: action-section-header
+
+bucket_access
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`bucket_access.bucket_name`
+      - :action-table-field-type:`string`
+      - :json:`"example-bucket"`
+      - The name of the bucket the key can access in the :code:`region`.
+    * - :action-table-field-name:`bucket_access.cluster`
+      - :action-table-field-type:`string`
+      - :json:`"us-west-1"`
+      - Identifies the legacy cluster where this key can be used.
+    * - :action-table-field-name:`bucket_access.permissions`
+      - :action-table-field-type:`string`
+      - :json:`"read_only"`
+      - The level of access the key grants to the :code:`bucket_name`.
+    * - :action-table-field-name:`bucket_access.region`
+      - :action-table-field-type:`string`
+      - :json:`"us-west"`
+      - The region where the Object Store :code:`bucket_name` resides.
+.. _commands_object-storage_keys-view_attribute_sections_regions:
+
+.. rst-class:: action-section-header
+
+regions
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`regions.id`
+      - :action-table-field-type:`string`
+      - :json:`"us-west"`
+      - Identifies each region where you can use the Object Storage key.
+    * - :action-table-field-name:`regions.s3_endpoint`
+      - :action-table-field-type:`string`
+      - :json:`"us-west-00.linodeobjects.com"`
+      - The S3-compatible hostname you can use to access the Object Storage buckets in this region.
 
 
 ------------
@@ -265,31 +489,13 @@ Returns a single Object Storage key provisioned for your account.
 
 Provisions a new Object Storage key for authenticating to the Object Storage S3 API.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage keys-create [-h] [--regions regions]
-    	[--bucket_access bucket_access]
-    	[--bucket_access.region region]
-    	[--bucket_access.bucket_name bucket_name]
-    	[--bucket_access.permissions permissions] [--label label]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -299,70 +505,172 @@ Provisions a new Object Storage key for authenticating to the Object Storage S3 
     	--bucket_access '[{"region": "ap-south", "bucket_name": "bucket-example-1", "permissions": "read_write" }]'
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--bucket_access`
+    * - :action-table-field-name:`\-\-bucket_access`
         :ref:`(section) <commands_object-storage_keys-create_argument_sections_bucket_access>`
-      - No
-      - json
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`json`
       - N/A
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The label for the Object Storage key, for display purposes only.
-    * - :code:`--regions`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-regions`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - You can use a key to create new buckets in regions set in this array.
 .. _commands_object-storage_keys-create_argument_sections_bucket_access:
 
-.. cssclass:: action-argument-section-header
+.. rst-class:: action-section-header
 
-    bucket_access
+bucket_access
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--bucket_access.bucket_name`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-bucket_access.bucket_name`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The :code:`label` set for a bucket that this key grants access to.
-    * - :code:`--bucket_access.permissions`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-bucket_access.permissions`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The level of access the key grants to the specified :code:`bucket_name`.
-    * - :code:`--bucket_access.region`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-bucket_access.region`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The region where the :code:`bucket_name` you want the key to access is located.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`access_key`
+      - :action-table-field-type:`string`
+      - :json:`"KVAKUTGBA4WTR2NSJQ81"`
+      - A unique string chosen by the API to identify this key.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - This Object Storage key's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"my-key"`
+      - The label given to this key.
+    * - :action-table-field-name:`limited`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether this Object Storage key limits access to specific buckets and permissions.
+    * - :action-table-field-name:`secret_key`
+      - :action-table-field-type:`string`
+      - ?
+      - This Object Storage key's secret key.
+.. _commands_object-storage_keys-create_attribute_sections_bucket_access:
+
+.. rst-class:: action-section-header
+
+bucket_access
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`bucket_access.bucket_name`
+      - :action-table-field-type:`string`
+      - :json:`"example-bucket"`
+      - The name of the bucket the key can access in the :code:`region`.
+    * - :action-table-field-name:`bucket_access.cluster`
+      - :action-table-field-type:`string`
+      - :json:`"us-west-1"`
+      - Identifies the legacy cluster where this key can be used.
+    * - :action-table-field-name:`bucket_access.permissions`
+      - :action-table-field-type:`string`
+      - :json:`"read_only"`
+      - The level of access the key grants to the :code:`bucket_name`.
+    * - :action-table-field-name:`bucket_access.region`
+      - :action-table-field-type:`string`
+      - :json:`"us-west"`
+      - The region where the Object Store :code:`bucket_name` resides.
+.. _commands_object-storage_keys-create_attribute_sections_regions:
+
+.. rst-class:: action-section-header
+
+regions
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`regions.id`
+      - :action-table-field-type:`string`
+      - :json:`"us-west"`
+      - Identifies each region where you can use the Object Storage key.
+    * - :action-table-field-name:`regions.s3_endpoint`
+      - :action-table-field-type:`string`
+      - :json:`"us-west-00.linodeobjects.com"`
+      - The S3-compatible hostname you can use to access the Object Storage buckets in this region.
 
 
 ------------
@@ -375,28 +683,13 @@ Provisions a new Object Storage key for authenticating to the Object Storage S3 
 
 Updates an Object Storage key on your account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage keys-update [-h] [--regions regions]
-    	[--label label] keyId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -406,13 +699,13 @@ Updates an Object Storage key on your account.
     	--label "my-object-storage-key"
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -420,45 +713,113 @@ Updates an Object Storage key on your account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`keyId`
-      - integer
+    * - :action-table-field-name:`keyId`
+      - :action-table-field-type:`integer`
       - The key to look up.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The label for the Object Storage key.
-    * - :code:`--regions`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-regions`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - Replace the current list of :code:`regions` set in a specific key.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`access_key`
+      - :action-table-field-type:`string`
+      - :json:`"KVAKUTGBA4WTR2NSJQ81"`
+      - A unique string chosen by the API to identify this key.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - This Object Storage key's unique numeric identifier.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"my-key"`
+      - The label given to this key.
+    * - :action-table-field-name:`limited`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether this Object Storage key limits access to specific buckets and permissions.
+    * - :action-table-field-name:`secret_key`
+      - :action-table-field-type:`string`
+      - :json:`"OiA6F5r0niLs3QA2stbyq7mY5VCV7KqOzcmitmHw"`
+      - This Object Storage key's secret key.
+.. _commands_object-storage_keys-update_attribute_sections_regions:
+
+.. rst-class:: action-section-header
+
+regions
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`regions.id`
+      - :action-table-field-type:`string`
+      - :json:`"us-west"`
+      - Identifies each region where you can use the Object Storage key.
+    * - :action-table-field-name:`regions.s3_endpoint`
+      - :action-table-field-type:`string`
+      - :json:`"us-west-00.linodeobjects.com"`
+      - The S3-compatible hostname you can use to access your Object Storage buckets in this region.
 
 
 ------------
@@ -471,27 +832,13 @@ Updates an Object Storage key on your account.
 
 Revokes an Object Storage Key.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage keys-delete [-h] keyId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -499,13 +846,13 @@ Revokes an Object Storage Key.
     linode-cli object-storage keys-delete 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -513,14 +860,14 @@ Revokes an Object Storage Key.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`keyId`
-      - integer
+    * - :action-table-field-name:`keyId`
+      - :action-table-field-type:`integer`
       - The key to look up.
 
 
@@ -534,28 +881,13 @@ Revokes an Object Storage Key.
 
 Returns a boolean value indicating if this bucket has a corresponding TLS/SSL certificate that was uploaded by an Account user.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage ssl-view [-h] [--order-by {}]
-    	[--order {asc,desc}] regionId bucket
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -564,13 +896,13 @@ Returns a boolean value indicating if this bucket has a corresponding TLS/SSL ce
     	us-east-1 example-bucket
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -578,18 +910,45 @@ Returns a boolean value indicating if this bucket has a corresponding TLS/SSL ce
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`regionId`
-      - string
+    * - :action-table-field-name:`regionId`
+      - :action-table-field-type:`string`
       - Identifies a region where this bucket lives.
-    * - :code:`bucket`
-      - string
+    * - :action-table-field-name:`bucket`
+      - :action-table-field-type:`string`
       - The bucket name.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ssl`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - A boolean indicating if this Bucket has a corresponding TLS/SSL certificate that was uploaded by an Account user.
 
 
 ------------
@@ -602,27 +961,13 @@ Returns a boolean value indicating if this bucket has a corresponding TLS/SSL ce
 
 Deletes this Object Storage bucket's user uploaded TLS/SSL certificate and private key.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage ssl-delete [-h] regionId bucket
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -631,13 +976,13 @@ Deletes this Object Storage bucket's user uploaded TLS/SSL certificate and priva
     	us-east-1 example-bucket
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -645,17 +990,17 @@ Deletes this Object Storage bucket's user uploaded TLS/SSL certificate and priva
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`regionId`
-      - string
+    * - :action-table-field-name:`regionId`
+      - :action-table-field-type:`string`
       - Identifies a region where this bucket lives.
-    * - :code:`bucket`
-      - string
+    * - :action-table-field-name:`bucket`
+      - :action-table-field-type:`string`
       - The bucket name.
 
 
@@ -668,29 +1013,13 @@ Deletes this Object Storage bucket's user uploaded TLS/SSL certificate and priva
 
 Upload a TLS/SSL certificate and private key to be served when you visit your Object Storage bucket via HTTPS.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli object-storage ssl-upload [-h]
-    	[--private_key private_key] [--certificate certificate]
-    	regionId bucket
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -705,13 +1034,13 @@ Upload a TLS/SSL certificate and private key to be served when you visit your Ob
     								 -----END PRIVATE KEY-----"
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -719,48 +1048,74 @@ Upload a TLS/SSL certificate and private key to be served when you visit your Ob
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`regionId`
-      - string
+    * - :action-table-field-name:`regionId`
+      - :action-table-field-type:`string`
       - Identifies a region where this bucket lives.
-    * - :code:`bucket`
-      - string
+    * - :action-table-field-name:`bucket`
+      - :action-table-field-type:`string`
       - The bucket name.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--certificate`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-certificate`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - Your Base64 encoded and PEM formatted SSL certificate.
-    * - :code:`--private_key`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-private_key`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The private key associated with this TLS/SSL certificate.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ssl`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - A boolean indicating if this Bucket has a corresponding TLS/SSL certificate that was uploaded by an Account user.
 
 
 

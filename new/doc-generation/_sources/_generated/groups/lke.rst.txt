@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 LKE
 ===
@@ -13,28 +19,13 @@ This section details LKE-related Linode CLI commands.
 
 Regenerate the Kubeconfig file and/or the service account token for a Cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke regenerate [-h] [--kubeconfig kubeconfig]
-    	[--servicetoken servicetoken] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -44,13 +35,13 @@ Regenerate the Kubeconfig file and/or the service account token for a Cluster.
     	--servicetoken true
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -58,44 +49,43 @@ Regenerate the Kubeconfig file and/or the service account token for a Cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the target Kubernetes cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--kubeconfig`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-kubeconfig`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Whether to delete and regenerate the Kubeconfig file for this Cluster.
-    * - :code:`--servicetoken`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-servicetoken`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Whether to delete and regenerate the service access token for this Cluster.
 
 
@@ -109,28 +99,13 @@ Regenerate the Kubeconfig file and/or the service account token for a Cluster.
 
 List the Kubernetes API server endpoints for this cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke api-endpoints-list [-h] [--order-by {}]
-    	[--order {asc,desc}] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -138,13 +113,13 @@ List the Kubernetes API server endpoints for this cluster.
     linode-cli lke api-endpoints-list 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -152,15 +127,42 @@ List the Kubernetes API server endpoints for this cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`endpoint`
+      - :action-table-field-type:`string`
+      - :json:`"https://192.0.2.1:6443"`
+      - A Kubernetes API server endpoint for this cluster.
 
 
 ------------
@@ -173,30 +175,13 @@ List the Kubernetes API server endpoints for this cluster.
 
 Get a specific Cluster by ID.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke cluster-view [-h] [--label label]
-    	[--k8s_version k8s_version] [--region region] [--tags [tags] ]
-    	[--order-by {label,k8s_version,region,tags}]
-    	[--order {asc,desc}] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -204,13 +189,13 @@ Get a specific Cluster by ID.
     linode-cli lke cluster-view 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -218,15 +203,88 @@ Get a specific Cluster by ID.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2019-09-12T21:25:30Z"`
+      - When this Kubernetes cluster was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - This Kubernetes cluster's unique ID.
+    * - :action-table-field-name:`k8s_version`
+      - :action-table-field-type:`string`
+      - :json:`"1.27"`
+      - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"lkecluster12345"`
+      - This Kubernetes cluster's unique label for display purposes only.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-central"`
+      - This Kubernetes cluster's location.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["ecomm", "blogs"]`
+      - An array of tags applied to the Kubernetes cluster.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2019-09-13T21:24:16Z"`
+      - When this Kubernetes cluster was updated.
+.. _commands_lke_cluster-view_attribute_sections_control_plane:
+
+.. rst-class:: action-section-header
+
+control_plane
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`control_plane.high_availability`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
 
 ------------
@@ -239,37 +297,13 @@ Get a specific Cluster by ID.
 
 Creates a Kubernetes cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke cluster-create [-h] [--tags tags]
-    	[--region region] [--label label]
-    	[--control_plane.high_availability high_availability]
-    	[--k8s_version k8s_version] [--node_pools node_pools]
-    	[--node_pools.taints taints] [--node_pools.disks disks]
-    	[--node_pools.count count] [--node_pools.tags tags]
-    	[--node_pools.type type] [--node_pools.labels.value value]
-    	[--node_pools.labels.key key]
-    	[--node_pools.autoscaler.enabled enabled]
-    	[--node_pools.autoscaler.max max]
-    	[--node_pools.autoscaler.min min]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -287,110 +321,182 @@ Creates a Kubernetes cluster.
     	--tags ecomm
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--k8s_version`
-      - :action-argument-required:`Yes`
-      - string
-      - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
-      - This Kubernetes cluster's unique label for display purposes only.
-    * - :code:`--region`
-      - :action-argument-required:`Yes`
-      - string
-      - This Kubernetes cluster's location.
-    * - :code:`--control_plane.high_availability`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-control_plane.high_availability`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
-    * - :code:`--node_pools`
+    * - :action-table-field-name:`\-\-k8s_version`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - This Kubernetes cluster's unique label for display purposes only.
+    * - :action-table-field-name:`\-\-node_pools`
         :ref:`(section) <commands_lke_cluster-create_argument_sections_node_pools>`
-      - No
-      - json
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`json`
       - Specifies a collection of Linodes which will be members of a Kubernetes cluster.
-    * - :code:`--tags`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - This Kubernetes cluster's location.
+    * - :action-table-field-name:`\-\-tags`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - An array of tags applied to the Kubernetes cluster.
 .. _commands_lke_cluster-create_argument_sections_node_pools:
 
-.. cssclass:: action-argument-section-header
+.. rst-class:: action-section-header
 
-    node_pools
+node_pools
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--node_pools.count`
-      - :action-argument-required:`Yes`
-      - integer
-      - The number of nodes in the Node Pool.
-    * - :code:`--node_pools.type`
-      - :action-argument-required:`Yes`
-      - string
-      - The Linode Type for all of the nodes in the Node Pool.
-    * - :code:`--node_pools.autoscaler.enabled`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-node_pools.autoscaler.enabled`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Whether autoscaling is enabled for this Node Pool.
-    * - :code:`--node_pools.autoscaler.max`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-node_pools.autoscaler.max`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The maximum number of nodes to autoscale to.
-    * - :code:`--node_pools.autoscaler.min`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-node_pools.autoscaler.min`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The minimum number of nodes to autoscale to.
-    * - :code:`--node_pools.disks`
-      - No
-      - json
+    * - :action-table-field-name:`\-\-node_pools.count`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
+      - The number of nodes in the Node Pool.
+    * - :action-table-field-name:`\-\-node_pools.disks`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`json`
       - This field should be omitted except for special use cases.
-    * - :code:`--node_pools.labels.key`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-node_pools.labels.key`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Kubernetes label key.
-    * - :code:`--node_pools.labels.value`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-node_pools.labels.value`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Kubernetes label value.
-    * - :code:`--node_pools.tags`
-      - No
-      - json
+    * - :action-table-field-name:`\-\-node_pools.tags`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`json`
       - An array of tags applied to this object.
-    * - :code:`--node_pools.taints`
-      - No
-      - json
+    * - :action-table-field-name:`\-\-node_pools.taints`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`json`
       - Kubernetes taints to add to node pool nodes.
+    * - :action-table-field-name:`\-\-node_pools.type`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The Linode Type for all of the nodes in the Node Pool.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2019-09-12T21:25:30Z"`
+      - When this Kubernetes cluster was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - This Kubernetes cluster's unique ID.
+    * - :action-table-field-name:`k8s_version`
+      - :action-table-field-type:`string`
+      - :json:`"1.27"`
+      - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"lkecluster12345"`
+      - This Kubernetes cluster's unique label for display purposes only.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-central"`
+      - This Kubernetes cluster's location.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["ecomm", "blogs"]`
+      - An array of tags applied to the Kubernetes cluster.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2019-09-13T21:24:16Z"`
+      - When this Kubernetes cluster was updated.
+.. _commands_lke_cluster-create_attribute_sections_control_plane:
+
+.. rst-class:: action-section-header
+
+control_plane
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`control_plane.high_availability`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
 
 ------------
@@ -403,30 +509,13 @@ Creates a Kubernetes cluster.
 
 Updates a Kubernetes cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke cluster-update [-h] [--label label]
-    	[--k8s_version k8s_version]
-    	[--control_plane.high_availability high_availability]
-    	[--tags tags] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -441,13 +530,13 @@ Updates a Kubernetes cluster.
     	--tags monitoring
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -455,53 +544,99 @@ Updates a Kubernetes cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--control_plane.high_availability`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-control_plane.high_availability`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
-    * - :code:`--k8s_version`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-k8s_version`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>.
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - This Kubernetes cluster's unique label for display purposes only.
-    * - :code:`--tags`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-tags`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - An array of tags applied to the Kubernetes cluster.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2019-09-12T21:25:30Z"`
+      - When this Kubernetes cluster was created.
+    * - :action-table-field-name:`k8s_version`
+      - :action-table-field-type:`string`
+      - :json:`"1.27"`
+      - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"lkecluster12345"`
+      - This Kubernetes cluster's unique label for display purposes only.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-central"`
+      - This Kubernetes cluster's location.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["prod", "monitoring", "ecomm", "blog"]`
+      - An array of tags applied to the Kubernetes cluster.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2019-09-13T21:24:16Z"`
+      - When this Kubernetes cluster was updated.
 
 
 ------------
@@ -514,27 +649,13 @@ Updates a Kubernetes cluster.
 
 Deletes a Cluster you have permission to :code:`read_write`.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke cluster-delete [-h] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -542,13 +663,13 @@ Deletes a Cluster you have permission to :code:`read_write`.
     linode-cli lke cluster-delete 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -556,14 +677,14 @@ Deletes a Cluster you have permission to :code:`read_write`.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
 
 
@@ -577,28 +698,13 @@ Deletes a Cluster you have permission to :code:`read_write`.
 
 Get a `Kubernetes Dashboard <https://github.com/kubernetes/dashboard>`_ access URL for this Cluster, which enables performance of administrative tasks through a web interface.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke cluster-dashboard-url [-h] [--order-by {}]
-    	[--order {asc,desc}] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -606,13 +712,13 @@ Get a `Kubernetes Dashboard <https://github.com/kubernetes/dashboard>`_ access U
     linode-cli lke cluster-dashboard-url 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -620,15 +726,42 @@ Get a `Kubernetes Dashboard <https://github.com/kubernetes/dashboard>`_ access U
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`url`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.dashboard.linodelke.net"`
+      - The Cluster Dashboard access URL.
 
 
 ------------
@@ -641,27 +774,13 @@ Get a `Kubernetes Dashboard <https://github.com/kubernetes/dashboard>`_ access U
 
 Recycles all nodes in all pools of a designated Kubernetes Cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke cluster-nodes-recycle [-h] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -669,13 +788,13 @@ Recycles all nodes in all pools of a designated Kubernetes Cluster.
     linode-cli lke cluster-nodes-recycle 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -683,14 +802,14 @@ Recycles all nodes in all pools of a designated Kubernetes Cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster which contains nodes to be recycled.
 
 
@@ -704,30 +823,13 @@ Recycles all nodes in all pools of a designated Kubernetes Cluster.
 
 Lists current Kubernetes clusters available on your account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke clusters-list [-h] [--k8s_version k8s_version]
-    	[--label label] [--region region] [--tags [tags] ]
-    	[--order-by {k8s_version,label,region,tags}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -735,39 +837,110 @@ Lists current Kubernetes clusters available on your account.
     linode-cli lke clusters-list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--k8s_version`
-      - *string*
+    * - :action-table-field-name:`\-\-k8s_version`
+      - :action-table-field-type:`string`
       - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
-    * - :code:`--label`
-      - *string*
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`string`
       - This Kubernetes cluster's unique label for display purposes only.
-    * - :code:`--region`
-      - *string*
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`string`
       - This Kubernetes cluster's location.
-    * - :code:`--tags`
-      - *array[string]*
+    * - :action-table-field-name:`\-\-tags`
+      - :action-table-field-type:`array[string]`
       - An array of tags applied to the Kubernetes cluster.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2019-09-12T21:25:30Z"`
+      - When this Kubernetes cluster was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - This Kubernetes cluster's unique ID.
+    * - :action-table-field-name:`k8s_version`
+      - :action-table-field-type:`string`
+      - :json:`"1.27"`
+      - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"lkecluster12345"`
+      - This Kubernetes cluster's unique label for display purposes only.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-central"`
+      - This Kubernetes cluster's location.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["ecomm", "blogs"]`
+      - An array of tags applied to the Kubernetes cluster.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2019-09-13T21:24:16Z"`
+      - When this Kubernetes cluster was updated.
+.. _commands_lke_clusters-list_attribute_sections_control_plane:
+
+.. rst-class:: action-section-header
+
+control_plane
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`control_plane.high_availability`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
 
 ------------
@@ -780,28 +953,13 @@ Lists current Kubernetes clusters available on your account.
 
 Get the Kubeconfig file for a Cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke kubeconfig-view [-h] [--order-by {}]
-    	[--order {asc,desc}] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -809,13 +967,13 @@ Get the Kubeconfig file for a Cluster.
     linode-cli lke kubeconfig-view 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -823,15 +981,42 @@ Get the Kubeconfig file for a Cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`kubeconfig`
+      - :action-table-field-type:`string`
+      - ?
+      - The Base64-encoded Kubeconfig file for this Cluster.
 
 
 ------------
@@ -844,27 +1029,13 @@ Get the Kubeconfig file for a Cluster.
 
 Delete and regenerate the Kubeconfig file for a Cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke kubeconfig-delete [-h] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -872,13 +1043,13 @@ Delete and regenerate the Kubeconfig file for a Cluster.
     linode-cli lke kubeconfig-delete 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -886,14 +1057,14 @@ Delete and regenerate the Kubeconfig file for a Cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
 
 
@@ -907,28 +1078,13 @@ Delete and regenerate the Kubeconfig file for a Cluster.
 
 Returns the values for a specified node object.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke node-view [-h] [--order-by {}]
-    	[--order {asc,desc}] clusterId nodeId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -936,13 +1092,13 @@ Returns the values for a specified node object.
     linode-cli lke node-view 123456 12345-6aa78910bc
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -950,18 +1106,53 @@ Returns the values for a specified node object.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster containing the Node.
-    * - :code:`nodeId`
-      - integer
+    * - :action-table-field-name:`nodeId`
+      - :action-table-field-type:`integer`
       - The ID of the Node to access.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"12345-6aa78910bc"`
+      - The Node's ID.
+    * - :action-table-field-name:`instance_id`
+      - :action-table-field-type:`integer`
+      - :json:`123456`
+      - The Linode's ID.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"ready"`
+      - The creation status of this Node.
 
 
 ------------
@@ -974,27 +1165,13 @@ Returns the values for a specified node object.
 
 Deletes a specific Node from a Node Pool.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke node-delete [-h] clusterId nodeId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1002,13 +1179,13 @@ Deletes a specific Node from a Node Pool.
     linode-cli lke node-delete 12345 12345-6aa78910bc
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1016,17 +1193,17 @@ Deletes a specific Node from a Node Pool.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster containing the Node.
-    * - :code:`nodeId`
-      - integer
+    * - :action-table-field-name:`nodeId`
+      - :action-table-field-type:`integer`
       - The ID of the Node to access.
 
 
@@ -1040,27 +1217,13 @@ Deletes a specific Node from a Node Pool.
 
 Recycles an individual Node in the designated Kubernetes Cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke node-recycle [-h] clusterId nodeId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1068,13 +1231,13 @@ Recycles an individual Node in the designated Kubernetes Cluster.
     linode-cli lke node-recycle 12345 12345-6aa78910bc
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1082,17 +1245,17 @@ Recycles an individual Node in the designated Kubernetes Cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster containing the Node.
-    * - :code:`nodeId`
-      - string
+    * - :action-table-field-name:`nodeId`
+      - :action-table-field-type:`string`
       - ID of the Node to be recycled.
 
 
@@ -1106,28 +1269,13 @@ Recycles an individual Node in the designated Kubernetes Cluster.
 
 Get a specific Node Pool by ID.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke pool-view [-h] [--id id] [--tags [tags] ]
-    	[--order-by {id,tags}] [--order {asc,desc}] clusterId poolId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1135,13 +1283,13 @@ Get a specific Node Pool by ID.
     linode-cli lke pool-view 12345 456
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1149,18 +1297,173 @@ Get a specific Node Pool by ID.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
-    * - :code:`poolId`
-      - integer
+    * - :action-table-field-name:`poolId`
+      - :action-table-field-type:`integer`
       - ID of the Pool to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`count`
+      - :action-table-field-type:`integer`
+      - :json:`6`
+      - The number of nodes in the Node Pool.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`456`
+      - This Node Pool's unique ID.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["example tag", "another example"]`
+      - An array of tags applied to this object.
+    * - :action-table-field-name:`taints`
+      - :action-table-field-type:`array`
+      - :json:`[{"effect": "NoSchedule", "key": "example.com/my-app", "value": "teamA"}, {"effect": "NoExecute", "key": "myapp.io/team", "value": "teamC"}]`
+      - Kubernetes taints added to nodes in the node pool.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-standard-4"`
+      - The Linode Type for all of the nodes in the Node Pool.
+.. _commands_lke_pool-view_attribute_sections_autoscaler:
+
+.. rst-class:: action-section-header
+
+autoscaler
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`autoscaler.enabled`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether autoscaling is enabled for this Node Pool.
+    * - :action-table-field-name:`autoscaler.max`
+      - :action-table-field-type:`integer`
+      - :json:`12`
+      - The maximum number of nodes to autoscale to.
+    * - :action-table-field-name:`autoscaler.min`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The minimum number of nodes to autoscale to.
+.. _commands_lke_pool-view_attribute_sections_disks:
+
+.. rst-class:: action-section-header
+
+disks
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`disks.size`
+      - :action-table-field-type:`integer`
+      - :json:`1024`
+      - The size of this custom disk partition in MB.
+    * - :action-table-field-name:`disks.type`
+      - :action-table-field-type:`string`
+      - :json:`"ext-4"`
+      - This custom disk partition's filesystem type.
+.. _commands_lke_pool-view_attribute_sections_labels:
+
+.. rst-class:: action-section-header
+
+labels
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`labels.key`
+      - :action-table-field-type:`string`
+      - :json:`"example.com/my-app"`
+      - The Kubernetes label key.
+    * - :action-table-field-name:`labels.value`
+      - :action-table-field-type:`string`
+      - :json:`"teamUSA"`
+      - The Kubernetes label value.
+.. _commands_lke_pool-view_attribute_sections_nodes:
+
+.. rst-class:: action-section-header
+
+nodes
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`nodes.id`
+      - :action-table-field-type:`string`
+      - :json:`"123456"`
+      - The Node's ID.
+    * - :action-table-field-name:`nodes.instance_id`
+      - :action-table-field-type:`string`
+      - :json:`123458`
+      - The Linode's ID.
+    * - :action-table-field-name:`nodes.status`
+      - :action-table-field-type:`string`
+      - :json:`"ready"`
+      - The Node's status as it pertains to being a Kubernetes node.
 
 
 ------------
@@ -1173,31 +1476,13 @@ Get a specific Node Pool by ID.
 
 Creates a new Node Pool for the designated Kubernetes cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke pool-create [-h] [--labels.key key]
-    	[--labels.value value] [--type type] [--autoscaler.max max]
-    	[--autoscaler.min min] [--autoscaler.enabled enabled]
-    	[--count count] [--disks disks] [--taints taints] [--tags tags]
-    	clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1211,13 +1496,13 @@ Creates a new Node Pool for the designated Kubernetes cluster.
     	--autoscaler.min 3
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1225,77 +1510,231 @@ Creates a new Node Pool for the designated Kubernetes cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--count`
-      - :action-argument-required:`Yes`
-      - integer
-      - The number of nodes in the Node Pool.
-    * - :code:`--type`
-      - :action-argument-required:`Yes`
-      - string
-      - The Linode Type for all of the nodes in the Node Pool.
-    * - :code:`--autoscaler.enabled`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-autoscaler.enabled`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Whether autoscaling is enabled for this Node Pool.
-    * - :code:`--autoscaler.max`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-autoscaler.max`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The maximum number of nodes to autoscale to.
-    * - :code:`--autoscaler.min`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-autoscaler.min`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The minimum number of nodes to autoscale to.
-    * - :code:`--disks`
-      - No
-      - json
+    * - :action-table-field-name:`\-\-count`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`integer`
+      - The number of nodes in the Node Pool.
+    * - :action-table-field-name:`\-\-disks`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`json`
       - This field should be omitted except for special use cases.
-    * - :code:`--labels.key`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-labels.key`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Kubernetes label key.
-    * - :code:`--labels.value`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-labels.value`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Kubernetes label value.
-    * - :code:`--tags`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-tags`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - An array of tags applied to this object.
-    * - :code:`--taints`
-      - No
-      - array
+    * - :action-table-field-name:`\-\-taints`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array`
       - Kubernetes taints to add to node pool nodes.
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The Linode Type for all of the nodes in the Node Pool.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`count`
+      - :action-table-field-type:`integer`
+      - :json:`6`
+      - The number of nodes in the Node Pool.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`456`
+      - This Node Pool's unique ID.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["example tag", "another example"]`
+      - An array of tags applied to this object.
+    * - :action-table-field-name:`taints`
+      - :action-table-field-type:`array`
+      - :json:`[{"effect": "NoSchedule", "key": "example.com/my-app", "value": "teamA"}, {"effect": "NoExecute", "key": "myapp.io/team", "value": "teamC"}]`
+      - Kubernetes taints added to nodes in the node pool.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-standard-4"`
+      - The Linode Type for all of the nodes in the Node Pool.
+.. _commands_lke_pool-create_attribute_sections_autoscaler:
+
+.. rst-class:: action-section-header
+
+autoscaler
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`autoscaler.enabled`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether autoscaling is enabled for this Node Pool.
+    * - :action-table-field-name:`autoscaler.max`
+      - :action-table-field-type:`integer`
+      - :json:`12`
+      - The maximum number of nodes to autoscale to.
+    * - :action-table-field-name:`autoscaler.min`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The minimum number of nodes to autoscale to.
+.. _commands_lke_pool-create_attribute_sections_disks:
+
+.. rst-class:: action-section-header
+
+disks
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`disks.size`
+      - :action-table-field-type:`integer`
+      - :json:`1024`
+      - The size of this custom disk partition in MB.
+    * - :action-table-field-name:`disks.type`
+      - :action-table-field-type:`string`
+      - :json:`"ext-4"`
+      - This custom disk partition's filesystem type.
+.. _commands_lke_pool-create_attribute_sections_labels:
+
+.. rst-class:: action-section-header
+
+labels
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`labels.key`
+      - :action-table-field-type:`string`
+      - :json:`"example.com/my-app"`
+      - The Kubernetes label key.
+    * - :action-table-field-name:`labels.value`
+      - :action-table-field-type:`string`
+      - :json:`"teamUSA"`
+      - The Kubernetes label value.
+.. _commands_lke_pool-create_attribute_sections_nodes:
+
+.. rst-class:: action-section-header
+
+nodes
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`nodes.id`
+      - :action-table-field-type:`string`
+      - :json:`"123456"`
+      - The Node's ID.
+    * - :action-table-field-name:`nodes.instance_id`
+      - :action-table-field-type:`string`
+      - :json:`123458`
+      - The Linode's ID.
+    * - :action-table-field-name:`nodes.status`
+      - :action-table-field-type:`string`
+      - :json:`"ready"`
+      - The Node's status as it pertains to being a Kubernetes node.
 
 
 ------------
@@ -1308,30 +1747,13 @@ Creates a new Node Pool for the designated Kubernetes cluster.
 
 Updates a node pool's count, labels and taints, and autoscaler configuration.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke pool-update [-h] [--labels.value value]
-    	[--labels.key key] [--autoscaler.enabled enabled]
-    	[--autoscaler.min min] [--autoscaler.max max] [--count count]
-    	[--taints taints] clusterId poolId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1343,13 +1765,13 @@ Updates a node pool's count, labels and taints, and autoscaler configuration.
     	--autoscaler.min 3
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1357,68 +1779,222 @@ Updates a node pool's count, labels and taints, and autoscaler configuration.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
-    * - :code:`poolId`
-      - integer
+    * - :action-table-field-name:`poolId`
+      - :action-table-field-type:`integer`
       - ID of the Pool to look up.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--autoscaler.enabled`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-autoscaler.enabled`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Whether autoscaling is enabled for this Node Pool.
-    * - :code:`--autoscaler.max`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-autoscaler.max`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The maximum number of nodes to autoscale to.
-    * - :code:`--autoscaler.min`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-autoscaler.min`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The minimum number of nodes to autoscale to.
-    * - :code:`--count`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-count`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The number of nodes in the Node Pool.
-    * - :code:`--labels.key`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-labels.key`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Kubernetes label key.
-    * - :code:`--labels.value`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-labels.value`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Kubernetes label value.
-    * - :code:`--taints`
-      - No
-      - array
+    * - :action-table-field-name:`\-\-taints`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array`
       - Kubernetes taints to add to node pool nodes.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`count`
+      - :action-table-field-type:`integer`
+      - :json:`6`
+      - The number of nodes in the Node Pool.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`456`
+      - This Node Pool's unique ID.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["example tag", "another example"]`
+      - An array of tags applied to this object.
+    * - :action-table-field-name:`taints`
+      - :action-table-field-type:`array`
+      - :json:`[{"effect": "NoSchedule", "key": "example.com/my-app", "value": "teamA"}, {"effect": "NoExecute", "key": "myapp.io/team", "value": "teamC"}]`
+      - Kubernetes taints added to nodes in the node pool.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"g6-standard-4"`
+      - The Linode Type for all of the nodes in the Node Pool.
+.. _commands_lke_pool-update_attribute_sections_autoscaler:
+
+.. rst-class:: action-section-header
+
+autoscaler
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`autoscaler.enabled`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Whether autoscaling is enabled for this Node Pool.
+    * - :action-table-field-name:`autoscaler.max`
+      - :action-table-field-type:`integer`
+      - :json:`12`
+      - The maximum number of nodes to autoscale to.
+    * - :action-table-field-name:`autoscaler.min`
+      - :action-table-field-type:`integer`
+      - :json:`3`
+      - The minimum number of nodes to autoscale to.
+.. _commands_lke_pool-update_attribute_sections_disks:
+
+.. rst-class:: action-section-header
+
+disks
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`disks.size`
+      - :action-table-field-type:`integer`
+      - :json:`1024`
+      - The size of this custom disk partition in MB.
+    * - :action-table-field-name:`disks.type`
+      - :action-table-field-type:`string`
+      - :json:`"ext-4"`
+      - This custom disk partition's filesystem type.
+.. _commands_lke_pool-update_attribute_sections_labels:
+
+.. rst-class:: action-section-header
+
+labels
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`labels.key`
+      - :action-table-field-type:`string`
+      - :json:`"example.com/my-app"`
+      - The Kubernetes label key.
+    * - :action-table-field-name:`labels.value`
+      - :action-table-field-type:`string`
+      - :json:`"teamUSA"`
+      - The Kubernetes label value.
+.. _commands_lke_pool-update_attribute_sections_nodes:
+
+.. rst-class:: action-section-header
+
+nodes
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`nodes.id`
+      - :action-table-field-type:`string`
+      - :json:`"123456"`
+      - The Node's ID.
+    * - :action-table-field-name:`nodes.instance_id`
+      - :action-table-field-type:`string`
+      - :json:`123458`
+      - The Linode's ID.
+    * - :action-table-field-name:`nodes.status`
+      - :action-table-field-type:`string`
+      - :json:`"ready"`
+      - The Node's status as it pertains to being a Kubernetes node.
 
 
 ------------
@@ -1431,27 +2007,13 @@ Updates a node pool's count, labels and taints, and autoscaler configuration.
 
 Delete a specific Node Pool from a Kubernetes cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke pool-delete [-h] clusterId poolId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1459,13 +2021,13 @@ Delete a specific Node Pool from a Kubernetes cluster.
     linode-cli lke pool-delete 12345 456
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1473,17 +2035,17 @@ Delete a specific Node Pool from a Kubernetes cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
-    * - :code:`poolId`
-      - integer
+    * - :action-table-field-name:`poolId`
+      - :action-table-field-type:`integer`
       - ID of the Pool to look up.
 
 
@@ -1497,27 +2059,13 @@ Delete a specific Node Pool from a Kubernetes cluster.
 
 Recycles a Node Pool for the designated Kubernetes Cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke pool-recycle [-h] clusterId poolId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1525,13 +2073,13 @@ Recycles a Node Pool for the designated Kubernetes Cluster.
     linode-cli lke pool-recycle 12345 456
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1539,17 +2087,17 @@ Recycles a Node Pool for the designated Kubernetes Cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster this Node Pool is attached to.
-    * - :code:`poolId`
-      - integer
+    * - :action-table-field-name:`poolId`
+      - :action-table-field-type:`integer`
       - ID of the Node Pool to be recycled.
 
 
@@ -1563,28 +2111,13 @@ Recycles a Node Pool for the designated Kubernetes Cluster.
 
 Returns all active Node Pools on a Kubernetes cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke pools-list [-h] [--order-by {}]
-    	[--order {asc,desc}] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1592,13 +2125,13 @@ Returns all active Node Pools on a Kubernetes cluster.
     linode-cli lke pools-list 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1606,15 +2139,76 @@ Returns all active Node Pools on a Kubernetes cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the Kubernetes cluster to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+.. _commands_lke_pools-list_attribute_sections_nodes:
+
+.. rst-class:: action-section-header
+
+nodes
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`nodes.id`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+    * - :action-table-field-name:`nodes.instance_id`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
+    * - :action-table-field-name:`nodes.status`
+      - :action-table-field-type:`string`
+      - ?
+      - N/A
 
 
 ------------
@@ -1627,27 +2221,13 @@ Returns all active Node Pools on a Kubernetes cluster.
 
 Delete and regenerate the service account token for a Cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke service-token-delete [-h] clusterId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1655,13 +2235,13 @@ Delete and regenerate the service account token for a Cluster.
     linode-cli lke service-token-delete 12345
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1669,14 +2249,14 @@ Delete and regenerate the service account token for a Cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clusterId`
-      - integer
+    * - :action-table-field-name:`clusterId`
+      - :action-table-field-type:`integer`
       - ID of the target Kubernetes cluster.
 
 
@@ -1690,28 +2270,13 @@ Delete and regenerate the service account token for a Cluster.
 
 View a Kubernetes version available for deployment to a Kubernetes cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke version-view [-h] [--order-by {}]
-    	[--order {asc,desc}] version
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1719,13 +2284,13 @@ View a Kubernetes version available for deployment to a Kubernetes cluster.
     linode-cli lke version-view 1.27
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1733,15 +2298,42 @@ View a Kubernetes version available for deployment to a Kubernetes cluster.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`version`
-      - string
+    * - :action-table-field-name:`version`
+      - :action-table-field-type:`string`
       - The LKE version to view.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"1.27"`
+      - A Kubernetes version number available for deployment to a Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version.
 
 
 
@@ -1753,34 +2345,46 @@ View a Kubernetes version available for deployment to a Kubernetes cluster.
 
 List the Kubernetes versions available for deployment to a Kubernetes cluster.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli lke versions-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli lke versions-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"1.27"`
+      - A Kubernetes version number available for deployment to a Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version.
 
 
 

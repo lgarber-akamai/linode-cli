@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Domains
 =======
@@ -13,29 +19,13 @@ This section details Domain-related Linode CLI commands.
 
 This is a collection of Domains that you have registered in Linode's DNS Manager.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains list [-h] [--group group] [--domain domain]
-    	[--tags [tags] ] [--order-by {group,domain,tags}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -43,36 +33,113 @@ This is a collection of Domains that you have registered in Linode's DNS Manager
     linode-cli domains list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--domain`
-      - *string*
+    * - :action-table-field-name:`\-\-domain`
+      - :action-table-field-type:`string`
       - The domain this Domain represents.
-    * - :code:`--group`
-      - *string*
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-type:`string`
       - The group this Domain belongs to.
-    * - :code:`--tags`
-      - *array[string]*
+    * - :action-table-field-name:`\-\-tags`
+      - :action-table-field-type:`array[string]`
       - An array of tags applied to this object.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`axfr_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The list of IPs that may perform a zone transfer for this Domain.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - ?
+      - A description for this Domain.
+    * - :action-table-field-name:`domain`
+      - :action-table-field-type:`string`
+      - :json:`"example.org"`
+      - The domain this Domain represents.
+    * - :action-table-field-name:`expire_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds that may pass before this Domain is no longer authoritative.
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - ?
+      - The group this Domain belongs to.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - This Domain's unique ID.
+    * - :action-table-field-name:`master_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The IP addresses representing the master DNS for this Domain.
+    * - :action-table-field-name:`refresh_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds before this Domain should be refreshed.
+    * - :action-table-field-name:`retry_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The interval, in seconds, at which a failed refresh should be retried.
+    * - :action-table-field-name:`soa_email`
+      - :action-table-field-type:`string`
+      - :json:`"admin@example.org"`
+      - Start of Authority email address.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - Used to control whether this Domain is currently being rendered.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["example tag", "another example"]`
+      - An array of tags applied to this object.
+    * - :action-table-field-name:`ttl_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"master"`
+      - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
 ------------
@@ -85,29 +152,13 @@ This is a collection of Domains that you have registered in Linode's DNS Manager
 
 This is a single Domain that you have registered in Linode's DNS Manager.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains view [-h] [--tags [tags] ] [--group group]
-    	[--domain domain] [--order-by {tags,group,domain}]
-    	[--order {asc,desc}] domainId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -115,13 +166,13 @@ This is a single Domain that you have registered in Linode's DNS Manager.
     linode-cli domains view 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -129,15 +180,94 @@ This is a single Domain that you have registered in Linode's DNS Manager.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`domainId`
-      - integer
+    * - :action-table-field-name:`domainId`
+      - :action-table-field-type:`integer`
       - The ID of the Domain to access.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`axfr_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The list of IPs that may perform a zone transfer for this Domain.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - ?
+      - A description for this Domain.
+    * - :action-table-field-name:`domain`
+      - :action-table-field-type:`string`
+      - :json:`"example.org"`
+      - The domain this Domain represents.
+    * - :action-table-field-name:`expire_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds that may pass before this Domain is no longer authoritative.
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - ?
+      - The group this Domain belongs to.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - This Domain's unique ID.
+    * - :action-table-field-name:`master_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The IP addresses representing the master DNS for this Domain.
+    * - :action-table-field-name:`refresh_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds before this Domain should be refreshed.
+    * - :action-table-field-name:`retry_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The interval, in seconds, at which a failed refresh should be retried.
+    * - :action-table-field-name:`soa_email`
+      - :action-table-field-type:`string`
+      - :json:`"admin@example.org"`
+      - Start of Authority email address.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - Used to control whether this Domain is currently being rendered.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["example tag", "another example"]`
+      - An array of tags applied to this object.
+    * - :action-table-field-name:`ttl_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"master"`
+      - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
 ------------
@@ -150,32 +280,13 @@ This is a single Domain that you have registered in Linode's DNS Manager.
 
 Adds a new Domain to Linode's DNS Manager.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains create [-h] [--master_ips master_ips]
-    	[--ttl_sec ttl_sec] [--retry_sec retry_sec]
-    	[--axfr_ips axfr_ips] [--soa_email soa_email]
-    	[--description description] [--type type]
-    	[--refresh_sec refresh_sec] [--tags tags] [--status status]
-    	[--domain domain] [--group group] [--expire_sec expire_sec]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -186,83 +297,161 @@ Adds a new Domain to Linode's DNS Manager.
     	--soa_email admin@example.org
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--domain`
-      - :action-argument-required:`Yes`
-      - string
-      - The domain this Domain represents.
-    * - :code:`--type`
-      - :action-argument-required:`Yes`
-      - string
-      - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
-    * - :code:`--axfr_ips`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-axfr_ips`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - The list of IPs that may perform a zone transfer for this Domain.
-    * - :code:`--description`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-description`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - A description for this Domain.
-    * - :code:`--expire_sec`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-domain`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The domain this Domain represents.
+    * - :action-table-field-name:`\-\-expire_sec`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The amount of time in seconds that may pass before this Domain is no longer authoritative.
-    * - :code:`--group`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The group this Domain belongs to.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Domain's unique ID.
-    * - :code:`--master_ips`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-master_ips`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - The IP addresses representing the master DNS for this Domain.
-    * - :code:`--refresh_sec`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-refresh_sec`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The amount of time in seconds before this Domain should be refreshed.
-    * - :code:`--retry_sec`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-retry_sec`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The interval, in seconds, at which a failed refresh should be retried.
-    * - :code:`--soa_email`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-soa_email`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Start of Authority email address.
-    * - :code:`--status`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Used to control whether this Domain is currently being rendered.
-    * - :code:`--tags`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-tags`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - An array of tags applied to this object.
-    * - :code:`--ttl_sec`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-ttl_sec`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`axfr_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The list of IPs that may perform a zone transfer for this Domain.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - ?
+      - A description for this Domain.
+    * - :action-table-field-name:`domain`
+      - :action-table-field-type:`string`
+      - :json:`"example.org"`
+      - The domain this Domain represents.
+    * - :action-table-field-name:`expire_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds that may pass before this Domain is no longer authoritative.
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - ?
+      - The group this Domain belongs to.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - This Domain's unique ID.
+    * - :action-table-field-name:`master_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The IP addresses representing the master DNS for this Domain.
+    * - :action-table-field-name:`refresh_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds before this Domain should be refreshed.
+    * - :action-table-field-name:`retry_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The interval, in seconds, at which a failed refresh should be retried.
+    * - :action-table-field-name:`soa_email`
+      - :action-table-field-type:`string`
+      - :json:`"admin@example.org"`
+      - Start of Authority email address.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - Used to control whether this Domain is currently being rendered.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["example tag", "another example"]`
+      - An array of tags applied to this object.
+    * - :action-table-field-name:`ttl_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"master"`
+      - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
 ------------
@@ -275,32 +464,13 @@ Adds a new Domain to Linode's DNS Manager.
 
 Update information about a Domain in Linode's DNS Manager.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains update [-h] [--ttl_sec ttl_sec]
-    	[--retry_sec retry_sec] [--master_ips master_ips]
-    	[--description description] [--type type]
-    	[--soa_email soa_email] [--axfr_ips axfr_ips] [--tags tags]
-    	[--refresh_sec refresh_sec] [--expire_sec expire_sec]
-    	[--group group] [--domain domain] [--status status] domainId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -310,13 +480,13 @@ Update information about a Domain in Linode's DNS Manager.
     	--ttl_sec 300
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -324,92 +494,170 @@ Update information about a Domain in Linode's DNS Manager.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`domainId`
-      - integer
+    * - :action-table-field-name:`domainId`
+      - :action-table-field-type:`integer`
       - The ID of the Domain to access.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--axfr_ips`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-axfr_ips`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - The list of IPs that may perform a zone transfer for this Domain.
-    * - :code:`--description`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-description`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - A description for this Domain.
-    * - :code:`--domain`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-domain`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The domain this Domain represents.
-    * - :code:`--expire_sec`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-expire_sec`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The amount of time in seconds that may pass before this Domain is no longer authoritative.
-    * - :code:`--group`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The group this Domain belongs to.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Domain's unique ID.
-    * - :code:`--master_ips`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-master_ips`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - The IP addresses representing the master DNS for this Domain.
-    * - :code:`--refresh_sec`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-refresh_sec`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The amount of time in seconds before this Domain should be refreshed.
-    * - :code:`--retry_sec`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-retry_sec`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The interval, in seconds, at which a failed refresh should be retried.
-    * - :code:`--soa_email`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-soa_email`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Start of Authority email address.
-    * - :code:`--status`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Used to control whether this Domain is currently being rendered.
-    * - :code:`--tags`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-tags`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - An array of tags applied to this object.
-    * - :code:`--ttl_sec`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-ttl_sec`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
-    * - :code:`--type`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
+      - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`axfr_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The list of IPs that may perform a zone transfer for this Domain.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - ?
+      - A description for this Domain.
+    * - :action-table-field-name:`domain`
+      - :action-table-field-type:`string`
+      - :json:`"example.org"`
+      - The domain this Domain represents.
+    * - :action-table-field-name:`expire_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds that may pass before this Domain is no longer authoritative.
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - ?
+      - The group this Domain belongs to.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - This Domain's unique ID.
+    * - :action-table-field-name:`master_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The IP addresses representing the master DNS for this Domain.
+    * - :action-table-field-name:`refresh_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds before this Domain should be refreshed.
+    * - :action-table-field-name:`retry_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The interval, in seconds, at which a failed refresh should be retried.
+    * - :action-table-field-name:`soa_email`
+      - :action-table-field-type:`string`
+      - :json:`"admin@example.org"`
+      - Start of Authority email address.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - Used to control whether this Domain is currently being rendered.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["example tag", "another example"]`
+      - An array of tags applied to this object.
+    * - :action-table-field-name:`ttl_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"master"`
       - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
@@ -423,27 +671,13 @@ Update information about a Domain in Linode's DNS Manager.
 
 Deletes a Domain from Linode's DNS Manager.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains delete [-h] domainId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -451,13 +685,13 @@ Deletes a Domain from Linode's DNS Manager.
     linode-cli domains delete 1234
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -465,14 +699,14 @@ Deletes a Domain from Linode's DNS Manager.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`domainId`
-      - integer
+    * - :action-table-field-name:`domainId`
+      - :action-table-field-type:`integer`
       - The ID of the Domain to access.
 
 
@@ -486,27 +720,13 @@ Deletes a Domain from Linode's DNS Manager.
 
 Clones a Domain and all associated DNS records from a Domain that is registered in Linode's DNS manager.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains clone [-h] [--domain domain] domainId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -514,13 +734,13 @@ Clones a Domain and all associated DNS records from a Domain that is registered 
     linode-cli domains clone 123 --domain example.com
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -528,41 +748,119 @@ Clones a Domain and all associated DNS records from a Domain that is registered 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`domainId`
-      - string
+    * - :action-table-field-name:`domainId`
+      - :action-table-field-type:`string`
       - ID of the Domain to clone.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--domain`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-domain`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The new domain for the clone.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`axfr_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The list of IPs that may perform a zone transfer for this Domain.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - ?
+      - A description for this Domain.
+    * - :action-table-field-name:`domain`
+      - :action-table-field-type:`string`
+      - :json:`"example.org"`
+      - The domain this Domain represents.
+    * - :action-table-field-name:`expire_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds that may pass before this Domain is no longer authoritative.
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - ?
+      - The group this Domain belongs to.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - This Domain's unique ID.
+    * - :action-table-field-name:`master_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The IP addresses representing the master DNS for this Domain.
+    * - :action-table-field-name:`refresh_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds before this Domain should be refreshed.
+    * - :action-table-field-name:`retry_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The interval, in seconds, at which a failed refresh should be retried.
+    * - :action-table-field-name:`soa_email`
+      - :action-table-field-type:`string`
+      - :json:`"admin@example.org"`
+      - Start of Authority email address.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - Used to control whether this Domain is currently being rendered.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["example tag", "another example"]`
+      - An array of tags applied to this object.
+    * - :action-table-field-name:`ttl_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"master"`
+      - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
 ------------
@@ -575,28 +873,13 @@ Clones a Domain and all associated DNS records from a Domain that is registered 
 
 Imports a domain zone from a remote nameserver.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains import [-h] [--domain domain]
-    	[--remote_nameserver remote_nameserver]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -604,35 +887,113 @@ Imports a domain zone from a remote nameserver.
     linode-cli domains import --domain example.com --remote_nameserver examplenameserver.com
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--domain`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-domain`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The domain to import.
-    * - :code:`--remote_nameserver`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-remote_nameserver`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The remote nameserver that allows zone transfers (AXFR).
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`axfr_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The list of IPs that may perform a zone transfer for this Domain.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - ?
+      - A description for this Domain.
+    * - :action-table-field-name:`domain`
+      - :action-table-field-type:`string`
+      - :json:`"example.org"`
+      - The domain this Domain represents.
+    * - :action-table-field-name:`expire_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds that may pass before this Domain is no longer authoritative.
+    * - :action-table-field-name:`group`
+      - :action-table-field-type:`string`
+      - ?
+      - The group this Domain belongs to.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - This Domain's unique ID.
+    * - :action-table-field-name:`master_ips`
+      - :action-table-field-type:`array[string]`
+      - ?
+      - The IP addresses representing the master DNS for this Domain.
+    * - :action-table-field-name:`refresh_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The amount of time in seconds before this Domain should be refreshed.
+    * - :action-table-field-name:`retry_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - The interval, in seconds, at which a failed refresh should be retried.
+    * - :action-table-field-name:`soa_email`
+      - :action-table-field-type:`string`
+      - :json:`"admin@example.org"`
+      - Start of Authority email address.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - Used to control whether this Domain is currently being rendered.
+    * - :action-table-field-name:`tags`
+      - :action-table-field-type:`array[string]`
+      - :json:`["example tag", "another example"]`
+      - An array of tags applied to this object.
+    * - :action-table-field-name:`ttl_sec`
+      - :action-table-field-type:`integer`
+      - :json:`300`
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"master"`
+      - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
 ------------
@@ -645,30 +1006,13 @@ Imports a domain zone from a remote nameserver.
 
 Returns a paginated list of Records configured on a Domain in Linode's DNS Manager.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains records-list [-h] [--tag tag] [--name name]
-    	[--target target] [--type type]
-    	[--order-by {tag,name,target,type}] [--order {asc,desc}]
-    	domainId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -676,13 +1020,13 @@ Returns a paginated list of Records configured on a Domain in Linode's DNS Manag
     linode-cli domains records-list 1234
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -690,49 +1034,122 @@ Returns a paginated list of Records configured on a Domain in Linode's DNS Manag
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`domainId`
-      - integer
+    * - :action-table-field-name:`domainId`
+      - :action-table-field-type:`integer`
       - The ID of the Domain we are accessing Records for.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--name`
-      - *string*
+    * - :action-table-field-name:`\-\-name`
+      - :action-table-field-type:`string`
       - The name of this Record.
-    * - :code:`--tag`
-      - *string*
+    * - :action-table-field-name:`\-\-tag`
+      - :action-table-field-type:`string`
       - The tag portion of a CAA record.
-    * - :code:`--target`
-      - *string*
+    * - :action-table-field-name:`\-\-target`
+      - :action-table-field-type:`string`
       - The target for this Record.
-    * - :code:`--type`
-      - *string*
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-type:`string`
       - The type of Record this is in the DNS system.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Domain Record was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123456`
+      - This Record's unique ID.
+    * - :action-table-field-name:`name`
+      - :action-table-field-type:`string`
+      - :json:`"test"`
+      - The name of this Record.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`80`
+      - The port this Record points to.
+    * - :action-table-field-name:`priority`
+      - :action-table-field-type:`integer`
+      - :json:`50`
+      - The priority of the target host for this Record.
+    * - :action-table-field-name:`protocol`
+      - :action-table-field-type:`string`
+      - ?
+      - The protocol this Record's service communicates with.
+    * - :action-table-field-name:`service`
+      - :action-table-field-type:`string`
+      - ?
+      - The name of the service.
+    * - :action-table-field-name:`tag`
+      - :action-table-field-type:`string`
+      - ?
+      - The tag portion of a CAA record.
+    * - :action-table-field-name:`target`
+      - :action-table-field-type:`string`
+      - :json:`"192.0.2.0"`
+      - The target for this Record.
+    * - :action-table-field-name:`ttl_sec`
+      - :action-table-field-type:`integer`
+      - :json:`604800`
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"A"`
+      - The type of Record this is in the DNS system.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Domain Record was last updated.
+    * - :action-table-field-name:`weight`
+      - :action-table-field-type:`integer`
+      - :json:`50`
+      - The relative weight of this Record used in the case of identical priority.
 
 
 ------------
@@ -745,30 +1162,13 @@ Returns a paginated list of Records configured on a Domain in Linode's DNS Manag
 
 View a single Record on this Domain.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains records-view [-h] [--target target]
-    	[--tag tag] [--name name] [--type type]
-    	[--order-by {target,tag,name,type}] [--order {asc,desc}]
-    	domainId recordId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -776,13 +1176,13 @@ View a single Record on this Domain.
     linode-cli domains records-view 123 234
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -790,18 +1190,93 @@ View a single Record on this Domain.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`domainId`
-      - integer
+    * - :action-table-field-name:`domainId`
+      - :action-table-field-type:`integer`
       - The ID of the Domain whose Record you are accessing.
-    * - :code:`recordId`
-      - integer
+    * - :action-table-field-name:`recordId`
+      - :action-table-field-type:`integer`
       - The ID of the Record you are accessing.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Domain Record was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123456`
+      - This Record's unique ID.
+    * - :action-table-field-name:`name`
+      - :action-table-field-type:`string`
+      - :json:`"test"`
+      - The name of this Record.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`80`
+      - The port this Record points to.
+    * - :action-table-field-name:`priority`
+      - :action-table-field-type:`integer`
+      - :json:`50`
+      - The priority of the target host for this Record.
+    * - :action-table-field-name:`protocol`
+      - :action-table-field-type:`string`
+      - ?
+      - The protocol this Record's service communicates with.
+    * - :action-table-field-name:`service`
+      - :action-table-field-type:`string`
+      - ?
+      - The name of the service.
+    * - :action-table-field-name:`tag`
+      - :action-table-field-type:`string`
+      - ?
+      - The tag portion of a CAA record.
+    * - :action-table-field-name:`target`
+      - :action-table-field-type:`string`
+      - :json:`"192.0.2.0"`
+      - The target for this Record.
+    * - :action-table-field-name:`ttl_sec`
+      - :action-table-field-type:`integer`
+      - :json:`604800`
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"A"`
+      - The type of Record this is in the DNS system.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Domain Record was last updated.
+    * - :action-table-field-name:`weight`
+      - :action-table-field-type:`integer`
+      - :json:`50`
+      - The relative weight of this Record used in the case of identical priority.
 
 
 ------------
@@ -814,30 +1289,13 @@ View a single Record on this Domain.
 
 Adds a new Domain Record to the zonefile this Domain represents.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains records-create [-h] [--type type]
-    	[--weight weight] [--service service] [--priority priority]
-    	[--ttl_sec ttl_sec] [--port port] [--protocol protocol]
-    	[--tag tag] [--name name] [--target target] domainId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -852,13 +1310,13 @@ Adds a new Domain Record to the zonefile this Domain represents.
     	--ttl_sec 604800
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -866,88 +1324,162 @@ Adds a new Domain Record to the zonefile this Domain represents.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`domainId`
-      - integer
+    * - :action-table-field-name:`domainId`
+      - :action-table-field-type:`integer`
       - The ID of the Domain we are accessing Records for.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--type`
-      - :action-argument-required:`Yes`
-      - string
-      - The type of Record this is in the DNS system.
-    * - :code:`--created`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this Domain Record was created.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Record's unique ID.
-    * - :code:`--name`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-name`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The name of this Record.
-    * - :code:`--port`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-port`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The port this Record points to.
-    * - :code:`--priority`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-priority`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The priority of the target host for this Record.
-    * - :code:`--protocol`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-protocol`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The protocol this Record's service communicates with.
-    * - :code:`--service`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-service`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The name of the service.
-    * - :code:`--tag`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-tag`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The tag portion of a CAA record.
-    * - :code:`--target`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-target`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The target for this Record.
-    * - :code:`--ttl_sec`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-ttl_sec`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
-    * - :code:`--updated`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The type of Record this is in the DNS system.
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this Domain Record was last updated.
-    * - :code:`--weight`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-weight`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
+      - The relative weight of this Record used in the case of identical priority.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Domain Record was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123456`
+      - This Record's unique ID.
+    * - :action-table-field-name:`name`
+      - :action-table-field-type:`string`
+      - :json:`"test"`
+      - The name of this Record.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`80`
+      - The port this Record points to.
+    * - :action-table-field-name:`priority`
+      - :action-table-field-type:`integer`
+      - :json:`50`
+      - The priority of the target host for this Record.
+    * - :action-table-field-name:`protocol`
+      - :action-table-field-type:`string`
+      - ?
+      - The protocol this Record's service communicates with.
+    * - :action-table-field-name:`service`
+      - :action-table-field-type:`string`
+      - ?
+      - The name of the service.
+    * - :action-table-field-name:`tag`
+      - :action-table-field-type:`string`
+      - ?
+      - The tag portion of a CAA record.
+    * - :action-table-field-name:`target`
+      - :action-table-field-type:`string`
+      - :json:`"192.0.2.0"`
+      - The target for this Record.
+    * - :action-table-field-name:`ttl_sec`
+      - :action-table-field-type:`integer`
+      - :json:`604800`
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"A"`
+      - The type of Record this is in the DNS system.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Domain Record was last updated.
+    * - :action-table-field-name:`weight`
+      - :action-table-field-type:`integer`
+      - :json:`50`
       - The relative weight of this Record used in the case of identical priority.
 
 
@@ -961,30 +1493,13 @@ Adds a new Domain Record to the zonefile this Domain represents.
 
 Updates a single Record on this Domain.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains records-update [-h] [--ttl_sec ttl_sec]
-    	[--priority priority] [--service service] [--port port]
-    	[--name name] [--weight weight] [--tag tag]
-    	[--protocol protocol] [--target target] domainId recordId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -998,13 +1513,13 @@ Updates a single Record on this Domain.
     	--ttl_sec 604800
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1012,75 +1527,149 @@ Updates a single Record on this Domain.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`domainId`
-      - integer
+    * - :action-table-field-name:`domainId`
+      - :action-table-field-type:`integer`
       - The ID of the Domain whose Record you are accessing.
-    * - :code:`recordId`
-      - integer
+    * - :action-table-field-name:`recordId`
+      - :action-table-field-type:`integer`
       - The ID of the Record you are accessing.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--name`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-name`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The name of this Record.
-    * - :code:`--port`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-port`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The port this Record points to.
-    * - :code:`--priority`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-priority`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The priority of the target host for this Record.
-    * - :code:`--protocol`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-protocol`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The protocol this Record's service communicates with.
-    * - :code:`--service`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-service`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The name of the service.
-    * - :code:`--tag`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-tag`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The tag portion of a CAA record.
-    * - :code:`--target`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-target`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The target for this Record.
-    * - :code:`--ttl_sec`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-ttl_sec`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
-    * - :code:`--weight`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-weight`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
+      - The relative weight of this Record used in the case of identical priority.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Domain Record was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123456`
+      - This Record's unique ID.
+    * - :action-table-field-name:`name`
+      - :action-table-field-type:`string`
+      - :json:`"test"`
+      - The name of this Record.
+    * - :action-table-field-name:`port`
+      - :action-table-field-type:`integer`
+      - :json:`80`
+      - The port this Record points to.
+    * - :action-table-field-name:`priority`
+      - :action-table-field-type:`integer`
+      - :json:`50`
+      - The priority of the target host for this Record.
+    * - :action-table-field-name:`protocol`
+      - :action-table-field-type:`string`
+      - ?
+      - The protocol this Record's service communicates with.
+    * - :action-table-field-name:`service`
+      - :action-table-field-type:`string`
+      - ?
+      - The name of the service.
+    * - :action-table-field-name:`tag`
+      - :action-table-field-type:`string`
+      - ?
+      - The tag portion of a CAA record.
+    * - :action-table-field-name:`target`
+      - :action-table-field-type:`string`
+      - :json:`"192.0.2.0"`
+      - The target for this Record.
+    * - :action-table-field-name:`ttl_sec`
+      - :action-table-field-type:`integer`
+      - :json:`604800`
+      - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"A"`
+      - The type of Record this is in the DNS system.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Domain Record was last updated.
+    * - :action-table-field-name:`weight`
+      - :action-table-field-type:`integer`
+      - :json:`50`
       - The relative weight of this Record used in the case of identical priority.
 
 
@@ -1094,27 +1683,13 @@ Updates a single Record on this Domain.
 
 Deletes a Record on this Domain.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains records-delete [-h] domainId recordId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1122,13 +1697,13 @@ Deletes a Record on this Domain.
     linode-cli domains records-delete 123 234
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1136,17 +1711,17 @@ Deletes a Record on this Domain.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`domainId`
-      - integer
+    * - :action-table-field-name:`domainId`
+      - :action-table-field-type:`integer`
       - The ID of the Domain whose Record you are accessing.
-    * - :code:`recordId`
-      - integer
+    * - :action-table-field-name:`recordId`
+      - :action-table-field-type:`integer`
       - The ID of the Record you are accessing.
 
 
@@ -1159,28 +1734,13 @@ Deletes a Record on this Domain.
 
 Returns the zone file for the last rendered zone for the specified domain.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli domains zone-file [-h] [--order-by {}]
-    	[--order {asc,desc}] domainId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1188,13 +1748,13 @@ Returns the zone file for the last rendered zone for the specified domain.
     linode-cli domains zone-file 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1202,15 +1762,42 @@ Returns the zone file for the last rendered zone for the specified domain.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`domainId`
-      - string
+    * - :action-table-field-name:`domainId`
+      - :action-table-field-type:`string`
       - ID of the Domain.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`zone_file`
+      - :action-table-field-type:`array[string]`
+      - :json:`["; example.com [123]", "$TTL 864000", "@  IN  SOA  ns1.linode.com. user.example.com. 2021000066 14400 14400 1209600 86400", "@    NS  ns1.linode.com.", "@    NS  ns2.linode.com.", "@    NS  ns3.linode.com.", "@    NS  ns4.linode.com.", "@    NS  ns5.linode.com."]`
+      - The lines of the zone file for the last rendered zone for this domain.
 
 
 

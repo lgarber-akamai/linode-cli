@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Account
 =======
@@ -13,33 +19,190 @@ This section details Account-related Linode CLI commands.
 
 Returns the contact and billing information related to your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account view [-h] [--order-by {}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli account view
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`active_since`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date and time the account was activated.
+    * - :action-table-field-name:`address_1`
+      - :action-table-field-type:`string`
+      - :json:`"123 Main Street"`
+      - First line of this Account's billing address.
+    * - :action-table-field-name:`address_2`
+      - :action-table-field-type:`string`
+      - :json:`"Suite A"`
+      - Second line of this Account's billing address.
+    * - :action-table-field-name:`balance`
+      - :action-table-field-type:`number`
+      - :json:`200`
+      - This Account's balance, in US dollars.
+    * - :action-table-field-name:`balance_uninvoiced`
+      - :action-table-field-type:`number`
+      - :json:`145`
+      - This Account's current estimated invoice in US dollars.
+    * - :action-table-field-name:`billing_source`
+      - :action-table-field-type:`string`
+      - :json:`"akamai"`
+      - The source of service charges for this Account, as determined by its relationship with Akamai.
+    * - :action-table-field-name:`capabilities`
+      - :action-table-field-type:`array[string]`
+      - :json:`["Linodes", "NodeBalancers", "Block Storage", "Object Storage", "Placement Groups"]`
+      - A list of capabilities your account supports.
+    * - :action-table-field-name:`city`
+      - :action-table-field-type:`string`
+      - :json:`"Philadelphia"`
+      - The city for this Account's billing address.
+    * - :action-table-field-name:`company`
+      - :action-table-field-type:`string`
+      - :json:`"Linode LLC"`
+      - The company name associated with this Account.
+    * - :action-table-field-name:`country`
+      - :action-table-field-type:`string`
+      - :json:`"US"`
+      - The two-letter ISO 3166 country code of this Account's billing address.
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"john.smith@linode.com"`
+      - The email address of the person associated with this Account.
+    * - :action-table-field-name:`euuid`
+      - :action-table-field-type:`string`
+      - :json:`"E1AF5EEC-526F-487D-B317EBEB34C87D71"`
+      - An external unique identifier for this account.
+    * - :action-table-field-name:`first_name`
+      - :action-table-field-type:`string`
+      - :json:`"John"`
+      - The first name of the person associated with this Account.
+    * - :action-table-field-name:`last_name`
+      - :action-table-field-type:`string`
+      - :json:`"Smith"`
+      - The last name of the person associated with this Account.
+    * - :action-table-field-name:`phone`
+      - :action-table-field-type:`string`
+      - :json:`"215-555-1212"`
+      - The phone number associated with this Account.
+    * - :action-table-field-name:`state`
+      - :action-table-field-type:`string`
+      - :json:`"PA"`
+      - If billing address is in the United States (US) or Canada (CA), only the two-letter ISO 3166 State or Province code are accepted.
+    * - :action-table-field-name:`tax_id`
+      - :action-table-field-type:`string`
+      - :json:`"ATU99999999"`
+      - The tax identification number associated with this Account, for tax calculations in some countries.
+    * - :action-table-field-name:`zip`
+      - :action-table-field-type:`string`
+      - :json:`"19102-1234"`
+      - The zip code of this Account's billing address.
+.. _commands_account_view_attribute_sections_active_promotions:
+
+.. rst-class:: action-section-header
+
+active_promotions
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`active_promotions.credit_monthly_cap`
+      - :action-table-field-type:`string`
+      - :json:`"10.00"`
+      - The amount available to spend per month.
+    * - :action-table-field-name:`active_promotions.credit_remaining`
+      - :action-table-field-type:`string`
+      - :json:`"50.00"`
+      - The total amount of credit left for this promotion.
+    * - :action-table-field-name:`active_promotions.description`
+      - :action-table-field-type:`string`
+      - :json:`"Receive up to $10 off your services every month for 6 months! Unused credits will expire once this promotion period ends."`
+      - A detailed description of this promotion.
+    * - :action-table-field-name:`active_promotions.expire_dt`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-31T23:59:59"`
+      - When this promotion's credits expire.
+    * - :action-table-field-name:`active_promotions.image_url`
+      - :action-table-field-type:`string`
+      - :json:`"https://linode.com/10_a_month_promotion.svg"`
+      - The location of an image for this promotion.
+    * - :action-table-field-name:`active_promotions.service_type`
+      - :action-table-field-type:`string`
+      - :json:`"all"`
+      - The service to which this promotion applies.
+    * - :action-table-field-name:`active_promotions.summary`
+      - :action-table-field-type:`string`
+      - :json:`"$10 off your Linode a month!"`
+      - Short details of this promotion.
+    * - :action-table-field-name:`active_promotions.this_month_credit_remaining`
+      - :action-table-field-type:`string`
+      - :json:`"10.00"`
+      - The amount of credit left for this month for this promotion.
+.. _commands_account_view_attribute_sections_credit_card:
+
+.. rst-class:: action-section-header
+
+credit_card
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`credit_card.expiry`
+      - :action-table-field-type:`string`
+      - :json:`"11/2022"`
+      - The expiration month and year of the credit card.
+    * - :action-table-field-name:`credit_card.last_four`
+      - :action-table-field-type:`string`
+      - :json:`1111`
+      - The last four digits of the credit card associated with this Account.
 
 
 ------------
@@ -52,39 +215,13 @@ Returns the contact and billing information related to your Account.
 
 Updates contact and billing information related to your account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account update [-h] [--city city] [--state state]
-    	[--first_name first_name] [--zip zip] [--address_2 address_2]
-    	[--company company]
-    	[--active_promotions.service_type service_type]
-    	[--active_promotions.this_month_credit_remaining this_month_credit_remaining]
-    	[--active_promotions.expire_dt expire_dt]
-    	[--active_promotions.summary summary]
-    	[--active_promotions.credit_monthly_cap credit_monthly_cap]
-    	[--active_promotions.credit_remaining credit_remaining]
-    	[--active_promotions.image_url image_url]
-    	[--active_promotions.description description] [--phone phone]
-    	[--tax_id tax_id] [--email email] [--country country]
-    	[--last_name last_name] [--address_1 address_1]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -104,158 +241,328 @@ Updates contact and billing information related to your account.
     	--zip 19102
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--active_promotions`
+    * - :action-table-field-name:`\-\-active_promotions`
         :ref:`(section) <commands_account_update_argument_sections_active_promotions>`
-      - No
-      - json
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`json`
       - Promotions generally offer a set amount of credit that can be used toward your Linode services, and the promotion expires after a specified date.
-    * - :code:`--active_since`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-active_since`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The date and time the account was activated.
-    * - :code:`--address_1`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-address_1`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - First line of this Account's billing address.
-    * - :code:`--address_2`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-address_2`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Second line of this Account's billing address.
-    * - :code:`--balance`
-      - No
-      - number
+    * - :action-table-field-name:`\-\-balance`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`number`
       - This Account's balance, in US dollars.
-    * - :code:`--balance_uninvoiced`
-      - No
-      - number
+    * - :action-table-field-name:`\-\-balance_uninvoiced`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`number`
       - This Account's current estimated invoice in US dollars.
-    * - :code:`--billing_source`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-billing_source`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The source of service charges for this Account, as determined by its relationship with Akamai.
-    * - :code:`--capabilities`
-      - No
-      - array[string]
+    * - :action-table-field-name:`\-\-capabilities`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`array[string]`
       - A list of capabilities your account supports.
-    * - :code:`--city`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-city`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The city for this Account's billing address.
-    * - :code:`--company`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-company`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The company name associated with this Account.
-    * - :code:`--country`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-country`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The two-letter ISO 3166 country code of this Account's billing address.
-    * - :code:`--credit_card`
-      - No
-      - object
+    * - :action-table-field-name:`\-\-credit_card`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`object`
       - Credit Card information associated with this Account.
-    * - :code:`--email`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-email`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The email address of the person associated with this Account.
-    * - :code:`--euuid`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-euuid`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - An external unique identifier for this account.
-    * - :code:`--first_name`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-first_name`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The first name of the person associated with this Account.
-    * - :code:`--last_name`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-last_name`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The last name of the person associated with this Account.
-    * - :code:`--phone`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-phone`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The phone number associated with this Account.
-    * - :code:`--state`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-state`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - If billing address is in the United States (US) or Canada (CA), only the two-letter ISO 3166 State or Province code are accepted.
-    * - :code:`--tax_id`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-tax_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The tax identification number associated with this Account, for tax calculations in some countries.
-    * - :code:`--zip`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-zip`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The zip code of this Account's billing address.
 .. _commands_account_update_argument_sections_active_promotions:
 
-.. cssclass:: action-argument-section-header
+.. rst-class:: action-section-header
 
-    active_promotions
+active_promotions
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--active_promotions.credit_monthly_cap`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-active_promotions.credit_monthly_cap`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The amount available to spend per month.
-    * - :code:`--active_promotions.credit_remaining`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-active_promotions.credit_remaining`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The total amount of credit left for this promotion.
-    * - :code:`--active_promotions.description`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-active_promotions.description`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - A detailed description of this promotion.
-    * - :code:`--active_promotions.expire_dt`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-active_promotions.expire_dt`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this promotion's credits expire.
-    * - :code:`--active_promotions.image_url`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-active_promotions.image_url`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The location of an image for this promotion.
-    * - :code:`--active_promotions.service_type`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-active_promotions.service_type`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The service to which this promotion applies.
-    * - :code:`--active_promotions.summary`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-active_promotions.summary`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Short details of this promotion.
-    * - :code:`--active_promotions.this_month_credit_remaining`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-active_promotions.this_month_credit_remaining`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The amount of credit left for this month for this promotion.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`active_since`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date and time the account was activated.
+    * - :action-table-field-name:`address_1`
+      - :action-table-field-type:`string`
+      - :json:`"123 Main Street"`
+      - First line of this Account's billing address.
+    * - :action-table-field-name:`address_2`
+      - :action-table-field-type:`string`
+      - :json:`"Suite A"`
+      - Second line of this Account's billing address.
+    * - :action-table-field-name:`balance`
+      - :action-table-field-type:`number`
+      - :json:`200`
+      - This Account's balance, in US dollars.
+    * - :action-table-field-name:`balance_uninvoiced`
+      - :action-table-field-type:`number`
+      - :json:`145`
+      - This Account's current estimated invoice in US dollars.
+    * - :action-table-field-name:`billing_source`
+      - :action-table-field-type:`string`
+      - :json:`"akamai"`
+      - The source of service charges for this Account, as determined by its relationship with Akamai.
+    * - :action-table-field-name:`capabilities`
+      - :action-table-field-type:`array[string]`
+      - :json:`["Linodes", "NodeBalancers", "Block Storage", "Object Storage", "Placement Groups"]`
+      - A list of capabilities your account supports.
+    * - :action-table-field-name:`city`
+      - :action-table-field-type:`string`
+      - :json:`"Philadelphia"`
+      - The city for this Account's billing address.
+    * - :action-table-field-name:`company`
+      - :action-table-field-type:`string`
+      - :json:`"Linode LLC"`
+      - The company name associated with this Account.
+    * - :action-table-field-name:`country`
+      - :action-table-field-type:`string`
+      - :json:`"US"`
+      - The two-letter ISO 3166 country code of this Account's billing address.
+    * - :action-table-field-name:`email`
+      - :action-table-field-type:`string`
+      - :json:`"john.smith@linode.com"`
+      - The email address of the person associated with this Account.
+    * - :action-table-field-name:`euuid`
+      - :action-table-field-type:`string`
+      - :json:`"E1AF5EEC-526F-487D-B317EBEB34C87D71"`
+      - An external unique identifier for this account.
+    * - :action-table-field-name:`first_name`
+      - :action-table-field-type:`string`
+      - :json:`"John"`
+      - The first name of the person associated with this Account.
+    * - :action-table-field-name:`last_name`
+      - :action-table-field-type:`string`
+      - :json:`"Smith"`
+      - The last name of the person associated with this Account.
+    * - :action-table-field-name:`phone`
+      - :action-table-field-type:`string`
+      - :json:`"215-555-1212"`
+      - The phone number associated with this Account.
+    * - :action-table-field-name:`state`
+      - :action-table-field-type:`string`
+      - :json:`"PA"`
+      - If billing address is in the United States (US) or Canada (CA), only the two-letter ISO 3166 State or Province code are accepted.
+    * - :action-table-field-name:`tax_id`
+      - :action-table-field-type:`string`
+      - :json:`"ATU99999999"`
+      - The tax identification number associated with this Account, for tax calculations in some countries.
+    * - :action-table-field-name:`zip`
+      - :action-table-field-type:`string`
+      - :json:`"19102-1234"`
+      - The zip code of this Account's billing address.
+.. _commands_account_update_attribute_sections_active_promotions:
+
+.. rst-class:: action-section-header
+
+active_promotions
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`active_promotions.credit_monthly_cap`
+      - :action-table-field-type:`string`
+      - :json:`"10.00"`
+      - The amount available to spend per month.
+    * - :action-table-field-name:`active_promotions.credit_remaining`
+      - :action-table-field-type:`string`
+      - :json:`"50.00"`
+      - The total amount of credit left for this promotion.
+    * - :action-table-field-name:`active_promotions.description`
+      - :action-table-field-type:`string`
+      - :json:`"Receive up to $10 off your services every month for 6 months! Unused credits will expire once this promotion period ends."`
+      - A detailed description of this promotion.
+    * - :action-table-field-name:`active_promotions.expire_dt`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-31T23:59:59"`
+      - When this promotion's credits expire.
+    * - :action-table-field-name:`active_promotions.image_url`
+      - :action-table-field-type:`string`
+      - :json:`"https://linode.com/10_a_month_promotion.svg"`
+      - The location of an image for this promotion.
+    * - :action-table-field-name:`active_promotions.service_type`
+      - :action-table-field-type:`string`
+      - :json:`"all"`
+      - The service to which this promotion applies.
+    * - :action-table-field-name:`active_promotions.summary`
+      - :action-table-field-type:`string`
+      - :json:`"$10 off your Linode a month!"`
+      - Short details of this promotion.
+    * - :action-table-field-name:`active_promotions.this_month_credit_remaining`
+      - :action-table-field-type:`string`
+      - :json:`"10.00"`
+      - The amount of credit left for this month for this promotion.
+.. _commands_account_update_attribute_sections_credit_card:
+
+.. rst-class:: action-section-header
+
+credit_card
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`credit_card.expiry`
+      - :action-table-field-type:`string`
+      - :json:`"11/2022"`
+      - The expiration month and year of the credit card.
+    * - :action-table-field-name:`credit_card.last_four`
+      - :action-table-field-type:`string`
+      - :json:`1111`
+      - The last four digits of the credit card associated with this Account.
 
 
 ------------
@@ -268,27 +575,13 @@ Updates contact and billing information related to your account.
 
 Cancels an active Linode account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account cancel [-h] [--comments comments]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -297,31 +590,57 @@ Cancels an active Linode account.
     	--comments "I'm consolidating my accounts"
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--comments`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-comments`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - Any reason for cancelling the account, and any other comments you might have about your Linode service.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`survey_link`
+      - :action-table-field-type:`string`
+      - ?
+      - A link to Linode's exit survey.
 
 
 ------------
@@ -334,34 +653,62 @@ Cancels an active Linode account.
 
 Returns information related to your Account settings: Managed service subscription, Longview subscription, and network helper.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account settings [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli account settings
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`backups_enabled`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Account-wide backups default.
+    * - :action-table-field-name:`longview_subscription`
+      - :action-table-field-type:`string`
+      - :json:`"longview-3"`
+      - The Longview Pro tier you are currently subscribed to.
+    * - :action-table-field-name:`managed`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Our 24/7 incident response service.
+    * - :action-table-field-name:`network_helper`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Enables network helper across all users by default for new Linodes and Linode Configs.
+    * - :action-table-field-name:`object_storage`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - A string describing the status of this account's Object Storage service enrollment.
 
 
 ------------
@@ -374,34 +721,88 @@ Returns information related to your Account settings: Managed service subscripti
 
 Returns a Transfer object showing your network utilization, in GB, for the current month.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account transfer [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli account transfer
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`billable`
+      - :action-table-field-type:`integer`
+      - ?
+      - The amount of your transfer pool that is billable this billing cycle.
+    * - :action-table-field-name:`quota`
+      - :action-table-field-type:`integer`
+      - :json:`9141`
+      - The amount of network usage allowed this billing cycle.
+    * - :action-table-field-name:`used`
+      - :action-table-field-type:`integer`
+      - :json:`2`
+      - The amount of network usage you have used this billing cycle.
+.. _commands_account_transfer_attribute_sections_region_transfers:
+
+.. rst-class:: action-section-header
+
+region_transfers
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`region_transfers.billable`
+      - :action-table-field-type:`integer`
+      - ?
+      - The amount of your transfer pool that is billable this billing cycle for this Region.
+    * - :action-table-field-name:`region_transfers.id`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The Region ID for this network utilization data.
+    * - :action-table-field-name:`region_transfers.quota`
+      - :action-table-field-type:`integer`
+      - :json:`5010`
+      - The amount of network usage allowed this billing cycle for this Region.
+    * - :action-table-field-name:`region_transfers.used`
+      - :action-table-field-type:`integer`
+      - :json:`1`
+      - The amount of network usage you have used this billing cycle for this Region.
 
 
 ------------
@@ -414,29 +815,13 @@ Returns a Transfer object showing your network utilization, in GB, for the curre
 
 Returns information about a single OAuth client.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account client-view [-h] [--label label]
-    	[--public public] [--order-by {label,public}]
-    	[--order {asc,desc}] clientId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -445,13 +830,13 @@ Returns information about a single OAuth client.
     	edc6790ea9db4d224c5c
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -459,15 +844,66 @@ Returns information about a single OAuth client.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clientId`
-      - string
+    * - :action-table-field-name:`clientId`
+      - :action-table-field-type:`string`
       - The OAuth Client ID to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"2737bf16b39ab5d7b4a1"`
+      - The OAuth Client ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Test_Client_1"`
+      - The name of this application.
+    * - :action-table-field-name:`public`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If this is a public or private OAuth Client.
+    * - :action-table-field-name:`redirect_uri`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org/oauth/callback"`
+      - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
+    * - :action-table-field-name:`secret`
+      - :action-table-field-type:`string`
+      - :json:`"\u003cREDACTED\u003e"`
+      - The OAuth Client secret, used in the OAuth exchange.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The status of this application.
+    * - :action-table-field-name:`thumbnail_url`
+      - :action-table-field-type:`string`
+      - :json:`"https://api.linode.com/v4/account/clients/2737bf16b39ab5d7b4a1/thumbnail"`
+      - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
 
 
 ------------
@@ -480,29 +916,13 @@ Returns information about a single OAuth client.
 
 Creates an OAuth Client, which can be used to allow users (using their Linode account) to log in to your own application, and optionally grant your application some amount of access to their Linodes or other entities.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account client-create [-h]
-    	[--redirect_uri redirect_uri] [--public public]
-    	[--label label]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -512,54 +932,104 @@ Creates an OAuth Client, which can be used to allow users (using their Linode ac
     	--redirect_uri https://example.org/callback
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--label`
-      - :action-argument-required:`Yes`
-      - string
-      - The name of this application.
-    * - :code:`--redirect_uri`
-      - :action-argument-required:`Yes`
-      - string
-      - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
-    * - :code:`--id`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The OAuth Client ID.
-    * - :code:`--public`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The name of this application.
+    * - :action-table-field-name:`\-\-public`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - If this is a public or private OAuth Client.
-    * - :code:`--secret`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-redirect_uri`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
+      - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
+    * - :action-table-field-name:`\-\-secret`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The OAuth Client secret, used in the OAuth exchange.
-    * - :code:`--status`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The status of this application.
-    * - :code:`--thumbnail_url`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-thumbnail_url`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
+      - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"2737bf16b39ab5d7b4a1"`
+      - The OAuth Client ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Test_Client_1"`
+      - The name of this application.
+    * - :action-table-field-name:`public`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If this is a public or private OAuth Client.
+    * - :action-table-field-name:`redirect_uri`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org/oauth/callback"`
+      - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
+    * - :action-table-field-name:`secret`
+      - :action-table-field-type:`string`
+      - :json:`"\u003cREDACTED\u003e"`
+      - The OAuth Client secret, used in the OAuth exchange.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The status of this application.
+    * - :action-table-field-name:`thumbnail_url`
+      - :action-table-field-type:`string`
+      - :json:`"https://api.linode.com/v4/account/clients/2737bf16b39ab5d7b4a1/thumbnail"`
       - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
 
 
@@ -573,28 +1043,13 @@ Creates an OAuth Client, which can be used to allow users (using their Linode ac
 
 Update information about an OAuth Client on your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account client-update [-h] [--label label]
-    	[--public public] [--redirect_uri redirect_uri] clientId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -604,13 +1059,13 @@ Update information about an OAuth Client on your Account.
     	--label Test_Client_1
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -618,64 +1073,114 @@ Update information about an OAuth Client on your Account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clientId`
-      - string
+    * - :action-table-field-name:`clientId`
+      - :action-table-field-type:`string`
       - The OAuth Client ID to look up.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--id`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The OAuth Client ID.
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The name of this application.
-    * - :code:`--public`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-public`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - If this is a public or private OAuth Client.
-    * - :code:`--redirect_uri`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-redirect_uri`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
-    * - :code:`--secret`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-secret`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The OAuth Client secret, used in the OAuth exchange.
-    * - :code:`--status`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The status of this application.
-    * - :code:`--thumbnail_url`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-thumbnail_url`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
+      - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"2737bf16b39ab5d7b4a1"`
+      - The OAuth Client ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Test_Client_1"`
+      - The name of this application.
+    * - :action-table-field-name:`public`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If this is a public or private OAuth Client.
+    * - :action-table-field-name:`redirect_uri`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org/oauth/callback"`
+      - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
+    * - :action-table-field-name:`secret`
+      - :action-table-field-type:`string`
+      - :json:`"\u003cREDACTED\u003e"`
+      - The OAuth Client secret, used in the OAuth exchange.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The status of this application.
+    * - :action-table-field-name:`thumbnail_url`
+      - :action-table-field-type:`string`
+      - :json:`"https://api.linode.com/v4/account/clients/2737bf16b39ab5d7b4a1/thumbnail"`
       - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
 
 
@@ -689,27 +1194,13 @@ Update information about an OAuth Client on your Account.
 
 Deletes an OAuth Client registered with Linode.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account client-delete [-h] clientId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -718,13 +1209,13 @@ Deletes an OAuth Client registered with Linode.
     	edc6790ea9db4d224c5c
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -732,14 +1223,14 @@ Deletes an OAuth Client registered with Linode.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clientId`
-      - string
+    * - :action-table-field-name:`clientId`
+      - :action-table-field-type:`string`
       - The OAuth Client ID to look up.
 
 
@@ -753,27 +1244,13 @@ Deletes an OAuth Client registered with Linode.
 
 Resets the OAuth Client secret for a client you own, and returns the OAuth Client with the plaintext secret.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account client-reset-secret [-h] clientId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -782,13 +1259,13 @@ Resets the OAuth Client secret for a client you own, and returns the OAuth Clien
     	edc6790ea9db4d224c5c
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -796,15 +1273,66 @@ Resets the OAuth Client secret for a client you own, and returns the OAuth Clien
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clientId`
-      - string
+    * - :action-table-field-name:`clientId`
+      - :action-table-field-type:`string`
       - The OAuth Client ID to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"2737bf16b39ab5d7b4a1"`
+      - The OAuth Client ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Test_Client_1"`
+      - The name of this application.
+    * - :action-table-field-name:`public`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If this is a public or private OAuth Client.
+    * - :action-table-field-name:`redirect_uri`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org/oauth/callback"`
+      - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
+    * - :action-table-field-name:`secret`
+      - :action-table-field-type:`string`
+      - :json:`"\u003cREDACTED\u003e"`
+      - The OAuth Client secret, used in the OAuth exchange.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The status of this application.
+    * - :action-table-field-name:`thumbnail_url`
+      - :action-table-field-type:`string`
+      - :json:`"https://api.linode.com/v4/account/clients/2737bf16b39ab5d7b4a1/thumbnail"`
+      - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
 
 
 ------------
@@ -817,29 +1345,13 @@ Resets the OAuth Client secret for a client you own, and returns the OAuth Clien
 
 Returns a paginated list of OAuth Clients registered to your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account clients-list [-h] [--label label]
-    	[--public public] [--order-by {label,public}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -847,33 +1359,82 @@ Returns a paginated list of OAuth Clients registered to your Account.
     linode-cli account clients-list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--label`
-      - *string*
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`string`
       - The name of this application.
-    * - :code:`--public`
-      - *boolean*
+    * - :action-table-field-name:`\-\-public`
+      - :action-table-field-type:`boolean`
       - If this is a public or private OAuth Client.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"2737bf16b39ab5d7b4a1"`
+      - The OAuth Client ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Test_Client_1"`
+      - The name of this application.
+    * - :action-table-field-name:`public`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If this is a public or private OAuth Client.
+    * - :action-table-field-name:`redirect_uri`
+      - :action-table-field-type:`string`
+      - :json:`"https://example.org/oauth/callback"`
+      - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
+    * - :action-table-field-name:`secret`
+      - :action-table-field-type:`string`
+      - :json:`"\u003cREDACTED\u003e"`
+      - The OAuth Client secret, used in the OAuth exchange.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
+      - The status of this application.
+    * - :action-table-field-name:`thumbnail_url`
+      - :action-table-field-type:`string`
+      - :json:`"https://api.linode.com/v4/account/clients/2737bf16b39ab5d7b4a1/thumbnail"`
+      - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
 
 
 ------------
@@ -886,27 +1447,13 @@ Returns a paginated list of OAuth Clients registered to your Account.
 
 Enables Linode Managed for the entire account and sends a welcome email to the account's associated email address.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account enable-managed [-h]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -925,28 +1472,13 @@ Enables Linode Managed for the entire account and sends a welcome email to the a
 
 View the available services for your account in a specific region.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account get-account-availability [-h] [--order-by {}]
-    	[--order {asc,desc}] id
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -954,13 +1486,13 @@ View the available services for your account in a specific region.
     linode-cli account get-account-availability us-east
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -968,15 +1500,50 @@ View the available services for your account in a specific region.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`id`
-      - string
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
       - The slug for the applicable data center.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`available`
+      - :action-table-field-type:`array[string]`
+      - :json:`["Linodes", "NodeBalancers"]`
+      - A list of services _available_ to your account in the :code:`region`.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The Akamai cloud computing data center (region), represented by a slug value.
+    * - :action-table-field-name:`unavailable`
+      - :action-table-field-type:`array[string]`
+      - :json:`["Kubernetes", "Block Storage"]`
+      - A list of services _unavailable_ to your account in the :code:`region`.
 
 
 ------------
@@ -989,34 +1556,54 @@ View the available services for your account in a specific region.
 
 Returns a paginated list of the services available to you, for all Linode regions.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account get-availability [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli account get-availability
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`available`
+      - :action-table-field-type:`array[string]`
+      - :json:`["Linodes", "NodeBalancers"]`
+      - A list of services _available_ to your account in the :code:`region`.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-east"`
+      - The Akamai cloud computing data center (region), represented by a slug value.
+    * - :action-table-field-name:`unavailable`
+      - :action-table-field-type:`array[string]`
+      - :json:`["Kubernetes", "Block Storage"]`
+      - A list of services _unavailable_ to your account in the :code:`region`.
 
 
 ------------
@@ -1029,31 +1616,13 @@ Returns a paginated list of the services available to you, for all Linode region
 
 Returns a single Invoice object.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account invoice-view [-h] [--label label]
-    	[--total total] [--date date]
-    	[--billing_source billing_source]
-    	[--order-by {label,total,date,billing_source}]
-    	[--order {asc,desc}] invoiceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1061,13 +1630,13 @@ Returns a single Invoice object.
     linode-cli account invoice-view 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1075,15 +1644,92 @@ Returns a single Invoice object.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`invoiceId`
-      - integer
+    * - :action-table-field-name:`invoiceId`
+      - :action-table-field-type:`integer`
       - The ID of the Invoice.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`billing_source`
+      - :action-table-field-type:`string`
+      - :json:`"linode"`
+      - :code:`akamai`: This Invoice was generated according to the terms of an agreement between the customer and Akamai.
+    * - :action-table-field-name:`date`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Invoice was generated.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The Invoice's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Invoice"`
+      - The Invoice's display label.
+    * - :action-table-field-name:`subtotal`
+      - :action-table-field-type:`number`
+      - :json:`120.25`
+      - The amount of the Invoice before taxes in US Dollars.
+    * - :action-table-field-name:`tax`
+      - :action-table-field-type:`number`
+      - :json:`12.25`
+      - The amount of tax levied on the Invoice in US Dollars.
+    * - :action-table-field-name:`total`
+      - :action-table-field-type:`number`
+      - :json:`132.5`
+      - The amount of the Invoice after taxes in US Dollars.
+.. _commands_account_invoice-view_attribute_sections_tax_summary:
+
+.. rst-class:: action-section-header
+
+tax_summary
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`tax_summary.name`
+      - :action-table-field-type:`string`
+      - :json:`"PA STATE TAX"`
+      - The source of this tax subtotal.
+    * - :action-table-field-name:`tax_summary.tax`
+      - :action-table-field-type:`number`
+      - :json:`12.25`
+      - The amount of tax subtotal attributable to this source.
 
 
 ------------
@@ -1096,28 +1742,13 @@ Returns a single Invoice object.
 
 Returns a paginated list of Invoice items.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account invoice-items [-h] [--order-by {}]
-    	[--order {asc,desc}] invoiceId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1125,13 +1756,13 @@ Returns a paginated list of Invoice items.
     linode-cli account invoice-items 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1139,15 +1770,78 @@ Returns a paginated list of Invoice items.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`invoiceId`
-      - integer
+    * - :action-table-field-name:`invoiceId`
+      - :action-table-field-type:`integer`
       - The ID of the Invoice.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`amount`
+      - :action-table-field-type:`number`
+      - :json:`20.2`
+      - The price, in US dollars, of the Invoice Item.
+    * - :action-table-field-name:`from`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - The date the Invoice Item started, based on month.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Linode 123"`
+      - The Invoice Item's display label.
+    * - :action-table-field-name:`quantity`
+      - :action-table-field-type:`integer`
+      - :json:`4`
+      - The quantity of this Item for the specified Invoice.
+    * - :action-table-field-name:`region`
+      - :action-table-field-type:`string`
+      - :json:`"us-west"`
+      - The ID of the applicable Region associated with this Invoice Item.
+    * - :action-table-field-name:`tax`
+      - :action-table-field-type:`number`
+      - :json:`1.25`
+      - The amount of tax levied on this Item in US Dollars.
+    * - :action-table-field-name:`to`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-31T11:59:59"`
+      - The date the Invoice Item ended, based on month.
+    * - :action-table-field-name:`total`
+      - :action-table-field-type:`number`
+      - :json:`21.45`
+      - The price of this Item after taxes in US Dollars.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"hourly"`
+      - The type of service, ether :code:`hourly` or :code:`misc`.
+    * - :action-table-field-name:`unit_price`
+      - :action-table-field-type:`string`
+      - :json:`5.05`
+      - The monthly service fee in US Dollars for this Item.
 
 
 ------------
@@ -1160,31 +1854,13 @@ Returns a paginated list of Invoice items.
 
 Returns a paginated list of Invoices against your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account invoices-list [-h] [--total total]
-    	[--date date] [--billing_source billing_source]
-    	[--label label]
-    	[--order-by {total,date,billing_source,label}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1192,39 +1868,114 @@ Returns a paginated list of Invoices against your Account.
     linode-cli account invoices-list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--billing_source`
-      - *string*
+    * - :action-table-field-name:`\-\-billing_source`
+      - :action-table-field-type:`string`
       - :code:`akamai`: This Invoice was generated according to the terms of an agreement between the customer and Akamai.
-    * - :code:`--date`
-      - *string*
+    * - :action-table-field-name:`\-\-date`
+      - :action-table-field-type:`string`
       - When this Invoice was generated.
-    * - :code:`--label`
-      - *string*
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`string`
       - The Invoice's display label.
-    * - :code:`--total`
-      - *number*
+    * - :action-table-field-name:`\-\-total`
+      - :action-table-field-type:`number`
       - The amount of the Invoice after taxes in US Dollars.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`billing_source`
+      - :action-table-field-type:`string`
+      - :json:`"linode"`
+      - :code:`akamai`: This Invoice was generated according to the terms of an agreement between the customer and Akamai.
+    * - :action-table-field-name:`date`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Invoice was generated.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The Invoice's unique ID.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Invoice"`
+      - The Invoice's display label.
+    * - :action-table-field-name:`subtotal`
+      - :action-table-field-type:`number`
+      - :json:`120.25`
+      - The amount of the Invoice before taxes in US Dollars.
+    * - :action-table-field-name:`tax`
+      - :action-table-field-type:`number`
+      - :json:`12.25`
+      - The amount of tax levied on the Invoice in US Dollars.
+    * - :action-table-field-name:`total`
+      - :action-table-field-type:`number`
+      - :json:`132.5`
+      - The amount of the Invoice after taxes in US Dollars.
+.. _commands_account_invoices-list_attribute_sections_tax_summary:
+
+.. rst-class:: action-section-header
+
+tax_summary
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`tax_summary.name`
+      - :action-table-field-type:`string`
+      - :json:`"PA STATE TAX"`
+      - The source of this tax subtotal.
+    * - :action-table-field-name:`tax_summary.tax`
+      - :action-table-field-type:`number`
+      - :json:`12.25`
+      - The amount of tax subtotal attributable to this source.
 
 
 ------------
@@ -1237,28 +1988,13 @@ Returns a paginated list of Invoices against your Account.
 
 Returns a Login object that displays information about a successful login.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account login-view [-h] [--order-by {}]
-    	[--order {asc,desc}] loginId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1266,13 +2002,13 @@ Returns a Login object that displays information about a successful login.
     linode-cli account login-view 1234
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1280,15 +2016,62 @@ Returns a Login object that displays information about a successful login.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`loginId`
-      - integer
+    * - :action-table-field-name:`loginId`
+      - :action-table-field-type:`integer`
       - The ID of the login object to access.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`datetime`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When the login was initiated.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - The unique ID of this login object.
+    * - :action-table-field-name:`ip`
+      - :action-table-field-type:`string`
+      - :json:`"192.0.2.0"`
+      - The remote IP address that requested the login.
+    * - :action-table-field-name:`restricted`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - True if the User that attempted the login was a restricted User, false otherwise.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"successful"`
+      - Whether the login attempt succeeded or failed.
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
+      - :json:`"example_user"`
+      - The username of the User that attempted the login.
 
 
 ------------
@@ -1301,34 +2084,66 @@ Returns a Login object that displays information about a successful login.
 
 Returns a collection of successful logins for all users on the account during the last 90 days.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account logins-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli account logins-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`datetime`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When the login was initiated.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`1234`
+      - The unique ID of this login object.
+    * - :action-table-field-name:`ip`
+      - :action-table-field-type:`string`
+      - :json:`"192.0.2.0"`
+      - The remote IP address that requested the login.
+    * - :action-table-field-name:`restricted`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - True if the User that attempted the login was a restricted User, false otherwise.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"successful"`
+      - Whether the login attempt succeeded or failed.
+    * - :action-table-field-name:`username`
+      - :action-table-field-type:`string`
+      - :json:`"example_user"`
+      - The username of the User that attempted the login.
 
 
 ------------
@@ -1341,29 +2156,13 @@ Returns a collection of successful logins for all users on the account during th
 
 Returns a collection of Maintenance objects for any entity a user has permissions to view.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account maintenance-list [-h] [--type type]
-    	[--when when] [--status status]
-    	[--order-by {type,when,status}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1371,36 +2170,107 @@ Returns a collection of Maintenance objects for any entity a user has permission
     linode-cli account maintenance-list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--status`
-      - *string*
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-type:`string`
       - The maintenance status.
-    * - :code:`--type`
-      - *string*
+    * - :action-table-field-name:`\-\-type`
+      - :action-table-field-type:`string`
       - The type of maintenance.
-    * - :code:`--when`
-      - *string*
+    * - :action-table-field-name:`\-\-when`
+      - :action-table-field-type:`string`
       - When the maintenance will begin.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`reason`
+      - :action-table-field-type:`string`
+      - :json:`"This maintenance will allow us to update the BIOS on the host\u0027s motherboard."`
+      - The reason maintenance is being performed.
+    * - :action-table-field-name:`status`
+      - :action-table-field-type:`string`
+      - :json:`"started"`
+      - The maintenance status.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"reboot"`
+      - The type of maintenance.
+    * - :action-table-field-name:`when`
+      - :action-table-field-type:`string`
+      - :json:`"2020-07-09T00:01:01"`
+      - When the maintenance will begin.
+.. _commands_account_maintenance-list_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id`
+      - :action-table-field-type:`number`
+      - :json:`1234`
+      - The id of the entity being affected by maintenance.
+    * - :action-table-field-name:`entity.label`
+      - :action-table-field-type:`string`
+      - :json:`"demo-linode"`
+      - The label of the entity being affected by maintenance.
+    * - :action-table-field-name:`entity.type`
+      - :action-table-field-type:`string`
+      - :json:`"Linode"`
+      - The type of entity.
+    * - :action-table-field-name:`entity.url`
+      - :action-table-field-type:`string`
+      - :json:`"https://api.linode.com/v4/linode/instances/{linodeId}"`
+      - The API endpoint prefix to use in combination with the entity id to find specific information about the entity.
 
 
 ------------
@@ -1413,34 +2283,104 @@ Returns a collection of Maintenance objects for any entity a user has permission
 
 Returns a collection of Notification objects representing important, often time-sensitive items related to your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account notifications-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli account notifications-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`body`
+      - :action-table-field-type:`string`
+      - ?
+      - A full description of this Notification, in markdown format.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"You have an important ticket open!"`
+      - A short description of this Notification.
+    * - :action-table-field-name:`message`
+      - :action-table-field-type:`string`
+      - :json:`"You have an important ticket open!"`
+      - A human-readable description of the Notification.
+    * - :action-table-field-name:`severity`
+      - :action-table-field-type:`string`
+      - :json:`"major"`
+      - The severity of this Notification.
+    * - :action-table-field-name:`type`
+      - :action-table-field-type:`string`
+      - :json:`"ticket_important"`
+      - The type of Notification this is.
+    * - :action-table-field-name:`until`
+      - :action-table-field-type:`string`
+      - ?
+      - If this Notification has a duration, this will be the ending time for the Event/action.
+    * - :action-table-field-name:`when`
+      - :action-table-field-type:`string`
+      - ?
+      - If this Notification is of an Event that will happen at a fixed, future time, this is when the named action will be taken.
+.. _commands_account_notifications-list_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id`
+      - :action-table-field-type:`integer`
+      - :json:`3456`
+      - The unique ID of the Notification's entity, based on the entity type.
+    * - :action-table-field-name:`entity.label`
+      - :action-table-field-type:`string`
+      - :json:`"Linode not booting."`
+      - The current label for this Notification's entity.
+    * - :action-table-field-name:`entity.type`
+      - :action-table-field-type:`string`
+      - :json:`"ticket"`
+      - The type of entity this is related to.
+    * - :action-table-field-name:`entity.url`
+      - :action-table-field-type:`string`
+      - :json:`"/support/tickets/3456"`
+      - The URL where you can access the object this Notification is for.
 
 
 ------------
@@ -1453,28 +2393,13 @@ Returns a collection of Notification objects representing important, often time-
 
 Returns information about a specific Payment.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account payment-view [-h] [--order-by {}]
-    	[--order {asc,desc}] paymentId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1482,13 +2407,13 @@ Returns information about a specific Payment.
     linode-cli account payment-view 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -1496,15 +2421,50 @@ Returns information about a specific Payment.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`paymentId`
-      - integer
+    * - :action-table-field-name:`paymentId`
+      - :action-table-field-type:`integer`
       - The ID of the Payment to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`date`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-15T00:01:01"`
+      - When the Payment was made.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The unique ID of the Payment.
+    * - :action-table-field-name:`usd`
+      - :action-table-field-type:`integer`
+      - :json:`"120.50"`
+      - The amount, in US dollars, of the Payment.
 
 
 ------------
@@ -1517,28 +2477,13 @@ Returns information about a specific Payment.
 
 Makes a Payment to your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account payment-create [-h] [--usd usd]
-    	[--payment_method_id payment_method_id]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1548,35 +2493,69 @@ Makes a Payment to your Account.
     	--payment_method_id 123
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--payment_method_id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-payment_method_id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - The ID of the Payment Method to apply to the Payment.
-    * - :code:`--usd`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-usd`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The amount in US Dollars of the Payment.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`date`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-15T00:01:01"`
+      - When the Payment was made.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The unique ID of the Payment.
+    * - :action-table-field-name:`usd`
+      - :action-table-field-type:`integer`
+      - :json:`"120.50"`
+      - The amount, in US dollars, of the Payment.
 
 
 ------------
@@ -1589,34 +2568,54 @@ Makes a Payment to your Account.
 
 Returns a paginated list of Payments made on this Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account payments-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli account payments-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`date`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-15T00:01:01"`
+      - When the Payment was made.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`123`
+      - The unique ID of the Payment.
+    * - :action-table-field-name:`usd`
+      - :action-table-field-type:`integer`
+      - :json:`"120.50"`
+      - The amount, in US dollars, of the Payment.
 
 
 ------------
@@ -1629,27 +2628,13 @@ Returns a paginated list of Payments made on this Account.
 
 Adds an expiring Promo Credit to your account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account promo-add [-h] [--promo_code promo_code]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1659,31 +2644,85 @@ Adds an expiring Promo Credit to your account.
     	--promo-code abcdefABCDEF1234567890
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--promo_code`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-promo_code`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The Promo Code.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`credit_monthly_cap`
+      - :action-table-field-type:`string`
+      - :json:`"10.00"`
+      - The amount available to spend per month.
+    * - :action-table-field-name:`credit_remaining`
+      - :action-table-field-type:`string`
+      - :json:`"50.00"`
+      - The total amount of credit left for this promotion.
+    * - :action-table-field-name:`description`
+      - :action-table-field-type:`string`
+      - :json:`"Receive up to $10 off your services every month for 6 months! Unused credits will expire once this promotion period ends."`
+      - A detailed description of this promotion.
+    * - :action-table-field-name:`expire_dt`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-31T23:59:59"`
+      - When this promotion's credits expire.
+    * - :action-table-field-name:`image_url`
+      - :action-table-field-type:`string`
+      - :json:`"https://linode.com/10_a_month_promotion.svg"`
+      - The location of an image for this promotion.
+    * - :action-table-field-name:`service_type`
+      - :action-table-field-type:`string`
+      - :json:`"all"`
+      - The service to which this promotion applies.
+    * - :action-table-field-name:`summary`
+      - :action-table-field-type:`string`
+      - :json:`"$10 off your Linode a month!"`
+      - Short details of this promotion.
+    * - :action-table-field-name:`this_month_credit_remaining`
+      - :action-table-field-type:`string`
+      - :json:`"10.00"`
+      - The amount of credit left for this month for this promotion.
 
 
 
@@ -1695,29 +2734,13 @@ Adds an expiring Promo Credit to your account.
 
 Updates your account settings.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli account settings-update [-h]
-    	[--backups_enabled backups_enabled]
-    	[--network_helper network_helper]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -1726,46 +2749,88 @@ Updates your account settings.
     	--network_helper false
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--backups_enabled`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-backups_enabled`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Account-wide backups default.
-    * - :code:`--longview_subscription`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-longview_subscription`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The Longview Pro tier you are currently subscribed to.
-    * - :code:`--managed`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-managed`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Our 24/7 incident response service.
-    * - :code:`--network_helper`
-      - No
-      - boolean
+    * - :action-table-field-name:`\-\-network_helper`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`boolean`
       - Enables network helper across all users by default for new Linodes and Linode Configs.
-    * - :code:`--object_storage`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-object_storage`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
+      - A string describing the status of this account's Object Storage service enrollment.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`backups_enabled`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Account-wide backups default.
+    * - :action-table-field-name:`longview_subscription`
+      - :action-table-field-type:`string`
+      - :json:`"longview-3"`
+      - The Longview Pro tier you are currently subscribed to.
+    * - :action-table-field-name:`managed`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - Our 24/7 incident response service.
+    * - :action-table-field-name:`network_helper`
+      - :action-table-field-type:`boolean`
+      - ?
+      - Enables network helper across all users by default for new Linodes and Linode Configs.
+    * - :action-table-field-name:`object_storage`
+      - :action-table-field-type:`string`
+      - :json:`"active"`
       - A string describing the status of this account's Object Storage service enrollment.
 
 

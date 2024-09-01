@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Longview
 ========
@@ -13,28 +19,13 @@ This section details Longview-related Linode CLI commands.
 
 Returns a paginated list of Longview Clients you have access to.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli longview list [-h] [--label label]
-    	[--order-by {label}] [--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -42,30 +33,105 @@ Returns a paginated list of Longview Clients you have access to.
     linode-cli longview list
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Filterable Attributes
+Filterable Attributes
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    Arguments used to define a filter for response entries.
-
+Arguments used to define a filter for response entries.
 
 .. rst-class:: action-filterable-field-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`--label`
-      - *string*
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`string`
       - This Client's unique label.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`api_key`
+      - :action-table-field-type:`string`
+      - :json:`"BD1B4B54-D752-A76D-5A9BD8A17F39DB61"`
+      - The API key for this Client, used when configuring the Longview Client application on your Linode.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Longview Client was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`789`
+      - This Client's unique ID.
+    * - :action-table-field-name:`install_code`
+      - :action-table-field-type:`string`
+      - :json:`"BD1B5605-BF5E-D385-BA07AD518BE7F321"`
+      - The install code for this Client, used when configuring the Longview Client application on your Linode.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"client789"`
+      - This Client's unique label.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Longview Client was last updated.
+.. _commands_longview_list_attribute_sections_apps:
+
+.. rst-class:: action-section-header
+
+apps
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`apps.apache`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If True, the Apache Longview Client module is monitoring Apache on your server.
+    * - :action-table-field-name:`apps.mysql`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If True, the MySQL Longview Client modules is monitoring MySQL on your server.
+    * - :action-table-field-name:`apps.nginx`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If True, the Nginx Longview Client module is monitoring Nginx on your server.
 
 
 ------------
@@ -78,28 +144,13 @@ Returns a paginated list of Longview Clients you have access to.
 
 Returns a single Longview Client you can access.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli longview view [-h] [--label label]
-    	[--order-by {label}] [--order {asc,desc}] clientId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -107,13 +158,13 @@ Returns a single Longview Client you can access.
     linode-cli longview view 789
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -121,15 +172,92 @@ Returns a single Longview Client you can access.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clientId`
-      - integer
+    * - :action-table-field-name:`clientId`
+      - :action-table-field-type:`integer`
       - The Longview Client ID to access.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`api_key`
+      - :action-table-field-type:`string`
+      - :json:`"BD1B4B54-D752-A76D-5A9BD8A17F39DB61"`
+      - The API key for this Client, used when configuring the Longview Client application on your Linode.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Longview Client was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`789`
+      - This Client's unique ID.
+    * - :action-table-field-name:`install_code`
+      - :action-table-field-type:`string`
+      - :json:`"BD1B5605-BF5E-D385-BA07AD518BE7F321"`
+      - The install code for this Client, used when configuring the Longview Client application on your Linode.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"client789"`
+      - This Client's unique label.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Longview Client was last updated.
+.. _commands_longview_view_attribute_sections_apps:
+
+.. rst-class:: action-section-header
+
+apps
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`apps.apache`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If True, the Apache Longview Client module is monitoring Apache on your server.
+    * - :action-table-field-name:`apps.mysql`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If True, the MySQL Longview Client modules is monitoring MySQL on your server.
+    * - :action-table-field-name:`apps.nginx`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If True, the Nginx Longview Client module is monitoring Nginx on your server.
 
 
 ------------
@@ -142,27 +270,13 @@ Returns a single Longview Client you can access.
 
 Creates a Longview Client.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli longview create [-h] [--label label]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -171,55 +285,131 @@ Creates a Longview Client.
     	--label client789
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--api_key`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-api_key`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The API key for this Client, used when configuring the Longview Client application on your Linode.
-    * - :code:`--apps`
-      - No
-      - object
+    * - :action-table-field-name:`\-\-apps`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`object`
       - The apps this Client is monitoring on your Linode.
-    * - :code:`--created`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this Longview Client was created.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Client's unique ID.
-    * - :code:`--install_code`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-install_code`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The install code for this Client, used when configuring the Longview Client application on your Linode.
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - This Client's unique label.
-    * - :code:`--updated`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this Longview Client was last updated.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`api_key`
+      - :action-table-field-type:`string`
+      - :json:`"BD1B4B54-D752-A76D-5A9BD8A17F39DB61"`
+      - The API key for this Client, used when configuring the Longview Client application on your Linode.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Longview Client was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`789`
+      - This Client's unique ID.
+    * - :action-table-field-name:`install_code`
+      - :action-table-field-type:`string`
+      - :json:`"BD1B5605-BF5E-D385-BA07AD518BE7F321"`
+      - The install code for this Client, used when configuring the Longview Client application on your Linode.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"client789"`
+      - This Client's unique label.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Longview Client was last updated.
+.. _commands_longview_create_attribute_sections_apps:
+
+.. rst-class:: action-section-header
+
+apps
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`apps.apache`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If True, the Apache Longview Client module is monitoring Apache on your server.
+    * - :action-table-field-name:`apps.mysql`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If True, the MySQL Longview Client modules is monitoring MySQL on your server.
+    * - :action-table-field-name:`apps.nginx`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If True, the Nginx Longview Client module is monitoring Nginx on your server.
 
 
 ------------
@@ -232,27 +422,13 @@ Creates a Longview Client.
 
 Updates a Longview Client.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli longview update [-h] [--label label] clientId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -261,13 +437,13 @@ Updates a Longview Client.
     	--label client789
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -275,65 +451,141 @@ Updates a Longview Client.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clientId`
-      - integer
+    * - :action-table-field-name:`clientId`
+      - :action-table-field-type:`integer`
       - The Longview Client ID to access.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--api_key`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-api_key`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The API key for this Client, used when configuring the Longview Client application on your Linode.
-    * - :code:`--apps`
-      - No
-      - object
+    * - :action-table-field-name:`\-\-apps`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`object`
       - The apps this Client is monitoring on your Linode.
-    * - :code:`--created`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this Longview Client was created.
-    * - :code:`--id`
-      - No
-      - integer
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`integer`
       - This Client's unique ID.
-    * - :code:`--install_code`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-install_code`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The install code for this Client, used when configuring the Longview Client application on your Linode.
-    * - :code:`--label`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - This Client's unique label.
-    * - :code:`--updated`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - When this Longview Client was last updated.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`api_key`
+      - :action-table-field-type:`string`
+      - :json:`"BD1B4B54-D752-A76D-5A9BD8A17F39DB61"`
+      - The API key for this Client, used when configuring the Longview Client application on your Linode.
+    * - :action-table-field-name:`created`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Longview Client was created.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`integer`
+      - :json:`789`
+      - This Client's unique ID.
+    * - :action-table-field-name:`install_code`
+      - :action-table-field-type:`string`
+      - :json:`"BD1B5605-BF5E-D385-BA07AD518BE7F321"`
+      - The install code for this Client, used when configuring the Longview Client application on your Linode.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"client789"`
+      - This Client's unique label.
+    * - :action-table-field-name:`updated`
+      - :action-table-field-type:`string`
+      - :json:`"2018-01-01T00:01:01"`
+      - When this Longview Client was last updated.
+.. _commands_longview_update_attribute_sections_apps:
+
+.. rst-class:: action-section-header
+
+apps
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`apps.apache`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If True, the Apache Longview Client module is monitoring Apache on your server.
+    * - :action-table-field-name:`apps.mysql`
+      - :action-table-field-type:`boolean`
+      - :json:`true`
+      - If True, the MySQL Longview Client modules is monitoring MySQL on your server.
+    * - :action-table-field-name:`apps.nginx`
+      - :action-table-field-type:`boolean`
+      - ?
+      - If True, the Nginx Longview Client module is monitoring Nginx on your server.
 
 
 ------------
@@ -346,27 +598,13 @@ Updates a Longview Client.
 
 Deletes a Longview Client from your Account.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli longview delete [-h] clientId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -374,13 +612,13 @@ Deletes a Longview Client from your Account.
     linode-cli longview delete 789
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -388,14 +626,14 @@ Deletes a Longview Client from your Account.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`clientId`
-      - integer
+    * - :action-table-field-name:`clientId`
+      - :action-table-field-type:`integer`
       - The Longview Client ID to access.
 
 
@@ -409,34 +647,80 @@ Deletes a Longview Client from your Account.
 
 Get the details of your current Longview plan.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli longview plan-view [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli longview plan-view
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`clients_included`
+      - :action-table-field-type:`integer`
+      - :json:`10`
+      - The number of Longview Clients that may be created with this Subscription tier.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"longview-10"`
+      - The unique ID of this Subscription tier.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Longview Pro 10 pack"`
+      - A display name for this Subscription tier.
+.. _commands_longview_plan-view_attribute_sections_price:
+
+.. rst-class:: action-section-header
+
+price
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`price.hourly`
+      - :action-table-field-type:`number`
+      - :json:`0.06`
+      - The hourly price, in US dollars, for this Subscription tier.
+    * - :action-table-field-name:`price.monthly`
+      - :action-table-field-type:`number`
+      - :json:`40`
+      - The maximum monthly price in US Dollars for this Subscription tier.
 
 
 ------------
@@ -449,28 +733,13 @@ Get the details of your current Longview plan.
 
 Update your Longview plan to that of the given subscription ID.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli longview plan-update [-h]
-    	[--longview_subscription longview_subscription]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -478,31 +747,91 @@ Update your Longview plan to that of the given subscription ID.
     linode-cli longview plan-update --longview_subscription longview-10
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--longview_subscription`
-      - No
-      - string
+    * - :action-table-field-name:`\-\-longview_subscription`
+      - :action-table-field-optional:`No`
+      - :action-table-field-type:`string`
       - The subscription ID for a particular Longview plan.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`clients_included`
+      - :action-table-field-type:`integer`
+      - :json:`10`
+      - The number of Longview Clients that may be created with this Subscription tier.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"longview-10"`
+      - The unique ID of this Subscription tier.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Longview Pro 10 pack"`
+      - A display name for this Subscription tier.
+.. _commands_longview_plan-update_attribute_sections_price:
+
+.. rst-class:: action-section-header
+
+price
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`price.hourly`
+      - :action-table-field-type:`number`
+      - :json:`0.06`
+      - The hourly price, in US dollars, for this Subscription tier.
+    * - :action-table-field-name:`price.monthly`
+      - :action-table-field-type:`number`
+      - :json:`40`
+      - The maximum monthly price in US Dollars for this Subscription tier.
 
 
 ------------
@@ -515,28 +844,13 @@ Update your Longview plan to that of the given subscription ID.
 
 Get the Longview plan details as a single :code:`LongviewSubscription` object for the provided subscription ID.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli longview subscription-view [-h] [--order-by {}]
-    	[--order {asc,desc}] subscriptionId
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -545,13 +859,13 @@ Get the Longview plan details as a single :code:`LongviewSubscription` object fo
     	longview-10
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Parameters
+Parameters
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Positional parameters used to define the resource this command should target.
+Positional parameters used to define the resource this command should target.
 
 
 .. rst-class:: action-parameter-table
@@ -559,15 +873,76 @@ Get the Longview plan details as a single :code:`LongviewSubscription` object fo
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 15 10 75
+    :widths: 1 1 98
 
     * - Name
       - Type
       - Description
 
-    * - :code:`subscriptionId`
-      - string
+    * - :action-table-field-name:`subscriptionId`
+      - :action-table-field-type:`string`
       - The Longview Subscription to look up.
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`clients_included`
+      - :action-table-field-type:`integer`
+      - :json:`10`
+      - The number of Longview Clients that may be created with this Subscription tier.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"longview-10"`
+      - The unique ID of this Subscription tier.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Longview Pro 10 pack"`
+      - A display name for this Subscription tier.
+.. _commands_longview_subscription-view_attribute_sections_price:
+
+.. rst-class:: action-section-header
+
+price
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`price.hourly`
+      - :action-table-field-type:`number`
+      - :json:`0.06`
+      - The hourly price, in US dollars, for this Subscription tier.
+    * - :action-table-field-name:`price.monthly`
+      - :action-table-field-type:`number`
+      - :json:`40`
+      - The maximum monthly price in US Dollars for this Subscription tier.
 
 
 
@@ -579,34 +954,80 @@ Get the Longview plan details as a single :code:`LongviewSubscription` object fo
 
 Returns a paginated list of available Longview Subscriptions.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli longview subscriptions-list [-h] [--order-by {}]
-    	[--order {asc,desc}]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
 
     linode-cli longview subscriptions-list
 
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+.. rst-class:: action-attribute-table
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`clients_included`
+      - :action-table-field-type:`integer`
+      - :json:`10`
+      - The number of Longview Clients that may be created with this Subscription tier.
+    * - :action-table-field-name:`id`
+      - :action-table-field-type:`string`
+      - :json:`"longview-10"`
+      - The unique ID of this Subscription tier.
+    * - :action-table-field-name:`label`
+      - :action-table-field-type:`string`
+      - :json:`"Longview Pro 10 pack"`
+      - A display name for this Subscription tier.
+.. _commands_longview_subscriptions-list_attribute_sections_price:
+
+.. rst-class:: action-section-header
+
+price
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`price.hourly`
+      - :action-table-field-type:`number`
+      - :json:`0.06`
+      - The hourly price, in US dollars, for this Subscription tier.
+    * - :action-table-field-name:`price.monthly`
+      - :action-table-field-type:`number`
+      - :json:`40`
+      - The maximum monthly price in US Dollars for this Subscription tier.
 
 
 

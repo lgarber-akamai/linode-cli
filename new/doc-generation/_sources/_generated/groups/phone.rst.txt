@@ -1,4 +1,10 @@
-.. role:: action-argument-required
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 Phone
 =====
@@ -13,27 +19,13 @@ This section details Phone-related Linode CLI commands.
 
 Delete the verified phone number for the User making this request.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli phone delete [-h]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -52,27 +44,13 @@ Delete the verified phone number for the User making this request.
 
 Verify a phone number by confirming the one-time code received via SMS message after running the `Send a phone number verification code <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number>`_ operation.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli phone verify [-h] [--otp_code otp_code]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -81,30 +59,29 @@ Verify a phone number by confirming the one-time code received via SMS message a
     	--otp_code 123456
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--otp_code`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-otp_code`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The one-time code received via SMS message after running the `Send a phone number verification code <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number>`_ operation.
 
 
@@ -117,28 +94,13 @@ Verify a phone number by confirming the one-time code received via SMS message a
 
 Send a one-time verification code via SMS message to the submitted phone number.
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Usage
+Sample
 
+.. rst-class:: action-subheading-description
 
-.. cssclass:: action-subheading-description
-
-    The format accepted by this command.
-
-..  code-block:: bash
-
-    linode-cli phone sms-code-send [-h] [--iso_code iso_code]
-    	[--phone_number phone_number]
-
-
-.. cssclass:: action-subheading
-
-    .. rubric:: Sample
-
-.. cssclass:: action-subheading-description
-
-    Examples of how this command might be used.
+Examples of how this command might be used.
 
 
 ..  code-block:: bash
@@ -148,34 +110,33 @@ Send a one-time verification code via SMS message to the submitted phone number.
     	--phone-number 555-555-5555
 
 
-.. cssclass:: action-subheading
+.. rst-class:: action-subheading
 
-    .. rubric:: Arguments
+Arguments
 
-.. cssclass:: action-subheading-description
+.. rst-class:: action-subheading-description
 
-    Additional fields used to execute this request.
-
+Additional fields used to execute this request.
 
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 10 10 79
+    :widths: 1 1 1 97
 
     * - Name
       - Required
       - Type
       - Description
 
-    * - :code:`--iso_code`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-iso_code`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - The two-letter ISO 3166 country code associated with the phone number.
-    * - :code:`--phone_number`
-      - :action-argument-required:`Yes`
-      - string
+    * - :action-table-field-name:`\-\-phone_number`
+      - :action-table-field-required:`Yes`
+      - :action-table-field-type:`string`
       - A valid phone number.
 
 
