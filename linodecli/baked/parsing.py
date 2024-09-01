@@ -9,11 +9,11 @@ from typing import List, Tuple
 
 # Sentence delimiter, split on a period followed by any type of
 # whitespace (space, new line, tab, etc.)
-REGEX_SENTENCE_DELIMITER = re.compile(r"\.(?:\s|$)")
+REGEX_SENTENCE_DELIMITER = re.compile(r"\.(?:\s|$)", flags=re.M)
 
 # Matches on pattern __prefix__ at the beginning of a description
 # or after a comma
-REGEX_TECHDOCS_PREFIX = re.compile(r"(?:, |\A)__([\w-]+)__")
+REGEX_TECHDOCS_PREFIX = re.compile(r"(?:, |\A)__([^_]+)__")
 
 # Matches on pattern [link title](https://.../)
 REGEX_MARKDOWN_LINK = re.compile(r"\[(?P<text>.*?)]\((?P<link>.*?)\)")
@@ -121,40 +121,27 @@ def get_short_description(description: str) -> str:
     :rtype: set
     """
 
-    target_lines = description.splitlines()
-    relevant_lines = None
+    target_sentences = REGEX_SENTENCE_DELIMITER.split(description)
 
-    for i, line in enumerate(target_lines):
-        # Edge case for descriptions starting with a note
-        if line.lower().startswith("__note__"):
-            continue
+    # Strip TechDocs notes from each sentence
+    stripped_sentences = iter(
+        REGEX_TECHDOCS_PREFIX.sub("", sentence.lstrip()).lstrip()
+        for sentence in target_sentences
+    )
 
-        relevant_lines = target_lines[i:]
-        break
+    # Narrow down relevant sentences
+    relevant_sentences = [
+        sentence for sentence in stripped_sentences if len(sentence) > 2
+    ]
 
-    if relevant_lines is None:
+    if len(relevant_sentences) < 1:
         raise ValueError(
             f"description does not contain any relevant lines: {description}",
         )
 
-    return REGEX_SENTENCE_DELIMITER.split("\n".join(relevant_lines), 1)[0] + "."
+    print(relevant_sentences[0])
 
-
-def strip_techdocs_prefixes(description: str) -> str:
-    """
-    Removes all bold prefixes from the given description.
-
-    :param description: The description of a CLI argument.
-    :type description: str
-
-    :returns: The stripped description
-    :rtype: str
-    """
-    result_description = REGEX_TECHDOCS_PREFIX.sub(
-        "", description.lstrip()
-    ).lstrip()
-
-    return result_description
+    return relevant_sentences[0] + "."
 
 
 def process_arg_description(description: str) -> Tuple[str, str]:
@@ -173,7 +160,6 @@ def process_arg_description(description: str) -> Tuple[str, str]:
         return "", ""
 
     result = get_short_description(description)
-    result = strip_techdocs_prefixes(result)
     result = result.replace("\n", " ").replace("\r", " ")
 
     # NOTE: Links should only be separated from Rich Markdown links
