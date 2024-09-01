@@ -110,7 +110,7 @@ jobs:
           path: "${{ github.ref_name }}"
 
       - name: Override the latest version if necessary
-        if: ${{ github.event_name == 'release' }}
+        if: ${{ github.ref_type == 'tag' }}
         run: |
           rm -rf latest && cp -r ${{ github.ref_name }} latest
 
