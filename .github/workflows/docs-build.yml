@@ -140,14 +140,12 @@ jobs:
           name: generated-docs-html
           path: ".build/${{ github.ref_name }}"
 
-      - run: find .build
-
       - name: Archive the built documentation
         run: |
-          tar -czvf .build/docs.tar.gz .build/${{ github.ref_name }}
+          cd .build/${{ github.ref_name }} && tar -czvf ../documentation.tar.gz *
 
       - name: Upload the documentation as a release asset
         uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191
         with:
-          files: .build/docs.tar.gz
+          files: .build/documentation.tar.gz
           tag_name: ${{ github.ref_name }}
