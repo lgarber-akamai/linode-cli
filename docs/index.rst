@@ -1,5 +1,5 @@
-linode-cli Documentation
-========================
+linode-cli
+==========
 
 .. image:: static/demo.gif
    :alt: Linode CLI Demo
