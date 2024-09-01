@@ -1,0 +1,343 @@
+.. role:: action-argument-required
+
+Service Transfers
+=================
+
+This section details Service Transfer-related Linode CLI commands.
+
+.. _commands_service-transfers_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-service-transfers>`_
+--------------------------------------------------------------------------------
+
+
+Returns a collection of all created and accepted Service Transfers for this account, regardless of the user that created or accepted the transfer.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli service-transfers list [-h] [--status status]
+    	[--is_sender is_sender] [--order-by {status,is_sender}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli service-transfers \
+    	list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--is_sender`
+      - *boolean*
+      - If the requesting account created this transfer.
+    * - :code:`--status`
+      - *string*
+      - The status of the transfer request.
+
+
+------------
+
+.. _commands_service-transfers_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-service-transfer>`_
+-------------------------------------------------------------------------------
+
+
+Returns the details of the Service Transfer for the provided token.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli service-transfers view [-h] [--status status]
+    	[--is_sender is_sender] [--order-by {status,is_sender}]
+    	[--order {asc,desc}] token
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli service-transfers \
+    	view 123E4567-E89B-12D3-A456-426614174000
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`token`
+      - string
+      - The UUID of the Service Transfer.
+
+
+------------
+
+.. _commands_service-transfers_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-service-transfer>`_
+----------------------------------------------------------------------------------
+
+
+Creates a transfer request for the specified services.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli service-transfers create [-h]
+    	[--entities.linodes linodes]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli service-transfers \
+    	create \
+    	--entities.linodes 111 \
+    	--entities.linodes 222
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+.. _commands_service-transfers_create_argument_sections_entities:
+
+.. cssclass:: action-argument-section-header
+
+    entities
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--entities.linodes`
+      - No
+      - array[integer]
+      - An array containing the IDs of each of the Linodes included in this transfer.
+
+
+------------
+
+.. _commands_service-transfers_accept:
+
+`accept <https://techdocs.akamai.com/linode-api/reference/post-accept-service-transfer>`_
+-----------------------------------------------------------------------------------------
+
+
+Accept a Service Transfer for the provided token to receive the services included in the transfer to your account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli service-transfers accept [-h] token
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli service-transfers \
+    	accept 123E4567-E89B-12D3-A456-426614174000
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`token`
+      - string
+      - The UUID of the Service Transfer.
+
+
+
+.. _commands_service-transfers_cancel:
+
+`cancel <https://techdocs.akamai.com/linode-api/reference/delete-service-transfer>`_
+------------------------------------------------------------------------------------
+
+
+Cancels the Service Transfer for the provided token.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli service-transfers cancel [-h] token
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli service-transfers \
+    	cancel 123E4567-E89B-12D3-A456-426614174000
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`token`
+      - string
+      - The UUID of the Service Transfer.
+
+
+

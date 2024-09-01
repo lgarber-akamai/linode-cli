@@ -1,0 +1,977 @@
+.. role:: action-argument-required
+
+Networking
+==========
+
+This section details Networking-related Linode CLI commands.
+
+.. _commands_networking_ip-view:
+
+`ip-view <https://techdocs.akamai.com/linode-api/reference/get-ip>`_
+--------------------------------------------------------------------
+
+
+Returns information about a single IP Address on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking ip-view [-h] [--order-by {}]
+    	[--order {asc,desc}] address
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking ip-view 97.107.143.141
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`address`
+      - string
+      - The address to operate on.
+
+
+------------
+
+.. _commands_networking_ip-add:
+
+`ip-add <https://techdocs.akamai.com/linode-api/reference/post-allocate-ip>`_
+-----------------------------------------------------------------------------
+
+
+Allocates a new IPv4 Address on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking ip-add [-h] [--type type] [--public public]
+    	[--linode_id linode_id]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking ip-add \
+    	--type ipv4 \
+    	--public true \
+    	--linode_id 123
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--linode_id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The ID of a Linode you have access to that this address will be allocated to.
+    * - :code:`--public`
+      - :action-argument-required:`Yes`
+      - boolean
+      - Whether to create a public or private IPv4 address.
+    * - :code:`--type`
+      - :action-argument-required:`Yes`
+      - string
+      - The type of address you are requesting.
+
+
+------------
+
+.. _commands_networking_ip-update:
+
+`ip-update <https://techdocs.akamai.com/linode-api/reference/put-ip>`_
+----------------------------------------------------------------------
+
+
+Sets RDNS on an IP Address.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking ip-update [-h] [--rdns rdns] address
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking ip-update \
+    	203.0.113.1 \
+    	--rdns "test.example.org"
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`address`
+      - string
+      - The address to operate on.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--rdns`
+      - :action-argument-required:`Yes`
+      - string
+      - The reverse DNS assigned to this address.
+
+
+------------
+
+.. _commands_networking_ip-assign:
+
+`ip-assign <https://techdocs.akamai.com/linode-api/reference/post-assign-ips>`_
+-------------------------------------------------------------------------------
+
+
+Assign multiple IPv4 addresses and/or IPv6 ranges to multiple Linodes in one Region.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking ip-assign [-h] [--assignments assignments]
+    	[--assignments.linode_id linode_id]
+    	[--assignments.address address] [--region region]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking ip-assign \
+    	--region us-east \
+    	--assignments.address 192.0.2.1 \
+    	--assignments.linode_id 123 \
+    	--assignments.address 2001:db8:3c4d:15::/64 \
+    	--assignments.linode_id 234
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--region`
+      - :action-argument-required:`Yes`
+      - string
+      - The ID of the Region in which these assignments are to take place.
+    * - :code:`--assignments`
+        :ref:`(section) <commands_networking_ip-assign_argument_sections_assignments>`
+      - No
+      - object
+      - N/A
+.. _commands_networking_ip-assign_argument_sections_assignments:
+
+.. cssclass:: action-argument-section-header
+
+    assignments
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--assignments.address`
+      - :action-argument-required:`Yes`
+      - string
+      - The IPv4 address or IPv6 range for this assignment.
+    * - :code:`--assignments.linode_id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The ID of the Linode to assign this address to.
+
+
+------------
+
+.. _commands_networking_ip-share:
+
+`ip-share <https://techdocs.akamai.com/linode-api/reference/post-share-ips>`_
+-----------------------------------------------------------------------------
+
+
+Configure shared IPs.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking ip-share [-h] [--ips ips]
+    	[--linode_id linode_id]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking ip-share \
+    	--linode_id 123 \
+    	--ips 192.0.2.1 \
+    	--ips 2001:db8:3c4d:15::
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--ips`
+      - :action-argument-required:`Yes`
+      - array[string]
+      - A list of secondary Linode IPs to share with the primary Linode.
+    * - :code:`--linode_id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The ID of the primary Linode that the addresses will be shared with.
+
+
+------------
+
+.. _commands_networking_ips-list:
+
+`ips-list <https://techdocs.akamai.com/linode-api/reference/get-ips>`_
+----------------------------------------------------------------------
+
+
+Returns a paginated list of IP addresses on your account, excluding private addresses.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking ips-list [-h] [--address address]
+    	[--region region] [--rdns rdns] [--prefix prefix] [--type type]
+    	[--order-by {address,region,rdns,prefix,type}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking ips-list
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--address`
+      - *string*
+      - The IP address.
+    * - :code:`--prefix`
+      - *integer*
+      - The number of bits set in the subnet mask.
+    * - :code:`--rdns`
+      - *string*
+      - The reverse DNS assigned to this address.
+    * - :code:`--region`
+      - *string*
+      - The Region this IP address resides in.
+    * - :code:`--type`
+      - *string*
+      - The type of address this is.
+
+
+------------
+
+.. _commands_networking_post-assign-ipv4s:
+
+`post-assign-ipv4s <https://techdocs.akamai.com/linode-api/reference/post-assign-ipv4s>`_
+-----------------------------------------------------------------------------------------
+
+
+This operation is equivalent to [Assign IP addresses](https://techdocs.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking post-assign-ipv4s [-h]
+    	[--assignments assignments] [--assignments.address address]
+    	[--assignments.linode_id linode_id] [--region region]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking ip-assign \
+    	--region us-east \
+    	--assignments.address 192.0.2.1 \
+    	--assignments.linode_id 123 \
+    	--assignments.address 2001:db8:3c4d:15::/64 \
+    	--assignments.linode_id 234
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--region`
+      - :action-argument-required:`Yes`
+      - string
+      - The ID of the Region in which these assignments are to take place.
+    * - :code:`--assignments`
+        :ref:`(section) <commands_networking_post-assign-ipv4s_argument_sections_assignments>`
+      - No
+      - object
+      - N/A
+.. _commands_networking_post-assign-ipv4s_argument_sections_assignments:
+
+.. cssclass:: action-argument-section-header
+
+    assignments
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--assignments.address`
+      - :action-argument-required:`Yes`
+      - string
+      - The IPv4 address or IPv6 range for this assignment.
+    * - :code:`--assignments.linode_id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The ID of the Linode to assign this address to.
+
+
+------------
+
+.. _commands_networking_post-share-ipv4s:
+
+`post-share-ipv4s <https://techdocs.akamai.com/linode-api/reference/post-share-ipv4s>`_
+---------------------------------------------------------------------------------------
+
+
+This operation is equivalent to [Share IP addresses](https://techdocs.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking post-share-ipv4s [-h] [--ips ips]
+    	[--linode_id linode_id]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking ip-share \
+    	--linode_id 123 \
+    	--ips 192.0.2.1 \
+    	--ips 192.0.2.2
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--ips`
+      - :action-argument-required:`Yes`
+      - array[string]
+      - A list of secondary Linode IPs to share with the primary Linode.
+    * - :code:`--linode_id`
+      - :action-argument-required:`Yes`
+      - integer
+      - The ID of the primary Linode that the addresses will be shared with.
+
+
+------------
+
+.. _commands_networking_v6-pools:
+
+`v6-pools <https://techdocs.akamai.com/linode-api/reference/get-ipv6-pools>`_
+-----------------------------------------------------------------------------
+
+
+Displays the IPv6 pools on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking v6-pools [-h] [--region region]
+    	[--order-by {region}] [--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking v6-pools
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Filterable Attributes
+
+
+.. cssclass:: action-subheading-description
+
+    Arguments used to define a filter for response entries.
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`--region`
+      - *string*
+      - The region for this pool of IPv6 addresses.
+
+
+------------
+
+.. _commands_networking_v6-range-view:
+
+`v6-range-view <https://techdocs.akamai.com/linode-api/reference/get-ipv6-range>`_
+----------------------------------------------------------------------------------
+
+
+View IPv6 range information.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking v6-range-view [-h] [--order-by {}]
+    	[--order {asc,desc}] range
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking v6-range-view 2001:0db8::
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`range`
+      - string
+      - The IPv6 range to access.
+
+
+------------
+
+.. _commands_networking_v6-range-create:
+
+`v6-range-create <https://techdocs.akamai.com/linode-api/reference/post-ipv6-range>`_
+-------------------------------------------------------------------------------------
+
+
+Creates an IPv6 Range and assigns it based on the provided Linode or route target IPv6 SLAAC address.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking v6-range-create [-h]
+    	[--prefix_length prefix_length] [--linode_id linode_id]
+    	[--route_target route_target]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking v6-range-create \
+    	--linode_id 123 \
+    	--prefix_length 64
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Arguments
+
+.. cssclass:: action-subheading-description
+
+    Additional fields used to execute this request.
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 10 10 79
+
+    * - Name
+      - Required
+      - Type
+      - Description
+
+    * - :code:`--prefix_length`
+      - :action-argument-required:`Yes`
+      - integer
+      - The prefix length of the IPv6 range.
+    * - :code:`--linode_id`
+      - No
+      - integer
+      - The ID of the Linode to assign this range to.
+    * - :code:`--route_target`
+      - No
+      - string
+      - The IPv6 SLAAC address to assign this range to.
+
+
+------------
+
+.. _commands_networking_v6-range-delete:
+
+`v6-range-delete <https://techdocs.akamai.com/linode-api/reference/delete-ipv6-range>`_
+---------------------------------------------------------------------------------------
+
+
+Removes this IPv6 range from your account and disconnects the range from any assigned Linodes.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking v6-range-delete [-h] range
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking v6-range-delete 2001:0db8::
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Parameters
+
+.. cssclass:: action-subheading-description
+
+    Positional parameters used to define the resource this command should target.
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 15 10 75
+
+    * - Name
+      - Type
+      - Description
+
+    * - :code:`range`
+      - string
+      - The IPv6 range to access.
+
+
+
+.. _commands_networking_v6-ranges:
+
+`v6-ranges <https://techdocs.akamai.com/linode-api/reference/get-ipv6-ranges>`_
+-------------------------------------------------------------------------------
+
+
+Displays the IPv6 ranges on your Account.
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Usage
+
+
+.. cssclass:: action-subheading-description
+
+    The format accepted by this command.
+
+..  code-block:: bash
+
+    linode-cli networking v6-ranges [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+.. cssclass:: action-subheading
+
+    .. rubric:: Sample
+
+.. cssclass:: action-subheading-description
+
+    Examples of how this command might be used.
+
+
+..  code-block:: bash
+
+    linode-cli networking v6-ranges
+
+
+
+
