@@ -18,6 +18,9 @@ API_SCHEME_OVERRIDE = os.getenv("LINODE_CLI_API_SCHEME")
 # no path is specified.
 API_CA_PATH = os.getenv("LINODE_CLI_CA", None) or True
 
+# Keywords used to infer whether an operation is a CRUD operation.
+CRUD_OPERATION_KEYWORDS = ["list", "view", "create", "add", "update", "delete"]
+
 
 def handle_url_overrides(
     url: str,
@@ -141,9 +144,7 @@ def sorted_actions_smart(
         name = key(action)
 
         # Prioritize CRUD operations
-        for i, crud_operation in enumerate(
-            ["list", "view", "create", "update", "delete"]
-        ):
+        for i, crud_operation in enumerate(CRUD_OPERATION_KEYWORDS):
             name = name.replace(crud_operation, str(i))
 
         return (
