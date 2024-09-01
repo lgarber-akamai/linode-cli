@@ -1,3 +1,8 @@
+Stackscripts
+============
+
+This section details Stackscript-related Linode CLI commands.
+
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5,12 +10,6 @@
 
 .. role:: json(code)
     :language: JSON
-
-Stackscripts
-============
-
-This section details Stackscript-related Linode CLI commands.
-
 .. _commands_stackscripts_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-stack-scripts>`_
@@ -18,6 +17,14 @@ This section details Stackscript-related Linode CLI commands.
 
 
 If the request is not authenticated, only public StackScripts are returned.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -28,10 +35,24 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli stackscripts list
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -40,6 +61,9 @@ Filterable Attributes
 .. rst-class:: action-subheading-description
 
 Arguments used to define a filter for response entries.
+
+
+
 
 .. rst-class:: action-filterable-field-table
 
@@ -55,21 +79,39 @@ Arguments used to define a filter for response entries.
     * - :action-table-field-name:`\-\-deployments_total`
       - :action-table-field-type:`integer`
       - The total number of times this StackScript has been deployed.
+
     * - :action-table-field-name:`\-\-description`
       - :action-table-field-type:`string`
       - A description for the StackScript.
+
     * - :action-table-field-name:`\-\-is_public`
       - :action-table-field-type:`boolean`
       - This determines whether other users can use your StackScript.
+
     * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`string`
       - The StackScript's label is for display purposes only.
+
     * - :action-table-field-name:`\-\-mine`
       - :action-table-field-type:`boolean`
       - Returns :code:`true` if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.
+
     * - :action-table-field-name:`\-\-rev_note`
       - :action-table-field-type:`string`
       - This field allows you to add notes for the set of revisions made to this StackScript.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -79,7 +121,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -93,68 +136,86 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`created`
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date this StackScript was created.
-    * - :action-table-field-name:`deployments_active`
+
+    * - :action-table-field-name:`deployments_active` 
       - :action-table-field-type:`integer`
-      - :json:`1`
+      - :json:`"integer"`
       - Count of currently active, deployed Linodes created from this StackScript.
-    * - :action-table-field-name:`deployments_total`
+
+    * - :action-table-field-name:`deployments_total` 
       - :action-table-field-type:`integer`
-      - :json:`12`
+      - :json:`"integer"`
       - The total number of times this StackScript has been deployed.
-    * - :action-table-field-name:`description`
+
+    * - :action-table-field-name:`description` 
       - :action-table-field-type:`string`
-      - :json:`"This StackScript installs and configures MySQL"`
+      - :json:`"string"`
       - A description for the StackScript.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`10079`
+      - :json:`"integer"`
       - The unique ID of this StackScript.
-    * - :action-table-field-name:`images`
+
+    * - :action-table-field-name:`images` 
       - :action-table-field-type:`array[string]`
-      - :json:`["linode/debian9", "linode/debian8"]`
+      - :json:`"array[string]"`
       - An array of Image IDs.
-    * - :action-table-field-name:`is_public`
+
+    * - :action-table-field-name:`is_public` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - This determines whether other users can use your StackScript.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"a-stackscript"`
+      - :json:`"string"`
       - The StackScript's label is for display purposes only.
-    * - :action-table-field-name:`mine`
+
+    * - :action-table-field-name:`mine` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Returns :code:`true` if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.
-    * - :action-table-field-name:`rev_note`
+
+    * - :action-table-field-name:`rev_note` 
       - :action-table-field-type:`string`
-      - :json:`"Set up MySQL"`
+      - :json:`"string"`
       - This field allows you to add notes for the set of revisions made to this StackScript.
-    * - :action-table-field-name:`script`
+
+    * - :action-table-field-name:`script` 
       - :action-table-field-type:`string`
-      - :json:`"\\\"#!/bin/bash\\\""`
+      - :json:`"string"`
       - The script to execute when provisioning a new Linode with this StackScript.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date this StackScript was last updated.
-    * - :action-table-field-name:`user_gravatar_id`
+
+    * - :action-table-field-name:`user_gravatar_id` 
       - :action-table-field-type:`string`
-      - :json:`"a445b305abda30ebc766bc7fda037c37"`
+      - :json:`"string"`
       - The Gravatar ID for the User who created the StackScript.
-    * - :action-table-field-name:`username`
+
+    * - :action-table-field-name:`username` 
       - :action-table-field-type:`string`
-      - :json:`"myuser"`
+      - :json:`"string"`
       - The User who created the StackScript.
+
+
+
+
 .. _commands_stackscripts_list_attribute_sections_user_defined_fields:
 
 .. rst-class:: action-section-header
 
 user_defined_fields
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -167,34 +228,52 @@ user_defined_fields
       - Example
       - Description
 
-    * - :action-table-field-name:`user_defined_fields.default`
+    * - :action-table-field-name:`user_defined_fields.default` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The default value.
-    * - :action-table-field-name:`user_defined_fields.example`
+
+    * - :action-table-field-name:`user_defined_fields.example` 
       - :action-table-field-type:`string`
-      - :json:`"hunter2"`
+      - :json:`"string"`
       - An example value for the field.
-    * - :action-table-field-name:`user_defined_fields.label`
+
+    * - :action-table-field-name:`user_defined_fields.label` 
       - :action-table-field-type:`string`
-      - :json:`"Enter the password"`
+      - :json:`"string"`
       - A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
-    * - :action-table-field-name:`user_defined_fields.manyOf`
+
+    * - :action-table-field-name:`user_defined_fields.manyOf` 
       - :action-table-field-type:`string`
-      - :json:`"avalue,anothervalue,thirdvalue"`
+      - :json:`"string"`
       - A list of acceptable values for the field in any quantity, combination or order.
-    * - :action-table-field-name:`user_defined_fields.name`
+
+    * - :action-table-field-name:`user_defined_fields.name` 
       - :action-table-field-type:`string`
-      - :json:`"DB_PASSWORD"`
+      - :json:`"string"`
       - The name of the field.
-    * - :action-table-field-name:`user_defined_fields.oneOf`
+
+    * - :action-table-field-name:`user_defined_fields.oneOf` 
       - :action-table-field-type:`string`
-      - :json:`"avalue,anothervalue,thirdvalue"`
+      - :json:`"string"`
       - A list of acceptable single values for the field.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_stackscripts_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-stack-script>`_
@@ -202,6 +281,14 @@ user_defined_fields
 
 
 Returns all of the information about a specified StackScript, including the contents of the script.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -212,10 +299,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli stackscripts view 10079
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -224,6 +323,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -241,6 +342,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`string`
       - The ID of the StackScript to look up.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -249,7 +365,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -263,68 +380,86 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`created`
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date this StackScript was created.
-    * - :action-table-field-name:`deployments_active`
+
+    * - :action-table-field-name:`deployments_active` 
       - :action-table-field-type:`integer`
-      - :json:`1`
+      - :json:`"integer"`
       - Count of currently active, deployed Linodes created from this StackScript.
-    * - :action-table-field-name:`deployments_total`
+
+    * - :action-table-field-name:`deployments_total` 
       - :action-table-field-type:`integer`
-      - :json:`12`
+      - :json:`"integer"`
       - The total number of times this StackScript has been deployed.
-    * - :action-table-field-name:`description`
+
+    * - :action-table-field-name:`description` 
       - :action-table-field-type:`string`
-      - :json:`"This StackScript installs and configures MySQL"`
+      - :json:`"string"`
       - A description for the StackScript.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`10079`
+      - :json:`"integer"`
       - The unique ID of this StackScript.
-    * - :action-table-field-name:`images`
+
+    * - :action-table-field-name:`images` 
       - :action-table-field-type:`array[string]`
-      - :json:`["linode/debian9", "linode/debian8"]`
+      - :json:`"array[string]"`
       - An array of Image IDs.
-    * - :action-table-field-name:`is_public`
+
+    * - :action-table-field-name:`is_public` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - This determines whether other users can use your StackScript.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"a-stackscript"`
+      - :json:`"string"`
       - The StackScript's label is for display purposes only.
-    * - :action-table-field-name:`mine`
+
+    * - :action-table-field-name:`mine` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Returns :code:`true` if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.
-    * - :action-table-field-name:`rev_note`
+
+    * - :action-table-field-name:`rev_note` 
       - :action-table-field-type:`string`
-      - :json:`"Set up MySQL"`
+      - :json:`"string"`
       - This field allows you to add notes for the set of revisions made to this StackScript.
-    * - :action-table-field-name:`script`
+
+    * - :action-table-field-name:`script` 
       - :action-table-field-type:`string`
-      - :json:`"\\\"#!/bin/bash\\\""`
+      - :json:`"string"`
       - The script to execute when provisioning a new Linode with this StackScript.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date this StackScript was last updated.
-    * - :action-table-field-name:`user_gravatar_id`
+
+    * - :action-table-field-name:`user_gravatar_id` 
       - :action-table-field-type:`string`
-      - :json:`"a445b305abda30ebc766bc7fda037c37"`
+      - :json:`"string"`
       - The Gravatar ID for the User who created the StackScript.
-    * - :action-table-field-name:`username`
+
+    * - :action-table-field-name:`username` 
       - :action-table-field-type:`string`
-      - :json:`"myuser"`
+      - :json:`"string"`
       - The User who created the StackScript.
+
+
+
+
 .. _commands_stackscripts_view_attribute_sections_user_defined_fields:
 
 .. rst-class:: action-section-header
 
 user_defined_fields
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -337,34 +472,52 @@ user_defined_fields
       - Example
       - Description
 
-    * - :action-table-field-name:`user_defined_fields.default`
+    * - :action-table-field-name:`user_defined_fields.default` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The default value.
-    * - :action-table-field-name:`user_defined_fields.example`
+
+    * - :action-table-field-name:`user_defined_fields.example` 
       - :action-table-field-type:`string`
-      - :json:`"hunter2"`
+      - :json:`"string"`
       - An example value for the field.
-    * - :action-table-field-name:`user_defined_fields.label`
+
+    * - :action-table-field-name:`user_defined_fields.label` 
       - :action-table-field-type:`string`
-      - :json:`"Enter the password"`
+      - :json:`"string"`
       - A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
-    * - :action-table-field-name:`user_defined_fields.manyOf`
+
+    * - :action-table-field-name:`user_defined_fields.manyOf` 
       - :action-table-field-type:`string`
-      - :json:`"avalue,anothervalue,thirdvalue"`
+      - :json:`"string"`
       - A list of acceptable values for the field in any quantity, combination or order.
-    * - :action-table-field-name:`user_defined_fields.name`
+
+    * - :action-table-field-name:`user_defined_fields.name` 
       - :action-table-field-type:`string`
-      - :json:`"DB_PASSWORD"`
+      - :json:`"string"`
       - The name of the field.
-    * - :action-table-field-name:`user_defined_fields.oneOf`
+
+    * - :action-table-field-name:`user_defined_fields.oneOf` 
       - :action-table-field-type:`string`
-      - :json:`"avalue,anothervalue,thirdvalue"`
+      - :json:`"string"`
       - A list of acceptable single values for the field.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_stackscripts_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-add-stack-script>`_
@@ -373,6 +526,14 @@ user_defined_fields
 
 Creates a StackScript in your Account.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -380,6 +541,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -394,6 +557,17 @@ Examples of how this command might be used.
     	--script '#!/bin/bash'
 
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -402,6 +576,10 @@ Arguments
 
 Additional fields used to execute this request.
 
+
+
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -414,73 +592,92 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-created`
+    * - :action-table-field-name:`\-\-created` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The date this StackScript was created.
-    * - :action-table-field-name:`\-\-deployments_active`
+
+    * - :action-table-field-name:`\-\-deployments_active` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - Count of currently active, deployed Linodes created from this StackScript.
-    * - :action-table-field-name:`\-\-deployments_total`
+
+    * - :action-table-field-name:`\-\-deployments_total` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The total number of times this StackScript has been deployed.
-    * - :action-table-field-name:`\-\-description`
+
+    * - :action-table-field-name:`\-\-description` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A description for the StackScript.
-    * - :action-table-field-name:`\-\-id`
+
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The unique ID of this StackScript.
-    * - :action-table-field-name:`\-\-images`
+
+    * - :action-table-field-name:`\-\-images` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`array[string]`
       - An array of Image IDs.
-    * - :action-table-field-name:`\-\-is_public`
+
+    * - :action-table-field-name:`\-\-is_public` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - This determines whether other users can use your StackScript.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The StackScript's label is for display purposes only.
-    * - :action-table-field-name:`\-\-mine`
+
+    * - :action-table-field-name:`\-\-mine` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - Returns :code:`true` if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.
-    * - :action-table-field-name:`\-\-rev_note`
+
+    * - :action-table-field-name:`\-\-rev_note` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This field allows you to add notes for the set of revisions made to this StackScript.
-    * - :action-table-field-name:`\-\-script`
+
+    * - :action-table-field-name:`\-\-script` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The script to execute when provisioning a new Linode with this StackScript.
-    * - :action-table-field-name:`\-\-updated`
+
+    * - :action-table-field-name:`\-\-updated` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The date this StackScript was last updated.
-    * - :action-table-field-name:`\-\-user_defined_fields`
-        :ref:`(section) <commands_stackscripts_create_argument_sections_user_defined_fields>`
+
+    * - :action-table-field-name:`\-\-user_defined_fields` :ref:`(section) <commands_stackscripts_create_argument_sections_user_defined_fields>`
       - :action-table-field-optional:`No`
       - :action-table-field-type:`json`
       - A custom field defined by the User with a special syntax within a StackScript.
-    * - :action-table-field-name:`\-\-user_gravatar_id`
+
+    * - :action-table-field-name:`\-\-user_gravatar_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The Gravatar ID for the User who created the StackScript.
-    * - :action-table-field-name:`\-\-username`
+
+    * - :action-table-field-name:`\-\-username` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The User who created the StackScript.
+
+
+
+
 .. _commands_stackscripts_create_argument_sections_user_defined_fields:
 
 .. rst-class:: action-section-header
 
 user_defined_fields
 
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -493,30 +690,49 @@ user_defined_fields
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-user_defined_fields.default`
+    * - :action-table-field-name:`\-\-user_defined_fields.default` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The default value.
-    * - :action-table-field-name:`\-\-user_defined_fields.example`
+
+    * - :action-table-field-name:`\-\-user_defined_fields.example` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - An example value for the field.
-    * - :action-table-field-name:`\-\-user_defined_fields.label`
+
+    * - :action-table-field-name:`\-\-user_defined_fields.label` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
-    * - :action-table-field-name:`\-\-user_defined_fields.manyOf`
+
+    * - :action-table-field-name:`\-\-user_defined_fields.manyOf` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A list of acceptable values for the field in any quantity, combination or order.
-    * - :action-table-field-name:`\-\-user_defined_fields.name`
+
+    * - :action-table-field-name:`\-\-user_defined_fields.name` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The name of the field.
-    * - :action-table-field-name:`\-\-user_defined_fields.oneOf`
+
+    * - :action-table-field-name:`\-\-user_defined_fields.oneOf` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A list of acceptable single values for the field.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -526,7 +742,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -540,68 +757,86 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`created`
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date this StackScript was created.
-    * - :action-table-field-name:`deployments_active`
+
+    * - :action-table-field-name:`deployments_active` 
       - :action-table-field-type:`integer`
-      - :json:`1`
+      - :json:`"integer"`
       - Count of currently active, deployed Linodes created from this StackScript.
-    * - :action-table-field-name:`deployments_total`
+
+    * - :action-table-field-name:`deployments_total` 
       - :action-table-field-type:`integer`
-      - :json:`12`
+      - :json:`"integer"`
       - The total number of times this StackScript has been deployed.
-    * - :action-table-field-name:`description`
+
+    * - :action-table-field-name:`description` 
       - :action-table-field-type:`string`
-      - :json:`"This StackScript installs and configures MySQL"`
+      - :json:`"string"`
       - A description for the StackScript.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`10079`
+      - :json:`"integer"`
       - The unique ID of this StackScript.
-    * - :action-table-field-name:`images`
+
+    * - :action-table-field-name:`images` 
       - :action-table-field-type:`array[string]`
-      - :json:`["linode/debian9", "linode/debian8"]`
+      - :json:`"array[string]"`
       - An array of Image IDs.
-    * - :action-table-field-name:`is_public`
+
+    * - :action-table-field-name:`is_public` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - This determines whether other users can use your StackScript.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"a-stackscript"`
+      - :json:`"string"`
       - The StackScript's label is for display purposes only.
-    * - :action-table-field-name:`mine`
+
+    * - :action-table-field-name:`mine` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Returns :code:`true` if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.
-    * - :action-table-field-name:`rev_note`
+
+    * - :action-table-field-name:`rev_note` 
       - :action-table-field-type:`string`
-      - :json:`"Set up MySQL"`
+      - :json:`"string"`
       - This field allows you to add notes for the set of revisions made to this StackScript.
-    * - :action-table-field-name:`script`
+
+    * - :action-table-field-name:`script` 
       - :action-table-field-type:`string`
-      - :json:`"\\\"#!/bin/bash\\\""`
+      - :json:`"string"`
       - The script to execute when provisioning a new Linode with this StackScript.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date this StackScript was last updated.
-    * - :action-table-field-name:`user_gravatar_id`
+
+    * - :action-table-field-name:`user_gravatar_id` 
       - :action-table-field-type:`string`
-      - :json:`"a445b305abda30ebc766bc7fda037c37"`
+      - :json:`"string"`
       - The Gravatar ID for the User who created the StackScript.
-    * - :action-table-field-name:`username`
+
+    * - :action-table-field-name:`username` 
       - :action-table-field-type:`string`
-      - :json:`"myuser"`
+      - :json:`"string"`
       - The User who created the StackScript.
+
+
+
+
 .. _commands_stackscripts_create_attribute_sections_user_defined_fields:
 
 .. rst-class:: action-section-header
 
 user_defined_fields
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -614,34 +849,52 @@ user_defined_fields
       - Example
       - Description
 
-    * - :action-table-field-name:`user_defined_fields.default`
+    * - :action-table-field-name:`user_defined_fields.default` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The default value.
-    * - :action-table-field-name:`user_defined_fields.example`
+
+    * - :action-table-field-name:`user_defined_fields.example` 
       - :action-table-field-type:`string`
-      - :json:`"hunter2"`
+      - :json:`"string"`
       - An example value for the field.
-    * - :action-table-field-name:`user_defined_fields.label`
+
+    * - :action-table-field-name:`user_defined_fields.label` 
       - :action-table-field-type:`string`
-      - :json:`"Enter the password"`
+      - :json:`"string"`
       - A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
-    * - :action-table-field-name:`user_defined_fields.manyOf`
+
+    * - :action-table-field-name:`user_defined_fields.manyOf` 
       - :action-table-field-type:`string`
-      - :json:`"avalue,anothervalue,thirdvalue"`
+      - :json:`"string"`
       - A list of acceptable values for the field in any quantity, combination or order.
-    * - :action-table-field-name:`user_defined_fields.name`
+
+    * - :action-table-field-name:`user_defined_fields.name` 
       - :action-table-field-type:`string`
-      - :json:`"DB_PASSWORD"`
+      - :json:`"string"`
       - The name of the field.
-    * - :action-table-field-name:`user_defined_fields.oneOf`
+
+    * - :action-table-field-name:`user_defined_fields.oneOf` 
       - :action-table-field-type:`string`
-      - :json:`"avalue,anothervalue,thirdvalue"`
+      - :json:`"string"`
       - A list of acceptable single values for the field.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_stackscripts_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-stack-script>`_
@@ -650,6 +903,14 @@ user_defined_fields
 
 Updates a StackScript.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -657,6 +918,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -672,6 +935,16 @@ Examples of how this command might be used.
     	--script '#!/bin/bash'
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -679,6 +952,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -696,6 +971,19 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`string`
       - The ID of the StackScript to look up.
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -704,6 +992,10 @@ Arguments
 
 Additional fields used to execute this request.
 
+
+
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -716,73 +1008,92 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-created`
+    * - :action-table-field-name:`\-\-created` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The date this StackScript was created.
-    * - :action-table-field-name:`\-\-deployments_active`
+
+    * - :action-table-field-name:`\-\-deployments_active` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - Count of currently active, deployed Linodes created from this StackScript.
-    * - :action-table-field-name:`\-\-deployments_total`
+
+    * - :action-table-field-name:`\-\-deployments_total` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The total number of times this StackScript has been deployed.
-    * - :action-table-field-name:`\-\-description`
+
+    * - :action-table-field-name:`\-\-description` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A description for the StackScript.
-    * - :action-table-field-name:`\-\-id`
+
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The unique ID of this StackScript.
-    * - :action-table-field-name:`\-\-images`
+
+    * - :action-table-field-name:`\-\-images` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
       - An array of Image IDs.
-    * - :action-table-field-name:`\-\-is_public`
+
+    * - :action-table-field-name:`\-\-is_public` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - This determines whether other users can use your StackScript.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The StackScript's label is for display purposes only.
-    * - :action-table-field-name:`\-\-mine`
+
+    * - :action-table-field-name:`\-\-mine` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - Returns :code:`true` if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.
-    * - :action-table-field-name:`\-\-rev_note`
+
+    * - :action-table-field-name:`\-\-rev_note` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This field allows you to add notes for the set of revisions made to this StackScript.
-    * - :action-table-field-name:`\-\-script`
+
+    * - :action-table-field-name:`\-\-script` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The script to execute when provisioning a new Linode with this StackScript.
-    * - :action-table-field-name:`\-\-updated`
+
+    * - :action-table-field-name:`\-\-updated` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The date this StackScript was last updated.
-    * - :action-table-field-name:`\-\-user_defined_fields`
-        :ref:`(section) <commands_stackscripts_update_argument_sections_user_defined_fields>`
+
+    * - :action-table-field-name:`\-\-user_defined_fields` :ref:`(section) <commands_stackscripts_update_argument_sections_user_defined_fields>`
       - :action-table-field-optional:`No`
       - :action-table-field-type:`json`
       - A custom field defined by the User with a special syntax within a StackScript.
-    * - :action-table-field-name:`\-\-user_gravatar_id`
+
+    * - :action-table-field-name:`\-\-user_gravatar_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The Gravatar ID for the User who created the StackScript.
-    * - :action-table-field-name:`\-\-username`
+
+    * - :action-table-field-name:`\-\-username` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The User who created the StackScript.
+
+
+
+
 .. _commands_stackscripts_update_argument_sections_user_defined_fields:
 
 .. rst-class:: action-section-header
 
 user_defined_fields
 
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -795,30 +1106,49 @@ user_defined_fields
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-user_defined_fields.default`
+    * - :action-table-field-name:`\-\-user_defined_fields.default` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The default value.
-    * - :action-table-field-name:`\-\-user_defined_fields.example`
+
+    * - :action-table-field-name:`\-\-user_defined_fields.example` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - An example value for the field.
-    * - :action-table-field-name:`\-\-user_defined_fields.label`
+
+    * - :action-table-field-name:`\-\-user_defined_fields.label` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
-    * - :action-table-field-name:`\-\-user_defined_fields.manyOf`
+
+    * - :action-table-field-name:`\-\-user_defined_fields.manyOf` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A list of acceptable values for the field in any quantity, combination or order.
-    * - :action-table-field-name:`\-\-user_defined_fields.name`
+
+    * - :action-table-field-name:`\-\-user_defined_fields.name` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The name of the field.
-    * - :action-table-field-name:`\-\-user_defined_fields.oneOf`
+
+    * - :action-table-field-name:`\-\-user_defined_fields.oneOf` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A list of acceptable single values for the field.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -828,7 +1158,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -842,68 +1173,86 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`created`
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date this StackScript was created.
-    * - :action-table-field-name:`deployments_active`
+
+    * - :action-table-field-name:`deployments_active` 
       - :action-table-field-type:`integer`
-      - :json:`1`
+      - :json:`"integer"`
       - Count of currently active, deployed Linodes created from this StackScript.
-    * - :action-table-field-name:`deployments_total`
+
+    * - :action-table-field-name:`deployments_total` 
       - :action-table-field-type:`integer`
-      - :json:`12`
+      - :json:`"integer"`
       - The total number of times this StackScript has been deployed.
-    * - :action-table-field-name:`description`
+
+    * - :action-table-field-name:`description` 
       - :action-table-field-type:`string`
-      - :json:`"This StackScript installs and configures MySQL"`
+      - :json:`"string"`
       - A description for the StackScript.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`10079`
+      - :json:`"integer"`
       - The unique ID of this StackScript.
-    * - :action-table-field-name:`images`
+
+    * - :action-table-field-name:`images` 
       - :action-table-field-type:`array[string]`
-      - :json:`["linode/debian9", "linode/debian8"]`
+      - :json:`"array[string]"`
       - An array of Image IDs.
-    * - :action-table-field-name:`is_public`
+
+    * - :action-table-field-name:`is_public` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - This determines whether other users can use your StackScript.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"a-stackscript"`
+      - :json:`"string"`
       - The StackScript's label is for display purposes only.
-    * - :action-table-field-name:`mine`
+
+    * - :action-table-field-name:`mine` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Returns :code:`true` if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.
-    * - :action-table-field-name:`rev_note`
+
+    * - :action-table-field-name:`rev_note` 
       - :action-table-field-type:`string`
-      - :json:`"Set up MySQL"`
+      - :json:`"string"`
       - This field allows you to add notes for the set of revisions made to this StackScript.
-    * - :action-table-field-name:`script`
+
+    * - :action-table-field-name:`script` 
       - :action-table-field-type:`string`
-      - :json:`"\\\"#!/bin/bash\\\""`
+      - :json:`"string"`
       - The script to execute when provisioning a new Linode with this StackScript.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date this StackScript was last updated.
-    * - :action-table-field-name:`user_gravatar_id`
+
+    * - :action-table-field-name:`user_gravatar_id` 
       - :action-table-field-type:`string`
-      - :json:`"a445b305abda30ebc766bc7fda037c37"`
+      - :json:`"string"`
       - The Gravatar ID for the User who created the StackScript.
-    * - :action-table-field-name:`username`
+
+    * - :action-table-field-name:`username` 
       - :action-table-field-type:`string`
-      - :json:`"myuser"`
+      - :json:`"string"`
       - The User who created the StackScript.
+
+
+
+
 .. _commands_stackscripts_update_attribute_sections_user_defined_fields:
 
 .. rst-class:: action-section-header
 
 user_defined_fields
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -916,33 +1265,51 @@ user_defined_fields
       - Example
       - Description
 
-    * - :action-table-field-name:`user_defined_fields.default`
+    * - :action-table-field-name:`user_defined_fields.default` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The default value.
-    * - :action-table-field-name:`user_defined_fields.example`
+
+    * - :action-table-field-name:`user_defined_fields.example` 
       - :action-table-field-type:`string`
-      - :json:`"hunter2"`
+      - :json:`"string"`
       - An example value for the field.
-    * - :action-table-field-name:`user_defined_fields.label`
+
+    * - :action-table-field-name:`user_defined_fields.label` 
       - :action-table-field-type:`string`
-      - :json:`"Enter the password"`
+      - :json:`"string"`
       - A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
-    * - :action-table-field-name:`user_defined_fields.manyOf`
+
+    * - :action-table-field-name:`user_defined_fields.manyOf` 
       - :action-table-field-type:`string`
-      - :json:`"avalue,anothervalue,thirdvalue"`
+      - :json:`"string"`
       - A list of acceptable values for the field in any quantity, combination or order.
-    * - :action-table-field-name:`user_defined_fields.name`
+
+    * - :action-table-field-name:`user_defined_fields.name` 
       - :action-table-field-type:`string`
-      - :json:`"DB_PASSWORD"`
+      - :json:`"string"`
       - The name of the field.
-    * - :action-table-field-name:`user_defined_fields.oneOf`
+
+    * - :action-table-field-name:`user_defined_fields.oneOf` 
       - :action-table-field-type:`string`
-      - :json:`"avalue,anothervalue,thirdvalue"`
+      - :json:`"string"`
       - A list of acceptable single values for the field.
 
 
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_stackscripts_delete:
 
 `delete <https://techdocs.akamai.com/linode-api/reference/delete-stack-script>`_
@@ -950,6 +1317,14 @@ user_defined_fields
 
 
 Deletes a private StackScript you have permission to :code:`read_write`.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -960,10 +1335,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli stackscripts delete 10079
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -972,6 +1359,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -988,6 +1377,15 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`stackscriptId`
       - :action-table-field-type:`string`
       - The ID of the StackScript to look up.
+
+
+
+
+
+
+
+
+
 
 
 

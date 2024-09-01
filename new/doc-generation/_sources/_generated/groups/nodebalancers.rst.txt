@@ -1,3 +1,8 @@
+NodeBalancer
+============
+
+This section details NodeBalancer-related Linode CLI commands.
+
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5,12 +10,6 @@
 
 .. role:: json(code)
     :language: JSON
-
-NodeBalancer
-============
-
-This section details NodeBalancer-related Linode CLI commands.
-
 .. _commands_nodebalancers_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-node-balancers>`_
@@ -18,6 +17,14 @@ This section details NodeBalancer-related Linode CLI commands.
 
 
 Returns a paginated list of NodeBalancers you have access to.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -28,10 +35,24 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli nodebalancers list
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -40,6 +61,9 @@ Filterable Attributes
 .. rst-class:: action-subheading-description
 
 Arguments used to define a filter for response entries.
+
+
+
 
 .. rst-class:: action-filterable-field-table
 
@@ -55,15 +79,31 @@ Arguments used to define a filter for response entries.
     * - :action-table-field-name:`\-\-ipv4`
       - :action-table-field-type:`string`
       - This NodeBalancer's public IPv4 address.
+
     * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`string`
       - This NodeBalancer's label.
+
     * - :action-table-field-name:`\-\-region`
       - :action-table-field-type:`string`
       - The Region where this NodeBalancer is located.
+
     * - :action-table-field-name:`\-\-tags`
       - :action-table-field-type:`array[string]`
       - An array of Tags applied to this object.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -73,7 +113,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -87,52 +128,66 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`client_conn_throttle`
+    * - :action-table-field-name:`client_conn_throttle` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - Throttle connections per second.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When this NodeBalancer was created.
-    * - :action-table-field-name:`hostname`
+
+    * - :action-table-field-name:`hostname` 
       - :action-table-field-type:`string`
-      - :json:`"192.0.2.1.ip.linodeusercontent.com"`
+      - :json:`"string"`
       - This NodeBalancer's hostname, beginning with its IP address and ending with _.ip.linodeusercontent.com_.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - This NodeBalancer's unique ID.
-    * - :action-table-field-name:`ipv4`
+
+    * - :action-table-field-name:`ipv4` 
       - :action-table-field-type:`string`
-      - :json:`"203.0.113.1"`
+      - :json:`"string"`
       - This NodeBalancer's public IPv4 address.
-    * - :action-table-field-name:`ipv6`
+
+    * - :action-table-field-name:`ipv6` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - This NodeBalancer's public IPv6 address.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"balancer12345"`
+      - :json:`"string"`
       - This NodeBalancer's label.
-    * - :action-table-field-name:`region`
+
+    * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-east"`
+      - :json:`"string"`
       - The Region where this NodeBalancer is located.
-    * - :action-table-field-name:`tags`
+
+    * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["example tag", "another example"]`
+      - :json:`"array[string]"`
       - An array of Tags applied to this object.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2018-03-01T00:01:01"`
+      - :json:`"string"`
       - When this NodeBalancer was last updated.
+
+
+
+
 .. _commands_nodebalancers_list_attribute_sections_transfer:
 
 .. rst-class:: action-section-header
 
 transfer
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -145,22 +200,37 @@ transfer
       - Example
       - Description
 
-    * - :action-table-field-name:`transfer.in`
+    * - :action-table-field-name:`transfer.in` 
       - :action-table-field-type:`number`
-      - :json:`28.9120082855225`
+      - :json:`"number"`
       - The total outbound transfer, in MB, used for this NodeBalancer this month.
-    * - :action-table-field-name:`transfer.out`
+
+    * - :action-table-field-name:`transfer.out` 
       - :action-table-field-type:`number`
-      - :json:`3.54877281188965`
+      - :json:`"number"`
       - The total inbound transfer, in MB, used for this NodeBalancer this month.
-    * - :action-table-field-name:`transfer.total`
+
+    * - :action-table-field-name:`transfer.total` 
       - :action-table-field-type:`number`
-      - :json:`32.4607810974121`
+      - :json:`"number"`
       - The total transfer, in MB, used by this NodeBalancer this month.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-node-balancer>`_
@@ -168,6 +238,14 @@ transfer
 
 
 Returns a single NodeBalancer you can access.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -178,10 +256,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli nodebalancers view 12345
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -190,6 +280,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -207,6 +299,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -215,7 +322,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -229,52 +337,66 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`client_conn_throttle`
+    * - :action-table-field-name:`client_conn_throttle` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - Throttle connections per second.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When this NodeBalancer was created.
-    * - :action-table-field-name:`hostname`
+
+    * - :action-table-field-name:`hostname` 
       - :action-table-field-type:`string`
-      - :json:`"192.0.2.1.ip.linodeusercontent.com"`
+      - :json:`"string"`
       - This NodeBalancer's hostname, beginning with its IP address and ending with _.ip.linodeusercontent.com_.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - This NodeBalancer's unique ID.
-    * - :action-table-field-name:`ipv4`
+
+    * - :action-table-field-name:`ipv4` 
       - :action-table-field-type:`string`
-      - :json:`"203.0.113.1"`
+      - :json:`"string"`
       - This NodeBalancer's public IPv4 address.
-    * - :action-table-field-name:`ipv6`
+
+    * - :action-table-field-name:`ipv6` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - This NodeBalancer's public IPv6 address.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"balancer12345"`
+      - :json:`"string"`
       - This NodeBalancer's label.
-    * - :action-table-field-name:`region`
+
+    * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-east"`
+      - :json:`"string"`
       - The Region where this NodeBalancer is located.
-    * - :action-table-field-name:`tags`
+
+    * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["example tag", "another example"]`
+      - :json:`"array[string]"`
       - An array of Tags applied to this object.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2018-03-01T00:01:01"`
+      - :json:`"string"`
       - When this NodeBalancer was last updated.
+
+
+
+
 .. _commands_nodebalancers_view_attribute_sections_transfer:
 
 .. rst-class:: action-section-header
 
 transfer
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -287,22 +409,37 @@ transfer
       - Example
       - Description
 
-    * - :action-table-field-name:`transfer.in`
+    * - :action-table-field-name:`transfer.in` 
       - :action-table-field-type:`number`
-      - :json:`28.9120082855225`
+      - :json:`"number"`
       - The total outbound transfer, in MB, used for this NodeBalancer this month.
-    * - :action-table-field-name:`transfer.out`
+
+    * - :action-table-field-name:`transfer.out` 
       - :action-table-field-type:`number`
-      - :json:`3.54877281188965`
+      - :json:`"number"`
       - The total inbound transfer, in MB, used for this NodeBalancer this month.
-    * - :action-table-field-name:`transfer.total`
+
+    * - :action-table-field-name:`transfer.total` 
       - :action-table-field-type:`number`
-      - :json:`32.4607810974121`
+      - :json:`"number"`
       - The total transfer, in MB, used by this NodeBalancer this month.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-node-balancer>`_
@@ -311,6 +448,14 @@ transfer
 
 Creates a NodeBalancer in the requested Region.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -318,6 +463,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -328,6 +475,17 @@ Examples of how this command might be used.
     	--client_conn_throttle 0
 
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -336,6 +494,10 @@ Arguments
 
 Additional fields used to execute this request.
 
+
+
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -348,37 +510,47 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-client_conn_throttle`
+    * - :action-table-field-name:`\-\-client_conn_throttle` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - Throttle connections per second.
-    * - :action-table-field-name:`\-\-configs`
-        :ref:`(section) <commands_nodebalancers_create_argument_sections_configs>`
+
+    * - :action-table-field-name:`\-\-configs` :ref:`(section) <commands_nodebalancers_create_argument_sections_configs>`
       - :action-table-field-optional:`No`
       - :action-table-field-type:`json`
       - A request object representing a NodeBalancer Config, including Nodes.
-    * - :action-table-field-name:`\-\-firewall_id`
+
+    * - :action-table-field-name:`\-\-firewall_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The ID of the Firewall to assign to the NodeBalancer.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This NodeBalancer's label.
-    * - :action-table-field-name:`\-\-region`
+
+    * - :action-table-field-name:`\-\-region` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The ID of the Region to create this NodeBalancer in.
-    * - :action-table-field-name:`\-\-tags`
+
+    * - :action-table-field-name:`\-\-tags` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
       - An array of Tags applied to this object.
+
+
+
+
 .. _commands_nodebalancers_create_argument_sections_configs:
 
 .. rst-class:: action-section-header
 
 configs
 
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -391,77 +563,97 @@ configs
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-configs.algorithm`
+    * - :action-table-field-name:`\-\-configs.algorithm` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - What algorithm this NodeBalancer should use for routing traffic to backends.
-    * - :action-table-field-name:`\-\-configs.check`
+
+    * - :action-table-field-name:`\-\-configs.check` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The type of check to perform against backends to ensure they are serving requests.
-    * - :action-table-field-name:`\-\-configs.check_attempts`
+
+    * - :action-table-field-name:`\-\-configs.check_attempts` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How many times to attempt a check before considering a backend to be down.
-    * - :action-table-field-name:`\-\-configs.check_body`
+
+    * - :action-table-field-name:`\-\-configs.check_body` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This value must be present in the response body of the check in order for it to pass.
-    * - :action-table-field-name:`\-\-configs.check_interval`
+
+    * - :action-table-field-name:`\-\-configs.check_interval` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How often, in seconds, to check that backends are up and serving requests.
-    * - :action-table-field-name:`\-\-configs.check_passive`
+
+    * - :action-table-field-name:`\-\-configs.check_passive` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
-    * - :action-table-field-name:`\-\-configs.check_path`
+
+    * - :action-table-field-name:`\-\-configs.check_path` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The URL path to check on each backend.
-    * - :action-table-field-name:`\-\-configs.check_timeout`
+
+    * - :action-table-field-name:`\-\-configs.check_timeout` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How long, in seconds, to wait for a check attempt before considering it failed.
-    * - :action-table-field-name:`\-\-configs.cipher_suite`
+
+    * - :action-table-field-name:`\-\-configs.cipher_suite` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - What ciphers to use for SSL connections served by this NodeBalancer.
-    * - :action-table-field-name:`\-\-configs.nodes`
-        :ref:`(section) <commands_nodebalancers_create_argument_sections_configs.nodes>`
+
+    * - :action-table-field-name:`\-\-configs.nodes` :ref:`(section) <commands_nodebalancers_create_argument_sections_configs.nodes>`
       - :action-table-field-optional:`No`
       - :action-table-field-type:`json`
       - A NodeBalancerNode represents a single backend serving requests for a single port of a NodeBalancer.
-    * - :action-table-field-name:`\-\-configs.port`
+
+    * - :action-table-field-name:`\-\-configs.port` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The port this Config is for.
-    * - :action-table-field-name:`\-\-configs.protocol`
+
+    * - :action-table-field-name:`\-\-configs.protocol` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The protocol this port is configured to serve.
-    * - :action-table-field-name:`\-\-configs.proxy_protocol`
+
+    * - :action-table-field-name:`\-\-configs.proxy_protocol` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :action-table-field-name:`\-\-configs.ssl_cert`
+
+    * - :action-table-field-name:`\-\-configs.ssl_cert` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :action-table-field-name:`\-\-configs.ssl_key`
+
+    * - :action-table-field-name:`\-\-configs.ssl_key` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :action-table-field-name:`\-\-configs.stickiness`
+
+    * - :action-table-field-name:`\-\-configs.stickiness` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Controls how session stickiness is handled on this port.
+
+
+
+
 .. _commands_nodebalancers_create_argument_sections_configs.nodes:
 
 .. rst-class:: action-section-header
 
 configs.nodes
 
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -474,38 +666,59 @@ configs.nodes
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-configs.nodes.address`
+    * - :action-table-field-name:`\-\-configs.nodes.address` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The private IP Address where this backend can be reached.
-    * - :action-table-field-name:`\-\-configs.nodes.config_id`
+
+    * - :action-table-field-name:`\-\-configs.nodes.config_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The NodeBalancer Config ID that this Node belongs to.
-    * - :action-table-field-name:`\-\-configs.nodes.id`
+
+    * - :action-table-field-name:`\-\-configs.nodes.id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - This node's unique ID.
-    * - :action-table-field-name:`\-\-configs.nodes.label`
+
+    * - :action-table-field-name:`\-\-configs.nodes.label` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The label for this node.
-    * - :action-table-field-name:`\-\-configs.nodes.mode`
+
+    * - :action-table-field-name:`\-\-configs.nodes.mode` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The mode this NodeBalancer should use when sending traffic to this backend.
-    * - :action-table-field-name:`\-\-configs.nodes.nodebalancer_id`
+
+    * - :action-table-field-name:`\-\-configs.nodes.nodebalancer_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The NodeBalancer ID that this Node belongs to.
-    * - :action-table-field-name:`\-\-configs.nodes.status`
+
+    * - :action-table-field-name:`\-\-configs.nodes.status` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The current status of this node, based on the configured checks of its NodeBalancer Config.
-    * - :action-table-field-name:`\-\-configs.nodes.weight`
+
+    * - :action-table-field-name:`\-\-configs.nodes.weight` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - Used when picking a backend to serve a request and is not pinned to a single backend yet.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -515,7 +728,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -529,52 +743,66 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`client_conn_throttle`
+    * - :action-table-field-name:`client_conn_throttle` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - Throttle connections per second.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When this NodeBalancer was created.
-    * - :action-table-field-name:`hostname`
+
+    * - :action-table-field-name:`hostname` 
       - :action-table-field-type:`string`
-      - :json:`"192.0.2.1.ip.linodeusercontent.com"`
+      - :json:`"string"`
       - This NodeBalancer's hostname, beginning with its IP address and ending with _.ip.linodeusercontent.com_.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - This NodeBalancer's unique ID.
-    * - :action-table-field-name:`ipv4`
+
+    * - :action-table-field-name:`ipv4` 
       - :action-table-field-type:`string`
-      - :json:`"203.0.113.1"`
+      - :json:`"string"`
       - This NodeBalancer's public IPv4 address.
-    * - :action-table-field-name:`ipv6`
+
+    * - :action-table-field-name:`ipv6` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - This NodeBalancer's public IPv6 address.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"balancer12345"`
+      - :json:`"string"`
       - This NodeBalancer's label.
-    * - :action-table-field-name:`region`
+
+    * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-east"`
+      - :json:`"string"`
       - The Region where this NodeBalancer is located.
-    * - :action-table-field-name:`tags`
+
+    * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["example tag", "another example"]`
+      - :json:`"array[string]"`
       - An array of Tags applied to this object.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2018-03-01T00:01:01"`
+      - :json:`"string"`
       - When this NodeBalancer was last updated.
+
+
+
+
 .. _commands_nodebalancers_create_attribute_sections_transfer:
 
 .. rst-class:: action-section-header
 
 transfer
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -587,22 +815,37 @@ transfer
       - Example
       - Description
 
-    * - :action-table-field-name:`transfer.in`
+    * - :action-table-field-name:`transfer.in` 
       - :action-table-field-type:`number`
-      - :json:`28.9120082855225`
+      - :json:`"number"`
       - The total outbound transfer, in MB, used for this NodeBalancer this month.
-    * - :action-table-field-name:`transfer.out`
+
+    * - :action-table-field-name:`transfer.out` 
       - :action-table-field-type:`number`
-      - :json:`3.54877281188965`
+      - :json:`"number"`
       - The total inbound transfer, in MB, used for this NodeBalancer this month.
-    * - :action-table-field-name:`transfer.total`
+
+    * - :action-table-field-name:`transfer.total` 
       - :action-table-field-type:`number`
-      - :json:`32.4607810974121`
+      - :json:`"number"`
       - The total transfer, in MB, used by this NodeBalancer this month.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-node-balancer>`_
@@ -611,6 +854,14 @@ transfer
 
 Updates information about a NodeBalancer you can access.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -618,6 +869,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -627,6 +880,16 @@ Examples of how this command might be used.
     	--client_conn_throttle 0
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -634,6 +897,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -651,6 +916,19 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -658,6 +936,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -671,50 +953,74 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-client_conn_throttle`
+    * - :action-table-field-name:`\-\-client_conn_throttle` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - Throttle connections per second.
-    * - :action-table-field-name:`\-\-created`
+
+    * - :action-table-field-name:`\-\-created` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - When this NodeBalancer was created.
-    * - :action-table-field-name:`\-\-hostname`
+
+    * - :action-table-field-name:`\-\-hostname` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This NodeBalancer's hostname, beginning with its IP address and ending with _.ip.linodeusercontent.com_.
-    * - :action-table-field-name:`\-\-id`
+
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - This NodeBalancer's unique ID.
-    * - :action-table-field-name:`\-\-ipv4`
+
+    * - :action-table-field-name:`\-\-ipv4` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This NodeBalancer's public IPv4 address.
-    * - :action-table-field-name:`\-\-ipv6`
+
+    * - :action-table-field-name:`\-\-ipv6` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This NodeBalancer's public IPv6 address.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This NodeBalancer's label.
-    * - :action-table-field-name:`\-\-region`
+
+    * - :action-table-field-name:`\-\-region` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The Region where this NodeBalancer is located.
-    * - :action-table-field-name:`\-\-tags`
+
+    * - :action-table-field-name:`\-\-tags` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
       - An array of Tags applied to this object.
-    * - :action-table-field-name:`\-\-transfer`
+
+    * - :action-table-field-name:`\-\-transfer` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`object`
       - Information about the amount of transfer this NodeBalancer has had so far this month.
-    * - :action-table-field-name:`\-\-updated`
+
+    * - :action-table-field-name:`\-\-updated` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - When this NodeBalancer was last updated.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -724,7 +1030,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -738,52 +1045,66 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`client_conn_throttle`
+    * - :action-table-field-name:`client_conn_throttle` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - Throttle connections per second.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When this NodeBalancer was created.
-    * - :action-table-field-name:`hostname`
+
+    * - :action-table-field-name:`hostname` 
       - :action-table-field-type:`string`
-      - :json:`"192.0.2.1.ip.linodeusercontent.com"`
+      - :json:`"string"`
       - This NodeBalancer's hostname, beginning with its IP address and ending with _.ip.linodeusercontent.com_.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - This NodeBalancer's unique ID.
-    * - :action-table-field-name:`ipv4`
+
+    * - :action-table-field-name:`ipv4` 
       - :action-table-field-type:`string`
-      - :json:`"203.0.113.1"`
+      - :json:`"string"`
       - This NodeBalancer's public IPv4 address.
-    * - :action-table-field-name:`ipv6`
+
+    * - :action-table-field-name:`ipv6` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - This NodeBalancer's public IPv6 address.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"balancer12345"`
+      - :json:`"string"`
       - This NodeBalancer's label.
-    * - :action-table-field-name:`region`
+
+    * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-east"`
+      - :json:`"string"`
       - The Region where this NodeBalancer is located.
-    * - :action-table-field-name:`tags`
+
+    * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["example tag", "another example"]`
+      - :json:`"array[string]"`
       - An array of Tags applied to this object.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2018-03-01T00:01:01"`
+      - :json:`"string"`
       - When this NodeBalancer was last updated.
+
+
+
+
 .. _commands_nodebalancers_update_attribute_sections_transfer:
 
 .. rst-class:: action-section-header
 
 transfer
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -796,22 +1117,37 @@ transfer
       - Example
       - Description
 
-    * - :action-table-field-name:`transfer.in`
+    * - :action-table-field-name:`transfer.in` 
       - :action-table-field-type:`number`
-      - :json:`28.9120082855225`
+      - :json:`"number"`
       - The total outbound transfer, in MB, used for this NodeBalancer this month.
-    * - :action-table-field-name:`transfer.out`
+
+    * - :action-table-field-name:`transfer.out` 
       - :action-table-field-type:`number`
-      - :json:`3.54877281188965`
+      - :json:`"number"`
       - The total inbound transfer, in MB, used for this NodeBalancer this month.
-    * - :action-table-field-name:`transfer.total`
+
+    * - :action-table-field-name:`transfer.total` 
       - :action-table-field-type:`number`
-      - :json:`32.4607810974121`
+      - :json:`"number"`
       - The total transfer, in MB, used by this NodeBalancer this month.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_delete:
 
 `delete <https://techdocs.akamai.com/linode-api/reference/delete-node-balancer>`_
@@ -820,6 +1156,14 @@ transfer
 
 Deletes a NodeBalancer.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -829,10 +1173,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli nodebalancers delete 12345
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -841,6 +1197,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -859,8 +1217,24 @@ Positional parameters used to define the resource this command should target.
       - The ID of the NodeBalancer to access.
 
 
+
+
+
+
+
+
+
+
+
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_firewalls:
 
 `firewalls <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-firewalls>`_
@@ -869,6 +1243,14 @@ Positional parameters used to define the resource this command should target.
 
 View information for Firewalls assigned to this NodeBalancer.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -878,10 +1260,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli nodebalancers firewalls $nodeBalancerId
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -890,6 +1284,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -907,6 +1303,20 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Filterable Attributes
@@ -914,6 +1324,9 @@ Filterable Attributes
 .. rst-class:: action-subheading-description
 
 Arguments used to define a filter for response entries.
+
+
+
 
 .. rst-class:: action-filterable-field-table
 
@@ -929,18 +1342,35 @@ Arguments used to define a filter for response entries.
     * - :action-table-field-name:`\-\-created`
       - :action-table-field-type:`string`
       - When this Firewall was created.
+
     * - :action-table-field-name:`\-\-id`
       - :action-table-field-type:`integer`
       - The Firewall's unique ID.
+
     * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`string`
       - The Firewall's label, for display purposes only.
+
     * - :action-table-field-name:`\-\-tags`
       - :action-table-field-type:`array[string]`
       - An array of tags applied to this object.
+
     * - :action-table-field-name:`\-\-updated`
       - :action-table-field-type:`string`
       - When this Firewall was last updated.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -950,7 +1380,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -964,36 +1395,46 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`created`
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When this Firewall was created.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`123`
+      - :json:`"integer"`
       - The Firewall's unique ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"firewall123"`
+      - :json:`"string"`
       - The Firewall's label, for display purposes only.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"enabled"`
+      - :json:`"string"`
       - The status of this Firewall.
-    * - :action-table-field-name:`tags`
+
+    * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["example tag", "another example"]`
+      - :json:`"array[string]"`
       - An array of tags applied to this object.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-02T00:01:01"`
+      - :json:`"string"`
       - When this Firewall was last updated.
+
+
+
+
 .. _commands_nodebalancers_firewalls_attribute_sections_rules:
 
 .. rst-class:: action-section-header
 
 rules
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -1006,74 +1447,102 @@ rules
       - Example
       - Description
 
-    * - :action-table-field-name:`rules.inbound.action`
+    * - :action-table-field-name:`rules.inbound.action` 
       - :action-table-field-type:`string`
-      - :json:`"ACCEPT"`
+      - :json:`"string"`
       - Controls whether traffic is accepted or dropped by this rule.
-    * - :action-table-field-name:`rules.inbound.addresses.ipv4`
+
+    * - :action-table-field-name:`rules.inbound.addresses.ipv4` 
       - :action-table-field-type:`array[string]`
-      - :json:`["192.0.2.0/24", "198.51.100.2/32"]`
+      - :json:`"array[string]"`
       - A list of IPv4 addresses or networks.
-    * - :action-table-field-name:`rules.inbound.addresses.ipv6`
+
+    * - :action-table-field-name:`rules.inbound.addresses.ipv6` 
       - :action-table-field-type:`array[string]`
-      - :json:`["2001:DB8::/128"]`
+      - :json:`"array[string]"`
       - A list of IPv6 addresses or networks.
-    * - :action-table-field-name:`rules.inbound.description`
+
+    * - :action-table-field-name:`rules.inbound.description` 
       - :action-table-field-type:`string`
-      - :json:`"An example firewall rule description."`
+      - :json:`"string"`
       - Used to describe this rule.
-    * - :action-table-field-name:`rules.inbound.label`
+
+    * - :action-table-field-name:`rules.inbound.label` 
       - :action-table-field-type:`string`
-      - :json:`"firewallrule123"`
+      - :json:`"string"`
       - Used to identify this rule.
-    * - :action-table-field-name:`rules.inbound.ports`
+
+    * - :action-table-field-name:`rules.inbound.ports` 
       - :action-table-field-type:`string`
-      - :json:`"22-24, 80, 443"`
+      - :json:`"string"`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
-    * - :action-table-field-name:`rules.inbound.protocol`
+
+    * - :action-table-field-name:`rules.inbound.protocol` 
       - :action-table-field-type:`string`
-      - :json:`"TCP"`
+      - :json:`"string"`
       - The type of network traffic affected by this rule.
-    * - :action-table-field-name:`rules.inbound_policy`
+
+    * - :action-table-field-name:`rules.inbound_policy` 
       - :action-table-field-type:`string`
-      - :json:`"DROP"`
+      - :json:`"string"`
       - The default behavior for inbound traffic.
-    * - :action-table-field-name:`rules.outbound.action`
+
+    * - :action-table-field-name:`rules.outbound.action` 
       - :action-table-field-type:`string`
-      - :json:`"ACCEPT"`
+      - :json:`"string"`
       - Controls whether traffic is accepted or dropped by this rule.
-    * - :action-table-field-name:`rules.outbound.addresses.ipv4`
+
+    * - :action-table-field-name:`rules.outbound.addresses.ipv4` 
       - :action-table-field-type:`array[string]`
-      - :json:`["192.0.2.0/24", "198.51.100.2/32"]`
+      - :json:`"array[string]"`
       - A list of IPv4 addresses or networks.
-    * - :action-table-field-name:`rules.outbound.addresses.ipv6`
+
+    * - :action-table-field-name:`rules.outbound.addresses.ipv6` 
       - :action-table-field-type:`array[string]`
-      - :json:`["2001:DB8::/128"]`
+      - :json:`"array[string]"`
       - A list of IPv6 addresses or networks.
-    * - :action-table-field-name:`rules.outbound.description`
+
+    * - :action-table-field-name:`rules.outbound.description` 
       - :action-table-field-type:`string`
-      - :json:`"An example firewall rule description."`
+      - :json:`"string"`
       - Used to describe this rule.
-    * - :action-table-field-name:`rules.outbound.label`
+
+    * - :action-table-field-name:`rules.outbound.label` 
       - :action-table-field-type:`string`
-      - :json:`"firewallrule123"`
+      - :json:`"string"`
       - Used to identify this rule.
-    * - :action-table-field-name:`rules.outbound.ports`
+
+    * - :action-table-field-name:`rules.outbound.ports` 
       - :action-table-field-type:`string`
-      - :json:`"22-24, 80, 443"`
+      - :json:`"string"`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
-    * - :action-table-field-name:`rules.outbound.protocol`
+
+    * - :action-table-field-name:`rules.outbound.protocol` 
       - :action-table-field-type:`string`
-      - :json:`"TCP"`
+      - :json:`"string"`
       - The type of network traffic affected by this rule.
-    * - :action-table-field-name:`rules.outbound_policy`
+
+    * - :action-table-field-name:`rules.outbound_policy` 
       - :action-table-field-type:`string`
-      - :json:`"DROP"`
+      - :json:`"string"`
       - The default behavior for outbound traffic.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_config-view:
 
 `config-view <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-config>`_
@@ -1081,6 +1550,14 @@ rules
 
 
 Returns configuration information for a single port of this NodeBalancer.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1091,11 +1568,23 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli nodebalancers config-view \
     	12345 4567
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1104,6 +1593,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1120,9 +1611,25 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`nodeBalancerId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
+
     * - :action-table-field-name:`configId`
       - :action-table-field-type:`integer`
       - The ID of the Config to access.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1132,7 +1639,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1146,88 +1654,111 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`algorithm`
+    * - :action-table-field-name:`algorithm` 
       - :action-table-field-type:`string`
-      - :json:`"roundrobin"`
+      - :json:`"string"`
       - What algorithm this NodeBalancer should use for routing traffic to backends.
-    * - :action-table-field-name:`check`
+
+    * - :action-table-field-name:`check` 
       - :action-table-field-type:`string`
-      - :json:`"http_body"`
+      - :json:`"string"`
       - The type of check to perform against backends to ensure they are serving requests.
-    * - :action-table-field-name:`check_attempts`
+
+    * - :action-table-field-name:`check_attempts` 
       - :action-table-field-type:`integer`
-      - :json:`3`
+      - :json:`"integer"`
       - How many times to attempt a check before considering a backend to be down.
-    * - :action-table-field-name:`check_body`
+
+    * - :action-table-field-name:`check_body` 
       - :action-table-field-type:`string`
-      - :json:`"it works"`
+      - :json:`"string"`
       - This value must be present in the response body of the check in order for it to pass.
-    * - :action-table-field-name:`check_interval`
+
+    * - :action-table-field-name:`check_interval` 
       - :action-table-field-type:`integer`
-      - :json:`90`
+      - :json:`"integer"`
       - How often, in seconds, to check that backends are up and serving requests.
-    * - :action-table-field-name:`check_passive`
+
+    * - :action-table-field-name:`check_passive` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
-    * - :action-table-field-name:`check_path`
+
+    * - :action-table-field-name:`check_path` 
       - :action-table-field-type:`string`
-      - :json:`"/test"`
+      - :json:`"string"`
       - The URL path to check on each backend.
-    * - :action-table-field-name:`check_timeout`
+
+    * - :action-table-field-name:`check_timeout` 
       - :action-table-field-type:`integer`
-      - :json:`10`
+      - :json:`"integer"`
       - How long, in seconds, to wait for a check attempt before considering it failed.
-    * - :action-table-field-name:`cipher_suite`
+
+    * - :action-table-field-name:`cipher_suite` 
       - :action-table-field-type:`string`
-      - :json:`"recommended"`
+      - :json:`"string"`
       - What ciphers to use for SSL connections served by this NodeBalancer.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`4567`
+      - :json:`"integer"`
       - This config's unique ID.
-    * - :action-table-field-name:`nodebalancer_id`
+
+    * - :action-table-field-name:`nodebalancer_id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - The ID for the NodeBalancer this config belongs to.
-    * - :action-table-field-name:`port`
+
+    * - :action-table-field-name:`port` 
       - :action-table-field-type:`integer`
-      - :json:`80`
+      - :json:`"integer"`
       - The port this Config is for.
-    * - :action-table-field-name:`protocol`
+
+    * - :action-table-field-name:`protocol` 
       - :action-table-field-type:`string`
-      - :json:`"http"`
+      - :json:`"string"`
       - The protocol this port is configured to serve.
-    * - :action-table-field-name:`proxy_protocol`
+
+    * - :action-table-field-name:`proxy_protocol` 
       - :action-table-field-type:`string`
-      - :json:`"none"`
+      - :json:`"string"`
       - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :action-table-field-name:`ssl_cert`
+
+    * - :action-table-field-name:`ssl_cert` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :action-table-field-name:`ssl_commonname`
+
+    * - :action-table-field-name:`ssl_commonname` 
       - :action-table-field-type:`string`
-      - :json:`"www.example.com"`
+      - :json:`"string"`
       - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`ssl_fingerprint`
+
+    * - :action-table-field-name:`ssl_fingerprint` 
       - :action-table-field-type:`string`
-      - :json:`"00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F:10:11:12:13"`
+      - :json:`"string"`
       - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`ssl_key`
+
+    * - :action-table-field-name:`ssl_key` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :action-table-field-name:`stickiness`
+
+    * - :action-table-field-name:`stickiness` 
       - :action-table-field-type:`string`
-      - :json:`"http_cookie"`
+      - :json:`"string"`
       - Controls how session stickiness is handled on this port.
+
+
+
+
 .. _commands_nodebalancers_config-view_attribute_sections_nodes_status:
 
 .. rst-class:: action-section-header
 
 nodes_status
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -1240,18 +1771,32 @@ nodes_status
       - Example
       - Description
 
-    * - :action-table-field-name:`nodes_status.down`
+    * - :action-table-field-name:`nodes_status.down` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - The number of backends considered to be "DOWN" and unhealthy.
-    * - :action-table-field-name:`nodes_status.up`
+
+    * - :action-table-field-name:`nodes_status.up` 
       - :action-table-field-type:`integer`
-      - :json:`4`
+      - :json:`"integer"`
       - The number of backends considered to be "UP" and healthy, and that are serving requests.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_config-create:
 
 `config-create <https://techdocs.akamai.com/linode-api/reference/post-node-balancer-config>`_
@@ -1260,6 +1805,14 @@ nodes_status
 
 Creates a NodeBalancer Config, which allows the NodeBalancer to accept traffic on a new port.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -1267,6 +1820,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -1293,6 +1848,16 @@ Examples of how this command might be used.
     	--cipher_suite recommended
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -1300,6 +1865,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1317,6 +1884,19 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -1324,6 +1904,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -1337,86 +1921,119 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-algorithm`
+    * - :action-table-field-name:`\-\-algorithm` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - What algorithm this NodeBalancer should use for routing traffic to backends.
-    * - :action-table-field-name:`\-\-check`
+
+    * - :action-table-field-name:`\-\-check` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The type of check to perform against backends to ensure they are serving requests.
-    * - :action-table-field-name:`\-\-check_attempts`
+
+    * - :action-table-field-name:`\-\-check_attempts` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How many times to attempt a check before considering a backend to be down.
-    * - :action-table-field-name:`\-\-check_body`
+
+    * - :action-table-field-name:`\-\-check_body` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This value must be present in the response body of the check in order for it to pass.
-    * - :action-table-field-name:`\-\-check_interval`
+
+    * - :action-table-field-name:`\-\-check_interval` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How often, in seconds, to check that backends are up and serving requests.
-    * - :action-table-field-name:`\-\-check_passive`
+
+    * - :action-table-field-name:`\-\-check_passive` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
-    * - :action-table-field-name:`\-\-check_path`
+
+    * - :action-table-field-name:`\-\-check_path` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The URL path to check on each backend.
-    * - :action-table-field-name:`\-\-check_timeout`
+
+    * - :action-table-field-name:`\-\-check_timeout` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How long, in seconds, to wait for a check attempt before considering it failed.
-    * - :action-table-field-name:`\-\-cipher_suite`
+
+    * - :action-table-field-name:`\-\-cipher_suite` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - What ciphers to use for SSL connections served by this NodeBalancer.
-    * - :action-table-field-name:`\-\-id`
+
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - This config's unique ID.
-    * - :action-table-field-name:`\-\-nodebalancer_id`
+
+    * - :action-table-field-name:`\-\-nodebalancer_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The ID for the NodeBalancer this config belongs to.
-    * - :action-table-field-name:`\-\-nodes_status`
+
+    * - :action-table-field-name:`\-\-nodes_status` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`object`
       - A structure containing information about the health of the backends for this port.
-    * - :action-table-field-name:`\-\-port`
+
+    * - :action-table-field-name:`\-\-port` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The port this Config is for.
-    * - :action-table-field-name:`\-\-protocol`
+
+    * - :action-table-field-name:`\-\-protocol` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The protocol this port is configured to serve.
-    * - :action-table-field-name:`\-\-proxy_protocol`
+
+    * - :action-table-field-name:`\-\-proxy_protocol` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :action-table-field-name:`\-\-ssl_cert`
+
+    * - :action-table-field-name:`\-\-ssl_cert` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :action-table-field-name:`\-\-ssl_commonname`
+
+    * - :action-table-field-name:`\-\-ssl_commonname` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`\-\-ssl_fingerprint`
+
+    * - :action-table-field-name:`\-\-ssl_fingerprint` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`\-\-ssl_key`
+
+    * - :action-table-field-name:`\-\-ssl_key` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :action-table-field-name:`\-\-stickiness`
+
+    * - :action-table-field-name:`\-\-stickiness` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Controls how session stickiness is handled on this port.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1426,7 +2043,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1440,88 +2058,111 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`algorithm`
+    * - :action-table-field-name:`algorithm` 
       - :action-table-field-type:`string`
-      - :json:`"roundrobin"`
+      - :json:`"string"`
       - What algorithm this NodeBalancer should use for routing traffic to backends.
-    * - :action-table-field-name:`check`
+
+    * - :action-table-field-name:`check` 
       - :action-table-field-type:`string`
-      - :json:`"http_body"`
+      - :json:`"string"`
       - The type of check to perform against backends to ensure they are serving requests.
-    * - :action-table-field-name:`check_attempts`
+
+    * - :action-table-field-name:`check_attempts` 
       - :action-table-field-type:`integer`
-      - :json:`3`
+      - :json:`"integer"`
       - How many times to attempt a check before considering a backend to be down.
-    * - :action-table-field-name:`check_body`
+
+    * - :action-table-field-name:`check_body` 
       - :action-table-field-type:`string`
-      - :json:`"it works"`
+      - :json:`"string"`
       - This value must be present in the response body of the check in order for it to pass.
-    * - :action-table-field-name:`check_interval`
+
+    * - :action-table-field-name:`check_interval` 
       - :action-table-field-type:`integer`
-      - :json:`90`
+      - :json:`"integer"`
       - How often, in seconds, to check that backends are up and serving requests.
-    * - :action-table-field-name:`check_passive`
+
+    * - :action-table-field-name:`check_passive` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
-    * - :action-table-field-name:`check_path`
+
+    * - :action-table-field-name:`check_path` 
       - :action-table-field-type:`string`
-      - :json:`"/test"`
+      - :json:`"string"`
       - The URL path to check on each backend.
-    * - :action-table-field-name:`check_timeout`
+
+    * - :action-table-field-name:`check_timeout` 
       - :action-table-field-type:`integer`
-      - :json:`10`
+      - :json:`"integer"`
       - How long, in seconds, to wait for a check attempt before considering it failed.
-    * - :action-table-field-name:`cipher_suite`
+
+    * - :action-table-field-name:`cipher_suite` 
       - :action-table-field-type:`string`
-      - :json:`"recommended"`
+      - :json:`"string"`
       - What ciphers to use for SSL connections served by this NodeBalancer.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`4567`
+      - :json:`"integer"`
       - This config's unique ID.
-    * - :action-table-field-name:`nodebalancer_id`
+
+    * - :action-table-field-name:`nodebalancer_id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - The ID for the NodeBalancer this config belongs to.
-    * - :action-table-field-name:`port`
+
+    * - :action-table-field-name:`port` 
       - :action-table-field-type:`integer`
-      - :json:`80`
+      - :json:`"integer"`
       - The port this Config is for.
-    * - :action-table-field-name:`protocol`
+
+    * - :action-table-field-name:`protocol` 
       - :action-table-field-type:`string`
-      - :json:`"http"`
+      - :json:`"string"`
       - The protocol this port is configured to serve.
-    * - :action-table-field-name:`proxy_protocol`
+
+    * - :action-table-field-name:`proxy_protocol` 
       - :action-table-field-type:`string`
-      - :json:`"none"`
+      - :json:`"string"`
       - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :action-table-field-name:`ssl_cert`
+
+    * - :action-table-field-name:`ssl_cert` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :action-table-field-name:`ssl_commonname`
+
+    * - :action-table-field-name:`ssl_commonname` 
       - :action-table-field-type:`string`
-      - :json:`"www.example.com"`
+      - :json:`"string"`
       - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`ssl_fingerprint`
+
+    * - :action-table-field-name:`ssl_fingerprint` 
       - :action-table-field-type:`string`
-      - :json:`"00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F:10:11:12:13"`
+      - :json:`"string"`
       - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`ssl_key`
+
+    * - :action-table-field-name:`ssl_key` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :action-table-field-name:`stickiness`
+
+    * - :action-table-field-name:`stickiness` 
       - :action-table-field-type:`string`
-      - :json:`"http_cookie"`
+      - :json:`"string"`
       - Controls how session stickiness is handled on this port.
+
+
+
+
 .. _commands_nodebalancers_config-create_attribute_sections_nodes_status:
 
 .. rst-class:: action-section-header
 
 nodes_status
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -1534,18 +2175,32 @@ nodes_status
       - Example
       - Description
 
-    * - :action-table-field-name:`nodes_status.down`
+    * - :action-table-field-name:`nodes_status.down` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - The number of backends considered to be "DOWN" and unhealthy.
-    * - :action-table-field-name:`nodes_status.up`
+
+    * - :action-table-field-name:`nodes_status.up` 
       - :action-table-field-type:`integer`
-      - :json:`4`
+      - :json:`"integer"`
       - The number of backends considered to be "UP" and healthy, and that are serving requests.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_config-update:
 
 `config-update <https://techdocs.akamai.com/linode-api/reference/put-node-balancer-config>`_
@@ -1554,6 +2209,14 @@ nodes_status
 
 Updates the configuration for a single port on a NodeBalancer.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -1561,6 +2224,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -1588,6 +2253,16 @@ Examples of how this command might be used.
     	--cipher_suite recommended
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -1595,6 +2270,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1611,9 +2288,23 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`nodeBalancerId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
+
     * - :action-table-field-name:`configId`
       - :action-table-field-type:`integer`
       - The ID of the Config to access.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1622,6 +2313,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -1635,86 +2330,119 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-algorithm`
+    * - :action-table-field-name:`\-\-algorithm` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - What algorithm this NodeBalancer should use for routing traffic to backends.
-    * - :action-table-field-name:`\-\-check`
+
+    * - :action-table-field-name:`\-\-check` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The type of check to perform against backends to ensure they are serving requests.
-    * - :action-table-field-name:`\-\-check_attempts`
+
+    * - :action-table-field-name:`\-\-check_attempts` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How many times to attempt a check before considering a backend to be down.
-    * - :action-table-field-name:`\-\-check_body`
+
+    * - :action-table-field-name:`\-\-check_body` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This value must be present in the response body of the check in order for it to pass.
-    * - :action-table-field-name:`\-\-check_interval`
+
+    * - :action-table-field-name:`\-\-check_interval` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How often, in seconds, to check that backends are up and serving requests.
-    * - :action-table-field-name:`\-\-check_passive`
+
+    * - :action-table-field-name:`\-\-check_passive` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
-    * - :action-table-field-name:`\-\-check_path`
+
+    * - :action-table-field-name:`\-\-check_path` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The URL path to check on each backend.
-    * - :action-table-field-name:`\-\-check_timeout`
+
+    * - :action-table-field-name:`\-\-check_timeout` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How long, in seconds, to wait for a check attempt before considering it failed.
-    * - :action-table-field-name:`\-\-cipher_suite`
+
+    * - :action-table-field-name:`\-\-cipher_suite` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - What ciphers to use for SSL connections served by this NodeBalancer.
-    * - :action-table-field-name:`\-\-id`
+
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - This config's unique ID.
-    * - :action-table-field-name:`\-\-nodebalancer_id`
+
+    * - :action-table-field-name:`\-\-nodebalancer_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The ID for the NodeBalancer this config belongs to.
-    * - :action-table-field-name:`\-\-nodes_status`
+
+    * - :action-table-field-name:`\-\-nodes_status` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`object`
       - A structure containing information about the health of the backends for this port.
-    * - :action-table-field-name:`\-\-port`
+
+    * - :action-table-field-name:`\-\-port` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The port this Config is for.
-    * - :action-table-field-name:`\-\-protocol`
+
+    * - :action-table-field-name:`\-\-protocol` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The protocol this port is configured to serve.
-    * - :action-table-field-name:`\-\-proxy_protocol`
+
+    * - :action-table-field-name:`\-\-proxy_protocol` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :action-table-field-name:`\-\-ssl_cert`
+
+    * - :action-table-field-name:`\-\-ssl_cert` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :action-table-field-name:`\-\-ssl_commonname`
+
+    * - :action-table-field-name:`\-\-ssl_commonname` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`\-\-ssl_fingerprint`
+
+    * - :action-table-field-name:`\-\-ssl_fingerprint` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`\-\-ssl_key`
+
+    * - :action-table-field-name:`\-\-ssl_key` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :action-table-field-name:`\-\-stickiness`
+
+    * - :action-table-field-name:`\-\-stickiness` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Controls how session stickiness is handled on this port.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1724,7 +2452,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1738,88 +2467,111 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`algorithm`
+    * - :action-table-field-name:`algorithm` 
       - :action-table-field-type:`string`
-      - :json:`"roundrobin"`
+      - :json:`"string"`
       - What algorithm this NodeBalancer should use for routing traffic to backends.
-    * - :action-table-field-name:`check`
+
+    * - :action-table-field-name:`check` 
       - :action-table-field-type:`string`
-      - :json:`"http_body"`
+      - :json:`"string"`
       - The type of check to perform against backends to ensure they are serving requests.
-    * - :action-table-field-name:`check_attempts`
+
+    * - :action-table-field-name:`check_attempts` 
       - :action-table-field-type:`integer`
-      - :json:`3`
+      - :json:`"integer"`
       - How many times to attempt a check before considering a backend to be down.
-    * - :action-table-field-name:`check_body`
+
+    * - :action-table-field-name:`check_body` 
       - :action-table-field-type:`string`
-      - :json:`"it works"`
+      - :json:`"string"`
       - This value must be present in the response body of the check in order for it to pass.
-    * - :action-table-field-name:`check_interval`
+
+    * - :action-table-field-name:`check_interval` 
       - :action-table-field-type:`integer`
-      - :json:`90`
+      - :json:`"integer"`
       - How often, in seconds, to check that backends are up and serving requests.
-    * - :action-table-field-name:`check_passive`
+
+    * - :action-table-field-name:`check_passive` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
-    * - :action-table-field-name:`check_path`
+
+    * - :action-table-field-name:`check_path` 
       - :action-table-field-type:`string`
-      - :json:`"/test"`
+      - :json:`"string"`
       - The URL path to check on each backend.
-    * - :action-table-field-name:`check_timeout`
+
+    * - :action-table-field-name:`check_timeout` 
       - :action-table-field-type:`integer`
-      - :json:`10`
+      - :json:`"integer"`
       - How long, in seconds, to wait for a check attempt before considering it failed.
-    * - :action-table-field-name:`cipher_suite`
+
+    * - :action-table-field-name:`cipher_suite` 
       - :action-table-field-type:`string`
-      - :json:`"recommended"`
+      - :json:`"string"`
       - What ciphers to use for SSL connections served by this NodeBalancer.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`4567`
+      - :json:`"integer"`
       - This config's unique ID.
-    * - :action-table-field-name:`nodebalancer_id`
+
+    * - :action-table-field-name:`nodebalancer_id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - The ID for the NodeBalancer this config belongs to.
-    * - :action-table-field-name:`port`
+
+    * - :action-table-field-name:`port` 
       - :action-table-field-type:`integer`
-      - :json:`80`
+      - :json:`"integer"`
       - The port this Config is for.
-    * - :action-table-field-name:`protocol`
+
+    * - :action-table-field-name:`protocol` 
       - :action-table-field-type:`string`
-      - :json:`"http"`
+      - :json:`"string"`
       - The protocol this port is configured to serve.
-    * - :action-table-field-name:`proxy_protocol`
+
+    * - :action-table-field-name:`proxy_protocol` 
       - :action-table-field-type:`string`
-      - :json:`"none"`
+      - :json:`"string"`
       - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :action-table-field-name:`ssl_cert`
+
+    * - :action-table-field-name:`ssl_cert` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :action-table-field-name:`ssl_commonname`
+
+    * - :action-table-field-name:`ssl_commonname` 
       - :action-table-field-type:`string`
-      - :json:`"www.example.com"`
+      - :json:`"string"`
       - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`ssl_fingerprint`
+
+    * - :action-table-field-name:`ssl_fingerprint` 
       - :action-table-field-type:`string`
-      - :json:`"00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F:10:11:12:13"`
+      - :json:`"string"`
       - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`ssl_key`
+
+    * - :action-table-field-name:`ssl_key` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :action-table-field-name:`stickiness`
+
+    * - :action-table-field-name:`stickiness` 
       - :action-table-field-type:`string`
-      - :json:`"http_cookie"`
+      - :json:`"string"`
       - Controls how session stickiness is handled on this port.
+
+
+
+
 .. _commands_nodebalancers_config-update_attribute_sections_nodes_status:
 
 .. rst-class:: action-section-header
 
 nodes_status
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -1832,18 +2584,32 @@ nodes_status
       - Example
       - Description
 
-    * - :action-table-field-name:`nodes_status.down`
+    * - :action-table-field-name:`nodes_status.down` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - The number of backends considered to be "DOWN" and unhealthy.
-    * - :action-table-field-name:`nodes_status.up`
+
+    * - :action-table-field-name:`nodes_status.up` 
       - :action-table-field-type:`integer`
-      - :json:`4`
+      - :json:`"integer"`
       - The number of backends considered to be "UP" and healthy, and that are serving requests.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_config-delete:
 
 `config-delete <https://techdocs.akamai.com/linode-api/reference/delete-node-balancer-config>`_
@@ -1851,6 +2617,14 @@ nodes_status
 
 
 Deletes the Config for a port of this NodeBalancer.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1861,11 +2635,23 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli nodebalancers config-delete \
     	12345 4567
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1874,6 +2660,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1890,13 +2678,30 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`nodeBalancerId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
+
     * - :action-table-field-name:`configId`
       - :action-table-field-type:`integer`
       - The ID of the Config to access.
 
 
+
+
+
+
+
+
+
+
+
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_config-rebuild:
 
 `config-rebuild <https://techdocs.akamai.com/linode-api/reference/post-rebuild-node-balancer-config>`_
@@ -1905,6 +2710,14 @@ Positional parameters used to define the resource this command should target.
 
 Rebuilds a NodeBalancer Config and its Nodes that you have permission to modify.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -1912,6 +2725,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -1941,6 +2756,16 @@ Examples of how this command might be used.
     	--nodes '{"address":"192.168.210.122:80","label":"node2","weight":50,"mode":"accept"}'
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -1948,6 +2773,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1964,9 +2791,23 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`nodeBalancerId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
+
     * - :action-table-field-name:`configId`
       - :action-table-field-type:`integer`
       - The ID of the Config to access.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1976,6 +2817,10 @@ Arguments
 
 Additional fields used to execute this request.
 
+
+
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -1988,97 +2833,122 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-algorithm`
+    * - :action-table-field-name:`\-\-algorithm` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - What algorithm this NodeBalancer should use for routing traffic to backends.
-    * - :action-table-field-name:`\-\-check`
+
+    * - :action-table-field-name:`\-\-check` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The type of check to perform against backends to ensure they are serving requests.
-    * - :action-table-field-name:`\-\-check_attempts`
+
+    * - :action-table-field-name:`\-\-check_attempts` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How many times to attempt a check before considering a backend to be down.
-    * - :action-table-field-name:`\-\-check_body`
+
+    * - :action-table-field-name:`\-\-check_body` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - This value must be present in the response body of the check in order for it to pass.
-    * - :action-table-field-name:`\-\-check_interval`
+
+    * - :action-table-field-name:`\-\-check_interval` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How often, in seconds, to check that backends are up and serving requests.
-    * - :action-table-field-name:`\-\-check_passive`
+
+    * - :action-table-field-name:`\-\-check_passive` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
-    * - :action-table-field-name:`\-\-check_path`
+
+    * - :action-table-field-name:`\-\-check_path` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The URL path to check on each backend.
-    * - :action-table-field-name:`\-\-check_timeout`
+
+    * - :action-table-field-name:`\-\-check_timeout` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - How long, in seconds, to wait for a check attempt before considering it failed.
-    * - :action-table-field-name:`\-\-cipher_suite`
+
+    * - :action-table-field-name:`\-\-cipher_suite` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - What ciphers to use for SSL connections served by this NodeBalancer.
-    * - :action-table-field-name:`\-\-id`
+
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - This config's unique ID.
-    * - :action-table-field-name:`\-\-nodebalancer_id`
+
+    * - :action-table-field-name:`\-\-nodebalancer_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The ID for the NodeBalancer this config belongs to.
-    * - :action-table-field-name:`\-\-nodes`
-        :ref:`(section) <commands_nodebalancers_config-rebuild_argument_sections_nodes>`
+
+    * - :action-table-field-name:`\-\-nodes` :ref:`(section) <commands_nodebalancers_config-rebuild_argument_sections_nodes>`
       - :action-table-field-optional:`No`
       - :action-table-field-type:`json`
       - NodeBalancer Node request object including ID.
-    * - :action-table-field-name:`\-\-nodes_status`
+
+    * - :action-table-field-name:`\-\-nodes_status` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`object`
       - A structure containing information about the health of the backends for this port.
-    * - :action-table-field-name:`\-\-port`
+
+    * - :action-table-field-name:`\-\-port` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The port this Config is for.
-    * - :action-table-field-name:`\-\-protocol`
+
+    * - :action-table-field-name:`\-\-protocol` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The protocol this port is configured to serve.
-    * - :action-table-field-name:`\-\-proxy_protocol`
+
+    * - :action-table-field-name:`\-\-proxy_protocol` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :action-table-field-name:`\-\-ssl_cert`
+
+    * - :action-table-field-name:`\-\-ssl_cert` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :action-table-field-name:`\-\-ssl_commonname`
+
+    * - :action-table-field-name:`\-\-ssl_commonname` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`\-\-ssl_fingerprint`
+
+    * - :action-table-field-name:`\-\-ssl_fingerprint` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`\-\-ssl_key`
+
+    * - :action-table-field-name:`\-\-ssl_key` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :action-table-field-name:`\-\-stickiness`
+
+    * - :action-table-field-name:`\-\-stickiness` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Controls how session stickiness is handled on this port.
+
+
+
+
 .. _commands_nodebalancers_config-rebuild_argument_sections_nodes:
 
 .. rst-class:: action-section-header
 
 nodes
 
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -2091,26 +2961,44 @@ nodes
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-nodes.address`
+    * - :action-table-field-name:`\-\-nodes.address` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The private IP Address where this backend can be reached.
-    * - :action-table-field-name:`\-\-nodes.id`
+
+    * - :action-table-field-name:`\-\-nodes.id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The unique ID of the Node to update.
-    * - :action-table-field-name:`\-\-nodes.label`
+
+    * - :action-table-field-name:`\-\-nodes.label` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The label for this node.
-    * - :action-table-field-name:`\-\-nodes.mode`
+
+    * - :action-table-field-name:`\-\-nodes.mode` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The mode this NodeBalancer should use when sending traffic to this backend.
-    * - :action-table-field-name:`\-\-nodes.weight`
+
+    * - :action-table-field-name:`\-\-nodes.weight` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - Used when picking a backend to serve a request and is not pinned to a single backend yet.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2120,7 +3008,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2134,88 +3023,111 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`algorithm`
+    * - :action-table-field-name:`algorithm` 
       - :action-table-field-type:`string`
-      - :json:`"roundrobin"`
+      - :json:`"string"`
       - What algorithm this NodeBalancer should use for routing traffic to backends.
-    * - :action-table-field-name:`check`
+
+    * - :action-table-field-name:`check` 
       - :action-table-field-type:`string`
-      - :json:`"http_body"`
+      - :json:`"string"`
       - The type of check to perform against backends to ensure they are serving requests.
-    * - :action-table-field-name:`check_attempts`
+
+    * - :action-table-field-name:`check_attempts` 
       - :action-table-field-type:`integer`
-      - :json:`3`
+      - :json:`"integer"`
       - How many times to attempt a check before considering a backend to be down.
-    * - :action-table-field-name:`check_body`
+
+    * - :action-table-field-name:`check_body` 
       - :action-table-field-type:`string`
-      - :json:`"it works"`
+      - :json:`"string"`
       - This value must be present in the response body of the check in order for it to pass.
-    * - :action-table-field-name:`check_interval`
+
+    * - :action-table-field-name:`check_interval` 
       - :action-table-field-type:`integer`
-      - :json:`90`
+      - :json:`"integer"`
       - How often, in seconds, to check that backends are up and serving requests.
-    * - :action-table-field-name:`check_passive`
+
+    * - :action-table-field-name:`check_passive` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
-    * - :action-table-field-name:`check_path`
+
+    * - :action-table-field-name:`check_path` 
       - :action-table-field-type:`string`
-      - :json:`"/test"`
+      - :json:`"string"`
       - The URL path to check on each backend.
-    * - :action-table-field-name:`check_timeout`
+
+    * - :action-table-field-name:`check_timeout` 
       - :action-table-field-type:`integer`
-      - :json:`10`
+      - :json:`"integer"`
       - How long, in seconds, to wait for a check attempt before considering it failed.
-    * - :action-table-field-name:`cipher_suite`
+
+    * - :action-table-field-name:`cipher_suite` 
       - :action-table-field-type:`string`
-      - :json:`"recommended"`
+      - :json:`"string"`
       - What ciphers to use for SSL connections served by this NodeBalancer.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`4567`
+      - :json:`"integer"`
       - This config's unique ID.
-    * - :action-table-field-name:`nodebalancer_id`
+
+    * - :action-table-field-name:`nodebalancer_id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - The ID for the NodeBalancer this config belongs to.
-    * - :action-table-field-name:`port`
+
+    * - :action-table-field-name:`port` 
       - :action-table-field-type:`integer`
-      - :json:`80`
+      - :json:`"integer"`
       - The port this Config is for.
-    * - :action-table-field-name:`protocol`
+
+    * - :action-table-field-name:`protocol` 
       - :action-table-field-type:`string`
-      - :json:`"http"`
+      - :json:`"string"`
       - The protocol this port is configured to serve.
-    * - :action-table-field-name:`proxy_protocol`
+
+    * - :action-table-field-name:`proxy_protocol` 
       - :action-table-field-type:`string`
-      - :json:`"none"`
+      - :json:`"string"`
       - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :action-table-field-name:`ssl_cert`
+
+    * - :action-table-field-name:`ssl_cert` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :action-table-field-name:`ssl_commonname`
+
+    * - :action-table-field-name:`ssl_commonname` 
       - :action-table-field-type:`string`
-      - :json:`"www.example.com"`
+      - :json:`"string"`
       - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`ssl_fingerprint`
+
+    * - :action-table-field-name:`ssl_fingerprint` 
       - :action-table-field-type:`string`
-      - :json:`"00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F:10:11:12:13"`
+      - :json:`"string"`
       - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`ssl_key`
+
+    * - :action-table-field-name:`ssl_key` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :action-table-field-name:`stickiness`
+
+    * - :action-table-field-name:`stickiness` 
       - :action-table-field-type:`string`
-      - :json:`"http_cookie"`
+      - :json:`"string"`
       - Controls how session stickiness is handled on this port.
+
+
+
+
 .. _commands_nodebalancers_config-rebuild_attribute_sections_nodes_status:
 
 .. rst-class:: action-section-header
 
 nodes_status
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -2228,18 +3140,32 @@ nodes_status
       - Example
       - Description
 
-    * - :action-table-field-name:`nodes_status.down`
+    * - :action-table-field-name:`nodes_status.down` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - The number of backends considered to be "DOWN" and unhealthy.
-    * - :action-table-field-name:`nodes_status.up`
+
+    * - :action-table-field-name:`nodes_status.up` 
       - :action-table-field-type:`integer`
-      - :json:`4`
+      - :json:`"integer"`
       - The number of backends considered to be "UP" and healthy, and that are serving requests.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_configs-list:
 
 `configs-list <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-configs>`_
@@ -2248,6 +3174,14 @@ nodes_status
 
 Returns a paginated list of NodeBalancer Configs associated with this NodeBalancer.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -2257,10 +3191,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli nodebalancers configs-list 12345
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2269,6 +3215,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -2286,6 +3234,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -2294,7 +3257,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2308,88 +3272,111 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`algorithm`
+    * - :action-table-field-name:`algorithm` 
       - :action-table-field-type:`string`
-      - :json:`"roundrobin"`
+      - :json:`"string"`
       - What algorithm this NodeBalancer should use for routing traffic to backends.
-    * - :action-table-field-name:`check`
+
+    * - :action-table-field-name:`check` 
       - :action-table-field-type:`string`
-      - :json:`"http_body"`
+      - :json:`"string"`
       - The type of check to perform against backends to ensure they are serving requests.
-    * - :action-table-field-name:`check_attempts`
+
+    * - :action-table-field-name:`check_attempts` 
       - :action-table-field-type:`integer`
-      - :json:`3`
+      - :json:`"integer"`
       - How many times to attempt a check before considering a backend to be down.
-    * - :action-table-field-name:`check_body`
+
+    * - :action-table-field-name:`check_body` 
       - :action-table-field-type:`string`
-      - :json:`"it works"`
+      - :json:`"string"`
       - This value must be present in the response body of the check in order for it to pass.
-    * - :action-table-field-name:`check_interval`
+
+    * - :action-table-field-name:`check_interval` 
       - :action-table-field-type:`integer`
-      - :json:`90`
+      - :json:`"integer"`
       - How often, in seconds, to check that backends are up and serving requests.
-    * - :action-table-field-name:`check_passive`
+
+    * - :action-table-field-name:`check_passive` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - If true, any response from this backend with a :code:`5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.
-    * - :action-table-field-name:`check_path`
+
+    * - :action-table-field-name:`check_path` 
       - :action-table-field-type:`string`
-      - :json:`"/test"`
+      - :json:`"string"`
       - The URL path to check on each backend.
-    * - :action-table-field-name:`check_timeout`
+
+    * - :action-table-field-name:`check_timeout` 
       - :action-table-field-type:`integer`
-      - :json:`10`
+      - :json:`"integer"`
       - How long, in seconds, to wait for a check attempt before considering it failed.
-    * - :action-table-field-name:`cipher_suite`
+
+    * - :action-table-field-name:`cipher_suite` 
       - :action-table-field-type:`string`
-      - :json:`"recommended"`
+      - :json:`"string"`
       - What ciphers to use for SSL connections served by this NodeBalancer.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`4567`
+      - :json:`"integer"`
       - This config's unique ID.
-    * - :action-table-field-name:`nodebalancer_id`
+
+    * - :action-table-field-name:`nodebalancer_id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - The ID for the NodeBalancer this config belongs to.
-    * - :action-table-field-name:`port`
+
+    * - :action-table-field-name:`port` 
       - :action-table-field-type:`integer`
-      - :json:`80`
+      - :json:`"integer"`
       - The port this Config is for.
-    * - :action-table-field-name:`protocol`
+
+    * - :action-table-field-name:`protocol` 
       - :action-table-field-type:`string`
-      - :json:`"http"`
+      - :json:`"string"`
       - The protocol this port is configured to serve.
-    * - :action-table-field-name:`proxy_protocol`
+
+    * - :action-table-field-name:`proxy_protocol` 
       - :action-table-field-type:`string`
-      - :json:`"none"`
+      - :json:`"string"`
       - ProxyProtocol is a TCP extension that sends initial TCP connection information such as source/destination IPs and ports to backend devices.
-    * - :action-table-field-name:`ssl_cert`
+
+    * - :action-table-field-name:`ssl_cert` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The PEM-formatted public SSL certificate (or the combined PEM-formatted SSL certificate and Certificate Authority chain) that should be served on this NodeBalancerConfig's port.
-    * - :action-table-field-name:`ssl_commonname`
+
+    * - :action-table-field-name:`ssl_commonname` 
       - :action-table-field-type:`string`
-      - :json:`"www.example.com"`
+      - :json:`"string"`
       - The read-only common name automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`ssl_fingerprint`
+
+    * - :action-table-field-name:`ssl_fingerprint` 
       - :action-table-field-type:`string`
-      - :json:`"00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F:10:11:12:13"`
+      - :json:`"string"`
       - The read-only SHA1-encoded fingerprint automatically derived from the SSL certificate assigned to this NodeBalancerConfig.
-    * - :action-table-field-name:`ssl_key`
+
+    * - :action-table-field-name:`ssl_key` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The PEM-formatted private key for the SSL certificate set in the :code:`ssl_cert` field.
-    * - :action-table-field-name:`stickiness`
+
+    * - :action-table-field-name:`stickiness` 
       - :action-table-field-type:`string`
-      - :json:`"http_cookie"`
+      - :json:`"string"`
       - Controls how session stickiness is handled on this port.
+
+
+
+
 .. _commands_nodebalancers_configs-list_attribute_sections_nodes_status:
 
 .. rst-class:: action-section-header
 
 nodes_status
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -2402,18 +3389,32 @@ nodes_status
       - Example
       - Description
 
-    * - :action-table-field-name:`nodes_status.down`
+    * - :action-table-field-name:`nodes_status.down` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - The number of backends considered to be "DOWN" and unhealthy.
-    * - :action-table-field-name:`nodes_status.up`
+
+    * - :action-table-field-name:`nodes_status.up` 
       - :action-table-field-type:`integer`
-      - :json:`4`
+      - :json:`"integer"`
       - The number of backends considered to be "UP" and healthy, and that are serving requests.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_node-view:
 
 `node-view <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-node>`_
@@ -2422,6 +3423,14 @@ nodes_status
 
 Returns information about a single Node, a backend for this NodeBalancer's configured port.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -2431,10 +3440,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli nodebalancers node-view 12345 4567 54321
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2443,6 +3464,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -2459,12 +3482,29 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`nodeBalancerId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
+
     * - :action-table-field-name:`configId`
       - :action-table-field-type:`integer`
       - The ID of the Config to access.
+
     * - :action-table-field-name:`nodeId`
       - :action-table-field-type:`integer`
       - The ID of the Node to access.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2474,7 +3514,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2488,42 +3529,62 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`address`
+    * - :action-table-field-name:`address` 
       - :action-table-field-type:`string`
-      - :json:`"192.168.210.120:80"`
+      - :json:`"string"`
       - The private IP Address where this backend can be reached.
-    * - :action-table-field-name:`config_id`
+
+    * - :action-table-field-name:`config_id` 
       - :action-table-field-type:`integer`
-      - :json:`4567`
+      - :json:`"integer"`
       - The NodeBalancer Config ID that this Node belongs to.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`54321`
+      - :json:`"integer"`
       - This node's unique ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"node54321"`
+      - :json:`"string"`
       - The label for this node.
-    * - :action-table-field-name:`mode`
+
+    * - :action-table-field-name:`mode` 
       - :action-table-field-type:`string`
-      - :json:`"accept"`
+      - :json:`"string"`
       - The mode this NodeBalancer should use when sending traffic to this backend.
-    * - :action-table-field-name:`nodebalancer_id`
+
+    * - :action-table-field-name:`nodebalancer_id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - The NodeBalancer ID that this Node belongs to.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"UP"`
+      - :json:`"string"`
       - The current status of this node, based on the configured checks of its NodeBalancer Config.
-    * - :action-table-field-name:`weight`
+
+    * - :action-table-field-name:`weight` 
       - :action-table-field-type:`integer`
-      - :json:`50`
+      - :json:`"integer"`
       - Used when picking a backend to serve a request and is not pinned to a single backend yet.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_node-create:
 
 `node-create <https://techdocs.akamai.com/linode-api/reference/post-node-balancer-node>`_
@@ -2532,6 +3593,14 @@ The attributes returned by this command.
 
 Creates a NodeBalancer Node, a backend that can accept traffic for this NodeBalancer Config.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -2539,6 +3608,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -2551,6 +3622,16 @@ Examples of how this command might be used.
     	--mode accept
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -2558,6 +3639,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -2574,9 +3657,23 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`nodeBalancerId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
+
     * - :action-table-field-name:`configId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer config to access.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2585,6 +3682,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -2598,38 +3699,59 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-address`
+    * - :action-table-field-name:`\-\-address` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The private IP Address where this backend can be reached.
-    * - :action-table-field-name:`\-\-config_id`
+
+    * - :action-table-field-name:`\-\-config_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The NodeBalancer Config ID that this Node belongs to.
-    * - :action-table-field-name:`\-\-id`
+
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - This node's unique ID.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The label for this node.
-    * - :action-table-field-name:`\-\-mode`
+
+    * - :action-table-field-name:`\-\-mode` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The mode this NodeBalancer should use when sending traffic to this backend.
-    * - :action-table-field-name:`\-\-nodebalancer_id`
+
+    * - :action-table-field-name:`\-\-nodebalancer_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The NodeBalancer ID that this Node belongs to.
-    * - :action-table-field-name:`\-\-status`
+
+    * - :action-table-field-name:`\-\-status` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The current status of this node, based on the configured checks of its NodeBalancer Config.
-    * - :action-table-field-name:`\-\-weight`
+
+    * - :action-table-field-name:`\-\-weight` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - Used when picking a backend to serve a request and is not pinned to a single backend yet.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2639,7 +3761,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2653,42 +3776,62 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`address`
+    * - :action-table-field-name:`address` 
       - :action-table-field-type:`string`
-      - :json:`"192.168.210.120:80"`
+      - :json:`"string"`
       - The private IP Address where this backend can be reached.
-    * - :action-table-field-name:`config_id`
+
+    * - :action-table-field-name:`config_id` 
       - :action-table-field-type:`integer`
-      - :json:`4567`
+      - :json:`"integer"`
       - The NodeBalancer Config ID that this Node belongs to.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`54321`
+      - :json:`"integer"`
       - This node's unique ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"node54321"`
+      - :json:`"string"`
       - The label for this node.
-    * - :action-table-field-name:`mode`
+
+    * - :action-table-field-name:`mode` 
       - :action-table-field-type:`string`
-      - :json:`"accept"`
+      - :json:`"string"`
       - The mode this NodeBalancer should use when sending traffic to this backend.
-    * - :action-table-field-name:`nodebalancer_id`
+
+    * - :action-table-field-name:`nodebalancer_id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - The NodeBalancer ID that this Node belongs to.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"UP"`
+      - :json:`"string"`
       - The current status of this node, based on the configured checks of its NodeBalancer Config.
-    * - :action-table-field-name:`weight`
+
+    * - :action-table-field-name:`weight` 
       - :action-table-field-type:`integer`
-      - :json:`50`
+      - :json:`"integer"`
       - Used when picking a backend to serve a request and is not pinned to a single backend yet.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_node-update:
 
 `node-update <https://techdocs.akamai.com/linode-api/reference/put-node-balancer-node>`_
@@ -2697,6 +3840,14 @@ The attributes returned by this command.
 
 Updates information about a Node, a backend for this NodeBalancer's configured port.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -2704,6 +3855,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -2716,6 +3869,16 @@ Examples of how this command might be used.
     	--mode accept
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -2723,6 +3886,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -2739,12 +3904,27 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`nodeBalancerId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
+
     * - :action-table-field-name:`configId`
       - :action-table-field-type:`integer`
       - The ID of the Config to access.
+
     * - :action-table-field-name:`nodeId`
       - :action-table-field-type:`integer`
       - The ID of the Node to access.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2753,6 +3933,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -2766,38 +3950,59 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-address`
+    * - :action-table-field-name:`\-\-address` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The private IP Address where this backend can be reached.
-    * - :action-table-field-name:`\-\-config_id`
+
+    * - :action-table-field-name:`\-\-config_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The NodeBalancer Config ID that this Node belongs to.
-    * - :action-table-field-name:`\-\-id`
+
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - This node's unique ID.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The label for this node.
-    * - :action-table-field-name:`\-\-mode`
+
+    * - :action-table-field-name:`\-\-mode` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The mode this NodeBalancer should use when sending traffic to this backend.
-    * - :action-table-field-name:`\-\-nodebalancer_id`
+
+    * - :action-table-field-name:`\-\-nodebalancer_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The NodeBalancer ID that this Node belongs to.
-    * - :action-table-field-name:`\-\-status`
+
+    * - :action-table-field-name:`\-\-status` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The current status of this node, based on the configured checks of its NodeBalancer Config.
-    * - :action-table-field-name:`\-\-weight`
+
+    * - :action-table-field-name:`\-\-weight` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - Used when picking a backend to serve a request and is not pinned to a single backend yet.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2807,7 +4012,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2821,42 +4027,62 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`address`
+    * - :action-table-field-name:`address` 
       - :action-table-field-type:`string`
-      - :json:`"192.168.210.120:80"`
+      - :json:`"string"`
       - The private IP Address where this backend can be reached.
-    * - :action-table-field-name:`config_id`
+
+    * - :action-table-field-name:`config_id` 
       - :action-table-field-type:`integer`
-      - :json:`4567`
+      - :json:`"integer"`
       - The NodeBalancer Config ID that this Node belongs to.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`54321`
+      - :json:`"integer"`
       - This node's unique ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"node54321"`
+      - :json:`"string"`
       - The label for this node.
-    * - :action-table-field-name:`mode`
+
+    * - :action-table-field-name:`mode` 
       - :action-table-field-type:`string`
-      - :json:`"accept"`
+      - :json:`"string"`
       - The mode this NodeBalancer should use when sending traffic to this backend.
-    * - :action-table-field-name:`nodebalancer_id`
+
+    * - :action-table-field-name:`nodebalancer_id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - The NodeBalancer ID that this Node belongs to.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"UP"`
+      - :json:`"string"`
       - The current status of this node, based on the configured checks of its NodeBalancer Config.
-    * - :action-table-field-name:`weight`
+
+    * - :action-table-field-name:`weight` 
       - :action-table-field-type:`integer`
-      - :json:`50`
+      - :json:`"integer"`
       - Used when picking a backend to serve a request and is not pinned to a single backend yet.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_node-delete:
 
 `node-delete <https://techdocs.akamai.com/linode-api/reference/delete-node-balancer-config-node>`_
@@ -2865,6 +4091,14 @@ The attributes returned by this command.
 
 Deletes a Node from this Config.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -2872,6 +4106,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -2880,6 +4116,16 @@ Examples of how this command might be used.
     	12345 4567 54321
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -2887,6 +4133,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -2903,15 +4151,33 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`nodeBalancerId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
+
     * - :action-table-field-name:`configId`
       - :action-table-field-type:`integer`
       - The ID of the Config to access.
+
     * - :action-table-field-name:`nodeId`
       - :action-table-field-type:`integer`
       - The ID of the Node to access.
 
 
 
+
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_nodebalancers_nodes-list:
 
 `nodes-list <https://techdocs.akamai.com/linode-api/reference/get-node-balancer-config-nodes>`_
@@ -2919,6 +4185,14 @@ Positional parameters used to define the resource this command should target.
 
 
 Returns a paginated list of NodeBalancer nodes associated with this Config.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2929,10 +4203,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli nodebalancers nodes-list 12345 4567
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2941,6 +4227,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -2957,9 +4245,25 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`nodeBalancerId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer to access.
+
     * - :action-table-field-name:`configId`
       - :action-table-field-type:`integer`
       - The ID of the NodeBalancer config to access.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2969,7 +4273,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2983,38 +4288,51 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`address`
+    * - :action-table-field-name:`address` 
       - :action-table-field-type:`string`
-      - :json:`"192.168.210.120:80"`
+      - :json:`"string"`
       - The private IP Address where this backend can be reached.
-    * - :action-table-field-name:`config_id`
+
+    * - :action-table-field-name:`config_id` 
       - :action-table-field-type:`integer`
-      - :json:`4567`
+      - :json:`"integer"`
       - The NodeBalancer Config ID that this Node belongs to.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`54321`
+      - :json:`"integer"`
       - This node's unique ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"node54321"`
+      - :json:`"string"`
       - The label for this node.
-    * - :action-table-field-name:`mode`
+
+    * - :action-table-field-name:`mode` 
       - :action-table-field-type:`string`
-      - :json:`"accept"`
+      - :json:`"string"`
       - The mode this NodeBalancer should use when sending traffic to this backend.
-    * - :action-table-field-name:`nodebalancer_id`
+
+    * - :action-table-field-name:`nodebalancer_id` 
       - :action-table-field-type:`integer`
-      - :json:`12345`
+      - :json:`"integer"`
       - The NodeBalancer ID that this Node belongs to.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"UP"`
+      - :json:`"string"`
       - The current status of this node, based on the configured checks of its NodeBalancer Config.
-    * - :action-table-field-name:`weight`
+
+    * - :action-table-field-name:`weight` 
       - :action-table-field-type:`integer`
-      - :json:`50`
+      - :json:`"integer"`
       - Used when picking a backend to serve a request and is not pinned to a single backend yet.
+
+
+
+
+
+
 
 
 

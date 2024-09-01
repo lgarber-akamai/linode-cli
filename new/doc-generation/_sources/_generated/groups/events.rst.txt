@@ -1,3 +1,8 @@
+Events
+======
+
+This section details Event-related Linode CLI commands.
+
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5,12 +10,6 @@
 
 .. role:: json(code)
     :language: JSON
-
-Events
-======
-
-This section details Event-related Linode CLI commands.
-
 .. _commands_events_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-events>`_
@@ -18,6 +17,14 @@ This section details Event-related Linode CLI commands.
 
 
 Returns a collection of Event objects representing actions taken on your Account from the last 90 days.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -28,10 +35,24 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli events list
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -40,6 +61,9 @@ Filterable Attributes
 .. rst-class:: action-subheading-description
 
 Arguments used to define a filter for response entries.
+
+
+
 
 .. rst-class:: action-filterable-field-table
 
@@ -55,21 +79,39 @@ Arguments used to define a filter for response entries.
     * - :action-table-field-name:`\-\-action`
       - :action-table-field-type:`string`
       - The action that caused this Event.
+
     * - :action-table-field-name:`\-\-created`
       - :action-table-field-type:`string`
       - When this Event was created.
+
     * - :action-table-field-name:`\-\-entity.id`
       - :action-table-field-type:`integer`
       - The unique ID for an Event's entity.
+
     * - :action-table-field-name:`\-\-entity.type`
       - :action-table-field-type:`string`
       - The type of entity that is being referenced by the Event.
+
     * - :action-table-field-name:`\-\-id`
       - :action-table-field-type:`integer`
       - The unique ID of this Event.
+
     * - :action-table-field-name:`\-\-read`
       - :action-table-field-type:`boolean`
       - If this Event has been read.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -79,7 +121,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -93,60 +136,76 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`action`
+    * - :action-table-field-name:`action` 
       - :action-table-field-type:`string`
-      - :json:`"ticket_create"`
+      - :json:`"string"`
       - The action that caused this Event.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When this Event was created.
-    * - :action-table-field-name:`duration`
+
+    * - :action-table-field-name:`duration` 
       - :action-table-field-type:`number`
-      - :json:`300.56`
+      - :json:`"number"`
       - The total duration in seconds that it takes for the Event to complete.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`123`
+      - :json:`"integer"`
       - The unique ID of this Event.
-    * - :action-table-field-name:`message`
+
+    * - :action-table-field-name:`message` 
       - :action-table-field-type:`string`
-      - :json:`"None"`
+      - :json:`"string"`
       - Provides additional information about the event.
-    * - :action-table-field-name:`percent_complete`
+
+    * - :action-table-field-name:`percent_complete` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - A percentage estimating the amount of time remaining for an Event.
-    * - :action-table-field-name:`rate`
+
+    * - :action-table-field-name:`rate` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The rate of completion of the Event.
-    * - :action-table-field-name:`read`
+
+    * - :action-table-field-name:`read` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - If this Event has been read.
-    * - :action-table-field-name:`seen`
+
+    * - :action-table-field-name:`seen` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - If this Event has been seen.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The current status of this Event.
-    * - :action-table-field-name:`time_remaining`
+
+    * - :action-table-field-name:`time_remaining` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The estimated time remaining until the completion of this Event.
-    * - :action-table-field-name:`username`
+
+    * - :action-table-field-name:`username` 
       - :action-table-field-type:`string`
-      - :json:`"exampleUser"`
+      - :json:`"string"`
       - The username of the User who caused the Event.
+
+
+
+
 .. _commands_events_list_attribute_sections_entity:
 
 .. rst-class:: action-section-header
 
 entity
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -159,28 +218,36 @@ entity
       - Example
       - Description
 
-    * - :action-table-field-name:`entity.id`
+    * - :action-table-field-name:`entity.id` 
       - :action-table-field-type:`integer`
-      - :json:`11111`
+      - :json:`"integer"`
       - The unique ID for an Event's entity.
-    * - :action-table-field-name:`entity.label`
+
+    * - :action-table-field-name:`entity.label` 
       - :action-table-field-type:`string`
-      - :json:`"Problem booting my Linode"`
+      - :json:`"string"`
       - The current label of this object.
-    * - :action-table-field-name:`entity.type`
+
+    * - :action-table-field-name:`entity.type` 
       - :action-table-field-type:`string`
-      - :json:`"ticket"`
+      - :json:`"string"`
       - The type of entity that is being referenced by the Event.
-    * - :action-table-field-name:`entity.url`
+
+    * - :action-table-field-name:`entity.url` 
       - :action-table-field-type:`string`
-      - :json:`"/v4/support/tickets/11111"`
+      - :json:`"string"`
       - The URL where you can access the object this Event is for.
+
+
+
+
 .. _commands_events_list_attribute_sections_secondary_entity:
 
 .. rst-class:: action-section-header
 
 secondary_entity
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -193,26 +260,42 @@ secondary_entity
       - Example
       - Description
 
-    * - :action-table-field-name:`secondary_entity.id`
+    * - :action-table-field-name:`secondary_entity.id` 
       - :action-table-field-type:`string`
-      - :json:`"linode/debian9"`
+      - :json:`"string"`
       - The ID of the object that is the secondary entity.
-    * - :action-table-field-name:`secondary_entity.label`
+
+    * - :action-table-field-name:`secondary_entity.label` 
       - :action-table-field-type:`string`
-      - :json:`"linode1234"`
+      - :json:`"string"`
       - The label of this object.
-    * - :action-table-field-name:`secondary_entity.type`
+
+    * - :action-table-field-name:`secondary_entity.type` 
       - :action-table-field-type:`string`
-      - :json:`"linode"`
+      - :json:`"string"`
       - The type of entity that is being referenced by the Event.
-    * - :action-table-field-name:`secondary_entity.url`
+
+    * - :action-table-field-name:`secondary_entity.url` 
       - :action-table-field-type:`string`
-      - :json:`"/v4/linode/instances/1234"`
+      - :json:`"string"`
       - The URL where you can access the object this Event is for.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_events_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-event>`_
@@ -220,6 +303,14 @@ secondary_entity
 
 
 Returns a single Event object.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -230,10 +321,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli events view 123
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -242,6 +345,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -259,6 +364,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`integer`
       - The ID of the Event.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -267,7 +387,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -281,60 +402,76 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`action`
+    * - :action-table-field-name:`action` 
       - :action-table-field-type:`string`
-      - :json:`"ticket_create"`
+      - :json:`"string"`
       - The action that caused this Event.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When this Event was created.
-    * - :action-table-field-name:`duration`
+
+    * - :action-table-field-name:`duration` 
       - :action-table-field-type:`number`
-      - :json:`300.56`
+      - :json:`"number"`
       - The total duration in seconds that it takes for the Event to complete.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`123`
+      - :json:`"integer"`
       - The unique ID of this Event.
-    * - :action-table-field-name:`message`
+
+    * - :action-table-field-name:`message` 
       - :action-table-field-type:`string`
-      - :json:`"None"`
+      - :json:`"string"`
       - Provides additional information about the event.
-    * - :action-table-field-name:`percent_complete`
+
+    * - :action-table-field-name:`percent_complete` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - A percentage estimating the amount of time remaining for an Event.
-    * - :action-table-field-name:`rate`
+
+    * - :action-table-field-name:`rate` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The rate of completion of the Event.
-    * - :action-table-field-name:`read`
+
+    * - :action-table-field-name:`read` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - If this Event has been read.
-    * - :action-table-field-name:`seen`
+
+    * - :action-table-field-name:`seen` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - If this Event has been seen.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The current status of this Event.
-    * - :action-table-field-name:`time_remaining`
+
+    * - :action-table-field-name:`time_remaining` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The estimated time remaining until the completion of this Event.
-    * - :action-table-field-name:`username`
+
+    * - :action-table-field-name:`username` 
       - :action-table-field-type:`string`
-      - :json:`"exampleUser"`
+      - :json:`"string"`
       - The username of the User who caused the Event.
+
+
+
+
 .. _commands_events_view_attribute_sections_entity:
 
 .. rst-class:: action-section-header
 
 entity
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -347,28 +484,36 @@ entity
       - Example
       - Description
 
-    * - :action-table-field-name:`entity.id`
+    * - :action-table-field-name:`entity.id` 
       - :action-table-field-type:`integer`
-      - :json:`11111`
+      - :json:`"integer"`
       - The unique ID for an Event's entity.
-    * - :action-table-field-name:`entity.label`
+
+    * - :action-table-field-name:`entity.label` 
       - :action-table-field-type:`string`
-      - :json:`"Problem booting my Linode"`
+      - :json:`"string"`
       - The current label of this object.
-    * - :action-table-field-name:`entity.type`
+
+    * - :action-table-field-name:`entity.type` 
       - :action-table-field-type:`string`
-      - :json:`"ticket"`
+      - :json:`"string"`
       - The type of entity that is being referenced by the Event.
-    * - :action-table-field-name:`entity.url`
+
+    * - :action-table-field-name:`entity.url` 
       - :action-table-field-type:`string`
-      - :json:`"/v4/support/tickets/11111"`
+      - :json:`"string"`
       - The URL where you can access the object this Event is for.
+
+
+
+
 .. _commands_events_view_attribute_sections_secondary_entity:
 
 .. rst-class:: action-section-header
 
 secondary_entity
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -381,26 +526,42 @@ secondary_entity
       - Example
       - Description
 
-    * - :action-table-field-name:`secondary_entity.id`
+    * - :action-table-field-name:`secondary_entity.id` 
       - :action-table-field-type:`string`
-      - :json:`"linode/debian9"`
+      - :json:`"string"`
       - The ID of the object that is the secondary entity.
-    * - :action-table-field-name:`secondary_entity.label`
+
+    * - :action-table-field-name:`secondary_entity.label` 
       - :action-table-field-type:`string`
-      - :json:`"linode1234"`
+      - :json:`"string"`
       - The label of this object.
-    * - :action-table-field-name:`secondary_entity.type`
+
+    * - :action-table-field-name:`secondary_entity.type` 
       - :action-table-field-type:`string`
-      - :json:`"linode"`
+      - :json:`"string"`
       - The type of entity that is being referenced by the Event.
-    * - :action-table-field-name:`secondary_entity.url`
+
+    * - :action-table-field-name:`secondary_entity.url` 
       - :action-table-field-type:`string`
-      - :json:`"/v4/linode/instances/1234"`
+      - :json:`"string"`
       - The URL where you can access the object this Event is for.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_events_mark-read:
 
 `mark-read <https://techdocs.akamai.com/linode-api/reference/post-event-read>`_
@@ -408,6 +569,14 @@ secondary_entity
 
 
 Marks a single Event as read.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -418,10 +587,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli events mark-read 123
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -430,6 +611,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -449,6 +632,22 @@ Positional parameters used to define the resource this command should target.
 
 
 
+
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_events_mark-seen:
 
 `mark-seen <https://techdocs.akamai.com/linode-api/reference/post-event-seen>`_
@@ -456,6 +655,14 @@ Positional parameters used to define the resource this command should target.
 
 
 Marks all Events up to and including this Event by ID as seen.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -466,10 +673,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli events mark-seen 123
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -478,6 +697,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -494,6 +715,15 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`eventId`
       - :action-table-field-type:`integer`
       - The ID of the Event to designate as seen.
+
+
+
+
+
+
+
+
+
 
 
 

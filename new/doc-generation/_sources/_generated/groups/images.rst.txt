@@ -1,3 +1,8 @@
+Images
+======
+
+This section details Image-related Linode CLI commands.
+
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5,12 +10,6 @@
 
 .. role:: json(code)
     :language: JSON
-
-Images
-======
-
-This section details Image-related Linode CLI commands.
-
 .. _commands_images_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-images>`_
@@ -18,6 +17,14 @@ This section details Image-related Linode CLI commands.
 
 
 Returns a paginated list of images.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -28,10 +35,24 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli images list
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -40,6 +61,9 @@ Filterable Attributes
 .. rst-class:: action-subheading-description
 
 Arguments used to define a filter for response entries.
+
+
+
 
 .. rst-class:: action-filterable-field-table
 
@@ -55,27 +79,47 @@ Arguments used to define a filter for response entries.
     * - :action-table-field-name:`\-\-deprecated`
       - :action-table-field-type:`boolean`
       - Whether this image is deprecated.
+
     * - :action-table-field-name:`\-\-is_public`
       - :action-table-field-type:`boolean`
       - Revealed as :code:`true` if the image is a public distribution image.
+
     * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`string`
       - A short description of the image.
+
     * - :action-table-field-name:`\-\-size`
       - :action-table-field-type:`integer`
       - The minimum size in MB this image needs to deploy.
+
     * - :action-table-field-name:`\-\-status`
       - :action-table-field-type:`string`
       - The current status of the image.
+
     * - :action-table-field-name:`\-\-tags`
       - :action-table-field-type:`array[string]`
       - Tags used for organizational purposes.
+
     * - :action-table-field-name:`\-\-type`
       - :action-table-field-type:`string`
       - How the image was created.
+
     * - :action-table-field-name:`\-\-vendor`
       - :action-table-field-type:`string`
       - The upstream distribution vendor.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -85,7 +129,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -99,80 +144,101 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`capabilities`
+    * - :action-table-field-name:`capabilities` 
       - :action-table-field-type:`array[string]`
-      - :json:`["cloud-init", "distributed-sites"]`
+      - :json:`"array[string]"`
       - A list of the possible capabilities of this image.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was created.
-    * - :action-table-field-name:`created_by`
+
+    * - :action-table-field-name:`created_by` 
       - :action-table-field-type:`string`
-      - :json:`"linode"`
+      - :json:`"string"`
       - The name of the user who created this image, or :code:`linode` for public images.
-    * - :action-table-field-name:`deprecated`
+
+    * - :action-table-field-name:`deprecated` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - Whether this image is deprecated.
-    * - :action-table-field-name:`description`
+
+    * - :action-table-field-name:`description` 
       - :action-table-field-type:`string`
-      - :json:`"Example image description."`
+      - :json:`"string"`
       - A detailed description of this image.
-    * - :action-table-field-name:`eol`
+
+    * - :action-table-field-name:`eol` 
       - :action-table-field-type:`string`
-      - :json:`"2026-07-01T04:00:00"`
+      - :json:`"string"`
       - The date of the public image's planned removal from service.
-    * - :action-table-field-name:`expiry`
+
+    * - :action-table-field-name:`expiry` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - Only images created automatically from a deleted compute instance (type=automatic) expire.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"linode/debian11"`
+      - :json:`"string"`
       - The unique identifier for each image.
-    * - :action-table-field-name:`is_public`
+
+    * - :action-table-field-name:`is_public` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Revealed as :code:`true` if the image is a public distribution image.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Debian 11"`
+      - :json:`"string"`
       - A short description of the image.
-    * - :action-table-field-name:`size`
+
+    * - :action-table-field-name:`size` 
       - :action-table-field-type:`integer`
-      - :json:`2500`
+      - :json:`"integer"`
       - The minimum size in MB this image needs to deploy.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The current status of the image.
-    * - :action-table-field-name:`tags`
+
+    * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["repair-image", "fix-1"]`
+      - :json:`"array[string]"`
       - Tags used for organizational purposes.
-    * - :action-table-field-name:`total_size`
+
+    * - :action-table-field-name:`total_size` 
       - :action-table-field-type:`integer`
-      - :json:`1234567`
+      - :json:`"integer"`
       - The total size in bytes of all instances of this image, in all :code:`regions`.
-    * - :action-table-field-name:`type`
+
+    * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"manual"`
+      - :json:`"string"`
       - How the image was created.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was last updated.
-    * - :action-table-field-name:`vendor`
+
+    * - :action-table-field-name:`vendor` 
       - :action-table-field-type:`string`
-      - :json:`"Debian"`
+      - :json:`"string"`
       - The upstream distribution vendor.
+
+
+
+
 .. _commands_images_list_attribute_sections_regions:
 
 .. rst-class:: action-section-header
 
 regions
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -185,18 +251,32 @@ regions
       - Example
       - Description
 
-    * - :action-table-field-name:`regions.region`
+    * - :action-table-field-name:`regions.region` 
       - :action-table-field-type:`string`
-      - :json:`"us-iad"`
+      - :json:`"string"`
       - The unique identifier for the core compute or distributed compute region where this image is located.
-    * - :action-table-field-name:`regions.status`
+
+    * - :action-table-field-name:`regions.status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The status of the image in this :code:`region`.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_images_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-image>`_
@@ -204,6 +284,14 @@ regions
 
 
 Get information about a single image.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -214,10 +302,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli images view linode/debian9
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -226,6 +326,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -243,6 +345,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`string`
       - The unique identifier assigned to the image after creation.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -251,7 +368,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -265,80 +383,101 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`capabilities`
+    * - :action-table-field-name:`capabilities` 
       - :action-table-field-type:`array[string]`
-      - :json:`["cloud-init", "distributed-sites"]`
+      - :json:`"array[string]"`
       - A list of the possible capabilities of this image.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was created.
-    * - :action-table-field-name:`created_by`
+
+    * - :action-table-field-name:`created_by` 
       - :action-table-field-type:`string`
-      - :json:`"linode"`
+      - :json:`"string"`
       - The name of the user who created this image, or :code:`linode` for public images.
-    * - :action-table-field-name:`deprecated`
+
+    * - :action-table-field-name:`deprecated` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - Whether this image is deprecated.
-    * - :action-table-field-name:`description`
+
+    * - :action-table-field-name:`description` 
       - :action-table-field-type:`string`
-      - :json:`"Example image description."`
+      - :json:`"string"`
       - A detailed description of this image.
-    * - :action-table-field-name:`eol`
+
+    * - :action-table-field-name:`eol` 
       - :action-table-field-type:`string`
-      - :json:`"2026-07-01T04:00:00"`
+      - :json:`"string"`
       - The date of the public image's planned removal from service.
-    * - :action-table-field-name:`expiry`
+
+    * - :action-table-field-name:`expiry` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - Only images created automatically from a deleted compute instance (type=automatic) expire.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"linode/debian11"`
+      - :json:`"string"`
       - The unique identifier for each image.
-    * - :action-table-field-name:`is_public`
+
+    * - :action-table-field-name:`is_public` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Revealed as :code:`true` if the image is a public distribution image.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Debian 11"`
+      - :json:`"string"`
       - A short description of the image.
-    * - :action-table-field-name:`size`
+
+    * - :action-table-field-name:`size` 
       - :action-table-field-type:`integer`
-      - :json:`2500`
+      - :json:`"integer"`
       - The minimum size in MB this image needs to deploy.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The current status of the image.
-    * - :action-table-field-name:`tags`
+
+    * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["repair-image", "fix-1"]`
+      - :json:`"array[string]"`
       - Tags used for organizational purposes.
-    * - :action-table-field-name:`total_size`
+
+    * - :action-table-field-name:`total_size` 
       - :action-table-field-type:`integer`
-      - :json:`1234567`
+      - :json:`"integer"`
       - The total size in bytes of all instances of this image, in all :code:`regions`.
-    * - :action-table-field-name:`type`
+
+    * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"manual"`
+      - :json:`"string"`
       - How the image was created.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was last updated.
-    * - :action-table-field-name:`vendor`
+
+    * - :action-table-field-name:`vendor` 
       - :action-table-field-type:`string`
-      - :json:`"Debian"`
+      - :json:`"string"`
       - The upstream distribution vendor.
+
+
+
+
 .. _commands_images_view_attribute_sections_regions:
 
 .. rst-class:: action-section-header
 
 regions
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -351,18 +490,32 @@ regions
       - Example
       - Description
 
-    * - :action-table-field-name:`regions.region`
+    * - :action-table-field-name:`regions.region` 
       - :action-table-field-type:`string`
-      - :json:`"us-iad"`
+      - :json:`"string"`
       - The unique identifier for the core compute or distributed compute region where this image is located.
-    * - :action-table-field-name:`regions.status`
+
+    * - :action-table-field-name:`regions.status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The status of the image in this :code:`region`.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_images_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-image>`_
@@ -371,6 +524,14 @@ regions
 
 Captures a private, gold-master image from a Linode disk.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -378,6 +539,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -389,6 +552,17 @@ Examples of how this command might be used.
     	--disk_id 123
 
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -396,6 +570,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -409,26 +587,44 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-cloud_init`
+    * - :action-table-field-name:`\-\-cloud_init` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - Whether this image supports `cloud-init <https://www.linode.com/docs/guides/write-files-with-cloud-init/>`_.
-    * - :action-table-field-name:`\-\-description`
+
+    * - :action-table-field-name:`\-\-description` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A detailed description of this image.
-    * - :action-table-field-name:`\-\-disk_id`
+
+    * - :action-table-field-name:`\-\-disk_id` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`integer`
       - The ID of the Linode Disk that this image will be created from.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A short title of this image.
-    * - :action-table-field-name:`\-\-tags`
+
+    * - :action-table-field-name:`\-\-tags` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
       - Tags used for organizational purposes.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -438,7 +634,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -452,80 +649,101 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`capabilities`
+    * - :action-table-field-name:`capabilities` 
       - :action-table-field-type:`array[string]`
-      - :json:`["cloud-init", "distributed-sites"]`
+      - :json:`"array[string]"`
       - A list of the possible capabilities of this image.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was created.
-    * - :action-table-field-name:`created_by`
+
+    * - :action-table-field-name:`created_by` 
       - :action-table-field-type:`string`
-      - :json:`"linode"`
+      - :json:`"string"`
       - The name of the user who created this image, or :code:`linode` for public images.
-    * - :action-table-field-name:`deprecated`
+
+    * - :action-table-field-name:`deprecated` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - Whether this image is deprecated.
-    * - :action-table-field-name:`description`
+
+    * - :action-table-field-name:`description` 
       - :action-table-field-type:`string`
-      - :json:`"Example image description."`
+      - :json:`"string"`
       - A detailed description of this image.
-    * - :action-table-field-name:`eol`
+
+    * - :action-table-field-name:`eol` 
       - :action-table-field-type:`string`
-      - :json:`"2026-07-01T04:00:00"`
+      - :json:`"string"`
       - The date of the public image's planned removal from service.
-    * - :action-table-field-name:`expiry`
+
+    * - :action-table-field-name:`expiry` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - Only images created automatically from a deleted compute instance (type=automatic) expire.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"linode/debian11"`
+      - :json:`"string"`
       - The unique identifier for each image.
-    * - :action-table-field-name:`is_public`
+
+    * - :action-table-field-name:`is_public` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Revealed as :code:`true` if the image is a public distribution image.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Debian 11"`
+      - :json:`"string"`
       - A short description of the image.
-    * - :action-table-field-name:`size`
+
+    * - :action-table-field-name:`size` 
       - :action-table-field-type:`integer`
-      - :json:`2500`
+      - :json:`"integer"`
       - The minimum size in MB this image needs to deploy.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The current status of the image.
-    * - :action-table-field-name:`tags`
+
+    * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["repair-image", "fix-1"]`
+      - :json:`"array[string]"`
       - Tags used for organizational purposes.
-    * - :action-table-field-name:`total_size`
+
+    * - :action-table-field-name:`total_size` 
       - :action-table-field-type:`integer`
-      - :json:`1234567`
+      - :json:`"integer"`
       - The total size in bytes of all instances of this image, in all :code:`regions`.
-    * - :action-table-field-name:`type`
+
+    * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"manual"`
+      - :json:`"string"`
       - How the image was created.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was last updated.
-    * - :action-table-field-name:`vendor`
+
+    * - :action-table-field-name:`vendor` 
       - :action-table-field-type:`string`
-      - :json:`"Debian"`
+      - :json:`"string"`
       - The upstream distribution vendor.
+
+
+
+
 .. _commands_images_create_attribute_sections_regions:
 
 .. rst-class:: action-section-header
 
 regions
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -538,18 +756,32 @@ regions
       - Example
       - Description
 
-    * - :action-table-field-name:`regions.region`
+    * - :action-table-field-name:`regions.region` 
       - :action-table-field-type:`string`
-      - :json:`"us-iad"`
+      - :json:`"string"`
       - The unique identifier for the core compute or distributed compute region where this image is located.
-    * - :action-table-field-name:`regions.status`
+
+    * - :action-table-field-name:`regions.status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The status of the image in this :code:`region`.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_images_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-image>`_
@@ -558,6 +790,14 @@ regions
 
 Updates a private image that you have permission to :code:`read_write`.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -565,6 +805,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -575,6 +817,16 @@ Examples of how this command might be used.
     		of my image."
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -582,6 +834,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -599,6 +853,19 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`string`
       - The unique identifier assigned to the image after creation.
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -607,6 +874,10 @@ Arguments
 
 Additional fields used to execute this request.
 
+
+
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -619,85 +890,107 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-capabilities`
+    * - :action-table-field-name:`\-\-capabilities` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
       - A list of the possible capabilities of this image.
-    * - :action-table-field-name:`\-\-created`
+
+    * - :action-table-field-name:`\-\-created` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - When this image was created.
-    * - :action-table-field-name:`\-\-created_by`
+
+    * - :action-table-field-name:`\-\-created_by` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The name of the user who created this image, or :code:`linode` for public images.
-    * - :action-table-field-name:`\-\-deprecated`
+
+    * - :action-table-field-name:`\-\-deprecated` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - Whether this image is deprecated.
-    * - :action-table-field-name:`\-\-description`
+
+    * - :action-table-field-name:`\-\-description` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A detailed description of this image.
-    * - :action-table-field-name:`\-\-eol`
+
+    * - :action-table-field-name:`\-\-eol` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The date of the public image's planned removal from service.
-    * - :action-table-field-name:`\-\-expiry`
+
+    * - :action-table-field-name:`\-\-expiry` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Only images created automatically from a deleted compute instance (type=automatic) expire.
-    * - :action-table-field-name:`\-\-id`
+
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The unique identifier for each image.
-    * - :action-table-field-name:`\-\-is_public`
+
+    * - :action-table-field-name:`\-\-is_public` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - Revealed as :code:`true` if the image is a public distribution image.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A short description of the image.
-    * - :action-table-field-name:`\-\-regions`
-        :ref:`(section) <commands_images_update_argument_sections_regions>`
+
+    * - :action-table-field-name:`\-\-regions` :ref:`(section) <commands_images_update_argument_sections_regions>`
       - :action-table-field-optional:`No`
       - :action-table-field-type:`json`
       - N/A
-    * - :action-table-field-name:`\-\-size`
+
+    * - :action-table-field-name:`\-\-size` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The minimum size in MB this image needs to deploy.
-    * - :action-table-field-name:`\-\-status`
+
+    * - :action-table-field-name:`\-\-status` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The current status of the image.
-    * - :action-table-field-name:`\-\-tags`
+
+    * - :action-table-field-name:`\-\-tags` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
       - Tags used for organizational purposes.
-    * - :action-table-field-name:`\-\-total_size`
+
+    * - :action-table-field-name:`\-\-total_size` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The total size in bytes of all instances of this image, in all :code:`regions`.
-    * - :action-table-field-name:`\-\-type`
+
+    * - :action-table-field-name:`\-\-type` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - How the image was created.
-    * - :action-table-field-name:`\-\-updated`
+
+    * - :action-table-field-name:`\-\-updated` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - When this image was last updated.
-    * - :action-table-field-name:`\-\-vendor`
+
+    * - :action-table-field-name:`\-\-vendor` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The upstream distribution vendor.
+
+
+
+
 .. _commands_images_update_argument_sections_regions:
 
 .. rst-class:: action-section-header
 
 regions
 
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -710,14 +1003,29 @@ regions
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-regions.region`
+    * - :action-table-field-name:`\-\-regions.region` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The unique identifier for the core compute or distributed compute region where this image is located.
-    * - :action-table-field-name:`\-\-regions.status`
+
+    * - :action-table-field-name:`\-\-regions.status` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The status of the image in this :code:`region`.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -727,7 +1035,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -741,80 +1050,101 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`capabilities`
+    * - :action-table-field-name:`capabilities` 
       - :action-table-field-type:`array[string]`
-      - :json:`["cloud-init", "distributed-sites"]`
+      - :json:`"array[string]"`
       - A list of the possible capabilities of this image.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was created.
-    * - :action-table-field-name:`created_by`
+
+    * - :action-table-field-name:`created_by` 
       - :action-table-field-type:`string`
-      - :json:`"linode"`
+      - :json:`"string"`
       - The name of the user who created this image, or :code:`linode` for public images.
-    * - :action-table-field-name:`deprecated`
+
+    * - :action-table-field-name:`deprecated` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - Whether this image is deprecated.
-    * - :action-table-field-name:`description`
+
+    * - :action-table-field-name:`description` 
       - :action-table-field-type:`string`
-      - :json:`"Example image description."`
+      - :json:`"string"`
       - A detailed description of this image.
-    * - :action-table-field-name:`eol`
+
+    * - :action-table-field-name:`eol` 
       - :action-table-field-type:`string`
-      - :json:`"2026-07-01T04:00:00"`
+      - :json:`"string"`
       - The date of the public image's planned removal from service.
-    * - :action-table-field-name:`expiry`
+
+    * - :action-table-field-name:`expiry` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - Only images created automatically from a deleted compute instance (type=automatic) expire.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"linode/debian11"`
+      - :json:`"string"`
       - The unique identifier for each image.
-    * - :action-table-field-name:`is_public`
+
+    * - :action-table-field-name:`is_public` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Revealed as :code:`true` if the image is a public distribution image.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Debian 11"`
+      - :json:`"string"`
       - A short description of the image.
-    * - :action-table-field-name:`size`
+
+    * - :action-table-field-name:`size` 
       - :action-table-field-type:`integer`
-      - :json:`2500`
+      - :json:`"integer"`
       - The minimum size in MB this image needs to deploy.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The current status of the image.
-    * - :action-table-field-name:`tags`
+
+    * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["repair-image", "fix-1"]`
+      - :json:`"array[string]"`
       - Tags used for organizational purposes.
-    * - :action-table-field-name:`total_size`
+
+    * - :action-table-field-name:`total_size` 
       - :action-table-field-type:`integer`
-      - :json:`1234567`
+      - :json:`"integer"`
       - The total size in bytes of all instances of this image, in all :code:`regions`.
-    * - :action-table-field-name:`type`
+
+    * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"manual"`
+      - :json:`"string"`
       - How the image was created.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was last updated.
-    * - :action-table-field-name:`vendor`
+
+    * - :action-table-field-name:`vendor` 
       - :action-table-field-type:`string`
-      - :json:`"Debian"`
+      - :json:`"string"`
       - The upstream distribution vendor.
+
+
+
+
 .. _commands_images_update_attribute_sections_regions:
 
 .. rst-class:: action-section-header
 
 regions
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -827,18 +1157,32 @@ regions
       - Example
       - Description
 
-    * - :action-table-field-name:`regions.region`
+    * - :action-table-field-name:`regions.region` 
       - :action-table-field-type:`string`
-      - :json:`"us-iad"`
+      - :json:`"string"`
       - The unique identifier for the core compute or distributed compute region where this image is located.
-    * - :action-table-field-name:`regions.status`
+
+    * - :action-table-field-name:`regions.status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The status of the image in this :code:`region`.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_images_delete:
 
 `delete <https://techdocs.akamai.com/linode-api/reference/delete-image>`_
@@ -847,6 +1191,14 @@ regions
 
 Deletes a private image you have permission to :code:`read_write`.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -856,10 +1208,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli images delete 12345
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -868,6 +1232,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -886,8 +1252,24 @@ Positional parameters used to define the resource this command should target.
       - The unique identifier assigned to the image after creation.
 
 
+
+
+
+
+
+
+
+
+
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_images_replicate:
 
 `replicate <https://techdocs.akamai.com/linode-api/reference/post-replicate-image>`_
@@ -896,6 +1278,14 @@ Positional parameters used to define the resource this command should target.
 
 Target an existing image and replicate it to another compute region.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -905,11 +1295,23 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli images update private/12345/regions \
     	--regions "us-iad, us-west"
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -918,6 +1320,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -935,6 +1339,19 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`string`
       - The unique identifier assigned to the image after creation.
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -942,6 +1359,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -955,10 +1376,24 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-regions`
+    * - :action-table-field-name:`\-\-regions` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
       - The unique identifier for each compute region.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -968,7 +1403,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -982,80 +1418,101 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`capabilities`
+    * - :action-table-field-name:`capabilities` 
       - :action-table-field-type:`array[string]`
-      - :json:`["cloud-init", "distributed-sites"]`
+      - :json:`"array[string]"`
       - A list of the possible capabilities of this image.
-    * - :action-table-field-name:`created`
+
+    * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was created.
-    * - :action-table-field-name:`created_by`
+
+    * - :action-table-field-name:`created_by` 
       - :action-table-field-type:`string`
-      - :json:`"linode"`
+      - :json:`"string"`
       - The name of the user who created this image, or :code:`linode` for public images.
-    * - :action-table-field-name:`deprecated`
+
+    * - :action-table-field-name:`deprecated` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - Whether this image is deprecated.
-    * - :action-table-field-name:`description`
+
+    * - :action-table-field-name:`description` 
       - :action-table-field-type:`string`
-      - :json:`"Example image description."`
+      - :json:`"string"`
       - A detailed description of this image.
-    * - :action-table-field-name:`eol`
+
+    * - :action-table-field-name:`eol` 
       - :action-table-field-type:`string`
-      - :json:`"2026-07-01T04:00:00"`
+      - :json:`"string"`
       - The date of the public image's planned removal from service.
-    * - :action-table-field-name:`expiry`
+
+    * - :action-table-field-name:`expiry` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - Only images created automatically from a deleted compute instance (type=automatic) expire.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"linode/debian11"`
+      - :json:`"string"`
       - The unique identifier for each image.
-    * - :action-table-field-name:`is_public`
+
+    * - :action-table-field-name:`is_public` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Revealed as :code:`true` if the image is a public distribution image.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Debian 11"`
+      - :json:`"string"`
       - A short description of the image.
-    * - :action-table-field-name:`size`
+
+    * - :action-table-field-name:`size` 
       - :action-table-field-type:`integer`
-      - :json:`2500`
+      - :json:`"integer"`
       - The minimum size in MB this image needs to deploy.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The current status of the image.
-    * - :action-table-field-name:`tags`
+
+    * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["repair-image", "fix-1"]`
+      - :json:`"array[string]"`
       - Tags used for organizational purposes.
-    * - :action-table-field-name:`total_size`
+
+    * - :action-table-field-name:`total_size` 
       - :action-table-field-type:`integer`
-      - :json:`1234567`
+      - :json:`"integer"`
       - The total size in bytes of all instances of this image, in all :code:`regions`.
-    * - :action-table-field-name:`type`
+
+    * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"manual"`
+      - :json:`"string"`
       - How the image was created.
-    * - :action-table-field-name:`updated`
+
+    * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was last updated.
-    * - :action-table-field-name:`vendor`
+
+    * - :action-table-field-name:`vendor` 
       - :action-table-field-type:`string`
-      - :json:`"Debian"`
+      - :json:`"string"`
       - The upstream distribution vendor.
+
+
+
+
 .. _commands_images_replicate_attribute_sections_regions:
 
 .. rst-class:: action-section-header
 
 regions
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -1068,17 +1525,31 @@ regions
       - Example
       - Description
 
-    * - :action-table-field-name:`regions.region`
+    * - :action-table-field-name:`regions.region` 
       - :action-table-field-type:`string`
-      - :json:`"us-iad"`
+      - :json:`"string"`
       - The unique identifier for the core compute or distributed compute region where this image is located.
-    * - :action-table-field-name:`regions.status`
+
+    * - :action-table-field-name:`regions.status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The status of the image in this :code:`region`.
 
 
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_images_upload:
 
 `upload <https://techdocs.akamai.com/linode-api/reference/post-upload-image>`_
@@ -1087,6 +1558,14 @@ regions
 
 Creates a new private image instance and returns a URL as the :code:`upload_to` object in the response.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -1094,6 +1573,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -1112,6 +1593,17 @@ Examples of how this command might be used.
     	--region us-east
 
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -1119,6 +1611,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -1132,26 +1628,44 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-cloud_init`
+    * - :action-table-field-name:`\-\-cloud_init` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - Whether the uploaded Image supports cloud-init.
-    * - :action-table-field-name:`\-\-description`
+
+    * - :action-table-field-name:`\-\-description` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Description for the uploaded image.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - Label for the uploaded image.
-    * - :action-table-field-name:`\-\-region`
+
+    * - :action-table-field-name:`\-\-region` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The region to upload to.
-    * - :action-table-field-name:`\-\-tags`
+
+    * - :action-table-field-name:`\-\-tags` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
       - Tags you can use to organize images.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1161,7 +1675,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1175,16 +1690,21 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`upload_to`
+    * - :action-table-field-name:`upload_to` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - The URL to upload the Image to.
+
+
+
+
 .. _commands_images_upload_attribute_sections_image:
 
 .. rst-class:: action-section-header
 
 image
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -1197,82 +1717,106 @@ image
       - Example
       - Description
 
-    * - :action-table-field-name:`image.capabilities`
+    * - :action-table-field-name:`image.capabilities` 
       - :action-table-field-type:`array[string]`
-      - :json:`["cloud-init", "distributed-sites"]`
+      - :json:`"array[string]"`
       - A list of the possible capabilities of this image.
-    * - :action-table-field-name:`image.created`
+
+    * - :action-table-field-name:`image.created` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was created.
-    * - :action-table-field-name:`image.created_by`
+
+    * - :action-table-field-name:`image.created_by` 
       - :action-table-field-type:`string`
-      - :json:`"linode"`
+      - :json:`"string"`
       - The name of the user who created this image, or :code:`linode` for public images.
-    * - :action-table-field-name:`image.deprecated`
+
+    * - :action-table-field-name:`image.deprecated` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - Whether this image is deprecated.
-    * - :action-table-field-name:`image.description`
+
+    * - :action-table-field-name:`image.description` 
       - :action-table-field-type:`string`
-      - :json:`"Example image description."`
+      - :json:`"string"`
       - A detailed description of this image.
-    * - :action-table-field-name:`image.eol`
+
+    * - :action-table-field-name:`image.eol` 
       - :action-table-field-type:`string`
-      - :json:`"2026-07-01T04:00:00"`
+      - :json:`"string"`
       - The date of the public image's planned removal from service.
-    * - :action-table-field-name:`image.expiry`
+
+    * - :action-table-field-name:`image.expiry` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - Only images created automatically from a deleted compute instance (type=automatic) expire.
-    * - :action-table-field-name:`image.id`
+
+    * - :action-table-field-name:`image.id` 
       - :action-table-field-type:`string`
-      - :json:`"linode/debian11"`
+      - :json:`"string"`
       - The unique identifier for each image.
-    * - :action-table-field-name:`image.is_public`
+
+    * - :action-table-field-name:`image.is_public` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Revealed as :code:`true` if the image is a public distribution image.
-    * - :action-table-field-name:`image.label`
+
+    * - :action-table-field-name:`image.label` 
       - :action-table-field-type:`string`
-      - :json:`"Debian 11"`
+      - :json:`"string"`
       - A short description of the image.
-    * - :action-table-field-name:`image.regions.region`
+
+    * - :action-table-field-name:`image.regions.region` 
       - :action-table-field-type:`string`
-      - :json:`"us-iad"`
+      - :json:`"string"`
       - The unique identifier for the core compute or distributed compute region where this image is located.
-    * - :action-table-field-name:`image.regions.status`
+
+    * - :action-table-field-name:`image.regions.status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The status of the image in this :code:`region`.
-    * - :action-table-field-name:`image.size`
+
+    * - :action-table-field-name:`image.size` 
       - :action-table-field-type:`integer`
-      - :json:`2500`
+      - :json:`"integer"`
       - The minimum size in MB this image needs to deploy.
-    * - :action-table-field-name:`image.status`
+
+    * - :action-table-field-name:`image.status` 
       - :action-table-field-type:`string`
-      - :json:`"available"`
+      - :json:`"string"`
       - The current status of the image.
-    * - :action-table-field-name:`image.tags`
+
+    * - :action-table-field-name:`image.tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["repair-image", "fix-1"]`
+      - :json:`"array[string]"`
       - Tags used for organizational purposes.
-    * - :action-table-field-name:`image.total_size`
+
+    * - :action-table-field-name:`image.total_size` 
       - :action-table-field-type:`integer`
-      - :json:`1234567`
+      - :json:`"integer"`
       - The total size in bytes of all instances of this image, in all :code:`regions`.
-    * - :action-table-field-name:`image.type`
+
+    * - :action-table-field-name:`image.type` 
       - :action-table-field-type:`string`
-      - :json:`"manual"`
+      - :json:`"string"`
       - How the image was created.
-    * - :action-table-field-name:`image.updated`
+
+    * - :action-table-field-name:`image.updated` 
       - :action-table-field-type:`string`
-      - :json:`"2021-08-14T22:44:02"`
+      - :json:`"string"`
       - When this image was last updated.
-    * - :action-table-field-name:`image.vendor`
+
+    * - :action-table-field-name:`image.vendor` 
       - :action-table-field-type:`string`
-      - :json:`"Debian"`
+      - :json:`"string"`
       - The upstream distribution vendor.
+
+
+
+
+
+
 
 
 

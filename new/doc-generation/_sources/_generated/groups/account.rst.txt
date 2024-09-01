@@ -1,3 +1,8 @@
+Account
+=======
+
+This section details Account-related Linode CLI commands.
+
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5,12 +10,6 @@
 
 .. role:: json(code)
     :language: JSON
-
-Account
-=======
-
-This section details Account-related Linode CLI commands.
-
 .. _commands_account_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-account>`_
@@ -18,6 +17,14 @@ This section details Account-related Linode CLI commands.
 
 
 Returns the contact and billing information related to your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -28,10 +35,25 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account view
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -41,7 +63,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -55,84 +78,106 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`active_since`
+    * - :action-table-field-name:`active_since` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date and time the account was activated.
-    * - :action-table-field-name:`address_1`
+
+    * - :action-table-field-name:`address_1` 
       - :action-table-field-type:`string`
-      - :json:`"123 Main Street"`
+      - :json:`"string"`
       - First line of this Account's billing address.
-    * - :action-table-field-name:`address_2`
+
+    * - :action-table-field-name:`address_2` 
       - :action-table-field-type:`string`
-      - :json:`"Suite A"`
+      - :json:`"string"`
       - Second line of this Account's billing address.
-    * - :action-table-field-name:`balance`
+
+    * - :action-table-field-name:`balance` 
       - :action-table-field-type:`number`
-      - :json:`200`
+      - :json:`"number"`
       - This Account's balance, in US dollars.
-    * - :action-table-field-name:`balance_uninvoiced`
+
+    * - :action-table-field-name:`balance_uninvoiced` 
       - :action-table-field-type:`number`
-      - :json:`145`
+      - :json:`"number"`
       - This Account's current estimated invoice in US dollars.
-    * - :action-table-field-name:`billing_source`
+
+    * - :action-table-field-name:`billing_source` 
       - :action-table-field-type:`string`
-      - :json:`"akamai"`
+      - :json:`"string"`
       - The source of service charges for this Account, as determined by its relationship with Akamai.
-    * - :action-table-field-name:`capabilities`
+
+    * - :action-table-field-name:`capabilities` 
       - :action-table-field-type:`array[string]`
-      - :json:`["Linodes", "NodeBalancers", "Block Storage", "Object Storage", "Placement Groups"]`
+      - :json:`"array[string]"`
       - A list of capabilities your account supports.
-    * - :action-table-field-name:`city`
+
+    * - :action-table-field-name:`city` 
       - :action-table-field-type:`string`
-      - :json:`"Philadelphia"`
+      - :json:`"string"`
       - The city for this Account's billing address.
-    * - :action-table-field-name:`company`
+
+    * - :action-table-field-name:`company` 
       - :action-table-field-type:`string`
-      - :json:`"Linode LLC"`
+      - :json:`"string"`
       - The company name associated with this Account.
-    * - :action-table-field-name:`country`
+
+    * - :action-table-field-name:`country` 
       - :action-table-field-type:`string`
-      - :json:`"US"`
+      - :json:`"string"`
       - The two-letter ISO 3166 country code of this Account's billing address.
-    * - :action-table-field-name:`email`
+
+    * - :action-table-field-name:`email` 
       - :action-table-field-type:`string`
-      - :json:`"john.smith@linode.com"`
+      - :json:`"string"`
       - The email address of the person associated with this Account.
-    * - :action-table-field-name:`euuid`
+
+    * - :action-table-field-name:`euuid` 
       - :action-table-field-type:`string`
-      - :json:`"E1AF5EEC-526F-487D-B317EBEB34C87D71"`
+      - :json:`"string"`
       - An external unique identifier for this account.
-    * - :action-table-field-name:`first_name`
+
+    * - :action-table-field-name:`first_name` 
       - :action-table-field-type:`string`
-      - :json:`"John"`
+      - :json:`"string"`
       - The first name of the person associated with this Account.
-    * - :action-table-field-name:`last_name`
+
+    * - :action-table-field-name:`last_name` 
       - :action-table-field-type:`string`
-      - :json:`"Smith"`
+      - :json:`"string"`
       - The last name of the person associated with this Account.
-    * - :action-table-field-name:`phone`
+
+    * - :action-table-field-name:`phone` 
       - :action-table-field-type:`string`
-      - :json:`"215-555-1212"`
+      - :json:`"string"`
       - The phone number associated with this Account.
-    * - :action-table-field-name:`state`
+
+    * - :action-table-field-name:`state` 
       - :action-table-field-type:`string`
-      - :json:`"PA"`
+      - :json:`"string"`
       - If billing address is in the United States (US) or Canada (CA), only the two-letter ISO 3166 State or Province code are accepted.
-    * - :action-table-field-name:`tax_id`
+
+    * - :action-table-field-name:`tax_id` 
       - :action-table-field-type:`string`
-      - :json:`"ATU99999999"`
+      - :json:`"string"`
       - The tax identification number associated with this Account, for tax calculations in some countries.
-    * - :action-table-field-name:`zip`
+
+    * - :action-table-field-name:`zip` 
       - :action-table-field-type:`string`
-      - :json:`"19102-1234"`
+      - :json:`"string"`
       - The zip code of this Account's billing address.
+
+
+
+
 .. _commands_account_view_attribute_sections_active_promotions:
 
 .. rst-class:: action-section-header
 
 active_promotions
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -145,44 +190,56 @@ active_promotions
       - Example
       - Description
 
-    * - :action-table-field-name:`active_promotions.credit_monthly_cap`
+    * - :action-table-field-name:`active_promotions.credit_monthly_cap` 
       - :action-table-field-type:`string`
-      - :json:`"10.00"`
+      - :json:`"string"`
       - The amount available to spend per month.
-    * - :action-table-field-name:`active_promotions.credit_remaining`
+
+    * - :action-table-field-name:`active_promotions.credit_remaining` 
       - :action-table-field-type:`string`
-      - :json:`"50.00"`
+      - :json:`"string"`
       - The total amount of credit left for this promotion.
-    * - :action-table-field-name:`active_promotions.description`
+
+    * - :action-table-field-name:`active_promotions.description` 
       - :action-table-field-type:`string`
-      - :json:`"Receive up to $10 off your services every month for 6 months! Unused credits will expire once this promotion period ends."`
+      - :json:`"string"`
       - A detailed description of this promotion.
-    * - :action-table-field-name:`active_promotions.expire_dt`
+
+    * - :action-table-field-name:`active_promotions.expire_dt` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-31T23:59:59"`
+      - :json:`"string"`
       - When this promotion's credits expire.
-    * - :action-table-field-name:`active_promotions.image_url`
+
+    * - :action-table-field-name:`active_promotions.image_url` 
       - :action-table-field-type:`string`
-      - :json:`"https://linode.com/10_a_month_promotion.svg"`
+      - :json:`"string"`
       - The location of an image for this promotion.
-    * - :action-table-field-name:`active_promotions.service_type`
+
+    * - :action-table-field-name:`active_promotions.service_type` 
       - :action-table-field-type:`string`
-      - :json:`"all"`
+      - :json:`"string"`
       - The service to which this promotion applies.
-    * - :action-table-field-name:`active_promotions.summary`
+
+    * - :action-table-field-name:`active_promotions.summary` 
       - :action-table-field-type:`string`
-      - :json:`"$10 off your Linode a month!"`
+      - :json:`"string"`
       - Short details of this promotion.
-    * - :action-table-field-name:`active_promotions.this_month_credit_remaining`
+
+    * - :action-table-field-name:`active_promotions.this_month_credit_remaining` 
       - :action-table-field-type:`string`
-      - :json:`"10.00"`
+      - :json:`"string"`
       - The amount of credit left for this month for this promotion.
+
+
+
+
 .. _commands_account_view_attribute_sections_credit_card:
 
 .. rst-class:: action-section-header
 
 credit_card
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -195,18 +252,32 @@ credit_card
       - Example
       - Description
 
-    * - :action-table-field-name:`credit_card.expiry`
+    * - :action-table-field-name:`credit_card.expiry` 
       - :action-table-field-type:`string`
-      - :json:`"11/2022"`
+      - :json:`"string"`
       - The expiration month and year of the credit card.
-    * - :action-table-field-name:`credit_card.last_four`
+
+    * - :action-table-field-name:`credit_card.last_four` 
       - :action-table-field-type:`string`
-      - :json:`1111`
+      - :json:`"string"`
       - The last four digits of the credit card associated with this Account.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-account>`_
@@ -215,6 +286,14 @@ credit_card
 
 Updates contact and billing information related to your account.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -222,6 +301,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -241,6 +322,17 @@ Examples of how this command might be used.
     	--zip 19102
 
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -249,6 +341,10 @@ Arguments
 
 Additional fields used to execute this request.
 
+
+
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -261,93 +357,117 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-active_promotions`
-        :ref:`(section) <commands_account_update_argument_sections_active_promotions>`
+    * - :action-table-field-name:`\-\-active_promotions` :ref:`(section) <commands_account_update_argument_sections_active_promotions>`
       - :action-table-field-optional:`No`
       - :action-table-field-type:`json`
       - Promotions generally offer a set amount of credit that can be used toward your Linode services, and the promotion expires after a specified date.
-    * - :action-table-field-name:`\-\-active_since`
+
+    * - :action-table-field-name:`\-\-active_since` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The date and time the account was activated.
-    * - :action-table-field-name:`\-\-address_1`
+
+    * - :action-table-field-name:`\-\-address_1` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - First line of this Account's billing address.
-    * - :action-table-field-name:`\-\-address_2`
+
+    * - :action-table-field-name:`\-\-address_2` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Second line of this Account's billing address.
-    * - :action-table-field-name:`\-\-balance`
+
+    * - :action-table-field-name:`\-\-balance` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`number`
       - This Account's balance, in US dollars.
-    * - :action-table-field-name:`\-\-balance_uninvoiced`
+
+    * - :action-table-field-name:`\-\-balance_uninvoiced` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`number`
       - This Account's current estimated invoice in US dollars.
-    * - :action-table-field-name:`\-\-billing_source`
+
+    * - :action-table-field-name:`\-\-billing_source` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The source of service charges for this Account, as determined by its relationship with Akamai.
-    * - :action-table-field-name:`\-\-capabilities`
+
+    * - :action-table-field-name:`\-\-capabilities` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`array[string]`
       - A list of capabilities your account supports.
-    * - :action-table-field-name:`\-\-city`
+
+    * - :action-table-field-name:`\-\-city` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The city for this Account's billing address.
-    * - :action-table-field-name:`\-\-company`
+
+    * - :action-table-field-name:`\-\-company` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The company name associated with this Account.
-    * - :action-table-field-name:`\-\-country`
+
+    * - :action-table-field-name:`\-\-country` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The two-letter ISO 3166 country code of this Account's billing address.
-    * - :action-table-field-name:`\-\-credit_card`
+
+    * - :action-table-field-name:`\-\-credit_card` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`object`
       - Credit Card information associated with this Account.
-    * - :action-table-field-name:`\-\-email`
+
+    * - :action-table-field-name:`\-\-email` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The email address of the person associated with this Account.
-    * - :action-table-field-name:`\-\-euuid`
+
+    * - :action-table-field-name:`\-\-euuid` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - An external unique identifier for this account.
-    * - :action-table-field-name:`\-\-first_name`
+
+    * - :action-table-field-name:`\-\-first_name` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The first name of the person associated with this Account.
-    * - :action-table-field-name:`\-\-last_name`
+
+    * - :action-table-field-name:`\-\-last_name` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The last name of the person associated with this Account.
-    * - :action-table-field-name:`\-\-phone`
+
+    * - :action-table-field-name:`\-\-phone` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The phone number associated with this Account.
-    * - :action-table-field-name:`\-\-state`
+
+    * - :action-table-field-name:`\-\-state` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - If billing address is in the United States (US) or Canada (CA), only the two-letter ISO 3166 State or Province code are accepted.
-    * - :action-table-field-name:`\-\-tax_id`
+
+    * - :action-table-field-name:`\-\-tax_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The tax identification number associated with this Account, for tax calculations in some countries.
-    * - :action-table-field-name:`\-\-zip`
+
+    * - :action-table-field-name:`\-\-zip` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The zip code of this Account's billing address.
+
+
+
+
 .. _commands_account_update_argument_sections_active_promotions:
 
 .. rst-class:: action-section-header
 
 active_promotions
 
+
+
 .. rst-class:: action-argument-section-table
 
 ..  list-table::
@@ -360,38 +480,59 @@ active_promotions
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-active_promotions.credit_monthly_cap`
+    * - :action-table-field-name:`\-\-active_promotions.credit_monthly_cap` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The amount available to spend per month.
-    * - :action-table-field-name:`\-\-active_promotions.credit_remaining`
+
+    * - :action-table-field-name:`\-\-active_promotions.credit_remaining` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The total amount of credit left for this promotion.
-    * - :action-table-field-name:`\-\-active_promotions.description`
+
+    * - :action-table-field-name:`\-\-active_promotions.description` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A detailed description of this promotion.
-    * - :action-table-field-name:`\-\-active_promotions.expire_dt`
+
+    * - :action-table-field-name:`\-\-active_promotions.expire_dt` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - When this promotion's credits expire.
-    * - :action-table-field-name:`\-\-active_promotions.image_url`
+
+    * - :action-table-field-name:`\-\-active_promotions.image_url` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The location of an image for this promotion.
-    * - :action-table-field-name:`\-\-active_promotions.service_type`
+
+    * - :action-table-field-name:`\-\-active_promotions.service_type` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The service to which this promotion applies.
-    * - :action-table-field-name:`\-\-active_promotions.summary`
+
+    * - :action-table-field-name:`\-\-active_promotions.summary` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Short details of this promotion.
-    * - :action-table-field-name:`\-\-active_promotions.this_month_credit_remaining`
+
+    * - :action-table-field-name:`\-\-active_promotions.this_month_credit_remaining` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The amount of credit left for this month for this promotion.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -401,7 +542,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -415,84 +557,106 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`active_since`
+    * - :action-table-field-name:`active_since` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date and time the account was activated.
-    * - :action-table-field-name:`address_1`
+
+    * - :action-table-field-name:`address_1` 
       - :action-table-field-type:`string`
-      - :json:`"123 Main Street"`
+      - :json:`"string"`
       - First line of this Account's billing address.
-    * - :action-table-field-name:`address_2`
+
+    * - :action-table-field-name:`address_2` 
       - :action-table-field-type:`string`
-      - :json:`"Suite A"`
+      - :json:`"string"`
       - Second line of this Account's billing address.
-    * - :action-table-field-name:`balance`
+
+    * - :action-table-field-name:`balance` 
       - :action-table-field-type:`number`
-      - :json:`200`
+      - :json:`"number"`
       - This Account's balance, in US dollars.
-    * - :action-table-field-name:`balance_uninvoiced`
+
+    * - :action-table-field-name:`balance_uninvoiced` 
       - :action-table-field-type:`number`
-      - :json:`145`
+      - :json:`"number"`
       - This Account's current estimated invoice in US dollars.
-    * - :action-table-field-name:`billing_source`
+
+    * - :action-table-field-name:`billing_source` 
       - :action-table-field-type:`string`
-      - :json:`"akamai"`
+      - :json:`"string"`
       - The source of service charges for this Account, as determined by its relationship with Akamai.
-    * - :action-table-field-name:`capabilities`
+
+    * - :action-table-field-name:`capabilities` 
       - :action-table-field-type:`array[string]`
-      - :json:`["Linodes", "NodeBalancers", "Block Storage", "Object Storage", "Placement Groups"]`
+      - :json:`"array[string]"`
       - A list of capabilities your account supports.
-    * - :action-table-field-name:`city`
+
+    * - :action-table-field-name:`city` 
       - :action-table-field-type:`string`
-      - :json:`"Philadelphia"`
+      - :json:`"string"`
       - The city for this Account's billing address.
-    * - :action-table-field-name:`company`
+
+    * - :action-table-field-name:`company` 
       - :action-table-field-type:`string`
-      - :json:`"Linode LLC"`
+      - :json:`"string"`
       - The company name associated with this Account.
-    * - :action-table-field-name:`country`
+
+    * - :action-table-field-name:`country` 
       - :action-table-field-type:`string`
-      - :json:`"US"`
+      - :json:`"string"`
       - The two-letter ISO 3166 country code of this Account's billing address.
-    * - :action-table-field-name:`email`
+
+    * - :action-table-field-name:`email` 
       - :action-table-field-type:`string`
-      - :json:`"john.smith@linode.com"`
+      - :json:`"string"`
       - The email address of the person associated with this Account.
-    * - :action-table-field-name:`euuid`
+
+    * - :action-table-field-name:`euuid` 
       - :action-table-field-type:`string`
-      - :json:`"E1AF5EEC-526F-487D-B317EBEB34C87D71"`
+      - :json:`"string"`
       - An external unique identifier for this account.
-    * - :action-table-field-name:`first_name`
+
+    * - :action-table-field-name:`first_name` 
       - :action-table-field-type:`string`
-      - :json:`"John"`
+      - :json:`"string"`
       - The first name of the person associated with this Account.
-    * - :action-table-field-name:`last_name`
+
+    * - :action-table-field-name:`last_name` 
       - :action-table-field-type:`string`
-      - :json:`"Smith"`
+      - :json:`"string"`
       - The last name of the person associated with this Account.
-    * - :action-table-field-name:`phone`
+
+    * - :action-table-field-name:`phone` 
       - :action-table-field-type:`string`
-      - :json:`"215-555-1212"`
+      - :json:`"string"`
       - The phone number associated with this Account.
-    * - :action-table-field-name:`state`
+
+    * - :action-table-field-name:`state` 
       - :action-table-field-type:`string`
-      - :json:`"PA"`
+      - :json:`"string"`
       - If billing address is in the United States (US) or Canada (CA), only the two-letter ISO 3166 State or Province code are accepted.
-    * - :action-table-field-name:`tax_id`
+
+    * - :action-table-field-name:`tax_id` 
       - :action-table-field-type:`string`
-      - :json:`"ATU99999999"`
+      - :json:`"string"`
       - The tax identification number associated with this Account, for tax calculations in some countries.
-    * - :action-table-field-name:`zip`
+
+    * - :action-table-field-name:`zip` 
       - :action-table-field-type:`string`
-      - :json:`"19102-1234"`
+      - :json:`"string"`
       - The zip code of this Account's billing address.
+
+
+
+
 .. _commands_account_update_attribute_sections_active_promotions:
 
 .. rst-class:: action-section-header
 
 active_promotions
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -505,44 +669,56 @@ active_promotions
       - Example
       - Description
 
-    * - :action-table-field-name:`active_promotions.credit_monthly_cap`
+    * - :action-table-field-name:`active_promotions.credit_monthly_cap` 
       - :action-table-field-type:`string`
-      - :json:`"10.00"`
+      - :json:`"string"`
       - The amount available to spend per month.
-    * - :action-table-field-name:`active_promotions.credit_remaining`
+
+    * - :action-table-field-name:`active_promotions.credit_remaining` 
       - :action-table-field-type:`string`
-      - :json:`"50.00"`
+      - :json:`"string"`
       - The total amount of credit left for this promotion.
-    * - :action-table-field-name:`active_promotions.description`
+
+    * - :action-table-field-name:`active_promotions.description` 
       - :action-table-field-type:`string`
-      - :json:`"Receive up to $10 off your services every month for 6 months! Unused credits will expire once this promotion period ends."`
+      - :json:`"string"`
       - A detailed description of this promotion.
-    * - :action-table-field-name:`active_promotions.expire_dt`
+
+    * - :action-table-field-name:`active_promotions.expire_dt` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-31T23:59:59"`
+      - :json:`"string"`
       - When this promotion's credits expire.
-    * - :action-table-field-name:`active_promotions.image_url`
+
+    * - :action-table-field-name:`active_promotions.image_url` 
       - :action-table-field-type:`string`
-      - :json:`"https://linode.com/10_a_month_promotion.svg"`
+      - :json:`"string"`
       - The location of an image for this promotion.
-    * - :action-table-field-name:`active_promotions.service_type`
+
+    * - :action-table-field-name:`active_promotions.service_type` 
       - :action-table-field-type:`string`
-      - :json:`"all"`
+      - :json:`"string"`
       - The service to which this promotion applies.
-    * - :action-table-field-name:`active_promotions.summary`
+
+    * - :action-table-field-name:`active_promotions.summary` 
       - :action-table-field-type:`string`
-      - :json:`"$10 off your Linode a month!"`
+      - :json:`"string"`
       - Short details of this promotion.
-    * - :action-table-field-name:`active_promotions.this_month_credit_remaining`
+
+    * - :action-table-field-name:`active_promotions.this_month_credit_remaining` 
       - :action-table-field-type:`string`
-      - :json:`"10.00"`
+      - :json:`"string"`
       - The amount of credit left for this month for this promotion.
+
+
+
+
 .. _commands_account_update_attribute_sections_credit_card:
 
 .. rst-class:: action-section-header
 
 credit_card
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -555,18 +731,32 @@ credit_card
       - Example
       - Description
 
-    * - :action-table-field-name:`credit_card.expiry`
+    * - :action-table-field-name:`credit_card.expiry` 
       - :action-table-field-type:`string`
-      - :json:`"11/2022"`
+      - :json:`"string"`
       - The expiration month and year of the credit card.
-    * - :action-table-field-name:`credit_card.last_four`
+
+    * - :action-table-field-name:`credit_card.last_four` 
       - :action-table-field-type:`string`
-      - :json:`1111`
+      - :json:`"string"`
       - The last four digits of the credit card associated with this Account.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_cancel:
 
 `cancel <https://techdocs.akamai.com/linode-api/reference/post-cancel-account>`_
@@ -575,6 +765,14 @@ credit_card
 
 Cancels an active Linode account.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -584,11 +782,24 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account cancel \
     	--comments "I'm consolidating my accounts"
 
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -597,6 +808,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -610,10 +825,24 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-comments`
+    * - :action-table-field-name:`\-\-comments` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - Any reason for cancelling the account, and any other comments you might have about your Linode service.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -623,7 +852,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -637,14 +867,27 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`survey_link`
+    * - :action-table-field-name:`survey_link` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - A link to Linode's exit survey.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_settings:
 
 `settings <https://techdocs.akamai.com/linode-api/reference/get-account-settings>`_
@@ -653,6 +896,14 @@ The attributes returned by this command.
 
 Returns information related to your Account settings: Managed service subscription, Longview subscription, and network helper.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -662,10 +913,25 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account settings
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -675,7 +941,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -689,30 +956,47 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`backups_enabled`
+    * - :action-table-field-name:`backups_enabled` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Account-wide backups default.
-    * - :action-table-field-name:`longview_subscription`
+
+    * - :action-table-field-name:`longview_subscription` 
       - :action-table-field-type:`string`
-      - :json:`"longview-3"`
+      - :json:`"string"`
       - The Longview Pro tier you are currently subscribed to.
-    * - :action-table-field-name:`managed`
+
+    * - :action-table-field-name:`managed` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Our 24/7 incident response service.
-    * - :action-table-field-name:`network_helper`
+
+    * - :action-table-field-name:`network_helper` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - Enables network helper across all users by default for new Linodes and Linode Configs.
-    * - :action-table-field-name:`object_storage`
+
+    * - :action-table-field-name:`object_storage` 
       - :action-table-field-type:`string`
-      - :json:`"active"`
+      - :json:`"string"`
       - A string describing the status of this account's Object Storage service enrollment.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_transfer:
 
 `transfer <https://techdocs.akamai.com/linode-api/reference/get-transfer>`_
@@ -721,6 +1005,14 @@ The attributes returned by this command.
 
 Returns a Transfer object showing your network utilization, in GB, for the current month.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -730,10 +1022,25 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account transfer
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -743,7 +1050,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -757,24 +1065,31 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`billable`
+    * - :action-table-field-name:`billable` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - The amount of your transfer pool that is billable this billing cycle.
-    * - :action-table-field-name:`quota`
+
+    * - :action-table-field-name:`quota` 
       - :action-table-field-type:`integer`
-      - :json:`9141`
+      - :json:`"integer"`
       - The amount of network usage allowed this billing cycle.
-    * - :action-table-field-name:`used`
+
+    * - :action-table-field-name:`used` 
       - :action-table-field-type:`integer`
-      - :json:`2`
+      - :json:`"integer"`
       - The amount of network usage you have used this billing cycle.
+
+
+
+
 .. _commands_account_transfer_attribute_sections_region_transfers:
 
 .. rst-class:: action-section-header
 
 region_transfers
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -787,26 +1102,42 @@ region_transfers
       - Example
       - Description
 
-    * - :action-table-field-name:`region_transfers.billable`
+    * - :action-table-field-name:`region_transfers.billable` 
       - :action-table-field-type:`integer`
-      - ?
+      - 
       - The amount of your transfer pool that is billable this billing cycle for this Region.
-    * - :action-table-field-name:`region_transfers.id`
+
+    * - :action-table-field-name:`region_transfers.id` 
       - :action-table-field-type:`string`
-      - :json:`"us-east"`
+      - :json:`"string"`
       - The Region ID for this network utilization data.
-    * - :action-table-field-name:`region_transfers.quota`
+
+    * - :action-table-field-name:`region_transfers.quota` 
       - :action-table-field-type:`integer`
-      - :json:`5010`
+      - :json:`"integer"`
       - The amount of network usage allowed this billing cycle for this Region.
-    * - :action-table-field-name:`region_transfers.used`
+
+    * - :action-table-field-name:`region_transfers.used` 
       - :action-table-field-type:`integer`
-      - :json:`1`
+      - :json:`"integer"`
       - The amount of network usage you have used this billing cycle for this Region.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_client-view:
 
 `client-view <https://techdocs.akamai.com/linode-api/reference/get-client>`_
@@ -814,6 +1145,14 @@ region_transfers
 
 
 Returns information about a single OAuth client.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -824,11 +1163,23 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account client-view \
     	edc6790ea9db4d224c5c
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -837,6 +1188,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -854,6 +1207,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`string`
       - The OAuth Client ID to look up.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -862,7 +1230,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -876,38 +1245,57 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`id`
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"2737bf16b39ab5d7b4a1"`
+      - :json:`"string"`
       - The OAuth Client ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Test_Client_1"`
+      - :json:`"string"`
       - The name of this application.
-    * - :action-table-field-name:`public`
+
+    * - :action-table-field-name:`public` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - If this is a public or private OAuth Client.
-    * - :action-table-field-name:`redirect_uri`
+
+    * - :action-table-field-name:`redirect_uri` 
       - :action-table-field-type:`string`
-      - :json:`"https://example.org/oauth/callback"`
+      - :json:`"string"`
       - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
-    * - :action-table-field-name:`secret`
+
+    * - :action-table-field-name:`secret` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The OAuth Client secret, used in the OAuth exchange.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"active"`
+      - :json:`"string"`
       - The status of this application.
-    * - :action-table-field-name:`thumbnail_url`
+
+    * - :action-table-field-name:`thumbnail_url` 
       - :action-table-field-type:`string`
-      - :json:`"https://api.linode.com/v4/account/clients/2737bf16b39ab5d7b4a1/thumbnail"`
+      - :json:`"string"`
       - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_client-create:
 
 `client-create <https://techdocs.akamai.com/linode-api/reference/post-client>`_
@@ -916,6 +1304,14 @@ The attributes returned by this command.
 
 Creates an OAuth Client, which can be used to allow users (using their Linode account) to log in to your own application, and optionally grant your application some amount of access to their Linodes or other entities.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -923,6 +1319,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -932,6 +1330,17 @@ Examples of how this command might be used.
     	--redirect_uri https://example.org/callback
 
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -939,6 +1348,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -952,34 +1365,54 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-id`
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The OAuth Client ID.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The name of this application.
-    * - :action-table-field-name:`\-\-public`
+
+    * - :action-table-field-name:`\-\-public` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - If this is a public or private OAuth Client.
-    * - :action-table-field-name:`\-\-redirect_uri`
+
+    * - :action-table-field-name:`\-\-redirect_uri` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
-    * - :action-table-field-name:`\-\-secret`
+
+    * - :action-table-field-name:`\-\-secret` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The OAuth Client secret, used in the OAuth exchange.
-    * - :action-table-field-name:`\-\-status`
+
+    * - :action-table-field-name:`\-\-status` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The status of this application.
-    * - :action-table-field-name:`\-\-thumbnail_url`
+
+    * - :action-table-field-name:`\-\-thumbnail_url` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -989,7 +1422,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1003,38 +1437,57 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`id`
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"2737bf16b39ab5d7b4a1"`
+      - :json:`"string"`
       - The OAuth Client ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Test_Client_1"`
+      - :json:`"string"`
       - The name of this application.
-    * - :action-table-field-name:`public`
+
+    * - :action-table-field-name:`public` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - If this is a public or private OAuth Client.
-    * - :action-table-field-name:`redirect_uri`
+
+    * - :action-table-field-name:`redirect_uri` 
       - :action-table-field-type:`string`
-      - :json:`"https://example.org/oauth/callback"`
+      - :json:`"string"`
       - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
-    * - :action-table-field-name:`secret`
+
+    * - :action-table-field-name:`secret` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The OAuth Client secret, used in the OAuth exchange.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"active"`
+      - :json:`"string"`
       - The status of this application.
-    * - :action-table-field-name:`thumbnail_url`
+
+    * - :action-table-field-name:`thumbnail_url` 
       - :action-table-field-type:`string`
-      - :json:`"https://api.linode.com/v4/account/clients/2737bf16b39ab5d7b4a1/thumbnail"`
+      - :json:`"string"`
       - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_client-update:
 
 `client-update <https://techdocs.akamai.com/linode-api/reference/put-client>`_
@@ -1043,6 +1496,14 @@ The attributes returned by this command.
 
 Update information about an OAuth Client on your Account.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -1050,6 +1511,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -1059,6 +1522,16 @@ Examples of how this command might be used.
     	--label Test_Client_1
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -1066,6 +1539,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1083,6 +1558,19 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`string`
       - The OAuth Client ID to look up.
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -1090,6 +1578,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -1103,34 +1595,54 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-id`
+    * - :action-table-field-name:`\-\-id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The OAuth Client ID.
-    * - :action-table-field-name:`\-\-label`
+
+    * - :action-table-field-name:`\-\-label` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The name of this application.
-    * - :action-table-field-name:`\-\-public`
+
+    * - :action-table-field-name:`\-\-public` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - If this is a public or private OAuth Client.
-    * - :action-table-field-name:`\-\-redirect_uri`
+
+    * - :action-table-field-name:`\-\-redirect_uri` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
-    * - :action-table-field-name:`\-\-secret`
+
+    * - :action-table-field-name:`\-\-secret` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The OAuth Client secret, used in the OAuth exchange.
-    * - :action-table-field-name:`\-\-status`
+
+    * - :action-table-field-name:`\-\-status` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The status of this application.
-    * - :action-table-field-name:`\-\-thumbnail_url`
+
+    * - :action-table-field-name:`\-\-thumbnail_url` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1140,7 +1652,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1154,38 +1667,57 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`id`
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"2737bf16b39ab5d7b4a1"`
+      - :json:`"string"`
       - The OAuth Client ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Test_Client_1"`
+      - :json:`"string"`
       - The name of this application.
-    * - :action-table-field-name:`public`
+
+    * - :action-table-field-name:`public` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - If this is a public or private OAuth Client.
-    * - :action-table-field-name:`redirect_uri`
+
+    * - :action-table-field-name:`redirect_uri` 
       - :action-table-field-type:`string`
-      - :json:`"https://example.org/oauth/callback"`
+      - :json:`"string"`
       - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
-    * - :action-table-field-name:`secret`
+
+    * - :action-table-field-name:`secret` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The OAuth Client secret, used in the OAuth exchange.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"active"`
+      - :json:`"string"`
       - The status of this application.
-    * - :action-table-field-name:`thumbnail_url`
+
+    * - :action-table-field-name:`thumbnail_url` 
       - :action-table-field-type:`string`
-      - :json:`"https://api.linode.com/v4/account/clients/2737bf16b39ab5d7b4a1/thumbnail"`
+      - :json:`"string"`
       - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_client-delete:
 
 `client-delete <https://techdocs.akamai.com/linode-api/reference/delete-client>`_
@@ -1194,6 +1726,14 @@ The attributes returned by this command.
 
 Deletes an OAuth Client registered with Linode.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -1201,6 +1741,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -1209,6 +1751,16 @@ Examples of how this command might be used.
     	edc6790ea9db4d224c5c
 
 
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Parameters
@@ -1216,6 +1768,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1234,8 +1788,24 @@ Positional parameters used to define the resource this command should target.
       - The OAuth Client ID to look up.
 
 
+
+
+
+
+
+
+
+
+
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_client-reset-secret:
 
 `client-reset-secret <https://techdocs.akamai.com/linode-api/reference/post-reset-client-secret>`_
@@ -1243,6 +1813,14 @@ Positional parameters used to define the resource this command should target.
 
 
 Resets the OAuth Client secret for a client you own, and returns the OAuth Client with the plaintext secret.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1253,11 +1831,23 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account client-reset-secret \
     	edc6790ea9db4d224c5c
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1266,6 +1856,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1282,6 +1874,21 @@ Positional parameters used to define the resource this command should target.
     * - :action-table-field-name:`clientId`
       - :action-table-field-type:`string`
       - The OAuth Client ID to look up.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1291,7 +1898,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1305,38 +1913,57 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`id`
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"2737bf16b39ab5d7b4a1"`
+      - :json:`"string"`
       - The OAuth Client ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Test_Client_1"`
+      - :json:`"string"`
       - The name of this application.
-    * - :action-table-field-name:`public`
+
+    * - :action-table-field-name:`public` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - If this is a public or private OAuth Client.
-    * - :action-table-field-name:`redirect_uri`
+
+    * - :action-table-field-name:`redirect_uri` 
       - :action-table-field-type:`string`
-      - :json:`"https://example.org/oauth/callback"`
+      - :json:`"string"`
       - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
-    * - :action-table-field-name:`secret`
+
+    * - :action-table-field-name:`secret` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The OAuth Client secret, used in the OAuth exchange.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"active"`
+      - :json:`"string"`
       - The status of this application.
-    * - :action-table-field-name:`thumbnail_url`
+
+    * - :action-table-field-name:`thumbnail_url` 
       - :action-table-field-type:`string`
-      - :json:`"https://api.linode.com/v4/account/clients/2737bf16b39ab5d7b4a1/thumbnail"`
+      - :json:`"string"`
       - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_clients-list:
 
 `clients-list <https://techdocs.akamai.com/linode-api/reference/get-clients>`_
@@ -1344,6 +1971,14 @@ The attributes returned by this command.
 
 
 Returns a paginated list of OAuth Clients registered to your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1354,10 +1989,24 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account clients-list
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1366,6 +2015,9 @@ Filterable Attributes
 .. rst-class:: action-subheading-description
 
 Arguments used to define a filter for response entries.
+
+
+
 
 .. rst-class:: action-filterable-field-table
 
@@ -1381,9 +2033,23 @@ Arguments used to define a filter for response entries.
     * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`string`
       - The name of this application.
+
     * - :action-table-field-name:`\-\-public`
       - :action-table-field-type:`boolean`
       - If this is a public or private OAuth Client.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1393,7 +2059,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1407,38 +2074,57 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`id`
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"2737bf16b39ab5d7b4a1"`
+      - :json:`"string"`
       - The OAuth Client ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Test_Client_1"`
+      - :json:`"string"`
       - The name of this application.
-    * - :action-table-field-name:`public`
+
+    * - :action-table-field-name:`public` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - If this is a public or private OAuth Client.
-    * - :action-table-field-name:`redirect_uri`
+
+    * - :action-table-field-name:`redirect_uri` 
       - :action-table-field-type:`string`
-      - :json:`"https://example.org/oauth/callback"`
+      - :json:`"string"`
       - The location a successful log in from `login.linode.com <https://login.linode.com>`_ should be redirected to for this client.
-    * - :action-table-field-name:`secret`
+
+    * - :action-table-field-name:`secret` 
       - :action-table-field-type:`string`
-      - :json:`"\u003cREDACTED\u003e"`
+      - :json:`"string"`
       - The OAuth Client secret, used in the OAuth exchange.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"active"`
+      - :json:`"string"`
       - The status of this application.
-    * - :action-table-field-name:`thumbnail_url`
+
+    * - :action-table-field-name:`thumbnail_url` 
       - :action-table-field-type:`string`
-      - :json:`"https://api.linode.com/v4/account/clients/2737bf16b39ab5d7b4a1/thumbnail"`
+      - :json:`"string"`
       - The URL where this client's thumbnail may be viewed, or :code:`null` if this client does not have a thumbnail set.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_enable-managed:
 
 `enable-managed <https://techdocs.akamai.com/linode-api/reference/post-enable-account-managed>`_
@@ -1447,6 +2133,14 @@ The attributes returned by this command.
 
 Enables Linode Managed for the entire account and sends a welcome email to the account's associated email address.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -1454,6 +2148,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -1462,8 +2158,22 @@ Examples of how this command might be used.
 
 
 
+
+
+
+
+
+
+
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_get-account-availability:
 
 `get-account-availability <https://techdocs.akamai.com/linode-api/reference/get-account-availability>`_
@@ -1471,6 +2181,14 @@ Examples of how this command might be used.
 
 
 View the available services for your account in a specific region.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1481,10 +2199,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account get-account-availability us-east
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1493,6 +2223,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1510,6 +2242,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`string`
       - The slug for the applicable data center.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -1518,7 +2265,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1532,22 +2280,37 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`available`
+    * - :action-table-field-name:`available` 
       - :action-table-field-type:`array[string]`
-      - :json:`["Linodes", "NodeBalancers"]`
+      - :json:`"array[string]"`
       - A list of services _available_ to your account in the :code:`region`.
-    * - :action-table-field-name:`region`
+
+    * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-east"`
+      - :json:`"string"`
       - The Akamai cloud computing data center (region), represented by a slug value.
-    * - :action-table-field-name:`unavailable`
+
+    * - :action-table-field-name:`unavailable` 
       - :action-table-field-type:`array[string]`
-      - :json:`["Kubernetes", "Block Storage"]`
+      - :json:`"array[string]"`
       - A list of services _unavailable_ to your account in the :code:`region`.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_get-availability:
 
 `get-availability <https://techdocs.akamai.com/linode-api/reference/get-availability>`_
@@ -1556,6 +2319,14 @@ The attributes returned by this command.
 
 Returns a paginated list of the services available to you, for all Linode regions.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -1565,10 +2336,25 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account get-availability
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1578,7 +2364,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1592,22 +2379,37 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`available`
+    * - :action-table-field-name:`available` 
       - :action-table-field-type:`array[string]`
-      - :json:`["Linodes", "NodeBalancers"]`
+      - :json:`"array[string]"`
       - A list of services _available_ to your account in the :code:`region`.
-    * - :action-table-field-name:`region`
+
+    * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-east"`
+      - :json:`"string"`
       - The Akamai cloud computing data center (region), represented by a slug value.
-    * - :action-table-field-name:`unavailable`
+
+    * - :action-table-field-name:`unavailable` 
       - :action-table-field-type:`array[string]`
-      - :json:`["Kubernetes", "Block Storage"]`
+      - :json:`"array[string]"`
       - A list of services _unavailable_ to your account in the :code:`region`.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_invoice-view:
 
 `invoice-view <https://techdocs.akamai.com/linode-api/reference/get-invoice>`_
@@ -1616,6 +2418,14 @@ The attributes returned by this command.
 
 Returns a single Invoice object.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -1625,10 +2435,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account invoice-view 123
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1637,6 +2459,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1654,6 +2478,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`integer`
       - The ID of the Invoice.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -1662,7 +2501,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1676,40 +2516,51 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`billing_source`
+    * - :action-table-field-name:`billing_source` 
       - :action-table-field-type:`string`
-      - :json:`"linode"`
+      - :json:`"string"`
       - :code:`akamai`: This Invoice was generated according to the terms of an agreement between the customer and Akamai.
-    * - :action-table-field-name:`date`
+
+    * - :action-table-field-name:`date` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When this Invoice was generated.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`123`
+      - :json:`"integer"`
       - The Invoice's unique ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Invoice"`
+      - :json:`"string"`
       - The Invoice's display label.
-    * - :action-table-field-name:`subtotal`
+
+    * - :action-table-field-name:`subtotal` 
       - :action-table-field-type:`number`
-      - :json:`120.25`
+      - :json:`"number"`
       - The amount of the Invoice before taxes in US Dollars.
-    * - :action-table-field-name:`tax`
+
+    * - :action-table-field-name:`tax` 
       - :action-table-field-type:`number`
-      - :json:`12.25`
+      - :json:`"number"`
       - The amount of tax levied on the Invoice in US Dollars.
-    * - :action-table-field-name:`total`
+
+    * - :action-table-field-name:`total` 
       - :action-table-field-type:`number`
-      - :json:`132.5`
+      - :json:`"number"`
       - The amount of the Invoice after taxes in US Dollars.
+
+
+
+
 .. _commands_account_invoice-view_attribute_sections_tax_summary:
 
 .. rst-class:: action-section-header
 
 tax_summary
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -1722,18 +2573,32 @@ tax_summary
       - Example
       - Description
 
-    * - :action-table-field-name:`tax_summary.name`
+    * - :action-table-field-name:`tax_summary.name` 
       - :action-table-field-type:`string`
-      - :json:`"PA STATE TAX"`
+      - :json:`"string"`
       - The source of this tax subtotal.
-    * - :action-table-field-name:`tax_summary.tax`
+
+    * - :action-table-field-name:`tax_summary.tax` 
       - :action-table-field-type:`number`
-      - :json:`12.25`
+      - :json:`"number"`
       - The amount of tax subtotal attributable to this source.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_invoice-items:
 
 `invoice-items <https://techdocs.akamai.com/linode-api/reference/get-invoice-items>`_
@@ -1742,6 +2607,14 @@ tax_summary
 
 Returns a paginated list of Invoice items.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -1751,10 +2624,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account invoice-items 123
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1763,6 +2648,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -1780,6 +2667,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`integer`
       - The ID of the Invoice.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -1788,7 +2690,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1802,50 +2705,72 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`amount`
+    * - :action-table-field-name:`amount` 
       - :action-table-field-type:`number`
-      - :json:`20.2`
+      - :json:`"number"`
       - The price, in US dollars, of the Invoice Item.
-    * - :action-table-field-name:`from`
+
+    * - :action-table-field-name:`from` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - The date the Invoice Item started, based on month.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Linode 123"`
+      - :json:`"string"`
       - The Invoice Item's display label.
-    * - :action-table-field-name:`quantity`
+
+    * - :action-table-field-name:`quantity` 
       - :action-table-field-type:`integer`
-      - :json:`4`
+      - :json:`"integer"`
       - The quantity of this Item for the specified Invoice.
-    * - :action-table-field-name:`region`
+
+    * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-west"`
+      - :json:`"string"`
       - The ID of the applicable Region associated with this Invoice Item.
-    * - :action-table-field-name:`tax`
+
+    * - :action-table-field-name:`tax` 
       - :action-table-field-type:`number`
-      - :json:`1.25`
+      - :json:`"number"`
       - The amount of tax levied on this Item in US Dollars.
-    * - :action-table-field-name:`to`
+
+    * - :action-table-field-name:`to` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-31T11:59:59"`
+      - :json:`"string"`
       - The date the Invoice Item ended, based on month.
-    * - :action-table-field-name:`total`
+
+    * - :action-table-field-name:`total` 
       - :action-table-field-type:`number`
-      - :json:`21.45`
+      - :json:`"number"`
       - The price of this Item after taxes in US Dollars.
-    * - :action-table-field-name:`type`
+
+    * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"hourly"`
+      - :json:`"string"`
       - The type of service, ether :code:`hourly` or :code:`misc`.
-    * - :action-table-field-name:`unit_price`
+
+    * - :action-table-field-name:`unit_price` 
       - :action-table-field-type:`string`
-      - :json:`5.05`
+      - :json:`"string"`
       - The monthly service fee in US Dollars for this Item.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_invoices-list:
 
 `invoices-list <https://techdocs.akamai.com/linode-api/reference/get-invoices>`_
@@ -1853,6 +2778,14 @@ The attributes returned by this command.
 
 
 Returns a paginated list of Invoices against your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1863,10 +2796,24 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account invoices-list
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1875,6 +2822,9 @@ Filterable Attributes
 .. rst-class:: action-subheading-description
 
 Arguments used to define a filter for response entries.
+
+
+
 
 .. rst-class:: action-filterable-field-table
 
@@ -1890,15 +2840,31 @@ Arguments used to define a filter for response entries.
     * - :action-table-field-name:`\-\-billing_source`
       - :action-table-field-type:`string`
       - :code:`akamai`: This Invoice was generated according to the terms of an agreement between the customer and Akamai.
+
     * - :action-table-field-name:`\-\-date`
       - :action-table-field-type:`string`
       - When this Invoice was generated.
+
     * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`string`
       - The Invoice's display label.
+
     * - :action-table-field-name:`\-\-total`
       - :action-table-field-type:`number`
       - The amount of the Invoice after taxes in US Dollars.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1908,7 +2874,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -1922,40 +2889,51 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`billing_source`
+    * - :action-table-field-name:`billing_source` 
       - :action-table-field-type:`string`
-      - :json:`"linode"`
+      - :json:`"string"`
       - :code:`akamai`: This Invoice was generated according to the terms of an agreement between the customer and Akamai.
-    * - :action-table-field-name:`date`
+
+    * - :action-table-field-name:`date` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When this Invoice was generated.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`123`
+      - :json:`"integer"`
       - The Invoice's unique ID.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"Invoice"`
+      - :json:`"string"`
       - The Invoice's display label.
-    * - :action-table-field-name:`subtotal`
+
+    * - :action-table-field-name:`subtotal` 
       - :action-table-field-type:`number`
-      - :json:`120.25`
+      - :json:`"number"`
       - The amount of the Invoice before taxes in US Dollars.
-    * - :action-table-field-name:`tax`
+
+    * - :action-table-field-name:`tax` 
       - :action-table-field-type:`number`
-      - :json:`12.25`
+      - :json:`"number"`
       - The amount of tax levied on the Invoice in US Dollars.
-    * - :action-table-field-name:`total`
+
+    * - :action-table-field-name:`total` 
       - :action-table-field-type:`number`
-      - :json:`132.5`
+      - :json:`"number"`
       - The amount of the Invoice after taxes in US Dollars.
+
+
+
+
 .. _commands_account_invoices-list_attribute_sections_tax_summary:
 
 .. rst-class:: action-section-header
 
 tax_summary
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -1968,18 +2946,32 @@ tax_summary
       - Example
       - Description
 
-    * - :action-table-field-name:`tax_summary.name`
+    * - :action-table-field-name:`tax_summary.name` 
       - :action-table-field-type:`string`
-      - :json:`"PA STATE TAX"`
+      - :json:`"string"`
       - The source of this tax subtotal.
-    * - :action-table-field-name:`tax_summary.tax`
+
+    * - :action-table-field-name:`tax_summary.tax` 
       - :action-table-field-type:`number`
-      - :json:`12.25`
+      - :json:`"number"`
       - The amount of tax subtotal attributable to this source.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_login-view:
 
 `login-view <https://techdocs.akamai.com/linode-api/reference/get-account-login>`_
@@ -1987,6 +2979,14 @@ tax_summary
 
 
 Returns a Login object that displays information about a successful login.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -1997,10 +2997,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account login-view 1234
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2009,6 +3021,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -2026,6 +3040,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`integer`
       - The ID of the login object to access.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -2034,7 +3063,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2048,34 +3078,52 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`datetime`
+    * - :action-table-field-name:`datetime` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When the login was initiated.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`1234`
+      - :json:`"integer"`
       - The unique ID of this login object.
-    * - :action-table-field-name:`ip`
+
+    * - :action-table-field-name:`ip` 
       - :action-table-field-type:`string`
-      - :json:`"192.0.2.0"`
+      - :json:`"string"`
       - The remote IP address that requested the login.
-    * - :action-table-field-name:`restricted`
+
+    * - :action-table-field-name:`restricted` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - True if the User that attempted the login was a restricted User, false otherwise.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"successful"`
+      - :json:`"string"`
       - Whether the login attempt succeeded or failed.
-    * - :action-table-field-name:`username`
+
+    * - :action-table-field-name:`username` 
       - :action-table-field-type:`string`
-      - :json:`"example_user"`
+      - :json:`"string"`
       - The username of the User that attempted the login.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_logins-list:
 
 `logins-list <https://techdocs.akamai.com/linode-api/reference/get-account-logins>`_
@@ -2084,6 +3132,14 @@ The attributes returned by this command.
 
 Returns a collection of successful logins for all users on the account during the last 90 days.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -2093,10 +3149,25 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account logins-list
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2106,7 +3177,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2120,34 +3192,52 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`datetime`
+    * - :action-table-field-name:`datetime` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-01T00:01:01"`
+      - :json:`"string"`
       - When the login was initiated.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`1234`
+      - :json:`"integer"`
       - The unique ID of this login object.
-    * - :action-table-field-name:`ip`
+
+    * - :action-table-field-name:`ip` 
       - :action-table-field-type:`string`
-      - :json:`"192.0.2.0"`
+      - :json:`"string"`
       - The remote IP address that requested the login.
-    * - :action-table-field-name:`restricted`
+
+    * - :action-table-field-name:`restricted` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - True if the User that attempted the login was a restricted User, false otherwise.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"successful"`
+      - :json:`"string"`
       - Whether the login attempt succeeded or failed.
-    * - :action-table-field-name:`username`
+
+    * - :action-table-field-name:`username` 
       - :action-table-field-type:`string`
-      - :json:`"example_user"`
+      - :json:`"string"`
       - The username of the User that attempted the login.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_maintenance-list:
 
 `maintenance-list <https://techdocs.akamai.com/linode-api/reference/get-maintenance>`_
@@ -2155,6 +3245,14 @@ The attributes returned by this command.
 
 
 Returns a collection of Maintenance objects for any entity a user has permissions to view.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2165,10 +3263,24 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account maintenance-list
 
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2177,6 +3289,9 @@ Filterable Attributes
 .. rst-class:: action-subheading-description
 
 Arguments used to define a filter for response entries.
+
+
+
 
 .. rst-class:: action-filterable-field-table
 
@@ -2192,12 +3307,27 @@ Arguments used to define a filter for response entries.
     * - :action-table-field-name:`\-\-status`
       - :action-table-field-type:`string`
       - The maintenance status.
+
     * - :action-table-field-name:`\-\-type`
       - :action-table-field-type:`string`
       - The type of maintenance.
+
     * - :action-table-field-name:`\-\-when`
       - :action-table-field-type:`string`
       - When the maintenance will begin.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2207,7 +3337,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2221,28 +3352,36 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`reason`
+    * - :action-table-field-name:`reason` 
       - :action-table-field-type:`string`
-      - :json:`"This maintenance will allow us to update the BIOS on the host\u0027s motherboard."`
+      - :json:`"string"`
       - The reason maintenance is being performed.
-    * - :action-table-field-name:`status`
+
+    * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"started"`
+      - :json:`"string"`
       - The maintenance status.
-    * - :action-table-field-name:`type`
+
+    * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"reboot"`
+      - :json:`"string"`
       - The type of maintenance.
-    * - :action-table-field-name:`when`
+
+    * - :action-table-field-name:`when` 
       - :action-table-field-type:`string`
-      - :json:`"2020-07-09T00:01:01"`
+      - :json:`"string"`
       - When the maintenance will begin.
+
+
+
+
 .. _commands_account_maintenance-list_attribute_sections_entity:
 
 .. rst-class:: action-section-header
 
 entity
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -2255,26 +3394,42 @@ entity
       - Example
       - Description
 
-    * - :action-table-field-name:`entity.id`
+    * - :action-table-field-name:`entity.id` 
       - :action-table-field-type:`number`
-      - :json:`1234`
+      - :json:`"number"`
       - The id of the entity being affected by maintenance.
-    * - :action-table-field-name:`entity.label`
+
+    * - :action-table-field-name:`entity.label` 
       - :action-table-field-type:`string`
-      - :json:`"demo-linode"`
+      - :json:`"string"`
       - The label of the entity being affected by maintenance.
-    * - :action-table-field-name:`entity.type`
+
+    * - :action-table-field-name:`entity.type` 
       - :action-table-field-type:`string`
-      - :json:`"Linode"`
+      - :json:`"string"`
       - The type of entity.
-    * - :action-table-field-name:`entity.url`
+
+    * - :action-table-field-name:`entity.url` 
       - :action-table-field-type:`string`
-      - :json:`"https://api.linode.com/v4/linode/instances/{linodeId}"`
+      - :json:`"string"`
       - The API endpoint prefix to use in combination with the entity id to find specific information about the entity.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_notifications-list:
 
 `notifications-list <https://techdocs.akamai.com/linode-api/reference/get-notifications>`_
@@ -2283,6 +3438,14 @@ entity
 
 Returns a collection of Notification objects representing important, often time-sensitive items related to your Account.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -2292,10 +3455,25 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account notifications-list
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2305,7 +3483,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2319,40 +3498,51 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`body`
+    * - :action-table-field-name:`body` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - A full description of this Notification, in markdown format.
-    * - :action-table-field-name:`label`
+
+    * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"You have an important ticket open!"`
+      - :json:`"string"`
       - A short description of this Notification.
-    * - :action-table-field-name:`message`
+
+    * - :action-table-field-name:`message` 
       - :action-table-field-type:`string`
-      - :json:`"You have an important ticket open!"`
+      - :json:`"string"`
       - A human-readable description of the Notification.
-    * - :action-table-field-name:`severity`
+
+    * - :action-table-field-name:`severity` 
       - :action-table-field-type:`string`
-      - :json:`"major"`
+      - :json:`"string"`
       - The severity of this Notification.
-    * - :action-table-field-name:`type`
+
+    * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"ticket_important"`
+      - :json:`"string"`
       - The type of Notification this is.
-    * - :action-table-field-name:`until`
+
+    * - :action-table-field-name:`until` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - If this Notification has a duration, this will be the ending time for the Event/action.
-    * - :action-table-field-name:`when`
+
+    * - :action-table-field-name:`when` 
       - :action-table-field-type:`string`
-      - ?
+      - 
       - If this Notification is of an Event that will happen at a fixed, future time, this is when the named action will be taken.
+
+
+
+
 .. _commands_account_notifications-list_attribute_sections_entity:
 
 .. rst-class:: action-section-header
 
 entity
 
+
 .. rst-class:: action-attribute-section-table
 
 ..  list-table::
@@ -2365,26 +3555,42 @@ entity
       - Example
       - Description
 
-    * - :action-table-field-name:`entity.id`
+    * - :action-table-field-name:`entity.id` 
       - :action-table-field-type:`integer`
-      - :json:`3456`
+      - :json:`"integer"`
       - The unique ID of the Notification's entity, based on the entity type.
-    * - :action-table-field-name:`entity.label`
+
+    * - :action-table-field-name:`entity.label` 
       - :action-table-field-type:`string`
-      - :json:`"Linode not booting."`
+      - :json:`"string"`
       - The current label for this Notification's entity.
-    * - :action-table-field-name:`entity.type`
+
+    * - :action-table-field-name:`entity.type` 
       - :action-table-field-type:`string`
-      - :json:`"ticket"`
+      - :json:`"string"`
       - The type of entity this is related to.
-    * - :action-table-field-name:`entity.url`
+
+    * - :action-table-field-name:`entity.url` 
       - :action-table-field-type:`string`
-      - :json:`"/support/tickets/3456"`
+      - :json:`"string"`
       - The URL where you can access the object this Notification is for.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_payment-view:
 
 `payment-view <https://techdocs.akamai.com/linode-api/reference/get-payment>`_
@@ -2392,6 +3598,14 @@ entity
 
 
 Returns information about a specific Payment.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2402,10 +3616,22 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account payment-view 123
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2414,6 +3640,8 @@ Parameters
 .. rst-class:: action-subheading-description
 
 Positional parameters used to define the resource this command should target.
+
+
 
 
 .. rst-class:: action-parameter-table
@@ -2431,6 +3659,21 @@ Positional parameters used to define the resource this command should target.
       - :action-table-field-type:`integer`
       - The ID of the Payment to look up.
 
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Result Attributes
@@ -2439,7 +3682,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2453,22 +3697,37 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`date`
+    * - :action-table-field-name:`date` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-15T00:01:01"`
+      - :json:`"string"`
       - When the Payment was made.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`123`
+      - :json:`"integer"`
       - The unique ID of the Payment.
-    * - :action-table-field-name:`usd`
+
+    * - :action-table-field-name:`usd` 
       - :action-table-field-type:`integer`
-      - :json:`"120.50"`
+      - :json:`"integer"`
       - The amount, in US dollars, of the Payment.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_payment-create:
 
 `payment-create <https://techdocs.akamai.com/linode-api/reference/post-payment>`_
@@ -2477,6 +3736,14 @@ The attributes returned by this command.
 
 Makes a Payment to your Account.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -2484,6 +3751,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -2493,6 +3762,17 @@ Examples of how this command might be used.
     	--payment_method_id 123
 
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -2500,6 +3780,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -2513,14 +3797,29 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-payment_method_id`
+    * - :action-table-field-name:`\-\-payment_method_id` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`integer`
       - The ID of the Payment Method to apply to the Payment.
-    * - :action-table-field-name:`\-\-usd`
+
+    * - :action-table-field-name:`\-\-usd` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The amount in US Dollars of the Payment.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2530,7 +3829,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2544,22 +3844,37 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`date`
+    * - :action-table-field-name:`date` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-15T00:01:01"`
+      - :json:`"string"`
       - When the Payment was made.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`123`
+      - :json:`"integer"`
       - The unique ID of the Payment.
-    * - :action-table-field-name:`usd`
+
+    * - :action-table-field-name:`usd` 
       - :action-table-field-type:`integer`
-      - :json:`"120.50"`
+      - :json:`"integer"`
       - The amount, in US dollars, of the Payment.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_payments-list:
 
 `payments-list <https://techdocs.akamai.com/linode-api/reference/get-payments>`_
@@ -2568,6 +3883,14 @@ The attributes returned by this command.
 
 Returns a paginated list of Payments made on this Account.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -2577,10 +3900,25 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account payments-list
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2590,7 +3928,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2604,22 +3943,37 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`date`
+    * - :action-table-field-name:`date` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-15T00:01:01"`
+      - :json:`"string"`
       - When the Payment was made.
-    * - :action-table-field-name:`id`
+
+    * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`123`
+      - :json:`"integer"`
       - The unique ID of the Payment.
-    * - :action-table-field-name:`usd`
+
+    * - :action-table-field-name:`usd` 
       - :action-table-field-type:`integer`
-      - :json:`"120.50"`
+      - :json:`"integer"`
       - The amount, in US dollars, of the Payment.
+
+
+
+
+
+
 
 
 ------------
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_promo-add:
 
 `promo-add <https://techdocs.akamai.com/linode-api/reference/post-promo-credit>`_
@@ -2628,6 +3982,14 @@ The attributes returned by this command.
 
 Adds an expiring Promo Credit to your account.
 
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Sample
@@ -2635,6 +3997,8 @@ Sample
 .. rst-class:: action-subheading-description
 
 Examples of how this command might be used.
+
+
 
 
 ..  code-block:: bash
@@ -2644,6 +4008,17 @@ Examples of how this command might be used.
     	--promo-code abcdefABCDEF1234567890
 
 
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
+
 .. rst-class:: action-subheading
 
 Arguments
@@ -2651,6 +4026,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -2664,10 +4043,24 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-promo_code`
+    * - :action-table-field-name:`\-\-promo_code` 
       - :action-table-field-required:`Yes`
       - :action-table-field-type:`string`
       - The Promo Code.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2677,7 +4070,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2691,41 +4085,61 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`credit_monthly_cap`
+    * - :action-table-field-name:`credit_monthly_cap` 
       - :action-table-field-type:`string`
-      - :json:`"10.00"`
+      - :json:`"string"`
       - The amount available to spend per month.
-    * - :action-table-field-name:`credit_remaining`
+
+    * - :action-table-field-name:`credit_remaining` 
       - :action-table-field-type:`string`
-      - :json:`"50.00"`
+      - :json:`"string"`
       - The total amount of credit left for this promotion.
-    * - :action-table-field-name:`description`
+
+    * - :action-table-field-name:`description` 
       - :action-table-field-type:`string`
-      - :json:`"Receive up to $10 off your services every month for 6 months! Unused credits will expire once this promotion period ends."`
+      - :json:`"string"`
       - A detailed description of this promotion.
-    * - :action-table-field-name:`expire_dt`
+
+    * - :action-table-field-name:`expire_dt` 
       - :action-table-field-type:`string`
-      - :json:`"2018-01-31T23:59:59"`
+      - :json:`"string"`
       - When this promotion's credits expire.
-    * - :action-table-field-name:`image_url`
+
+    * - :action-table-field-name:`image_url` 
       - :action-table-field-type:`string`
-      - :json:`"https://linode.com/10_a_month_promotion.svg"`
+      - :json:`"string"`
       - The location of an image for this promotion.
-    * - :action-table-field-name:`service_type`
+
+    * - :action-table-field-name:`service_type` 
       - :action-table-field-type:`string`
-      - :json:`"all"`
+      - :json:`"string"`
       - The service to which this promotion applies.
-    * - :action-table-field-name:`summary`
+
+    * - :action-table-field-name:`summary` 
       - :action-table-field-type:`string`
-      - :json:`"$10 off your Linode a month!"`
+      - :json:`"string"`
       - Short details of this promotion.
-    * - :action-table-field-name:`this_month_credit_remaining`
+
+    * - :action-table-field-name:`this_month_credit_remaining` 
       - :action-table-field-type:`string`
-      - :json:`"10.00"`
+      - :json:`"string"`
       - The amount of credit left for this month for this promotion.
 
 
 
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 .. _commands_account_settings-update:
 
 `settings-update <https://techdocs.akamai.com/linode-api/reference/put-account-settings>`_
@@ -2733,6 +4147,14 @@ The attributes returned by this command.
 
 
 Updates your account settings.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2743,11 +4165,24 @@ Sample
 Examples of how this command might be used.
 
 
+
+
 ..  code-block:: bash
 
     linode-cli account settings-update \
     	--network_helper false
 
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2756,6 +4191,10 @@ Arguments
 .. rst-class:: action-subheading-description
 
 Additional fields used to execute this request.
+
+
+
+
 
 .. rst-class:: action-argument-section-table
 
@@ -2769,26 +4208,44 @@ Additional fields used to execute this request.
       - Type
       - Description
 
-    * - :action-table-field-name:`\-\-backups_enabled`
+    * - :action-table-field-name:`\-\-backups_enabled` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - Account-wide backups default.
-    * - :action-table-field-name:`\-\-longview_subscription`
+
+    * - :action-table-field-name:`\-\-longview_subscription` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - The Longview Pro tier you are currently subscribed to.
-    * - :action-table-field-name:`\-\-managed`
+
+    * - :action-table-field-name:`\-\-managed` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - Our 24/7 incident response service.
-    * - :action-table-field-name:`\-\-network_helper`
+
+    * - :action-table-field-name:`\-\-network_helper` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`boolean`
       - Enables network helper across all users by default for new Linodes and Linode Configs.
-    * - :action-table-field-name:`\-\-object_storage`
+
+    * - :action-table-field-name:`\-\-object_storage` 
       - :action-table-field-optional:`No`
       - :action-table-field-type:`string`
       - A string describing the status of this account's Object Storage service enrollment.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+
+.. role:: json(code)
+    :language: JSON
 
 .. rst-class:: action-subheading
 
@@ -2798,7 +4255,8 @@ Result Attributes
 
 The attributes returned by this command.
 
-.. rst-class:: action-attribute-table
+
+
 
 .. rst-class:: action-attribute-section-table
 
@@ -2812,26 +4270,36 @@ The attributes returned by this command.
       - Example
       - Description
 
-    * - :action-table-field-name:`backups_enabled`
+    * - :action-table-field-name:`backups_enabled` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Account-wide backups default.
-    * - :action-table-field-name:`longview_subscription`
+
+    * - :action-table-field-name:`longview_subscription` 
       - :action-table-field-type:`string`
-      - :json:`"longview-3"`
+      - :json:`"string"`
       - The Longview Pro tier you are currently subscribed to.
-    * - :action-table-field-name:`managed`
+
+    * - :action-table-field-name:`managed` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - :json:`"boolean"`
       - Our 24/7 incident response service.
-    * - :action-table-field-name:`network_helper`
+
+    * - :action-table-field-name:`network_helper` 
       - :action-table-field-type:`boolean`
-      - ?
+      - 
       - Enables network helper across all users by default for new Linodes and Linode Configs.
-    * - :action-table-field-name:`object_storage`
+
+    * - :action-table-field-name:`object_storage` 
       - :action-table-field-type:`string`
-      - :json:`"active"`
+      - :json:`"string"`
       - A string describing the status of this account's Object Storage service enrollment.
+
+
+
+
+
+
 
 
 
