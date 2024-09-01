@@ -73,7 +73,7 @@ jobs:
           name: generated-docs-html
           path: docs/build/html
 
-  staeg:
+  stage:
     name: Stage
     runs-on: ubuntu-latest
     needs:
@@ -103,7 +103,7 @@ jobs:
       - name: Ensure any previous documentation for this branch is removed
         run: rm -rf "./${{ github.ref_name }}"
 
-      - name: Download the artifact from the previous job
+      - name: Download the artifact from the build job
         uses: actions/download-artifact@v4
         with:
           name: generated-docs-html
@@ -126,3 +126,26 @@ jobs:
           git add .;
           git commit --allow-empty -m "Build ${{ github.ref_name }} from ${{ github.sha }}";
           git push origin static/docs;
+
+  upload-release-asset:
+    name: Upload Release Asset
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    if: github.ref_type == 'tag'
+    steps:
+      - name: Download the artifact from the previous job
+        uses: actions/download-artifact@v4
+        with:
+          name: generated-docs-html
+          path: ".build/${{ github.ref_name }}"
+
+      - name: Archive the built documentation
+        run: |
+          cd .build/${{ github.ref_name }} && tar -czvf ../documentation.tar.gz *
+
+      - name: Upload the documentation as a release asset
+        uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191
+        with:
+          files: .build/documentation.tar.gz
+          tag_name: ${{ github.ref_name }}
