@@ -93,14 +93,17 @@ class Argument:
         :returns: The initialized object.
         """
 
+        type_str = arg.datatype
+        if arg.item_type is not None:
+            type_str = f"{arg.datatype}[{arg.item_type}]"
+
+        if arg.format == "json":
+            type_str = "json"
+
         return cls(
             path=arg.path,
             required=arg.required,
-            type=(
-                arg.datatype
-                if arg.item_type is None
-                else f"{arg.datatype}[{arg.item_type}]"
-            ),
+            type=type_str,
             is_json=arg.format == "json",
             is_nullable=arg.nullable,
             is_parent=arg.is_parent,
@@ -224,7 +227,9 @@ class Action:
                 if not isinstance(arg, OpenAPIRequestArg):
                     continue
 
-                sections[arg.prefix or ""].append(Argument.from_openapi(arg))
+                sections[arg.parent if arg.is_child else ""].append(
+                    Argument.from_openapi(arg)
+                )
 
             result.argument_sections = sorted(
                 [

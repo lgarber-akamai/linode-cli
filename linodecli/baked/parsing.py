@@ -144,8 +144,6 @@ def get_short_description(description: str) -> str:
         if simplified is not None
     )
 
-    print(result)
-
     if result is None:
         raise ValueError(
             f"description does not contain any relevant lines: {description}",
