@@ -964,16 +964,6 @@ Additional fields used to execute this request.
       - :action-table-field-example:`linode123`
       - The Linode's label is for display purposes only.
 
-    * - :action-table-field-name:`\-\-metadata.user_data`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`I2Nsb3VkLWNv...ZGU6IHRydWU=`
-      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
-
-    * - :action-table-field-name:`\-\-placement_group.id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`528`
-      - The placement group's ID.
-
     * - :action-table-field-name:`\-\-private_ip`
       - :action-table-field-type:`bool`
       - :action-table-field-example:`True`
@@ -1003,6 +993,16 @@ Additional fields used to execute this request.
       - :action-table-field-type:`[]string`
       - :action-table-field-example:`example tag`
       - An array of tags applied to this object.
+
+    * - :action-table-field-name:`\-\-metadata.user_data`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I2Nsb3VkLWNv...ZGU6IHRydWU=`
+      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
+
+    * - :action-table-field-name:`\-\-placement_group.id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`528`
+      - The placement group's ID.
 
 
 
@@ -1036,11 +1036,6 @@ interfaces
       - :action-table-field-type:`bool`
       - :action-table-field-example:`True`
       - Returns :code:`true` if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.
-
-    * - :action-table-field-name:`\-\-interfaces.id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`101`
-      - The unique ID representing this Interface.
 
     * - :action-table-field-name:`\-\-interfaces.ip_ranges`
       - :action-table-field-type:`json`
@@ -1076,11 +1071,6 @@ interfaces
       - :action-table-field-type:`int`
       - :action-table-field-example:`101`
       - The :code:`id` of the VPC Subnet for this Interface.
-
-    * - :action-table-field-name:`\-\-interfaces.vpc_id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`111`
-      - The :code:`id` of the VPC configured for this Interface.
 
 
 
@@ -1516,6 +1506,26 @@ Additional fields used to execute this request.
       - Example
       - Description
 
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Linode-Group`
+      - A deprecated property denoting a group label for this Linode.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
+      - The Linode's label is for display purposes only.
+
+    * - :action-table-field-name:`\-\-tags`
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`example tag`
+      - An array of tags applied to this object.
+
+    * - :action-table-field-name:`\-\-watchdog_enabled`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
+      - The watchdog, named Lassie, is a Shutdown Watchdog that monitors your Linode and will reboot it if it powers off unexpectedly.
+
     * - :action-table-field-name:`\-\-alerts.cpu`
       - :action-table-field-type:`int`
       - :action-table-field-example:`180`
@@ -1541,21 +1551,6 @@ Additional fields used to execute this request.
       - :action-table-field-example:`80`
       - The percentage of network transfer that may be used before an alert is triggered.
 
-    * - :action-table-field-name:`\-\-backups.available`
-      - :action-table-field-type:`bool`
-      - :action-table-field-example:`True`
-      - Whether Backups for this Linode are available for restoration.
-
-    * - :action-table-field-name:`\-\-backups.enabled`
-      - :action-table-field-type:`bool`
-      - :action-table-field-example:`True`
-      - If this Linode has the Backup service enabled.
-
-    * - :action-table-field-name:`\-\-backups.last_successful`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`2018-01-01T00:01:01`
-      - The last successful backup date.
-
     * - :action-table-field-name:`\-\-backups.schedule.day`
       - :action-table-field-type:`str`
       - :action-table-field-example:`Saturday`
@@ -1565,96 +1560,6 @@ Additional fields used to execute this request.
       - :action-table-field-type:`str`
       - :action-table-field-example:`W22`
       - The window in which your backups will be taken, in UTC.
-
-    * - :action-table-field-name:`\-\-created`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`2018-01-01T00:01:01`
-      - When this Linode was created.
-
-    * - :action-table-field-name:`\-\-group`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`Linode-Group`
-      - A deprecated property denoting a group label for this Linode.
-
-    * - :action-table-field-name:`\-\-has_user_data`
-      - :action-table-field-type:`bool`
-      - :action-table-field-example:`True`
-      - Whether this compute instance was provisioned utilizing :code:`user_data` provided via the Metadata service.
-
-    * - :action-table-field-name:`\-\-host_uuid`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`3a3ddd59d9a7...f44de62bfec8`
-      - The Linode's host machine, as a UUID.
-
-    * - :action-table-field-name:`\-\-hypervisor`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`kvm`
-      - The virtualization software powering this Linode.
-
-    * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`123`
-      - This Linode's ID which must be provided for all operations impacting this Linode.
-
-    * - :action-table-field-name:`\-\-image`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`linode/debian9`
-      - An Image ID to deploy the Linode Disk from.
-
-    * - :action-table-field-name:`\-\-ipv4`
-      - :action-table-field-type:`[]string`
-      - :action-table-field-example:`203.0.113.1`
-      - This Linode's IPv4 Addresses.
-
-    * - :action-table-field-name:`\-\-ipv6`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`c001:d00d::1337/128`
-      - This Linode's IPv6 SLAAC address.
-
-    * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`linode123`
-      - The Linode's label is for display purposes only.
-
-    * - :action-table-field-name:`\-\-placement_group`
-      - :action-table-field-type:`json`
-      - :action-table-field-example:`N/A`
-      - Details on the `placement group <https://www.linode.com/docs/products/compute/compute-instances/guides/placement-groups/>`_ that this Linode belongs to.
-
-    * - :action-table-field-name:`\-\-region`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`us-east`
-      - This is the `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the Linode was deployed.
-
-    * - :action-table-field-name:`\-\-specs`
-      - :action-table-field-type:`json`
-      - :action-table-field-example:`N/A`
-      - Information about the resources available to this Linode.
-
-    * - :action-table-field-name:`\-\-status`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`running`
-      - A brief description of this Linode's current state.
-
-    * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`[]string`
-      - :action-table-field-example:`example tag`
-      - An array of tags applied to this object.
-
-    * - :action-table-field-name:`\-\-type`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`g6-standard-1`
-      - This is the `Linode type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ that this Linode was deployed with.
-
-    * - :action-table-field-name:`\-\-updated`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`2018-01-01T00:01:01`
-      - When this Linode was last updated.
-
-    * - :action-table-field-name:`\-\-watchdog_enabled`
-      - :action-table-field-type:`bool`
-      - :action-table-field-example:`True`
-      - The watchdog, named Lassie, is a Shutdown Watchdog that monitors your Linode and will reboot it if it powers off unexpectedly.
 
 
 
@@ -2349,11 +2254,6 @@ Additional fields used to execute this request.
       - :action-table-field-example:`124`
       - If an existing Linode is the target for the clone, the ID of that Linode.
 
-    * - :action-table-field-name:`\-\-metadata.user_data`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`I2Nsb3VkLWNv...ZGU6IHRydWU=`
-      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
-
     * - :action-table-field-name:`\-\-private_ip`
       - :action-table-field-type:`bool`
       - :action-table-field-example:`True`
@@ -2368,6 +2268,11 @@ Additional fields used to execute this request.
       - :action-table-field-type:`str`
       - :action-table-field-example:`g6-standard-2`
       - A Linode's Type determines what resources are available to it, including disk space, memory, and virtual cpus.
+
+    * - :action-table-field-name:`\-\-metadata.user_data`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I2Nsb3VkLWNv...ZGU6IHRydWU=`
+      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
 
 
 
@@ -3374,11 +3279,6 @@ Additional fields used to execute this request.
       - :action-table-field-example:`N/A`
       - This field defaults to :code:`true` if the Linode is created with an Image or from a Backup.
 
-    * - :action-table-field-name:`\-\-metadata.user_data`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`I2Nsb3VkLWNv...ZGU6IHRydWU=`
-      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
-
     * - :action-table-field-name:`\-\-stackscript_data`
       - :action-table-field-type:`json`
       - :action-table-field-example:`{"gh_username": "linode"}`
@@ -3393,6 +3293,11 @@ Additional fields used to execute this request.
       - :action-table-field-type:`str`
       - :action-table-field-example:`g6-standard-2`
       - The ID of the `Linode type <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_ to resize to with this request.
+
+    * - :action-table-field-name:`\-\-metadata.user_data`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I2Nsb3VkLWNv...ZGU6IHRydWU=`
+      - Base64-encoded `cloud-config <https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/>`_ data.
 
 
 
@@ -6334,6 +6239,36 @@ Additional fields used to execute this request.
       - :action-table-field-example:`This is my main Config`
       - Optional field for arbitrary User comments on this Config.
 
+    * - :action-table-field-name:`\-\-interfaces` :ref:`(section) <commands_linodes_config-create_argument_sections_interfaces>`
+      - :action-table-field-type:`json`
+      - :action-table-field-example:`N/A`
+      - The Network Interface to apply to this Linode's configuration profile.
+
+    * - :action-table-field-name:`\-\-kernel`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode/latest-64bit`
+      - A Kernel ID to boot a Linode with.
+
+    * - :action-table-field-name:`\-\-memory_limit`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2048`
+      - Defaults to the total RAM of the Linode.
+
+    * - :action-table-field-name:`\-\-root_device`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/dev/sda`
+      - The root device to boot.
+
+    * - :action-table-field-name:`\-\-run_level`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`default`
+      - Defines the state of your Linode after booting.
+
+    * - :action-table-field-name:`\-\-virt_mode`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`paravirt`
+      - Controls the virtualization mode.
+
     * - :action-table-field-name:`\-\-devices.sda.disk_id`
       - :action-table-field-type:`int`
       - :action-table-field-example:`124458`
@@ -6439,41 +6374,6 @@ Additional fields used to execute this request.
       - :action-table-field-example:`True`
       - Disables updatedb cron job to avoid disk thrashing.
 
-    * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`23456`
-      - The ID of this Config.
-
-    * - :action-table-field-name:`\-\-interfaces` :ref:`(section) <commands_linodes_config-create_argument_sections_interfaces>`
-      - :action-table-field-type:`json`
-      - :action-table-field-example:`N/A`
-      - The Network Interface to apply to this Linode's configuration profile.
-
-    * - :action-table-field-name:`\-\-kernel`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`linode/latest-64bit`
-      - A Kernel ID to boot a Linode with.
-
-    * - :action-table-field-name:`\-\-memory_limit`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`2048`
-      - Defaults to the total RAM of the Linode.
-
-    * - :action-table-field-name:`\-\-root_device`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`/dev/sda`
-      - The root device to boot.
-
-    * - :action-table-field-name:`\-\-run_level`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`default`
-      - Defines the state of your Linode after booting.
-
-    * - :action-table-field-name:`\-\-virt_mode`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`paravirt`
-      - Controls the virtualization mode.
-
 
 
 
@@ -6506,11 +6406,6 @@ interfaces
       - :action-table-field-type:`bool`
       - :action-table-field-example:`True`
       - Returns :code:`true` if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.
-
-    * - :action-table-field-name:`\-\-interfaces.id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`101`
-      - The unique ID representing this Interface.
 
     * - :action-table-field-name:`\-\-interfaces.ip_ranges`
       - :action-table-field-type:`json`
@@ -6546,11 +6441,6 @@ interfaces
       - :action-table-field-type:`int`
       - :action-table-field-example:`101`
       - The :code:`id` of the VPC Subnet for this Interface.
-
-    * - :action-table-field-name:`\-\-interfaces.vpc_id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`111`
-      - The :code:`id` of the VPC configured for this Interface.
 
 
 
@@ -7003,6 +6893,41 @@ Additional fields used to execute this request.
       - :action-table-field-example:`This is my main Config`
       - Optional field for arbitrary User comments on this Config.
 
+    * - :action-table-field-name:`\-\-interfaces` :ref:`(section) <commands_linodes_config-update_argument_sections_interfaces>`
+      - :action-table-field-type:`json`
+      - :action-table-field-example:`N/A`
+      - The Network Interface to apply to this Linode's configuration profile.
+
+    * - :action-table-field-name:`\-\-kernel`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode/latest-64bit`
+      - A Kernel ID to boot a Linode with.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`My Config`
+      - The Config's label is for display purposes only.
+
+    * - :action-table-field-name:`\-\-memory_limit`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2048`
+      - Defaults to the total RAM of the Linode.
+
+    * - :action-table-field-name:`\-\-root_device`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/dev/sda`
+      - The root device to boot.
+
+    * - :action-table-field-name:`\-\-run_level`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`default`
+      - Defines the state of your Linode after booting.
+
+    * - :action-table-field-name:`\-\-virt_mode`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`paravirt`
+      - Controls the virtualization mode.
+
     * - :action-table-field-name:`\-\-devices.sda.disk_id`
       - :action-table-field-type:`int`
       - :action-table-field-example:`124458`
@@ -7108,46 +7033,6 @@ Additional fields used to execute this request.
       - :action-table-field-example:`True`
       - Disables updatedb cron job to avoid disk thrashing.
 
-    * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`23456`
-      - The ID of this Config.
-
-    * - :action-table-field-name:`\-\-interfaces` :ref:`(section) <commands_linodes_config-update_argument_sections_interfaces>`
-      - :action-table-field-type:`json`
-      - :action-table-field-example:`N/A`
-      - The Network Interface to apply to this Linode's configuration profile.
-
-    * - :action-table-field-name:`\-\-kernel`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`linode/latest-64bit`
-      - A Kernel ID to boot a Linode with.
-
-    * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`My Config`
-      - The Config's label is for display purposes only.
-
-    * - :action-table-field-name:`\-\-memory_limit`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`2048`
-      - Defaults to the total RAM of the Linode.
-
-    * - :action-table-field-name:`\-\-root_device`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`/dev/sda`
-      - The root device to boot.
-
-    * - :action-table-field-name:`\-\-run_level`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`default`
-      - Defines the state of your Linode after booting.
-
-    * - :action-table-field-name:`\-\-virt_mode`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`paravirt`
-      - Controls the virtualization mode.
-
 
 
 
@@ -7180,11 +7065,6 @@ interfaces
       - :action-table-field-type:`bool`
       - :action-table-field-example:`True`
       - Returns :code:`true` if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.
-
-    * - :action-table-field-name:`\-\-interfaces.id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`101`
-      - The unique ID representing this Interface.
 
     * - :action-table-field-name:`\-\-interfaces.ip_ranges`
       - :action-table-field-type:`json`
@@ -7220,11 +7100,6 @@ interfaces
       - :action-table-field-type:`int`
       - :action-table-field-example:`101`
       - The :code:`id` of the VPC Subnet for this Interface.
-
-    * - :action-table-field-name:`\-\-interfaces.vpc_id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`111`
-      - The :code:`id` of the VPC configured for this Interface.
 
 
 
@@ -7979,11 +7854,6 @@ Additional fields used to execute this request.
       - :action-table-field-example:`True`
       - Returns :code:`true` if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.
 
-    * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`101`
-      - The unique ID representing this Interface.
-
     * - :action-table-field-name:`\-\-ip_ranges`
       - :action-table-field-type:`[]string`
       - :action-table-field-example:`10.0.0.64/26`
@@ -7993,16 +7863,6 @@ Additional fields used to execute this request.
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.1/24`
       - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
-
-    * - :action-table-field-name:`\-\-ipv4.nat_1_1`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`203.0.113.2`
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
-
-    * - :action-table-field-name:`\-\-ipv4.vpc`
-      - :action-table-field-type:`str`
-      - :action-table-field-example:`10.0.0.2`
-      - The VPC Subnet IPv4 address for this Interface.
 
     * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`str`
@@ -8019,10 +7879,15 @@ Additional fields used to execute this request.
       - :action-table-field-example:`101`
       - The :code:`id` of the VPC Subnet for this Interface.
 
-    * - :action-table-field-name:`\-\-vpc_id`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`111`
-      - The :code:`id` of the VPC configured for this Interface.
+    * - :action-table-field-name:`\-\-ipv4.nat_1_1`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`203.0.113.2`
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+
+    * - :action-table-field-name:`\-\-ipv4.vpc`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.0.2`
+      - The VPC Subnet IPv4 address for this Interface.
 
 
 
@@ -8280,6 +8145,11 @@ Additional fields used to execute this request.
       - :action-table-field-example:`10.0.0.64/26`
       - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
 
+    * - :action-table-field-name:`\-\-primary`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
+      - The primary Interface is configured as the default route to the Linode.
+
     * - :action-table-field-name:`\-\-ipv4.nat_1_1`
       - :action-table-field-type:`str`
       - :action-table-field-example:`203.0.113.2`
@@ -8289,11 +8159,6 @@ Additional fields used to execute this request.
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.2`
       - The VPC Subnet IPv4 address for this Interface.
-
-    * - :action-table-field-name:`\-\-primary`
-      - :action-table-field-type:`bool`
-      - :action-table-field-example:`True`
-      - The primary Interface is configured as the default route to the Linode.
 
 
 

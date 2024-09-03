@@ -563,11 +563,6 @@ Additional fields used to execute this request.
       - :action-table-field-example:`us-central`
       - This Kubernetes cluster's location.
 
-    * - :action-table-field-name:`\-\-control_plane.high_availability`
-      - :action-table-field-type:`bool`
-      - :action-table-field-example:`True`
-      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
-
     * - :action-table-field-name:`\-\-node_pools` :ref:`(section) <commands_lke_cluster-create_argument_sections_node_pools>`
       - :action-table-field-type:`json`
       - :action-table-field-example:`N/A`
@@ -577,6 +572,11 @@ Additional fields used to execute this request.
       - :action-table-field-type:`[]string`
       - :action-table-field-example:`ecomm`
       - An array of tags applied to the Kubernetes cluster.
+
+    * - :action-table-field-name:`\-\-control_plane.high_availability`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
+      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
 
 
@@ -921,11 +921,6 @@ Additional fields used to execute this request.
       - Example
       - Description
 
-    * - :action-table-field-name:`\-\-control_plane.high_availability`
-      - :action-table-field-type:`bool`
-      - :action-table-field-example:`True`
-      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
-
     * - :action-table-field-name:`\-\-k8s_version`
       - :action-table-field-type:`str`
       - :action-table-field-example:`N/A`
@@ -940,6 +935,11 @@ Additional fields used to execute this request.
       - :action-table-field-type:`[]string`
       - :action-table-field-example:`prod`
       - An array of tags applied to the Kubernetes cluster.
+
+    * - :action-table-field-name:`\-\-control_plane.high_availability`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
+      - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
 
 
@@ -2540,6 +2540,21 @@ Additional fields used to execute this request.
       - :action-table-field-example:`g6-standard-4`
       - The Linode Type for all of the nodes in the Node Pool.
 
+    * - :action-table-field-name:`\-\-disks`
+      - :action-table-field-type:`json`
+      - :action-table-field-example:`N/A`
+      - This field should be omitted except for special use cases.
+
+    * - :action-table-field-name:`\-\-tags`
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`example tag`
+      - An array of tags applied to this object.
+
+    * - :action-table-field-name:`\-\-taints` :ref:`(section) <commands_lke_pool-create_argument_sections_taints>`
+      - :action-table-field-type:`json`
+      - :action-table-field-example:`N/A`
+      - N/A
+
     * - :action-table-field-name:`\-\-autoscaler.enabled`
       - :action-table-field-type:`bool`
       - :action-table-field-example:`True`
@@ -2555,11 +2570,6 @@ Additional fields used to execute this request.
       - :action-table-field-example:`3`
       - The minimum number of nodes to autoscale to.
 
-    * - :action-table-field-name:`\-\-disks`
-      - :action-table-field-type:`json`
-      - :action-table-field-example:`N/A`
-      - This field should be omitted except for special use cases.
-
     * - :action-table-field-name:`\-\-labels.key`
       - :action-table-field-type:`str`
       - :action-table-field-example:`example.com/my-app`
@@ -2569,16 +2579,6 @@ Additional fields used to execute this request.
       - :action-table-field-type:`str`
       - :action-table-field-example:`teams`
       - The Kubernetes label value.
-
-    * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`[]string`
-      - :action-table-field-example:`example tag`
-      - An array of tags applied to this object.
-
-    * - :action-table-field-name:`\-\-taints` :ref:`(section) <commands_lke_pool-create_argument_sections_taints>`
-      - :action-table-field-type:`json`
-      - :action-table-field-example:`N/A`
-      - N/A
 
 
 
@@ -2984,6 +2984,16 @@ Additional fields used to execute this request.
       - Example
       - Description
 
+    * - :action-table-field-name:`\-\-count`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`6`
+      - The number of nodes in the Node Pool.
+
+    * - :action-table-field-name:`\-\-taints` :ref:`(section) <commands_lke_pool-update_argument_sections_taints>`
+      - :action-table-field-type:`json`
+      - :action-table-field-example:`N/A`
+      - N/A
+
     * - :action-table-field-name:`\-\-autoscaler.enabled`
       - :action-table-field-type:`bool`
       - :action-table-field-example:`True`
@@ -2999,11 +3009,6 @@ Additional fields used to execute this request.
       - :action-table-field-example:`3`
       - The minimum number of nodes to autoscale to.
 
-    * - :action-table-field-name:`\-\-count`
-      - :action-table-field-type:`int`
-      - :action-table-field-example:`6`
-      - The number of nodes in the Node Pool.
-
     * - :action-table-field-name:`\-\-labels.key`
       - :action-table-field-type:`str`
       - :action-table-field-example:`example.com/my-app`
@@ -3013,11 +3018,6 @@ Additional fields used to execute this request.
       - :action-table-field-type:`str`
       - :action-table-field-example:`teams`
       - The Kubernetes label value.
-
-    * - :action-table-field-name:`\-\-taints` :ref:`(section) <commands_lke_pool-update_argument_sections_taints>`
-      - :action-table-field-type:`json`
-      - :action-table-field-example:`N/A`
-      - N/A
 
 
 

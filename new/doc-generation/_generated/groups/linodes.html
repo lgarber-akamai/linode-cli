@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+3308853 (API v4.177.1)
+                v0.0.0.dev+c8882aa (API v4.177.1)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -899,16 +899,6 @@
 <td><p><span class="action-table-field-example">linode123</span></p></td>
 <td><p>The Linode’s label is for display purposes only.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--metadata.user_data</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">I2Nsb3VkLWNv…ZGU6IHRydWU=</span></p></td>
-<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--placement_group.id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">528</span></p></td>
-<td><p>The placement group’s ID.</p></td>
-</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--private_ip</span></p></td>
 <td><p><span class="action-table-field-type">bool</span></p></td>
 <td><p><span class="action-table-field-example">True</span></p></td>
@@ -939,6 +929,16 @@
 <td><p><span class="action-table-field-example">example tag</span></p></td>
 <td><p>An array of tags applied to this object.</p></td>
 </tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--metadata.user_data</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">I2Nsb3VkLWNv…ZGU6IHRydWU=</span></p></td>
+<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--placement_group.id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">528</span></p></td>
+<td><p>The placement group’s ID.</p></td>
+</tr>
 </tbody>
 </table>
 <p class="action-section-header" id="commands-linodes-create-argument-sections-interfaces">interfaces</p>
@@ -967,50 +967,40 @@
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">101</span></p></td>
-<td><p>The unique ID representing this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p><span class="action-table-field-example">[“10.0.0.64/…c::1:0/112”]</span></p></td>
 <td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">10.0.0.1/24</span></p></td>
 <td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">203.0.113.2</span></p></td>
 <td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">10.0.0.2</span></p></td>
 <td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">example-interface</span></p></td>
 <td><p>The name of this Interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
 <td><p><span class="action-table-field-type">bool</span></p></td>
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>The primary Interface is configured as the default route to the Linode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.subnet_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.subnet_id</span></p></td>
 <td><p><span class="action-table-field-type">int</span></p></td>
 <td><p><span class="action-table-field-example">101</span></p></td>
 <td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC Subnet for this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.vpc_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">111</span></p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1336,6 +1326,26 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--group</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">Linode-Group</span></p></td>
+<td><p>A deprecated property denoting a group label for this Linode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">linode123</span></p></td>
+<td><p>The Linode’s label is for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-type">[]string</span></p></td>
+<td><p><span class="action-table-field-example">example tag</span></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--watchdog_enabled</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">True</span></p></td>
+<td><p>The watchdog, named Lassie, is a Shutdown Watchdog that monitors your Linode and will reboot it if it powers off unexpectedly.</p></td>
+</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--alerts.cpu</span></p></td>
 <td><p><span class="action-table-field-type">int</span></p></td>
 <td><p><span class="action-table-field-example">180</span></p></td>
@@ -1361,120 +1371,15 @@
 <td><p><span class="action-table-field-example">80</span></p></td>
 <td><p>The percentage of network transfer that may be used before an alert is triggered.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--backups.available</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>Whether Backups for this Linode are available for restoration.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--backups.enabled</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>If this Linode has the Backup service enabled.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--backups.last_successful</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">2018-01-01T00:01:01</span></p></td>
-<td><p>The last successful backup date.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--backups.schedule.day</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--backups.schedule.day</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">Saturday</span></p></td>
 <td><p>The day of the week that your Linode’s weekly Backup is taken.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--backups.schedule.window</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--backups.schedule.window</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">W22</span></p></td>
 <td><p>The window in which your backups will be taken, in UTC.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--created</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">2018-01-01T00:01:01</span></p></td>
-<td><p>When this Linode was created.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--group</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">Linode-Group</span></p></td>
-<td><p>A deprecated property denoting a group label for this Linode.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--has_user_data</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>Whether this compute instance was provisioned utilizing <code class="code docutils literal notranslate"><span class="pre">user_data</span></code> provided via the Metadata service.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--host_uuid</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">3a3ddd59d9a7…f44de62bfec8</span></p></td>
-<td><p>The Linode’s host machine, as a UUID.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--hypervisor</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">kvm</span></p></td>
-<td><p>The virtualization software powering this Linode.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">123</span></p></td>
-<td><p>This Linode’s ID which must be provided for all operations impacting this Linode.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--image</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">linode/debian9</span></p></td>
-<td><p>An Image ID to deploy the Linode Disk from.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--ipv4</span></p></td>
-<td><p><span class="action-table-field-type">[]string</span></p></td>
-<td><p><span class="action-table-field-example">203.0.113.1</span></p></td>
-<td><p>This Linode’s IPv4 Addresses.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--ipv6</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">c001:d00d::1337/128</span></p></td>
-<td><p>This Linode’s IPv6 SLAAC address.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">linode123</span></p></td>
-<td><p>The Linode’s label is for display purposes only.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--placement_group</span></p></td>
-<td><p><span class="action-table-field-type">json</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>Details on the <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/placement-groups/">placement group</a> that this Linode belongs to.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--region</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">us-east</span></p></td>
-<td><p>This is the <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">region</a> where the Linode was deployed.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--specs</span></p></td>
-<td><p><span class="action-table-field-type">json</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>Information about the resources available to this Linode.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--status</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">running</span></p></td>
-<td><p>A brief description of this Linode’s current state.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
-<td><p><span class="action-table-field-type">[]string</span></p></td>
-<td><p><span class="action-table-field-example">example tag</span></p></td>
-<td><p>An array of tags applied to this object.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">g6-standard-1</span></p></td>
-<td><p>This is the <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-types">Linode type</a> that this Linode was deployed with.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--updated</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">2018-01-01T00:01:01</span></p></td>
-<td><p>When this Linode was last updated.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--watchdog_enabled</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>The watchdog, named Lassie, is a Shutdown Watchdog that monitors your Linode and will reboot it if it powers off unexpectedly.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1747,7 +1652,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-delete">
-<span id="id16"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-instance">delete</a><a class="headerlink" href="#commands-linodes-delete" title="Link to this heading"></a></h2>
+<span id="id14"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-instance">delete</a><a class="headerlink" href="#commands-linodes-delete" title="Link to this heading"></a></h2>
 <p>Deletes a Linode you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -1778,7 +1683,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-boot">
-<span id="id17"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-boot-linode-instance">boot</a><a class="headerlink" href="#commands-linodes-boot" title="Link to this heading"></a></h2>
+<span id="id15"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-boot-linode-instance">boot</a><a class="headerlink" href="#commands-linodes-boot" title="Link to this heading"></a></h2>
 <p>Boots a Linode you have permission to modify.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -1833,7 +1738,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-clone">
-<span id="id18"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-clone-linode-instance">clone</a><a class="headerlink" href="#commands-linodes-clone" title="Link to this heading"></a></h2>
+<span id="id16"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-clone-linode-instance">clone</a><a class="headerlink" href="#commands-linodes-clone" title="Link to this heading"></a></h2>
 <p>You can clone your Linode’s existing Disks or Configuration profiles to another Linode on your Account.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -1923,25 +1828,25 @@
 <td><p><span class="action-table-field-example">124</span></p></td>
 <td><p>If an existing Linode is the target for the clone, the ID of that Linode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--metadata.user_data</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">I2Nsb3VkLWNv…ZGU6IHRydWU=</span></p></td>
-<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--private_ip</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--private_ip</span></p></td>
 <td><p><span class="action-table-field-type">bool</span></p></td>
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>If true, the created Linode will have private networking enabled and assigned a private IPv4 address.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--region</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--region</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">us-east</span></p></td>
 <td><p>This is the Region where the Linode will be deployed.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--type</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">g6-standard-2</span></p></td>
 <td><p>A Linode’s Type determines what resources are available to it, including disk space, memory, and virtual cpus.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--metadata.user_data</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">I2Nsb3VkLWNv…ZGU6IHRydWU=</span></p></td>
+<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2214,7 +2119,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-migrate">
-<span id="id22"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-migrate-linode-instance">migrate</a><a class="headerlink" href="#commands-linodes-migrate" title="Link to this heading"></a></h2>
+<span id="id20"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-migrate-linode-instance">migrate</a><a class="headerlink" href="#commands-linodes-migrate" title="Link to this heading"></a></h2>
 <p>Initiate a pending host migration that has been scheduled by Linode or initiate a cross data center (DC) migration.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -2284,7 +2189,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-nodebalancers">
-<span id="id23"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-node-balancers">nodebalancers</a><a class="headerlink" href="#commands-linodes-nodebalancers" title="Link to this heading"></a></h2>
+<span id="id21"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-node-balancers">nodebalancers</a><a class="headerlink" href="#commands-linodes-nodebalancers" title="Link to this heading"></a></h2>
 <p>Returns a list of NodeBalancers that are assigned to this Linode and readable by the requesting User.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -2450,7 +2355,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-reboot">
-<span id="id24"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-reboot-linode-instance">reboot</a><a class="headerlink" href="#commands-linodes-reboot" title="Link to this heading"></a></h2>
+<span id="id22"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-reboot-linode-instance">reboot</a><a class="headerlink" href="#commands-linodes-reboot" title="Link to this heading"></a></h2>
 <p>Reboots a Linode you have permission to modify.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -2505,7 +2410,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-rebuild">
-<span id="id25"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-rebuild-linode-instance">rebuild</a><a class="headerlink" href="#commands-linodes-rebuild" title="Link to this heading"></a></h2>
+<span id="id23"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-rebuild-linode-instance">rebuild</a><a class="headerlink" href="#commands-linodes-rebuild" title="Link to this heading"></a></h2>
 <p>Rebuilds a Linode you have the <code class="code docutils literal notranslate"><span class="pre">read_write</span></code> permission to modify.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -2586,25 +2491,25 @@
 <td><p><span class="action-table-field-example">N/A</span></p></td>
 <td><p>This field defaults to <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Linode is created with an Image or from a Backup.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--metadata.user_data</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">I2Nsb3VkLWNv…ZGU6IHRydWU=</span></p></td>
-<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--stackscript_data</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--stackscript_data</span></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p><span class="action-table-field-example">{“gh_username”: “linode”}</span></p></td>
 <td><p>This field is required only if the StackScript being deployed requires input data from the User for successful completion.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--stackscript_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--stackscript_id</span></p></td>
 <td><p><span class="action-table-field-type">int</span></p></td>
 <td><p><span class="action-table-field-example">10079</span></p></td>
 <td><p>A StackScript ID that will cause the referenced StackScript to be run during deployment of this Linode.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--type</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">g6-standard-2</span></p></td>
 <td><p>The ID of the <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-types">Linode type</a> to resize to with this request.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--metadata.user_data</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">I2Nsb3VkLWNv…ZGU6IHRydWU=</span></p></td>
+<td><p>Base64-encoded <a class="reference external" href="https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-cloud-config/">cloud-config</a> data.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2877,7 +2782,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-rescue">
-<span id="id30"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-rescue-linode-instance">rescue</a><a class="headerlink" href="#commands-linodes-rescue" title="Link to this heading"></a></h2>
+<span id="id28"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-rescue-linode-instance">rescue</a><a class="headerlink" href="#commands-linodes-rescue" title="Link to this heading"></a></h2>
 <p>Rescue Mode is a safe environment for performing many system recovery and disk management tasks.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -2998,7 +2903,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-resize">
-<span id="id31"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-resize-linode-instance">resize</a><a class="headerlink" href="#commands-linodes-resize" title="Link to this heading"></a></h2>
+<span id="id29"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-resize-linode-instance">resize</a><a class="headerlink" href="#commands-linodes-resize" title="Link to this heading"></a></h2>
 <p>Resizes a Linode you have the <code class="code docutils literal notranslate"><span class="pre">read_write</span></code> permission to a different Type.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -3064,7 +2969,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-shutdown">
-<span id="id32"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-shutdown-linode-instance">shutdown</a><a class="headerlink" href="#commands-linodes-shutdown" title="Link to this heading"></a></h2>
+<span id="id30"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-shutdown-linode-instance">shutdown</a><a class="headerlink" href="#commands-linodes-shutdown" title="Link to this heading"></a></h2>
 <p>Shuts down a Linode you have permission to modify.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -3095,7 +3000,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-snapshot">
-<span id="id33"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-snapshot">snapshot</a><a class="headerlink" href="#commands-linodes-snapshot" title="Link to this heading"></a></h2>
+<span id="id31"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-snapshot">snapshot</a><a class="headerlink" href="#commands-linodes-snapshot" title="Link to this heading"></a></h2>
 <p>Creates a snapshot backup of a Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -3247,7 +3152,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-types">
-<span id="id34"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-types">types</a><a class="headerlink" href="#commands-linodes-types" title="Link to this heading"></a></h2>
+<span id="id32"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-types">types</a><a class="headerlink" href="#commands-linodes-types" title="Link to this heading"></a></h2>
 <p>Returns collection of Linode Types, including pricing and specifications for each Type.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -3479,7 +3384,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-upgrade">
-<span id="id35"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-mutate-linode-instance">upgrade</a><a class="headerlink" href="#commands-linodes-upgrade" title="Link to this heading"></a></h2>
+<span id="id33"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-mutate-linode-instance">upgrade</a><a class="headerlink" href="#commands-linodes-upgrade" title="Link to this heading"></a></h2>
 <p>Linodes created with now-deprecated Types are entitled to a free upgrade to the next generation.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -3534,7 +3439,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-volumes">
-<span id="id36"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-volumes">volumes</a><a class="headerlink" href="#commands-linodes-volumes" title="Link to this heading"></a></h2>
+<span id="id34"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-volumes">volumes</a><a class="headerlink" href="#commands-linodes-volumes" title="Link to this heading"></a></h2>
 <p>View Block Storage Volumes attached to this Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -3669,7 +3574,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-backup-view">
-<span id="id37"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-backup">backup-view</a><a class="headerlink" href="#commands-linodes-backup-view" title="Link to this heading"></a></h2>
+<span id="id35"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-backup">backup-view</a><a class="headerlink" href="#commands-linodes-backup-view" title="Link to this heading"></a></h2>
 <p>Returns information about a Backup.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -3801,7 +3706,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-backup-restore">
-<span id="id38"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-restore-backup">backup-restore</a><a class="headerlink" href="#commands-linodes-backup-restore" title="Link to this heading"></a></h2>
+<span id="id36"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-restore-backup">backup-restore</a><a class="headerlink" href="#commands-linodes-backup-restore" title="Link to this heading"></a></h2>
 <p>Restores a Linode’s Backup to the specified Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -3867,7 +3772,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-backups-list">
-<span id="id39"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-backups">backups-list</a><a class="headerlink" href="#commands-linodes-backups-list" title="Link to this heading"></a></h2>
+<span id="id37"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-backups">backups-list</a><a class="headerlink" href="#commands-linodes-backups-list" title="Link to this heading"></a></h2>
 <p>Returns information about this Linode’s available backups.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -3995,7 +3900,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-backups-cancel">
-<span id="id40"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-cancel-backups">backups-cancel</a><a class="headerlink" href="#commands-linodes-backups-cancel" title="Link to this heading"></a></h2>
+<span id="id38"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-cancel-backups">backups-cancel</a><a class="headerlink" href="#commands-linodes-backups-cancel" title="Link to this heading"></a></h2>
 <p>Cancels the Backup service on the given Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -4026,7 +3931,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-backups-enable">
-<span id="id41"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-enable-backups">backups-enable</a><a class="headerlink" href="#commands-linodes-backups-enable" title="Link to this heading"></a></h2>
+<span id="id39"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-enable-backups">backups-enable</a><a class="headerlink" href="#commands-linodes-backups-enable" title="Link to this heading"></a></h2>
 <p>Enables backups for the specified Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -4057,7 +3962,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-config-view">
-<span id="id42"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-config">config-view</a><a class="headerlink" href="#commands-linodes-config-view" title="Link to this heading"></a></h2>
+<span id="id40"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-config">config-view</a><a class="headerlink" href="#commands-linodes-config-view" title="Link to this heading"></a></h2>
 <p>Returns information about a specific Configuration profile.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -4365,7 +4270,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-config-create">
-<span id="id43"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-config">config-create</a><a class="headerlink" href="#commands-linodes-config-create" title="Link to this heading"></a></h2>
+<span id="id41"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-config">config-create</a><a class="headerlink" href="#commands-linodes-config-create" title="Link to this heading"></a></h2>
 <p>Adds a new Configuration profile to a Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -4422,6 +4327,36 @@
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">This is my main Config</span></p></td>
 <td><p>Optional field for arbitrary User comments on this Config.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces</span> <a class="reference internal" href="#commands-linodes-config-create-argument-sections-interfaces"><span class="std std-ref">(section)</span></a></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The Network Interface to apply to this Linode’s configuration profile.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--kernel</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">linode/latest-64bit</span></p></td>
+<td><p>A Kernel ID to boot a Linode with.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--memory_limit</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">2048</span></p></td>
+<td><p>Defaults to the total RAM of the Linode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--root_device</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">/dev/sda</span></p></td>
+<td><p>The root device to boot.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--run_level</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">default</span></p></td>
+<td><p>Defines the state of your Linode after booting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--virt_mode</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">paravirt</span></p></td>
+<td><p>Controls the virtualization mode.</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--devices.sda.disk_id</span></p></td>
 <td><p><span class="action-table-field-type">int</span></p></td>
@@ -4528,41 +4463,6 @@
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>Disables updatedb cron job to avoid disk thrashing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">23456</span></p></td>
-<td><p>The ID of this Config.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces</span> <a class="reference internal" href="#commands-linodes-config-create-argument-sections-interfaces"><span class="std std-ref">(section)</span></a></p></td>
-<td><p><span class="action-table-field-type">json</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>The Network Interface to apply to this Linode’s configuration profile.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--kernel</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">linode/latest-64bit</span></p></td>
-<td><p>A Kernel ID to boot a Linode with.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--memory_limit</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">2048</span></p></td>
-<td><p>Defaults to the total RAM of the Linode.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--root_device</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">/dev/sda</span></p></td>
-<td><p>The root device to boot.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--run_level</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">default</span></p></td>
-<td><p>Defines the state of your Linode after booting.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--virt_mode</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">paravirt</span></p></td>
-<td><p>Controls the virtualization mode.</p></td>
-</tr>
 </tbody>
 </table>
 <p class="action-section-header" id="commands-linodes-config-create-argument-sections-interfaces">interfaces</p>
@@ -4591,50 +4491,40 @@
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">101</span></p></td>
-<td><p>The unique ID representing this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p><span class="action-table-field-example">[“10.0.0.64/…c::1:0/112”]</span></p></td>
 <td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">10.0.0.1/24</span></p></td>
 <td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">203.0.113.2</span></p></td>
 <td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">10.0.0.2</span></p></td>
 <td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">example-interface</span></p></td>
 <td><p>The name of this Interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
 <td><p><span class="action-table-field-type">bool</span></p></td>
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>The primary Interface is configured as the default route to the Linode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.subnet_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.subnet_id</span></p></td>
 <td><p><span class="action-table-field-type">int</span></p></td>
 <td><p><span class="action-table-field-example">101</span></p></td>
 <td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC Subnet for this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.vpc_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">111</span></p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4914,7 +4804,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-config-update">
-<span id="id44"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-config">config-update</a><a class="headerlink" href="#commands-linodes-config-update" title="Link to this heading"></a></h2>
+<span id="id42"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-config">config-update</a><a class="headerlink" href="#commands-linodes-config-update" title="Link to this heading"></a></h2>
 <p>Updates a Configuration profile.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -4981,116 +4871,6 @@
 <td><p><span class="action-table-field-example">This is my main Config</span></p></td>
 <td><p>Optional field for arbitrary User comments on this Config.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sda.disk_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">124458</span></p></td>
-<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sda.volume_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdb.disk_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">124458</span></p></td>
-<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdb.volume_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdc.disk_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">124458</span></p></td>
-<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdc.volume_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdd.disk_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">124458</span></p></td>
-<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdd.volume_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sde.disk_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">124458</span></p></td>
-<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sde.volume_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdf.disk_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">124458</span></p></td>
-<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdf.volume_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdg.disk_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">124458</span></p></td>
-<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdg.volume_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdh.disk_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">124458</span></p></td>
-<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdh.volume_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--helpers.devtmpfs_automount</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>Populates the /dev directory early during boot without udev.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--helpers.distro</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>Helps maintain correct inittab/upstart console device.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--helpers.modules_dep</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>Creates a modules dependency file for the Kernel you run.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--helpers.network</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>Automatically configures static networking.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--helpers.updatedb_disabled</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>Disables updatedb cron job to avoid disk thrashing.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">23456</span></p></td>
-<td><p>The ID of this Config.</p></td>
-</tr>
 <tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces</span> <a class="reference internal" href="#commands-linodes-config-update-argument-sections-interfaces"><span class="std std-ref">(section)</span></a></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p><span class="action-table-field-example">N/A</span></p></td>
@@ -5126,6 +4906,111 @@
 <td><p><span class="action-table-field-example">paravirt</span></p></td>
 <td><p>Controls the virtualization mode.</p></td>
 </tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sda.disk_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">124458</span></p></td>
+<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sda.volume_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdb.disk_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">124458</span></p></td>
+<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdb.volume_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdc.disk_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">124458</span></p></td>
+<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdc.volume_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdd.disk_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">124458</span></p></td>
+<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdd.volume_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sde.disk_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">124458</span></p></td>
+<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sde.volume_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdf.disk_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">124458</span></p></td>
+<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdf.volume_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdg.disk_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">124458</span></p></td>
+<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdg.volume_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--devices.sdh.disk_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">124458</span></p></td>
+<td><p>The Disk ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Volume is assigned to this slot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--devices.sdh.volume_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The Volume ID, or <code class="code docutils literal notranslate"><span class="pre">null</span></code> if a Disk is assigned to this slot.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--helpers.devtmpfs_automount</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>Populates the /dev directory early during boot without udev.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--helpers.distro</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">True</span></p></td>
+<td><p>Helps maintain correct inittab/upstart console device.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--helpers.modules_dep</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">True</span></p></td>
+<td><p>Creates a modules dependency file for the Kernel you run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--helpers.network</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">True</span></p></td>
+<td><p>Automatically configures static networking.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--helpers.updatedb_disabled</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">True</span></p></td>
+<td><p>Disables updatedb cron job to avoid disk thrashing.</p></td>
+</tr>
 </tbody>
 </table>
 <p class="action-section-header" id="commands-linodes-config-update-argument-sections-interfaces">interfaces</p>
@@ -5154,50 +5039,40 @@
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">101</span></p></td>
-<td><p>The unique ID representing this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ip_ranges</span></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p><span class="action-table-field-example">[“10.0.0.64/…c::1:0/112”]</span></p></td>
 <td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipam_address</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">10.0.0.1/24</span></p></td>
 <td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.nat_1_1</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">203.0.113.2</span></p></td>
 <td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.ipv4.vpc</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">10.0.0.2</span></p></td>
 <td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.label</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">example-interface</span></p></td>
 <td><p>The name of this Interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.primary</span></p></td>
 <td><p><span class="action-table-field-type">bool</span></p></td>
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>The primary Interface is configured as the default route to the Linode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--interfaces.subnet_id</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.subnet_id</span></p></td>
 <td><p><span class="action-table-field-type">int</span></p></td>
 <td><p><span class="action-table-field-example">101</span></p></td>
 <td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC Subnet for this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--interfaces.vpc_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">111</span></p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5477,7 +5352,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-config-delete">
-<span id="id45"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-config">config-delete</a><a class="headerlink" href="#commands-linodes-config-delete" title="Link to this heading"></a></h2>
+<span id="id43"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-config">config-delete</a><a class="headerlink" href="#commands-linodes-config-delete" title="Link to this heading"></a></h2>
 <p>Deletes the specified Configuration profile from the specified Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -5512,7 +5387,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-config-interface-view">
-<span id="id46"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-config-interface">config-interface-view</a><a class="headerlink" href="#commands-linodes-config-interface-view" title="Link to this heading"></a></h2>
+<span id="id44"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-config-interface">config-interface-view</a><a class="headerlink" href="#commands-linodes-config-interface-view" title="Link to this heading"></a></h2>
 <p>Returns a single Configuration Profile Interface.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -5643,7 +5518,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-config-interface-add">
-<span id="id47"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-linode-config-interface">config-interface-add</a><a class="headerlink" href="#commands-linodes-config-interface-add" title="Link to this heading"></a></h2>
+<span id="id45"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-linode-config-interface">config-interface-add</a><a class="headerlink" href="#commands-linodes-config-interface-add" title="Link to this heading"></a></h2>
 <p>Creates and appends a single Interface to the end of the <code class="code docutils literal notranslate"><span class="pre">interfaces</span></code> array for an existing Configuration Profile.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -5707,20 +5582,30 @@
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> if the Interface is in use, meaning that Compute Instance has been booted using the Configuration Profile to which the Interface belongs.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">101</span></p></td>
-<td><p>The unique ID representing this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--ip_ranges</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--ip_ranges</span></p></td>
 <td><p><span class="action-table-field-type">[]string</span></p></td>
 <td><p><span class="action-table-field-example">10.0.0.64/26</span></p></td>
 <td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--ipam_address</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--ipam_address</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">10.0.0.1/24</span></p></td>
 <td><p>This Network Interface’s private IP address in Classless Inter-Domain Routing (CIDR) notation.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example-interface</span></p></td>
+<td><p>The name of this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--primary</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">True</span></p></td>
+<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--subnet_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">101</span></p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC Subnet for this Interface.</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="action-table-field-name">--ipv4.nat_1_1</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
@@ -5731,26 +5616,6 @@
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">10.0.0.2</span></p></td>
 <td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">example-interface</span></p></td>
-<td><p>The name of this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--primary</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>The primary Interface is configured as the default route to the Linode.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--subnet_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">101</span></p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC Subnet for this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--vpc_id</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">111</span></p></td>
-<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5849,7 +5714,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-config-interface-update">
-<span id="id48"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-config-interface">config-interface-update</a><a class="headerlink" href="#commands-linodes-config-interface-update" title="Link to this heading"></a></h2>
+<span id="id46"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-config-interface">config-interface-update</a><a class="headerlink" href="#commands-linodes-config-interface-update" title="Link to this heading"></a></h2>
 <p>Updates a <code class="code docutils literal notranslate"><span class="pre">vpc</span></code> or <code class="code docutils literal notranslate"><span class="pre">public</span></code> purpose Interface for this Configuration Profile.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -5910,20 +5775,20 @@
 <td><p><span class="action-table-field-example">10.0.0.64/26</span></p></td>
 <td><p>An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--ipv4.nat_1_1</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">203.0.113.2</span></p></td>
-<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--ipv4.vpc</span></p></td>
-<td><p><span class="action-table-field-type">str</span></p></td>
-<td><p><span class="action-table-field-example">10.0.0.2</span></p></td>
-<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
-</tr>
 <tr class="row-odd"><td><p><span class="action-table-field-name">--primary</span></p></td>
 <td><p><span class="action-table-field-type">bool</span></p></td>
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>The primary Interface is configured as the default route to the Linode.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--ipv4.nat_1_1</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">203.0.113.2</span></p></td>
+<td><p>The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--ipv4.vpc</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">10.0.0.2</span></p></td>
+<td><p>The VPC Subnet IPv4 address for this Interface.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6022,7 +5887,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-config-interface-delete">
-<span id="id49"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-config-interface">config-interface-delete</a><a class="headerlink" href="#commands-linodes-config-interface-delete" title="Link to this heading"></a></h2>
+<span id="id47"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-config-interface">config-interface-delete</a><a class="headerlink" href="#commands-linodes-config-interface-delete" title="Link to this heading"></a></h2>
 <p>Deletes an Interface from the Configuration Profile.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -6061,7 +5926,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-config-interfaces-list">
-<span id="id50"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-config-interfaces">config-interfaces-list</a><a class="headerlink" href="#commands-linodes-config-interfaces-list" title="Link to this heading"></a></h2>
+<span id="id48"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-config-interfaces">config-interfaces-list</a><a class="headerlink" href="#commands-linodes-config-interfaces-list" title="Link to this heading"></a></h2>
 <p>Returns an ordered array of all Interfaces associated with this Configuration Profile.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -6188,7 +6053,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-config-interfaces-order">
-<span id="id51"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-linode-config-interfaces">config-interfaces-order</a><a class="headerlink" href="#commands-linodes-config-interfaces-order" title="Link to this heading"></a></h2>
+<span id="id49"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-linode-config-interfaces">config-interfaces-order</a><a class="headerlink" href="#commands-linodes-config-interfaces-order" title="Link to this heading"></a></h2>
 <p>Reorders the existing Interfaces of a Configuration Profile.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -6241,14 +6106,14 @@
 <tr class="row-even"><td><p><span class="action-table-field-name">--ids</span> <span class="action-table-field-required">*</span></p></td>
 <td><p><span class="action-table-field-type">[]integer</span></p></td>
 <td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>An ordered array of existing Configuration Profile Interface :code:<a href="#id52"><span class="problematic" id="id53">`</span></a>id`s.</p></td>
+<td><p>An ordered array of existing Configuration Profile Interface :code:<a href="#id50"><span class="problematic" id="id51">`</span></a>id`s.</p></td>
 </tr>
 </tbody>
 </table>
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-configs-list">
-<span id="id54"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-configs">configs-list</a><a class="headerlink" href="#commands-linodes-configs-list" title="Link to this heading"></a></h2>
+<span id="id52"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-configs">configs-list</a><a class="headerlink" href="#commands-linodes-configs-list" title="Link to this heading"></a></h2>
 <p>Lists Configuration profiles associated with a Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -6577,7 +6442,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-disk-view">
-<span id="id55"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-disk">disk-view</a><a class="headerlink" href="#commands-linodes-disk-view" title="Link to this heading"></a></h2>
+<span id="id53"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-disk">disk-view</a><a class="headerlink" href="#commands-linodes-disk-view" title="Link to this heading"></a></h2>
 <p>View Disk information for a Disk associated with this Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -6666,7 +6531,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-disk-create">
-<span id="id56"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-disk">disk-create</a><a class="headerlink" href="#commands-linodes-disk-create" title="Link to this heading"></a></h2>
+<span id="id54"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-disk">disk-create</a><a class="headerlink" href="#commands-linodes-disk-create" title="Link to this heading"></a></h2>
 <p>Adds a new Disk to a Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -6823,7 +6688,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-disk-update">
-<span id="id57"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-disk">disk-update</a><a class="headerlink" href="#commands-linodes-disk-update" title="Link to this heading"></a></h2>
+<span id="id55"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-disk">disk-update</a><a class="headerlink" href="#commands-linodes-disk-update" title="Link to this heading"></a></h2>
 <p>Updates a Disk that you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -6937,7 +6802,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-disk-delete">
-<span id="id58"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-disk">disk-delete</a><a class="headerlink" href="#commands-linodes-disk-delete" title="Link to this heading"></a></h2>
+<span id="id56"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-disk">disk-delete</a><a class="headerlink" href="#commands-linodes-disk-delete" title="Link to this heading"></a></h2>
 <p>Deletes a Disk you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -6972,7 +6837,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-disk-clone">
-<span id="id59"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-clone-linode-disk">disk-clone</a><a class="headerlink" href="#commands-linodes-disk-clone" title="Link to this heading"></a></h2>
+<span id="id57"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-clone-linode-disk">disk-clone</a><a class="headerlink" href="#commands-linodes-disk-clone" title="Link to this heading"></a></h2>
 <p>Copies a disk, byte-for-byte, into a new Disk belonging to the same Linode.</p>
 <p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
@@ -7056,7 +6921,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-disk-reset-password">
-<span id="id60"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-reset-disk-password">disk-reset-password</a><a class="headerlink" href="#commands-linodes-disk-reset-password" title="Link to this heading"></a></h2>
+<span id="id58"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-reset-disk-password">disk-reset-password</a><a class="headerlink" href="#commands-linodes-disk-reset-password" title="Link to this heading"></a></h2>
 <p>Resets the password of a Disk you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -7117,7 +6982,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-disk-resize">
-<span id="id61"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-resize-disk">disk-resize</a><a class="headerlink" href="#commands-linodes-disk-resize" title="Link to this heading"></a></h2>
+<span id="id59"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-resize-disk">disk-resize</a><a class="headerlink" href="#commands-linodes-disk-resize" title="Link to this heading"></a></h2>
 <p>Resizes a Disk you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -7177,7 +7042,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-disks-list">
-<span id="id62"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-disks">disks-list</a><a class="headerlink" href="#commands-linodes-disks-list" title="Link to this heading"></a></h2>
+<span id="id60"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-disks">disks-list</a><a class="headerlink" href="#commands-linodes-disks-list" title="Link to this heading"></a></h2>
 <p>View Disk information for Disks associated with this Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -7287,7 +7152,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-firewalls-list">
-<span id="id63"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-firewalls">firewalls-list</a><a class="headerlink" href="#commands-linodes-firewalls-list" title="Link to this heading"></a></h2>
+<span id="id61"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-firewalls">firewalls-list</a><a class="headerlink" href="#commands-linodes-firewalls-list" title="Link to this heading"></a></h2>
 <p>View Firewall information for Firewalls assigned to this Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -7502,7 +7367,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-ip-view">
-<span id="id64"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-ip">ip-view</a><a class="headerlink" href="#commands-linodes-ip-view" title="Link to this heading"></a></h2>
+<span id="id62"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-ip">ip-view</a><a class="headerlink" href="#commands-linodes-ip-view" title="Link to this heading"></a></h2>
 <p>View information about the specified IP address associated with the specified Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -7634,7 +7499,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-ip-add">
-<span id="id65"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-ip">ip-add</a><a class="headerlink" href="#commands-linodes-ip-add" title="Link to this heading"></a></h2>
+<span id="id63"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-ip">ip-add</a><a class="headerlink" href="#commands-linodes-ip-add" title="Link to this heading"></a></h2>
 <p>Allocates a public or private IPv4 address to a Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -7793,7 +7658,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-ip-update">
-<span id="id66"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-ip">ip-update</a><a class="headerlink" href="#commands-linodes-ip-update" title="Link to this heading"></a></h2>
+<span id="id64"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-ip">ip-update</a><a class="headerlink" href="#commands-linodes-ip-update" title="Link to this heading"></a></h2>
 <p>Updates the reverse DNS (RDNS) for a Linode’s IP Address.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -7951,7 +7816,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-ip-delete">
-<span id="id67"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-ip">ip-delete</a><a class="headerlink" href="#commands-linodes-ip-delete" title="Link to this heading"></a></h2>
+<span id="id65"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-ip">ip-delete</a><a class="headerlink" href="#commands-linodes-ip-delete" title="Link to this heading"></a></h2>
 <p>Deletes a public or private IPv4 address associated with this Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -7986,7 +7851,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-ips-list">
-<span id="id68"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-ips">ips-list</a><a class="headerlink" href="#commands-linodes-ips-list" title="Link to this heading"></a></h2>
+<span id="id66"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-ips">ips-list</a><a class="headerlink" href="#commands-linodes-ips-list" title="Link to this heading"></a></h2>
 <p>Returns networking information for a single Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -8470,7 +8335,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-linode-reset-password">
-<span id="id69"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-reset-linode-password">linode-reset-password</a><a class="headerlink" href="#commands-linodes-linode-reset-password" title="Link to this heading"></a></h2>
+<span id="id67"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-reset-linode-password">linode-reset-password</a><a class="headerlink" href="#commands-linodes-linode-reset-password" title="Link to this heading"></a></h2>
 <p>Resets the root password for this Linode.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -8525,7 +8390,7 @@
 <hr class="docutils" />
 </section>
 <section id="commands-linodes-transfer-view">
-<span id="id70"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-transfer">transfer-view</a><a class="headerlink" href="#commands-linodes-transfer-view" title="Link to this heading"></a></h2>
+<span id="id68"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-transfer">transfer-view</a><a class="headerlink" href="#commands-linodes-transfer-view" title="Link to this heading"></a></h2>
 <p>Returns a Linode’s network transfer pool statistics for the current month.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
@@ -8589,7 +8454,7 @@
 </table>
 </section>
 <section id="commands-linodes-type-view">
-<span id="id71"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-type">type-view</a><a class="headerlink" href="#commands-linodes-type-view" title="Link to this heading"></a></h2>
+<span id="id69"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-type">type-view</a><a class="headerlink" href="#commands-linodes-type-view" title="Link to this heading"></a></h2>
 <p>Returns information about a specific Linode Type, including pricing and specifications.</p>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>

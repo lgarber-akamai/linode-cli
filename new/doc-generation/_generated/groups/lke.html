@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+3308853 (API v4.177.1)
+                v0.0.0.dev+c8882aa (API v4.177.1)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -421,20 +421,20 @@
 <td><p><span class="action-table-field-example">us-central</span></p></td>
 <td><p>This Kubernetes cluster’s location.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--control_plane.high_availability</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools</span> <a class="reference internal" href="#commands-lke-cluster-create-argument-sections-node-pools"><span class="std std-ref">(section)</span></a></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools</span> <a class="reference internal" href="#commands-lke-cluster-create-argument-sections-node-pools"><span class="std std-ref">(section)</span></a></p></td>
 <td><p><span class="action-table-field-type">json</span></p></td>
 <td><p><span class="action-table-field-example">N/A</span></p></td>
 <td><p>Specifies a collection of Linodes which will be members of a Kubernetes cluster.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
 <td><p><span class="action-table-field-type">[]string</span></p></td>
 <td><p><span class="action-table-field-example">ecomm</span></p></td>
 <td><p>An array of tags applied to the Kubernetes cluster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--control_plane.high_availability</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">True</span></p></td>
+<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
 </tr>
 </tbody>
 </table>
@@ -671,25 +671,25 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="action-table-field-name">--control_plane.high_availability</span></p></td>
-<td><p><span class="action-table-field-type">bool</span></p></td>
-<td><p><span class="action-table-field-example">True</span></p></td>
-<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--k8s_version</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--k8s_version</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">N/A</span></p></td>
 <td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">lkecluster12345</span></p></td>
 <td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
 <td><p><span class="action-table-field-type">[]string</span></p></td>
 <td><p><span class="action-table-field-example">prod</span></p></td>
 <td><p>An array of tags applied to the Kubernetes cluster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--control_plane.high_availability</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">True</span></p></td>
+<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1497,25 +1497,35 @@
 <td><p><span class="action-table-field-example">g6-standard-4</span></p></td>
 <td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--autoscaler.enabled</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--disks</span></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>This field should be omitted except for special use cases.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-type">[]string</span></p></td>
+<td><p><span class="action-table-field-example">example tag</span></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--taints</span> <a class="reference internal" href="#commands-lke-pool-create-argument-sections-taints"><span class="std std-ref">(section)</span></a></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--autoscaler.enabled</span></p></td>
 <td><p><span class="action-table-field-type">bool</span></p></td>
 <td><p><span class="action-table-field-example">True</span></p></td>
 <td><p>Whether autoscaling is enabled for this Node Pool.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--autoscaler.max</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--autoscaler.max</span></p></td>
 <td><p><span class="action-table-field-type">int</span></p></td>
 <td><p><span class="action-table-field-example">12</span></p></td>
 <td><p>The maximum number of nodes to autoscale to.</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--autoscaler.min</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--autoscaler.min</span></p></td>
 <td><p><span class="action-table-field-type">int</span></p></td>
 <td><p><span class="action-table-field-example">3</span></p></td>
 <td><p>The minimum number of nodes to autoscale to.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--disks</span></p></td>
-<td><p><span class="action-table-field-type">json</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>This field should be omitted except for special use cases.</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--labels.key</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
@@ -1526,16 +1536,6 @@
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">teams</span></p></td>
 <td><p>The Kubernetes label value.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
-<td><p><span class="action-table-field-type">[]string</span></p></td>
-<td><p><span class="action-table-field-example">example tag</span></p></td>
-<td><p>An array of tags applied to this object.</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--taints</span> <a class="reference internal" href="#commands-lke-pool-create-argument-sections-taints"><span class="std std-ref">(section)</span></a></p></td>
-<td><p><span class="action-table-field-type">json</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -1822,6 +1822,16 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--count</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">6</span></p></td>
+<td><p>The number of nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--taints</span> <a class="reference internal" href="#commands-lke-pool-update-argument-sections-taints"><span class="std std-ref">(section)</span></a></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
 <tr class="row-even"><td><p><span class="action-table-field-name">--autoscaler.enabled</span></p></td>
 <td><p><span class="action-table-field-type">bool</span></p></td>
 <td><p><span class="action-table-field-example">True</span></p></td>
@@ -1837,25 +1847,15 @@
 <td><p><span class="action-table-field-example">3</span></p></td>
 <td><p>The minimum number of nodes to autoscale to.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--count</span></p></td>
-<td><p><span class="action-table-field-type">int</span></p></td>
-<td><p><span class="action-table-field-example">6</span></p></td>
-<td><p>The number of nodes in the Node Pool.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--labels.key</span></p></td>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--labels.key</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
 <td><p>The Kubernetes label key.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="action-table-field-name">--labels.value</span></p></td>
+<tr class="row-even"><td><p><span class="action-table-field-name">--labels.value</span></p></td>
 <td><p><span class="action-table-field-type">str</span></p></td>
 <td><p><span class="action-table-field-example">teams</span></p></td>
 <td><p>The Kubernetes label value.</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="action-table-field-name">--taints</span> <a class="reference internal" href="#commands-lke-pool-update-argument-sections-taints"><span class="std std-ref">(section)</span></a></p></td>
-<td><p><span class="action-table-field-type">json</span></p></td>
-<td><p><span class="action-table-field-example">N/A</span></p></td>
-<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
