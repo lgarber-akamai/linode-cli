@@ -1,0 +1,1339 @@
+Placement
+=========
+
+This section details Placement-related Linode CLI commands.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_placement_assign-linode:
+
+`assign-linode <https://techdocs.akamai.com/linode-api/reference/post-group-add-linode>`_
+-----------------------------------------------------------------------------------------
+
+
+Add one or more compute instances to your placement group.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli placement assignLinode 528 \
+    	--linodes 123 456 \
+    	--non-compliant true
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`groupId`
+      - :action-table-field-type:`int`
+      - ID of the placement group to look up.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-linodes`
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`528`
+      - The :code:`linodeId` values for individual compute instances included in the placement group.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`528`
+      - The placement group's ID.
+
+    * - :action-table-field-name:`is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Whether all of the compute instances in your placement group are compliant.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`PG_Miami_failover`
+      - The unique name set for the placement group.
+
+    * - :action-table-field-name:`placement_group_policy` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`strict`
+      - How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - :code:`strict`.
+
+    * - :action-table-field-name:`placement_group_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`anti-affinity:local`
+      - How compute instances are distributed in your placement group.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-mia`
+      - The `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the placement group was deployed.
+
+
+
+
+.. _commands_placement_assign-linode_attribute_sections_members:
+
+.. rst-class:: action-section-header
+
+members
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`members.is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - The compliance status of each individual compute instance in the placement group.
+
+    * - :action-table-field-name:`members.linode_id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique identifier for a compute instance included in the placement group.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_placement_group-view:
+
+`group-view <https://techdocs.akamai.com/linode-api/reference/get-placement-group>`_
+------------------------------------------------------------------------------------
+
+
+View a specific placement group by ID.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli placement view 528
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`groupId`
+      - :action-table-field-type:`int`
+      - ID of the placement group to look up.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`528`
+      - The placement group's ID.
+
+    * - :action-table-field-name:`is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Whether all of the compute instances in your placement group are compliant.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`PG_Miami_failover`
+      - The unique name set for the placement group.
+
+    * - :action-table-field-name:`placement_group_policy` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`strict`
+      - How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - :code:`strict`.
+
+    * - :action-table-field-name:`placement_group_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`anti-affinity:local`
+      - How compute instances are distributed in your placement group.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-mia`
+      - The `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the placement group was deployed.
+
+
+
+
+.. _commands_placement_group-view_attribute_sections_members:
+
+.. rst-class:: action-section-header
+
+members
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`members.is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - The compliance status of each individual compute instance in the placement group.
+
+    * - :action-table-field-name:`members.linode_id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique identifier for a compute instance included in the placement group.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_placement_group-create:
+
+`group-create <https://techdocs.akamai.com/linode-api/reference/post-placement-group>`_
+---------------------------------------------------------------------------------------
+
+
+Creates a placement group on your account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli placement create \
+    	--label PG_Miami_failover \
+    	--region us-mia \
+    	--placement_group_type "anti-affinity:local" \
+    	--placement_group_policy strict
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`PG_Miami_failover`
+      - A unique name for the placement group.
+
+    * - :action-table-field-name:`\-\-placement_group_policy` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`strict`
+      - How requests to add future compute instances to your placement group are handled:  - :code:`strict`.
+
+    * - :action-table-field-name:`\-\-placement_group_type` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`['anti_affinity:local']`
+      - How compute instances are distributed in your placement group.
+
+    * - :action-table-field-name:`\-\-region` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-iad`
+      - The data center that houses the compute instances you want to add to your placement group.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`528`
+      - The placement group's ID.
+
+    * - :action-table-field-name:`is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Whether all of the compute instances in your placement group are compliant.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`PG_Miami_failover`
+      - The unique name set for the placement group.
+
+    * - :action-table-field-name:`placement_group_policy` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`strict`
+      - How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - :code:`strict`.
+
+    * - :action-table-field-name:`placement_group_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`anti-affinity:local`
+      - How compute instances are distributed in your placement group.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-mia`
+      - The `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the placement group was deployed.
+
+
+
+
+.. _commands_placement_group-create_attribute_sections_members:
+
+.. rst-class:: action-section-header
+
+members
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`members.is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - The compliance status of each individual compute instance in the placement group.
+
+    * - :action-table-field-name:`members.linode_id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique identifier for a compute instance included in the placement group.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_placement_group-update:
+
+`group-update <https://techdocs.akamai.com/linode-api/reference/put-placement-group>`_
+--------------------------------------------------------------------------------------
+
+
+Change the :code:`label` for a specific placement group.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli placement update 528 \
+    	--label PG_Miami_failover_update
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`groupId`
+      - :action-table-field-type:`int`
+      - ID of the placement group to look up.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`PG_Miami_failover`
+      - A unique name for the placement group.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`528`
+      - The placement group's ID.
+
+    * - :action-table-field-name:`is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Whether all of the compute instances in your placement group are compliant.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`PG_Miami_failover`
+      - The unique name set for the placement group.
+
+    * - :action-table-field-name:`placement_group_policy` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`strict`
+      - How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - :code:`strict`.
+
+    * - :action-table-field-name:`placement_group_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`anti-affinity:local`
+      - How compute instances are distributed in your placement group.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-mia`
+      - The `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the placement group was deployed.
+
+
+
+
+.. _commands_placement_group-update_attribute_sections_members:
+
+.. rst-class:: action-section-header
+
+members
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`members.is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - The compliance status of each individual compute instance in the placement group.
+
+    * - :action-table-field-name:`members.linode_id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique identifier for a compute instance included in the placement group.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_placement_group-delete:
+
+`group-delete <https://techdocs.akamai.com/linode-api/reference/delete-placement-group>`_
+-----------------------------------------------------------------------------------------
+
+
+Deletes a placement group you have permission to :code:`read_write`.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli placement delete 528
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`groupId`
+      - :action-table-field-type:`int`
+      - ID of the placement group to look up.
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_placement_groups-list:
+
+`groups-list <https://techdocs.akamai.com/linode-api/reference/get-placement-groups>`_
+--------------------------------------------------------------------------------------
+
+
+Returns a paginated list of placement groups you have permission to view.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli placement-list
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Filterable Attributes
+
+.. rst-class:: action-subheading-description
+
+Arguments used to define a filter for response entries.
+
+
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - The unique name set for the placement group.
+
+    * - :action-table-field-name:`\-\-placement_group_type`
+      - :action-table-field-type:`str`
+      - How compute instances are distributed in your placement group.
+
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`str`
+      - The `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the placement group was deployed.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`528`
+      - The placement group's ID.
+
+    * - :action-table-field-name:`is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Whether all of the compute instances in your placement group are compliant.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`PG_Miami_failover`
+      - The unique name set for the placement group.
+
+    * - :action-table-field-name:`placement_group_policy` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`strict`
+      - How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - :code:`strict`.
+
+    * - :action-table-field-name:`placement_group_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`anti-affinity:local`
+      - How compute instances are distributed in your placement group.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-mia`
+      - The `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the placement group was deployed.
+
+
+
+
+.. _commands_placement_groups-list_attribute_sections_members:
+
+.. rst-class:: action-section-header
+
+members
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`members.is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - The compliance status of each individual compute instance in the placement group.
+
+    * - :action-table-field-name:`members.linode_id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique identifier for a compute instance included in the placement group.
+
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_placement_unassign-linode:
+
+`unassign-linode <https://techdocs.akamai.com/linode-api/reference/post-group-unassign>`_
+-----------------------------------------------------------------------------------------
+
+
+Remove one or more compute instances from your placement group.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli placement unassignLinode 528 \
+    	--linode 123 456
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`groupId`
+      - :action-table-field-type:`int`
+      - ID of the placement group to look up.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`528`
+      - The placement group's ID.
+
+    * - :action-table-field-name:`is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Whether all of the compute instances in your placement group are compliant.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`PG_Miami_failover`
+      - The unique name set for the placement group.
+
+    * - :action-table-field-name:`placement_group_policy` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`strict`
+      - How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - :code:`strict`.
+
+    * - :action-table-field-name:`placement_group_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`anti-affinity:local`
+      - How compute instances are distributed in your placement group.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-mia`
+      - The `region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ where the placement group was deployed.
+
+
+
+
+.. _commands_placement_unassign-linode_attribute_sections_members:
+
+.. rst-class:: action-section-header
+
+members
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`members.is_compliant` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - The compliance status of each individual compute instance in the placement group.
+
+    * - :action-table-field-name:`members.linode_id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique identifier for a compute instance included in the placement group.
+
+
+
+
+
+
+
+
+

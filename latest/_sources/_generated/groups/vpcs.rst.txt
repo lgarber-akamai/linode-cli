@@ -1,0 +1,2170 @@
+VPCs
+====
+
+This section details VPC-related Linode CLI commands.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_vpcs_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-vpcs>`_
+-------------------------------------------------------------------
+
+
+Display all VPCs on your account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs list
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Filterable Attributes
+
+.. rst-class:: action-subheading-description
+
+Arguments used to define a filter for response entries.
+
+
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-type:`str`
+      - The date-time of VPC creation.
+
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-type:`int`
+      - The unique ID of the VPC.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - The VPC's label, for display purposes only.
+
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`str`
+      - The Region for the VPC.
+
+    * - :action-table-field-name:`\-\-subnets.created`
+      - :action-table-field-type:`str`
+      - The date-time of VPC Subnet creation.
+
+    * - :action-table-field-name:`\-\-subnets.id`
+      - :action-table-field-type:`int`
+      - The unique ID of the VPC Subnet.
+
+    * - :action-table-field-name:`\-\-subnets.label`
+      - :action-table-field-type:`str`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`\-\-subnets.updated`
+      - :action-table-field-type:`str`
+      - The date-time of the most recent VPC Subnet update.
+
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-type:`str`
+      - The date-time of the most recent VPC update.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC creation.
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A description of my VPC.`
+      - A written description to help distinguish the VPC.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique ID of the VPC.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc`
+      - The VPC's label, for display purposes only.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
+      - The Region for the VPC.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC update.
+
+
+
+
+.. _commands_vpcs_list_attribute_sections_subnets:
+
+.. rst-class:: action-section-header
+
+subnets
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`subnets.created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC Subnet creation.
+
+    * - :action-table-field-name:`subnets.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`456`
+      - The unique ID of the VPC Subnet.
+
+    * - :action-table-field-name:`subnets.ipv4` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.1.0/24`
+      - IPv4 range in CIDR canonical form.
+
+    * - :action-table-field-name:`subnets.label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`subnets.linodes.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`111`
+      - ID of a Linode assigned to the VPC Subnet.
+
+    * - :action-table-field-name:`subnets.linodes.interfaces.active` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Returns :code:`true` if the Interface is in use, meaning that the Linode was powered on using the Configuration Profile to which the Interface belongs.
+
+    * - :action-table-field-name:`subnets.linodes.interfaces.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`421`
+      - ID of the interface.
+
+    * - :action-table-field-name:`subnets.updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC Subnet update.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_vpcs_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-vpc>`_
+------------------------------------------------------------------
+
+
+Get information about a single VPC.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs view $vpcId
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`vpcId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC creation.
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A description of my VPC.`
+      - A written description to help distinguish the VPC.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique ID of the VPC.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc`
+      - The VPC's label, for display purposes only.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
+      - The Region for the VPC.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC update.
+
+
+
+
+.. _commands_vpcs_view_attribute_sections_subnets:
+
+.. rst-class:: action-section-header
+
+subnets
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`subnets.created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC Subnet creation.
+
+    * - :action-table-field-name:`subnets.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`456`
+      - The unique ID of the VPC Subnet.
+
+    * - :action-table-field-name:`subnets.ipv4` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.1.0/24`
+      - IPv4 range in CIDR canonical form.
+
+    * - :action-table-field-name:`subnets.label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`subnets.linodes.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`111`
+      - ID of a Linode assigned to the VPC Subnet.
+
+    * - :action-table-field-name:`subnets.linodes.interfaces.active` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Returns :code:`true` if the Interface is in use, meaning that the Linode was powered on using the Configuration Profile to which the Interface belongs.
+
+    * - :action-table-field-name:`subnets.linodes.interfaces.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`421`
+      - ID of the interface.
+
+    * - :action-table-field-name:`subnets.updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC Subnet update.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_vpcs_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-vpc>`_
+---------------------------------------------------------------------
+
+
+Create a new VPC and optionally associated VPC Subnets.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs create \
+    	--description "A description of my VPC." \
+    	--label cool-vpc \
+    	--region us-east \
+    	--subnets.label cool-vpc-subnet \
+    	--subnets.ipv4 10.0.1.0/24
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc`
+      - The VPC's label, for display purposes only.
+
+    * - :action-table-field-name:`\-\-region` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
+      - The Region for the VPC.
+
+    * - :action-table-field-name:`\-\-description`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A description of my VPC.`
+      - A written description to help distinguish the VPC.
+
+    * - :action-table-field-name:`\-\-subnets` :ref:`(section) <commands_vpcs_create_argument_sections_subnets>`
+      - :action-table-field-type:`json`
+      - :action-table-field-example:`N/A`
+      - An object describing a VPC Subnet.
+
+
+
+
+.. _commands_vpcs_create_argument_sections_subnets:
+
+.. rst-class:: action-section-header
+
+subnets
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-subnets.ipv4`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.1.0/24`
+      - IPv4 range in CIDR canonical form.
+
+    * - :action-table-field-name:`\-\-subnets.label`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`\-\-subnets.linodes` :ref:`(section) <commands_vpcs_create_argument_sections_subnets.linodes>`
+      - :action-table-field-type:`json`
+      - :action-table-field-example:`N/A`
+      - N/A
+
+
+
+
+.. _commands_vpcs_create_argument_sections_subnets.linodes:
+
+.. rst-class:: action-section-header
+
+subnets.linodes
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-subnets.linodes.id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`111`
+      - ID of a Linode assigned to the VPC Subnet.
+
+    * - :action-table-field-name:`\-\-subnets.linodes.interfaces` :ref:`(section) <commands_vpcs_create_argument_sections_subnets.linodes.interfaces>`
+      - :action-table-field-type:`json`
+      - :action-table-field-example:`N/A`
+      - N/A
+
+
+
+
+.. _commands_vpcs_create_argument_sections_subnets.linodes.interfaces:
+
+.. rst-class:: action-section-header
+
+subnets.linodes.interfaces
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-subnets.linodes.interfaces.active`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Returns :code:`true` if the Interface is in use, meaning that the Linode was powered on using the Configuration Profile to which the Interface belongs.
+
+    * - :action-table-field-name:`\-\-subnets.linodes.interfaces.id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`421`
+      - ID of the interface.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC creation.
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A description of my VPC.`
+      - A written description to help distinguish the VPC.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique ID of the VPC.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc`
+      - The VPC's label, for display purposes only.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
+      - The Region for the VPC.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC update.
+
+
+
+
+.. _commands_vpcs_create_attribute_sections_subnets:
+
+.. rst-class:: action-section-header
+
+subnets
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`subnets.created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC Subnet creation.
+
+    * - :action-table-field-name:`subnets.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`456`
+      - The unique ID of the VPC Subnet.
+
+    * - :action-table-field-name:`subnets.ipv4` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.1.0/24`
+      - IPv4 range in CIDR canonical form.
+
+    * - :action-table-field-name:`subnets.label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`subnets.linodes.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`111`
+      - ID of a Linode assigned to the VPC Subnet.
+
+    * - :action-table-field-name:`subnets.linodes.interfaces.active` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Returns :code:`true` if the Interface is in use, meaning that the Linode was powered on using the Configuration Profile to which the Interface belongs.
+
+    * - :action-table-field-name:`subnets.linodes.interfaces.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`421`
+      - ID of the interface.
+
+    * - :action-table-field-name:`subnets.updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC Subnet update.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_vpcs_update:
+
+`update <https://techdocs.akamai.com/linode-api/reference/put-vpc>`_
+--------------------------------------------------------------------
+
+
+Update an existing VPC.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs update $vpcId \
+    	--description "A description of my VPC."
+    	--label cool-vpc
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`vpcId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-description`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A description of my VPC.`
+      - A written description to help distinguish the VPC.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc`
+      - The VPC's label, for display purposes only.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC creation.
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A description of my VPC.`
+      - A written description to help distinguish the VPC.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique ID of the VPC.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc`
+      - The VPC's label, for display purposes only.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
+      - The Region for the VPC.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC update.
+
+
+
+
+.. _commands_vpcs_update_attribute_sections_subnets:
+
+.. rst-class:: action-section-header
+
+subnets
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`subnets.created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC Subnet creation.
+
+    * - :action-table-field-name:`subnets.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`456`
+      - The unique ID of the VPC Subnet.
+
+    * - :action-table-field-name:`subnets.ipv4` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.1.0/24`
+      - IPv4 range in CIDR canonical form.
+
+    * - :action-table-field-name:`subnets.label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`subnets.linodes.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`111`
+      - ID of a Linode assigned to the VPC Subnet.
+
+    * - :action-table-field-name:`subnets.linodes.interfaces.active` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Returns :code:`true` if the Interface is in use, meaning that the Linode was powered on using the Configuration Profile to which the Interface belongs.
+
+    * - :action-table-field-name:`subnets.linodes.interfaces.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`421`
+      - ID of the interface.
+
+    * - :action-table-field-name:`subnets.updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC Subnet update.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_vpcs_delete:
+
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-vpc>`_
+-----------------------------------------------------------------------
+
+
+Delete a single VPC and all of its Subnets.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs delete $vpcId
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`vpcId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC.
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_vpcs_subnet-view:
+
+`subnet-view <https://techdocs.akamai.com/linode-api/reference/get-vpc-subnet>`_
+--------------------------------------------------------------------------------
+
+
+Get information about a single VPC Subnet.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs subnet-view $vpcId $vpcSubnetId
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`vpcId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC.
+
+    * - :action-table-field-name:`vpcSubnetId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC Subnet.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC Subnet creation.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`456`
+      - The unique ID of the VPC Subnet.
+
+    * - :action-table-field-name:`ipv4` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.1.0/24`
+      - IPv4 range in CIDR canonical form.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC Subnet update.
+
+
+
+
+.. _commands_vpcs_subnet-view_attribute_sections_linodes:
+
+.. rst-class:: action-section-header
+
+linodes
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`linodes.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`111`
+      - ID of a Linode assigned to the VPC Subnet.
+
+    * - :action-table-field-name:`linodes.interfaces.active` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Returns :code:`true` if the Interface is in use, meaning that the Linode was powered on using the Configuration Profile to which the Interface belongs.
+
+    * - :action-table-field-name:`linodes.interfaces.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`421`
+      - ID of the interface.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_vpcs_subnet-create:
+
+`subnet-create <https://techdocs.akamai.com/linode-api/reference/post-vpc-subnet>`_
+-----------------------------------------------------------------------------------
+
+
+Create a VPC Subnet.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs subnet-create $vpcId \
+    	--label cool-vpc-subnet \
+    	--ipv4 10.0.1.0/24
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`vpcId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-ipv4` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.1.0/24`
+      - IPv4 range in CIDR canonical form.
+
+    * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC Subnet creation.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`456`
+      - The unique ID of the VPC Subnet.
+
+    * - :action-table-field-name:`ipv4` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.1.0/24`
+      - IPv4 range in CIDR canonical form.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC Subnet update.
+
+
+
+
+.. _commands_vpcs_subnet-create_attribute_sections_linodes:
+
+.. rst-class:: action-section-header
+
+linodes
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`linodes.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`111`
+      - ID of a Linode assigned to the VPC Subnet.
+
+    * - :action-table-field-name:`linodes.interfaces.active` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Returns :code:`true` if the Interface is in use, meaning that the Linode was powered on using the Configuration Profile to which the Interface belongs.
+
+    * - :action-table-field-name:`linodes.interfaces.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`421`
+      - ID of the interface.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_vpcs_subnet-update:
+
+`subnet-update <https://techdocs.akamai.com/linode-api/reference/put-vpc-subnet>`_
+----------------------------------------------------------------------------------
+
+
+Update a VPC Subnet.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs subnet-update $vpcId \
+    	--label cool-vpc-subnet
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`vpcId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC.
+
+    * - :action-table-field-name:`vpcSubnetId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC Subnet.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC Subnet creation.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`456`
+      - The unique ID of the VPC Subnet.
+
+    * - :action-table-field-name:`ipv4` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.1.0/24`
+      - IPv4 range in CIDR canonical form.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC Subnet update.
+
+
+
+
+.. _commands_vpcs_subnet-update_attribute_sections_linodes:
+
+.. rst-class:: action-section-header
+
+linodes
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`linodes.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`111`
+      - ID of a Linode assigned to the VPC Subnet.
+
+    * - :action-table-field-name:`linodes.interfaces.active` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Returns :code:`true` if the Interface is in use, meaning that the Linode was powered on using the Configuration Profile to which the Interface belongs.
+
+    * - :action-table-field-name:`linodes.interfaces.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`421`
+      - ID of the interface.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_vpcs_subnet-delete:
+
+`subnet-delete <https://techdocs.akamai.com/linode-api/reference/delete-vpc-subnet>`_
+-------------------------------------------------------------------------------------
+
+
+Delete a single VPC Subnet.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs subnet-delete $vpcId $vpcSubnetId
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`vpcId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC.
+
+    * - :action-table-field-name:`vpcSubnetId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC Subnet.
+
+
+
+
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_vpcs_subnets-list:
+
+`subnets-list <https://techdocs.akamai.com/linode-api/reference/get-vpc-subnets>`_
+----------------------------------------------------------------------------------
+
+
+Get information about all VPC Subnets associated with a VPC.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs subnets-list $vpcId
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`vpcId`
+      - :action-table-field-type:`int`
+      - The :code:`id` of the VPC.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Filterable Attributes
+
+.. rst-class:: action-subheading-description
+
+Arguments used to define a filter for response entries.
+
+
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-type:`str`
+      - The date-time of VPC Subnet creation.
+
+    * - :action-table-field-name:`\-\-id`
+      - :action-table-field-type:`int`
+      - The unique ID of the VPC Subnet.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-type:`str`
+      - The date-time of the most recent VPC Subnet update.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The date-time of VPC Subnet creation.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`456`
+      - The unique ID of the VPC Subnet.
+
+    * - :action-table-field-name:`ipv4` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`10.0.1.0/24`
+      - IPv4 range in CIDR canonical form.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`cool-vpc-subnet`
+      - The VPC Subnet's label, for display purposes only.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of the most recent VPC Subnet update.
+
+
+
+
+.. _commands_vpcs_subnets-list_attribute_sections_linodes:
+
+.. rst-class:: action-section-header
+
+linodes
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`linodes.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`111`
+      - ID of a Linode assigned to the VPC Subnet.
+
+    * - :action-table-field-name:`linodes.interfaces.active` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Returns :code:`true` if the Interface is in use, meaning that the Linode was powered on using the Configuration Profile to which the Interface belongs.
+
+    * - :action-table-field-name:`linodes.interfaces.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`421`
+      - ID of the interface.
+
+
+
+
+
+
+
+
+

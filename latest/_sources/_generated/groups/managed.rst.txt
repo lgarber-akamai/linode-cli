@@ -1,0 +1,4110 @@
+Managed
+=======
+
+This section details Managed-related Linode CLI commands.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_contact-view:
+
+`contact-view <https://techdocs.akamai.com/linode-api/reference/get-managed-contact>`_
+--------------------------------------------------------------------------------------
+
+
+Returns a single Managed Contact.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed contact-view 567
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`contactId`
+      - :action-table-field-type:`int`
+      - The ID of the contact to access.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`john.doe@example.org`
+      - The address to email this Contact to alert them of issues.
+
+    * - :action-table-field-name:`group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - A grouping for this Contact.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`567`
+      - This Contact's unique ID.
+
+    * - :action-table-field-name:`name` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`John Doe`
+      - The name of this Contact.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Contact was last updated.
+
+
+
+
+.. _commands_managed_contact-view_attribute_sections_phone:
+
+.. rst-class:: action-section-header
+
+phone
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`phone.primary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`123-456-7890`
+      - This Contact's primary phone number.
+
+    * - :action-table-field-name:`phone.secondary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - This Contact's secondary phone number.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_contact-create:
+
+`contact-create <https://techdocs.akamai.com/linode-api/reference/post-managed-contact>`_
+-----------------------------------------------------------------------------------------
+
+
+Creates a Managed Contact.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed contact-create \
+    	--name "John Doe" \
+    	--email "john.doe@example.org" \
+    	--phone.primary "123-456-7890"
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-email`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`john.doe@example.org`
+      - The address to email this Contact to alert them of issues.
+
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - A grouping for this Contact.
+
+    * - :action-table-field-name:`\-\-name`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`John Doe`
+      - The name of this Contact.
+
+    * - :action-table-field-name:`\-\-phone.primary`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`123-456-7890`
+      - This Contact's primary phone number.
+
+    * - :action-table-field-name:`\-\-phone.secondary`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - This Contact's secondary phone number.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`john.doe@example.org`
+      - The address to email this Contact to alert them of issues.
+
+    * - :action-table-field-name:`group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - A grouping for this Contact.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`567`
+      - This Contact's unique ID.
+
+    * - :action-table-field-name:`name` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`John Doe`
+      - The name of this Contact.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Contact was last updated.
+
+
+
+
+.. _commands_managed_contact-create_attribute_sections_phone:
+
+.. rst-class:: action-section-header
+
+phone
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`phone.primary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`123-456-7890`
+      - This Contact's primary phone number.
+
+    * - :action-table-field-name:`phone.secondary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - This Contact's secondary phone number.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_contact-update:
+
+`contact-update <https://techdocs.akamai.com/linode-api/reference/put-managed-contact>`_
+----------------------------------------------------------------------------------------
+
+
+Updates information about a Managed Contact.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed contact-update 567 \
+    	--name "John Doe" \
+    	--email "john.doe@example.org" \
+    	--phone.primary "123-456-7890"
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`contactId`
+      - :action-table-field-type:`int`
+      - The ID of the contact to access.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-email`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`john.doe@example.org`
+      - The address to email this Contact to alert them of issues.
+
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - A grouping for this Contact.
+
+    * - :action-table-field-name:`\-\-name`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`John Doe`
+      - The name of this Contact.
+
+    * - :action-table-field-name:`\-\-phone.primary`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`123-456-7890`
+      - This Contact's primary phone number.
+
+    * - :action-table-field-name:`\-\-phone.secondary`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - This Contact's secondary phone number.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`john.doe@example.org`
+      - The address to email this Contact to alert them of issues.
+
+    * - :action-table-field-name:`group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - A grouping for this Contact.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`567`
+      - This Contact's unique ID.
+
+    * - :action-table-field-name:`name` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`John Doe`
+      - The name of this Contact.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Contact was last updated.
+
+
+
+
+.. _commands_managed_contact-update_attribute_sections_phone:
+
+.. rst-class:: action-section-header
+
+phone
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`phone.primary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`123-456-7890`
+      - This Contact's primary phone number.
+
+    * - :action-table-field-name:`phone.secondary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - This Contact's secondary phone number.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_contact-delete:
+
+`contact-delete <https://techdocs.akamai.com/linode-api/reference/delete-managed-contact>`_
+-------------------------------------------------------------------------------------------
+
+
+Deletes a Managed Contact.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed contact-delete 567
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`contactId`
+      - :action-table-field-type:`int`
+      - The ID of the contact to access.
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_contacts-list:
+
+`contacts-list <https://techdocs.akamai.com/linode-api/reference/get-managed-contacts>`_
+----------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Managed Contacts on your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed contacts-list
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Filterable Attributes
+
+.. rst-class:: action-subheading-description
+
+Arguments used to define a filter for response entries.
+
+
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`\-\-group`
+      - :action-table-field-type:`str`
+      - A grouping for this Contact.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`email` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`john.doe@example.org`
+      - The address to email this Contact to alert them of issues.
+
+    * - :action-table-field-name:`group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - A grouping for this Contact.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`567`
+      - This Contact's unique ID.
+
+    * - :action-table-field-name:`name` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`John Doe`
+      - The name of this Contact.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Contact was last updated.
+
+
+
+
+.. _commands_managed_contacts-list_attribute_sections_phone:
+
+.. rst-class:: action-section-header
+
+phone
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`phone.primary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`123-456-7890`
+      - This Contact's primary phone number.
+
+    * - :action-table-field-name:`phone.secondary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - This Contact's secondary phone number.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_credential-view:
+
+`credential-view <https://techdocs.akamai.com/linode-api/reference/get-managed-credential>`_
+--------------------------------------------------------------------------------------------
+
+
+Returns a single Managed Credential.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-view 9991
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`credentialId`
+      - :action-table-field-type:`int`
+      - The ID of the Credential to access.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`9991`
+      - This Credential's unique ID.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-password-1`
+      - The unique label for this Credential.
+
+    * - :action-table-field-name:`last_decrypted` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - The date this Credential was last decrypted by a member of Linode special forces.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_credential-create:
+
+`credential-create <https://techdocs.akamai.com/linode-api/reference/post-managed-credential>`_
+-----------------------------------------------------------------------------------------------
+
+
+Creates a Managed Credential.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-create \
+    	--label prod-password-1 \
+    	--username johndoe \
+    	--password s3cur3P@ssw0rd
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-password-1`
+      - The unique label for this Credential.
+
+    * - :action-table-field-name:`\-\-password` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`s3cur3P@ssw0rd`
+      - The password to use when accessing the Managed Service.
+
+    * - :action-table-field-name:`\-\-username`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`johndoe`
+      - The username to use when accessing the Managed Service.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`9991`
+      - This Credential's unique ID.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-password-1`
+      - The unique label for this Credential.
+
+    * - :action-table-field-name:`last_decrypted` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - The date this Credential was last decrypted by a member of Linode special forces.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_credential-update:
+
+`credential-update <https://techdocs.akamai.com/linode-api/reference/put-managed-credential>`_
+----------------------------------------------------------------------------------------------
+
+
+Updates the label of a Managed Credential.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-update 9991 \
+    	--label prod-password-1
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`credentialId`
+      - :action-table-field-type:`int`
+      - The ID of the Credential to access.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-password-1`
+      - The unique label for this Credential.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`9991`
+      - This Credential's unique ID.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-password-1`
+      - The unique label for this Credential.
+
+    * - :action-table-field-name:`last_decrypted` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - The date this Credential was last decrypted by a member of Linode special forces.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_credential-update-username-password:
+
+`credential-update-username-password <https://techdocs.akamai.com/linode-api/reference/post-managed-credential-username-password>`_
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+Updates the username and password for a Managed Credential.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-update-username-password 9991 \
+    	--username johndoe \
+    	--password s3cur3P@ssw0rd
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`credentialId`
+      - :action-table-field-type:`int`
+      - The ID of the Credential to update.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-password` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`s3cur3P@ssw0rd`
+      - The password to use when accessing the Managed Service.
+
+    * - :action-table-field-name:`\-\-username`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`johndoe`
+      - The username to use when accessing the Managed Service.
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_credential-revoke:
+
+`credential-revoke <https://techdocs.akamai.com/linode-api/reference/post-managed-credential-revoke>`_
+------------------------------------------------------------------------------------------------------
+
+
+Deletes a Managed Credential.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-revoke 9991
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`credentialId`
+      - :action-table-field-type:`int`
+      - The ID of the Credential to access.
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_credential-sshkey-view:
+
+`credential-sshkey-view <https://techdocs.akamai.com/linode-api/reference/get-managed-ssh-key>`_
+------------------------------------------------------------------------------------------------
+
+
+Returns the unique SSH public key assigned to your Linode account's Managed service.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed credential-sshkey-view
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ssh_key` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ssh-rsa AAAA...vices@linode`
+      - The unique SSH public key assigned to your Linode account's Managed service.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_credentials-list:
+
+`credentials-list <https://techdocs.akamai.com/linode-api/reference/get-managed-credentials>`_
+----------------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Managed Credentials on your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed credentials-list
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`9991`
+      - This Credential's unique ID.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-password-1`
+      - The unique label for this Credential.
+
+    * - :action-table-field-name:`last_decrypted` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - The date this Credential was last decrypted by a member of Linode special forces.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_issue-view:
+
+`issue-view <https://techdocs.akamai.com/linode-api/reference/get-managed-issue>`_
+----------------------------------------------------------------------------------
+
+
+Returns a single Issue that is impacting or did impact one of your Managed Services.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed issue-view 823
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`issueId`
+      - :action-table-field-type:`int`
+      - The Issue to look up.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Issue was created.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`823`
+      - This Issue's unique ID.
+
+    * - :action-table-field-name:`services` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`654`
+      - An array of Managed Service IDs that were affected by this Issue.
+
+
+
+
+.. _commands_managed_issue-view_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`98765`
+      - This ticket's ID.
+
+    * - :action-table-field-name:`entity.label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Managed Issue opened!`
+      - The summary for this Ticket.
+
+    * - :action-table-field-name:`entity.type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ticket`
+      - The type of entity this is.
+
+    * - :action-table-field-name:`entity.url` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/support/tickets/98765`
+      - The relative URL where you can access this Ticket.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_issues-list:
+
+`issues-list <https://techdocs.akamai.com/linode-api/reference/get-managed-issues>`_
+------------------------------------------------------------------------------------
+
+
+Returns a paginated list of recent and ongoing issues detected on your Managed Services.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed issues-list
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Issue was created.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`823`
+      - This Issue's unique ID.
+
+    * - :action-table-field-name:`services` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`654`
+      - An array of Managed Service IDs that were affected by this Issue.
+
+
+
+
+.. _commands_managed_issues-list_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`98765`
+      - This ticket's ID.
+
+    * - :action-table-field-name:`entity.label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Managed Issue opened!`
+      - The summary for this Ticket.
+
+    * - :action-table-field-name:`entity.type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ticket`
+      - The type of entity this is.
+
+    * - :action-table-field-name:`entity.url` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/support/tickets/98765`
+      - The relative URL where you can access this Ticket.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_linode-setting-view:
+
+`linode-setting-view <https://techdocs.akamai.com/linode-api/reference/get-managed-linode-setting>`_
+----------------------------------------------------------------------------------------------------
+
+
+Returns a single Linode's Managed settings.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed linode-setting-view 123
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`linodeId`
+      - :action-table-field-type:`int`
+      - The Linode ID whose settings we are accessing.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linodes`
+      - The group of the Linode these Settings are for.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The ID of the Linode these Settings are for.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
+      - The label of the Linode these Settings are for.
+
+
+
+
+.. _commands_managed_linode-setting-view_attribute_sections_ssh:
+
+.. rst-class:: action-section-header
+
+ssh
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ssh.access` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If true, Linode special forces may access this Linode over ssh to respond to Issues.
+
+    * - :action-table-field-name:`ssh.ip` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`203.0.113.1`
+      - The IP Linode special forces should use to access this Linode when responding to an Issue.
+
+    * - :action-table-field-name:`ssh.port` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`22`
+      - The port Linode special forces should use to access this Linode over ssh to respond to an Issue.
+
+    * - :action-table-field-name:`ssh.user` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
+      - The specific user, if any, Linode's special forces should use when accessing this Linode to respond to an issue.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_linode-setting-update:
+
+`linode-setting-update <https://techdocs.akamai.com/linode-api/reference/put-managed-linode-setting>`_
+------------------------------------------------------------------------------------------------------
+
+
+Updates a single Linode's Managed settings.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed linode-setting-update \
+    	7833234 \
+    	--ssh.access true \
+    	--ssh.user linode \
+    	--ssh.port 22 \
+    	--ssh.ip 203.0.113.1
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`linodeId`
+      - :action-table-field-type:`int`
+      - The Linode ID whose settings we are accessing.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-ssh.access`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If true, Linode special forces may access this Linode over ssh to respond to Issues.
+
+    * - :action-table-field-name:`\-\-ssh.ip`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`203.0.113.1`
+      - The IP Linode special forces should use to access this Linode when responding to an Issue.
+
+    * - :action-table-field-name:`\-\-ssh.port`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`22`
+      - The port Linode special forces should use to access this Linode over ssh to respond to an Issue.
+
+    * - :action-table-field-name:`\-\-ssh.user`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
+      - The specific user, if any, Linode's special forces should use when accessing this Linode to respond to an issue.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linodes`
+      - The group of the Linode these Settings are for.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The ID of the Linode these Settings are for.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
+      - The label of the Linode these Settings are for.
+
+
+
+
+.. _commands_managed_linode-setting-update_attribute_sections_ssh:
+
+.. rst-class:: action-section-header
+
+ssh
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ssh.access` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If true, Linode special forces may access this Linode over ssh to respond to Issues.
+
+    * - :action-table-field-name:`ssh.ip` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`203.0.113.1`
+      - The IP Linode special forces should use to access this Linode when responding to an Issue.
+
+    * - :action-table-field-name:`ssh.port` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`22`
+      - The port Linode special forces should use to access this Linode over ssh to respond to an Issue.
+
+    * - :action-table-field-name:`ssh.user` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
+      - The specific user, if any, Linode's special forces should use when accessing this Linode to respond to an issue.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_linode-settings-list:
+
+`linode-settings-list <https://techdocs.akamai.com/linode-api/reference/get-managed-linode-settings>`_
+------------------------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Managed Settings for your Linodes.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed linode-settings-list
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linodes`
+      - The group of the Linode these Settings are for.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The ID of the Linode these Settings are for.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
+      - The label of the Linode these Settings are for.
+
+
+
+
+.. _commands_managed_linode-settings-list_attribute_sections_ssh:
+
+.. rst-class:: action-section-header
+
+ssh
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`ssh.access` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If true, Linode special forces may access this Linode over ssh to respond to Issues.
+
+    * - :action-table-field-name:`ssh.ip` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`203.0.113.1`
+      - The IP Linode special forces should use to access this Linode when responding to an Issue.
+
+    * - :action-table-field-name:`ssh.port` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`22`
+      - The port Linode special forces should use to access this Linode over ssh to respond to an Issue.
+
+    * - :action-table-field-name:`ssh.user` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
+      - The specific user, if any, Linode's special forces should use when accessing this Linode to respond to an issue.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_service-view:
+
+`service-view <https://techdocs.akamai.com/linode-api/reference/get-managed-service>`_
+--------------------------------------------------------------------------------------
+
+
+Returns information about a single Managed Service on your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed service-view 9994
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`serviceId`
+      - :action-table-field-type:`int`
+      - The ID of the Managed Service to access.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://example.org`
+      - The URL at which this Service is monitored.
+
+    * - :action-table-field-name:`body` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`it worked`
+      - What to expect to find in the response body for the Service to be considered up.
+
+    * - :action-table-field-name:`consultation_group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Managed Service was created.
+
+    * - :action-table-field-name:`credentials` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`9944`
+      - This Service's unique ID.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-1`
+      - The label for this Service.
+
+    * - :action-table-field-name:`notes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`The service n...-application`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The Region in which this Service is located.
+
+    * - :action-table-field-name:`service_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`url`
+      - How this Service is monitored.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ok`
+      - The current status of this Service.
+
+    * - :action-table-field-name:`timeout` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-03-01T00:01:01`
+      - When this Managed Service was last updated.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_service-create:
+
+`service-create <https://techdocs.akamai.com/linode-api/reference/post-managed-service>`_
+-----------------------------------------------------------------------------------------
+
+
+Creates a Managed Service.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed service-create \
+    	--service_type url \
+    	--label prod-1 \
+    	--address "https://example.org" \
+    	--timeout 30 \
+    	--body "it worked" \
+    	--consultation_group on-call \
+    	--notes "The service name is \
+    		my-cool-application" \
+    	--credentials 9991
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-address` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://example.org`
+      - The URL at which this Service is monitored.
+
+    * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-1`
+      - The label for this Service.
+
+    * - :action-table-field-name:`\-\-service_type` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`url`
+      - How this Service is monitored.
+
+    * - :action-table-field-name:`\-\-timeout` :action-table-field-required:`*`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+
+    * - :action-table-field-name:`\-\-body`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`it worked`
+      - What to expect to find in the response body for the Service to be considered up.
+
+    * - :action-table-field-name:`\-\-consultation_group`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+
+    * - :action-table-field-name:`\-\-credentials`
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`N/A`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+
+    * - :action-table-field-name:`\-\-notes`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`The service n...-application`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The Region in which this Service is located.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://example.org`
+      - The URL at which this Service is monitored.
+
+    * - :action-table-field-name:`body` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`it worked`
+      - What to expect to find in the response body for the Service to be considered up.
+
+    * - :action-table-field-name:`consultation_group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Managed Service was created.
+
+    * - :action-table-field-name:`credentials` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`9944`
+      - This Service's unique ID.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-1`
+      - The label for this Service.
+
+    * - :action-table-field-name:`notes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`The service n...-application`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The Region in which this Service is located.
+
+    * - :action-table-field-name:`service_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`url`
+      - How this Service is monitored.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ok`
+      - The current status of this Service.
+
+    * - :action-table-field-name:`timeout` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-03-01T00:01:01`
+      - When this Managed Service was last updated.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_service-update:
+
+`service-update <https://techdocs.akamai.com/linode-api/reference/put-managed-service>`_
+----------------------------------------------------------------------------------------
+
+
+Updates information about a Managed Service.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed service-update 9994 \
+    	--service_type url \
+    	--label prod-1 \
+    	--address "https://example.org" \
+    	--timeout 30 \
+    	--body "it worked" \
+    	--consultation_group on-call \
+    	--notes "The service name is my-cool-application" \
+    	--credentials 9991
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`serviceId`
+      - :action-table-field-type:`int`
+      - The ID of the Managed Service to access.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-address`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://example.org`
+      - The URL at which this Service is monitored.
+
+    * - :action-table-field-name:`\-\-body`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`it worked`
+      - What to expect to find in the response body for the Service to be considered up.
+
+    * - :action-table-field-name:`\-\-consultation_group`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+
+    * - :action-table-field-name:`\-\-credentials`
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`N/A`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-1`
+      - The label for this Service.
+
+    * - :action-table-field-name:`\-\-notes`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`The service n...-application`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The Region in which this Service is located.
+
+    * - :action-table-field-name:`\-\-service_type`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`url`
+      - How this Service is monitored.
+
+    * - :action-table-field-name:`\-\-timeout`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://example.org`
+      - The URL at which this Service is monitored.
+
+    * - :action-table-field-name:`body` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`it worked`
+      - What to expect to find in the response body for the Service to be considered up.
+
+    * - :action-table-field-name:`consultation_group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Managed Service was created.
+
+    * - :action-table-field-name:`credentials` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`9944`
+      - This Service's unique ID.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-1`
+      - The label for this Service.
+
+    * - :action-table-field-name:`notes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`The service n...-application`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The Region in which this Service is located.
+
+    * - :action-table-field-name:`service_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`url`
+      - How this Service is monitored.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ok`
+      - The current status of this Service.
+
+    * - :action-table-field-name:`timeout` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-03-01T00:01:01`
+      - When this Managed Service was last updated.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_service-delete:
+
+`service-delete <https://techdocs.akamai.com/linode-api/reference/delete-managed-service>`_
+-------------------------------------------------------------------------------------------
+
+
+Deletes a Managed Service.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed service-delete 9994
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`serviceId`
+      - :action-table-field-type:`int`
+      - The ID of the Managed Service to access.
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_service-disable:
+
+`service-disable <https://techdocs.akamai.com/linode-api/reference/post-disable-managed-service>`_
+--------------------------------------------------------------------------------------------------
+
+
+Temporarily disables monitoring of a Managed Service.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed service-disable 9994
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`serviceId`
+      - :action-table-field-type:`int`
+      - The ID of the Managed Service to disable.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://example.org`
+      - The URL at which this Service is monitored.
+
+    * - :action-table-field-name:`body` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`it worked`
+      - What to expect to find in the response body for the Service to be considered up.
+
+    * - :action-table-field-name:`consultation_group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Managed Service was created.
+
+    * - :action-table-field-name:`credentials` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`9944`
+      - This Service's unique ID.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-1`
+      - The label for this Service.
+
+    * - :action-table-field-name:`notes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`The service n...-application`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The Region in which this Service is located.
+
+    * - :action-table-field-name:`service_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`url`
+      - How this Service is monitored.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ok`
+      - The current status of this Service.
+
+    * - :action-table-field-name:`timeout` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-03-01T00:01:01`
+      - When this Managed Service was last updated.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_service-enable:
+
+`service-enable <https://techdocs.akamai.com/linode-api/reference/post-enable-managed-service>`_
+------------------------------------------------------------------------------------------------
+
+
+Enables monitoring of a Managed Service.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed service-enable 9994
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`serviceId`
+      - :action-table-field-type:`int`
+      - The ID of the Managed Service to enable.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://example.org`
+      - The URL at which this Service is monitored.
+
+    * - :action-table-field-name:`body` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`it worked`
+      - What to expect to find in the response body for the Service to be considered up.
+
+    * - :action-table-field-name:`consultation_group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Managed Service was created.
+
+    * - :action-table-field-name:`credentials` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`9944`
+      - This Service's unique ID.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-1`
+      - The label for this Service.
+
+    * - :action-table-field-name:`notes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`The service n...-application`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The Region in which this Service is located.
+
+    * - :action-table-field-name:`service_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`url`
+      - How this Service is monitored.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ok`
+      - The current status of this Service.
+
+    * - :action-table-field-name:`timeout` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-03-01T00:01:01`
+      - When this Managed Service was last updated.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_services-list:
+
+`services-list <https://techdocs.akamai.com/linode-api/reference/get-managed-services>`_
+----------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Managed Services on your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed services-list
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`address` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://example.org`
+      - The URL at which this Service is monitored.
+
+    * - :action-table-field-name:`body` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`it worked`
+      - What to expect to find in the response body for the Service to be considered up.
+
+    * - :action-table-field-name:`consultation_group` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`on-call`
+      - The group of ManagedContacts who should be notified or consulted with when an Issue is detected.
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this Managed Service was created.
+
+    * - :action-table-field-name:`credentials` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`9991`
+      - An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`9944`
+      - This Service's unique ID.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`prod-1`
+      - The label for this Service.
+
+    * - :action-table-field-name:`notes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`The service n...-application`
+      - Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.
+
+    * - :action-table-field-name:`region` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The Region in which this Service is located.
+
+    * - :action-table-field-name:`service_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`url`
+      - How this Service is monitored.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ok`
+      - The current status of this Service.
+
+    * - :action-table-field-name:`timeout` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
+      - How long to wait, in seconds, for a response before considering the Service to be down.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-03-01T00:01:01`
+      - When this Managed Service was last updated.
+
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_managed_stats-list:
+
+`stats-list <https://techdocs.akamai.com/linode-api/reference/get-managed-stats>`_
+----------------------------------------------------------------------------------
+
+
+Returns a list of Managed Stats on your Account in the form of x and y data points.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli managed stats-list
+
+
+
+
+
+
+
+
+
+
+

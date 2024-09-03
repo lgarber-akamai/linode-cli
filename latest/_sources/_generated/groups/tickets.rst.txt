@@ -1,0 +1,1211 @@
+Tickets
+=======
+
+This section details Ticket-related Linode CLI commands.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_tickets_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-tickets>`_
+----------------------------------------------------------------------
+
+
+Returns a collection of Support Tickets on your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli tickets list
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Filterable Attributes
+
+.. rst-class:: action-subheading-description
+
+Arguments used to define a filter for response entries.
+
+
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`\-\-closed`
+      - :action-table-field-type:`str`
+      - The date and time this Ticket was closed.
+
+    * - :action-table-field-name:`\-\-opened`
+      - :action-table-field-type:`str`
+      - The date and time this Ticket was created.
+
+    * - :action-table-field-name:`\-\-updated`
+      - :action-table-field-type:`str`
+      - The date and time this Ticket was last updated.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`attachments` 
+      - :action-table-field-type:`[]str`
+      - :action-table-field-example:`["screenshot...enshot.txt"]`
+      - A list of filenames representing attached files associated with this Ticket.
+
+    * - :action-table-field-name:`closable` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
+      - Whether the Support Ticket may be closed.
+
+    * - :action-table-field-name:`closed` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
+      - The date and time this Ticket was closed.
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I am having ...an reset it?`
+      - The full details of the issue or question.
+
+    * - :action-table-field-name:`gravatar_id` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`474a1b7373ae...49e69c36ce30`
+      - The Gravatar ID of the User who opened this Ticket.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`11223344`
+      - The ID of the Support Ticket.
+
+    * - :action-table-field-name:`opened` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T14:16:44`
+      - The date and time this Ticket was created.
+
+    * - :action-table-field-name:`opened_by` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_user`
+      - The User who opened this Ticket.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`open`
+      - The current status of this Ticket.
+
+    * - :action-table-field-name:`summary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Having troubl...on my Linode`
+      - The summary or title for this Ticket.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
+      - The date and time this Ticket was last updated.
+
+    * - :action-table-field-name:`updated_by` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_other_user`
+      - The User who last updated this Ticket.
+
+
+
+
+.. _commands_tickets_list_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`10400`
+      - The unique ID for this Ticket's entity.
+
+    * - :action-table-field-name:`entity.label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123456`
+      - The current label of this entity.
+
+    * - :action-table-field-name:`entity.type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
+      - The type of entity this is related to.
+
+    * - :action-table-field-name:`entity.url` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/linode/in...ances/123456`
+      - The URL where you can access the object this event is for.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_tickets_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-ticket>`_
+---------------------------------------------------------------------
+
+
+Returns a Support Ticket under your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli tickets view 11223344
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`ticketId`
+      - :action-table-field-type:`int`
+      - The ID of the Support Ticket.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`attachments` 
+      - :action-table-field-type:`[]str`
+      - :action-table-field-example:`["screenshot...enshot.txt"]`
+      - A list of filenames representing attached files associated with this Ticket.
+
+    * - :action-table-field-name:`closable` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
+      - Whether the Support Ticket may be closed.
+
+    * - :action-table-field-name:`closed` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
+      - The date and time this Ticket was closed.
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I am having ...an reset it?`
+      - The full details of the issue or question.
+
+    * - :action-table-field-name:`gravatar_id` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`474a1b7373ae...49e69c36ce30`
+      - The Gravatar ID of the User who opened this Ticket.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`11223344`
+      - The ID of the Support Ticket.
+
+    * - :action-table-field-name:`opened` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T14:16:44`
+      - The date and time this Ticket was created.
+
+    * - :action-table-field-name:`opened_by` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_user`
+      - The User who opened this Ticket.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`open`
+      - The current status of this Ticket.
+
+    * - :action-table-field-name:`summary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Having troubl...on my Linode`
+      - The summary or title for this Ticket.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
+      - The date and time this Ticket was last updated.
+
+    * - :action-table-field-name:`updated_by` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_other_user`
+      - The User who last updated this Ticket.
+
+
+
+
+.. _commands_tickets_view_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`10400`
+      - The unique ID for this Ticket's entity.
+
+    * - :action-table-field-name:`entity.label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123456`
+      - The current label of this entity.
+
+    * - :action-table-field-name:`entity.type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
+      - The type of entity this is related to.
+
+    * - :action-table-field-name:`entity.url` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/linode/in...ances/123456`
+      - The URL where you can access the object this event is for.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_tickets_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-ticket>`_
+------------------------------------------------------------------------
+
+
+Open a Support Ticket.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli tickets create \
+    	--description "I'm having trouble setting the root password on my Linode. I tried following the instructions but something is not working and I'm not sure what I'm doing wrong. Can you please help me figure out how I can reset it?" \
+    	--linode_id 123 \
+    	--summary "Having trouble resetting root password on my Linode"
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-description` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I'm having tr...an reset it?`
+      - The full details of the issue or question.
+
+    * - :action-table-field-name:`\-\-summary` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Having troubl...on my Linode`
+      - The summary or title for this SupportTicket.
+
+    * - :action-table-field-name:`\-\-database_id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The ID of the Managed Database this ticket is regarding, if relevant.
+
+    * - :action-table-field-name:`\-\-domain_id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The ID of the Domain this ticket is regarding, if relevant.
+
+    * - :action-table-field-name:`\-\-firewall_id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The ID of the Firewall this ticket is regarding, if relevant.
+
+    * - :action-table-field-name:`\-\-linode_id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The ID of the Linode this ticket is regarding, if relevant.
+
+    * - :action-table-field-name:`\-\-lkecluster_id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The ID of the Kubernetes cluster this ticket is regarding, if relevant.
+
+    * - :action-table-field-name:`\-\-longviewclient_id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The ID of the Longview client this ticket is regarding, if relevant.
+
+    * - :action-table-field-name:`\-\-managed_issue`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
+      - Designates if this ticket is related to a `Managed service <https://www.linode.com/products/managed/>`_.
+
+    * - :action-table-field-name:`\-\-nodebalancer_id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The ID of the NodeBalancer this ticket is regarding, if relevant.
+
+    * - :action-table-field-name:`\-\-region`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the associated VLAN this ticket is regarding.
+
+    * - :action-table-field-name:`\-\-vlan`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The label of the VLAN this ticket is regarding, if relevant.
+
+    * - :action-table-field-name:`\-\-volume_id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The ID of the Volume this ticket is regarding, if relevant.
+
+    * - :action-table-field-name:`\-\-vpc_id`
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The ID of the VPC this ticket is regarding, if relevant.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`attachments` 
+      - :action-table-field-type:`[]str`
+      - :action-table-field-example:`["screenshot...enshot.txt"]`
+      - A list of filenames representing attached files associated with this Ticket.
+
+    * - :action-table-field-name:`closable` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
+      - Whether the Support Ticket may be closed.
+
+    * - :action-table-field-name:`closed` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
+      - The date and time this Ticket was closed.
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I am having ...an reset it?`
+      - The full details of the issue or question.
+
+    * - :action-table-field-name:`gravatar_id` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`474a1b7373ae...49e69c36ce30`
+      - The Gravatar ID of the User who opened this Ticket.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`11223344`
+      - The ID of the Support Ticket.
+
+    * - :action-table-field-name:`opened` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T14:16:44`
+      - The date and time this Ticket was created.
+
+    * - :action-table-field-name:`opened_by` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_user`
+      - The User who opened this Ticket.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`open`
+      - The current status of this Ticket.
+
+    * - :action-table-field-name:`summary` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Having troubl...on my Linode`
+      - The summary or title for this Ticket.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
+      - The date and time this Ticket was last updated.
+
+    * - :action-table-field-name:`updated_by` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_other_user`
+      - The User who last updated this Ticket.
+
+
+
+
+.. _commands_tickets_create_attribute_sections_entity:
+
+.. rst-class:: action-section-header
+
+entity
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entity.id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`10400`
+      - The unique ID for this Ticket's entity.
+
+    * - :action-table-field-name:`entity.label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123456`
+      - The current label of this entity.
+
+    * - :action-table-field-name:`entity.type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
+      - The type of entity this is related to.
+
+    * - :action-table-field-name:`entity.url` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/linode/in...ances/123456`
+      - The URL where you can access the object this event is for.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_tickets_close:
+
+`close <https://techdocs.akamai.com/linode-api/reference/post-close-ticket>`_
+-----------------------------------------------------------------------------
+
+
+Closes a Support Ticket you have access to modify.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli tickets close 11223344
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`ticketId`
+      - :action-table-field-type:`int`
+      - The ID of the Support Ticket.
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_tickets_replies:
+
+`replies <https://techdocs.akamai.com/linode-api/reference/get-ticket-replies>`_
+--------------------------------------------------------------------------------
+
+
+Returns a collection of replies to a Support Ticket on your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli tickets replies 11223344
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`ticketId`
+      - :action-table-field-type:`int`
+      - The ID of the Support Ticket.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-02T14:31:41`
+      - The date and time this Ticket reply was created.
+
+    * - :action-table-field-name:`created_by` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`John Q. Linode`
+      - The User who submitted this reply.
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Hello,\nI'm s...Support Team`
+      - The body of this Support Ticket reply.
+
+    * - :action-table-field-name:`from_linode` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If set to true, this reply came from a Linode employee.
+
+    * - :action-table-field-name:`gravatar_id` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`474a1b7373ae...49e69c36ce30`
+      - The Gravatar ID of the User who created this reply.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`11223345`
+      - The unique ID of this Support Ticket reply.
+
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_tickets_reply:
+
+`reply <https://techdocs.akamai.com/linode-api/reference/post-ticket-reply>`_
+-----------------------------------------------------------------------------
+
+
+Adds a reply to an existing Support Ticket.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli tickets reply 11223344 \
+    	--description "Thank you for your help. I was able to figure out what the problem was and I successfully reset my password. You guys are the best!"
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`ticketId`
+      - :action-table-field-type:`int`
+      - The ID of the Support Ticket.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-description` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Thank you for...re the best!`
+      - The content of your reply.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-02T14:31:41`
+      - The date and time this Ticket reply was created.
+
+    * - :action-table-field-name:`created_by` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`John Q. Linode`
+      - The User who submitted this reply.
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Hello,\nI'm s...Support Team`
+      - The body of this Support Ticket reply.
+
+    * - :action-table-field-name:`from_linode` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If set to true, this reply came from a Linode employee.
+
+    * - :action-table-field-name:`gravatar_id` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`474a1b7373ae...49e69c36ce30`
+      - The Gravatar ID of the User who created this reply.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`11223345`
+      - The unique ID of this Support Ticket reply.
+
+
+
+
+
+
+
+
+

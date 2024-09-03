@@ -1,0 +1,248 @@
+Phone
+=====
+
+This section details Phone-related Linode CLI commands.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_phone_delete:
+
+`delete <https://techdocs.akamai.com/linode-api/reference/delete-profile-phone-number>`_
+----------------------------------------------------------------------------------------
+
+
+Delete the verified phone number for the User making this request.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli phone delete
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_phone_verify:
+
+`verify <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_
+---------------------------------------------------------------------------------------------
+
+
+Verify a phone number by confirming the one-time code received via SMS message after running the `Send a phone number verification code <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number>`_ operation.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli phone verify \
+    	--otp_code 123456
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-otp_code` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`US`
+      - The one-time code received via SMS message after running the `Send a phone number verification code <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number>`_ operation.
+
+
+
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_phone_sms-code-send:
+
+`sms-code-send <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number>`_
+---------------------------------------------------------------------------------------------
+
+
+Send a one-time verification code via SMS message to the submitted phone number.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli phone sms-code-send \
+    	--iso-code US \
+    	--phone-number 555-555-5555
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-iso_code` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`US`
+      - The two-letter ISO 3166 country code associated with the phone number.
+
+    * - :action-table-field-name:`\-\-phone_number` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`555-555-5555`
+      - A valid phone number.
+
+
+
+
+
+
+
+
+
+
+

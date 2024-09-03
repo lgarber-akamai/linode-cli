@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Networking &mdash; linode-cli  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=97d67db2" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="NodeBalancer" href="nodebalancers.html" />
+    <link rel="prev" title="Managed" href="managed.html" />
+    <meta http-equiv="cache-control" content="max-age=60">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #009CDE" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            linode-cli
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                v0.18.0 (API v4.177.1)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../commands/index.html">Commands</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="betas.html">Betas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="child-account.html">Child Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="default.html">Default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firewalls.html">Firewalls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linodes.html">Linodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lke.html">LKE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="longview.html">Longview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managed.html">Managed</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-ip-view">ip-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-ip-add">ip-add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-ip-update">ip-update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-ip-assign">ip-assign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-ip-share">ip-share</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-ips-list">ips-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-post-assign-ipv4s">post-assign-ipv4s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-post-share-ipv4s">post-share-ipv4s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-v6-pools">v6-pools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-v6-range-view">v6-range-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-v6-range-create">v6-range-create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-v6-range-delete">v6-range-delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-networking-v6-ranges">v6-ranges</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nodebalancers.html">NodeBalancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-storage.html">Object Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payment-methods.html">Payment Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="phone.html">Phone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="placement.html">Placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regions.html">Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-questions.html">Security Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service-transfers.html">Service Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sshkeys.html">SSH Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stackscripts.html">Stackscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html">Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tickets.html">Tickets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volumes.html">Volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpcs.html">VPCs</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #009CDE" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">linode-cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../commands/index.html">Commands</a></li>
+      <li class="breadcrumb-item active">Networking</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_generated/groups/networking.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="networking">
+<h1>Networking<a class="headerlink" href="#networking" title="Link to this heading"></a></h1>
+<p>This section details Networking-related Linode CLI commands.</p>
+<section id="commands-networking-ip-view">
+<span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-ip">ip-view</a><a class="headerlink" href="#commands-networking-ip-view" title="Link to this heading"></a></h2>
+<p>Returns information about a single IP Address on your Account.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-view<span class="w"> </span><span class="m">97</span>.107.143.141
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The address to operate on.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">97.107.143.141</span></p></td>
+<td><p>The IP address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">gateway</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">97.107.143.1</span></p></td>
+<td><p>The default gateway for this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The ID of the Linode this address currently belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">prefix</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">24</span></p></td>
+<td><p>The number of bits set in the subnet mask.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">public</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether this is a public or private IP address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">rdns</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">test.example.org</span></p></td>
+<td><p>The reverse DNS assigned to this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-east</span></p></td>
+<td><p>The Region this IP address resides in.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">subnet_mask</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">255.255.255.0</span></p></td>
+<td><p>The mask that separates host bits from network bits for this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ipv4</span></p></td>
+<td><p>The type of address this is.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-networking-ip-view-attribute-sections-vpc-nat-1-1">vpc_nat_1_1</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">vpc_nat_1_1.address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">192.168.0.42</span></p></td>
+<td><p>The IPv4 address that is configured as a 1:1 NAT for this VPC interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">vpc_nat_1_1.subnet_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">101</span></p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC Subnet for this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">vpc_nat_1_1.vpc_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">111</span></p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-ip-add">
+<span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-allocate-ip">ip-add</a><a class="headerlink" href="#commands-networking-ip-add" title="Link to this heading"></a></h2>
+<p>Allocates a new IPv4 Address on your Account.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-add<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--type<span class="w"> </span>ipv4<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--public<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--linode_id<span class="w"> </span><span class="m">123</span>
+</pre></div>
+</div>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--linode_id</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The ID of a Linode you have access to that this address will be allocated to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--public</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether to create a public or private IPv4 address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--type</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ipv4</span></p></td>
+<td><p>The type of address you are requesting.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">97.107.143.141</span></p></td>
+<td><p>The IP address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">gateway</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">97.107.143.1</span></p></td>
+<td><p>The default gateway for this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The ID of the Linode this address currently belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">prefix</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">24</span></p></td>
+<td><p>The number of bits set in the subnet mask.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">public</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether this is a public or private IP address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">rdns</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">test.example.org</span></p></td>
+<td><p>The reverse DNS assigned to this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-east</span></p></td>
+<td><p>The Region this IP address resides in.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">subnet_mask</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">255.255.255.0</span></p></td>
+<td><p>The mask that separates host bits from network bits for this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ipv4</span></p></td>
+<td><p>The type of address this is.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-networking-ip-add-attribute-sections-vpc-nat-1-1">vpc_nat_1_1</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">vpc_nat_1_1.address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">192.168.0.42</span></p></td>
+<td><p>The IPv4 address that is configured as a 1:1 NAT for this VPC interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">vpc_nat_1_1.subnet_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">101</span></p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC Subnet for this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">vpc_nat_1_1.vpc_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">111</span></p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-ip-update">
+<span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-ip">ip-update</a><a class="headerlink" href="#commands-networking-ip-update" title="Link to this heading"></a></h2>
+<p>Sets RDNS on an IP Address.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-update<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="m">203</span>.0.113.1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--rdns<span class="w"> </span><span class="s2">&quot;test.example.org&quot;</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The address to operate on.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--rdns</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">test.example.org</span></p></td>
+<td><p>The reverse DNS assigned to this address.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">97.107.143.141</span></p></td>
+<td><p>The IP address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">gateway</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">97.107.143.1</span></p></td>
+<td><p>The default gateway for this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The ID of the Linode this address currently belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">prefix</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">24</span></p></td>
+<td><p>The number of bits set in the subnet mask.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">public</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether this is a public or private IP address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">rdns</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">test.example.org</span></p></td>
+<td><p>The reverse DNS assigned to this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-east</span></p></td>
+<td><p>The Region this IP address resides in.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">subnet_mask</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">255.255.255.0</span></p></td>
+<td><p>The mask that separates host bits from network bits for this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ipv4</span></p></td>
+<td><p>The type of address this is.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-networking-ip-update-attribute-sections-vpc-nat-1-1">vpc_nat_1_1</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">vpc_nat_1_1.address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">192.168.0.42</span></p></td>
+<td><p>The IPv4 address that is configured as a 1:1 NAT for this VPC interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">vpc_nat_1_1.subnet_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">101</span></p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC Subnet for this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">vpc_nat_1_1.vpc_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">111</span></p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-ip-assign">
+<span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-assign-ips">ip-assign</a><a class="headerlink" href="#commands-networking-ip-assign" title="Link to this heading"></a></h2>
+<p>Assign multiple IPv4 addresses and/or IPv6 ranges to multiple Linodes in one Region.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-assign<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--region<span class="w"> </span>us-east<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--assignments.address<span class="w"> </span><span class="m">192</span>.0.2.1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--assignments.linode_id<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--assignments.address<span class="w"> </span><span class="m">2001</span>:db8:3c4d:15::/64<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--assignments.linode_id<span class="w"> </span><span class="m">234</span>
+</pre></div>
+</div>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--region</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-east</span></p></td>
+<td><p>The ID of the Region in which these assignments are to take place.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--assignments</span> <a class="reference internal" href="#commands-networking-ip-assign-argument-sections-assignments"><span class="std std-ref">(section)</span></a></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-networking-ip-assign-argument-sections-assignments">assignments</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--assignments.address</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">192.0.2.1</span></p></td>
+<td><p>The IPv4 address or IPv6 range for this assignment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--assignments.linode_id</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The ID of the Linode to assign this address to.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-ip-share">
+<span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-share-ips">ip-share</a><a class="headerlink" href="#commands-networking-ip-share" title="Link to this heading"></a></h2>
+<p>Configure shared IPs.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-share<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--linode_id<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ips<span class="w"> </span><span class="m">192</span>.0.2.1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ips<span class="w"> </span><span class="m">2001</span>:db8:3c4d:15::
+</pre></div>
+</div>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--ips</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">192.0.2.1</span></p></td>
+<td><p>A list of secondary Linode IPs to share with the primary Linode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--linode_id</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The ID of the primary Linode that the addresses will be shared with.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-ips-list">
+<span id="id6"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-ips">ips-list</a><a class="headerlink" href="#commands-networking-ips-list" title="Link to this heading"></a></h2>
+<p>Returns a paginated list of IP addresses on your account, excluding private addresses.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ips-list
+</pre></div>
+</div>
+<p class="action-subheading">Filterable Attributes</p>
+<p class="action-subheading-description">Arguments used to define a filter for response entries.</p>
+<table class="action-filterable-field-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The IP address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--prefix</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>The number of bits set in the subnet mask.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--rdns</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The reverse DNS assigned to this address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The Region this IP address resides in.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The type of address this is.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">192.0.2.141</span></p></td>
+<td><p>The IP address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">gateway</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">192.0.2.1</span></p></td>
+<td><p>The default gateway for this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The ID of the Linode this address currently belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">prefix</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">24</span></p></td>
+<td><p>The number of bits set in the subnet mask.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">public</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether this is a public or private IP address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">rdns</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">test.example.org</span></p></td>
+<td><p>The reverse DNS assigned to this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-east</span></p></td>
+<td><p>The Region this IP address resides in.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">subnet_mask</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">255.255.255.0</span></p></td>
+<td><p>The mask that separates host bits from network bits for this address.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ipv4</span></p></td>
+<td><p>The type of address this is.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-networking-ips-list-attribute-sections-vpc-nat-1-1">vpc_nat_1_1</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">vpc_nat_1_1.address</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">192.168.0.42</span></p></td>
+<td><p>The IPv4 address that is configured as a 1:1 NAT for this VPC interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">vpc_nat_1_1.subnet_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">101</span></p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC Subnet for this Interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">vpc_nat_1_1.vpc_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">111</span></p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">id</span></code> of the VPC configured for this Interface.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-post-assign-ipv4s">
+<span id="id7"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-assign-ipv4s">post-assign-ipv4s</a><a class="headerlink" href="#commands-networking-post-assign-ipv4s" title="Link to this heading"></a></h2>
+<p>This operation is equivalent to <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-assign-ips">Assign IP addresses</a>.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-assign<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--region<span class="w"> </span>us-east<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--assignments.address<span class="w"> </span><span class="m">192</span>.0.2.1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--assignments.linode_id<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--assignments.address<span class="w"> </span><span class="m">2001</span>:db8:3c4d:15::/64<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--assignments.linode_id<span class="w"> </span><span class="m">234</span>
+</pre></div>
+</div>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--region</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-east</span></p></td>
+<td><p>The ID of the Region in which these assignments are to take place.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--assignments</span> <a class="reference internal" href="#commands-networking-post-assign-ipv4s-argument-sections-assignments"><span class="std std-ref">(section)</span></a></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-networking-post-assign-ipv4s-argument-sections-assignments">assignments</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--assignments.address</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">192.0.2.1</span></p></td>
+<td><p>The IPv4 address or IPv6 range for this assignment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--assignments.linode_id</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The ID of the Linode to assign this address to.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-post-share-ipv4s">
+<span id="id8"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-share-ipv4s">post-share-ipv4s</a><a class="headerlink" href="#commands-networking-post-share-ipv4s" title="Link to this heading"></a></h2>
+<p>This operation is equivalent to <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-share-ips">Share IP addresses</a>.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-share<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--linode_id<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ips<span class="w"> </span><span class="m">192</span>.0.2.1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ips<span class="w"> </span><span class="m">192</span>.0.2.2
+</pre></div>
+</div>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--ips</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">192.0.2.1</span></p></td>
+<td><p>A list of secondary Linode IPs to share with the primary Linode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--linode_id</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The ID of the primary Linode that the addresses will be shared with.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-v6-pools">
+<span id="id9"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-ipv6-pools">v6-pools</a><a class="headerlink" href="#commands-networking-v6-pools" title="Link to this heading"></a></h2>
+<p>Displays the IPv6 pools on your Account.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>v6-pools
+</pre></div>
+</div>
+<p class="action-subheading">Filterable Attributes</p>
+<p class="action-subheading-description">Arguments used to define a filter for response entries.</p>
+<table class="action-filterable-field-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The region for this pool of IPv6 addresses.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">prefix</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">124</span></p></td>
+<td><p>The prefix length of the address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">range</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2600:3c01::2:5000:0</span></p></td>
+<td><p>The IPv6 range of addresses in this pool.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-east</span></p></td>
+<td><p>The region for this pool of IPv6 addresses.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">route_target</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2600:3c01::2:5000:f</span></p></td>
+<td><p>The last address in this block of IPv6 addresses.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-v6-range-view">
+<span id="id10"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-ipv6-range">v6-range-view</a><a class="headerlink" href="#commands-networking-v6-range-view" title="Link to this heading"></a></h2>
+<p>View IPv6 range information.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>v6-range-view<span class="w"> </span><span class="m">2001</span>:0db8::
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">range</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The IPv6 range to access.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">is_bgp</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>Whether this IPv6 range is shared.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">linodes</span></p></td>
+<td><p><span class="action-table-field-type">[]int</span></p></td>
+<td><p><span class="action-table-field-example">[123]</span></p></td>
+<td><p>A list of Linodes targeted by this IPv6 range.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">prefix</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">64</span></p></td>
+<td><p>The prefix length of the address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">range</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2600:3c01::</span></p></td>
+<td><p>The IPv6 address of this range.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-east</span></p></td>
+<td><p>The region for this range of IPv6 addresses.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-v6-range-create">
+<span id="id11"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-ipv6-range">v6-range-create</a><a class="headerlink" href="#commands-networking-v6-range-create" title="Link to this heading"></a></h2>
+<p>Creates an IPv6 Range and assigns it based on the provided Linode or route target IPv6 SLAAC address.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>v6-range-create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--linode_id<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--prefix_length<span class="w"> </span><span class="m">64</span>
+</pre></div>
+</div>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--prefix_length</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The prefix length of the IPv6 range.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The ID of the Linode to assign this range to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--route_target</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2001:0db8::1</span></p></td>
+<td><p>The IPv6 SLAAC address to assign this range to.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">range</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2001:0db8::/64</span></p></td>
+<td><p>The IPv6 network range, including subnet and prefix length.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">route_target</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2001:0db8::1</span></p></td>
+<td><p>The route target IPV6 SLAAC address for this range.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-networking-v6-range-delete">
+<span id="id12"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-ipv6-range">v6-range-delete</a><a class="headerlink" href="#commands-networking-v6-range-delete" title="Link to this heading"></a></h2>
+<p>Removes this IPv6 range from your account and disconnects the range from any assigned Linodes.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>v6-range-delete<span class="w"> </span><span class="m">2001</span>:0db8::
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">range</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The IPv6 range to access.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="commands-networking-v6-ranges">
+<span id="id13"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-ipv6-ranges">v6-ranges</a><a class="headerlink" href="#commands-networking-v6-ranges" title="Link to this heading"></a></h2>
+<p>Displays the IPv6 ranges on your Account.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>v6-ranges
+</pre></div>
+</div>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">prefix</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">64</span></p></td>
+<td><p>The prefix length of the address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">range</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2600:3c01::</span></p></td>
+<td><p>The IPv6 address of this range.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-east</span></p></td>
+<td><p>The region for this range of IPv6 addresses.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">route_target</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2600:3c01::f…ff:ffff:ffff</span></p></td>
+<td><p>The IPv6 SLAAC address.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="managed.html" class="btn btn-neutral float-left" title="Managed" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nodebalancers.html" class="btn btn-neutral float-right" title="NodeBalancer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Akamai Technologies Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

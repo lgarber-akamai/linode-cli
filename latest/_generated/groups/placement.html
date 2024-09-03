@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Placement &mdash; linode-cli  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=97d67db2" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Profile" href="profile.html" />
+    <link rel="prev" title="Phone" href="phone.html" />
+    <meta http-equiv="cache-control" content="max-age=60">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #009CDE" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            linode-cli
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                v0.18.0 (API v4.177.1)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../commands/index.html">Commands</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="betas.html">Betas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="child-account.html">Child Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="default.html">Default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firewalls.html">Firewalls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linodes.html">Linodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lke.html">LKE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="longview.html">Longview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managed.html">Managed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodebalancers.html">NodeBalancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-storage.html">Object Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payment-methods.html">Payment Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="phone.html">Phone</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Placement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commands-placement-assign-linode">assign-linode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-placement-group-view">group-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-placement-group-create">group-create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-placement-group-update">group-update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-placement-group-delete">group-delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-placement-groups-list">groups-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-placement-unassign-linode">unassign-linode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regions.html">Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-questions.html">Security Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service-transfers.html">Service Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sshkeys.html">SSH Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stackscripts.html">Stackscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html">Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tickets.html">Tickets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volumes.html">Volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpcs.html">VPCs</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #009CDE" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">linode-cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../commands/index.html">Commands</a></li>
+      <li class="breadcrumb-item active">Placement</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_generated/groups/placement.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="placement">
+<h1>Placement<a class="headerlink" href="#placement" title="Link to this heading"></a></h1>
+<p>This section details Placement-related Linode CLI commands.</p>
+<section id="commands-placement-assign-linode">
+<span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-group-add-linode">assign-linode</a><a class="headerlink" href="#commands-placement-assign-linode" title="Link to this heading"></a></h2>
+<p>Add one or more compute instances to your placement group.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>placement<span class="w"> </span>assignLinode<span class="w"> </span><span class="m">528</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--linodes<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">456</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--non-compliant<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">groupId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the placement group to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--linodes</span></p></td>
+<td><p><span class="action-table-field-type">[]int</span></p></td>
+<td><p><span class="action-table-field-example">528</span></p></td>
+<td><p>The <code class="code docutils literal notranslate"><span class="pre">linodeId</span></code> values for individual compute instances included in the placement group.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">528</span></p></td>
+<td><p>The placement group’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether all of the compute instances in your placement group are compliant.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">PG_Miami_failover</span></p></td>
+<td><p>The unique name set for the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">placement_group_policy</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">strict</span></p></td>
+<td><p>How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - <code class="code docutils literal notranslate"><span class="pre">strict</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">placement_group_type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">anti-affinity:local</span></p></td>
+<td><p>How compute instances are distributed in your placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-mia</span></p></td>
+<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">region</a> where the placement group was deployed.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-placement-assign-linode-attribute-sections-members">members</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">members.is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>The compliance status of each individual compute instance in the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">members.linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The unique identifier for a compute instance included in the placement group.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-placement-group-view">
+<span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-placement-group">group-view</a><a class="headerlink" href="#commands-placement-group-view" title="Link to this heading"></a></h2>
+<p>View a specific placement group by ID.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>placement<span class="w"> </span>view<span class="w"> </span><span class="m">528</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">groupId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the placement group to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">528</span></p></td>
+<td><p>The placement group’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether all of the compute instances in your placement group are compliant.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">PG_Miami_failover</span></p></td>
+<td><p>The unique name set for the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">placement_group_policy</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">strict</span></p></td>
+<td><p>How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - <code class="code docutils literal notranslate"><span class="pre">strict</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">placement_group_type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">anti-affinity:local</span></p></td>
+<td><p>How compute instances are distributed in your placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-mia</span></p></td>
+<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">region</a> where the placement group was deployed.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-placement-group-view-attribute-sections-members">members</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">members.is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>The compliance status of each individual compute instance in the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">members.linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The unique identifier for a compute instance included in the placement group.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-placement-group-create">
+<span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-placement-group">group-create</a><a class="headerlink" href="#commands-placement-group-create" title="Link to this heading"></a></h2>
+<p>Creates a placement group on your account.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>placement<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--label<span class="w"> </span>PG_Miami_failover<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--region<span class="w"> </span>us-mia<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--placement_group_type<span class="w"> </span><span class="s2">&quot;anti-affinity:local&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--placement_group_policy<span class="w"> </span>strict
+</pre></div>
+</div>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--label</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">PG_Miami_failover</span></p></td>
+<td><p>A unique name for the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--placement_group_policy</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">strict</span></p></td>
+<td><p>How requests to add future compute instances to your placement group are handled:  - <code class="code docutils literal notranslate"><span class="pre">strict</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--placement_group_type</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">[‘anti_affinity:local’]</span></p></td>
+<td><p>How compute instances are distributed in your placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--region</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-iad</span></p></td>
+<td><p>The data center that houses the compute instances you want to add to your placement group.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">528</span></p></td>
+<td><p>The placement group’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether all of the compute instances in your placement group are compliant.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">PG_Miami_failover</span></p></td>
+<td><p>The unique name set for the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">placement_group_policy</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">strict</span></p></td>
+<td><p>How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - <code class="code docutils literal notranslate"><span class="pre">strict</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">placement_group_type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">anti-affinity:local</span></p></td>
+<td><p>How compute instances are distributed in your placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-mia</span></p></td>
+<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">region</a> where the placement group was deployed.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-placement-group-create-attribute-sections-members">members</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">members.is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>The compliance status of each individual compute instance in the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">members.linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The unique identifier for a compute instance included in the placement group.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-placement-group-update">
+<span id="id6"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-placement-group">group-update</a><a class="headerlink" href="#commands-placement-group-update" title="Link to this heading"></a></h2>
+<p>Change the <code class="code docutils literal notranslate"><span class="pre">label</span></code> for a specific placement group.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>placement<span class="w"> </span>update<span class="w"> </span><span class="m">528</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--label<span class="w"> </span>PG_Miami_failover_update
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">groupId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the placement group to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">PG_Miami_failover</span></p></td>
+<td><p>A unique name for the placement group.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">528</span></p></td>
+<td><p>The placement group’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether all of the compute instances in your placement group are compliant.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">PG_Miami_failover</span></p></td>
+<td><p>The unique name set for the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">placement_group_policy</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">strict</span></p></td>
+<td><p>How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - <code class="code docutils literal notranslate"><span class="pre">strict</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">placement_group_type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">anti-affinity:local</span></p></td>
+<td><p>How compute instances are distributed in your placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-mia</span></p></td>
+<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">region</a> where the placement group was deployed.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-placement-group-update-attribute-sections-members">members</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">members.is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>The compliance status of each individual compute instance in the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">members.linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The unique identifier for a compute instance included in the placement group.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-placement-group-delete">
+<span id="id8"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-placement-group">group-delete</a><a class="headerlink" href="#commands-placement-group-delete" title="Link to this heading"></a></h2>
+<p>Deletes a placement group you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>placement<span class="w"> </span>delete<span class="w"> </span><span class="m">528</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">groupId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the placement group to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-placement-groups-list">
+<span id="id9"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-placement-groups">groups-list</a><a class="headerlink" href="#commands-placement-groups-list" title="Link to this heading"></a></h2>
+<p>Returns a paginated list of placement groups you have permission to view.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>placement-list
+</pre></div>
+</div>
+<p class="action-subheading">Filterable Attributes</p>
+<p class="action-subheading-description">Arguments used to define a filter for response entries.</p>
+<table class="action-filterable-field-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The unique name set for the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--placement_group_type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>How compute instances are distributed in your placement group.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">region</a> where the placement group was deployed.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">528</span></p></td>
+<td><p>The placement group’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether all of the compute instances in your placement group are compliant.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">PG_Miami_failover</span></p></td>
+<td><p>The unique name set for the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">placement_group_policy</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">strict</span></p></td>
+<td><p>How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - <code class="code docutils literal notranslate"><span class="pre">strict</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">placement_group_type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">anti-affinity:local</span></p></td>
+<td><p>How compute instances are distributed in your placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-mia</span></p></td>
+<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">region</a> where the placement group was deployed.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-placement-groups-list-attribute-sections-members">members</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">members.is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>The compliance status of each individual compute instance in the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">members.linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The unique identifier for a compute instance included in the placement group.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="commands-placement-unassign-linode">
+<span id="id12"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-group-unassign">unassign-linode</a><a class="headerlink" href="#commands-placement-unassign-linode" title="Link to this heading"></a></h2>
+<p>Remove one or more compute instances from your placement group.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>placement<span class="w"> </span>unassignLinode<span class="w"> </span><span class="m">528</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--linode<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">456</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">groupId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the placement group to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">528</span></p></td>
+<td><p>The placement group’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether all of the compute instances in your placement group are compliant.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">PG_Miami_failover</span></p></td>
+<td><p>The unique name set for the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">placement_group_policy</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">strict</span></p></td>
+<td><p>How requests to add future compute instances to your placement group are handled, and whether it remains compliant:  - <code class="code docutils literal notranslate"><span class="pre">strict</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">placement_group_type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">anti-affinity:local</span></p></td>
+<td><p>How compute instances are distributed in your placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-mia</span></p></td>
+<td><p>The <a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">region</a> where the placement group was deployed.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-placement-unassign-linode-attribute-sections-members">members</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">members.is_compliant</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>The compliance status of each individual compute instance in the placement group.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">members.linode_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The unique identifier for a compute instance included in the placement group.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="phone.html" class="btn btn-neutral float-left" title="Phone" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="profile.html" class="btn btn-neutral float-right" title="Profile" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Akamai Technologies Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

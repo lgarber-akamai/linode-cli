@@ -1,0 +1,754 @@
+Betas
+=====
+
+This section details Beta-related Linode CLI commands.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_betas_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-beta-programs>`_
+----------------------------------------------------------------------------
+
+
+Display all active Beta Programs.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli betas list
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Filterable Attributes
+
+.. rst-class:: action-subheading-description
+
+Arguments used to define a filter for response entries.
+
+
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`\-\-ended`
+      - :action-table-field-type:`str`
+      - The date-time that the Beta Program ended.
+
+    * - :action-table-field-name:`\-\-greenlight_only`
+      - :action-table-field-type:`bool`
+      - Whether the Beta Program requires `Green Light <https://www.linode.com/green-light/>`_ participation for enrollment.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - The name of the Beta Program.
+
+    * - :action-table-field-name:`\-\-started`
+      - :action-table-field-type:`str`
+      - The start date-time of the Beta Program.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`This is an op...ple feature.`
+      - Additional details regarding the Beta Program.
+
+    * - :action-table-field-name:`ended` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The date-time that the Beta Program ended.
+
+    * - :action-table-field-name:`greenlight_only` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Whether the Beta Program requires `Green Light <https://www.linode.com/green-light/>`_ participation for enrollment.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example_open`
+      - The unique identifier of the Beta Program.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Example Open Beta`
+      - The name of the Beta Program.
+
+    * - :action-table-field-name:`more_info` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://www.l...green-light/`
+      - Additional source of information for the Beta Program.
+
+    * - :action-table-field-name:`started` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The start date-time of the Beta Program.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_betas_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-beta-program>`_
+---------------------------------------------------------------------------
+
+
+Display information about a Beta Program.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli beta view $betaId
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`betaId`
+      - :action-table-field-type:`str`
+      - The ID of the Beta Program.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`This is an op...ple feature.`
+      - Additional details regarding the Beta Program.
+
+    * - :action-table-field-name:`ended` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The date-time that the Beta Program ended.
+
+    * - :action-table-field-name:`greenlight_only` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - Whether the Beta Program requires `Green Light <https://www.linode.com/green-light/>`_ participation for enrollment.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example_open`
+      - The unique identifier of the Beta Program.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Example Open Beta`
+      - The name of the Beta Program.
+
+    * - :action-table-field-name:`more_info` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://www.l...green-light/`
+      - Additional source of information for the Beta Program.
+
+    * - :action-table-field-name:`started` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The start date-time of the Beta Program.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_betas_enroll:
+
+`enroll <https://techdocs.akamai.com/linode-api/reference/post-beta-program>`_
+------------------------------------------------------------------------------
+
+
+Enroll your Account in an active Beta Program.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli betas enroll --id example_open
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-id` :action-table-field-required:`*`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example_open`
+      - The unique identifier of the Beta Program.
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_betas_enrolled:
+
+`enrolled <https://techdocs.akamai.com/linode-api/reference/get-enrolled-beta-programs>`_
+-----------------------------------------------------------------------------------------
+
+
+Display all enrolled Beta Programs for your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli betas enrolled
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Filterable Attributes
+
+.. rst-class:: action-subheading-description
+
+Arguments used to define a filter for response entries.
+
+
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`\-\-ended`
+      - :action-table-field-type:`str`
+      - The date-time that the Beta Program ended.
+
+    * - :action-table-field-name:`\-\-enrolled`
+      - :action-table-field-type:`str`
+      - The date-time of Account enrollment to the Beta Program.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - The name of the Beta Program.
+
+    * - :action-table-field-name:`\-\-started`
+      - :action-table-field-type:`str`
+      - The start date-time of the Beta Program.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`This is an op...ple feature.`
+      - Additional details regarding the Beta Program.
+
+    * - :action-table-field-name:`ended` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The date-time that the Beta Program ended.
+
+    * - :action-table-field-name:`enrolled` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of Account enrollment to the Beta Program.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example_open`
+      - The unique identifier of the Beta Program.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Example Open Beta`
+      - The name of the Beta Program.
+
+    * - :action-table-field-name:`started` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The start date-time of the Beta Program.
+
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_betas_enrolled-view:
+
+`enrolled-view <https://techdocs.akamai.com/linode-api/reference/get-enrolled-beta-program>`_
+---------------------------------------------------------------------------------------------
+
+
+Display an enrolled Beta Program for your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli betas enrolled-view $betaId
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`betaId`
+      - :action-table-field-type:`str`
+      - The ID of the Beta Program.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`description` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`This is an op...ple feature.`
+      - Additional details regarding the Beta Program.
+
+    * - :action-table-field-name:`ended` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The date-time that the Beta Program ended.
+
+    * - :action-table-field-name:`enrolled` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-09-11T00:00:00`
+      - The date-time of Account enrollment to the Beta Program.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example_open`
+      - The unique identifier of the Beta Program.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Example Open Beta`
+      - The name of the Beta Program.
+
+    * - :action-table-field-name:`started` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2023-07-11T00:00:00`
+      - The start date-time of the Beta Program.
+
+
+
+
+
+
+
+
+
