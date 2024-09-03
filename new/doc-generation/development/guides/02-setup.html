@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup &mdash; linode-cli  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=97d67db2" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project Skeleton" href="03-project-skeleton.html" />
+    <link rel="prev" title="Overview" href="01-overview.html" />
+    <meta http-equiv="cache-control" content="max-age=60">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #009CDE" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            linode-cli
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                v0.0.0.dev+83808c8 (API v4.177.1)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-overview.html">Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-a-virtualenv-recommended">Configuring a VirtualEnv (recommended)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-project-dependencies">Installing Project Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-and-installing-the-project">Building and Installing the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-using-a-custom-openapi-specification">Building Using a Custom OpenAPI Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03-project-skeleton.html">Project Skeleton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#contributing">Contributing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/index.html">Commands</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #009CDE" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">linode-cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Development</a></li>
+      <li class="breadcrumb-item active">Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/development/guides/02-setup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setup">
+<span id="development-setup"></span><h1>Setup<a class="headerlink" href="#setup" title="Link to this heading"></a></h1>
+<p>The following guide outlines to the process for setting up the Linode CLI for development.</p>
+<section id="cloning-the-repository">
+<h2>Cloning the Repository<a class="headerlink" href="#cloning-the-repository" title="Link to this heading"></a></h2>
+<p>The Linode CLI repository can be cloned locally using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:linode/linode-cli.git
+</pre></div>
+</div>
+<p>If you do not have an SSH key configured, you can alternatively use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/linode/linode-cli.git
+</pre></div>
+</div>
+</section>
+<section id="configuring-a-virtualenv-recommended">
+<h2>Configuring a VirtualEnv (recommended)<a class="headerlink" href="#configuring-a-virtualenv-recommended" title="Link to this heading"></a></h2>
+<p>A virtual env allows you to create virtual Python environment which can prevent potential
+Python dependency conflicts.</p>
+<p>To create a VirtualEnv, run the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</pre></div>
+</div>
+<p>To enter the VirtualEnv, run the following command (NOTE: This needs to be run every time you open your shell):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</pre></div>
+</div>
+</section>
+<section id="installing-project-dependencies">
+<h2>Installing Project Dependencies<a class="headerlink" href="#installing-project-dependencies" title="Link to this heading"></a></h2>
+<p>All Linode CLI Python requirements can be installed by running the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>requirements
+</pre></div>
+</div>
+</section>
+<section id="building-and-installing-the-project">
+<h2>Building and Installing the Project<a class="headerlink" href="#building-and-installing-the-project" title="Link to this heading"></a></h2>
+<p>The Linode CLI can be built and installed using the <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> target:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>install
+</pre></div>
+</div>
+<p>Alternatively you can build but not install the CLI using the <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">build</span></code> target:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>build
+</pre></div>
+</div>
+<p>Optionally you can validate that you have installed a local version of the CLI using the <code class="code docutils literal notranslate"><span class="pre">linode-cli</span> <span class="pre">--version</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>--version
+
+<span class="c1"># Output:</span>
+<span class="c1"># linode-cli 0.0.0</span>
+<span class="c1"># Built from spec version 4.173.0</span>
+<span class="c1">#</span>
+<span class="c1"># The 0.0.0 implies this is a locally built version of the CLI</span>
+</pre></div>
+</div>
+</section>
+<section id="building-using-a-custom-openapi-specification">
+<h2>Building Using a Custom OpenAPI Specification<a class="headerlink" href="#building-using-a-custom-openapi-specification" title="Link to this heading"></a></h2>
+<p>In some cases, you may want to build the CLI using a custom or modified OpenAPI specification.</p>
+<p>This can be achieved using the <code class="code docutils literal notranslate"><span class="pre">SPEC</span></code> Makefile argument, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the OpenAPI spec</span>
+curl<span class="w"> </span>-o<span class="w"> </span>openapi.yaml<span class="w"> </span>https://raw.githubusercontent.com/linode/linode-api-docs/development/openapi.yaml
+
+<span class="c1"># Make arbitrary changes to the spec</span>
+
+<span class="c1"># Build &amp; install the CLI using the modified spec</span>
+make<span class="w"> </span><span class="nv">SPEC</span><span class="o">=</span><span class="nv">$PWD</span>/openapi.yaml<span class="w"> </span>install
+</pre></div>
+</div>
+<p class="rubric">Next Steps</p>
+<p>To continue to the next step of this guide, continue to the <a class="reference internal" href="03-project-skeleton.html#development-project-skeleton"><span class="std std-ref">Project Skeleton page</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01-overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="03-project-skeleton.html" class="btn btn-neutral float-right" title="Project Skeleton" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Akamai Technologies Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

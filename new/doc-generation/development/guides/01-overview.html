@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; linode-cli  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=97d67db2" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Setup" href="02-setup.html" />
+    <link rel="prev" title="Development" href="../index.html" />
+    <meta http-equiv="cache-control" content="max-age=60">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #009CDE" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            linode-cli
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                v0.0.0.dev+83808c8 (API v4.177.1)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Development</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#openapi-specification-parsing">OpenAPI Specification Parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openapi-specification-extensions">OpenAPI Specification Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#baking">Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">OAuth Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-overrides">Output Overrides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-completions">Command Completions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02-setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-project-skeleton.html">Project Skeleton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#contributing">Contributing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/index.html">Commands</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #009CDE" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">linode-cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Development</a></li>
+      <li class="breadcrumb-item active">Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/development/guides/01-overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<span id="development-overview"></span><h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<p>The following section outlines the core functions of the Linode CLI.</p>
+<section id="openapi-specification-parsing">
+<h2>OpenAPI Specification Parsing<a class="headerlink" href="#openapi-specification-parsing" title="Link to this heading"></a></h2>
+<p>Most Linode CLI commands (excluding <a class="reference external" href="https://github.com/linode/linode-cli/tree/dev/linodecli/plugins">plugin commands</a>)
+are generated dynamically at build-time from the <a class="reference external" href="https://github.com/linode/linode-api-docs">Linode OpenAPI Specification</a>,
+which is also used to generate the <a class="reference external" href="https://www.linode.com/docs/api/">official Linode API documentation</a>.</p>
+<p>Each OpenAPI spec endpoint method is parsed into an <code class="code docutils literal notranslate"><span class="pre">OpenAPIOperation</span></code> object.
+This object includes all necessary request and response arguments to create a command,
+stored as <code class="code docutils literal notranslate"><span class="pre">OpenAPIRequestArg</span></code> and <cite>OpenAPIResponseAttr</cite> objects respectively.
+At runtime, the Linode CLI changes each <code class="code docutils literal notranslate"><span class="pre">OpenAPIRequestArg</span></code> to an argparse argument and
+each <code class="code docutils literal notranslate"><span class="pre">OpenAPIResponseAttr</span></code> to an outputtable column. It can also manage complex structures like
+nested objects and lists, resulting in commands and outputs that may not
+exactly match the OpenAPI specification.</p>
+</section>
+<section id="openapi-specification-extensions">
+<h2>OpenAPI Specification Extensions<a class="headerlink" href="#openapi-specification-extensions" title="Link to this heading"></a></h2>
+<p>In order to better support the Linode CLI, the following <a class="reference external" href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.1.md#specificationExtensions">Specification Extensions</a> have been added to Linode’s OpenAPI spec:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Attribute</p></td>
+<td><p>Location</p></td>
+<td><p>Purpose</p></td>
+</tr>
+<tr class="row-even"><td><p>x-linode-cli-action</p></td>
+<td><p>method</p></td>
+<td><p>The action name for operations under this path. If not present, operationId is used.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x-linode-cli-color</p></td>
+<td><p>property</p></td>
+<td><p>If present, defines key-value pairs of property value: color. Colors must be one of the <a class="reference external" href="https://rich.readthedocs.io/en/stable/appendix/colors.html#appendix-colors">standard colors</a> that accepted by Rich. Must include a default.</p></td>
+</tr>
+<tr class="row-even"><td><p>x-linode-cli-command</p></td>
+<td><p>path</p></td>
+<td><p>The command name for operations under this path. If not present, “default” is used.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x-linode-cli-display</p></td>
+<td><p>property</p></td>
+<td><p>If truthy, displays this as a column in output.  If a number, determines the ordering (left to right).</p></td>
+</tr>
+<tr class="row-even"><td><p>x-linode-cli-format</p></td>
+<td><p>property</p></td>
+<td><p>Overrides the “format” given in this property for the CLI only.  Valid values are <code class="code docutils literal notranslate"><span class="pre">file</span></code> and <cite>json</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x-linode-cli-skip</p></td>
+<td><p>path</p></td>
+<td><p>If present and truthy, this method will not be available in the CLI.</p></td>
+</tr>
+<tr class="row-even"><td><p>x-linode-cli-allowed-defaults</p></td>
+<td><p>requestBody</p></td>
+<td><p>Tells the CLI what configured defaults apply to this request. Valid defaults are “region”, “image”, “authorized_users”, “engine”, and “type”.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x-linode-cli-nested-list</p></td>
+<td><p>content-type</p></td>
+<td><p>Tells the CLI to flatten a single object into multiple table rows based on the keys included in this value.  Values should be comma-delimited JSON paths, and must all be present on response objects. When used, a new key <code class="code docutils literal notranslate"><span class="pre">_split</span></code> is added to each flattened object whose value is the last segment of the JSON path used to generate the flattened object from the source.</p></td>
+</tr>
+<tr class="row-even"><td><p>x-linode-cli-use-schema</p></td>
+<td><p>content-type</p></td>
+<td><p>Overrides the normal schema for the object and uses this instead. Especially useful when paired with :code:<code class="docutils literal notranslate"><span class="pre">x-linode-cli-nested-list</span></code>, allowing a schema to describe the flattened object instead of the original object.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x-linode-cli-subtables</p></td>
+<td><p>content-type</p></td>
+<td><p>Indicates that certain response attributes should be printed in a separate “sub”-table. This allows certain endpoints with nested structures in the response to be displayed correctly.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="baking">
+<h2>Baking<a class="headerlink" href="#baking" title="Link to this heading"></a></h2>
+<p>The “baking” process is run with <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">bake</span></code>, <cite>make install</cite>, and <cite>make build</cite> targets,
+wrapping the <code class="code docutils literal notranslate"><span class="pre">linode-cli</span> <span class="pre">bake</span></code> command.</p>
+<p>Objects representing each command are serialized into the <cite>data-3</cite> file via the <a class="reference external" href="https://docs.python.org/3/library/pickle.html">pickle</a>
+package, and are included in release artifacts as a <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/datafiles.html">data file</a>.
+This enables quick command loading at runtime and eliminates the need for runtime parsing logic.</p>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<p>The Linode CLI can be configured using the <code class="code docutils literal notranslate"><span class="pre">linode-cli</span> <span class="pre">configure</span></code> command, which allows users to
+configure the following:</p>
+<ul class="simple">
+<li><p>A Linode API token
+- This can optionally be done using OAuth, see <a class="reference external" href="#oauth-authentication">OAuth Authentication</a></p></li>
+<li><p>Default values for commonly used fields (e.g. region, image)</p></li>
+<li><p>Overrides for the target API URL (hostname, version, scheme, etc.)</p></li>
+</ul>
+<p>This command serves as an interactive prompt and outputs a configuration file to <code class="code docutils literal notranslate"><span class="pre">~/.config/linode-cli</span></code>.
+This file is in a simple INI format and can be easily modified manually by users.</p>
+<p>Additionally, multiple users can be created for the CLI which can be designated when running commands using the <code class="code docutils literal notranslate"><span class="pre">--as-user</span></code> argument
+or using the <code class="code docutils literal notranslate"><span class="pre">default-user</span></code> config variable.</p>
+<p>When running a command, the config file is loaded into a <code class="code docutils literal notranslate"><span class="pre">CLIConfig</span></code> object stored under the <cite>CLI.config</cite> field.
+This object allows various parts of the CLI to access the current user, the configured token, and any other CLI config values by name.</p>
+<p>The logic for the interactive prompt and the logic for storing the CLI configuration can be found in the
+<code class="code docutils literal notranslate"><span class="pre">configuration</span></code> package.</p>
+</section>
+<section id="id1">
+<h2>OAuth Authentication<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>In addition to allowing users to configure a token manually, they can automatically generate a CLI token under their account using
+an OAuth workflow. This workflow uses the <a class="reference external" href="https://www.linode.com/docs/api/#oauth">Linode OAuth API</a> to generate a temporary token,
+which is then used to generate a long-term token stored in the CLI config file.</p>
+<p>The OAuth client ID is hardcoded and references a client under an officially managed Linode account.</p>
+<p>The rough steps of this OAuth workflow are as follows:</p>
+<ol class="arabic simple">
+<li><p>The CLI checks whether a browser can be opened. If not, manually prompt the user for a token and skip.</p></li>
+<li><p>Open a local HTTP server on an arbitrary port that exposes <code class="code docutils literal notranslate"><span class="pre">oauth-landing-page.html</span></code>. This will also extract the token from the callback.</p></li>
+<li><p>Open the user’s browser to the OAuth URL with the hardcoded client ID and the callback URL pointing to the local webserver.</p></li>
+<li><p>Once the user authorizes the OAuth application, they will be redirected to the local webserver where the temporary token will be extracted.</p></li>
+<li><p>With the extracted token, a new token is generated with the default callback and a name similar to <code class="code docutils literal notranslate"><span class="pre">Linode</span> <span class="pre">CLI</span> <span class="pre">&#64;</span> <span class="pre">localhost</span></code>.</p></li>
+</ol>
+<p>All the logic for OAuth token generation is stored in the <code class="code docutils literal notranslate"><span class="pre">configuration/auth.py</span></code> file.</p>
+</section>
+<section id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Link to this heading"></a></h2>
+<p>The Linode CLI uses the <a class="reference external" href="https://rich.readthedocs.io/en/latest/">Rich Python package</a> to render tables, colorize text,
+and handle other complex terminal output operations.</p>
+</section>
+<section id="output-overrides">
+<h2>Output Overrides<a class="headerlink" href="#output-overrides" title="Link to this heading"></a></h2>
+<p>For special cases where the desired output may not be possible using OpenAPI spec extensions alone, developers
+can implement special override functions that are given the output JSON and print a custom output to stdout.</p>
+<p>These overrides are specified using the <code class="code docutils literal notranslate"><span class="pre">&#64;output_override</span></code> decorator and can be found in the <cite>overrides.py</cite> file.</p>
+</section>
+<section id="command-completions">
+<h2>Command Completions<a class="headerlink" href="#command-completions" title="Link to this heading"></a></h2>
+<p>The Linode CLI allows users to dynamically generate shell completions for the Bash and Fish shells.
+This works by rendering hardcoded templates for each baked/generated command.</p>
+<p>See <code class="code docutils literal notranslate"><span class="pre">completion.py</span></code> for more details.</p>
+<p class="rubric">Next Steps</p>
+<p>To continue to the next step of this guide, continue to the <a class="reference internal" href="02-setup.html#development-setup"><span class="std std-ref">Setup page</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02-setup.html" class="btn btn-neutral float-right" title="Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Akamai Technologies Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

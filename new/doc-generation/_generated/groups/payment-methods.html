@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Methods &mdash; linode-cli  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=97d67db2" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Phone" href="phone.html" />
+    <link rel="prev" title="Object Storage" href="object-storage.html" />
+    <meta http-equiv="cache-control" content="max-age=60">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #009CDE" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            linode-cli
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                v0.0.0.dev+83808c8 (API v4.177.1)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../commands/index.html">Commands</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="betas.html">Betas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="child-account.html">Child Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="default.html">Default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firewalls.html">Firewalls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linodes.html">Linodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lke.html">LKE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="longview.html">Longview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managed.html">Managed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodebalancers.html">NodeBalancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-storage.html">Object Storage</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Payment Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commands-payment-methods-list">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-payment-methods-view">view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-payment-methods-add">add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-payment-methods-delete">delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-payment-methods-default">default</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="phone.html">Phone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="placement.html">Placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regions.html">Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-questions.html">Security Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service-transfers.html">Service Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sshkeys.html">SSH Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stackscripts.html">Stackscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html">Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tickets.html">Tickets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volumes.html">Volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpcs.html">VPCs</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #009CDE" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">linode-cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../commands/index.html">Commands</a></li>
+      <li class="breadcrumb-item active">Payment Methods</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_generated/groups/payment-methods.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="payment-methods">
+<h1>Payment Methods<a class="headerlink" href="#payment-methods" title="Link to this heading"></a></h1>
+<p>This section details Payment Method-related Linode CLI commands.</p>
+<section id="commands-payment-methods-list">
+<span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-payment-methods">list</a><a class="headerlink" href="#commands-payment-methods-list" title="Link to this heading"></a></h2>
+<p>Returns a paginated list of Payment Methods for this Account.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>payment-methods<span class="w"> </span>list
+</pre></div>
+</div>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2018-01-15T00:01:01</span></p></td>
+<td><p>When the Payment Method was added to the Account.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">data</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The unique ID of this Payment Method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">is_default</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether this Payment Method is the default method for automatically processing service charges.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">credit_card</span></p></td>
+<td><p>The type of Payment Method.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-payment-methods-view">
+<span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-payment-method">view</a><a class="headerlink" href="#commands-payment-methods-view" title="Link to this heading"></a></h2>
+<p>View the details of the specified Payment Method.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>payment-methods<span class="w"> </span>view<span class="w"> </span><span class="m">123</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">paymentMethodId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>The ID of the Payment Method to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2018-01-15T00:01:01</span></p></td>
+<td><p>When the Payment Method was added to the Account.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">data</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>The unique ID of this Payment Method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">is_default</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether this Payment Method is the default method for automatically processing service charges.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">credit_card</span></p></td>
+<td><p>The type of Payment Method.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-payment-methods-add">
+<span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-payment-method">add</a><a class="headerlink" href="#commands-payment-methods-add" title="Link to this heading"></a></h2>
+<p>Adds a Payment Method to your Account with the option to set it as the default method.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>payment-methods<span class="w"> </span>add<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--type<span class="w"> </span>credit_card<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--is_default<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--data.card_number<span class="w"> </span><span class="m">4111111111111111</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--data.expiry_month<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--data.expiry_year<span class="w"> </span><span class="m">2020</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--data.cvv<span class="w"> </span><span class="m">111</span>
+</pre></div>
+</div>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--is_default</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether this Payment Method is the default method for automatically processing service charges.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">credit_card</span></p></td>
+<td><p>The type of Payment Method.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--data.card_number</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">4111111111111111</span></p></td>
+<td><p>Your credit card number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--data.cvv</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">123</span></p></td>
+<td><p>CVV (Card Verification Value) of the credit card, typically found on the back of the card.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--data.expiry_month</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">12</span></p></td>
+<td><p>A value from 1-12 representing the expiration month of your credit card.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--data.expiry_year</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">2020</span></p></td>
+<td><p>A four-digit integer representing the expiration year of your credit card.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-payment-methods-delete">
+<span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-payment-method">delete</a><a class="headerlink" href="#commands-payment-methods-delete" title="Link to this heading"></a></h2>
+<p>Deactivate the specified Payment Method.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>payment-methods<span class="w"> </span>delete<span class="w"> </span><span class="m">123</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">paymentMethodId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>The ID of the Payment Method to look up.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="commands-payment-methods-default">
+<span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-make-payment-method-default">default</a><a class="headerlink" href="#commands-payment-methods-default" title="Link to this heading"></a></h2>
+<p>Make the specified Payment Method the default method for automatically processing payments.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>payment-methods<span class="w"> </span>default<span class="w"> </span><span class="m">123</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">paymentMethodId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>The ID of the Payment Method to make default.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="object-storage.html" class="btn btn-neutral float-left" title="Object Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="phone.html" class="btn btn-neutral float-right" title="Phone" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Akamai Technologies Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

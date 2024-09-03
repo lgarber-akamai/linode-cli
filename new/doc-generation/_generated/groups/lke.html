@@ -1,0 +1,2405 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LKE &mdash; linode-cli  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=97d67db2" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Longview" href="longview.html" />
+    <link rel="prev" title="Linodes" href="linodes.html" />
+    <meta http-equiv="cache-control" content="max-age=60">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #009CDE" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            linode-cli
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                v0.0.0.dev+83808c8 (API v4.177.1)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../commands/index.html">Commands</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="betas.html">Betas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="child-account.html">Child Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="default.html">Default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firewalls.html">Firewalls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linodes.html">Linodes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LKE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-regenerate">regenerate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-api-endpoints-list">api-endpoints-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-cluster-view">cluster-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-cluster-create">cluster-create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-cluster-update">cluster-update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-cluster-delete">cluster-delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-cluster-dashboard-url">cluster-dashboard-url</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-cluster-nodes-recycle">cluster-nodes-recycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-clusters-list">clusters-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-kubeconfig-view">kubeconfig-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-kubeconfig-delete">kubeconfig-delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-node-view">node-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-node-delete">node-delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-node-recycle">node-recycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-pool-view">pool-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-pool-create">pool-create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-pool-update">pool-update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-pool-delete">pool-delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-pool-recycle">pool-recycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-pools-list">pools-list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-service-token-delete">service-token-delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-version-view">version-view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-lke-versions-list">versions-list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="longview.html">Longview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managed.html">Managed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodebalancers.html">NodeBalancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-storage.html">Object Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payment-methods.html">Payment Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="phone.html">Phone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="placement.html">Placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regions.html">Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-questions.html">Security Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service-transfers.html">Service Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sshkeys.html">SSH Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stackscripts.html">Stackscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html">Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tickets.html">Tickets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volumes.html">Volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpcs.html">VPCs</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #009CDE" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">linode-cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../commands/index.html">Commands</a></li>
+      <li class="breadcrumb-item active">LKE</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_generated/groups/lke.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lke">
+<h1>LKE<a class="headerlink" href="#lke" title="Link to this heading"></a></h1>
+<p>This section details LKE-related Linode CLI commands.</p>
+<section id="commands-lke-regenerate">
+<span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-lke-cluster-regenerate">regenerate</a><a class="headerlink" href="#commands-lke-regenerate" title="Link to this heading"></a></h2>
+<p>Regenerate the Kubeconfig file and/or the service account token for a Cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>regenerate<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--kubeconfig<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--servicetoken<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the target Kubernetes cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--kubeconfig</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether to delete and regenerate the Kubeconfig file for this Cluster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--servicetoken</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether to delete and regenerate the service access token for this Cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-api-endpoints-list">
+<span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-lke-cluster-api-endpoints">api-endpoints-list</a><a class="headerlink" href="#commands-lke-api-endpoints-list" title="Link to this heading"></a></h2>
+<p>List the Kubernetes API server endpoints for this cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>api-endpoints-list<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">endpoint</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">https://192.0.2.1:6443</span></p></td>
+<td><p>A Kubernetes API server endpoint for this cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-cluster-view">
+<span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-lke-cluster">cluster-view</a><a class="headerlink" href="#commands-lke-cluster-view" title="Link to this heading"></a></h2>
+<p>Get a specific Cluster by ID.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>cluster-view<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2019-09-12T21:25:30Z</span></p></td>
+<td><p>When this Kubernetes cluster was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">1234</span></p></td>
+<td><p>This Kubernetes cluster’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">k8s_version</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">1.27</span></p></td>
+<td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version will be deployed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">lkecluster12345</span></p></td>
+<td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-central</span></p></td>
+<td><p>This Kubernetes cluster’s location.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">[“ecomm”, “blogs”]</span></p></td>
+<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2019-09-13T21:24:16Z</span></p></td>
+<td><p>When this Kubernetes cluster was updated.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-cluster-view-attribute-sections-control-plane">control_plane</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">control_plane.high_availability</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-cluster-create">
+<span id="id4"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-lke-cluster">cluster-create</a><a class="headerlink" href="#commands-lke-cluster-create" title="Link to this heading"></a></h2>
+<p>Creates a Kubernetes cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>cluster-create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--label<span class="w"> </span>cluster12345<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--region<span class="w"> </span>us-central<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--k8s_version<span class="w"> </span><span class="m">1</span>.27<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--control_plane.high_availability<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--node_pools.type<span class="w"> </span>g6-standard-4<span class="w"> </span>--node_pools.count<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--node_pools.type<span class="w"> </span>g6-standard-8<span class="w"> </span>--node_pools.count<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--node_pools.autoscaler.enabled<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--node_pools.autoscaler.max<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--node_pools.autoscaler.min<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tags<span class="w"> </span>ecomm
+</pre></div>
+</div>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--k8s_version</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">1.27</span></p></td>
+<td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version will be deployed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">lkecluster12345</span></p></td>
+<td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--region</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-central</span></p></td>
+<td><p>This Kubernetes cluster’s location.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools</span> <a class="reference internal" href="#commands-lke-cluster-create-argument-sections-node-pools"><span class="std std-ref">(section)</span></a></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>Specifies a collection of Linodes which will be members of a Kubernetes cluster.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">ecomm</span></p></td>
+<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--control_plane.high_availability</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-cluster-create-argument-sections-node-pools">node_pools</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.count</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">6</span></p></td>
+<td><p>The number of nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.type</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">g6-standard-4</span></p></td>
+<td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.autoscaler.enabled</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether autoscaling is enabled for this Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.autoscaler.max</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">12</span></p></td>
+<td><p>The maximum number of nodes to autoscale to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.autoscaler.min</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">3</span></p></td>
+<td><p>The minimum number of nodes to autoscale to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.disks</span></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>This field should be omitted except for special use cases.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.labels.key</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes label key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.labels.value</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teams</span></p></td>
+<td><p>The Kubernetes label value.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.tags</span></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">[“example ta…er example”]</span></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.taints</span> <a class="reference internal" href="#commands-lke-cluster-create-argument-sections-node-pools-taints"><span class="std std-ref">(section)</span></a></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-cluster-create-argument-sections-node-pools-taints">node_pools.taints</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.taints.effect</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">NoSchedule</span></p></td>
+<td><p>The Kubernetes taint effect.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--node_pools.taints.key</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes taint key.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--node_pools.taints.value</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teamC</span></p></td>
+<td><p>The Kubernetes taint value.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2019-09-12T21:25:30Z</span></p></td>
+<td><p>When this Kubernetes cluster was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">1234</span></p></td>
+<td><p>This Kubernetes cluster’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">k8s_version</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">1.27</span></p></td>
+<td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version will be deployed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">lkecluster12345</span></p></td>
+<td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-central</span></p></td>
+<td><p>This Kubernetes cluster’s location.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">[“ecomm”, “blogs”]</span></p></td>
+<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2019-09-13T21:24:16Z</span></p></td>
+<td><p>When this Kubernetes cluster was updated.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-cluster-create-attribute-sections-control-plane">control_plane</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">control_plane.high_availability</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-cluster-update">
+<span id="id5"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-lke-cluster">cluster-update</a><a class="headerlink" href="#commands-lke-cluster-update" title="Link to this heading"></a></h2>
+<p>Updates a Kubernetes cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>cluster-update<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--label<span class="w"> </span>lkecluster54321<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--control_plane.high_availability<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--k8s_version<span class="w"> </span><span class="m">1</span>.27<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tags<span class="w"> </span>ecomm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tags<span class="w"> </span>blog<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tags<span class="w"> </span>prod<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tags<span class="w"> </span>monitoring
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--k8s_version</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">lkecluster12345</span></p></td>
+<td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">prod</span></p></td>
+<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--control_plane.high_availability</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2019-09-12T21:25:30Z</span></p></td>
+<td><p>When this Kubernetes cluster was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">k8s_version</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">1.27</span></p></td>
+<td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version will be deployed.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">lkecluster12345</span></p></td>
+<td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-central</span></p></td>
+<td><p>This Kubernetes cluster’s location.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">[“prod”, “mon…mm”, “blog”]</span></p></td>
+<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2019-09-13T21:24:16Z</span></p></td>
+<td><p>When this Kubernetes cluster was updated.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-cluster-delete">
+<span id="id6"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-lke-cluster">cluster-delete</a><a class="headerlink" href="#commands-lke-cluster-delete" title="Link to this heading"></a></h2>
+<p>Deletes a Cluster you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>cluster-delete<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-cluster-dashboard-url">
+<span id="id7"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-lke-cluster-dashboard">cluster-dashboard-url</a><a class="headerlink" href="#commands-lke-cluster-dashboard-url" title="Link to this heading"></a></h2>
+<p>Get a <a class="reference external" href="https://github.com/kubernetes/dashboard">Kubernetes Dashboard</a> access URL for this Cluster, which enables performance of administrative tasks through a web interface.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>cluster-dashboard-url<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">url</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">https://examp…inodelke.net</span></p></td>
+<td><p>The Cluster Dashboard access URL.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-cluster-nodes-recycle">
+<span id="id8"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-lke-cluster-recycle">cluster-nodes-recycle</a><a class="headerlink" href="#commands-lke-cluster-nodes-recycle" title="Link to this heading"></a></h2>
+<p>Recycles all nodes in all pools of a designated Kubernetes Cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>cluster-nodes-recycle<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster which contains nodes to be recycled.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-clusters-list">
+<span id="id9"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-lke-clusters">clusters-list</a><a class="headerlink" href="#commands-lke-clusters-list" title="Link to this heading"></a></h2>
+<p>Lists current Kubernetes clusters available on your account.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>clusters-list
+</pre></div>
+</div>
+<p class="action-subheading">Filterable Attributes</p>
+<p class="action-subheading-description">Arguments used to define a filter for response entries.</p>
+<table class="action-filterable-field-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--k8s_version</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version will be deployed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>This Kubernetes cluster’s location.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">created</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2019-09-12T21:25:30Z</span></p></td>
+<td><p>When this Kubernetes cluster was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">1234</span></p></td>
+<td><p>This Kubernetes cluster’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">k8s_version</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">1.27</span></p></td>
+<td><p>The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version will be deployed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">label</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">lkecluster12345</span></p></td>
+<td><p>This Kubernetes cluster’s unique label for display purposes only.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">region</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">us-central</span></p></td>
+<td><p>This Kubernetes cluster’s location.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">[“ecomm”, “blogs”]</span></p></td>
+<td><p>An array of tags applied to the Kubernetes cluster.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">updated</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">2019-09-13T21:24:16Z</span></p></td>
+<td><p>When this Kubernetes cluster was updated.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-clusters-list-attribute-sections-control-plane">control_plane</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">control_plane.high_availability</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Defines whether High Availability is enabled for the Control Plane Components of the cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-kubeconfig-view">
+<span id="id10"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-lke-cluster-kubeconfig">kubeconfig-view</a><a class="headerlink" href="#commands-lke-kubeconfig-view" title="Link to this heading"></a></h2>
+<p>Get the Kubeconfig file for a Cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>kubeconfig-view<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">kubeconfig</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>The Base64-encoded Kubeconfig file for this Cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-kubeconfig-delete">
+<span id="id11"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-lke-cluster-kubeconfig">kubeconfig-delete</a><a class="headerlink" href="#commands-lke-kubeconfig-delete" title="Link to this heading"></a></h2>
+<p>Delete and regenerate the Kubeconfig file for a Cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>kubeconfig-delete<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-node-view">
+<span id="id12"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-lke-cluster-node">node-view</a><a class="headerlink" href="#commands-lke-node-view" title="Link to this heading"></a></h2>
+<p>Returns the values for a specified node object.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>node-view<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">12345</span>-6aa78910bc
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster containing the Node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">nodeId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>The ID of the Node to access.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">12345-6aa78910bc</span></p></td>
+<td><p>The Node’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">instance_id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">123456</span></p></td>
+<td><p>The Linode’s ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">status</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ready</span></p></td>
+<td><p>The creation status of this Node.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-node-delete">
+<span id="id13"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-lke-cluster-node">node-delete</a><a class="headerlink" href="#commands-lke-node-delete" title="Link to this heading"></a></h2>
+<p>Deletes a specific Node from a Node Pool.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>node-delete<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="m">12345</span>-6aa78910bc
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster containing the Node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">nodeId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>The ID of the Node to access.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-node-recycle">
+<span id="id14"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-lke-cluster-node-recycle">node-recycle</a><a class="headerlink" href="#commands-lke-node-recycle" title="Link to this heading"></a></h2>
+<p>Recycles an individual Node in the designated Kubernetes Cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>node-recycle<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="m">12345</span>-6aa78910bc
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster containing the Node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">nodeId</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>ID of the Node to be recycled.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-pool-view">
+<span id="id15"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-lke-node-pool">pool-view</a><a class="headerlink" href="#commands-lke-pool-view" title="Link to this heading"></a></h2>
+<p>Get a specific Node Pool by ID.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>pool-view<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="m">456</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">poolId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Pool to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">count</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">6</span></p></td>
+<td><p>The number of nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">456</span></p></td>
+<td><p>This Node Pool’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">[“example ta…er example”]</span></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">g6-standard-4</span></p></td>
+<td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-view-attribute-sections-autoscaler">autoscaler</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">autoscaler.enabled</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether autoscaling is enabled for this Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">autoscaler.max</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">12</span></p></td>
+<td><p>The maximum number of nodes to autoscale to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">autoscaler.min</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">3</span></p></td>
+<td><p>The minimum number of nodes to autoscale to.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-view-attribute-sections-disks">disks</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">disks.size</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">1024</span></p></td>
+<td><p>The size of this custom disk partition in MB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">disks.type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ext-4</span></p></td>
+<td><p>This custom disk partition’s filesystem type.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-view-attribute-sections-labels">labels</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">labels.key</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes label key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">labels.value</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teamUSA</span></p></td>
+<td><p>The Kubernetes label value.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-view-attribute-sections-nodes">nodes</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">nodes.id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">123456</span></p></td>
+<td><p>The Node’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">nodes.instance_id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">123458</span></p></td>
+<td><p>The Linode’s ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">nodes.status</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ready</span></p></td>
+<td><p>The Node’s status as it pertains to being a Kubernetes node.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-view-attribute-sections-taints">taints</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">taints.effect</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">NoSchedule</span></p></td>
+<td><p>The Kubernetes taint effect.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">taints.key</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes taint key.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">taints.value</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teamC</span></p></td>
+<td><p>The Kubernetes taint value.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-pool-create">
+<span id="id16"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-lke-cluster-pools">pool-create</a><a class="headerlink" href="#commands-lke-pool-create" title="Link to this heading"></a></h2>
+<p>Creates a new Node Pool for the designated Kubernetes cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>pool-create<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--type<span class="w"> </span>g6-standard-4<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--count<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tags<span class="w"> </span>example-tag<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--autoscaler.enabled<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--autoscaler.max<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--autoscaler.min<span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--count</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">6</span></p></td>
+<td><p>The number of nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--type</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">g6-standard-4</span></p></td>
+<td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--disks</span></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>This field should be omitted except for special use cases.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">example tag</span></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--taints</span> <a class="reference internal" href="#commands-lke-pool-create-argument-sections-taints"><span class="std std-ref">(section)</span></a></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--autoscaler.enabled</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether autoscaling is enabled for this Node Pool.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--autoscaler.max</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">12</span></p></td>
+<td><p>The maximum number of nodes to autoscale to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--autoscaler.min</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">3</span></p></td>
+<td><p>The minimum number of nodes to autoscale to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--labels.key</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes label key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--labels.value</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teams</span></p></td>
+<td><p>The Kubernetes label value.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-create-argument-sections-taints">taints</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--taints.effect</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">NoSchedule</span></p></td>
+<td><p>The Kubernetes taint effect.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--taints.key</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes taint key.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--taints.value</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teamC</span></p></td>
+<td><p>The Kubernetes taint value.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">count</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">6</span></p></td>
+<td><p>The number of nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">456</span></p></td>
+<td><p>This Node Pool’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">[“example ta…er example”]</span></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">g6-standard-4</span></p></td>
+<td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-create-attribute-sections-autoscaler">autoscaler</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">autoscaler.enabled</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether autoscaling is enabled for this Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">autoscaler.max</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">12</span></p></td>
+<td><p>The maximum number of nodes to autoscale to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">autoscaler.min</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">3</span></p></td>
+<td><p>The minimum number of nodes to autoscale to.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-create-attribute-sections-disks">disks</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">disks.size</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">1024</span></p></td>
+<td><p>The size of this custom disk partition in MB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">disks.type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ext-4</span></p></td>
+<td><p>This custom disk partition’s filesystem type.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-create-attribute-sections-labels">labels</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">labels.key</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes label key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">labels.value</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teamUSA</span></p></td>
+<td><p>The Kubernetes label value.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-create-attribute-sections-nodes">nodes</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">nodes.id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">123456</span></p></td>
+<td><p>The Node’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">nodes.instance_id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">123458</span></p></td>
+<td><p>The Linode’s ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">nodes.status</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ready</span></p></td>
+<td><p>The Node’s status as it pertains to being a Kubernetes node.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-create-attribute-sections-taints">taints</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">taints.effect</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">NoSchedule</span></p></td>
+<td><p>The Kubernetes taint effect.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">taints.key</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes taint key.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">taints.value</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teamC</span></p></td>
+<td><p>The Kubernetes taint value.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-pool-update">
+<span id="id17"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-lke-node-pool">pool-update</a><a class="headerlink" href="#commands-lke-pool-update" title="Link to this heading"></a></h2>
+<p>Updates a node pool’s count, labels and taints, and autoscaler configuration.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>pool-update<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="m">456</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--count<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--autoscaler.enabled<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--autoscaler.max<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--autoscaler.min<span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">poolId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Pool to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Arguments</p>
+<p class="action-subheading-description">Additional fields used to execute this request.</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--count</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">6</span></p></td>
+<td><p>The number of nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--taints</span> <a class="reference internal" href="#commands-lke-pool-update-argument-sections-taints"><span class="std std-ref">(section)</span></a></p></td>
+<td><p><span class="action-table-field-type">json</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--autoscaler.enabled</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether autoscaling is enabled for this Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--autoscaler.max</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">12</span></p></td>
+<td><p>The maximum number of nodes to autoscale to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--autoscaler.min</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">3</span></p></td>
+<td><p>The minimum number of nodes to autoscale to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--labels.key</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes label key.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--labels.value</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teams</span></p></td>
+<td><p>The Kubernetes label value.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-update-argument-sections-taints">taints</p>
+<table class="action-argument-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 73.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">--taints.effect</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">NoSchedule</span></p></td>
+<td><p>The Kubernetes taint effect.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">--taints.key</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes taint key.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">--taints.value</span> <span class="action-table-field-required">*</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teamC</span></p></td>
+<td><p>The Kubernetes taint value.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">count</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">6</span></p></td>
+<td><p>The number of nodes in the Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">456</span></p></td>
+<td><p>This Node Pool’s unique ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">tags</span></p></td>
+<td><p><span class="action-table-field-type">[]str</span></p></td>
+<td><p><span class="action-table-field-example">[“example ta…er example”]</span></p></td>
+<td><p>An array of tags applied to this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">g6-standard-4</span></p></td>
+<td><p>The Linode Type for all of the nodes in the Node Pool.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-update-attribute-sections-autoscaler">autoscaler</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">autoscaler.enabled</span></p></td>
+<td><p><span class="action-table-field-type">bool</span></p></td>
+<td><p><span class="action-table-field-example">true</span></p></td>
+<td><p>Whether autoscaling is enabled for this Node Pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">autoscaler.max</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">12</span></p></td>
+<td><p>The maximum number of nodes to autoscale to.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">autoscaler.min</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">3</span></p></td>
+<td><p>The minimum number of nodes to autoscale to.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-update-attribute-sections-disks">disks</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">disks.size</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p><span class="action-table-field-example">1024</span></p></td>
+<td><p>The size of this custom disk partition in MB.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">disks.type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ext-4</span></p></td>
+<td><p>This custom disk partition’s filesystem type.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-update-attribute-sections-labels">labels</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">labels.key</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes label key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">labels.value</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teamUSA</span></p></td>
+<td><p>The Kubernetes label value.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-update-attribute-sections-nodes">nodes</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">nodes.id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">123456</span></p></td>
+<td><p>The Node’s ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">nodes.instance_id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">123458</span></p></td>
+<td><p>The Linode’s ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">nodes.status</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">ready</span></p></td>
+<td><p>The Node’s status as it pertains to being a Kubernetes node.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pool-update-attribute-sections-taints">taints</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">taints.effect</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">NoSchedule</span></p></td>
+<td><p>The Kubernetes taint effect.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">taints.key</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">example.com/my-app</span></p></td>
+<td><p>The Kubernetes taint key.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">taints.value</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">teamC</span></p></td>
+<td><p>The Kubernetes taint value.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-pool-delete">
+<span id="id18"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-lke-node-pool">pool-delete</a><a class="headerlink" href="#commands-lke-pool-delete" title="Link to this heading"></a></h2>
+<p>Delete a specific Node Pool from a Kubernetes cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>pool-delete<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="m">456</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">poolId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Pool to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-pool-recycle">
+<span id="id19"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-lke-cluster-pool-recycle">pool-recycle</a><a class="headerlink" href="#commands-lke-pool-recycle" title="Link to this heading"></a></h2>
+<p>Recycles a Node Pool for the designated Kubernetes Cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>pool-recycle<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="m">456</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster this Node Pool is attached to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">poolId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Node Pool to be recycled.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-pools-list">
+<span id="id20"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-lke-cluster-pools">pools-list</a><a class="headerlink" href="#commands-lke-pools-list" title="Link to this heading"></a></h2>
+<p>Returns all active Node Pools on a Kubernetes cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>pools-list<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the Kubernetes cluster to look up.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">type</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-section-header" id="commands-lke-pools-list-attribute-sections-nodes">nodes</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">nodes.id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="action-table-field-name">nodes.instance_id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="action-table-field-name">nodes.status</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">N/A</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-service-token-delete">
+<span id="id21"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-lke-service-token">service-token-delete</a><a class="headerlink" href="#commands-lke-service-token-delete" title="Link to this heading"></a></h2>
+<p>Delete and regenerate the service account token for a Cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>service-token-delete<span class="w"> </span><span class="m">12345</span>
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">clusterId</span></p></td>
+<td><p><span class="action-table-field-type">int</span></p></td>
+<td><p>ID of the target Kubernetes cluster.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="commands-lke-version-view">
+<span id="id22"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-lke-version">version-view</a><a class="headerlink" href="#commands-lke-version-view" title="Link to this heading"></a></h2>
+<p>View a Kubernetes version available for deployment to a Kubernetes cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>version-view<span class="w"> </span><span class="m">1</span>.27
+</pre></div>
+</div>
+<p class="action-subheading">Parameters</p>
+<p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
+<table class="action-parameter-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 98.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">version</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p>The LKE version to view.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">1.27</span></p></td>
+<td><p>A Kubernetes version number available for deployment to a Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="commands-lke-versions-list">
+<span id="id23"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-lke-versions">versions-list</a><a class="headerlink" href="#commands-lke-versions-list" title="Link to this heading"></a></h2>
+<p>List the Kubernetes versions available for deployment to a Kubernetes cluster.</p>
+<p class="action-subheading">Sample</p>
+<p class="action-subheading-description">Examples of how this command might be used.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>lke<span class="w"> </span>versions-list
+</pre></div>
+</div>
+<p class="action-subheading">Result Attributes</p>
+<p class="action-subheading-description">The attributes returned by this command.</p>
+<table class="action-attribute-section-table docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="action-table-field-name">id</span></p></td>
+<td><p><span class="action-table-field-type">str</span></p></td>
+<td><p><span class="action-table-field-example">1.27</span></p></td>
+<td><p>A Kubernetes version number available for deployment to a Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="linodes.html" class="btn btn-neutral float-left" title="Linodes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="longview.html" class="btn btn-neutral float-right" title="Longview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Akamai Technologies Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

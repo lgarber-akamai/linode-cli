@@ -1,0 +1,746 @@
+Service Transfers
+=================
+
+This section details Service Transfer-related Linode CLI commands.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_service-transfers_list:
+
+`list <https://techdocs.akamai.com/linode-api/reference/get-service-transfers>`_
+--------------------------------------------------------------------------------
+
+
+Returns a collection of all created and accepted Service Transfers for this account, regardless of the user that created or accepted the transfer.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli service-transfers \
+    	list
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Filterable Attributes
+
+.. rst-class:: action-subheading-description
+
+Arguments used to define a filter for response entries.
+
+
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`\-\-is_sender`
+      - :action-table-field-type:`bool`
+      - If the requesting account created this transfer.
+
+    * - :action-table-field-name:`\-\-status`
+      - :action-table-field-type:`str`
+      - The status of the transfer request.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2021-02-11T16:37:03`
+      - When this transfer was created.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2021-02-12T16:37:03`
+      - When this transfer expires.
+
+    * - :action-table-field-name:`is_sender` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If the requesting account created this transfer.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`pending`
+      - The status of the transfer request.
+
+    * - :action-table-field-name:`token` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`123E4567-E89...426614174000`
+      - The token used to identify and accept or cancel this transfer.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2021-02-11T16:37:03`
+      - When this transfer was last updated.
+
+
+
+
+.. _commands_service-transfers_list_attribute_sections_entities:
+
+.. rst-class:: action-section-header
+
+entities
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entities.linodes` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`[111, 222]`
+      - An array containing the IDs of each of the Linodes included in this transfer.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_service-transfers_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-service-transfer>`_
+-------------------------------------------------------------------------------
+
+
+Returns the details of the Service Transfer for the provided token.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli service-transfers \
+    	view 123E4567-E89B-12D3-A456-426614174000
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`token`
+      - :action-table-field-type:`str`
+      - The UUID of the Service Transfer.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2021-02-11T16:37:03`
+      - When this transfer was created.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2021-02-12T16:37:03`
+      - When this transfer expires.
+
+    * - :action-table-field-name:`is_sender` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If the requesting account created this transfer.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`pending`
+      - The status of the transfer request.
+
+    * - :action-table-field-name:`token` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`123E4567-E89...426614174000`
+      - The token used to identify and accept or cancel this transfer.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2021-02-11T16:37:03`
+      - When this transfer was last updated.
+
+
+
+
+.. _commands_service-transfers_view_attribute_sections_entities:
+
+.. rst-class:: action-section-header
+
+entities
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entities.linodes` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`[111, 222]`
+      - An array containing the IDs of each of the Linodes included in this transfer.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_service-transfers_create:
+
+`create <https://techdocs.akamai.com/linode-api/reference/post-service-transfer>`_
+----------------------------------------------------------------------------------
+
+
+Creates a transfer request for the specified services.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli service-transfers \
+    	create \
+    	--entities.linodes 111 \
+    	--entities.linodes 222
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-entities.linodes`
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`111`
+      - An array containing the IDs of each of the Linodes included in this transfer.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2021-02-11T16:37:03`
+      - When this transfer was created.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2021-02-12T16:37:03`
+      - When this transfer expires.
+
+    * - :action-table-field-name:`is_sender` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If the requesting account created this transfer.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`pending`
+      - The status of the transfer request.
+
+    * - :action-table-field-name:`token` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`123E4567-E89...426614174000`
+      - The token used to identify and accept or cancel this transfer.
+
+    * - :action-table-field-name:`updated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2021-02-11T16:37:03`
+      - When this transfer was last updated.
+
+
+
+
+.. _commands_service-transfers_create_attribute_sections_entities:
+
+.. rst-class:: action-section-header
+
+entities
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`entities.linodes` 
+      - :action-table-field-type:`[]int`
+      - :action-table-field-example:`[111, 222]`
+      - An array containing the IDs of each of the Linodes included in this transfer.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_service-transfers_accept:
+
+`accept <https://techdocs.akamai.com/linode-api/reference/post-accept-service-transfer>`_
+-----------------------------------------------------------------------------------------
+
+
+Accept a Service Transfer for the provided token to receive the services included in the transfer to your account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli service-transfers \
+    	accept 123E4567-E89B-12D3-A456-426614174000
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`token`
+      - :action-table-field-type:`str`
+      - The UUID of the Service Transfer.
+
+
+
+
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_service-transfers_cancel:
+
+`cancel <https://techdocs.akamai.com/linode-api/reference/delete-service-transfer>`_
+------------------------------------------------------------------------------------
+
+
+Cancels the Service Transfer for the provided token.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli service-transfers \
+    	cancel 123E4567-E89B-12D3-A456-426614174000
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`token`
+      - :action-table-field-type:`str`
+      - The UUID of the Service Transfer.
+
+
+
+
+
+
+
+
+
+
+
+
