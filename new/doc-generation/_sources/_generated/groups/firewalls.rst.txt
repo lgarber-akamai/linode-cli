@@ -7,6 +7,7 @@ This section details Firewall-related Linode CLI commands.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -22,6 +23,7 @@ Returns a paginated list of accessible Firewalls.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -50,6 +52,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -77,23 +80,23 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-created`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - When this Firewall was created.
 
     * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The Firewall's unique ID.
 
     * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Firewall's label, for display purposes only.
 
     * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`array[string]`
+      - :action-table-field-type:`[]string`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`\-\-updated`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - When this Firewall was last updated.
 
 
@@ -105,6 +108,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -133,33 +137,33 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Firewall was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The Firewall's unique ID.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``firewall123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewall123`
       - The Firewall's label, for display purposes only.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``enabled``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`enabled`
       - The status of this Firewall.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-02T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-02T00:01:01`
       - When this Firewall was last updated.
 
 
@@ -185,83 +189,83 @@ rules
       - Description
 
     * - :action-table-field-name:`rules.inbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`rules.inbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`rules.inbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`rules.inbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`rules.inbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`rules.inbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`rules.inbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
     * - :action-table-field-name:`rules.inbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for inbound traffic.
 
     * - :action-table-field-name:`rules.outbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`rules.outbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`rules.outbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`rules.outbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`rules.outbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`rules.outbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`rules.outbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
     * - :action-table-field-name:`rules.outbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for outbound traffic.
 
 
@@ -277,6 +281,7 @@ rules
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -292,6 +297,7 @@ Get a specific Firewall resource by its ID.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -318,6 +324,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -345,7 +352,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`firewallId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall to access.
 
 
@@ -359,6 +366,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -387,33 +395,33 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Firewall was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The Firewall's unique ID.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``firewall123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewall123`
       - The Firewall's label, for display purposes only.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``enabled``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`enabled`
       - The status of this Firewall.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-02T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-02T00:01:01`
       - When this Firewall was last updated.
 
 
@@ -439,83 +447,83 @@ rules
       - Description
 
     * - :action-table-field-name:`rules.inbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`rules.inbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`rules.inbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`rules.inbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`rules.inbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`rules.inbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`rules.inbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
     * - :action-table-field-name:`rules.inbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for inbound traffic.
 
     * - :action-table-field-name:`rules.outbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`rules.outbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`rules.outbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`rules.outbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`rules.outbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`rules.outbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`rules.outbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
     * - :action-table-field-name:`rules.outbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for outbound traffic.
 
 
@@ -531,6 +539,7 @@ rules
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -546,6 +555,7 @@ Creates a Firewall to filter network traffic.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -578,6 +588,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -607,63 +618,63 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``firewall123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewall123`
       - The Firewall's label, for display purposes only.
 
     * - :action-table-field-name:`\-\-rules.inbound_policy` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for inbound traffic.
 
     * - :action-table-field-name:`\-\-rules.outbound_policy` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for outbound traffic.
 
     * - :action-table-field-name:`\-\-created`
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Firewall was created.
 
     * - :action-table-field-name:`\-\-devices.linodes`
-      - :action-table-field-type:`array[integer]`
-      - ``[123, 456]``
+      - :action-table-field-type:`[]integer`
+      - :action-table-field-example:`123`
       - An array of Linode IDs.
 
     * - :action-table-field-name:`\-\-devices.nodebalancers`
-      - :action-table-field-type:`array[integer]`
-      - ``[321]``
+      - :action-table-field-type:`[]integer`
+      - :action-table-field-example:`321`
       - An array containing a NodeBalancer ID.
 
     * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The Firewall's unique ID.
 
     * - :action-table-field-name:`\-\-rules.inbound`
       - :action-table-field-type:`json`
-      - 
+      - :action-table-field-example:`N/A`
       - The inbound rules for the firewall, as a JSON array.
 
     * - :action-table-field-name:`\-\-rules.outbound`
       - :action-table-field-type:`json`
-      - 
+      - :action-table-field-example:`N/A`
       - The outbound rules for the firewall, as a JSON array.
 
     * - :action-table-field-name:`\-\-status`
-      - :action-table-field-type:`string`
-      - ``enabled``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`enabled`
       - The status of this Firewall.
 
     * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`example tag`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`\-\-updated`
-      - :action-table-field-type:`string`
-      - ``2018-01-02T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-02T00:01:01`
       - When this Firewall was last updated.
 
 
@@ -676,6 +687,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -704,33 +716,33 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Firewall was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The Firewall's unique ID.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``firewall123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewall123`
       - The Firewall's label, for display purposes only.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``enabled``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`enabled`
       - The status of this Firewall.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-02T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-02T00:01:01`
       - When this Firewall was last updated.
 
 
@@ -756,83 +768,83 @@ rules
       - Description
 
     * - :action-table-field-name:`rules.inbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`rules.inbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`rules.inbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`rules.inbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`rules.inbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`rules.inbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`rules.inbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
     * - :action-table-field-name:`rules.inbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for inbound traffic.
 
     * - :action-table-field-name:`rules.outbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`rules.outbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`rules.outbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`rules.outbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`rules.outbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`rules.outbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`rules.outbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
     * - :action-table-field-name:`rules.outbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for outbound traffic.
 
 
@@ -848,6 +860,7 @@ rules
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -863,6 +876,7 @@ Updates information for a Firewall.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -890,6 +904,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -917,7 +932,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`firewallId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall to access.
 
 
@@ -929,6 +944,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -958,18 +974,18 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`string`
-      - ``firewall123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewall123`
       - The Firewall's label, for display purposes only.
 
     * - :action-table-field-name:`\-\-status`
-      - :action-table-field-type:`string`
-      - ``enabled``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`enabled`
       - The status to be applied to this Firewall.
 
     * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`example tag`
       - An array of tags applied to this object.
 
 
@@ -982,6 +998,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1010,33 +1027,33 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Firewall was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The Firewall's unique ID.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``firewall123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewall123`
       - The Firewall's label, for display purposes only.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``enabled``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`enabled`
       - The status of this Firewall.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-02T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-02T00:01:01`
       - When this Firewall was last updated.
 
 
@@ -1062,83 +1079,83 @@ rules
       - Description
 
     * - :action-table-field-name:`rules.inbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`rules.inbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`rules.inbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`rules.inbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`rules.inbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`rules.inbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`rules.inbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
     * - :action-table-field-name:`rules.inbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for inbound traffic.
 
     * - :action-table-field-name:`rules.outbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`rules.outbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`rules.outbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`rules.outbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`rules.outbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`rules.outbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`rules.outbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
     * - :action-table-field-name:`rules.outbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for outbound traffic.
 
 
@@ -1154,6 +1171,7 @@ rules
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1169,6 +1187,7 @@ Delete a Firewall resource by its ID.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1195,6 +1214,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1222,7 +1242,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`firewallId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall to access.
 
 
@@ -1241,6 +1261,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1256,6 +1277,7 @@ Returns information for a Firewall Device, which assigns a Firewall to a service
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1283,6 +1305,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1310,11 +1333,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`firewallId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall to access.
 
     * - :action-table-field-name:`deviceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall Device to access.
 
 
@@ -1328,6 +1351,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1356,18 +1380,18 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Device was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The Device's unique ID.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-02T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-02T00:01:01`
       - When this Device was last updated.
 
 
@@ -1393,23 +1417,23 @@ entity
       - Description
 
     * - :action-table-field-name:`entity.id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The entity's ID.
 
     * - :action-table-field-name:`entity.label` 
-      - :action-table-field-type:`string`
-      - ``my-linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-linode`
       - The entity's label.
 
     * - :action-table-field-name:`entity.type` 
-      - :action-table-field-type:`string`
-      - ``linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
       - The entity's type.
 
     * - :action-table-field-name:`entity.url` 
-      - :action-table-field-type:`string`
-      - ``/v4/linode/instances/123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/linode/instances/123`
       - The API URL path you can use to access this entity.
 
 
@@ -1425,6 +1449,7 @@ entity
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1440,6 +1465,7 @@ Creates a Firewall Device, which assigns a Firewall to a service (referred to as
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1468,6 +1494,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1495,7 +1522,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`firewallId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall to access.
 
 
@@ -1507,6 +1534,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1536,23 +1564,23 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-id` :action-table-field-required:`*`
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The entity's ID.
 
     * - :action-table-field-name:`\-\-type` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
       - The entity's type.
 
     * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`string`
-      - ``my-linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-linode`
       - The entity's label.
 
     * - :action-table-field-name:`\-\-url`
-      - :action-table-field-type:`string`
-      - ``/v4/linode/instances/123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/linode/instances/123`
       - The API URL path you can use to access this entity.
 
 
@@ -1565,6 +1593,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1593,18 +1622,18 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Device was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The Device's unique ID.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-02T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-02T00:01:01`
       - When this Device was last updated.
 
 
@@ -1630,23 +1659,23 @@ entity
       - Description
 
     * - :action-table-field-name:`entity.id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The entity's ID.
 
     * - :action-table-field-name:`entity.label` 
-      - :action-table-field-type:`string`
-      - ``my-linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-linode`
       - The entity's label.
 
     * - :action-table-field-name:`entity.type` 
-      - :action-table-field-type:`string`
-      - ``linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
       - The entity's type.
 
     * - :action-table-field-name:`entity.url` 
-      - :action-table-field-type:`string`
-      - ``/v4/linode/instances/123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/linode/instances/123`
       - The API URL path you can use to access this entity.
 
 
@@ -1662,6 +1691,7 @@ entity
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1677,6 +1707,7 @@ Removes a Firewall Device, which removes a Firewall from the service it was assi
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1703,6 +1734,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1730,11 +1762,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`firewallId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall to access.
 
     * - :action-table-field-name:`deviceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall Device to access.
 
 
@@ -1753,6 +1785,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1768,6 +1801,7 @@ Returns a paginated list of a Firewall's Devices.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1794,6 +1828,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1821,7 +1856,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`firewallId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall to access.
 
 
@@ -1834,6 +1869,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1861,15 +1897,15 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-created`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - When this Device was created.
 
     * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The Device's unique ID.
 
     * - :action-table-field-name:`\-\-updated`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - When this Device was last updated.
 
 
@@ -1881,6 +1917,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1909,18 +1946,18 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Device was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The Device's unique ID.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-02T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-02T00:01:01`
       - When this Device was last updated.
 
 
@@ -1946,23 +1983,23 @@ entity
       - Description
 
     * - :action-table-field-name:`entity.id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The entity's ID.
 
     * - :action-table-field-name:`entity.label` 
-      - :action-table-field-type:`string`
-      - ``my-linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-linode`
       - The entity's label.
 
     * - :action-table-field-name:`entity.type` 
-      - :action-table-field-type:`string`
-      - ``linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
       - The entity's type.
 
     * - :action-table-field-name:`entity.url` 
-      - :action-table-field-type:`string`
-      - ``/v4/linode/instances/123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/linode/instances/123`
       - The API URL path you can use to access this entity.
 
 
@@ -1978,6 +2015,7 @@ entity
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1993,6 +2031,7 @@ Returns the inbound and outbound Rules for a Firewall.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2019,6 +2058,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2046,7 +2086,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`firewallId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall to access.
 
 
@@ -2060,6 +2100,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2088,13 +2129,13 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`inbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for inbound traffic.
 
     * - :action-table-field-name:`outbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for outbound traffic.
 
 
@@ -2120,38 +2161,38 @@ inbound
       - Description
 
     * - :action-table-field-name:`inbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`inbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`inbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`inbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`inbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`inbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`inbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
 
@@ -2177,38 +2218,38 @@ outbound
       - Description
 
     * - :action-table-field-name:`outbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`outbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`outbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`outbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`outbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`outbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`outbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
 
@@ -2223,6 +2264,7 @@ outbound
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2238,6 +2280,7 @@ Updates the inbound and outbound Rules for a Firewall.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2266,6 +2309,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2293,7 +2337,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`firewallId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Firewall to access.
 
 
@@ -2305,6 +2349,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2335,22 +2380,22 @@ Additional fields used to execute this request.
 
     * - :action-table-field-name:`\-\-inbound`
       - :action-table-field-type:`json`
-      - 
+      - :action-table-field-example:`N/A`
       - The inbound rules for the firewall, as a JSON array.
 
     * - :action-table-field-name:`\-\-inbound_policy`
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for inbound traffic.
 
     * - :action-table-field-name:`\-\-outbound`
       - :action-table-field-type:`json`
-      - 
+      - :action-table-field-example:`N/A`
       - The outbound rules for the firewall, as a JSON array.
 
     * - :action-table-field-name:`\-\-outbound_policy`
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for outbound traffic.
 
 
@@ -2363,6 +2408,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2391,13 +2437,13 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`inbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for inbound traffic.
 
     * - :action-table-field-name:`outbound_policy` 
-      - :action-table-field-type:`string`
-      - ``DROP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`DROP`
       - The default behavior for outbound traffic.
 
 
@@ -2423,38 +2469,38 @@ inbound
       - Description
 
     * - :action-table-field-name:`inbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`inbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`inbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`inbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`inbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`inbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`inbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
 
@@ -2480,38 +2526,38 @@ outbound
       - Description
 
     * - :action-table-field-name:`outbound.action` 
-      - :action-table-field-type:`string`
-      - ``ACCEPT``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`ACCEPT`
       - Controls whether traffic is accepted or dropped by this rule.
 
     * - :action-table-field-name:`outbound.addresses.ipv4` 
-      - :action-table-field-type:`array[string]`
-      - ``['192.0.2.0/24', '198.51.100.2/32']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["192.0.2.0/2...1.100.2/32"]`
       - A list of IPv4 addresses or networks.
 
     * - :action-table-field-name:`outbound.addresses.ipv6` 
-      - :action-table-field-type:`array[string]`
-      - ``['2001:DB8::/128']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["2001:DB8::/128"]`
       - A list of IPv6 addresses or networks.
 
     * - :action-table-field-name:`outbound.description` 
-      - :action-table-field-type:`string`
-      - ``An example firewall rule description.``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`An example fi...description.`
       - Used to describe this rule.
 
     * - :action-table-field-name:`outbound.label` 
-      - :action-table-field-type:`string`
-      - ``firewallrule123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`firewallrule123`
       - Used to identify this rule.
 
     * - :action-table-field-name:`outbound.ports` 
-      - :action-table-field-type:`string`
-      - ``22-24, 80, 443``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`22-24, 80, 443`
       - A string representing the port or ports affected by this rule:  - The string may be a single port, a range of ports, or a comma-separated list of single ports and port ranges.
 
     * - :action-table-field-name:`outbound.protocol` 
-      - :action-table-field-type:`string`
-      - ``TCP``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`TCP`
       - The type of network traffic affected by this rule.
 
 

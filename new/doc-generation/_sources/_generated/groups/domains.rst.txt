@@ -7,6 +7,7 @@ This section details Domain-related Linode CLI commands.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -22,6 +23,7 @@ This is a collection of Domains that you have registered in Linode's DNS Manager
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -50,6 +52,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -77,15 +80,15 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-domain`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The domain this Domain represents.
 
     * - :action-table-field-name:`\-\-group`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The group this Domain belongs to.
 
     * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`array[string]`
+      - :action-table-field-type:`[]string`
       - An array of tags applied to this object.
 
 
@@ -97,6 +100,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -125,73 +129,73 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`axfr_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The list of IPs that may perform a zone transfer for this Domain.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - A description for this Domain.
 
     * - :action-table-field-name:`domain` 
-      - :action-table-field-type:`string`
-      - ``example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
       - The domain this Domain represents.
 
     * - :action-table-field-name:`expire_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds that may pass before this Domain is no longer authoritative.
 
     * - :action-table-field-name:`group` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The group this Domain belongs to.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``1234``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
       - This Domain's unique ID.
 
     * - :action-table-field-name:`master_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The IP addresses representing the master DNS for this Domain.
 
     * - :action-table-field-name:`refresh_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds before this Domain should be refreshed.
 
     * - :action-table-field-name:`retry_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The interval, in seconds, at which a failed refresh should be retried.
 
     * - :action-table-field-name:`soa_email` 
-      - :action-table-field-type:`string`
-      - ``admin@example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`admin@example.org`
       - Start of Authority email address.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - Used to control whether this Domain is currently being rendered.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`ttl_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``master``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`master`
       - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
@@ -207,6 +211,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -222,6 +227,7 @@ This is a single Domain that you have registered in Linode's DNS Manager.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -248,6 +254,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -275,7 +282,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`domainId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Domain to access.
 
 
@@ -289,6 +296,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -317,73 +325,73 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`axfr_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The list of IPs that may perform a zone transfer for this Domain.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - A description for this Domain.
 
     * - :action-table-field-name:`domain` 
-      - :action-table-field-type:`string`
-      - ``example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
       - The domain this Domain represents.
 
     * - :action-table-field-name:`expire_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds that may pass before this Domain is no longer authoritative.
 
     * - :action-table-field-name:`group` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The group this Domain belongs to.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``1234``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
       - This Domain's unique ID.
 
     * - :action-table-field-name:`master_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The IP addresses representing the master DNS for this Domain.
 
     * - :action-table-field-name:`refresh_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds before this Domain should be refreshed.
 
     * - :action-table-field-name:`retry_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The interval, in seconds, at which a failed refresh should be retried.
 
     * - :action-table-field-name:`soa_email` 
-      - :action-table-field-type:`string`
-      - ``admin@example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`admin@example.org`
       - Start of Authority email address.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - Used to control whether this Domain is currently being rendered.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`ttl_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``master``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`master`
       - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
@@ -399,6 +407,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -414,6 +423,7 @@ Adds a new Domain to Linode's DNS Manager.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -444,6 +454,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -473,73 +484,73 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-domain` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
       - The domain this Domain represents.
 
     * - :action-table-field-name:`\-\-type` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``master``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`master`
       - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
     * - :action-table-field-name:`\-\-axfr_ips`
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The list of IPs that may perform a zone transfer for this Domain.
 
     * - :action-table-field-name:`\-\-description`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - A description for this Domain.
 
     * - :action-table-field-name:`\-\-expire_sec`
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds that may pass before this Domain is no longer authoritative.
 
     * - :action-table-field-name:`\-\-group`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The group this Domain belongs to.
 
     * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`integer`
-      - ``1234``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
       - This Domain's unique ID.
 
     * - :action-table-field-name:`\-\-master_ips`
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The IP addresses representing the master DNS for this Domain.
 
     * - :action-table-field-name:`\-\-refresh_sec`
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds before this Domain should be refreshed.
 
     * - :action-table-field-name:`\-\-retry_sec`
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The interval, in seconds, at which a failed refresh should be retried.
 
     * - :action-table-field-name:`\-\-soa_email`
-      - :action-table-field-type:`string`
-      - ``admin@example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`admin@example.org`
       - Start of Authority email address.
 
     * - :action-table-field-name:`\-\-status`
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - Used to control whether this Domain is currently being rendered.
 
     * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`example tag`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`\-\-ttl_sec`
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
 
@@ -552,6 +563,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -580,73 +592,73 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`axfr_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The list of IPs that may perform a zone transfer for this Domain.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - A description for this Domain.
 
     * - :action-table-field-name:`domain` 
-      - :action-table-field-type:`string`
-      - ``example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
       - The domain this Domain represents.
 
     * - :action-table-field-name:`expire_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds that may pass before this Domain is no longer authoritative.
 
     * - :action-table-field-name:`group` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The group this Domain belongs to.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``1234``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
       - This Domain's unique ID.
 
     * - :action-table-field-name:`master_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The IP addresses representing the master DNS for this Domain.
 
     * - :action-table-field-name:`refresh_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds before this Domain should be refreshed.
 
     * - :action-table-field-name:`retry_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The interval, in seconds, at which a failed refresh should be retried.
 
     * - :action-table-field-name:`soa_email` 
-      - :action-table-field-type:`string`
-      - ``admin@example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`admin@example.org`
       - Start of Authority email address.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - Used to control whether this Domain is currently being rendered.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`ttl_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``master``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`master`
       - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
@@ -662,6 +674,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -677,6 +690,7 @@ Update information about a Domain in Linode's DNS Manager.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -705,6 +719,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -732,7 +747,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`domainId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Domain to access.
 
 
@@ -744,6 +759,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -773,73 +789,73 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-axfr_ips`
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The list of IPs that may perform a zone transfer for this Domain.
 
     * - :action-table-field-name:`\-\-description`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - A description for this Domain.
 
     * - :action-table-field-name:`\-\-domain`
-      - :action-table-field-type:`string`
-      - ``example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
       - The domain this Domain represents.
 
     * - :action-table-field-name:`\-\-expire_sec`
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds that may pass before this Domain is no longer authoritative.
 
     * - :action-table-field-name:`\-\-group`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The group this Domain belongs to.
 
     * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`integer`
-      - ``1234``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
       - This Domain's unique ID.
 
     * - :action-table-field-name:`\-\-master_ips`
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The IP addresses representing the master DNS for this Domain.
 
     * - :action-table-field-name:`\-\-refresh_sec`
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds before this Domain should be refreshed.
 
     * - :action-table-field-name:`\-\-retry_sec`
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The interval, in seconds, at which a failed refresh should be retried.
 
     * - :action-table-field-name:`\-\-soa_email`
-      - :action-table-field-type:`string`
-      - ``admin@example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`admin@example.org`
       - Start of Authority email address.
 
     * - :action-table-field-name:`\-\-status`
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - Used to control whether this Domain is currently being rendered.
 
     * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`example tag`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`\-\-ttl_sec`
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`\-\-type`
-      - :action-table-field-type:`string`
-      - ``master``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`master`
       - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
@@ -852,6 +868,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -880,73 +897,73 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`axfr_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The list of IPs that may perform a zone transfer for this Domain.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - A description for this Domain.
 
     * - :action-table-field-name:`domain` 
-      - :action-table-field-type:`string`
-      - ``example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
       - The domain this Domain represents.
 
     * - :action-table-field-name:`expire_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds that may pass before this Domain is no longer authoritative.
 
     * - :action-table-field-name:`group` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The group this Domain belongs to.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``1234``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
       - This Domain's unique ID.
 
     * - :action-table-field-name:`master_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The IP addresses representing the master DNS for this Domain.
 
     * - :action-table-field-name:`refresh_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds before this Domain should be refreshed.
 
     * - :action-table-field-name:`retry_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The interval, in seconds, at which a failed refresh should be retried.
 
     * - :action-table-field-name:`soa_email` 
-      - :action-table-field-type:`string`
-      - ``admin@example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`admin@example.org`
       - Start of Authority email address.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - Used to control whether this Domain is currently being rendered.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`ttl_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``master``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`master`
       - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
@@ -962,6 +979,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -977,6 +995,7 @@ Deletes a Domain from Linode's DNS Manager.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1003,6 +1022,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1030,7 +1050,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`domainId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Domain to access.
 
 
@@ -1049,6 +1069,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1064,6 +1085,7 @@ Clones a Domain and all associated DNS records from a Domain that is registered 
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1090,6 +1112,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1117,7 +1140,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`domainId`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - ID of the Domain to clone.
 
 
@@ -1129,6 +1152,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1158,8 +1182,8 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-domain` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
       - The new domain for the clone.
 
 
@@ -1172,6 +1196,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1200,73 +1225,73 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`axfr_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The list of IPs that may perform a zone transfer for this Domain.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - A description for this Domain.
 
     * - :action-table-field-name:`domain` 
-      - :action-table-field-type:`string`
-      - ``example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
       - The domain this Domain represents.
 
     * - :action-table-field-name:`expire_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds that may pass before this Domain is no longer authoritative.
 
     * - :action-table-field-name:`group` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The group this Domain belongs to.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``1234``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
       - This Domain's unique ID.
 
     * - :action-table-field-name:`master_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The IP addresses representing the master DNS for this Domain.
 
     * - :action-table-field-name:`refresh_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds before this Domain should be refreshed.
 
     * - :action-table-field-name:`retry_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The interval, in seconds, at which a failed refresh should be retried.
 
     * - :action-table-field-name:`soa_email` 
-      - :action-table-field-type:`string`
-      - ``admin@example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`admin@example.org`
       - Start of Authority email address.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - Used to control whether this Domain is currently being rendered.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`ttl_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``master``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`master`
       - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
@@ -1282,6 +1307,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1297,6 +1323,7 @@ Imports a domain zone from a remote nameserver.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1324,6 +1351,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1353,13 +1381,13 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-domain` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``example.com``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.com`
       - The domain to import.
 
     * - :action-table-field-name:`\-\-remote_nameserver` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``examplenameserver.com``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`examplenameserver.com`
       - The remote nameserver that allows zone transfers (AXFR).
 
 
@@ -1372,6 +1400,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1400,73 +1429,73 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`axfr_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The list of IPs that may perform a zone transfer for this Domain.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - A description for this Domain.
 
     * - :action-table-field-name:`domain` 
-      - :action-table-field-type:`string`
-      - ``example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
       - The domain this Domain represents.
 
     * - :action-table-field-name:`expire_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds that may pass before this Domain is no longer authoritative.
 
     * - :action-table-field-name:`group` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The group this Domain belongs to.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``1234``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
       - This Domain's unique ID.
 
     * - :action-table-field-name:`master_ips` 
-      - :action-table-field-type:`array[string]`
-      - 
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`N/A`
       - The IP addresses representing the master DNS for this Domain.
 
     * - :action-table-field-name:`refresh_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The amount of time in seconds before this Domain should be refreshed.
 
     * - :action-table-field-name:`retry_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - The interval, in seconds, at which a failed refresh should be retried.
 
     * - :action-table-field-name:`soa_email` 
-      - :action-table-field-type:`string`
-      - ``admin@example.org``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`admin@example.org`
       - Start of Authority email address.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - Used to control whether this Domain is currently being rendered.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`ttl_sec` 
-      - :action-table-field-type:`integer`
-      - ``300``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`300`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``master``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`master`
       - Whether this Domain represents the authoritative source of information for the domain it describes (:code:`master`), or whether it is a read-only copy of a master (:code:`slave`).
 
 
@@ -1482,6 +1511,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1497,6 +1527,7 @@ Returns a paginated list of Records configured on a Domain in Linode's DNS Manag
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1523,6 +1554,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1550,7 +1582,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`domainId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Domain we are accessing Records for.
 
 
@@ -1563,6 +1595,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1590,19 +1623,19 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-name`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The name of this Record.
 
     * - :action-table-field-name:`\-\-tag`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The tag portion of a CAA record.
 
     * - :action-table-field-name:`\-\-target`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The target for this Record.
 
     * - :action-table-field-name:`\-\-type`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The type of Record this is in the DNS system.
 
 
@@ -1614,6 +1647,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1642,68 +1676,68 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Domain Record was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123456``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123456`
       - This Record's unique ID.
 
     * - :action-table-field-name:`name` 
-      - :action-table-field-type:`string`
-      - ``test``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`test`
       - The name of this Record.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``80``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`80`
       - The port this Record points to.
 
     * - :action-table-field-name:`priority` 
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The priority of the target host for this Record.
 
     * - :action-table-field-name:`protocol` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The protocol this Record's service communicates with.
 
     * - :action-table-field-name:`service` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The name of the service.
 
     * - :action-table-field-name:`tag` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The tag portion of a CAA record.
 
     * - :action-table-field-name:`target` 
-      - :action-table-field-type:`string`
-      - ``192.0.2.0``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`192.0.2.0`
       - The target for this Record.
 
     * - :action-table-field-name:`ttl_sec` 
-      - :action-table-field-type:`integer`
-      - ``604800``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`604800`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``A``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A`
       - The type of Record this is in the DNS system.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Domain Record was last updated.
 
     * - :action-table-field-name:`weight` 
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The relative weight of this Record used in the case of identical priority.
 
 
@@ -1719,6 +1753,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1734,6 +1769,7 @@ View a single Record on this Domain.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1760,6 +1796,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1787,11 +1824,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`domainId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Domain whose Record you are accessing.
 
     * - :action-table-field-name:`recordId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Record you are accessing.
 
 
@@ -1805,6 +1842,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1833,68 +1871,68 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Domain Record was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123456``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123456`
       - This Record's unique ID.
 
     * - :action-table-field-name:`name` 
-      - :action-table-field-type:`string`
-      - ``test``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`test`
       - The name of this Record.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``80``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`80`
       - The port this Record points to.
 
     * - :action-table-field-name:`priority` 
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The priority of the target host for this Record.
 
     * - :action-table-field-name:`protocol` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The protocol this Record's service communicates with.
 
     * - :action-table-field-name:`service` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The name of the service.
 
     * - :action-table-field-name:`tag` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The tag portion of a CAA record.
 
     * - :action-table-field-name:`target` 
-      - :action-table-field-type:`string`
-      - ``192.0.2.0``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`192.0.2.0`
       - The target for this Record.
 
     * - :action-table-field-name:`ttl_sec` 
-      - :action-table-field-type:`integer`
-      - ``604800``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`604800`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``A``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A`
       - The type of Record this is in the DNS system.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Domain Record was last updated.
 
     * - :action-table-field-name:`weight` 
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The relative weight of this Record used in the case of identical priority.
 
 
@@ -1910,6 +1948,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1925,6 +1964,7 @@ Adds a new Domain Record to the zonefile this Domain represents.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1958,6 +1998,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1985,7 +2026,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`domainId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Domain we are accessing Records for.
 
 
@@ -1997,6 +2038,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2026,68 +2068,68 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-type` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``A``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A`
       - The type of Record this is in the DNS system.
 
     * - :action-table-field-name:`\-\-created`
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Domain Record was created.
 
     * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`integer`
-      - ``123456``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123456`
       - This Record's unique ID.
 
     * - :action-table-field-name:`\-\-name`
-      - :action-table-field-type:`string`
-      - ``test``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`test`
       - The name of this Record.
 
     * - :action-table-field-name:`\-\-port`
-      - :action-table-field-type:`integer`
-      - ``80``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`80`
       - The port this Record points to.
 
     * - :action-table-field-name:`\-\-priority`
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The priority of the target host for this Record.
 
     * - :action-table-field-name:`\-\-protocol`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The protocol this Record's service communicates with.
 
     * - :action-table-field-name:`\-\-service`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The name of the service.
 
     * - :action-table-field-name:`\-\-tag`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The tag portion of a CAA record.
 
     * - :action-table-field-name:`\-\-target`
-      - :action-table-field-type:`string`
-      - ``192.0.2.0``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`192.0.2.0`
       - The target for this Record.
 
     * - :action-table-field-name:`\-\-ttl_sec`
-      - :action-table-field-type:`integer`
-      - ``604800``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`604800`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`\-\-updated`
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Domain Record was last updated.
 
     * - :action-table-field-name:`\-\-weight`
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The relative weight of this Record used in the case of identical priority.
 
 
@@ -2100,6 +2142,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2128,68 +2171,68 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Domain Record was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123456``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123456`
       - This Record's unique ID.
 
     * - :action-table-field-name:`name` 
-      - :action-table-field-type:`string`
-      - ``test``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`test`
       - The name of this Record.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``80``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`80`
       - The port this Record points to.
 
     * - :action-table-field-name:`priority` 
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The priority of the target host for this Record.
 
     * - :action-table-field-name:`protocol` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The protocol this Record's service communicates with.
 
     * - :action-table-field-name:`service` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The name of the service.
 
     * - :action-table-field-name:`tag` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The tag portion of a CAA record.
 
     * - :action-table-field-name:`target` 
-      - :action-table-field-type:`string`
-      - ``192.0.2.0``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`192.0.2.0`
       - The target for this Record.
 
     * - :action-table-field-name:`ttl_sec` 
-      - :action-table-field-type:`integer`
-      - ``604800``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`604800`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``A``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A`
       - The type of Record this is in the DNS system.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Domain Record was last updated.
 
     * - :action-table-field-name:`weight` 
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The relative weight of this Record used in the case of identical priority.
 
 
@@ -2205,6 +2248,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2220,6 +2264,7 @@ Updates a single Record on this Domain.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2252,6 +2297,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2279,11 +2325,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`domainId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Domain whose Record you are accessing.
 
     * - :action-table-field-name:`recordId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Record you are accessing.
 
 
@@ -2295,6 +2341,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2324,48 +2371,48 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-name`
-      - :action-table-field-type:`string`
-      - ``test``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`test`
       - The name of this Record.
 
     * - :action-table-field-name:`\-\-port`
-      - :action-table-field-type:`integer`
-      - ``80``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`80`
       - The port this Record points to.
 
     * - :action-table-field-name:`\-\-priority`
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The priority of the target host for this Record.
 
     * - :action-table-field-name:`\-\-protocol`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The protocol this Record's service communicates with.
 
     * - :action-table-field-name:`\-\-service`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The name of the service.
 
     * - :action-table-field-name:`\-\-tag`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The tag portion of a CAA record.
 
     * - :action-table-field-name:`\-\-target`
-      - :action-table-field-type:`string`
-      - ``192.0.2.0``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`192.0.2.0`
       - The target for this Record.
 
     * - :action-table-field-name:`\-\-ttl_sec`
-      - :action-table-field-type:`integer`
-      - ``604800``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`604800`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`\-\-weight`
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The relative weight of this Record used in the case of identical priority.
 
 
@@ -2378,6 +2425,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2406,68 +2454,68 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Domain Record was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123456``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123456`
       - This Record's unique ID.
 
     * - :action-table-field-name:`name` 
-      - :action-table-field-type:`string`
-      - ``test``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`test`
       - The name of this Record.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``80``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`80`
       - The port this Record points to.
 
     * - :action-table-field-name:`priority` 
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The priority of the target host for this Record.
 
     * - :action-table-field-name:`protocol` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The protocol this Record's service communicates with.
 
     * - :action-table-field-name:`service` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The name of the service.
 
     * - :action-table-field-name:`tag` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The tag portion of a CAA record.
 
     * - :action-table-field-name:`target` 
-      - :action-table-field-type:`string`
-      - ``192.0.2.0``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`192.0.2.0`
       - The target for this Record.
 
     * - :action-table-field-name:`ttl_sec` 
-      - :action-table-field-type:`integer`
-      - ``604800``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`604800`
       - "Time to Live" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``A``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`A`
       - The type of Record this is in the DNS system.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Domain Record was last updated.
 
     * - :action-table-field-name:`weight` 
-      - :action-table-field-type:`integer`
-      - ``50``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`50`
       - The relative weight of this Record used in the case of identical priority.
 
 
@@ -2483,6 +2531,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2498,6 +2547,7 @@ Deletes a Record on this Domain.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2524,6 +2574,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2551,11 +2602,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`domainId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Domain whose Record you are accessing.
 
     * - :action-table-field-name:`recordId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Record you are accessing.
 
 
@@ -2573,6 +2624,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2588,6 +2640,7 @@ Returns the zone file for the last rendered zone for the specified domain.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2614,6 +2667,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2641,7 +2695,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`domainId`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - ID of the Domain.
 
 
@@ -2655,6 +2709,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2683,8 +2738,8 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`zone_file` 
-      - :action-table-field-type:`array[string]`
-      - ``['; example.com [123]', '$TTL 864000', '@  IN  SOA  ns1.linode.com. user.example.com. 2021000066 14400 14400 1209600 86400', '@    NS  ns1.linode.com.', '@    NS  ns2.linode.com.', '@    NS  ns3.linode.com.', '@    NS  ns4.linode.com.', '@    NS  ns5.linode.com.']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["; example....inode.com."]`
       - The lines of the zone file for the last rendered zone for this domain.
 
 

@@ -7,6 +7,7 @@ This section details Database-related Linode CLI commands.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -22,6 +23,7 @@ Display all Managed Databases that are accessible by your User, regardless of en
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -50,6 +52,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -77,27 +80,27 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-engine`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`\-\-region`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`\-\-status`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`\-\-type`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`\-\-version`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Managed Database engine version.
 
 
@@ -109,6 +112,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -137,68 +141,68 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`allow_list` 
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["203.0.113....2.0.1.0/24"]`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`cluster_size` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was created.
 
     * - :action-table-field-name:`encrypted` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``mysql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`mysql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - A unique ID that can be used to identify and reference the Managed Database.
 
     * - :action-table-field-name:`instance_uri` 
-      - :action-table-field-type:`string`
-      - ``/v4/databases/mysql/instances/123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/databases...nstances/123`
       - Append this to :code:`https://api.linode.com` to run commands for the Managed Database.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was last updated.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``8.0.26``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`8.0.26`
       - The Managed Database engine version.
 
 
@@ -224,13 +228,13 @@ hosts
       - Description
 
     * - :action-table-field-name:`hosts.primary` 
-      - :action-table-field-type:`string`
-      - ``lin-123-456-mysql-mysql-primary.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-123-456-...linodedb.net`
       - The primary host for the Managed Database.
 
     * - :action-table-field-name:`hosts.secondary` 
-      - :action-table-field-type:`string`
-      - ``lin-123-456-mysql-primary-private.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-123-456-...linodedb.net`
       - The secondary/private network host for the Managed Database.
 
 
@@ -256,28 +260,28 @@ updates
       - Description
 
     * - :action-table-field-name:`updates.day_of_week` 
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`updates.duration` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`updates.frequency` 
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`updates.hour_of_day` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`updates.week_of_month` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -293,6 +297,7 @@ updates
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -308,6 +313,7 @@ Display all available Managed Database engine types and versions.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -336,6 +342,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -363,11 +370,11 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-engine`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`\-\-version`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Managed Database engine version.
 
 
@@ -379,6 +386,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -407,28 +415,28 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``mysql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`mysql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`string`
-      - ``mysql/8.0.26``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`mysql/8.0.26`
       - The Managed Database engine ID in engine/version format.
 
     * - :action-table-field-name:`total_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``15``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`15`
       - The total disk size of the database in GB.
 
     * - :action-table-field-name:`used_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``2``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2`
       - The used space of the database in GB.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``8.0.26``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`8.0.26`
       - The Managed Database engine version.
 
 
@@ -444,6 +452,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -459,6 +468,7 @@ Display all Managed Database node types.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -493,6 +503,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -508,6 +519,7 @@ Display information for a single Managed Database engine type and version.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -534,6 +546,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -561,7 +574,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`engineId`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The ID of the Managed Database engine.
 
 
@@ -575,6 +588,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -603,28 +617,28 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``mysql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`mysql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`string`
-      - ``mysql/8.0.26``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`mysql/8.0.26`
       - The Managed Database engine ID in engine/version format.
 
     * - :action-table-field-name:`total_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``15``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`15`
       - The total disk size of the database in GB.
 
     * - :action-table-field-name:`used_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``2``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2`
       - The used space of the database in GB.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``8.0.26``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`8.0.26`
       - The Managed Database engine version.
 
 
@@ -640,6 +654,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -655,6 +670,7 @@ Display all accessible Managed MySQL Databases.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -683,6 +699,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -710,27 +727,27 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-engine`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`\-\-region`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`\-\-status`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`\-\-type`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`\-\-version`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Managed Database engine version.
 
 
@@ -742,6 +759,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -770,88 +788,88 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`allow_list` 
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["203.0.113....2.0.1.0/24"]`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`cluster_size` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was created.
 
     * - :action-table-field-name:`encrypted` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``mysql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`mysql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - A unique ID that can be used to identify and reference the Managed Database.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``3306``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3306`
       - The access port for this Managed Database.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`replication_type` 
-      - :action-table-field-type:`string`
-      - ``semi_synch``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`semi_synch`
       - The replication method used for the Managed Database.
 
     * - :action-table-field-name:`ssl_connection` 
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`total_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``15``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`15`
       - The total disk size of the database in GB.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was last updated.
 
     * - :action-table-field-name:`used_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``2``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2`
       - The used space of the database in GB.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``8.0.26``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`8.0.26`
       - The Managed Database engine version.
 
 
@@ -877,13 +895,13 @@ hosts
       - Description
 
     * - :action-table-field-name:`hosts.primary` 
-      - :action-table-field-type:`string`
-      - ``lin-123-456-mysql-mysql-primary.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-123-456-...linodedb.net`
       - The primary host for the Managed Database.
 
     * - :action-table-field-name:`hosts.secondary` 
-      - :action-table-field-type:`string`
-      - ``lin-123-456-mysql-primary-private.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-123-456-...linodedb.net`
       - The secondary/private network host for the Managed Database.
 
 
@@ -909,28 +927,28 @@ updates
       - Description
 
     * - :action-table-field-name:`updates.day_of_week` 
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`updates.duration` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`updates.frequency` 
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`updates.hour_of_day` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`updates.week_of_month` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -946,6 +964,7 @@ updates
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -961,6 +980,7 @@ Display information for a single, accessible Managed MySQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -987,6 +1007,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1014,7 +1035,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -1028,6 +1049,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1056,88 +1078,88 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`allow_list` 
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["203.0.113....2.0.1.0/24"]`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`cluster_size` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was created.
 
     * - :action-table-field-name:`encrypted` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``mysql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`mysql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - A unique ID that can be used to identify and reference the Managed Database.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``3306``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3306`
       - The access port for this Managed Database.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`replication_type` 
-      - :action-table-field-type:`string`
-      - ``semi_synch``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`semi_synch`
       - The replication method used for the Managed Database.
 
     * - :action-table-field-name:`ssl_connection` 
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`total_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``15``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`15`
       - The total disk size of the database in GB.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was last updated.
 
     * - :action-table-field-name:`used_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``2``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2`
       - The used space of the database in GB.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``8.0.26``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`8.0.26`
       - The Managed Database engine version.
 
 
@@ -1163,13 +1185,13 @@ hosts
       - Description
 
     * - :action-table-field-name:`hosts.primary` 
-      - :action-table-field-type:`string`
-      - ``lin-123-456-mysql-mysql-primary.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-123-456-...linodedb.net`
       - The primary host for the Managed Database.
 
     * - :action-table-field-name:`hosts.secondary` 
-      - :action-table-field-type:`string`
-      - ``lin-123-456-mysql-primary-private.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-123-456-...linodedb.net`
       - The secondary/private network host for the Managed Database.
 
 
@@ -1195,28 +1217,28 @@ updates
       - Description
 
     * - :action-table-field-name:`updates.day_of_week` 
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`updates.duration` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`updates.frequency` 
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`updates.hour_of_day` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`updates.week_of_month` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -1232,6 +1254,7 @@ updates
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1247,6 +1270,7 @@ Provision a Managed MySQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1284,6 +1308,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1313,48 +1338,48 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-engine` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``mysql/8.0.26``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`mysql/8.0.26`
       - The Managed Database engine in engine/version format.
 
     * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`\-\-region` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`\-\-type` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`\-\-allow_list`
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`203.0.113.1/32`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`\-\-cluster_size`
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`\-\-encrypted`
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`\-\-replication_type`
-      - :action-table-field-type:`string`
-      - ``semi_synch``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`semi_synch`
       - The replication method used for the Managed Database.
 
     * - :action-table-field-name:`\-\-ssl_connection`
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
 
 
@@ -1367,6 +1392,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1395,88 +1421,88 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`allow_list` 
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["203.0.113....2.0.1.0/24"]`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`cluster_size` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was created.
 
     * - :action-table-field-name:`encrypted` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``mysql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`mysql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - A unique ID that can be used to identify and reference the Managed Database.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``3306``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3306`
       - The access port for this Managed Database.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`replication_type` 
-      - :action-table-field-type:`string`
-      - ``semi_synch``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`semi_synch`
       - The replication method used for the Managed Database.
 
     * - :action-table-field-name:`ssl_connection` 
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`total_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``15``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`15`
       - The total disk size of the database in GB.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was last updated.
 
     * - :action-table-field-name:`used_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``2``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2`
       - The used space of the database in GB.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``8.0.26``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`8.0.26`
       - The Managed Database engine version.
 
 
@@ -1502,13 +1528,13 @@ hosts
       - Description
 
     * - :action-table-field-name:`hosts.primary` 
-      - :action-table-field-type:`string`
-      - ``lin-123-456-mysql-mysql-primary.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-123-456-...linodedb.net`
       - The primary host for the Managed Database.
 
     * - :action-table-field-name:`hosts.secondary` 
-      - :action-table-field-type:`string`
-      - ``lin-123-456-mysql-primary-private.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-123-456-...linodedb.net`
       - The secondary/private network host for the Managed Database.
 
 
@@ -1534,28 +1560,28 @@ updates
       - Description
 
     * - :action-table-field-name:`updates.day_of_week` 
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`updates.duration` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`updates.frequency` 
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`updates.hour_of_day` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`updates.week_of_month` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -1571,6 +1597,7 @@ updates
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1586,6 +1613,7 @@ Update a Managed MySQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1621,6 +1649,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1648,7 +1677,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -1660,6 +1689,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1689,43 +1719,43 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-allow_list`
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`203.0.113.1/32`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`\-\-type`
-      - :action-table-field-type:`string`
-      - ``g6-standard-1``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-standard-1`
       - Request re-sizing of your cluster to a Linode Type with more disk space.
 
     * - :action-table-field-name:`\-\-updates.day_of_week`
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`\-\-updates.duration`
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`\-\-updates.frequency`
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`\-\-updates.hour_of_day`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`\-\-updates.week_of_month`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -1738,6 +1768,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1766,88 +1797,88 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`allow_list` 
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["203.0.113....2.0.1.0/24"]`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`cluster_size` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was created.
 
     * - :action-table-field-name:`encrypted` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``mysql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`mysql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - A unique ID that can be used to identify and reference the Managed Database.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``3306``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3306`
       - The access port for this Managed Database.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`replication_type` 
-      - :action-table-field-type:`string`
-      - ``semi_synch``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`semi_synch`
       - The replication method used for the Managed Database.
 
     * - :action-table-field-name:`ssl_connection` 
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`total_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``15``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`15`
       - The total disk size of the database in GB.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was last updated.
 
     * - :action-table-field-name:`used_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``2``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2`
       - The used space of the database in GB.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``8.0.26``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`8.0.26`
       - The Managed Database engine version.
 
 
@@ -1873,13 +1904,13 @@ hosts
       - Description
 
     * - :action-table-field-name:`hosts.primary` 
-      - :action-table-field-type:`string`
-      - ``lin-123-456-mysql-mysql-primary.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-123-456-...linodedb.net`
       - The primary host for the Managed Database.
 
     * - :action-table-field-name:`hosts.secondary` 
-      - :action-table-field-type:`string`
-      - ``lin-123-456-mysql-primary-private.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-123-456-...linodedb.net`
       - The secondary/private network host for the Managed Database.
 
 
@@ -1905,28 +1936,28 @@ updates
       - Description
 
     * - :action-table-field-name:`updates.day_of_week` 
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`updates.duration` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`updates.frequency` 
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`updates.hour_of_day` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`updates.week_of_month` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -1942,6 +1973,7 @@ updates
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1957,6 +1989,7 @@ Remove a Managed MySQL Database from your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1983,6 +2016,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2010,7 +2044,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -2029,6 +2063,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2044,6 +2079,7 @@ Display information for a single backup for an accessible Managed MySQL Database
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2070,6 +2106,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2097,11 +2134,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
     * - :action-table-field-name:`backupId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed MySQL Database backup.
 
 
@@ -2115,6 +2152,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2143,23 +2181,23 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - A time value given in a combined date and time format that represents when the database backup was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The ID of the database backup object.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``Scheduled - 02/04/22 11:11 UTC-XcCRmI``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Scheduled - 0...1 UTC-XcCRmI`
       - The database backup's label, for display purposes only.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``auto``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`auto`
       - The type of database backup, determined by how the backup was created.
 
 
@@ -2175,6 +2213,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2190,6 +2229,7 @@ Delete a single backup for an accessible Managed MySQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2216,6 +2256,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2243,11 +2284,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
     * - :action-table-field-name:`backupId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed MySQL Database backup.
 
 
@@ -2266,6 +2307,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2281,6 +2323,7 @@ Restore a backup to a Managed MySQL Database on your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2307,6 +2350,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2334,11 +2378,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed MySQL Database.
 
     * - :action-table-field-name:`backupId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed MySQL Database backup.
 
 
@@ -2357,6 +2401,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2372,6 +2417,7 @@ Creates a snapshot backup of a Managed MySQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2400,6 +2446,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2427,7 +2474,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -2439,6 +2486,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2468,13 +2516,13 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``db-snapshot``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`db-snapshot`
       - The label for the Database snapshot backup.
 
     * - :action-table-field-name:`\-\-target`
-      - :action-table-field-type:`string`
-      - ``primary``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`primary`
       - The Database cluster target.
 
 
@@ -2492,6 +2540,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2507,6 +2556,7 @@ Display all backups for an accessible Managed MySQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2533,6 +2583,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2560,7 +2611,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -2573,6 +2624,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2600,11 +2652,11 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-created`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - A time value given in a combined date and time format that represents when the database backup was created.
 
     * - :action-table-field-name:`\-\-type`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The type of database backup, determined by how the backup was created.
 
 
@@ -2616,6 +2668,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2644,23 +2697,23 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - A time value given in a combined date and time format that represents when the database backup was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The ID of the database backup object.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``Scheduled - 02/04/22 11:11 UTC-XcCRmI``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Scheduled - 0...1 UTC-XcCRmI`
       - The database backup's label, for display purposes only.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``auto``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`auto`
       - The type of database backup, determined by how the backup was created.
 
 
@@ -2676,6 +2729,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2691,6 +2745,7 @@ Display the root username and password for an accessible Managed MySQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2717,6 +2772,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2744,7 +2800,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -2758,6 +2814,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2786,13 +2843,13 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`password` 
-      - :action-table-field-type:`string`
-      - ``s3cur3P@ssw0rd``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`s3cur3P@ssw0rd`
       - The randomly-generated root password for the Managed Database instance.
 
     * - :action-table-field-name:`username` 
-      - :action-table-field-type:`string`
-      - ``linroot``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linroot`
       - The root username for the Managed Database instance.
 
 
@@ -2808,6 +2865,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2823,6 +2881,7 @@ Reset the root password for a Managed MySQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2849,6 +2908,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2876,7 +2936,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed MySQL Database.
 
 
@@ -2895,6 +2955,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2910,6 +2971,7 @@ Apply security patches and updates to the underlying operating system of the Man
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2936,6 +2998,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2963,7 +3026,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -2982,6 +3045,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -2997,6 +3061,7 @@ Display the SSL CA certificate for an accessible Managed MySQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3023,6 +3088,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3050,7 +3116,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed MySQL Database.
 
 
@@ -3064,6 +3130,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3092,8 +3159,8 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`ca_certificate` 
-      - :action-table-field-type:`string`
-      - ``LS0tLS1CRUdJ...==``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`LS0tLS1CRUdJ...==`
       - The base64-encoded SSL CA certificate for the Managed Database instance.
 
 
@@ -3109,6 +3176,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3124,6 +3192,7 @@ Display all accessible Managed PostgreSQL Databases.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3152,6 +3221,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3179,27 +3249,27 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-engine`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`\-\-region`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`\-\-status`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`\-\-type`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`\-\-version`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Managed Database engine version.
 
 
@@ -3211,6 +3281,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3239,93 +3310,93 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`allow_list` 
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["203.0.113....2.0.1.0/24"]`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`cluster_size` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was created.
 
     * - :action-table-field-name:`encrypted` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``postgresql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`postgresql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - A unique ID that can be used to identify and reference the Managed Database.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``3306``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3306`
       - The access port for this Managed Database.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`replication_commit_type` 
-      - :action-table-field-type:`string`
-      - ``local``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`local`
       - The synchronization level of the replicating server.
 
     * - :action-table-field-name:`replication_type` 
-      - :action-table-field-type:`string`
-      - ``async``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`async`
       - The replication method used for the Managed Database.
 
     * - :action-table-field-name:`ssl_connection` 
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`total_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``15``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`15`
       - The total disk size of the database in GB.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was last updated.
 
     * - :action-table-field-name:`used_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``2``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2`
       - The used space of the database in GB.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``13.2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`13.2`
       - The Managed Database engine version.
 
 
@@ -3351,13 +3422,13 @@ hosts
       - Description
 
     * - :action-table-field-name:`hosts.primary` 
-      - :action-table-field-type:`string`
-      - ``lin-0000-000-pgsql-primary.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-0000-000-...linodedb.net`
       - The primary host for the Managed Database.
 
     * - :action-table-field-name:`hosts.secondary` 
-      - :action-table-field-type:`string`
-      - ``lin-0000-000-pgsql-primary-private.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-0000-000-...linodedb.net`
       - The secondary/private network host for the Managed Database.
 
 
@@ -3383,28 +3454,28 @@ updates
       - Description
 
     * - :action-table-field-name:`updates.day_of_week` 
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`updates.duration` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`updates.frequency` 
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`updates.hour_of_day` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`updates.week_of_month` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -3420,6 +3491,7 @@ updates
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3435,6 +3507,7 @@ Display information for a single, accessible Managed PostgreSQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3461,6 +3534,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3488,7 +3562,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -3502,6 +3576,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3530,93 +3605,93 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`allow_list` 
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["203.0.113....2.0.1.0/24"]`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`cluster_size` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was created.
 
     * - :action-table-field-name:`encrypted` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``postgresql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`postgresql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - A unique ID that can be used to identify and reference the Managed Database.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``3306``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3306`
       - The access port for this Managed Database.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`replication_commit_type` 
-      - :action-table-field-type:`string`
-      - ``local``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`local`
       - The synchronization level of the replicating server.
 
     * - :action-table-field-name:`replication_type` 
-      - :action-table-field-type:`string`
-      - ``async``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`async`
       - The replication method used for the Managed Database.
 
     * - :action-table-field-name:`ssl_connection` 
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`total_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``15``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`15`
       - The total disk size of the database in GB.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was last updated.
 
     * - :action-table-field-name:`used_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``2``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2`
       - The used space of the database in GB.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``13.2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`13.2`
       - The Managed Database engine version.
 
 
@@ -3642,13 +3717,13 @@ hosts
       - Description
 
     * - :action-table-field-name:`hosts.primary` 
-      - :action-table-field-type:`string`
-      - ``lin-0000-000-pgsql-primary.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-0000-000-...linodedb.net`
       - The primary host for the Managed Database.
 
     * - :action-table-field-name:`hosts.secondary` 
-      - :action-table-field-type:`string`
-      - ``lin-0000-000-pgsql-primary-private.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-0000-000-...linodedb.net`
       - The secondary/private network host for the Managed Database.
 
 
@@ -3674,28 +3749,28 @@ updates
       - Description
 
     * - :action-table-field-name:`updates.day_of_week` 
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`updates.duration` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`updates.frequency` 
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`updates.hour_of_day` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`updates.week_of_month` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -3711,6 +3786,7 @@ updates
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3726,6 +3802,7 @@ Provision a Managed PostgreSQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3764,6 +3841,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3793,53 +3871,53 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-engine` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``postgresql/13.2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`postgresql/13.2`
       - The Managed Database engine in engine/version format.
 
     * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`\-\-region` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`\-\-type` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`\-\-allow_list`
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`203.0.113.1/32`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`\-\-cluster_size`
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`\-\-encrypted`
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`\-\-replication_commit_type`
-      - :action-table-field-type:`string`
-      - ``local``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`local`
       - The synchronization level of the replicating server.
 
     * - :action-table-field-name:`\-\-replication_type`
-      - :action-table-field-type:`string`
-      - ``async``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`async`
       - The replication method used for the Managed Database.
 
     * - :action-table-field-name:`\-\-ssl_connection`
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
 
 
@@ -3852,6 +3930,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -3880,93 +3959,93 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`allow_list` 
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["203.0.113....2.0.1.0/24"]`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`cluster_size` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was created.
 
     * - :action-table-field-name:`encrypted` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``postgresql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`postgresql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - A unique ID that can be used to identify and reference the Managed Database.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``3306``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3306`
       - The access port for this Managed Database.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`replication_commit_type` 
-      - :action-table-field-type:`string`
-      - ``local``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`local`
       - The synchronization level of the replicating server.
 
     * - :action-table-field-name:`replication_type` 
-      - :action-table-field-type:`string`
-      - ``async``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`async`
       - The replication method used for the Managed Database.
 
     * - :action-table-field-name:`ssl_connection` 
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`total_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``15``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`15`
       - The total disk size of the database in GB.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was last updated.
 
     * - :action-table-field-name:`used_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``2``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2`
       - The used space of the database in GB.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``13.2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`13.2`
       - The Managed Database engine version.
 
 
@@ -3992,13 +4071,13 @@ hosts
       - Description
 
     * - :action-table-field-name:`hosts.primary` 
-      - :action-table-field-type:`string`
-      - ``lin-0000-000-pgsql-primary.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-0000-000-...linodedb.net`
       - The primary host for the Managed Database.
 
     * - :action-table-field-name:`hosts.secondary` 
-      - :action-table-field-type:`string`
-      - ``lin-0000-000-pgsql-primary-private.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-0000-000-...linodedb.net`
       - The secondary/private network host for the Managed Database.
 
 
@@ -4024,28 +4103,28 @@ updates
       - Description
 
     * - :action-table-field-name:`updates.day_of_week` 
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`updates.duration` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`updates.frequency` 
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`updates.hour_of_day` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`updates.week_of_month` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -4061,6 +4140,7 @@ updates
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4076,6 +4156,7 @@ Update a Managed PostgreSQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4111,6 +4192,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4138,7 +4220,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -4150,6 +4232,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4179,43 +4262,43 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-allow_list`
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`203.0.113.1/32`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`\-\-type`
-      - :action-table-field-type:`string`
-      - ``g6-standard-1``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-standard-1`
       - Request re-sizing of your cluster to a Linode Type with more disk space.
 
     * - :action-table-field-name:`\-\-updates.day_of_week`
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`\-\-updates.duration`
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`\-\-updates.frequency`
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`\-\-updates.hour_of_day`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`\-\-updates.week_of_month`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -4228,6 +4311,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4256,93 +4340,93 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`allow_list` 
-      - :action-table-field-type:`array[string]`
-      - ``['203.0.113.1/32', '192.0.1.0/24']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["203.0.113....2.0.1.0/24"]`
       - A list of IP addresses that can access the Managed Database.
 
     * - :action-table-field-name:`cluster_size` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The number of Linode Instance nodes deployed to the Managed Database.
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was created.
 
     * - :action-table-field-name:`encrypted` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Managed Databases is encrypted.
 
     * - :action-table-field-name:`engine` 
-      - :action-table-field-type:`string`
-      - ``postgresql``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`postgresql`
       - The Managed Database engine type.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - A unique ID that can be used to identify and reference the Managed Database.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``example-db``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-db`
       - A unique, user-defined string referring to the Managed Database.
 
     * - :action-table-field-name:`port` 
-      - :action-table-field-type:`integer`
-      - ``3306``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3306`
       - The access port for this Managed Database.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the Managed Database.
 
     * - :action-table-field-name:`replication_commit_type` 
-      - :action-table-field-type:`string`
-      - ``local``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`local`
       - The synchronization level of the replicating server.
 
     * - :action-table-field-name:`replication_type` 
-      - :action-table-field-type:`string`
-      - ``async``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`async`
       - The replication method used for the Managed Database.
 
     * - :action-table-field-name:`ssl_connection` 
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - Whether to require SSL credentials to establish a connection to the Managed Database.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The operating status of the Managed Database.
 
     * - :action-table-field-name:`total_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``15``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`15`
       - The total disk size of the database in GB.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``g6-dedicated-2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`g6-dedicated-2`
       - The Linode Instance type used by the Managed Database for its nodes.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - When this Managed Database was last updated.
 
     * - :action-table-field-name:`used_disk_size_gb` 
-      - :action-table-field-type:`integer`
-      - ``2``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`2`
       - The used space of the database in GB.
 
     * - :action-table-field-name:`version` 
-      - :action-table-field-type:`string`
-      - ``13.2``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`13.2`
       - The Managed Database engine version.
 
 
@@ -4368,13 +4452,13 @@ hosts
       - Description
 
     * - :action-table-field-name:`hosts.primary` 
-      - :action-table-field-type:`string`
-      - ``lin-0000-000-pgsql-primary.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-0000-000-...linodedb.net`
       - The primary host for the Managed Database.
 
     * - :action-table-field-name:`hosts.secondary` 
-      - :action-table-field-type:`string`
-      - ``lin-0000-000-pgsql-primary-private.servers.linodedb.net``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`lin-0000-000-...linodedb.net`
       - The secondary/private network host for the Managed Database.
 
 
@@ -4400,28 +4484,28 @@ updates
       - Description
 
     * - :action-table-field-name:`updates.day_of_week` 
-      - :action-table-field-type:`integer`
-      - ``1``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1`
       - The day to perform maintenance.
 
     * - :action-table-field-name:`updates.duration` 
-      - :action-table-field-type:`integer`
-      - ``3``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`3`
       - The maximum maintenance window time in hours.
 
     * - :action-table-field-name:`updates.frequency` 
-      - :action-table-field-type:`string`
-      - ``weekly``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`weekly`
       - Whether maintenance occurs on a weekly or monthly basis.
 
     * - :action-table-field-name:`updates.hour_of_day` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The hour to begin maintenance based in UTC time.
 
     * - :action-table-field-name:`updates.week_of_month` 
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The week of the month to perform :code:`monthly` frequency updates.
 
 
@@ -4437,6 +4521,7 @@ updates
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4452,6 +4537,7 @@ Remove a Managed PostgreSQL Database from your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4478,6 +4564,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4505,7 +4592,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -4524,6 +4611,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4539,6 +4627,7 @@ Display information for a single backup for an accessible Managed PostgreSQL Dat
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4565,6 +4654,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4592,11 +4682,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
     * - :action-table-field-name:`backupId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database backup.
 
 
@@ -4610,6 +4700,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4638,23 +4729,23 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - A time value given in a combined date and time format that represents when the database backup was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The ID of the database backup object.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``Scheduled - 02/04/22 11:11 UTC-XcCRmI``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Scheduled - 0...1 UTC-XcCRmI`
       - The database backup's label, for display purposes only.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``auto``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`auto`
       - The type of database backup, determined by how the backup was created.
 
 
@@ -4670,6 +4761,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4685,6 +4777,7 @@ Delete a single backup for an accessible Managed PostgreSQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4711,6 +4804,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4738,11 +4832,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
     * - :action-table-field-name:`backupId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database backup.
 
 
@@ -4761,6 +4855,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4776,6 +4871,7 @@ Restore a backup to a Managed PostgreSQL Database on your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4802,6 +4898,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4829,11 +4926,11 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
     * - :action-table-field-name:`backupId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database backup.
 
 
@@ -4852,6 +4949,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4867,6 +4965,7 @@ Creates a snapshot backup of a Managed PostgreSQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4895,6 +4994,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4922,7 +5022,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -4934,6 +5034,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -4963,13 +5064,13 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``db-snapshot``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`db-snapshot`
       - The label for the Database snapshot backup.
 
     * - :action-table-field-name:`\-\-target`
-      - :action-table-field-type:`string`
-      - ``primary``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`primary`
       - The Database cluster target.
 
 
@@ -4987,6 +5088,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5002,6 +5104,7 @@ Display all backups for an accessible Managed PostgreSQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5028,6 +5131,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5055,7 +5159,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -5068,6 +5172,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5095,11 +5200,11 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-created`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - A time value given in a combined date and time format that represents when the database backup was created.
 
     * - :action-table-field-name:`\-\-type`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The type of database backup, determined by how the backup was created.
 
 
@@ -5111,6 +5216,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5139,23 +5245,23 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2022-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2022-01-01T00:01:01`
       - A time value given in a combined date and time format that represents when the database backup was created.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The ID of the database backup object.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``Scheduled - 02/04/22 11:11 UTC-XcCRmI``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Scheduled - 0...1 UTC-XcCRmI`
       - The database backup's label, for display purposes only.
 
     * - :action-table-field-name:`type` 
-      - :action-table-field-type:`string`
-      - ``auto``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`auto`
       - The type of database backup, determined by how the backup was created.
 
 
@@ -5171,6 +5277,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5186,6 +5293,7 @@ Display the root username and password for an accessible Managed PostgreSQL Data
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5212,6 +5320,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5239,7 +5348,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -5253,6 +5362,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5281,13 +5391,13 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`password` 
-      - :action-table-field-type:`string`
-      - ``s3cur3P@ssw0rd``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`s3cur3P@ssw0rd`
       - The randomly-generated root password for the Managed Database instance.
 
     * - :action-table-field-name:`username` 
-      - :action-table-field-type:`string`
-      - ``linroot``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linroot`
       - The root username for the Managed Database instance.
 
 
@@ -5303,6 +5413,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5318,6 +5429,7 @@ Reset the root password for a Managed PostgreSQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5344,6 +5456,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5371,7 +5484,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -5390,6 +5503,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5405,6 +5519,7 @@ Apply security patches and updates to the underlying operating system of the Man
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5431,6 +5546,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5458,7 +5574,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -5477,6 +5593,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5492,6 +5609,7 @@ Display the SSL CA certificate for an accessible Managed PostgreSQL Database.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5518,6 +5636,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5545,7 +5664,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`instanceId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Managed PostgreSQL Database.
 
 
@@ -5559,6 +5678,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5587,8 +5707,8 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`ca_certificate` 
-      - :action-table-field-type:`string`
-      - ``LS0tLS1CRUdJ...==``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`LS0tLS1CRUdJ...==`
       - The base64-encoded SSL CA certificate for the Managed Database instance.
 
 
@@ -5603,6 +5723,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5618,6 +5739,7 @@ Display the details of a single Managed Database type.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5644,6 +5766,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5671,7 +5794,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`typeId`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The ID of the Managed Database type.
 
 
@@ -5685,6 +5808,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -5713,18 +5837,18 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`_split` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - N/A
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - N/A
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - N/A
 
 
@@ -5750,18 +5874,18 @@ engines
       - Description
 
     * - :action-table-field-name:`engines.price.hourly` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - N/A
 
     * - :action-table-field-name:`engines.price.monthly` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - N/A
 
     * - :action-table-field-name:`engines.quantity` 
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - N/A
 
 

@@ -7,6 +7,7 @@ This section details Volume-related Linode CLI commands.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -22,6 +23,7 @@ Returns a paginated list of Volumes you have permission to view.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -50,6 +52,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -77,11 +80,11 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The Volume's label is for display purposes only.
 
     * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`array[string]`
+      - :action-table-field-type:`[]string`
       - An array of Tags applied to this object.
 
 
@@ -93,6 +96,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -121,63 +125,63 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was created.
 
     * - :action-table-field-name:`filesystem_path` 
-      - :action-table-field-type:`string`
-      - ``/dev/disk/by-id/scsi-0Linode_Volume_my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/dev/disk/by-...me_my-volume`
       - The full filesystem path for the Volume based on the Volume's label.
 
     * - :action-table-field-name:`hardware_type` 
-      - :action-table-field-type:`string`
-      - ``nvme``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`nvme`
       - The storage type of this Volume.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``12345``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12345`
       - The unique ID of this Volume.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-volume`
       - The Volume's label is for display purposes only.
 
     * - :action-table-field-name:`linode_id` 
-      - :action-table-field-type:`integer`
-      - ``12346``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12346`
       - If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.
 
     * - :action-table-field-name:`linode_label` 
-      - :action-table-field-type:`string`
-      - ``linode123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
       - If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The unique ID of this Region.
 
     * - :action-table-field-name:`size` 
-      - :action-table-field-type:`integer`
-      - ``30``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
       - The Volume's size, in GiB.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The current status of the volume.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of Tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was last updated.
 
 
@@ -193,6 +197,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -208,6 +213,7 @@ Get information about a single Volume.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -234,6 +240,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -261,7 +268,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`volumeId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Volume to look up.
 
 
@@ -275,6 +282,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -303,63 +311,63 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was created.
 
     * - :action-table-field-name:`filesystem_path` 
-      - :action-table-field-type:`string`
-      - ``/dev/disk/by-id/scsi-0Linode_Volume_my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/dev/disk/by-...me_my-volume`
       - The full filesystem path for the Volume based on the Volume's label.
 
     * - :action-table-field-name:`hardware_type` 
-      - :action-table-field-type:`string`
-      - ``nvme``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`nvme`
       - The storage type of this Volume.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``12345``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12345`
       - The unique ID of this Volume.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-volume`
       - The Volume's label is for display purposes only.
 
     * - :action-table-field-name:`linode_id` 
-      - :action-table-field-type:`integer`
-      - ``12346``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12346`
       - If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.
 
     * - :action-table-field-name:`linode_label` 
-      - :action-table-field-type:`string`
-      - ``linode123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
       - If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The unique ID of this Region.
 
     * - :action-table-field-name:`size` 
-      - :action-table-field-type:`integer`
-      - ``30``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
       - The Volume's size, in GiB.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The current status of the volume.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of Tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was last updated.
 
 
@@ -375,6 +383,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -390,6 +399,7 @@ Creates a Volume on your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -421,6 +431,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -450,33 +461,33 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-volume`
       - The Volume's label, which is also used in the :code:`filesystem_path` of the resulting volume.
 
     * - :action-table-field-name:`\-\-config_id`
-      - :action-table-field-type:`integer`
-      - ``23456``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`23456`
       - When creating a Volume attached to a Linode, the ID of the Linode Config to include the new Volume in.
 
     * - :action-table-field-name:`\-\-linode_id`
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The Linode this volume should be attached to upon creation.
 
     * - :action-table-field-name:`\-\-region`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The Region to deploy this Volume in.
 
     * - :action-table-field-name:`\-\-size`
-      - :action-table-field-type:`integer`
-      - ``20``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`20`
       - The initial size of this volume, in GB.
 
     * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`example tag`
       - An array of Tags applied to this object.
 
 
@@ -489,6 +500,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -517,63 +529,63 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was created.
 
     * - :action-table-field-name:`filesystem_path` 
-      - :action-table-field-type:`string`
-      - ``/dev/disk/by-id/scsi-0Linode_Volume_my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/dev/disk/by-...me_my-volume`
       - The full filesystem path for the Volume based on the Volume's label.
 
     * - :action-table-field-name:`hardware_type` 
-      - :action-table-field-type:`string`
-      - ``nvme``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`nvme`
       - The storage type of this Volume.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``12345``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12345`
       - The unique ID of this Volume.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-volume`
       - The Volume's label is for display purposes only.
 
     * - :action-table-field-name:`linode_id` 
-      - :action-table-field-type:`integer`
-      - ``12346``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12346`
       - If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.
 
     * - :action-table-field-name:`linode_label` 
-      - :action-table-field-type:`string`
-      - ``linode123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
       - If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The unique ID of this Region.
 
     * - :action-table-field-name:`size` 
-      - :action-table-field-type:`integer`
-      - ``30``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
       - The Volume's size, in GiB.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The current status of the volume.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of Tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was last updated.
 
 
@@ -589,6 +601,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -604,6 +617,7 @@ Updates a Volume that you have permission to :code:`read_write`.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -631,6 +645,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -658,7 +673,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`volumeId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Volume to look up.
 
 
@@ -670,6 +685,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -699,63 +715,63 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-created`
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was created.
 
     * - :action-table-field-name:`\-\-filesystem_path`
-      - :action-table-field-type:`string`
-      - ``/dev/disk/by-id/scsi-0Linode_Volume_my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/dev/disk/by-...me_my-volume`
       - The full filesystem path for the Volume based on the Volume's label.
 
     * - :action-table-field-name:`\-\-hardware_type`
-      - :action-table-field-type:`string`
-      - ``nvme``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`nvme`
       - The storage type of this Volume.
 
     * - :action-table-field-name:`\-\-id`
-      - :action-table-field-type:`integer`
-      - ``12345``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12345`
       - The unique ID of this Volume.
 
     * - :action-table-field-name:`\-\-label`
-      - :action-table-field-type:`string`
-      - ``my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-volume`
       - The Volume's label is for display purposes only.
 
     * - :action-table-field-name:`\-\-linode_id`
-      - :action-table-field-type:`integer`
-      - ``12346``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12346`
       - If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.
 
     * - :action-table-field-name:`\-\-linode_label`
-      - :action-table-field-type:`string`
-      - ``linode123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
       - If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.
 
     * - :action-table-field-name:`\-\-region`
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The unique ID of this Region.
 
     * - :action-table-field-name:`\-\-size`
-      - :action-table-field-type:`integer`
-      - ``30``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
       - The Volume's size, in GiB.
 
     * - :action-table-field-name:`\-\-status`
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The current status of the volume.
 
     * - :action-table-field-name:`\-\-tags`
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`example tag`
       - An array of Tags applied to this object.
 
     * - :action-table-field-name:`\-\-updated`
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was last updated.
 
 
@@ -768,6 +784,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -796,63 +813,63 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was created.
 
     * - :action-table-field-name:`filesystem_path` 
-      - :action-table-field-type:`string`
-      - ``/dev/disk/by-id/scsi-0Linode_Volume_my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/dev/disk/by-...me_my-volume`
       - The full filesystem path for the Volume based on the Volume's label.
 
     * - :action-table-field-name:`hardware_type` 
-      - :action-table-field-type:`string`
-      - ``nvme``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`nvme`
       - The storage type of this Volume.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``12345``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12345`
       - The unique ID of this Volume.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-volume`
       - The Volume's label is for display purposes only.
 
     * - :action-table-field-name:`linode_id` 
-      - :action-table-field-type:`integer`
-      - ``12346``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12346`
       - If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.
 
     * - :action-table-field-name:`linode_label` 
-      - :action-table-field-type:`string`
-      - ``linode123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
       - If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The unique ID of this Region.
 
     * - :action-table-field-name:`size` 
-      - :action-table-field-type:`integer`
-      - ``30``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
       - The Volume's size, in GiB.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The current status of the volume.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of Tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was last updated.
 
 
@@ -868,6 +885,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -883,6 +901,7 @@ Deletes a Volume you have permission to :code:`read_write`.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -909,6 +928,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -936,7 +956,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`volumeId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Volume to look up.
 
 
@@ -955,6 +975,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -970,6 +991,7 @@ Attaches a Volume on your Account to an existing Linode on your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -998,6 +1020,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1025,7 +1048,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`volumeId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Volume to attach.
 
 
@@ -1037,6 +1060,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1066,18 +1090,18 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-linode_id` :action-table-field-required:`*`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The ID of the Linode to attach the volume to.
 
     * - :action-table-field-name:`\-\-config_id`
-      - :action-table-field-type:`integer`
-      - ``23456``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`23456`
       - The ID of the Linode Config to include this Volume in.
 
     * - :action-table-field-name:`\-\-persist_across_boots`
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Defaults to true, if false is provided, the Volume will not be attached to the Linode Config.
 
 
@@ -1090,6 +1114,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1118,63 +1143,63 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was created.
 
     * - :action-table-field-name:`filesystem_path` 
-      - :action-table-field-type:`string`
-      - ``/dev/disk/by-id/scsi-0Linode_Volume_my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/dev/disk/by-...me_my-volume`
       - The full filesystem path for the Volume based on the Volume's label.
 
     * - :action-table-field-name:`hardware_type` 
-      - :action-table-field-type:`string`
-      - ``nvme``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`nvme`
       - The storage type of this Volume.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``12345``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12345`
       - The unique ID of this Volume.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-volume`
       - The Volume's label is for display purposes only.
 
     * - :action-table-field-name:`linode_id` 
-      - :action-table-field-type:`integer`
-      - ``12346``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12346`
       - If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.
 
     * - :action-table-field-name:`linode_label` 
-      - :action-table-field-type:`string`
-      - ``linode123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
       - If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The unique ID of this Region.
 
     * - :action-table-field-name:`size` 
-      - :action-table-field-type:`integer`
-      - ``30``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
       - The Volume's size, in GiB.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The current status of the volume.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of Tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was last updated.
 
 
@@ -1190,6 +1215,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1205,6 +1231,7 @@ Creates a Volume on your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1232,6 +1259,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1259,7 +1287,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`volumeId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Volume to clone.
 
 
@@ -1271,6 +1299,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1300,8 +1329,8 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-volume`
       - The Volume's label is for display purposes only.
 
 
@@ -1314,6 +1343,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1342,63 +1372,63 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was created.
 
     * - :action-table-field-name:`filesystem_path` 
-      - :action-table-field-type:`string`
-      - ``/dev/disk/by-id/scsi-0Linode_Volume_my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/dev/disk/by-...me_my-volume`
       - The full filesystem path for the Volume based on the Volume's label.
 
     * - :action-table-field-name:`hardware_type` 
-      - :action-table-field-type:`string`
-      - ``nvme``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`nvme`
       - The storage type of this Volume.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``12345``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12345`
       - The unique ID of this Volume.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-volume`
       - The Volume's label is for display purposes only.
 
     * - :action-table-field-name:`linode_id` 
-      - :action-table-field-type:`integer`
-      - ``12346``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12346`
       - If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.
 
     * - :action-table-field-name:`linode_label` 
-      - :action-table-field-type:`string`
-      - ``linode123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
       - If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The unique ID of this Region.
 
     * - :action-table-field-name:`size` 
-      - :action-table-field-type:`integer`
-      - ``30``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
       - The Volume's size, in GiB.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The current status of the volume.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of Tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was last updated.
 
 
@@ -1414,6 +1444,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1429,6 +1460,7 @@ Detaches a Volume on your Account from a Linode on your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1455,6 +1487,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1482,7 +1515,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`volumeId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Volume to detach.
 
 
@@ -1500,6 +1533,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1515,6 +1549,7 @@ Resize an existing Volume on your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1542,6 +1577,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1569,7 +1605,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`volumeId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - ID of the Volume to resize.
 
 
@@ -1581,6 +1617,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1610,8 +1647,8 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-size` :action-table-field-required:`*`
-      - :action-table-field-type:`integer`
-      - ``30``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
       - The Volume's size, in GiB.
 
 
@@ -1624,6 +1661,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1652,63 +1690,63 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was created.
 
     * - :action-table-field-name:`filesystem_path` 
-      - :action-table-field-type:`string`
-      - ``/dev/disk/by-id/scsi-0Linode_Volume_my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/dev/disk/by-...me_my-volume`
       - The full filesystem path for the Volume based on the Volume's label.
 
     * - :action-table-field-name:`hardware_type` 
-      - :action-table-field-type:`string`
-      - ``nvme``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`nvme`
       - The storage type of this Volume.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``12345``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12345`
       - The unique ID of this Volume.
 
     * - :action-table-field-name:`label` 
-      - :action-table-field-type:`string`
-      - ``my-volume``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`my-volume`
       - The Volume's label is for display purposes only.
 
     * - :action-table-field-name:`linode_id` 
-      - :action-table-field-type:`integer`
-      - ``12346``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`12346`
       - If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.
 
     * - :action-table-field-name:`linode_label` 
-      - :action-table-field-type:`string`
-      - ``linode123``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123`
       - If a Volume is attached to a specific Linode, the label of that Linode will be displayed here.
 
     * - :action-table-field-name:`region` 
-      - :action-table-field-type:`string`
-      - ``us-east``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`us-east`
       - The unique ID of this Region.
 
     * - :action-table-field-name:`size` 
-      - :action-table-field-type:`integer`
-      - ``30``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`30`
       - The Volume's size, in GiB.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``active``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`active`
       - The current status of the volume.
 
     * - :action-table-field-name:`tags` 
-      - :action-table-field-type:`array[string]`
-      - ``['example tag', 'another example']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["example ta...er example"]`
       - An array of Tags applied to this object.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2018-01-01T00:01:01``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
       - When this Volume was last updated.
 
 

@@ -7,6 +7,7 @@ This section details Ticket-related Linode CLI commands.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -22,6 +23,7 @@ Returns a collection of Support Tickets on your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -50,6 +52,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -77,15 +80,15 @@ Arguments used to define a filter for response entries.
       - Description
 
     * - :action-table-field-name:`\-\-closed`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The date and time this Ticket was closed.
 
     * - :action-table-field-name:`\-\-opened`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The date and time this Ticket was created.
 
     * - :action-table-field-name:`\-\-updated`
-      - :action-table-field-type:`string`
+      - :action-table-field-type:`str`
       - The date and time this Ticket was last updated.
 
 
@@ -97,6 +100,7 @@ Arguments used to define a filter for response entries.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -125,63 +129,63 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`attachments` 
-      - :action-table-field-type:`array[string]`
-      - ``['screenshot.jpg', 'screenshot.txt']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["screenshot...enshot.txt"]`
       - A list of filenames representing attached files associated with this Ticket.
 
     * - :action-table-field-name:`closable` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Support Ticket may be closed.
 
     * - :action-table-field-name:`closed` 
-      - :action-table-field-type:`string`
-      - ``2015-06-04T16:07:03``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
       - The date and time this Ticket was closed.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - ``I am having trouble setting the root password on my Linode. I tried following the instructions but something is not working. Can you please help me figure out how I can reset it?``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I am having ...an reset it?`
       - The full details of the issue or question.
 
     * - :action-table-field-name:`gravatar_id` 
-      - :action-table-field-type:`string`
-      - ``474a1b7373ae0be4132649e69c36ce30``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`474a1b7373ae...49e69c36ce30`
       - The Gravatar ID of the User who opened this Ticket.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``11223344``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`11223344`
       - The ID of the Support Ticket.
 
     * - :action-table-field-name:`opened` 
-      - :action-table-field-type:`string`
-      - ``2015-06-04T14:16:44``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T14:16:44`
       - The date and time this Ticket was created.
 
     * - :action-table-field-name:`opened_by` 
-      - :action-table-field-type:`string`
-      - ``some_user``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_user`
       - The User who opened this Ticket.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``open``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`open`
       - The current status of this Ticket.
 
     * - :action-table-field-name:`summary` 
-      - :action-table-field-type:`string`
-      - ``Having trouble resetting root password on my Linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Having troubl...on my Linode`
       - The summary or title for this Ticket.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2015-06-04T16:07:03``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
       - The date and time this Ticket was last updated.
 
     * - :action-table-field-name:`updated_by` 
-      - :action-table-field-type:`string`
-      - ``some_other_user``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_other_user`
       - The User who last updated this Ticket.
 
 
@@ -207,23 +211,23 @@ entity
       - Description
 
     * - :action-table-field-name:`entity.id` 
-      - :action-table-field-type:`integer`
-      - ``10400``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`10400`
       - The unique ID for this Ticket's entity.
 
     * - :action-table-field-name:`entity.label` 
-      - :action-table-field-type:`string`
-      - ``linode123456``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123456`
       - The current label of this entity.
 
     * - :action-table-field-name:`entity.type` 
-      - :action-table-field-type:`string`
-      - ``linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
       - The type of entity this is related to.
 
     * - :action-table-field-name:`entity.url` 
-      - :action-table-field-type:`string`
-      - ``/v4/linode/instances/123456``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/linode/in...ances/123456`
       - The URL where you can access the object this event is for.
 
 
@@ -239,6 +243,7 @@ entity
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -254,6 +259,7 @@ Returns a Support Ticket under your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -280,6 +286,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -307,7 +314,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`ticketId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Support Ticket.
 
 
@@ -321,6 +328,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -349,63 +357,63 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`attachments` 
-      - :action-table-field-type:`array[string]`
-      - ``['screenshot.jpg', 'screenshot.txt']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["screenshot...enshot.txt"]`
       - A list of filenames representing attached files associated with this Ticket.
 
     * - :action-table-field-name:`closable` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Support Ticket may be closed.
 
     * - :action-table-field-name:`closed` 
-      - :action-table-field-type:`string`
-      - ``2015-06-04T16:07:03``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
       - The date and time this Ticket was closed.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - ``I am having trouble setting the root password on my Linode. I tried following the instructions but something is not working. Can you please help me figure out how I can reset it?``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I am having ...an reset it?`
       - The full details of the issue or question.
 
     * - :action-table-field-name:`gravatar_id` 
-      - :action-table-field-type:`string`
-      - ``474a1b7373ae0be4132649e69c36ce30``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`474a1b7373ae...49e69c36ce30`
       - The Gravatar ID of the User who opened this Ticket.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``11223344``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`11223344`
       - The ID of the Support Ticket.
 
     * - :action-table-field-name:`opened` 
-      - :action-table-field-type:`string`
-      - ``2015-06-04T14:16:44``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T14:16:44`
       - The date and time this Ticket was created.
 
     * - :action-table-field-name:`opened_by` 
-      - :action-table-field-type:`string`
-      - ``some_user``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_user`
       - The User who opened this Ticket.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``open``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`open`
       - The current status of this Ticket.
 
     * - :action-table-field-name:`summary` 
-      - :action-table-field-type:`string`
-      - ``Having trouble resetting root password on my Linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Having troubl...on my Linode`
       - The summary or title for this Ticket.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2015-06-04T16:07:03``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
       - The date and time this Ticket was last updated.
 
     * - :action-table-field-name:`updated_by` 
-      - :action-table-field-type:`string`
-      - ``some_other_user``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_other_user`
       - The User who last updated this Ticket.
 
 
@@ -431,23 +439,23 @@ entity
       - Description
 
     * - :action-table-field-name:`entity.id` 
-      - :action-table-field-type:`integer`
-      - ``10400``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`10400`
       - The unique ID for this Ticket's entity.
 
     * - :action-table-field-name:`entity.label` 
-      - :action-table-field-type:`string`
-      - ``linode123456``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123456`
       - The current label of this entity.
 
     * - :action-table-field-name:`entity.type` 
-      - :action-table-field-type:`string`
-      - ``linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
       - The type of entity this is related to.
 
     * - :action-table-field-name:`entity.url` 
-      - :action-table-field-type:`string`
-      - ``/v4/linode/instances/123456``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/linode/in...ances/123456`
       - The URL where you can access the object this event is for.
 
 
@@ -463,6 +471,7 @@ entity
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -478,6 +487,7 @@ Open a Support Ticket.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -508,6 +518,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -537,73 +548,73 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-description` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``I'm having trouble setting the root password on my Linode. I tried following the instructions but something is not working and I'm not sure what I'm doing wrong. Can you please help me figure out how I can reset it?``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I'm having tr...an reset it?`
       - The full details of the issue or question.
 
     * - :action-table-field-name:`\-\-summary` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``Having trouble resetting root password on my Linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Having troubl...on my Linode`
       - The summary or title for this SupportTicket.
 
     * - :action-table-field-name:`\-\-database_id`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The ID of the Managed Database this ticket is regarding, if relevant.
 
     * - :action-table-field-name:`\-\-domain_id`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The ID of the Domain this ticket is regarding, if relevant.
 
     * - :action-table-field-name:`\-\-firewall_id`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The ID of the Firewall this ticket is regarding, if relevant.
 
     * - :action-table-field-name:`\-\-linode_id`
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The ID of the Linode this ticket is regarding, if relevant.
 
     * - :action-table-field-name:`\-\-lkecluster_id`
-      - :action-table-field-type:`integer`
-      - ``123``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
       - The ID of the Kubernetes cluster this ticket is regarding, if relevant.
 
     * - :action-table-field-name:`\-\-longviewclient_id`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The ID of the Longview client this ticket is regarding, if relevant.
 
     * - :action-table-field-name:`\-\-managed_issue`
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Designates if this ticket is related to a `Managed service <https://www.linode.com/products/managed/>`_.
 
     * - :action-table-field-name:`\-\-nodebalancer_id`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The ID of the NodeBalancer this ticket is regarding, if relevant.
 
     * - :action-table-field-name:`\-\-region`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The `Region <https://techdocs.akamai.com/linode-api/reference/get-regions>`_ ID for the associated VLAN this ticket is regarding.
 
     * - :action-table-field-name:`\-\-vlan`
-      - :action-table-field-type:`string`
-      - 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
       - The label of the VLAN this ticket is regarding, if relevant.
 
     * - :action-table-field-name:`\-\-volume_id`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The ID of the Volume this ticket is regarding, if relevant.
 
     * - :action-table-field-name:`\-\-vpc_id`
-      - :action-table-field-type:`integer`
-      - 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
       - The ID of the VPC this ticket is regarding, if relevant.
 
 
@@ -616,6 +627,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -644,63 +656,63 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`attachments` 
-      - :action-table-field-type:`array[string]`
-      - ``['screenshot.jpg', 'screenshot.txt']``
+      - :action-table-field-type:`[]string`
+      - :action-table-field-example:`["screenshot...enshot.txt"]`
       - A list of filenames representing attached files associated with this Ticket.
 
     * - :action-table-field-name:`closable` 
-      - :action-table-field-type:`boolean`
-      - 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
       - Whether the Support Ticket may be closed.
 
     * - :action-table-field-name:`closed` 
-      - :action-table-field-type:`string`
-      - ``2015-06-04T16:07:03``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
       - The date and time this Ticket was closed.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - ``I am having trouble setting the root password on my Linode. I tried following the instructions but something is not working. Can you please help me figure out how I can reset it?``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`I am having ...an reset it?`
       - The full details of the issue or question.
 
     * - :action-table-field-name:`gravatar_id` 
-      - :action-table-field-type:`string`
-      - ``474a1b7373ae0be4132649e69c36ce30``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`474a1b7373ae...49e69c36ce30`
       - The Gravatar ID of the User who opened this Ticket.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``11223344``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`11223344`
       - The ID of the Support Ticket.
 
     * - :action-table-field-name:`opened` 
-      - :action-table-field-type:`string`
-      - ``2015-06-04T14:16:44``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T14:16:44`
       - The date and time this Ticket was created.
 
     * - :action-table-field-name:`opened_by` 
-      - :action-table-field-type:`string`
-      - ``some_user``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_user`
       - The User who opened this Ticket.
 
     * - :action-table-field-name:`status` 
-      - :action-table-field-type:`string`
-      - ``open``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`open`
       - The current status of this Ticket.
 
     * - :action-table-field-name:`summary` 
-      - :action-table-field-type:`string`
-      - ``Having trouble resetting root password on my Linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Having troubl...on my Linode`
       - The summary or title for this Ticket.
 
     * - :action-table-field-name:`updated` 
-      - :action-table-field-type:`string`
-      - ``2015-06-04T16:07:03``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-04T16:07:03`
       - The date and time this Ticket was last updated.
 
     * - :action-table-field-name:`updated_by` 
-      - :action-table-field-type:`string`
-      - ``some_other_user``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`some_other_user`
       - The User who last updated this Ticket.
 
 
@@ -726,23 +738,23 @@ entity
       - Description
 
     * - :action-table-field-name:`entity.id` 
-      - :action-table-field-type:`integer`
-      - ``10400``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`10400`
       - The unique ID for this Ticket's entity.
 
     * - :action-table-field-name:`entity.label` 
-      - :action-table-field-type:`string`
-      - ``linode123456``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode123456`
       - The current label of this entity.
 
     * - :action-table-field-name:`entity.type` 
-      - :action-table-field-type:`string`
-      - ``linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode`
       - The type of entity this is related to.
 
     * - :action-table-field-name:`entity.url` 
-      - :action-table-field-type:`string`
-      - ``/v4/linode/instances/123456``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`/v4/linode/in...ances/123456`
       - The URL where you can access the object this event is for.
 
 
@@ -758,6 +770,7 @@ entity
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -773,6 +786,7 @@ Closes a Support Ticket you have access to modify.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -799,6 +813,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -826,7 +841,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`ticketId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Support Ticket.
 
 
@@ -845,6 +860,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -860,6 +876,7 @@ Returns a collection of replies to a Support Ticket on your Account.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -886,6 +903,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -913,7 +931,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`ticketId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Support Ticket.
 
 
@@ -927,6 +945,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -955,33 +974,33 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2015-06-02T14:31:41``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-02T14:31:41`
       - The date and time this Ticket reply was created.
 
     * - :action-table-field-name:`created_by` 
-      - :action-table-field-type:`string`
-      - ``John Q. Linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`John Q. Linode`
       - The User who submitted this reply.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - ``Hello,\nI'm sorry to hear that you are having trouble resetting the root password of your Linode. Just to be sure, have you tried to follow the instructions in our online documentation? The link is here:\n \nhttps://linode.com/docs/guides/reset-the-root-password-on-your-linode/ \n\nIf you have, please reply with any additional steps you have also taken.\n\nRegards, Linode Support Team``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Hello,\nI'm s...Support Team`
       - The body of this Support Ticket reply.
 
     * - :action-table-field-name:`from_linode` 
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - If set to true, this reply came from a Linode employee.
 
     * - :action-table-field-name:`gravatar_id` 
-      - :action-table-field-type:`string`
-      - ``474a1b7373ae0be4132649e69c36ce30``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`474a1b7373ae...49e69c36ce30`
       - The Gravatar ID of the User who created this reply.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``11223345``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`11223345`
       - The unique ID of this Support Ticket reply.
 
 
@@ -996,6 +1015,7 @@ The attributes returned by this command.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1011,6 +1031,7 @@ Adds a reply to an existing Support Ticket.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1038,6 +1059,7 @@ Examples of how this command might be used.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1065,7 +1087,7 @@ Positional parameters used to define the resource this command should target.
       - Description
 
     * - :action-table-field-name:`ticketId`
-      - :action-table-field-type:`integer`
+      - :action-table-field-type:`int`
       - The ID of the Support Ticket.
 
 
@@ -1077,6 +1099,7 @@ Positional parameters used to define the resource this command should target.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1106,8 +1129,8 @@ Additional fields used to execute this request.
       - Description
 
     * - :action-table-field-name:`\-\-description` :action-table-field-required:`*`
-      - :action-table-field-type:`string`
-      - ``Thank you for your help. I was able to figure out what the problem was and I successfully reset my password. You guys are the best!``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Thank you for...re the best!`
       - The content of your reply.
 
 
@@ -1120,6 +1143,7 @@ Additional fields used to execute this request.
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
 .. role:: action-table-field-type
+.. role:: action-table-field-example
 
 .. role:: json(code)
     :language: JSON
@@ -1148,33 +1172,33 @@ The attributes returned by this command.
       - Description
 
     * - :action-table-field-name:`created` 
-      - :action-table-field-type:`string`
-      - ``2015-06-02T14:31:41``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2015-06-02T14:31:41`
       - The date and time this Ticket reply was created.
 
     * - :action-table-field-name:`created_by` 
-      - :action-table-field-type:`string`
-      - ``John Q. Linode``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`John Q. Linode`
       - The User who submitted this reply.
 
     * - :action-table-field-name:`description` 
-      - :action-table-field-type:`string`
-      - ``Hello,\nI'm sorry to hear that you are having trouble resetting the root password of your Linode. Just to be sure, have you tried to follow the instructions in our online documentation? The link is here:\n \nhttps://linode.com/docs/guides/reset-the-root-password-on-your-linode/ \n\nIf you have, please reply with any additional steps you have also taken.\n\nRegards, Linode Support Team``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Hello,\nI'm s...Support Team`
       - The body of this Support Ticket reply.
 
     * - :action-table-field-name:`from_linode` 
-      - :action-table-field-type:`boolean`
-      - ``True``
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`True`
       - If set to true, this reply came from a Linode employee.
 
     * - :action-table-field-name:`gravatar_id` 
-      - :action-table-field-type:`string`
-      - ``474a1b7373ae0be4132649e69c36ce30``
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`474a1b7373ae...49e69c36ce30`
       - The Gravatar ID of the User who created this reply.
 
     * - :action-table-field-name:`id` 
-      - :action-table-field-type:`integer`
-      - ``11223345``
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`11223345`
       - The unique ID of this Support Ticket reply.
 
 
