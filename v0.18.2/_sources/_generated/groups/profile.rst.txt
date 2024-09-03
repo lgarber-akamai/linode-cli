@@ -1,0 +1,2600 @@
+Profile
+=======
+
+This section details Profile-related Linode CLI commands.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_view:
+
+`view <https://techdocs.akamai.com/linode-api/reference/get-profile>`_
+----------------------------------------------------------------------
+
+
+Returns information about the current User.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile view
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`authentication_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`password`
+      - This account's Cloud Manager authentication type.
+
+    * - :action-table-field-name:`authorized_keys` 
+      - :action-table-field-type:`[]str`
+      - :action-table-field-example:`N/A`
+      - The list of SSH Keys authorized to use Lish for your User.
+
+    * - :action-table-field-name:`email` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-user@gmail.com`
+      - Your email address.
+
+    * - :action-table-field-name:`email_notifications` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If true, you will receive email notifications about account activity.
+
+    * - :action-table-field-name:`ip_whitelist_enabled` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
+      - If true, logins for your User will only be allowed from whitelisted IPs.
+
+    * - :action-table-field-name:`lish_auth_method` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`keys_only`
+      - The authentication methods that are allowed when connecting to `the Linode Shell (Lish) <https://www.linode.com/docs/guides/lish/>`_.
+
+    * - :action-table-field-name:`restricted` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
+      - If true, your User has restrictions on what can be accessed on your Account.
+
+    * - :action-table-field-name:`timezone` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`US/Eastern`
+      - The timezone you prefer to see times in.
+
+    * - :action-table-field-name:`two_factor_auth` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If true, logins from untrusted computers will require Two Factor Authentication.
+
+    * - :action-table-field-name:`uid` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
+      - Your unique ID in our system.
+
+    * - :action-table-field-name:`username` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`exampleUser`
+      - Your username, used for logging in to our system.
+
+    * - :action-table-field-name:`verified_phone_number` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`+5555555555`
+      - The phone number verified for this Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
+
+
+
+
+.. _commands_profile_view_attribute_sections_referrals:
+
+.. rst-class:: action-section-header
+
+referrals
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`referrals.code` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`871be32f49c1...0c14637fb8d3`
+      - Your referral code.
+
+    * - :action-table-field-name:`referrals.completed` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The number of completed signups with your referral code.
+
+    * - :action-table-field-name:`referrals.credit` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The amount of account credit in US Dollars issued to you through the referral program.
+
+    * - :action-table-field-name:`referrals.pending` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The number of pending signups with your referral code.
+
+    * - :action-table-field-name:`referrals.total` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The number of users who have signed up with your referral code.
+
+    * - :action-table-field-name:`referrals.url` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://www....0c14637fb8d3`
+      - Your referral url, used to direct others to sign up for Linode with your referral code.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_update:
+
+`update <https://techdocs.akamai.com/linode-api/reference/put-profile>`_
+------------------------------------------------------------------------
+
+
+Update information in your Profile.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile update \
+    	--email example-user@gmail.com \
+    	--timezone US/Eastern \
+    	--email_notifications true \
+    	--list_auth_method keys_only \
+    	--two_factor_auth true \
+    	--restricted false
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-authorized_keys`
+      - :action-table-field-type:`[]str`
+      - :action-table-field-example:`N/A`
+      - The list of SSH Keys authorized to use Lish for your User.
+
+    * - :action-table-field-name:`\-\-email`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-user@gmail.com`
+      - Your email address.
+
+    * - :action-table-field-name:`\-\-email_notifications`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If true, you will receive email notifications about account activity.
+
+    * - :action-table-field-name:`\-\-ip_whitelist_enabled`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
+      - If true, logins for your User will only be allowed from whitelisted IPs.
+
+    * - :action-table-field-name:`\-\-lish_auth_method`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`keys_only`
+      - The authentication methods that are allowed when connecting to `the Linode Shell (Lish) <https://www.linode.com/docs/guides/lish/>`_.
+
+    * - :action-table-field-name:`\-\-restricted`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
+      - If true, your User has restrictions on what can be accessed on your Account.
+
+    * - :action-table-field-name:`\-\-timezone`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`US/Eastern`
+      - The timezone you prefer to see times in.
+
+    * - :action-table-field-name:`\-\-two_factor_auth`
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If true, logins from untrusted computers will require Two Factor Authentication.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`authentication_type` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`password`
+      - This account's Cloud Manager authentication type.
+
+    * - :action-table-field-name:`authorized_keys` 
+      - :action-table-field-type:`[]str`
+      - :action-table-field-example:`N/A`
+      - The list of SSH Keys authorized to use Lish for your User.
+
+    * - :action-table-field-name:`email` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-user@gmail.com`
+      - Your email address.
+
+    * - :action-table-field-name:`email_notifications` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If true, you will receive email notifications about account activity.
+
+    * - :action-table-field-name:`ip_whitelist_enabled` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
+      - If true, logins for your User will only be allowed from whitelisted IPs.
+
+    * - :action-table-field-name:`lish_auth_method` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`keys_only`
+      - The authentication methods that are allowed when connecting to `the Linode Shell (Lish) <https://www.linode.com/docs/guides/lish/>`_.
+
+    * - :action-table-field-name:`restricted` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`N/A`
+      - If true, your User has restrictions on what can be accessed on your Account.
+
+    * - :action-table-field-name:`timezone` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`US/Eastern`
+      - The timezone you prefer to see times in.
+
+    * - :action-table-field-name:`two_factor_auth` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - If true, logins from untrusted computers will require Two Factor Authentication.
+
+    * - :action-table-field-name:`uid` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
+      - Your unique ID in our system.
+
+    * - :action-table-field-name:`username` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`exampleUser`
+      - Your username, used for logging in to our system.
+
+    * - :action-table-field-name:`verified_phone_number` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`+5555555555`
+      - The phone number verified for this Profile with the `Verify a phone number <https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify>`_ operation.
+
+
+
+
+.. _commands_profile_update_attribute_sections_referrals:
+
+.. rst-class:: action-section-header
+
+referrals
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`referrals.code` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`871be32f49c1...0c14637fb8d3`
+      - Your referral code.
+
+    * - :action-table-field-name:`referrals.completed` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The number of completed signups with your referral code.
+
+    * - :action-table-field-name:`referrals.credit` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The amount of account credit in US Dollars issued to you through the referral program.
+
+    * - :action-table-field-name:`referrals.pending` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The number of pending signups with your referral code.
+
+    * - :action-table-field-name:`referrals.total` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`N/A`
+      - The number of users who have signed up with your referral code.
+
+    * - :action-table-field-name:`referrals.url` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`https://www....0c14637fb8d3`
+      - Your referral url, used to direct others to sign up for Linode with your referral code.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_app-view:
+
+`app-view <https://techdocs.akamai.com/linode-api/reference/get-profile-app>`_
+------------------------------------------------------------------------------
+
+
+Returns information about a single app you've authorized to access your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile app-view 1234
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`appId`
+      - :action-table-field-type:`int`
+      - The authorized app ID to manage.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this app was authorized.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-15T00:01:01`
+      - When the app's access to your account expires.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - This authorization's ID, used for revoking access.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-app`
+      - The name of the application you've authorized.
+
+    * - :action-table-field-name:`scopes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linodes:read_only`
+      - The OAuth scopes this app was authorized with.
+
+    * - :action-table-field-name:`thumbnail_url` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The URL at which this app's thumbnail may be accessed.
+
+    * - :action-table-field-name:`website` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
+      - The website where you can get more information about this app.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_app-delete:
+
+`app-delete <https://techdocs.akamai.com/linode-api/reference/delete-profile-app>`_
+-----------------------------------------------------------------------------------
+
+
+Expires this app token.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile app-delete 123
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`appId`
+      - :action-table-field-type:`int`
+      - The authorized app ID to manage.
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_apps-list:
+
+`apps-list <https://techdocs.akamai.com/linode-api/reference/get-profile-apps>`_
+--------------------------------------------------------------------------------
+
+
+This is a collection of OAuth apps that you've given access to your Account, and includes the level of access granted.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile apps-list
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Filterable Attributes
+
+.. rst-class:: action-subheading-description
+
+Arguments used to define a filter for response entries.
+
+
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-type:`str`
+      - When this app was authorized.
+
+    * - :action-table-field-name:`\-\-expiry`
+      - :action-table-field-type:`str`
+      - When the app's access to your account expires.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - The name of the application you've authorized.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When this app was authorized.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-15T00:01:01`
+      - When the app's access to your account expires.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - This authorization's ID, used for revoking access.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example-app`
+      - The name of the application you've authorized.
+
+    * - :action-table-field-name:`scopes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linodes:read_only`
+      - The OAuth scopes this app was authorized with.
+
+    * - :action-table-field-name:`thumbnail_url` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - The URL at which this app's thumbnail may be accessed.
+
+    * - :action-table-field-name:`website` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example.org`
+      - The website where you can get more information about this app.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_device-view:
+
+`device-view <https://techdocs.akamai.com/linode-api/reference/get-trusted-device>`_
+------------------------------------------------------------------------------------
+
+
+Returns a single active TrustedDevice for your User.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile device-view 123
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`deviceId`
+      - :action-table-field-type:`int`
+      - The ID of the TrustedDevice.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T01:01:01`
+      - When this Remember Me session was started.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-31T01:01:01`
+      - When this TrustedDevice session expires.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique ID for this TrustedDevice.
+
+    * - :action-table-field-name:`last_authenticated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-05T12:57:12`
+      - The last time this TrustedDevice was successfully used to authenticate to `login.linode.com <https://login.linode.com>`_.
+
+    * - :action-table-field-name:`last_remote_addr` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`203.0.113.1`
+      - The last IP Address to successfully authenticate with this TrustedDevice.
+
+    * - :action-table-field-name:`user_agent` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Mozilla/5.0 .../2.1.1337.36`
+      - The User Agent of the browser that created this TrustedDevice session.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_device-revoke:
+
+`device-revoke <https://techdocs.akamai.com/linode-api/reference/delete-trusted-device>`_
+-----------------------------------------------------------------------------------------
+
+
+Revoke an active TrustedDevice for your User.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile device-revoke 123
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`deviceId`
+      - :action-table-field-type:`int`
+      - The ID of the TrustedDevice.
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_devices-list:
+
+`devices-list <https://techdocs.akamai.com/linode-api/reference/get-devices>`_
+------------------------------------------------------------------------------
+
+
+Returns a paginated list of active TrustedDevices for your User.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile devices-list
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T01:01:01`
+      - When this Remember Me session was started.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-31T01:01:01`
+      - When this TrustedDevice session expires.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - The unique ID for this TrustedDevice.
+
+    * - :action-table-field-name:`last_authenticated` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-05T12:57:12`
+      - The last time this TrustedDevice was successfully used to authenticate to `login.linode.com <https://login.linode.com>`_.
+
+    * - :action-table-field-name:`last_remote_addr` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`203.0.113.1`
+      - The last IP Address to successfully authenticate with this TrustedDevice.
+
+    * - :action-table-field-name:`user_agent` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`Mozilla/5.0 .../2.1.1337.36`
+      - The User Agent of the browser that created this TrustedDevice session.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_login-view:
+
+`login-view <https://techdocs.akamai.com/linode-api/reference/get-profile-login>`_
+----------------------------------------------------------------------------------
+
+
+Returns a login object displaying information about a successful account login from this user.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile login-view 1234
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`loginId`
+      - :action-table-field-type:`int`
+      - The ID of the login object to access.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`datetime` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When the login was initiated.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
+      - The unique ID of this login object.
+
+    * - :action-table-field-name:`ip` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`192.0.2.0`
+      - The remote IP address that requested the login.
+
+    * - :action-table-field-name:`restricted` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - True if the User that attempted the login was a restricted User, false otherwise.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`successful`
+      - Whether the login attempt succeeded or failed.
+
+    * - :action-table-field-name:`username` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example_user`
+      - The username of the User that attempted the login.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_logins-list:
+
+`logins-list <https://techdocs.akamai.com/linode-api/reference/get-profile-logins>`_
+------------------------------------------------------------------------------------
+
+
+Returns a collection of successful account logins from this user during the last 90 days.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile logins-list
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`datetime` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - When the login was initiated.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`1234`
+      - The unique ID of this login object.
+
+    * - :action-table-field-name:`ip` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`192.0.2.0`
+      - The remote IP address that requested the login.
+
+    * - :action-table-field-name:`restricted` 
+      - :action-table-field-type:`bool`
+      - :action-table-field-example:`true`
+      - True if the User that attempted the login was a restricted User, false otherwise.
+
+    * - :action-table-field-name:`status` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`successful`
+      - Whether the login attempt succeeded or failed.
+
+    * - :action-table-field-name:`username` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`example_user`
+      - The username of the User that attempted the login.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_tfa-confirm:
+
+`tfa-confirm <https://techdocs.akamai.com/linode-api/reference/post-tfa-confirm>`_
+----------------------------------------------------------------------------------
+
+
+Confirms that you can successfully generate Two Factor codes and enables TFA on your Account.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile tfa-confirm \
+    	--tfa_code 213456
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-tfa_code`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`213456`
+      - The Two Factor code you generated with your Two Factor secret.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`scratch` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`sample two factor scratch`
+      - A one-use code that can be used in place of your Two Factor code, in case you are unable to generate one.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_tfa-disable:
+
+`tfa-disable <https://techdocs.akamai.com/linode-api/reference/post-tfa-disable>`_
+----------------------------------------------------------------------------------
+
+
+Disables Two Factor Authentication for your User.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile tfa-disable
+
+
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_tfa-enable:
+
+`tfa-enable <https://techdocs.akamai.com/linode-api/reference/post-tfa-enable>`_
+--------------------------------------------------------------------------------
+
+
+Generates a Two Factor secret for your User.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile tfa-enable
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-03-01T00:01:01`
+      - When this Two Factor secret expires.
+
+    * - :action-table-field-name:`secret` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`5FXX6KLACOC33GTC`
+      - Your Two Factor secret.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_token-view:
+
+`token-view <https://techdocs.akamai.com/linode-api/reference/get-personal-access-token>`_
+------------------------------------------------------------------------------------------
+
+
+Returns a single Personal Access Token.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile token-view 123
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`tokenId`
+      - :action-table-field-type:`int`
+      - The ID of the token to access.
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - The date and time this token was created.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T13:46:32`
+      - When this token will expire.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - This token's unique ID, which can be used to revoke it.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode-cli`
+      - This token's label.
+
+    * - :action-table-field-name:`scopes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`*`
+      - The scopes this token was created with.
+
+    * - :action-table-field-name:`token` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`abcdefghijklmnop`
+      - The token used to access the API.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_token-create:
+
+`token-create <https://techdocs.akamai.com/linode-api/reference/post-personal-access-token>`_
+---------------------------------------------------------------------------------------------
+
+
+Creates a Personal Access Token for your User.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile token-create \
+    	--scopes '*' \
+    	--expiry '2018-01-01T13:46:32' \
+    	--label linode-cli
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-expiry`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`N/A`
+      - When this token should be valid until.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode-cli`
+      - This token's label.
+
+    * - :action-table-field-name:`\-\-scopes`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`*`
+      - The access `scopes <https://techdocs.akamai.com/linode-api/reference/get-started#oauth-reference>`_ to grant to the created token.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - The date and time this token was created.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T13:46:32`
+      - When this token will expire.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - This token's unique ID, which can be used to revoke it.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode-cli`
+      - This token's label.
+
+    * - :action-table-field-name:`scopes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`*`
+      - The scopes this token was created with.
+
+    * - :action-table-field-name:`token` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`abcdefghijklmnop`
+      - The token used to access the API.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_token-update:
+
+`token-update <https://techdocs.akamai.com/linode-api/reference/put-personal-access-token>`_
+--------------------------------------------------------------------------------------------
+
+
+Updates a Personal Access Token.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile token-update 123 \
+    	--label linode-cli
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`tokenId`
+      - :action-table-field-type:`int`
+      - The ID of the token to access.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Arguments
+
+.. rst-class:: action-subheading-description
+
+Additional fields used to execute this request.
+
+
+
+
+
+.. rst-class:: action-argument-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 25 1 1 73
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode-cli`
+      - This token's label.
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - The date and time this token was created.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T13:46:32`
+      - When this token will expire.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - This token's unique ID, which can be used to revoke it.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode-cli`
+      - This token's label.
+
+    * - :action-table-field-name:`scopes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`*`
+      - The scopes this token was created with.
+
+    * - :action-table-field-name:`token` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`abcdefghijklmnop`
+      - The token used to access the API.
+
+
+
+
+
+
+
+
+------------
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_token-delete:
+
+`token-delete <https://techdocs.akamai.com/linode-api/reference/delete-personal-access-token>`_
+-----------------------------------------------------------------------------------------------
+
+
+Revokes a Personal Access Token.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile token-delete 123
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Parameters
+
+.. rst-class:: action-subheading-description
+
+Positional parameters used to define the resource this command should target.
+
+
+
+
+.. rst-class:: action-parameter-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`tokenId`
+      - :action-table-field-type:`int`
+      - The ID of the token to access.
+
+
+
+
+
+
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+.. _commands_profile_tokens-list:
+
+`tokens-list <https://techdocs.akamai.com/linode-api/reference/get-personal-access-tokens>`_
+--------------------------------------------------------------------------------------------
+
+
+Returns a paginated list of Personal Access Tokens currently active for your User.
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Sample
+
+.. rst-class:: action-subheading-description
+
+Examples of how this command might be used.
+
+
+
+
+..  code-block:: bash
+
+    linode-cli profile tokens-list
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Filterable Attributes
+
+.. rst-class:: action-subheading-description
+
+Arguments used to define a filter for response entries.
+
+
+
+
+.. rst-class:: action-filterable-field-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 98
+
+    * - Name
+      - Type
+      - Description
+
+    * - :action-table-field-name:`\-\-created`
+      - :action-table-field-type:`str`
+      - The date and time this token was created.
+
+    * - :action-table-field-name:`\-\-label`
+      - :action-table-field-type:`str`
+      - This token's label.
+
+
+
+
+
+
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Result Attributes
+
+.. rst-class:: action-subheading-description
+
+The attributes returned by this command.
+
+
+
+
+.. rst-class:: action-attribute-section-table
+
+..  list-table::
+    :header-rows: 1
+    :width: 100%
+    :widths: 1 1 1 97
+
+    * - Name
+      - Type
+      - Example
+      - Description
+
+    * - :action-table-field-name:`created` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T00:01:01`
+      - The date and time this token was created.
+
+    * - :action-table-field-name:`expiry` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`2018-01-01T13:46:32`
+      - When this token will expire.
+
+    * - :action-table-field-name:`id` 
+      - :action-table-field-type:`int`
+      - :action-table-field-example:`123`
+      - This token's unique ID, which can be used to revoke it.
+
+    * - :action-table-field-name:`label` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`linode-cli`
+      - This token's label.
+
+    * - :action-table-field-name:`scopes` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`*`
+      - The scopes this token was created with.
+
+    * - :action-table-field-name:`token` 
+      - :action-table-field-type:`str`
+      - :action-table-field-example:`abcdefghijklmnop`
+      - The token used to access the API.
+
+
+
+
+
+
+
+
+
