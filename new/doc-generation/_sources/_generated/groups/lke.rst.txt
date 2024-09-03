@@ -110,21 +110,21 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 1 1 97
+    :widths: 25 1 1 73
 
     * - Name
-      - Required
       - Type
+      - Example
       - Description
 
-    * - :action-table-field-name:`\-\-kubeconfig` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-kubeconfig`
       - :action-table-field-type:`boolean`
+      - ``True``
       - Whether to delete and regenerate the Kubeconfig file for this Cluster.
 
-    * - :action-table-field-name:`\-\-servicetoken` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-servicetoken`
       - :action-table-field-type:`boolean`
+      - ``True``
       - Whether to delete and regenerate the service access token for this Cluster.
 
 
@@ -253,7 +253,7 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`endpoint` 
       - :action-table-field-type:`string`
-      - :json:`"https://192.0.2.1:6443"`
+      - ``https://192.0.2.1:6443``
       - A Kubernetes API server endpoint for this cluster.
 
 
@@ -380,37 +380,37 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2019-09-12T21:25:30Z"`
+      - ``2019-09-12T21:25:30Z``
       - When this Kubernetes cluster was created.
 
     * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`1234`
+      - ``1234``
       - This Kubernetes cluster's unique ID.
 
     * - :action-table-field-name:`k8s_version` 
       - :action-table-field-type:`string`
-      - :json:`"1.27"`
+      - ``1.27``
       - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
 
     * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"lkecluster12345"`
+      - ``lkecluster12345``
       - This Kubernetes cluster's unique label for display purposes only.
 
     * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-central"`
+      - ``us-central``
       - This Kubernetes cluster's location.
 
     * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["ecomm", "blogs"]`
+      - ``['ecomm', 'blogs']``
       - An array of tags applied to the Kubernetes cluster.
 
     * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2019-09-13T21:24:16Z"`
+      - ``2019-09-13T21:24:16Z``
       - When this Kubernetes cluster was updated.
 
 
@@ -437,7 +437,7 @@ control_plane
 
     * - :action-table-field-name:`control_plane.high_availability` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - ``True``
       - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
 
@@ -526,41 +526,41 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 1 1 97
+    :widths: 25 1 1 73
 
     * - Name
-      - Required
       - Type
+      - Example
       - Description
 
-    * - :action-table-field-name:`\-\-k8s_version` 
-      - :action-table-field-required:`Yes`
+    * - :action-table-field-name:`\-\-k8s_version` :action-table-field-required:`*`
       - :action-table-field-type:`string`
+      - ``1.27``
       - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
 
-    * - :action-table-field-name:`\-\-label` 
-      - :action-table-field-required:`Yes`
+    * - :action-table-field-name:`\-\-label` :action-table-field-required:`*`
       - :action-table-field-type:`string`
+      - ``lkecluster12345``
       - This Kubernetes cluster's unique label for display purposes only.
 
-    * - :action-table-field-name:`\-\-region` 
-      - :action-table-field-required:`Yes`
+    * - :action-table-field-name:`\-\-region` :action-table-field-required:`*`
       - :action-table-field-type:`string`
+      - ``us-central``
       - This Kubernetes cluster's location.
 
-    * - :action-table-field-name:`\-\-control_plane.high_availability` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-control_plane.high_availability`
       - :action-table-field-type:`boolean`
+      - ``True``
       - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
     * - :action-table-field-name:`\-\-node_pools` :ref:`(section) <commands_lke_cluster-create_argument_sections_node_pools>`
-      - :action-table-field-optional:`No`
       - :action-table-field-type:`json`
+      - 
       - Specifies a collection of Linodes which will be members of a Kubernetes cluster.
 
-    * - :action-table-field-name:`\-\-tags` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-tags`
       - :action-table-field-type:`array[string]`
+      - ``['ecomm', 'blogs']``
       - An array of tags applied to the Kubernetes cluster.
 
 
@@ -579,61 +579,61 @@ node_pools
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 1 1 97
+    :widths: 25 1 1 73
 
     * - Name
-      - Required
       - Type
+      - Example
       - Description
 
-    * - :action-table-field-name:`\-\-node_pools.count` 
-      - :action-table-field-required:`Yes`
+    * - :action-table-field-name:`\-\-node_pools.count` :action-table-field-required:`*`
       - :action-table-field-type:`integer`
+      - ``6``
       - The number of nodes in the Node Pool.
 
-    * - :action-table-field-name:`\-\-node_pools.type` 
-      - :action-table-field-required:`Yes`
+    * - :action-table-field-name:`\-\-node_pools.type` :action-table-field-required:`*`
       - :action-table-field-type:`string`
+      - ``g6-standard-4``
       - The Linode Type for all of the nodes in the Node Pool.
 
-    * - :action-table-field-name:`\-\-node_pools.autoscaler.enabled` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-node_pools.autoscaler.enabled`
       - :action-table-field-type:`boolean`
+      - ``True``
       - Whether autoscaling is enabled for this Node Pool.
 
-    * - :action-table-field-name:`\-\-node_pools.autoscaler.max` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-node_pools.autoscaler.max`
       - :action-table-field-type:`integer`
+      - ``12``
       - The maximum number of nodes to autoscale to.
 
-    * - :action-table-field-name:`\-\-node_pools.autoscaler.min` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-node_pools.autoscaler.min`
       - :action-table-field-type:`integer`
+      - ``3``
       - The minimum number of nodes to autoscale to.
 
-    * - :action-table-field-name:`\-\-node_pools.disks` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-node_pools.disks`
       - :action-table-field-type:`json`
+      - 
       - This field should be omitted except for special use cases.
 
-    * - :action-table-field-name:`\-\-node_pools.labels.key` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-node_pools.labels.key`
       - :action-table-field-type:`string`
+      - ``example.com/my-app``
       - The Kubernetes label key.
 
-    * - :action-table-field-name:`\-\-node_pools.labels.value` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-node_pools.labels.value`
       - :action-table-field-type:`string`
+      - ``teams``
       - The Kubernetes label value.
 
-    * - :action-table-field-name:`\-\-node_pools.tags` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-node_pools.tags`
       - :action-table-field-type:`json`
+      - ``['example tag', 'another example']``
       - An array of tags applied to this object.
 
-    * - :action-table-field-name:`\-\-node_pools.taints` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-node_pools.taints`
       - :action-table-field-type:`json`
+      - ``[{'key': 'example.com/my-app', 'effect': 'NoSchedule', 'value': 'teamA'}, {'key': 'myapp.io/team', 'effect': 'NoExecute', 'value': 'teamB'}]``
       - Kubernetes taints to add to node pool nodes.
 
 
@@ -675,37 +675,37 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2019-09-12T21:25:30Z"`
+      - ``2019-09-12T21:25:30Z``
       - When this Kubernetes cluster was created.
 
     * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`1234`
+      - ``1234``
       - This Kubernetes cluster's unique ID.
 
     * - :action-table-field-name:`k8s_version` 
       - :action-table-field-type:`string`
-      - :json:`"1.27"`
+      - ``1.27``
       - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
 
     * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"lkecluster12345"`
+      - ``lkecluster12345``
       - This Kubernetes cluster's unique label for display purposes only.
 
     * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-central"`
+      - ``us-central``
       - This Kubernetes cluster's location.
 
     * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["ecomm", "blogs"]`
+      - ``['ecomm', 'blogs']``
       - An array of tags applied to the Kubernetes cluster.
 
     * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2019-09-13T21:24:16Z"`
+      - ``2019-09-13T21:24:16Z``
       - When this Kubernetes cluster was updated.
 
 
@@ -732,7 +732,7 @@ control_plane
 
     * - :action-table-field-name:`control_plane.high_availability` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - ``True``
       - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
 
@@ -856,31 +856,31 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 1 1 97
+    :widths: 25 1 1 73
 
     * - Name
-      - Required
       - Type
+      - Example
       - Description
 
-    * - :action-table-field-name:`\-\-control_plane.high_availability` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-control_plane.high_availability`
       - :action-table-field-type:`boolean`
+      - ``True``
       - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
-    * - :action-table-field-name:`\-\-k8s_version` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-k8s_version`
       - :action-table-field-type:`string`
+      - 
       - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>.
 
-    * - :action-table-field-name:`\-\-label` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`string`
+      - ``lkecluster12345``
       - This Kubernetes cluster's unique label for display purposes only.
 
-    * - :action-table-field-name:`\-\-tags` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-tags`
       - :action-table-field-type:`array[string]`
+      - ``['prod', 'monitoring', 'ecomm', 'blog']``
       - An array of tags applied to the Kubernetes cluster.
 
 
@@ -922,32 +922,32 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2019-09-12T21:25:30Z"`
+      - ``2019-09-12T21:25:30Z``
       - When this Kubernetes cluster was created.
 
     * - :action-table-field-name:`k8s_version` 
       - :action-table-field-type:`string`
-      - :json:`"1.27"`
+      - ``1.27``
       - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
 
     * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"lkecluster12345"`
+      - ``lkecluster12345``
       - This Kubernetes cluster's unique label for display purposes only.
 
     * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-central"`
+      - ``us-central``
       - This Kubernetes cluster's location.
 
     * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["prod", "monitoring", "ecomm", "blog"]`
+      - ``['prod', 'monitoring', 'ecomm', 'blog']``
       - An array of tags applied to the Kubernetes cluster.
 
     * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2019-09-13T21:24:16Z"`
+      - ``2019-09-13T21:24:16Z``
       - When this Kubernetes cluster was updated.
 
 
@@ -1161,7 +1161,7 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`url` 
       - :action-table-field-type:`string`
-      - :json:`"https://example.dashboard.linodelke.net"`
+      - ``https://example.dashboard.linodelke.net``
       - The Cluster Dashboard access URL.
 
 
@@ -1387,37 +1387,37 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`created` 
       - :action-table-field-type:`string`
-      - :json:`"2019-09-12T21:25:30Z"`
+      - ``2019-09-12T21:25:30Z``
       - When this Kubernetes cluster was created.
 
     * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`1234`
+      - ``1234``
       - This Kubernetes cluster's unique ID.
 
     * - :action-table-field-name:`k8s_version` 
       - :action-table-field-type:`string`
-      - :json:`"1.27"`
+      - ``1.27``
       - The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version will be deployed.
 
     * - :action-table-field-name:`label` 
       - :action-table-field-type:`string`
-      - :json:`"lkecluster12345"`
+      - ``lkecluster12345``
       - This Kubernetes cluster's unique label for display purposes only.
 
     * - :action-table-field-name:`region` 
       - :action-table-field-type:`string`
-      - :json:`"us-central"`
+      - ``us-central``
       - This Kubernetes cluster's location.
 
     * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["ecomm", "blogs"]`
+      - ``['ecomm', 'blogs']``
       - An array of tags applied to the Kubernetes cluster.
 
     * - :action-table-field-name:`updated` 
       - :action-table-field-type:`string`
-      - :json:`"2019-09-13T21:24:16Z"`
+      - ``2019-09-13T21:24:16Z``
       - When this Kubernetes cluster was updated.
 
 
@@ -1444,7 +1444,7 @@ control_plane
 
     * - :action-table-field-name:`control_plane.high_availability` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - ``True``
       - Defines whether High Availability is enabled for the Control Plane Components of the cluster.
 
 
@@ -1789,17 +1789,17 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"12345-6aa78910bc"`
+      - ``12345-6aa78910bc``
       - The Node's ID.
 
     * - :action-table-field-name:`instance_id` 
       - :action-table-field-type:`integer`
-      - :json:`123456`
+      - ``123456``
       - The Linode's ID.
 
     * - :action-table-field-name:`status` 
       - :action-table-field-type:`string`
-      - :json:`"ready"`
+      - ``ready``
       - The creation status of this Node.
 
 
@@ -2112,27 +2112,27 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`count` 
       - :action-table-field-type:`integer`
-      - :json:`6`
+      - ``6``
       - The number of nodes in the Node Pool.
 
     * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`456`
+      - ``456``
       - This Node Pool's unique ID.
 
     * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["example tag", "another example"]`
+      - ``['example tag', 'another example']``
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`taints` 
       - :action-table-field-type:`array`
-      - :json:`[{"effect": "NoSchedule", "key": "example.com/my-app", "value": "teamA"}, {"effect": "NoExecute", "key": "myapp.io/team", "value": "teamC"}]`
+      - ``[{'key': 'example.com/my-app', 'effect': 'NoSchedule', 'value': 'teamA'}, {'effect': 'NoExecute', 'key': 'myapp.io/team', 'value': 'teamC'}]``
       - Kubernetes taints added to nodes in the node pool.
 
     * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"g6-standard-4"`
+      - ``g6-standard-4``
       - The Linode Type for all of the nodes in the Node Pool.
 
 
@@ -2159,17 +2159,17 @@ autoscaler
 
     * - :action-table-field-name:`autoscaler.enabled` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - ``True``
       - Whether autoscaling is enabled for this Node Pool.
 
     * - :action-table-field-name:`autoscaler.max` 
       - :action-table-field-type:`integer`
-      - :json:`12`
+      - ``12``
       - The maximum number of nodes to autoscale to.
 
     * - :action-table-field-name:`autoscaler.min` 
       - :action-table-field-type:`integer`
-      - :json:`3`
+      - ``3``
       - The minimum number of nodes to autoscale to.
 
 
@@ -2196,12 +2196,12 @@ disks
 
     * - :action-table-field-name:`disks.size` 
       - :action-table-field-type:`integer`
-      - :json:`1024`
+      - ``1024``
       - The size of this custom disk partition in MB.
 
     * - :action-table-field-name:`disks.type` 
       - :action-table-field-type:`string`
-      - :json:`"ext-4"`
+      - ``ext-4``
       - This custom disk partition's filesystem type.
 
 
@@ -2228,12 +2228,12 @@ labels
 
     * - :action-table-field-name:`labels.key` 
       - :action-table-field-type:`string`
-      - :json:`"example.com/my-app"`
+      - ``example.com/my-app``
       - The Kubernetes label key.
 
     * - :action-table-field-name:`labels.value` 
       - :action-table-field-type:`string`
-      - :json:`"teamUSA"`
+      - ``teamUSA``
       - The Kubernetes label value.
 
 
@@ -2260,17 +2260,17 @@ nodes
 
     * - :action-table-field-name:`nodes.id` 
       - :action-table-field-type:`string`
-      - :json:`"123456"`
+      - ``123456``
       - The Node's ID.
 
     * - :action-table-field-name:`nodes.instance_id` 
       - :action-table-field-type:`string`
-      - :json:`123458`
+      - ``123458``
       - The Linode's ID.
 
     * - :action-table-field-name:`nodes.status` 
       - :action-table-field-type:`string`
-      - :json:`"ready"`
+      - ``ready``
       - The Node's status as it pertains to being a Kubernetes node.
 
 
@@ -2393,61 +2393,61 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 1 1 97
+    :widths: 25 1 1 73
 
     * - Name
-      - Required
       - Type
+      - Example
       - Description
 
-    * - :action-table-field-name:`\-\-count` 
-      - :action-table-field-required:`Yes`
+    * - :action-table-field-name:`\-\-count` :action-table-field-required:`*`
       - :action-table-field-type:`integer`
+      - ``6``
       - The number of nodes in the Node Pool.
 
-    * - :action-table-field-name:`\-\-type` 
-      - :action-table-field-required:`Yes`
+    * - :action-table-field-name:`\-\-type` :action-table-field-required:`*`
       - :action-table-field-type:`string`
+      - ``g6-standard-4``
       - The Linode Type for all of the nodes in the Node Pool.
 
-    * - :action-table-field-name:`\-\-autoscaler.enabled` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-autoscaler.enabled`
       - :action-table-field-type:`boolean`
+      - ``True``
       - Whether autoscaling is enabled for this Node Pool.
 
-    * - :action-table-field-name:`\-\-autoscaler.max` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-autoscaler.max`
       - :action-table-field-type:`integer`
+      - ``12``
       - The maximum number of nodes to autoscale to.
 
-    * - :action-table-field-name:`\-\-autoscaler.min` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-autoscaler.min`
       - :action-table-field-type:`integer`
+      - ``3``
       - The minimum number of nodes to autoscale to.
 
-    * - :action-table-field-name:`\-\-disks` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-disks`
       - :action-table-field-type:`json`
+      - 
       - This field should be omitted except for special use cases.
 
-    * - :action-table-field-name:`\-\-labels.key` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-labels.key`
       - :action-table-field-type:`string`
+      - ``example.com/my-app``
       - The Kubernetes label key.
 
-    * - :action-table-field-name:`\-\-labels.value` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-labels.value`
       - :action-table-field-type:`string`
+      - ``teams``
       - The Kubernetes label value.
 
-    * - :action-table-field-name:`\-\-tags` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-tags`
       - :action-table-field-type:`array[string]`
+      - ``['example tag', 'another example']``
       - An array of tags applied to this object.
 
-    * - :action-table-field-name:`\-\-taints` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-taints`
       - :action-table-field-type:`array`
+      - ``[{'value': 'teamA', 'key': 'example.com/my-app', 'effect': 'NoSchedule'}, {'effect': 'NoExecute', 'key': 'myapp.io/team', 'value': 'teamB'}]``
       - Kubernetes taints to add to node pool nodes.
 
 
@@ -2489,27 +2489,27 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`count` 
       - :action-table-field-type:`integer`
-      - :json:`6`
+      - ``6``
       - The number of nodes in the Node Pool.
 
     * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`456`
+      - ``456``
       - This Node Pool's unique ID.
 
     * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["example tag", "another example"]`
+      - ``['example tag', 'another example']``
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`taints` 
       - :action-table-field-type:`array`
-      - :json:`[{"effect": "NoSchedule", "key": "example.com/my-app", "value": "teamA"}, {"effect": "NoExecute", "key": "myapp.io/team", "value": "teamC"}]`
+      - ``[{'effect': 'NoSchedule', 'key': 'example.com/my-app', 'value': 'teamA'}, {'effect': 'NoExecute', 'key': 'myapp.io/team', 'value': 'teamC'}]``
       - Kubernetes taints added to nodes in the node pool.
 
     * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"g6-standard-4"`
+      - ``g6-standard-4``
       - The Linode Type for all of the nodes in the Node Pool.
 
 
@@ -2536,17 +2536,17 @@ autoscaler
 
     * - :action-table-field-name:`autoscaler.enabled` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - ``True``
       - Whether autoscaling is enabled for this Node Pool.
 
     * - :action-table-field-name:`autoscaler.max` 
       - :action-table-field-type:`integer`
-      - :json:`12`
+      - ``12``
       - The maximum number of nodes to autoscale to.
 
     * - :action-table-field-name:`autoscaler.min` 
       - :action-table-field-type:`integer`
-      - :json:`3`
+      - ``3``
       - The minimum number of nodes to autoscale to.
 
 
@@ -2573,12 +2573,12 @@ disks
 
     * - :action-table-field-name:`disks.size` 
       - :action-table-field-type:`integer`
-      - :json:`1024`
+      - ``1024``
       - The size of this custom disk partition in MB.
 
     * - :action-table-field-name:`disks.type` 
       - :action-table-field-type:`string`
-      - :json:`"ext-4"`
+      - ``ext-4``
       - This custom disk partition's filesystem type.
 
 
@@ -2605,12 +2605,12 @@ labels
 
     * - :action-table-field-name:`labels.key` 
       - :action-table-field-type:`string`
-      - :json:`"example.com/my-app"`
+      - ``example.com/my-app``
       - The Kubernetes label key.
 
     * - :action-table-field-name:`labels.value` 
       - :action-table-field-type:`string`
-      - :json:`"teamUSA"`
+      - ``teamUSA``
       - The Kubernetes label value.
 
 
@@ -2637,17 +2637,17 @@ nodes
 
     * - :action-table-field-name:`nodes.id` 
       - :action-table-field-type:`string`
-      - :json:`"123456"`
+      - ``123456``
       - The Node's ID.
 
     * - :action-table-field-name:`nodes.instance_id` 
       - :action-table-field-type:`string`
-      - :json:`123458`
+      - ``123458``
       - The Linode's ID.
 
     * - :action-table-field-name:`nodes.status` 
       - :action-table-field-type:`string`
-      - :json:`"ready"`
+      - ``ready``
       - The Node's status as it pertains to being a Kubernetes node.
 
 
@@ -2772,46 +2772,46 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 1 1 1 97
+    :widths: 25 1 1 73
 
     * - Name
-      - Required
       - Type
+      - Example
       - Description
 
-    * - :action-table-field-name:`\-\-autoscaler.enabled` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-autoscaler.enabled`
       - :action-table-field-type:`boolean`
+      - ``True``
       - Whether autoscaling is enabled for this Node Pool.
 
-    * - :action-table-field-name:`\-\-autoscaler.max` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-autoscaler.max`
       - :action-table-field-type:`integer`
+      - ``12``
       - The maximum number of nodes to autoscale to.
 
-    * - :action-table-field-name:`\-\-autoscaler.min` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-autoscaler.min`
       - :action-table-field-type:`integer`
+      - ``3``
       - The minimum number of nodes to autoscale to.
 
-    * - :action-table-field-name:`\-\-count` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-count`
       - :action-table-field-type:`integer`
+      - ``6``
       - The number of nodes in the Node Pool.
 
-    * - :action-table-field-name:`\-\-labels.key` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-labels.key`
       - :action-table-field-type:`string`
+      - ``example.com/my-app``
       - The Kubernetes label key.
 
-    * - :action-table-field-name:`\-\-labels.value` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-labels.value`
       - :action-table-field-type:`string`
+      - ``teams``
       - The Kubernetes label value.
 
-    * - :action-table-field-name:`\-\-taints` 
-      - :action-table-field-optional:`No`
+    * - :action-table-field-name:`\-\-taints`
       - :action-table-field-type:`array`
+      - ``[{'effect': 'NoSchedule', 'key': 'example.com/my-app', 'value': 'teamA'}, {'effect': 'NoExecute', 'key': 'myapp.io/team', 'value': 'teamB'}]``
       - Kubernetes taints to add to node pool nodes.
 
 
@@ -2853,27 +2853,27 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`count` 
       - :action-table-field-type:`integer`
-      - :json:`6`
+      - ``6``
       - The number of nodes in the Node Pool.
 
     * - :action-table-field-name:`id` 
       - :action-table-field-type:`integer`
-      - :json:`456`
+      - ``456``
       - This Node Pool's unique ID.
 
     * - :action-table-field-name:`tags` 
       - :action-table-field-type:`array[string]`
-      - :json:`["example tag", "another example"]`
+      - ``['example tag', 'another example']``
       - An array of tags applied to this object.
 
     * - :action-table-field-name:`taints` 
       - :action-table-field-type:`array`
-      - :json:`[{"effect": "NoSchedule", "key": "example.com/my-app", "value": "teamA"}, {"effect": "NoExecute", "key": "myapp.io/team", "value": "teamC"}]`
+      - ``[{'value': 'teamA', 'effect': 'NoSchedule', 'key': 'example.com/my-app'}, {'effect': 'NoExecute', 'key': 'myapp.io/team', 'value': 'teamC'}]``
       - Kubernetes taints added to nodes in the node pool.
 
     * - :action-table-field-name:`type` 
       - :action-table-field-type:`string`
-      - :json:`"g6-standard-4"`
+      - ``g6-standard-4``
       - The Linode Type for all of the nodes in the Node Pool.
 
 
@@ -2900,17 +2900,17 @@ autoscaler
 
     * - :action-table-field-name:`autoscaler.enabled` 
       - :action-table-field-type:`boolean`
-      - :json:`true`
+      - ``True``
       - Whether autoscaling is enabled for this Node Pool.
 
     * - :action-table-field-name:`autoscaler.max` 
       - :action-table-field-type:`integer`
-      - :json:`12`
+      - ``12``
       - The maximum number of nodes to autoscale to.
 
     * - :action-table-field-name:`autoscaler.min` 
       - :action-table-field-type:`integer`
-      - :json:`3`
+      - ``3``
       - The minimum number of nodes to autoscale to.
 
 
@@ -2937,12 +2937,12 @@ disks
 
     * - :action-table-field-name:`disks.size` 
       - :action-table-field-type:`integer`
-      - :json:`1024`
+      - ``1024``
       - The size of this custom disk partition in MB.
 
     * - :action-table-field-name:`disks.type` 
       - :action-table-field-type:`string`
-      - :json:`"ext-4"`
+      - ``ext-4``
       - This custom disk partition's filesystem type.
 
 
@@ -2969,12 +2969,12 @@ labels
 
     * - :action-table-field-name:`labels.key` 
       - :action-table-field-type:`string`
-      - :json:`"example.com/my-app"`
+      - ``example.com/my-app``
       - The Kubernetes label key.
 
     * - :action-table-field-name:`labels.value` 
       - :action-table-field-type:`string`
-      - :json:`"teamUSA"`
+      - ``teamUSA``
       - The Kubernetes label value.
 
 
@@ -3001,17 +3001,17 @@ nodes
 
     * - :action-table-field-name:`nodes.id` 
       - :action-table-field-type:`string`
-      - :json:`"123456"`
+      - ``123456``
       - The Node's ID.
 
     * - :action-table-field-name:`nodes.instance_id` 
       - :action-table-field-type:`string`
-      - :json:`123458`
+      - ``123458``
       - The Linode's ID.
 
     * - :action-table-field-name:`nodes.status` 
       - :action-table-field-type:`string`
-      - :json:`"ready"`
+      - ``ready``
       - The Node's status as it pertains to being a Kubernetes node.
 
 
@@ -3576,7 +3576,7 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"1.27"`
+      - ``1.27``
       - A Kubernetes version number available for deployment to a Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version.
 
 
@@ -3664,7 +3664,7 @@ The attributes returned by this command.
 
     * - :action-table-field-name:`id` 
       - :action-table-field-type:`string`
-      - :json:`"1.27"`
+      - ``1.27``
       - A Kubernetes version number available for deployment to a Kubernetes cluster in the format of <major>.<minor>, and the latest supported patch version.
 
 
