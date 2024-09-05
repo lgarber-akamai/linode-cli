@@ -3,6 +3,8 @@ VPCs
 
 This section details VPC-related Linode CLI commands.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11,14 +13,56 @@ This section details VPC-related Linode CLI commands.
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_vpcs_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-vpcs>`_
 -------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`ls`
+
 
 Display all VPCs on your account.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs list [-h] [--updated updated]
+    	[--subnets.updated subnets.updated]
+    	[--subnets.created subnets.created] [--subnets.id subnets.id]
+    	[--subnets.label subnets.label] [--label label]
+    	[--region region] [--created created] [--id id]
+    	[--order-by {updated,subnets.updated,subnets.created,subnets.id,subnets.label,label,region,created,id}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -48,6 +92,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -120,6 +166,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -253,6 +301,8 @@ subnets
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -261,6 +311,7 @@ subnets
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_vpcs_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-vpc>`_
@@ -269,6 +320,41 @@ subnets
 
 Get information about a single VPC.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs view [-h] [--updated updated] [--label label]
+    	[--subnets.id subnets.id] [--subnets.created subnets.created]
+    	[--subnets.label subnets.label]
+    	[--subnets.updated subnets.updated] [--created created]
+    	[--region region] [--id id]
+    	[--order-by {updated,label,subnets.id,subnets.created,subnets.label,subnets.updated,created,region,id}]
+    	[--order {asc,desc}] vpcId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -296,6 +382,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -338,6 +426,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -471,6 +561,8 @@ subnets
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -479,6 +571,7 @@ subnets
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_vpcs_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-vpc>`_
@@ -487,6 +580,41 @@ subnets
 
 Create a new VPC and optionally associated VPC Subnets.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs create [-h] [--subnets subnets]
+    	[--subnets.ipv4 ipv4] [--subnets.linodes linodes]
+    	[--subnets.linodes.interfaces interfaces]
+    	[--subnets.linodes.interfaces.active active]
+    	[--subnets.linodes.interfaces.id id]
+    	[--subnets.linodes.id id] [--subnets.label label]
+    	[--region region] [--description description] [--label label]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -520,6 +648,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -546,7 +676,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -589,7 +719,7 @@ subnets
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -627,7 +757,7 @@ subnets.linodes
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -660,7 +790,7 @@ subnets.linodes.interfaces
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -683,6 +813,8 @@ subnets.linodes.interfaces
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -816,6 +948,8 @@ subnets
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -824,6 +958,7 @@ subnets
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_vpcs_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-vpc>`_
@@ -832,6 +967,36 @@ subnets
 
 Update an existing VPC.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs update [-h] [--label label]
+    	[--description description] vpcId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -861,6 +1026,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -901,6 +1068,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -927,7 +1096,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -950,6 +1119,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1083,6 +1254,8 @@ subnets
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1091,6 +1264,7 @@ subnets
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_vpcs_delete:
 
 `delete <https://techdocs.akamai.com/linode-api/reference/delete-vpc>`_
@@ -1099,6 +1273,35 @@ subnets
 
 Delete a single VPC and all of its Subnets.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs delete [-h] vpcId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1126,6 +1329,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1173,6 +1378,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1181,6 +1388,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_vpcs_subnet-view:
 
 `subnet-view <https://techdocs.akamai.com/linode-api/reference/get-vpc-subnet>`_
@@ -1189,6 +1397,38 @@ Positional parameters used to define the resource this command should target.
 
 Get information about a single VPC Subnet.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs subnet-view [-h] [--label label] [--id id]
+    	[--created created] [--updated updated]
+    	[--order-by {label,id,created,updated}] [--order {asc,desc}]
+    	vpcId vpcSubnetId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1216,6 +1456,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1262,6 +1504,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1365,6 +1609,8 @@ linodes
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1373,6 +1619,7 @@ linodes
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_vpcs_subnet-create:
 
 `subnet-create <https://techdocs.akamai.com/linode-api/reference/post-vpc-subnet>`_
@@ -1381,6 +1628,36 @@ linodes
 
 Create a VPC Subnet.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs subnet-create [-h] [--label label] [--ipv4 ipv4]
+    	vpcId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1410,6 +1687,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1450,6 +1729,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1476,7 +1757,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -1499,6 +1780,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1602,6 +1885,8 @@ linodes
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1610,6 +1895,7 @@ linodes
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_vpcs_subnet-update:
 
 `subnet-update <https://techdocs.akamai.com/linode-api/reference/put-vpc-subnet>`_
@@ -1618,6 +1904,36 @@ linodes
 
 Update a VPC Subnet.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs subnet-update [-h] [--label label] vpcId
+    	vpcSubnetId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1646,6 +1962,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1690,6 +2008,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1716,7 +2036,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -1734,6 +2054,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1837,6 +2159,8 @@ linodes
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1845,6 +2169,7 @@ linodes
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_vpcs_subnet-delete:
 
 `subnet-delete <https://techdocs.akamai.com/linode-api/reference/delete-vpc-subnet>`_
@@ -1853,6 +2178,35 @@ linodes
 
 Delete a single VPC Subnet.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs subnet-delete [-h] vpcId vpcSubnetId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1880,6 +2234,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1930,6 +2286,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1938,14 +2296,53 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_vpcs_subnets-list:
 
 `subnets-list <https://techdocs.akamai.com/linode-api/reference/get-vpc-subnets>`_
 ----------------------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`subnets-ls`
+
 
 Get information about all VPC Subnets associated with a VPC.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli vpcs subnets-list [-h] [--updated updated]
+    	[--created created] [--label label] [--id id]
+    	[--order-by {updated,created,label,id}] [--order {asc,desc}]
+    	vpcId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1973,6 +2370,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2014,6 +2413,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2066,6 +2467,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required

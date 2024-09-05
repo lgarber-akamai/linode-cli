@@ -3,6 +3,8 @@ Child Account
 
 This section details Child Account-related Linode CLI commands.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11,14 +13,56 @@ This section details Child Account-related Linode CLI commands.
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_child-account_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-child-accounts>`_
 -----------------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`ls`
+
 
 Returns a paginated list of basic information for the child accounts that exist for your parent account.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli child-account list [-h] [--zip zip]
+    	[--address_2 address_2] [--first_name first_name]
+    	[--city city] [--state state] [--address_1 address_1]
+    	[--country country] [--last_name last_name] [--email email]
+    	[--phone phone] [--company company]
+    	[--order-by {zip,address_2,first_name,city,state,address_1,country,last_name,email,phone,company}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -48,6 +92,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -128,6 +174,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -291,6 +339,8 @@ credit_card
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -299,6 +349,7 @@ credit_card
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_child-account_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-child-account>`_
@@ -307,6 +358,41 @@ credit_card
 
 View a specific child account based on its :code:`euuid`.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli child-account view [-h] [--phone phone]
+    	[--company company] [--email email] [--last_name last_name]
+    	[--country country] [--address_1 address_1] [--city city]
+    	[--state state] [--first_name first_name]
+    	[--address_2 address_2] [--zip zip]
+    	[--order-by {phone,company,email,last_name,country,address_1,city,state,first_name,address_2,zip}]
+    	[--order {asc,desc}] euuid
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -334,6 +420,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -376,6 +464,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -538,6 +628,8 @@ credit_card
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -546,6 +638,7 @@ credit_card
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_child-account_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-child-account-token>`_
@@ -554,6 +647,35 @@ credit_card
 
 Create a short-lived bearer token for a parent user on a child account, using the :code:`euuid` of that child account.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli child-account create [-h] euuid
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -581,6 +703,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -623,6 +747,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required

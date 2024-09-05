@@ -7,7 +7,7 @@
   <title>Kernels &mdash; linode-cli  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=97d67db2" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=3e8d860d" />
 
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+601dc34 (API v4.177.1)
+                v0.0.0.dev+baf5659 (API v4.177.1)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -125,9 +125,20 @@
   <section id="kernels">
 <h1>Kernels<a class="headerlink" href="#kernels" title="Link to this heading"></a></h1>
 <p>This section details Kernel-related Linode CLI commands.</p>
-<section id="commands-kernels-list">
+<section class="action-has-keywords" id="commands-kernels-list">
 <span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-kernels">list</a><a class="headerlink" href="#commands-kernels-list" title="Link to this heading"></a></h2>
+<p class="action-keyword"><span class="action-keyword-key">Aliases:</span>
+<span class="action-keyword-values">ls</span></p>
 <p>Lists available Kernels.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>kernels<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--architecture<span class="w"> </span>architecture<span class="o">]</span><span class="w"> </span><span class="o">[</span>--kvm<span class="w"> </span>kvm<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--deprecated<span class="w"> </span>deprecated<span class="o">]</span><span class="w"> </span><span class="o">[</span>--version<span class="w"> </span>version<span class="o">]</span><span class="w"> </span><span class="o">[</span>--pvops<span class="w"> </span>pvops<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,architecture,kvm,deprecated,version,pvops<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>kernels<span class="w"> </span>list
@@ -237,6 +248,15 @@
 <section id="commands-kernels-view">
 <span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-kernel">view</a><a class="headerlink" href="#commands-kernels-view" title="Link to this heading"></a></h2>
 <p>Returns information about a single Kernel.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>kernels<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--architecture<span class="w"> </span>architecture<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--pvops<span class="w"> </span>pvops<span class="o">]</span><span class="w"> </span><span class="o">[</span>--version<span class="w"> </span>version<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--deprecated<span class="w"> </span>deprecated<span class="o">]</span><span class="w"> </span><span class="o">[</span>--kvm<span class="w"> </span>kvm<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>architecture,label,pvops,version,deprecated,kvm<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>kernelId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>kernels<span class="w"> </span>view<span class="w"> </span>latest-64bit

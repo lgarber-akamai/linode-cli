@@ -3,6 +3,8 @@ Databases
 
 This section details Database-related Linode CLI commands.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11,14 +13,54 @@ This section details Database-related Linode CLI commands.
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_databases_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-databases-instances>`_
 ----------------------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`ls`
+
 
 Display all Managed Databases that are accessible by your User, regardless of engine type.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases list [-h] [--region region]
+    	[--status status] [--engine engine] [--label label]
+    	[--type type] [--version version]
+    	[--order-by {region,status,engine,label,type,version}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -48,6 +90,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -108,6 +152,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -293,6 +339,8 @@ updates
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -301,6 +349,7 @@ updates
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_engines:
 
 `engines <https://techdocs.akamai.com/linode-api/reference/get-databases-engines>`_
@@ -309,6 +358,37 @@ updates
 
 Display all available Managed Database engine types and versions.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases engines [-h] [--engine engine]
+    	[--version version] [--order-by {engine,version}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -338,6 +418,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -382,6 +464,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -448,6 +532,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -456,6 +542,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_types:
 
 `types <https://techdocs.akamai.com/linode-api/reference/get-databases-types>`_
@@ -464,6 +551,36 @@ The attributes returned by this command.
 
 Display all Managed Database node types.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases types [-h] [--order-by {}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -499,6 +616,8 @@ Examples of how this command might be used.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -507,6 +626,7 @@ Examples of how this command might be used.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_engine-view:
 
 `engine-view <https://techdocs.akamai.com/linode-api/reference/get-databases-engine>`_
@@ -515,6 +635,37 @@ Examples of how this command might be used.
 
 Display information for a single Managed Database engine type and version.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases engine-view [-h] [--version version]
+    	[--engine engine] [--order-by {version,engine}]
+    	[--order {asc,desc}] engineId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -542,6 +693,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -584,6 +737,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -650,6 +805,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -658,6 +815,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-list:
 
 `mysql-list <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instances>`_
@@ -666,6 +824,39 @@ The attributes returned by this command.
 
 Display all accessible Managed MySQL Databases.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-list [-h] [--region region]
+    	[--status status] [--engine engine] [--version version]
+    	[--type type] [--label label]
+    	[--order-by {region,status,engine,version,type,label}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -695,6 +886,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -755,6 +948,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -960,6 +1155,8 @@ updates
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -968,6 +1165,7 @@ updates
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-view:
 
 `mysql-view <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance>`_
@@ -976,6 +1174,39 @@ updates
 
 Display information for a single, accessible Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-view [-h] [--engine engine]
+    	[--version version] [--type type] [--label label]
+    	[--region region] [--status status]
+    	[--order-by {engine,version,type,label,region,status}]
+    	[--order {asc,desc}] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1003,6 +1234,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1045,6 +1278,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1250,6 +1485,8 @@ updates
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1258,6 +1495,7 @@ updates
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-create:
 
 `mysql-create <https://techdocs.akamai.com/linode-api/reference/post-databases-mysql-instances>`_
@@ -1266,6 +1504,40 @@ updates
 
 Provision a Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-create [-h] [--type type]
+    	[--label label] [--allow_list allow_list]
+    	[--encrypted encrypted] [--cluster_size cluster_size]
+    	[--replication_type replication_type]
+    	[--ssl_connection ssl_connection] [--region region]
+    	[--engine engine]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1304,6 +1576,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1330,7 +1604,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -1388,6 +1662,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1593,6 +1869,8 @@ updates
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1601,6 +1879,7 @@ updates
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-update:
 
 `mysql-update <https://techdocs.akamai.com/linode-api/reference/put-databases-mysql-instance>`_
@@ -1609,6 +1888,40 @@ updates
 
 Update a Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-update [-h] [--allow_list allow_list]
+    	[--label label] [--type type] [--updates.frequency frequency]
+    	[--updates.week_of_month week_of_month]
+    	[--updates.day_of_week day_of_week]
+    	[--updates.duration duration]
+    	[--updates.hour_of_day hour_of_day] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1645,6 +1958,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1685,6 +2000,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1711,7 +2028,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -1764,6 +2081,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1969,6 +2288,8 @@ updates
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1977,6 +2298,7 @@ updates
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-delete:
 
 `mysql-delete <https://techdocs.akamai.com/linode-api/reference/delete-databases-mysql-instance>`_
@@ -1985,6 +2307,35 @@ updates
 
 Remove a Managed MySQL Database from your Account.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-delete [-h] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2012,6 +2363,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2059,6 +2412,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2067,6 +2422,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-backup-view:
 
 `mysql-backup-view <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance-backup>`_
@@ -2075,6 +2431,37 @@ Positional parameters used to define the resource this command should target.
 
 Display information for a single backup for an accessible Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-view [-h] [--created created]
+    	[--type type] [--order-by {created,type}] [--order {asc,desc}]
+    	instanceId backupId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2102,6 +2489,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2148,6 +2537,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2209,6 +2600,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2217,6 +2610,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-backup-delete:
 
 `mysql-backup-delete <https://techdocs.akamai.com/linode-api/reference/delete-database-mysql-instance-backup>`_
@@ -2225,6 +2619,35 @@ The attributes returned by this command.
 
 Delete a single backup for an accessible Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-delete [-h] instanceId backupId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2252,6 +2675,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2303,6 +2728,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2311,6 +2738,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-backup-restore:
 
 `mysql-backup-restore <https://techdocs.akamai.com/linode-api/reference/post-databases-mysql-instance-backup-restore>`_
@@ -2319,6 +2747,36 @@ Positional parameters used to define the resource this command should target.
 
 Restore a backup to a Managed MySQL Database on your Account.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-restore [-h] instanceId
+    	backupId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2346,6 +2804,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2397,6 +2857,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2405,6 +2867,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-backup-snapshot:
 
 `mysql-backup-snapshot <https://techdocs.akamai.com/linode-api/reference/post-databases-mysql-instance-backup>`_
@@ -2413,6 +2876,36 @@ Positional parameters used to define the resource this command should target.
 
 Creates a snapshot backup of a Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backup-snapshot [-h] [--label label]
+    	[--target target] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2442,6 +2935,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2482,6 +2977,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2508,7 +3005,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -2536,6 +3033,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2544,6 +3043,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-backups-list:
 
 `mysql-backups-list <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance-backups>`_
@@ -2552,6 +3052,37 @@ Additional fields used to execute this request.
 
 Display all backups for an accessible Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-backups-list [-h] [--created created]
+    	[--type type] [--order-by {created,type}] [--order {asc,desc}]
+    	instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2579,6 +3110,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2620,6 +3153,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2664,6 +3199,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2725,6 +3262,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2733,6 +3272,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-creds-view:
 
 `mysql-creds-view <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance-credentials>`_
@@ -2741,6 +3281,36 @@ The attributes returned by this command.
 
 Display the root username and password for an accessible Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-creds-view [-h] [--order-by {}]
+    	[--order {asc,desc}] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2768,6 +3338,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2810,6 +3382,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2861,6 +3435,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2869,6 +3445,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-creds-reset:
 
 `mysql-creds-reset <https://techdocs.akamai.com/linode-api/reference/post-databases-mysql-instance-credentials-reset>`_
@@ -2877,6 +3454,35 @@ The attributes returned by this command.
 
 Reset the root password for a Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-creds-reset [-h] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2904,6 +3510,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2951,6 +3559,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2959,6 +3569,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-patch:
 
 `mysql-patch <https://techdocs.akamai.com/linode-api/reference/post-databases-mysql-instance-patch>`_
@@ -2967,6 +3578,35 @@ Positional parameters used to define the resource this command should target.
 
 Apply security patches and updates to the underlying operating system of the Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-patch [-h] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2994,6 +3634,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3041,6 +3683,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3049,6 +3693,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_mysql-ssl-cert:
 
 `mysql-ssl-cert <https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance-ssl>`_
@@ -3057,6 +3702,36 @@ Positional parameters used to define the resource this command should target.
 
 Display the SSL CA certificate for an accessible Managed MySQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases mysql-ssl-cert [-h] [--order-by {}]
+    	[--order {asc,desc}] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3084,6 +3759,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3126,6 +3803,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3172,6 +3851,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3180,6 +3861,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-list:
 
 `postgresql-list <https://techdocs.akamai.com/linode-api/reference/get-databases-postgre-sql-instances>`_
@@ -3188,6 +3870,39 @@ The attributes returned by this command.
 
 Display all accessible Managed PostgreSQL Databases.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-list [-h] [--version version]
+    	[--type type] [--label label] [--engine engine]
+    	[--status status] [--region region]
+    	[--order-by {version,type,label,engine,status,region}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3217,6 +3932,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3277,6 +3994,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3487,6 +4206,8 @@ updates
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3495,6 +4216,7 @@ updates
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-view:
 
 `postgresql-view <https://techdocs.akamai.com/linode-api/reference/get-databases-postgre-sql-instance>`_
@@ -3503,6 +4225,39 @@ updates
 
 Display information for a single, accessible Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-view [-h] [--region region]
+    	[--status status] [--engine engine] [--version version]
+    	[--label label] [--type type]
+    	[--order-by {region,status,engine,version,label,type}]
+    	[--order {asc,desc}] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3530,6 +4285,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3572,6 +4329,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3782,6 +4541,8 @@ updates
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3790,6 +4551,7 @@ updates
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-create:
 
 `postgresql-create <https://techdocs.akamai.com/linode-api/reference/post-databases-postgre-sql-instances>`_
@@ -3798,6 +4560,41 @@ updates
 
 Provision a Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-create [-h] [--region region]
+    	[--engine engine]
+    	[--replication_commit_type replication_commit_type]
+    	[--ssl_connection ssl_connection]
+    	[--cluster_size cluster_size]
+    	[--replication_type replication_type] [--encrypted encrypted]
+    	[--allow_list allow_list] [--type type] [--label label]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3837,6 +4634,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3863,7 +4662,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -3926,6 +4725,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4136,6 +4937,8 @@ updates
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4144,6 +4947,7 @@ updates
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-update:
 
 `postgresql-update <https://techdocs.akamai.com/linode-api/reference/put-databases-postgre-sql-instance>`_
@@ -4152,6 +4956,40 @@ updates
 
 Update a Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-update [-h]
+    	[--allow_list allow_list] [--type type] [--label label]
+    	[--updates.hour_of_day hour_of_day]
+    	[--updates.duration duration] [--updates.frequency frequency]
+    	[--updates.week_of_month week_of_month]
+    	[--updates.day_of_week day_of_week] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4188,6 +5026,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4228,6 +5068,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4254,7 +5096,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -4307,6 +5149,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4517,6 +5361,8 @@ updates
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4525,6 +5371,7 @@ updates
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-delete:
 
 `postgresql-delete <https://techdocs.akamai.com/linode-api/reference/delete-databases-postgre-sql-instance>`_
@@ -4533,6 +5380,35 @@ updates
 
 Remove a Managed PostgreSQL Database from your Account.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-delete [-h] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4560,6 +5436,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4607,6 +5485,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4615,6 +5495,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-backup-view:
 
 `postgresql-backup-view <https://techdocs.akamai.com/linode-api/reference/get-databases-postgresql-instance-backup>`_
@@ -4623,6 +5504,37 @@ Positional parameters used to define the resource this command should target.
 
 Display information for a single backup for an accessible Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-view [-h] [--type type]
+    	[--created created] [--order-by {type,created}]
+    	[--order {asc,desc}] instanceId backupId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4650,6 +5562,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4696,6 +5610,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4757,6 +5673,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4765,6 +5683,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-backup-delete:
 
 `postgresql-backup-delete <https://techdocs.akamai.com/linode-api/reference/delete-database-postgre-sql-instance-backup>`_
@@ -4773,6 +5692,36 @@ The attributes returned by this command.
 
 Delete a single backup for an accessible Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-delete [-h] instanceId
+    	backupId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4800,6 +5749,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4851,6 +5802,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4859,6 +5812,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-backup-restore:
 
 `postgresql-backup-restore <https://techdocs.akamai.com/linode-api/reference/post-databases-postgre-sql-instance-backup-restore>`_
@@ -4867,6 +5821,36 @@ Positional parameters used to define the resource this command should target.
 
 Restore a backup to a Managed PostgreSQL Database on your Account.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-restore [-h] instanceId
+    	backupId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4894,6 +5878,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4945,6 +5931,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4953,6 +5941,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-backup-snapshot:
 
 `postgresql-backup-snapshot <https://techdocs.akamai.com/linode-api/reference/post-databases-postgre-sql-instance-backup>`_
@@ -4961,6 +5950,36 @@ Positional parameters used to define the resource this command should target.
 
 Creates a snapshot backup of a Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backup-snapshot [-h]
+    	[--target target] [--label label] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4990,6 +6009,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5030,6 +6051,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5056,7 +6079,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -5084,6 +6107,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5092,6 +6117,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-backups-list:
 
 `postgresql-backups-list <https://techdocs.akamai.com/linode-api/reference/get-databases-postgre-sql-instance-backups>`_
@@ -5100,6 +6126,37 @@ Additional fields used to execute this request.
 
 Display all backups for an accessible Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-backups-list [-h] [--type type]
+    	[--created created] [--order-by {type,created}]
+    	[--order {asc,desc}] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5127,6 +6184,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5168,6 +6227,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5212,6 +6273,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5273,6 +6336,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5281,6 +6346,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-creds-view:
 
 `postgresql-creds-view <https://techdocs.akamai.com/linode-api/reference/get-databases-postgre-sql-instance-credentials>`_
@@ -5289,6 +6355,36 @@ The attributes returned by this command.
 
 Display the root username and password for an accessible Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-creds-view [-h] [--order-by {}]
+    	[--order {asc,desc}] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5316,6 +6412,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5358,6 +6456,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5409,6 +6509,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5417,6 +6519,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-creds-reset:
 
 `postgresql-creds-reset <https://techdocs.akamai.com/linode-api/reference/post-databases-postgre-sql-instance-credentials-reset>`_
@@ -5425,6 +6528,35 @@ The attributes returned by this command.
 
 Reset the root password for a Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-creds-reset [-h] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5452,6 +6584,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5499,6 +6633,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5507,6 +6643,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-patch:
 
 `postgresql-patch <https://techdocs.akamai.com/linode-api/reference/post-databases-postgre-sql-instance-patch>`_
@@ -5515,6 +6652,35 @@ Positional parameters used to define the resource this command should target.
 
 Apply security patches and updates to the underlying operating system of the Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-patch [-h] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5542,6 +6708,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5589,6 +6757,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5597,6 +6767,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_postgresql-ssl-cert:
 
 `postgresql-ssl-cert <https://techdocs.akamai.com/linode-api/reference/get-databases-postgresql-instance-ssl>`_
@@ -5605,6 +6776,36 @@ Positional parameters used to define the resource this command should target.
 
 Display the SSL CA certificate for an accessible Managed PostgreSQL Database.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases postgresql-ssl-cert [-h] [--order-by {}]
+    	[--order {asc,desc}] instanceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5632,6 +6833,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5674,6 +6877,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5719,6 +6924,8 @@ The attributes returned by this command.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5727,6 +6934,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_databases_type-view:
 
 `type-view <https://techdocs.akamai.com/linode-api/reference/get-databases-type>`_
@@ -5735,6 +6943,36 @@ The attributes returned by this command.
 
 Display the details of a single Managed Database type.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli databases type-view [-h] [--order-by {}]
+    	[--order {asc,desc}] typeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5762,6 +7000,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5804,6 +7044,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required

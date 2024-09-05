@@ -3,6 +3,8 @@ Images
 
 This section details Image-related Linode CLI commands.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11,14 +13,55 @@ This section details Image-related Linode CLI commands.
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_images_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-images>`_
 ---------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`ls`
+
 
 Returns a paginated list of images.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli images list [-h] [--is_public is_public]
+    	[--deprecated deprecated] [--size size] [--tags [tags] ]
+    	[--status status] [--vendor vendor] [--label label]
+    	[--type type]
+    	[--order-by {is_public,deprecated,size,tags,status,vendor,label,type}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -48,6 +91,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -116,6 +161,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -274,6 +321,8 @@ regions
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -282,6 +331,7 @@ regions
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_images_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-image>`_
@@ -290,6 +340,40 @@ regions
 
 Get information about a single image.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli images view [-h] [--status status]
+    	[--is_public is_public] [--deprecated deprecated]
+    	[--size size] [--tags [tags] ] [--vendor vendor] [--label label]
+    	[--type type]
+    	[--order-by {status,is_public,deprecated,size,tags,vendor,label,type}]
+    	[--order {asc,desc}] imageId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -317,6 +401,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -359,6 +445,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -517,6 +605,8 @@ regions
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -525,6 +615,7 @@ regions
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_images_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-image>`_
@@ -533,6 +624,37 @@ regions
 
 Captures a private, gold-master image from a Linode disk.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli images create [-h] [--disk_id disk_id]
+    	[--cloud_init cloud_init] [--label label]
+    	[--description description] [--tags tags]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -565,6 +687,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -591,7 +715,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -629,6 +753,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -787,6 +913,8 @@ regions
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -795,6 +923,7 @@ regions
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_images_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-image>`_
@@ -803,6 +932,37 @@ regions
 
 Updates a private image that you have permission to :code:`read_write`.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli images update [-h] [--label label] [--regions regions]
+    	[--regions.region region] [--regions.status status]
+    	[--description description] [--tags tags] imageId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -833,6 +993,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -873,6 +1035,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -899,7 +1063,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -942,7 +1106,7 @@ regions
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -965,6 +1129,8 @@ regions
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1123,6 +1289,8 @@ regions
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1131,14 +1299,50 @@ regions
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_images_delete:
 
 `delete <https://techdocs.akamai.com/linode-api/reference/delete-image>`_
 -------------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`rm`
+
 
 Deletes a private image you have permission to :code:`read_write`.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli images delete [-h] imageId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1166,6 +1370,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1213,6 +1419,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1221,6 +1429,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_images_replicate:
 
 `replicate <https://techdocs.akamai.com/linode-api/reference/post-replicate-image>`_
@@ -1229,6 +1438,35 @@ Positional parameters used to define the resource this command should target.
 
 Target an existing image and replicate it to another compute region.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli images replicate [-h] [--regions regions] imageId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1257,6 +1495,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1297,6 +1537,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1323,7 +1565,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -1341,6 +1583,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1498,6 +1742,8 @@ regions
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1506,6 +1752,7 @@ regions
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_images_upload:
 
 `upload <https://techdocs.akamai.com/linode-api/reference/post-upload-image>`_
@@ -1514,6 +1761,37 @@ regions
 
 Creates a new private image instance and returns a URL as the :code:`upload_to` object in the response.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli images upload [-h] [--region region]
+    	[--cloud_init cloud_init] [--tags tags]
+    	[--description description] [--label label]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1553,6 +1831,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1579,7 +1859,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -1617,6 +1897,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required

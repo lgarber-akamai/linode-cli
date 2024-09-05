@@ -3,6 +3,8 @@ Stackscripts
 
 This section details Stackscript-related Linode CLI commands.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11,14 +13,55 @@ This section details Stackscript-related Linode CLI commands.
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_stackscripts_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-stack-scripts>`_
 ----------------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`ls`
+
 
 If the request is not authenticated, only public StackScripts are returned.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli stackscripts list [-h] [--label label]
+    	[--description description]
+    	[--deployments_total deployments_total] [--rev_note rev_note]
+    	[--is_public is_public] [--mine mine]
+    	[--order-by {label,description,deployments_total,rev_note,is_public,mine}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -48,6 +91,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -108,6 +153,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -271,6 +318,8 @@ user_defined_fields
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -279,6 +328,7 @@ user_defined_fields
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_stackscripts_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-stack-script>`_
@@ -287,6 +337,40 @@ user_defined_fields
 
 Returns all of the information about a specified StackScript, including the contents of the script.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli stackscripts view [-h]
+    	[--deployments_total deployments_total] [--label label]
+    	[--description description] [--mine mine]
+    	[--is_public is_public] [--rev_note rev_note]
+    	[--order-by {deployments_total,label,description,mine,is_public,rev_note}]
+    	[--order {asc,desc}] stackscriptId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -314,6 +398,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -356,6 +442,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -519,6 +607,8 @@ user_defined_fields
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -527,6 +617,7 @@ user_defined_fields
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_stackscripts_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-add-stack-script>`_
@@ -535,6 +626,39 @@ user_defined_fields
 
 Creates a StackScript in your Account.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli stackscripts create [-h] [--description description]
+    	[--label label] [--script script] [--images images]
+    	[--rev_note rev_note]
+    	[--user_defined_fields user_defined_fields]
+    	[--is_public is_public]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -570,6 +694,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -596,7 +722,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -644,6 +770,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -807,6 +935,8 @@ user_defined_fields
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -815,6 +945,7 @@ user_defined_fields
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_stackscripts_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-stack-script>`_
@@ -823,6 +954,38 @@ user_defined_fields
 
 Updates a StackScript.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli stackscripts update [-h] [--label label]
+    	[--description description] [--script script]
+    	[--images images] [--user_defined_fields user_defined_fields]
+    	[--rev_note rev_note] [--is_public is_public] stackscriptId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -858,6 +1021,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -898,6 +1063,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -924,7 +1091,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -972,6 +1139,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1134,6 +1303,8 @@ user_defined_fields
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1142,14 +1313,50 @@ user_defined_fields
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_stackscripts_delete:
 
 `delete <https://techdocs.akamai.com/linode-api/reference/delete-stack-script>`_
 --------------------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`rm`
+
 
 Deletes a private StackScript you have permission to :code:`read_write`.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli stackscripts delete [-h] stackscriptId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1177,6 +1384,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required

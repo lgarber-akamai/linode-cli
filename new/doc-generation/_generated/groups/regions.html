@@ -7,7 +7,7 @@
   <title>Regions &mdash; linode-cli  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=97d67db2" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=3e8d860d" />
 
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+601dc34 (API v4.177.1)
+                v0.0.0.dev+baf5659 (API v4.177.1)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -127,9 +127,18 @@
   <section id="regions">
 <h1>Regions<a class="headerlink" href="#regions" title="Link to this heading"></a></h1>
 <p>This section details Region-related Linode CLI commands.</p>
-<section id="commands-regions-list">
+<section class="action-has-keywords" id="commands-regions-list">
 <span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions">list</a><a class="headerlink" href="#commands-regions-list" title="Link to this heading"></a></h2>
+<p class="action-keyword"><span class="action-keyword-key">Aliases:</span>
+<span class="action-keyword-values">ls</span></p>
 <p>Lists the Regions available for Linode services.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>regions<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--site-type<span class="w"> </span>site-type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--country<span class="w"> </span>country<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>site-type,country<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>regions<span class="w"> </span>list
@@ -270,6 +279,13 @@
 <section id="commands-regions-view">
 <span id="id2"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-region">view</a><a class="headerlink" href="#commands-regions-view" title="Link to this heading"></a></h2>
 <p>Returns a single Region.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>regions<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--site-type<span class="w"> </span>site-type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--country<span class="w"> </span>country<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>site-type,country<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>regionId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>regions<span class="w"> </span>view<span class="w"> </span>us-east
@@ -406,6 +422,13 @@
 <section id="commands-regions-list-avail">
 <span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-regions-availability">list-avail</a><a class="headerlink" href="#commands-regions-list-avail" title="Link to this heading"></a></h2>
 <p>Returns availability data for all Regions.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>regions<span class="w"> </span>list-avail<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--plan<span class="w"> </span>plan<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--available<span class="w"> </span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>--region<span class="w"> </span>region<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>plan,available,region<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>regions<span class="w"> </span>list-avail
@@ -478,6 +501,14 @@
 <section id="commands-regions-view-avail">
 <span id="id6"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-region-availability">view-avail</a><a class="headerlink" href="#commands-regions-view-avail" title="Link to this heading"></a></h2>
 <p>Returns availability data for a single Region.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>regions<span class="w"> </span>view-avail<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--region<span class="w"> </span>region<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--available<span class="w"> </span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>--plan<span class="w"> </span>plan<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>region,available,plan<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+<span class="w">    </span>regionId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>regions<span class="w"> </span>view-avail<span class="w"> </span>us-east

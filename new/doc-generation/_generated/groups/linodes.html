@@ -7,7 +7,7 @@
   <title>Linodes &mdash; linode-cli  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=97d67db2" />
+      <link rel="stylesheet" type="text/css" href="../../_static/overlay.css?v=3e8d860d" />
 
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+601dc34 (API v4.177.1)
+                v0.0.0.dev+baf5659 (API v4.177.1)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -174,9 +174,22 @@
   <section id="linodes">
 <h1>Linodes<a class="headerlink" href="#linodes" title="Link to this heading"></a></h1>
 <p>This section details Linode-related Linode CLI commands.</p>
-<section id="commands-linodes-list">
+<section class="action-has-keywords" id="commands-linodes-list">
 <span id="id1"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-instances">list</a><a class="headerlink" href="#commands-linodes-list" title="Link to this heading"></a></h2>
+<p class="action-keyword"><span class="action-keyword-key">Aliases:</span>
+<span class="action-keyword-values">ls</span></p>
 <p>Returns a paginated list of Linodes you have permission to view.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--id<span class="w"> </span>id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--region<span class="w"> </span>region<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ipv4<span class="w"> </span><span class="o">[</span>ipv4<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--image<span class="w"> </span>image<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--placement_group.label<span class="w"> </span>placement_group.label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--placement_group.placement_group_type<span class="w"> </span>placement_group.placement_group_type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>group,tags,id,region,ipv4,label,image,placement_group.label,placement_group.placement_group_type<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>list
@@ -506,6 +519,17 @@
 <section id="commands-linodes-view">
 <span id="id3"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-instance">view</a><a class="headerlink" href="#commands-linodes-view" title="Link to this heading"></a></h2>
 <p>Get a specific Linode by ID.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--id<span class="w"> </span>id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--region<span class="w"> </span>region<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ipv4<span class="w"> </span><span class="o">[</span>ipv4<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--placement_group.label<span class="w"> </span>placement_group.label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--placement_group.placement_group_type<span class="w"> </span>placement_group.placement_group_type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--image<span class="w"> </span>image<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>group,tags,id,region,ipv4,label,placement_group.label,placement_group.placement_group_type,image<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>view<span class="w"> </span><span class="m">123</span>
@@ -803,6 +827,28 @@
 <section id="commands-linodes-create">
 <span id="id6"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-linode-instance">create</a><a class="headerlink" href="#commands-linodes-create" title="Link to this heading"></a></h2>
 <p>Creates a Linode Instance on your Account.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--metadata.user_data<span class="w"> </span>user_data<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--stackscript_data<span class="w"> </span>stackscript_data<span class="o">]</span><span class="w"> </span><span class="o">[</span>--booted<span class="w"> </span>booted<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--root_pass<span class="w"> </span><span class="o">[</span>ROOT_PASS<span class="o">]</span><span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--authorized_users<span class="w"> </span>authorized_users<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--authorized_keys<span class="w"> </span>authorized_keys<span class="o">]</span><span class="w"> </span><span class="o">[</span>--image<span class="w"> </span>image<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--stackscript_id<span class="w"> </span>stackscript_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--backups_enabled<span class="w"> </span>backups_enabled<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--placement_group.id<span class="w"> </span>id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--swap_size<span class="w"> </span>swap_size<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--firewall_id<span class="w"> </span>firewall_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--backup_id<span class="w"> </span>backup_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span>tags<span class="o">]</span><span class="w"> </span><span class="o">[</span>--interfaces<span class="w"> </span>interfaces<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ipv4.vpc<span class="w"> </span>vpc<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ipv4.nat_1_1<span class="w"> </span>nat_1_1<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.active<span class="w"> </span>active<span class="o">]</span><span class="w"> </span><span class="o">[</span>--interfaces.purpose<span class="w"> </span>purpose<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.subnet_id<span class="w"> </span>subnet_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.primary<span class="w"> </span>primary<span class="o">]</span><span class="w"> </span><span class="o">[</span>--interfaces.label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ipam_address<span class="w"> </span>ipam_address<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ip_ranges<span class="w"> </span>ip_ranges<span class="o">]</span><span class="w"> </span><span class="o">[</span>--region<span class="w"> </span>region<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--private_ip<span class="w"> </span>private_ip<span class="o">]</span>
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
@@ -826,10 +872,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -944,10 +990,10 @@
 <p class="action-section-header" id="commands-linodes-create-argument-sections-interfaces">interfaces</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -1275,6 +1321,17 @@
 <section id="commands-linodes-update">
 <span id="id11"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-instance">update</a><a class="headerlink" href="#commands-linodes-update" title="Link to this heading"></a></h2>
 <p>Updates a Linode that you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--backups.schedule.day<span class="w"> </span>day<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--backups.schedule.window<span class="w"> </span>window<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--alerts.network_in<span class="w"> </span>network_in<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--alerts.network_out<span class="w"> </span>network_out<span class="o">]</span><span class="w"> </span><span class="o">[</span>--alerts.io<span class="w"> </span>io<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--alerts.cpu<span class="w"> </span>cpu<span class="o">]</span><span class="w"> </span><span class="o">[</span>--alerts.transfer_quota<span class="w"> </span>transfer_quota<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span>tags<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--watchdog_enabled<span class="w"> </span>watchdog_enabled<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>update<span class="w"> </span><span class="m">7833080</span><span class="w"> </span><span class="se">\</span>
@@ -1313,10 +1370,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -1651,9 +1708,16 @@
 </table>
 <hr class="docutils" />
 </section>
-<section id="commands-linodes-delete">
+<section class="action-has-keywords" id="commands-linodes-delete">
 <span id="id14"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-instance">delete</a><a class="headerlink" href="#commands-linodes-delete" title="Link to this heading"></a></h2>
+<p class="action-keyword"><span class="action-keyword-key">Aliases:</span>
+<span class="action-keyword-values">rm</span></p>
 <p>Deletes a Linode you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>delete<span class="w"> </span><span class="m">123</span>
@@ -1685,6 +1749,11 @@
 <section id="commands-linodes-boot">
 <span id="id15"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-boot-linode-instance">boot</a><a class="headerlink" href="#commands-linodes-boot" title="Link to this heading"></a></h2>
 <p>Boots a Linode you have permission to modify.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>boot<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--config_id<span class="w"> </span>config_id<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>boot<span class="w"> </span><span class="m">123</span>
@@ -1715,10 +1784,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -1740,6 +1809,16 @@
 <section id="commands-linodes-clone">
 <span id="id16"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-clone-linode-instance">clone</a><a class="headerlink" href="#commands-linodes-clone" title="Link to this heading"></a></h2>
 <p>You can clone your Linode’s existing Disks or Configuration profiles to another Linode on your Account.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>clone<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--placement_group.id<span class="w"> </span>id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--configs<span class="w"> </span>configs<span class="o">]</span><span class="w"> </span><span class="o">[</span>--region<span class="w"> </span>region<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--private_ip<span class="w"> </span>private_ip<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--backups_enabled<span class="w"> </span>backups_enabled<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--linode_id<span class="w"> </span>linode_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--group<span class="w"> </span>group<span class="o">]</span><span class="w"> </span><span class="o">[</span>--disks<span class="w"> </span>disks<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--metadata.user_data<span class="w"> </span>user_data<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>clone<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
@@ -1780,10 +1859,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -2121,6 +2200,13 @@
 <section id="commands-linodes-migrate">
 <span id="id20"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-migrate-linode-instance">migrate</a><a class="headerlink" href="#commands-linodes-migrate" title="Link to this heading"></a></h2>
 <p>Initiate a pending host migration that has been scheduled by Linode or initiate a cross data center (DC) migration.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>migrate<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--region<span class="w"> </span>region<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--placement_group.id<span class="w"> </span>id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span><span class="w"> </span><span class="o">[</span>--upgrade<span class="w"> </span>upgrade<span class="o">]</span>
+<span class="w">    </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>migrate<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\ </span>--region<span class="w"> </span>us-central<span class="w"> </span><span class="se">\ </span>--placement_group.id<span class="w"> </span><span class="m">528</span>
@@ -2151,10 +2237,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -2191,6 +2277,14 @@
 <section id="commands-linodes-nodebalancers">
 <span id="id21"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-node-balancers">nodebalancers</a><a class="headerlink" href="#commands-linodes-nodebalancers" title="Link to this heading"></a></h2>
 <p>Returns a list of NodeBalancers that are assigned to this Linode and readable by the requesting User.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>nodebalancers<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--region<span class="w"> </span>region<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ipv4<span class="w"> </span>ipv4<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,region,ipv4,tags<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+<span class="w">    </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>nodebalancers<span class="w"> </span><span class="m">123</span>
@@ -2357,6 +2451,11 @@
 <section id="commands-linodes-reboot">
 <span id="id22"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-reboot-linode-instance">reboot</a><a class="headerlink" href="#commands-linodes-reboot" title="Link to this heading"></a></h2>
 <p>Reboots a Linode you have permission to modify.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>reboot<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--config_id<span class="w"> </span>config_id<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>reboot<span class="w"> </span><span class="m">123</span>
@@ -2387,10 +2486,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -2412,6 +2511,16 @@
 <section id="commands-linodes-rebuild">
 <span id="id23"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-rebuild-linode-instance">rebuild</a><a class="headerlink" href="#commands-linodes-rebuild" title="Link to this heading"></a></h2>
 <p>Rebuilds a Linode you have the <code class="code docutils literal notranslate"><span class="pre">read_write</span></code> permission to modify.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>rebuild<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--authorized_users<span class="w"> </span>authorized_users<span class="o">]</span><span class="w"> </span><span class="o">[</span>--root_pass<span class="w"> </span><span class="o">[</span>ROOT_PASS<span class="o">]</span>
+<span class="w">    </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--booted<span class="w"> </span>booted<span class="o">]</span><span class="w"> </span><span class="o">[</span>--stackscript_data<span class="w"> </span>stackscript_data<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--metadata.user_data<span class="w"> </span>user_data<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--stackscript_id<span class="w"> </span>stackscript_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--image<span class="w"> </span>image<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--authorized_keys<span class="w"> </span>authorized_keys<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>rebuild<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
@@ -2453,10 +2562,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -2784,6 +2893,25 @@
 <section id="commands-linodes-rescue">
 <span id="id28"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-rescue-linode-instance">rescue</a><a class="headerlink" href="#commands-linodes-rescue" title="Link to this heading"></a></h2>
 <p>Rescue Mode is a safe environment for performing many system recovery and disk management tasks.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>rescue<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdd.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdd.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdb.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdb.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdg.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdg.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdf.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdf.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sda.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sda.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sde.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sde.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdc.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdc.volume_id<span class="w"> </span>volume_id<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>rescue<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
@@ -2815,10 +2943,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -2905,6 +3033,13 @@
 <section id="commands-linodes-resize">
 <span id="id29"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-resize-linode-instance">resize</a><a class="headerlink" href="#commands-linodes-resize" title="Link to this heading"></a></h2>
 <p>Resizes a Linode you have the <code class="code docutils literal notranslate"><span class="pre">read_write</span></code> permission to a different Type.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>resize<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--migration_type<span class="w"> </span>migration_type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--allow_auto_disk_resize<span class="w"> </span>allow_auto_disk_resize<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>resize<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
@@ -2936,10 +3071,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -2971,6 +3106,11 @@
 <section id="commands-linodes-shutdown">
 <span id="id30"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-shutdown-linode-instance">shutdown</a><a class="headerlink" href="#commands-linodes-shutdown" title="Link to this heading"></a></h2>
 <p>Shuts down a Linode you have permission to modify.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>shutdown<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>shutdown<span class="w"> </span><span class="m">123</span>
@@ -3002,6 +3142,11 @@
 <section id="commands-linodes-snapshot">
 <span id="id31"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-snapshot">snapshot</a><a class="headerlink" href="#commands-linodes-snapshot" title="Link to this heading"></a></h2>
 <p>Creates a snapshot backup of a Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>snapshot<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>snapshot<span class="w"> </span><span class="m">123</span>
@@ -3032,10 +3177,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3154,6 +3299,15 @@
 <section id="commands-linodes-types">
 <span id="id32"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-types">types</a><a class="headerlink" href="#commands-linodes-types" title="Link to this heading"></a></h2>
 <p>Returns collection of Linode Types, including pricing and specifications for each Type.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>types<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--network_out<span class="w"> </span>network_out<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--memory<span class="w"> </span>memory<span class="o">]</span><span class="w"> </span><span class="o">[</span>--disk<span class="w"> </span>disk<span class="o">]</span><span class="w"> </span><span class="o">[</span>--class<span class="w"> </span>class<span class="o">]</span><span class="w"> </span><span class="o">[</span>--gpus<span class="w"> </span>gpus<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--vcpus<span class="w"> </span>vcpus<span class="o">]</span><span class="w"> </span><span class="o">[</span>--transfer<span class="w"> </span>transfer<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>network_out,memory,disk,class,gpus,vcpus,transfer,label<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>types
@@ -3386,6 +3540,12 @@
 <section id="commands-linodes-upgrade">
 <span id="id33"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-mutate-linode-instance">upgrade</a><a class="headerlink" href="#commands-linodes-upgrade" title="Link to this heading"></a></h2>
 <p>Linodes created with now-deprecated Types are entitled to a free upgrade to the next generation.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>upgrade<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--allow_auto_disk_resize<span class="w"> </span>allow_auto_disk_resize<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>upgrade<span class="w"> </span><span class="m">123</span>
@@ -3416,10 +3576,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3441,6 +3601,12 @@
 <section id="commands-linodes-volumes">
 <span id="id34"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-volumes">volumes</a><a class="headerlink" href="#commands-linodes-volumes" title="Link to this heading"></a></h2>
 <p>View Block Storage Volumes attached to this Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>volumes<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>tags,label<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linode<span class="w"> </span>volumes<span class="w"> </span><span class="m">123</span>
@@ -3576,6 +3742,12 @@
 <section id="commands-linodes-backup-view">
 <span id="id35"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-backup">backup-view</a><a class="headerlink" href="#commands-linodes-backup-view" title="Link to this heading"></a></h2>
 <p>Returns information about a Backup.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>backup-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId<span class="w"> </span>backupId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>backup-view<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">123456</span>
@@ -3708,6 +3880,12 @@
 <section id="commands-linodes-backup-restore">
 <span id="id36"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-restore-backup">backup-restore</a><a class="headerlink" href="#commands-linodes-backup-restore" title="Link to this heading"></a></h2>
 <p>Restores a Linode’s Backup to the specified Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>backup-restore<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--overwrite<span class="w"> </span>overwrite<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--linode_id<span class="w"> </span>linode_id<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>backupId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>backup-restore<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
@@ -3744,10 +3922,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3774,6 +3952,12 @@
 <section id="commands-linodes-backups-list">
 <span id="id37"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-backups">backups-list</a><a class="headerlink" href="#commands-linodes-backups-list" title="Link to this heading"></a></h2>
 <p>Returns information about this Linode’s available backups.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>backups-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>backups-list<span class="w"> </span><span class="m">123</span>
@@ -3902,6 +4086,11 @@
 <section id="commands-linodes-backups-cancel">
 <span id="id38"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-cancel-backups">backups-cancel</a><a class="headerlink" href="#commands-linodes-backups-cancel" title="Link to this heading"></a></h2>
 <p>Cancels the Backup service on the given Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>backups-cancel<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>backups-cancel<span class="w"> </span><span class="m">123</span>
@@ -3933,6 +4122,11 @@
 <section id="commands-linodes-backups-enable">
 <span id="id39"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-enable-backups">backups-enable</a><a class="headerlink" href="#commands-linodes-backups-enable" title="Link to this heading"></a></h2>
 <p>Enables backups for the specified Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>backups-enable<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>backups-enable<span class="w"> </span><span class="m">123</span>
@@ -3964,6 +4158,14 @@
 <section id="commands-linodes-config-view">
 <span id="id40"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-config">config-view</a><a class="headerlink" href="#commands-linodes-config-view" title="Link to this heading"></a></h2>
 <p>Returns information about a specific Configuration profile.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.label<span class="w"> </span>interfaces.label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,interfaces.label<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+<span class="w">    </span>linodeId<span class="w"> </span>configId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-view<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">23456</span>
@@ -4272,6 +4474,43 @@
 <section id="commands-linodes-config-create">
 <span id="id41"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-config">config-create</a><a class="headerlink" href="#commands-linodes-config-create" title="Link to this heading"></a></h2>
 <p>Adds a new Configuration profile to a Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--helpers.network<span class="w"> </span>network<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--helpers.devtmpfs_automount<span class="w"> </span>devtmpfs_automount<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--helpers.distro<span class="w"> </span>distro<span class="o">]</span><span class="w"> </span><span class="o">[</span>--helpers.modules_dep<span class="w"> </span>modules_dep<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--helpers.updatedb_disabled<span class="w"> </span>updatedb_disabled<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--run_level<span class="w"> </span>run_level<span class="o">]</span><span class="w"> </span><span class="o">[</span>--memory_limit<span class="w"> </span>memory_limit<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--kernel<span class="w"> </span>kernel<span class="o">]</span><span class="w"> </span><span class="o">[</span>--comments<span class="w"> </span>comments<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--root_device<span class="w"> </span>root_device<span class="o">]</span><span class="w"> </span><span class="o">[</span>--interfaces<span class="w"> </span>interfaces<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.purpose<span class="w"> </span>purpose<span class="o">]</span><span class="w"> </span><span class="o">[</span>--interfaces.label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ipam_address<span class="w"> </span>ipam_address<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.primary<span class="w"> </span>primary<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ip_ranges<span class="w"> </span>ip_ranges<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.subnet_id<span class="w"> </span>subnet_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ipv4.vpc<span class="w"> </span>vpc<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ipv4.nat_1_1<span class="w"> </span>nat_1_1<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.active<span class="w"> </span>active<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sde.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sde.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sda.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sda.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdc.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdc.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdg.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdg.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdb.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdb.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdd.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdd.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdh.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdh.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdf.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdf.volume_id<span class="w"> </span>volume_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--virt_mode<span class="w"> </span>virt_mode<span class="o">]</span>
+<span class="w">    </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-create<span class="w"> </span><span class="m">7590910</span><span class="w"> </span><span class="se">\</span>
@@ -4305,10 +4544,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4468,10 +4707,10 @@
 <p class="action-section-header" id="commands-linodes-config-create-argument-sections-interfaces">interfaces</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4806,6 +5045,42 @@
 <section id="commands-linodes-config-update">
 <span id="id42"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-config">config-update</a><a class="headerlink" href="#commands-linodes-config-update" title="Link to this heading"></a></h2>
 <p>Updates a Configuration profile.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--memory_limit<span class="w"> </span>memory_limit<span class="o">]</span><span class="w"> </span><span class="o">[</span>--kernel<span class="w"> </span>kernel<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--helpers.network<span class="w"> </span>network<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--helpers.devtmpfs_automount<span class="w"> </span>devtmpfs_automount<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--helpers.distro<span class="w"> </span>distro<span class="o">]</span><span class="w"> </span><span class="o">[</span>--helpers.modules_dep<span class="w"> </span>modules_dep<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--helpers.updatedb_disabled<span class="w"> </span>updatedb_disabled<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--root_device<span class="w"> </span>root_device<span class="o">]</span><span class="w"> </span><span class="o">[</span>--comments<span class="w"> </span>comments<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--run_level<span class="w"> </span>run_level<span class="o">]</span><span class="w"> </span><span class="o">[</span>--virt_mode<span class="w"> </span>virt_mode<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces<span class="w"> </span>interfaces<span class="o">]</span><span class="w"> </span><span class="o">[</span>--interfaces.active<span class="w"> </span>active<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ipv4.nat_1_1<span class="w"> </span>nat_1_1<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ipv4.vpc<span class="w"> </span>vpc<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.subnet_id<span class="w"> </span>subnet_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ip_ranges<span class="w"> </span>ip_ranges<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.ipam_address<span class="w"> </span>ipam_address<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.primary<span class="w"> </span>primary<span class="o">]</span><span class="w"> </span><span class="o">[</span>--interfaces.label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.purpose<span class="w"> </span>purpose<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdg.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdg.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdb.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdb.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdd.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdd.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdh.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdh.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdf.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdf.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sde.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sde.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sda.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sda.volume_id<span class="w"> </span>volume_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdc.disk_id<span class="w"> </span>disk_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--devices.sdc.volume_id<span class="w"> </span>volume_id<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-update<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">23456</span><span class="w"> </span><span class="se">\</span>
@@ -4853,10 +5128,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5016,10 +5291,10 @@
 <p class="action-section-header" id="commands-linodes-config-update-argument-sections-interfaces">interfaces</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5354,6 +5629,11 @@
 <section id="commands-linodes-config-delete">
 <span id="id43"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-config">config-delete</a><a class="headerlink" href="#commands-linodes-config-delete" title="Link to this heading"></a></h2>
 <p>Deletes the specified Configuration profile from the specified Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-delete<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">23456</span>
@@ -5389,6 +5669,13 @@
 <section id="commands-linodes-config-interface-view">
 <span id="id44"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-config-interface">config-interface-view</a><a class="headerlink" href="#commands-linodes-config-interface-view" title="Link to this heading"></a></h2>
 <p>Returns a single Configuration Profile Interface.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
+<span class="w">    </span>interfaceId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-view<span class="w"> </span><span class="nv">$linodeId</span><span class="w"> </span><span class="nv">$configId</span><span class="w"> </span><span class="nv">$interfaceId</span>
@@ -5520,6 +5807,15 @@
 <section id="commands-linodes-config-interface-add">
 <span id="id45"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-linode-config-interface">config-interface-add</a><a class="headerlink" href="#commands-linodes-config-interface-add" title="Link to this heading"></a></h2>
 <p>Creates and appends a single Interface to the end of the <code class="code docutils literal notranslate"><span class="pre">interfaces</span></code> array for an existing Configuration Profile.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-add<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--subnet_id<span class="w"> </span>subnet_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--primary<span class="w"> </span>primary<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ipam_address<span class="w"> </span>ipam_address<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ip_ranges<span class="w"> </span>ip_ranges<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--purpose<span class="w"> </span>purpose<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ipv4.vpc<span class="w"> </span>vpc<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ipv4.nat_1_1<span class="w"> </span>nat_1_1<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--active<span class="w"> </span>active<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-add<span class="w"> </span><span class="nv">$linodeId</span><span class="w"> </span><span class="nv">$configId</span><span class="w"> </span><span class="se">\</span>
@@ -5559,10 +5855,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5716,6 +6012,14 @@
 <section id="commands-linodes-config-interface-update">
 <span id="id46"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-config-interface">config-interface-update</a><a class="headerlink" href="#commands-linodes-config-interface-update" title="Link to this heading"></a></h2>
 <p>Updates a <code class="code docutils literal notranslate"><span class="pre">vpc</span></code> or <code class="code docutils literal notranslate"><span class="pre">public</span></code> purpose Interface for this Configuration Profile.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ip_ranges<span class="w"> </span>ip_ranges<span class="o">]</span><span class="w"> </span><span class="o">[</span>--primary<span class="w"> </span>primary<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ipv4.nat_1_1<span class="w"> </span>nat_1_1<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ipv4.vpc<span class="w"> </span>vpc<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
+<span class="w">    </span>interfaceId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-update<span class="w"> </span><span class="nv">$linodeId</span><span class="w"> </span><span class="nv">$configId</span><span class="w"> </span><span class="nv">$interfaceId</span><span class="w"> </span><span class="se">\</span>
@@ -5757,10 +6061,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5889,6 +6193,12 @@
 <section id="commands-linodes-config-interface-delete">
 <span id="id47"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-config-interface">config-interface-delete</a><a class="headerlink" href="#commands-linodes-config-interface-delete" title="Link to this heading"></a></h2>
 <p>Deletes an Interface from the Configuration Profile.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interface-delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
+<span class="w">    </span>interfaceId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-delete<span class="w"> </span><span class="nv">$linodeId</span><span class="w"> </span><span class="nv">$configId</span><span class="w"> </span><span class="nv">$interfaceId</span>
@@ -5925,9 +6235,17 @@
 </table>
 <hr class="docutils" />
 </section>
-<section id="commands-linodes-config-interfaces-list">
+<section class="action-has-keywords" id="commands-linodes-config-interfaces-list">
 <span id="id48"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-config-interfaces">config-interfaces-list</a><a class="headerlink" href="#commands-linodes-config-interfaces-list" title="Link to this heading"></a></h2>
+<p class="action-keyword"><span class="action-keyword-key">Aliases:</span>
+<span class="action-keyword-values">config-interfaces-ls</span></p>
 <p>Returns an ordered array of all Interfaces associated with this Configuration Profile.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interfaces-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId<span class="w"> </span>configId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interfaces-list<span class="w"> </span><span class="nv">$linodeId</span><span class="w"> </span><span class="nv">$configId</span>
@@ -6055,6 +6373,12 @@
 <section id="commands-linodes-config-interfaces-order">
 <span id="id49"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-linode-config-interfaces">config-interfaces-order</a><a class="headerlink" href="#commands-linodes-config-interfaces-order" title="Link to this heading"></a></h2>
 <p>Reorders the existing Interfaces of a Configuration Profile.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interfaces-order<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--ids<span class="w"> </span>ids<span class="o">]</span>
+<span class="w">    </span>linodeId<span class="w"> </span>configId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>config-interfaces-order<span class="w"> </span><span class="nv">$linodeId</span><span class="w"> </span><span class="nv">$configId</span><span class="w"> </span><span class="se">\</span>
@@ -6090,10 +6414,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -6115,6 +6439,14 @@
 <section id="commands-linodes-configs-list">
 <span id="id52"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-configs">configs-list</a><a class="headerlink" href="#commands-linodes-configs-list" title="Link to this heading"></a></h2>
 <p>Lists Configuration profiles associated with a Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>configs-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--interfaces.label<span class="w"> </span>interfaces.label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,interfaces.label<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span>
+<span class="w">    </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>configs-list<span class="w"> </span><span class="m">123</span>
@@ -6444,6 +6776,12 @@
 <section id="commands-linodes-disk-view">
 <span id="id53"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-disk">disk-view</a><a class="headerlink" href="#commands-linodes-disk-view" title="Link to this heading"></a></h2>
 <p>View Disk information for a Disk associated with this Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--size<span class="w"> </span>size<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,size<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId<span class="w"> </span>diskId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-view<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">25674</span>
@@ -6533,6 +6871,16 @@
 <section id="commands-linodes-disk-create">
 <span id="id54"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-disk">disk-create</a><a class="headerlink" href="#commands-linodes-disk-create" title="Link to this heading"></a></h2>
 <p>Adds a new Disk to a Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-create<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--authorized_keys<span class="w"> </span>authorized_keys<span class="o">]</span><span class="w"> </span><span class="o">[</span>--size<span class="w"> </span>size<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--stackscript_id<span class="w"> </span>stackscript_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>--image<span class="w"> </span>image<span class="o">]</span><span class="w"> </span><span class="o">[</span>--root_pass
+<span class="w">    </span><span class="o">[</span>ROOT_PASS<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--stackscript_data<span class="w"> </span>stackscript_data<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--authorized_users<span class="w"> </span>authorized_users<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--filesystem<span class="w"> </span>filesystem<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-create<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
@@ -6571,10 +6919,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -6690,6 +7038,12 @@
 <section id="commands-linodes-disk-update">
 <span id="id55"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-disk">disk-update</a><a class="headerlink" href="#commands-linodes-disk-update" title="Link to this heading"></a></h2>
 <p>Updates a Disk that you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span>linodeId
+<span class="w">    </span>diskId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-update<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">25674</span><span class="w"> </span><span class="se">\</span>
@@ -6725,10 +7079,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -6804,6 +7158,11 @@
 <section id="commands-linodes-disk-delete">
 <span id="id56"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-disk">disk-delete</a><a class="headerlink" href="#commands-linodes-disk-delete" title="Link to this heading"></a></h2>
 <p>Deletes a Disk you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>diskId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-delete<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">24674</span>
@@ -6839,6 +7198,11 @@
 <section id="commands-linodes-disk-clone">
 <span id="id57"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-clone-linode-disk">disk-clone</a><a class="headerlink" href="#commands-linodes-disk-clone" title="Link to this heading"></a></h2>
 <p>Copies a disk, byte-for-byte, into a new Disk belonging to the same Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-clone<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>diskId
+</pre></div>
+</div>
 <p class="action-subheading">Parameters</p>
 <p class="action-subheading-description">Positional parameters used to define the resource this command should target.</p>
 <table class="action-parameter-table docutils align-default" style="width: 100%">
@@ -6923,6 +7287,12 @@
 <section id="commands-linodes-disk-reset-password">
 <span id="id58"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-reset-disk-password">disk-reset-password</a><a class="headerlink" href="#commands-linodes-disk-reset-password" title="Link to this heading"></a></h2>
 <p>Resets the password of a Disk you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-reset-password<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--password<span class="w"> </span>password<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>diskId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-reset-password<span class="w"> </span><span class="se">\</span>
@@ -6959,10 +7329,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -6984,6 +7354,11 @@
 <section id="commands-linodes-disk-resize">
 <span id="id59"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-resize-disk">disk-resize</a><a class="headerlink" href="#commands-linodes-disk-resize" title="Link to this heading"></a></h2>
 <p>Resizes a Disk you have permission to <code class="code docutils literal notranslate"><span class="pre">read_write</span></code>.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-resize<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--size<span class="w"> </span>size<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>diskId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disk-resize<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">25674</span><span class="w"> </span><span class="se">\</span>
@@ -7019,10 +7394,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -7044,6 +7419,12 @@
 <section id="commands-linodes-disks-list">
 <span id="id60"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-disks">disks-list</a><a class="headerlink" href="#commands-linodes-disks-list" title="Link to this heading"></a></h2>
 <p>View Disk information for Disks associated with this Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disks-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span><span class="w"> </span><span class="o">[</span>--size<span class="w"> </span>size<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,size<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>disks-list<span class="w"> </span><span class="m">123</span>
@@ -7154,6 +7535,15 @@
 <section id="commands-linodes-firewalls-list">
 <span id="id61"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-firewalls">firewalls-list</a><a class="headerlink" href="#commands-linodes-firewalls-list" title="Link to this heading"></a></h2>
 <p>View Firewall information for Firewalls assigned to this Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>firewalls-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--updated<span class="w"> </span>updated<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tags<span class="w"> </span><span class="o">[</span>tags<span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--id<span class="w"> </span>id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--created<span class="w"> </span>created<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>label,updated,tags,id,created<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>firewalls-list<span class="w"> </span><span class="m">123</span>
@@ -7369,6 +7759,12 @@
 <section id="commands-linodes-ip-view">
 <span id="id62"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-ip">ip-view</a><a class="headerlink" href="#commands-linodes-ip-view" title="Link to this heading"></a></h2>
 <p>View information about the specified IP address associated with the specified Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId<span class="w"> </span>address
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-view<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="m">97</span>.107.143.141
@@ -7501,6 +7897,12 @@
 <section id="commands-linodes-ip-add">
 <span id="id63"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-add-linode-ip">ip-add</a><a class="headerlink" href="#commands-linodes-ip-add" title="Link to this heading"></a></h2>
 <p>Allocates a public or private IPv4 address to a Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-add<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--type<span class="w"> </span>type<span class="o">]</span><span class="w"> </span><span class="o">[</span>--public<span class="w"> </span>public<span class="o">]</span>
+<span class="w">    </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-add<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
@@ -7533,10 +7935,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -7660,6 +8062,11 @@
 <section id="commands-linodes-ip-update">
 <span id="id64"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/put-linode-ip">ip-update</a><a class="headerlink" href="#commands-linodes-ip-update" title="Link to this heading"></a></h2>
 <p>Updates the reverse DNS (RDNS) for a Linode’s IP Address.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-update<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--rdns<span class="w"> </span>rdns<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>address
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-update<span class="w"> </span><span class="m">123</span><span class="w"> </span><span class="se">\</span>
@@ -7696,10 +8103,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -7818,6 +8225,11 @@
 <section id="commands-linodes-ip-delete">
 <span id="id65"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/delete-linode-ip">ip-delete</a><a class="headerlink" href="#commands-linodes-ip-delete" title="Link to this heading"></a></h2>
 <p>Deletes a public or private IPv4 address associated with this Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-delete<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>linodeId<span class="w"> </span>address
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ip-delete<span class="w"> </span><span class="m">97</span>.107.143.141
@@ -7853,6 +8265,20 @@
 <section id="commands-linodes-ips-list">
 <span id="id66"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-ips">ips-list</a><a class="headerlink" href="#commands-linodes-ips-list" title="Link to this heading"></a></h2>
 <p>Returns networking information for a single Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ips-list<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ipv4.vpc.config_id<span class="w"> </span>ipv4.vpc.config_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ipv4.vpc.linode_id<span class="w"> </span>ipv4.vpc.linode_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ipv4.vpc.region<span class="w"> </span>ipv4.vpc.region<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ipv4.vpc.active<span class="w"> </span>ipv4.vpc.active<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ipv4.vpc.vpc_id<span class="w"> </span>ipv4.vpc.vpc_id<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ipv6.link_local.region<span class="w"> </span>ipv6.link_local.region<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--ipv6.slaac.region<span class="w"> </span>ipv6.slaac.region<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>ipv4.vpc.config_id,ipv4.vpc.linode_id,ipv4.vpc.region,ipv4.vpc.active,ipv4.vpc.vpc_id,ipv6.link_local.region,ipv6.slaac.region<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>ips-list<span class="w"> </span><span class="m">123</span>
@@ -8337,6 +8763,12 @@
 <section id="commands-linodes-linode-reset-password">
 <span id="id67"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/post-reset-linode-password">linode-reset-password</a><a class="headerlink" href="#commands-linodes-linode-reset-password" title="Link to this heading"></a></h2>
 <p>Resets the root password for this Linode.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>linode-reset-password<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--root_pass<span class="w"> </span>root_pass<span class="o">]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>linode-reset-password<span class="w"> </span><span class="m">123</span><span class="w"> </span>a<span class="nv">$eCure4assw0rd</span>!43v51
@@ -8367,10 +8799,10 @@
 <p class="action-subheading-description">Additional fields used to execute this request.</p>
 <table class="action-argument-section-table docutils align-default" style="width: 100%">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 1.0%" />
 <col style="width: 1.0%" />
-<col style="width: 73.0%" />
+<col style="width: 1.0%" />
+<col style="width: 97.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -8392,6 +8824,12 @@
 <section id="commands-linodes-transfer-view">
 <span id="id68"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-transfer">transfer-view</a><a class="headerlink" href="#commands-linodes-transfer-view" title="Link to this heading"></a></h2>
 <p>Returns a Linode’s network transfer pool statistics for the current month.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>transfer-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>linodeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>transfer-view<span class="w"> </span><span class="m">123</span>
@@ -8456,6 +8894,15 @@
 <section id="commands-linodes-type-view">
 <span id="id69"></span><h2><a class="reference external" href="https://techdocs.akamai.com/linode-api/reference/get-linode-type">type-view</a><a class="headerlink" href="#commands-linodes-type-view" title="Link to this heading"></a></h2>
 <p>Returns information about a specific Linode Type, including pricing and specifications.</p>
+<p class="action-subheading">Usage</p>
+<p class="action-subheading-description">The format accepted by this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>type-view<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--network_out<span class="w"> </span>network_out<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--memory<span class="w"> </span>memory<span class="o">]</span><span class="w"> </span><span class="o">[</span>--disk<span class="w"> </span>disk<span class="o">]</span><span class="w"> </span><span class="o">[</span>--class<span class="w"> </span>class<span class="o">]</span><span class="w"> </span><span class="o">[</span>--gpus<span class="w"> </span>gpus<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--vcpus<span class="w"> </span>vcpus<span class="o">]</span><span class="w"> </span><span class="o">[</span>--transfer<span class="w"> </span>transfer<span class="o">]</span><span class="w"> </span><span class="o">[</span>--label<span class="w"> </span>label<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--order-by<span class="w"> </span><span class="o">{</span>network_out,memory,disk,class,gpus,vcpus,transfer,label<span class="o">}]</span>
+<span class="w">    </span><span class="o">[</span>--order<span class="w"> </span><span class="o">{</span>asc,desc<span class="o">}]</span><span class="w"> </span>typeId
+</pre></div>
+</div>
 <p class="action-subheading">Sample</p>
 <p class="action-subheading-description">Examples of how this command might be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>type-view<span class="w"> </span>g6-standard-2

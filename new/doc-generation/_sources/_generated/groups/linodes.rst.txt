@@ -3,6 +3,8 @@ Linodes
 
 This section details Linode-related Linode CLI commands.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11,14 +13,56 @@ This section details Linode-related Linode CLI commands.
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_linodes_list:
 
 `list <https://techdocs.akamai.com/linode-api/reference/get-linode-instances>`_
 -------------------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`ls`
+
 
 Returns a paginated list of Linodes you have permission to view.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes list [-h] [--group group] [--tags [tags] ]
+    	[--id id] [--region region] [--ipv4 [ipv4] ] [--label label]
+    	[--image image]
+    	[--placement_group.label placement_group.label]
+    	[--placement_group.placement_group_type placement_group.placement_group_type]
+    	[--order-by {group,tags,id,region,ipv4,label,image,placement_group.label,placement_group.placement_group_type}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -48,6 +92,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -120,6 +166,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -424,6 +472,8 @@ specs
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -432,6 +482,7 @@ specs
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_view:
 
 `view <https://techdocs.akamai.com/linode-api/reference/get-linode-instance>`_
@@ -440,6 +491,41 @@ specs
 
 Get a specific Linode by ID.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes view [-h] [--group group] [--tags [tags] ]
+    	[--id id] [--region region] [--ipv4 [ipv4] ] [--label label]
+    	[--placement_group.label placement_group.label]
+    	[--placement_group.placement_group_type placement_group.placement_group_type]
+    	[--image image]
+    	[--order-by {group,tags,id,region,ipv4,label,placement_group.label,placement_group.placement_group_type,image}]
+    	[--order {asc,desc}] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -467,6 +553,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -509,6 +597,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -813,6 +903,8 @@ specs
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -821,6 +913,7 @@ specs
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_create:
 
 `create <https://techdocs.akamai.com/linode-api/reference/post-linode-instance>`_
@@ -829,6 +922,52 @@ specs
 
 Creates a Linode Instance on your Account.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes create [-h] [--metadata.user_data user_data]
+    	[--stackscript_data stackscript_data] [--booted booted]
+    	[--root_pass [ROOT_PASS] ]
+    	[--authorized_users authorized_users]
+    	[--authorized_keys authorized_keys] [--image image]
+    	[--stackscript_id stackscript_id] [--label label]
+    	[--backups_enabled backups_enabled] [--type type]
+    	[--placement_group.id id] [--swap_size swap_size]
+    	[--firewall_id firewall_id] [--backup_id backup_id]
+    	[--group group] [--tags tags] [--interfaces interfaces]
+    	[--interfaces.ipv4.vpc vpc]
+    	[--interfaces.ipv4.nat_1_1 nat_1_1]
+    	[--interfaces.active active] [--interfaces.purpose purpose]
+    	[--interfaces.subnet_id subnet_id]
+    	[--interfaces.primary primary] [--interfaces.label label]
+    	[--interfaces.ipam_address ipam_address]
+    	[--interfaces.ip_ranges ip_ranges] [--region region]
+    	[--private_ip private_ip]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -871,6 +1010,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -897,7 +1038,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -1020,7 +1161,7 @@ interfaces
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -1078,6 +1219,8 @@ interfaces
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1382,6 +1525,8 @@ specs
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1390,6 +1535,7 @@ specs
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_update:
 
 `update <https://techdocs.akamai.com/linode-api/reference/put-linode-instance>`_
@@ -1398,6 +1544,41 @@ specs
 
 Updates a Linode that you have permission to :code:`read_write`.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes update [-h] [--backups.schedule.day day]
+    	[--backups.schedule.window window]
+    	[--alerts.network_in network_in]
+    	[--alerts.network_out network_out] [--alerts.io io]
+    	[--alerts.cpu cpu] [--alerts.transfer_quota transfer_quota]
+    	[--group group] [--tags tags] [--label label]
+    	[--watchdog_enabled watchdog_enabled] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1433,6 +1614,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1473,6 +1656,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1499,7 +1684,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -1567,6 +1752,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1871,6 +2058,8 @@ specs
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1879,14 +2068,50 @@ specs
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_linodes_delete:
 
 `delete <https://techdocs.akamai.com/linode-api/reference/delete-linode-instance>`_
 -----------------------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`rm`
+
 
 Deletes a Linode you have permission to :code:`read_write`.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes delete [-h] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1914,6 +2139,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1961,6 +2188,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -1969,6 +2198,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_boot:
 
 `boot <https://techdocs.akamai.com/linode-api/reference/post-boot-linode-instance>`_
@@ -1977,6 +2207,35 @@ Positional parameters used to define the resource this command should target.
 
 Boots a Linode you have permission to modify.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes boot [-h] [--config_id config_id] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2004,6 +2263,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2044,6 +2305,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2070,7 +2333,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -2093,6 +2356,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2101,6 +2366,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_clone:
 
 `clone <https://techdocs.akamai.com/linode-api/reference/post-clone-linode-instance>`_
@@ -2109,6 +2375,40 @@ Additional fields used to execute this request.
 
 You can clone your Linode's existing Disks or Configuration profiles to another Linode on your Account.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes clone [-h] [--placement_group.id id]
+    	[--configs configs] [--region region]
+    	[--private_ip private_ip] [--label label]
+    	[--backups_enabled backups_enabled] [--type type]
+    	[--linode_id linode_id] [--group group] [--disks disks]
+    	[--metadata.user_data user_data] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2146,6 +2446,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2186,6 +2488,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2212,7 +2516,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -2280,6 +2584,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2584,6 +2890,8 @@ specs
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2592,6 +2900,7 @@ specs
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_migrate:
 
 `migrate <https://techdocs.akamai.com/linode-api/reference/post-migrate-linode-instance>`_
@@ -2600,6 +2909,37 @@ specs
 
 Initiate a pending host migration that has been scheduled by Linode or initiate a cross data center (DC) migration.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes migrate [-h] [--region region]
+    	[--placement_group.id id] [--type type] [--upgrade upgrade]
+    	linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2627,6 +2967,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2667,6 +3009,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2693,7 +3037,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -2731,6 +3075,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2739,6 +3085,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_nodebalancers:
 
 `nodebalancers <https://techdocs.akamai.com/linode-api/reference/get-linode-node-balancers>`_
@@ -2747,6 +3094,38 @@ Additional fields used to execute this request.
 
 Returns a list of NodeBalancers that are assigned to this Linode and readable by the requesting User.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes nodebalancers [-h] [--label label]
+    	[--region region] [--ipv4 ipv4] [--tags [tags] ]
+    	[--order-by {label,region,ipv4,tags}] [--order {asc,desc}]
+    	linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2774,6 +3153,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2815,6 +3196,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2867,6 +3250,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -2995,6 +3380,8 @@ transfer
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3003,6 +3390,7 @@ transfer
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_reboot:
 
 `reboot <https://techdocs.akamai.com/linode-api/reference/post-reboot-linode-instance>`_
@@ -3011,6 +3399,35 @@ transfer
 
 Reboots a Linode you have permission to modify.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes reboot [-h] [--config_id config_id] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3038,6 +3455,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3078,6 +3497,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3104,7 +3525,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -3127,6 +3548,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3135,6 +3558,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_rebuild:
 
 `rebuild <https://techdocs.akamai.com/linode-api/reference/post-rebuild-linode-instance>`_
@@ -3143,6 +3567,40 @@ Additional fields used to execute this request.
 
 Rebuilds a Linode you have the :code:`read_write` permission to modify.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes rebuild [-h]
+    	[--authorized_users authorized_users] [--root_pass [ROOT_PASS]
+    	] [--booted booted] [--stackscript_data stackscript_data]
+    	[--metadata.user_data user_data]
+    	[--stackscript_id stackscript_id] [--image image]
+    	[--authorized_keys authorized_keys] [--type type] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3181,6 +3639,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3221,6 +3681,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3247,7 +3709,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -3305,6 +3767,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3609,6 +4073,8 @@ specs
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3617,6 +4083,7 @@ specs
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_rescue:
 
 `rescue <https://techdocs.akamai.com/linode-api/reference/post-rescue-linode-instance>`_
@@ -3625,6 +4092,49 @@ specs
 
 Rescue Mode is a safe environment for performing many system recovery and disk management tasks.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes rescue [-h]
+    	[--devices.sdd.volume_id volume_id]
+    	[--devices.sdd.disk_id disk_id]
+    	[--devices.sdb.disk_id disk_id]
+    	[--devices.sdb.volume_id volume_id]
+    	[--devices.sdg.volume_id volume_id]
+    	[--devices.sdg.disk_id disk_id]
+    	[--devices.sdf.volume_id volume_id]
+    	[--devices.sdf.disk_id disk_id]
+    	[--devices.sda.disk_id disk_id]
+    	[--devices.sda.volume_id volume_id]
+    	[--devices.sde.disk_id disk_id]
+    	[--devices.sde.volume_id volume_id]
+    	[--devices.sdc.disk_id disk_id]
+    	[--devices.sdc.volume_id volume_id] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3653,6 +4163,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3693,6 +4205,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3719,7 +4233,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -3807,6 +4321,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3815,6 +4331,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_resize:
 
 `resize <https://techdocs.akamai.com/linode-api/reference/post-resize-linode-instance>`_
@@ -3823,6 +4340,37 @@ Additional fields used to execute this request.
 
 Resizes a Linode you have the :code:`read_write` permission to a different Type.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes resize [-h] [--migration_type migration_type]
+    	[--type type]
+    	[--allow_auto_disk_resize allow_auto_disk_resize] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3851,6 +4399,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3891,6 +4441,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3917,7 +4469,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -3950,6 +4502,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3958,6 +4512,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_shutdown:
 
 `shutdown <https://techdocs.akamai.com/linode-api/reference/post-shutdown-linode-instance>`_
@@ -3966,6 +4521,35 @@ Additional fields used to execute this request.
 
 Shuts down a Linode you have permission to modify.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes shutdown [-h] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -3993,6 +4577,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4040,6 +4626,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4048,6 +4636,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_snapshot:
 
 `snapshot <https://techdocs.akamai.com/linode-api/reference/post-snapshot>`_
@@ -4056,6 +4645,35 @@ Positional parameters used to define the resource this command should target.
 
 Creates a snapshot backup of a Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes snapshot [-h] [--label label] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4083,6 +4701,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4123,6 +4743,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4149,7 +4771,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -4167,6 +4789,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4290,6 +4914,8 @@ disks
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4298,6 +4924,7 @@ disks
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_types:
 
 `types <https://techdocs.akamai.com/linode-api/reference/get-linode-types>`_
@@ -4306,6 +4933,39 @@ disks
 
 Returns collection of Linode Types, including pricing and specifications for each Type.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes types [-h] [--network_out network_out]
+    	[--memory memory] [--disk disk] [--class class] [--gpus gpus]
+    	[--vcpus vcpus] [--transfer transfer] [--label label]
+    	[--order-by {network_out,memory,disk,class,gpus,vcpus,transfer,label}]
+    	[--order {asc,desc}]
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4335,6 +4995,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4403,6 +5065,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4610,6 +5274,8 @@ region_prices
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4618,6 +5284,7 @@ region_prices
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_upgrade:
 
 `upgrade <https://techdocs.akamai.com/linode-api/reference/post-mutate-linode-instance>`_
@@ -4626,6 +5293,36 @@ region_prices
 
 Linodes created with now-deprecated Types are entitled to a free upgrade to the next generation.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes upgrade [-h]
+    	[--allow_auto_disk_resize allow_auto_disk_resize] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4653,6 +5350,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4693,6 +5392,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4719,7 +5420,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -4742,6 +5443,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4750,6 +5453,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_volumes:
 
 `volumes <https://techdocs.akamai.com/linode-api/reference/get-linode-volumes>`_
@@ -4758,6 +5462,36 @@ Additional fields used to execute this request.
 
 View Block Storage Volumes attached to this Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes volumes [-h] [--tags [tags] ] [--label label]
+    	[--order-by {tags,label}] [--order {asc,desc}] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4785,6 +5519,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4826,6 +5562,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4870,6 +5608,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4971,6 +5711,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -4979,6 +5721,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_backup-view:
 
 `backup-view <https://techdocs.akamai.com/linode-api/reference/get-backup>`_
@@ -4987,6 +5730,36 @@ The attributes returned by this command.
 
 Returns information about a Backup.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes backup-view [-h] [--order-by {}]
+    	[--order {asc,desc}] linodeId backupId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5014,6 +5787,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5060,6 +5835,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5183,6 +5960,8 @@ disks
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5191,6 +5970,7 @@ disks
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_backup-restore:
 
 `backup-restore <https://techdocs.akamai.com/linode-api/reference/post-restore-backup>`_
@@ -5199,6 +5979,36 @@ disks
 
 Restores a Linode's Backup to the specified Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes backup-restore [-h] [--overwrite overwrite]
+    	[--linode_id linode_id] linodeId backupId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5228,6 +6038,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5272,6 +6084,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5298,7 +6112,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -5326,6 +6140,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5334,6 +6150,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_backups-list:
 
 `backups-list <https://techdocs.akamai.com/linode-api/reference/get-backups>`_
@@ -5342,6 +6159,36 @@ Additional fields used to execute this request.
 
 Returns information about this Linode's available backups.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes backups-list [-h] [--order-by {}]
+    	[--order {asc,desc}] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5369,6 +6216,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5411,6 +6260,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5534,6 +6385,8 @@ disks
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5542,6 +6395,7 @@ disks
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_backups-cancel:
 
 `backups-cancel <https://techdocs.akamai.com/linode-api/reference/post-cancel-backups>`_
@@ -5550,6 +6404,35 @@ disks
 
 Cancels the Backup service on the given Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes backups-cancel [-h] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5577,6 +6460,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5624,6 +6509,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5632,6 +6519,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_backups-enable:
 
 `backups-enable <https://techdocs.akamai.com/linode-api/reference/post-enable-backups>`_
@@ -5640,6 +6528,35 @@ Positional parameters used to define the resource this command should target.
 
 Enables backups for the specified Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes backups-enable [-h] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5667,6 +6584,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5714,6 +6633,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5722,6 +6643,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_config-view:
 
 `config-view <https://techdocs.akamai.com/linode-api/reference/get-linode-config>`_
@@ -5730,6 +6652,38 @@ Positional parameters used to define the resource this command should target.
 
 Returns information about a specific Configuration profile.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-view [-h] [--label label]
+    	[--interfaces.label interfaces.label]
+    	[--order-by {label,interfaces.label}] [--order {asc,desc}]
+    	linodeId configId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5757,6 +6711,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -5803,6 +6759,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -6110,6 +7068,8 @@ interfaces
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -6118,6 +7078,7 @@ interfaces
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_config-create:
 
 `config-create <https://techdocs.akamai.com/linode-api/reference/post-add-linode-config>`_
@@ -6126,6 +7087,67 @@ interfaces
 
 Adds a new Configuration profile to a Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-create [-h] [--label label]
+    	[--helpers.network network]
+    	[--helpers.devtmpfs_automount devtmpfs_automount]
+    	[--helpers.distro distro] [--helpers.modules_dep modules_dep]
+    	[--helpers.updatedb_disabled updatedb_disabled]
+    	[--run_level run_level] [--memory_limit memory_limit]
+    	[--kernel kernel] [--comments comments]
+    	[--root_device root_device] [--interfaces interfaces]
+    	[--interfaces.purpose purpose] [--interfaces.label label]
+    	[--interfaces.ipam_address ipam_address]
+    	[--interfaces.primary primary]
+    	[--interfaces.ip_ranges ip_ranges]
+    	[--interfaces.subnet_id subnet_id]
+    	[--interfaces.ipv4.vpc vpc]
+    	[--interfaces.ipv4.nat_1_1 nat_1_1]
+    	[--interfaces.active active]
+    	[--devices.sde.volume_id volume_id]
+    	[--devices.sde.disk_id disk_id]
+    	[--devices.sda.disk_id disk_id]
+    	[--devices.sda.volume_id volume_id]
+    	[--devices.sdc.disk_id disk_id]
+    	[--devices.sdc.volume_id volume_id]
+    	[--devices.sdg.volume_id volume_id]
+    	[--devices.sdg.disk_id disk_id]
+    	[--devices.sdb.volume_id volume_id]
+    	[--devices.sdb.disk_id disk_id]
+    	[--devices.sdd.volume_id volume_id]
+    	[--devices.sdd.disk_id disk_id]
+    	[--devices.sdh.disk_id disk_id]
+    	[--devices.sdh.volume_id volume_id]
+    	[--devices.sdf.disk_id disk_id]
+    	[--devices.sdf.volume_id volume_id] [--virt_mode virt_mode]
+    	linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -6156,6 +7178,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -6196,6 +7220,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -6222,7 +7248,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -6390,7 +7416,7 @@ interfaces
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -6448,6 +7474,8 @@ interfaces
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -6755,6 +7783,8 @@ interfaces
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -6763,6 +7793,7 @@ interfaces
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_config-update:
 
 `config-update <https://techdocs.akamai.com/linode-api/reference/put-linode-config>`_
@@ -6771,6 +7802,66 @@ interfaces
 
 Updates a Configuration profile.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-update [-h]
+    	[--memory_limit memory_limit] [--kernel kernel]
+    	[--label label] [--helpers.network network]
+    	[--helpers.devtmpfs_automount devtmpfs_automount]
+    	[--helpers.distro distro] [--helpers.modules_dep modules_dep]
+    	[--helpers.updatedb_disabled updatedb_disabled]
+    	[--root_device root_device] [--comments comments]
+    	[--run_level run_level] [--virt_mode virt_mode]
+    	[--interfaces interfaces] [--interfaces.active active]
+    	[--interfaces.ipv4.nat_1_1 nat_1_1]
+    	[--interfaces.ipv4.vpc vpc]
+    	[--interfaces.subnet_id subnet_id]
+    	[--interfaces.ip_ranges ip_ranges]
+    	[--interfaces.ipam_address ipam_address]
+    	[--interfaces.primary primary] [--interfaces.label label]
+    	[--interfaces.purpose purpose]
+    	[--devices.sdg.volume_id volume_id]
+    	[--devices.sdg.disk_id disk_id]
+    	[--devices.sdb.disk_id disk_id]
+    	[--devices.sdb.volume_id volume_id]
+    	[--devices.sdd.volume_id volume_id]
+    	[--devices.sdd.disk_id disk_id]
+    	[--devices.sdh.volume_id volume_id]
+    	[--devices.sdh.disk_id disk_id]
+    	[--devices.sdf.disk_id disk_id]
+    	[--devices.sdf.volume_id volume_id]
+    	[--devices.sde.volume_id volume_id]
+    	[--devices.sde.disk_id disk_id]
+    	[--devices.sda.disk_id disk_id]
+    	[--devices.sda.volume_id volume_id]
+    	[--devices.sdc.disk_id disk_id]
+    	[--devices.sdc.volume_id volume_id] linodeId configId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -6811,6 +7902,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -6855,6 +7948,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -6881,7 +7976,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -7049,7 +8144,7 @@ interfaces
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -7107,6 +8202,8 @@ interfaces
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7414,6 +8511,8 @@ interfaces
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7422,6 +8521,7 @@ interfaces
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_config-delete:
 
 `config-delete <https://techdocs.akamai.com/linode-api/reference/delete-linode-config>`_
@@ -7430,6 +8530,35 @@ interfaces
 
 Deletes the specified Configuration profile from the specified Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-delete [-h] linodeId configId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7457,6 +8586,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7508,6 +8639,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7516,6 +8649,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_config-interface-view:
 
 `config-interface-view <https://techdocs.akamai.com/linode-api/reference/get-linode-config-interface>`_
@@ -7524,6 +8658,37 @@ Positional parameters used to define the resource this command should target.
 
 Returns a single Configuration Profile Interface.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-view [-h] [--label label]
+    	[--order-by {label}] [--order {asc,desc}] linodeId configId
+    	interfaceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7551,6 +8716,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7601,6 +8768,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7719,6 +8888,8 @@ ipv4
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7727,6 +8898,7 @@ ipv4
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_config-interface-add:
 
 `config-interface-add <https://techdocs.akamai.com/linode-api/reference/post-linode-config-interface>`_
@@ -7735,6 +8907,39 @@ ipv4
 
 Creates and appends a single Interface to the end of the :code:`interfaces` array for an existing Configuration Profile.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-add [-h]
+    	[--subnet_id subnet_id] [--label label] [--primary primary]
+    	[--ipam_address ipam_address] [--ip_ranges ip_ranges]
+    	[--purpose purpose] [--ipv4.vpc vpc] [--ipv4.nat_1_1 nat_1_1]
+    	[--active active] linodeId configId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7767,6 +8972,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7811,6 +9018,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -7837,7 +9046,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -7895,6 +9104,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8013,6 +9224,8 @@ ipv4
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8021,6 +9234,7 @@ ipv4
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_config-interface-update:
 
 `config-interface-update <https://techdocs.akamai.com/linode-api/reference/put-linode-config-interface>`_
@@ -8029,6 +9243,38 @@ ipv4
 
 Updates a :code:`vpc` or :code:`public` purpose Interface for this Configuration Profile.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-update [-h]
+    	[--ip_ranges ip_ranges] [--primary primary]
+    	[--ipv4.nat_1_1 nat_1_1] [--ipv4.vpc vpc] linodeId configId
+    	interfaceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8059,6 +9305,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8107,6 +9355,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8133,7 +9383,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -8166,6 +9416,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8284,6 +9536,8 @@ ipv4
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8292,6 +9546,7 @@ ipv4
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_config-interface-delete:
 
 `config-interface-delete <https://techdocs.akamai.com/linode-api/reference/delete-linode-config-interface>`_
@@ -8300,6 +9555,36 @@ ipv4
 
 Deletes an Interface from the Configuration Profile.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interface-delete [-h] linodeId configId
+    	interfaceId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8327,6 +9612,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8382,6 +9669,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8390,14 +9679,51 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+.. rst-class:: action-has-keywords
+
 .. _commands_linodes_config-interfaces-list:
 
 `config-interfaces-list <https://techdocs.akamai.com/linode-api/reference/get-linode-config-interfaces>`_
 ---------------------------------------------------------------------------------------------------------
 
+.. rst-class:: action-keyword
+
+:action-keyword-key:`Aliases:`
+:action-keyword-values:`config-interfaces-ls`
+
 
 Returns an ordered array of all Interfaces associated with this Configuration Profile.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interfaces-list [-h] [--label label]
+    	[--order-by {label}] [--order {asc,desc}] linodeId configId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8425,6 +9751,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8471,6 +9799,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8589,6 +9919,8 @@ ipv4
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8597,6 +9929,7 @@ ipv4
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_config-interfaces-order:
 
 `config-interfaces-order <https://techdocs.akamai.com/linode-api/reference/post-linode-config-interfaces>`_
@@ -8605,6 +9938,36 @@ ipv4
 
 Reorders the existing Interfaces of a Configuration Profile.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes config-interfaces-order [-h] [--ids ids]
+    	linodeId configId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8633,6 +9996,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8677,6 +10042,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8703,7 +10070,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -8726,6 +10093,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8734,6 +10103,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_configs-list:
 
 `configs-list <https://techdocs.akamai.com/linode-api/reference/get-linode-configs>`_
@@ -8742,6 +10112,38 @@ Additional fields used to execute this request.
 
 Lists Configuration profiles associated with a Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes configs-list [-h] [--label label]
+    	[--interfaces.label interfaces.label]
+    	[--order-by {label,interfaces.label}] [--order {asc,desc}]
+    	linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8769,6 +10171,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8810,6 +10214,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -8854,6 +10260,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9161,6 +10569,8 @@ interfaces
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9169,6 +10579,7 @@ interfaces
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_disk-view:
 
 `disk-view <https://techdocs.akamai.com/linode-api/reference/get-linode-disk>`_
@@ -9177,6 +10588,36 @@ interfaces
 
 View Disk information for a Disk associated with this Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-view [-h] [--label label] [--size size]
+    	[--order-by {label,size}] [--order {asc,desc}] linodeId diskId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9204,6 +10645,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9250,6 +10693,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9326,6 +10771,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9334,6 +10781,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_disk-create:
 
 `disk-create <https://techdocs.akamai.com/linode-api/reference/post-add-linode-disk>`_
@@ -9342,6 +10790,40 @@ The attributes returned by this command.
 
 Adds a new Disk to a Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-create [-h]
+    	[--authorized_keys authorized_keys] [--size size]
+    	[--stackscript_id stackscript_id] [--image image] [--root_pass
+    	[ROOT_PASS] ] [--stackscript_data stackscript_data]
+    	[--authorized_users authorized_users]
+    	[--filesystem filesystem] [--label label] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9377,6 +10859,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9417,6 +10901,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9443,7 +10929,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -9501,6 +10987,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9577,6 +11065,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9585,6 +11075,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_disk-update:
 
 `disk-update <https://techdocs.akamai.com/linode-api/reference/put-disk>`_
@@ -9593,6 +11084,36 @@ The attributes returned by this command.
 
 Updates a Disk that you have permission to :code:`read_write`.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-update [-h] [--label label] linodeId
+    	diskId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9621,6 +11142,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9665,6 +11188,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9691,7 +11216,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -9709,6 +11234,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9785,6 +11312,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9793,6 +11322,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_disk-delete:
 
 `disk-delete <https://techdocs.akamai.com/linode-api/reference/delete-disk>`_
@@ -9801,6 +11331,35 @@ The attributes returned by this command.
 
 Deletes a Disk you have permission to :code:`read_write`.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-delete [-h] linodeId diskId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9828,6 +11387,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9879,6 +11440,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9887,6 +11450,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_disk-clone:
 
 `disk-clone <https://techdocs.akamai.com/linode-api/reference/post-clone-linode-disk>`_
@@ -9895,7 +11459,36 @@ Positional parameters used to define the resource this command should target.
 
 Copies a disk, byte-for-byte, into a new Disk belonging to the same Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
 
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-clone [-h] linodeId diskId
+
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -9942,6 +11535,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10018,6 +11613,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10026,6 +11623,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_disk-reset-password:
 
 `disk-reset-password <https://techdocs.akamai.com/linode-api/reference/post-reset-disk-password>`_
@@ -10034,6 +11632,36 @@ The attributes returned by this command.
 
 Resets the password of a Disk you have permission to :code:`read_write`.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-reset-password [-h]
+    	[--password password] linodeId diskId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10063,6 +11691,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10107,6 +11737,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10133,7 +11765,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -10156,6 +11788,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10164,6 +11798,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_disk-resize:
 
 `disk-resize <https://techdocs.akamai.com/linode-api/reference/post-resize-disk>`_
@@ -10172,6 +11807,35 @@ Additional fields used to execute this request.
 
 Resizes a Disk you have permission to :code:`read_write`.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes disk-resize [-h] [--size size] linodeId diskId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10200,6 +11864,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10244,6 +11910,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10270,7 +11938,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -10293,6 +11961,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10301,6 +11971,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_disks-list:
 
 `disks-list <https://techdocs.akamai.com/linode-api/reference/get-linode-disks>`_
@@ -10309,6 +11980,36 @@ Additional fields used to execute this request.
 
 View Disk information for Disks associated with this Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes disks-list [-h] [--label label] [--size size]
+    	[--order-by {label,size}] [--order {asc,desc}] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10336,6 +12037,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10377,6 +12080,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10421,6 +12126,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10497,6 +12204,8 @@ The attributes returned by this command.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10505,6 +12214,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_firewalls-list:
 
 `firewalls-list <https://techdocs.akamai.com/linode-api/reference/get-linode-firewalls>`_
@@ -10513,6 +12223,39 @@ The attributes returned by this command.
 
 View Firewall information for Firewalls assigned to this Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes firewalls-list [-h] [--label label]
+    	[--updated updated] [--tags [tags] ] [--id id]
+    	[--created created]
+    	[--order-by {label,updated,tags,id,created}]
+    	[--order {asc,desc}] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10540,6 +12283,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10581,6 +12326,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10637,6 +12384,8 @@ Arguments used to define a filter for response entries.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10810,6 +12559,8 @@ rules
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10818,6 +12569,7 @@ rules
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_ip-view:
 
 `ip-view <https://techdocs.akamai.com/linode-api/reference/get-linode-ip>`_
@@ -10826,6 +12578,36 @@ rules
 
 View information about the specified IP address associated with the specified Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes ip-view [-h] [--order-by {}]
+    	[--order {asc,desc}] linodeId address
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10853,6 +12635,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -10899,6 +12683,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11022,6 +12808,8 @@ vpc_nat_1_1
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11030,6 +12818,7 @@ vpc_nat_1_1
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_ip-add:
 
 `ip-add <https://techdocs.akamai.com/linode-api/reference/post-add-linode-ip>`_
@@ -11038,6 +12827,36 @@ vpc_nat_1_1
 
 Allocates a public or private IPv4 address to a Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes ip-add [-h] [--type type] [--public public]
+    	linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11067,6 +12886,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11107,6 +12928,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11133,7 +12956,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -11156,6 +12979,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11279,6 +13104,8 @@ vpc_nat_1_1
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11287,6 +13114,7 @@ vpc_nat_1_1
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_ip-update:
 
 `ip-update <https://techdocs.akamai.com/linode-api/reference/put-linode-ip>`_
@@ -11295,6 +13123,35 @@ vpc_nat_1_1
 
 Updates the reverse DNS (RDNS) for a Linode's IP Address.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes ip-update [-h] [--rdns rdns] linodeId address
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11324,6 +13181,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11368,6 +13227,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11394,7 +13255,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -11412,6 +13273,8 @@ Additional fields used to execute this request.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11535,6 +13398,8 @@ vpc_nat_1_1
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11543,6 +13408,7 @@ vpc_nat_1_1
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_ip-delete:
 
 `ip-delete <https://techdocs.akamai.com/linode-api/reference/delete-linode-ip>`_
@@ -11551,6 +13417,35 @@ vpc_nat_1_1
 
 Deletes a public or private IPv4 address associated with this Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes ip-delete [-h] linodeId address
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11578,6 +13473,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11629,6 +13526,8 @@ Positional parameters used to define the resource this command should target.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11637,6 +13536,7 @@ Positional parameters used to define the resource this command should target.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_ips-list:
 
 `ips-list <https://techdocs.akamai.com/linode-api/reference/get-linode-ips>`_
@@ -11645,6 +13545,44 @@ Positional parameters used to define the resource this command should target.
 
 Returns networking information for a single Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes ips-list [-h]
+    	[--ipv4.vpc.config_id ipv4.vpc.config_id]
+    	[--ipv4.vpc.linode_id ipv4.vpc.linode_id]
+    	[--ipv4.vpc.region ipv4.vpc.region]
+    	[--ipv4.vpc.active ipv4.vpc.active]
+    	[--ipv4.vpc.vpc_id ipv4.vpc.vpc_id]
+    	[--ipv6.link_local.region ipv6.link_local.region]
+    	[--ipv6.slaac.region ipv6.slaac.region]
+    	[--order-by {ipv4.vpc.config_id,ipv4.vpc.linode_id,ipv4.vpc.region,ipv4.vpc.active,ipv4.vpc.vpc_id,ipv6.link_local.region,ipv6.slaac.region}]
+    	[--order {asc,desc}] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11672,6 +13610,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -11714,6 +13654,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12199,6 +14141,8 @@ ipv6
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12207,6 +14151,7 @@ ipv6
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_linode-reset-password:
 
 `linode-reset-password <https://techdocs.akamai.com/linode-api/reference/post-reset-linode-password>`_
@@ -12215,6 +14160,36 @@ ipv6
 
 Resets the root password for this Linode.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes linode-reset-password [-h]
+    	[--root_pass root_pass] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12242,6 +14217,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12282,6 +14259,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12308,7 +14287,7 @@ Additional fields used to execute this request.
 ..  list-table::
     :header-rows: 1
     :width: 100%
-    :widths: 25 1 1 73
+    :widths: 1 1 1 97
 
     * - Name
       - Type
@@ -12331,6 +14310,8 @@ Additional fields used to execute this request.
 
 ------------
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12339,6 +14320,7 @@ Additional fields used to execute this request.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_transfer-view:
 
 `transfer-view <https://techdocs.akamai.com/linode-api/reference/get-linode-transfer>`_
@@ -12347,6 +14329,36 @@ Additional fields used to execute this request.
 
 Returns a Linode's network transfer pool statistics for the current month.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes transfer-view [-h] [--order-by {}]
+    	[--order {asc,desc}] linodeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12374,6 +14386,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12416,6 +14430,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12471,6 +14487,8 @@ The attributes returned by this command.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12479,6 +14497,7 @@ The attributes returned by this command.
 
 .. role:: json(code)
     :language: JSON
+
 .. _commands_linodes_type-view:
 
 `type-view <https://techdocs.akamai.com/linode-api/reference/get-linode-type>`_
@@ -12487,6 +14506,39 @@ The attributes returned by this command.
 
 Returns information about a specific Linode Type, including pricing and specifications.
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
+.. role:: action-table-field-name
+.. role:: action-table-field-optional
+.. role:: action-table-field-required
+.. role:: action-table-field-type
+.. role:: action-table-field-example
+
+.. role:: json(code)
+    :language: JSON
+
+.. rst-class:: action-subheading
+
+Usage
+
+.. rst-class:: action-subheading-description
+
+The format accepted by this command.
+
+
+
+..  code-block:: bash
+
+    linode-cli linodes type-view [-h] [--network_out network_out]
+    	[--memory memory] [--disk disk] [--class class] [--gpus gpus]
+    	[--vcpus vcpus] [--transfer transfer] [--label label]
+    	[--order-by {network_out,memory,disk,class,gpus,vcpus,transfer,label}]
+    	[--order {asc,desc}] typeId
+
+
+
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12514,6 +14566,8 @@ Examples of how this command might be used.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
@@ -12556,6 +14610,8 @@ Positional parameters used to define the resource this command should target.
 
 
 
+.. role:: action-keyword-key
+.. role:: action-keyword-values
 .. role:: action-table-field-name
 .. role:: action-table-field-optional
 .. role:: action-table-field-required
