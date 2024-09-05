@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+1495f40 (API v4.177.1)
+                v0.0.0.dev+074d50e (API v4.177.1)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -105,13 +105,13 @@
 to using web-based configuration, which is fast and convenient for users who
 have access to a browser.</p>
 <p>To manually configure the CLI or reconfigure it if your token expires, you can
-run the <code class="code docutils literal notranslate"><span class="pre">configure</span></code> command:</p>
+run the <code class="docutils literal notranslate"><span class="pre">configure</span></code> command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>configure
 </pre></div>
 </div>
 <p>If you prefer to provide a token directly through the terminal, possibly because
 you don’t have access to a browser where you’re configuring the CLI, pass the
-<code class="code docutils literal notranslate"><span class="pre">--token</span></code> flag to the configure command as shown:</p>
+<code class="docutils literal notranslate"><span class="pre">--token</span></code> flag to the configure command as shown:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>configure<span class="w"> </span>--token
 </pre></div>
 </div>
@@ -120,17 +120,17 @@ log out of cloud.linode.com before configuring a second user.</p>
 <section id="environment-variables">
 <h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
 <p>If you prefer, you may store your token in an environment variable named
-<code class="code docutils literal notranslate"><span class="pre">LINODE_CLI_TOKEN</span></code> instead of using the configuration file.  Doing so allows you
-to bypass the initial configuration, and subsequent calls to <code class="code docutils literal notranslate"><span class="pre">linode-cli</span> <span class="pre">configure</span></code>
+<code class="docutils literal notranslate"><span class="pre">LINODE_CLI_TOKEN</span></code> instead of using the configuration file.  Doing so allows you
+to bypass the initial configuration, and subsequent calls to <code class="docutils literal notranslate"><span class="pre">linode-cli</span> <span class="pre">configure</span></code>
 will allow you to set defaults without having to set a token.  Be aware that if
 the environment variable should be unset, the Linode CLI will stop working until
 it is set again or the CLI is reconfigured with a token.</p>
 <p>You may also use environment variables to store your Object Storage Keys for
-the <code class="code docutils literal notranslate"><span class="pre">obj</span></code> plugin that ships with the CLI.  To do so, simply set
-<code class="code docutils literal notranslate"><span class="pre">LINODE_CLI_OBJ_ACCESS_KEY</span></code> and <code class="code docutils literal notranslate"><span class="pre">LINODE_CLI_OBJ_SECRET_KEY</span></code> to the
+the <code class="docutils literal notranslate"><span class="pre">obj</span></code> plugin that ships with the CLI.  To do so, simply set
+<code class="docutils literal notranslate"><span class="pre">LINODE_CLI_OBJ_ACCESS_KEY</span></code> and <code class="docutils literal notranslate"><span class="pre">LINODE_CLI_OBJ_SECRET_KEY</span></code> to the
 appropriate values.  This allows using Linode Object Storage through the CLI
 without having a configuration file, which is desirable in some situations.</p>
-<p>You may also specify the path to a custom Certificate Authority file using the <code class="code docutils literal notranslate"><span class="pre">LINODE_CLI_CA</span></code>
+<p>You may also specify the path to a custom Certificate Authority file using the <code class="docutils literal notranslate"><span class="pre">LINODE_CLI_CA</span></code>
 environment variable.</p>
 <p>If you wish to hide the API Version warning you can use the <cite>LINODE_CLI_SUPPRESS_VERSION_WARNING</cite>
 environment variable.</p>
@@ -140,16 +140,16 @@ environment variable.</p>
 <p>In some cases you may want to run linode-cli against a non-default Linode API URL.
 This can be done using the following environment variables to override certain segments of the target API URL.</p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">LINODE_CLI_API_HOST</span></code> - The host of the Linode API instance (e.g. <code class="code docutils literal notranslate"><span class="pre">api.linode.com</span></code>)</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">LINODE_CLI_API_VERSION</span></code> - The Linode API version to use (e.g. <code class="code docutils literal notranslate"><span class="pre">v4beta</span></code>)</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">LINODE_CLI_API_SCHEME</span></code> - The request scheme to use (e.g. <code class="code docutils literal notranslate"><span class="pre">https</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LINODE_CLI_API_HOST</span></code> - The host of the Linode API instance (e.g. <code class="docutils literal notranslate"><span class="pre">api.linode.com</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LINODE_CLI_API_VERSION</span></code> - The Linode API version to use (e.g. <code class="docutils literal notranslate"><span class="pre">v4beta</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LINODE_CLI_API_SCHEME</span></code> - The request scheme to use (e.g. <code class="docutils literal notranslate"><span class="pre">https</span></code>)</p></li>
 </ul>
-<p>Alternatively, these values can be configured per-user using the <code class="code docutils literal notranslate"><span class="pre">linode-cli</span> <span class="pre">configure</span></code> command.</p>
+<p>Alternatively, these values can be configured per-user using the <code class="docutils literal notranslate"><span class="pre">linode-cli</span> <span class="pre">configure</span></code> command.</p>
 </section>
 <section id="multiple-users">
 <h2>Multiple Users<a class="headerlink" href="#multiple-users" title="Link to this heading"></a></h2>
 <p>If you use the Linode CLI to manage multiple Linode accounts, you may configure
-additional users using the <code class="code docutils literal notranslate"><span class="pre">linode-cli</span> <span class="pre">configure</span></code> command.  The CLI will automatically
+additional users using the <code class="docutils literal notranslate"><span class="pre">linode-cli</span> <span class="pre">configure</span></code> command.  The CLI will automatically
 detect that a new user is being configured based on the token given.</p>
 </section>
 <section id="displaying-configured-users">
@@ -168,7 +168,7 @@ detect that a new user is being configured based on the token given.</p>
 </div>
 <p>Subsequent CLI commands will be executed as that user by default.</p>
 <p>Should you wish to execute a single request as a different user, you can supply
-the <code class="code docutils literal notranslate"><span class="pre">--as-user</span></code> argument to specify the username you wish to act as for that
+the <code class="docutils literal notranslate"><span class="pre">--as-user</span></code> argument to specify the username you wish to act as for that
 command.  This <em>will not</em> change the active user.</p>
 </section>
 <section id="removing-configured-users">

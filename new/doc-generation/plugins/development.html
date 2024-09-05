@@ -42,7 +42,7 @@
               <img src="../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+1495f40 (API v4.177.1)
+                v0.0.0.dev+074d50e (API v4.177.1)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -112,7 +112,7 @@ CLI as other features are. All plugins are found in this directory.</p>
 <h2>Creating a Plugin<a class="headerlink" href="#creating-a-plugin" title="Link to this heading"></a></h2>
 <p>To create a plugin, simply drop a new python file into this directory or write a
 Python module that presents the interface described below. If the
-plugin is a Python module, make sure the <code class="code docutils literal notranslate"><span class="pre">call</span></code> method is in the <code class="code docutils literal notranslate"><span class="pre">__init__.py</span></code>
+plugin is a Python module, make sure the <code class="docutils literal notranslate"><span class="pre">call</span></code> method is in the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>
 file in the root of the module.</p>
 <p>Plugins in this directory are called “Internal Plugins,” and must meet the
 following conditions:</p>
@@ -127,17 +127,17 @@ following conditions:</p>
 </dd>
 </dl>
 </li>
-<li><p>It must contain a <code class="code docutils literal notranslate"><span class="pre">call(args,</span> <span class="pre">context)</span></code> function for invocation</p></li>
-<li><p>It must support a <code class="code docutils literal notranslate"><span class="pre">--help</span></code> command as all other CLI commands do.</p></li>
+<li><p>It must contain a <code class="docutils literal notranslate"><span class="pre">call(args,</span> <span class="pre">context)</span></code> function for invocation</p></li>
+<li><p>It must support a <code class="docutils literal notranslate"><span class="pre">--help</span></code> command as all other CLI commands do.</p></li>
 </ul>
-<p>Plugins that are installed separately and registered with the <code class="code docutils literal notranslate"><span class="pre">register-plugin</span></code>
+<p>Plugins that are installed separately and registered with the <code class="docutils literal notranslate"><span class="pre">register-plugin</span></code>
 command are called “Third Party Plugins,” and must meet the following
 conditions:</p>
 <ul class="simple">
 <li><p>Its name must be unique, both with the internal plugins and all CLI operations</p></li>
-<li><p>It must contain a <code class="code docutils literal notranslate"><span class="pre">call(args,</span> <span class="pre">context)</span></code> function for invocation</p></li>
+<li><p>It must contain a <code class="docutils literal notranslate"><span class="pre">call(args,</span> <span class="pre">context)</span></code> function for invocation</p></li>
 <li><dl class="simple">
-<dt>It must contain a <code class="code docutils literal notranslate"><span class="pre">PLUGIN_NAME</span></code> constant whose value is a string that does not</dt><dd><p>contain special characters, and should be easy to enter on the command line.</p>
+<dt>It must contain a <code class="docutils literal notranslate"><span class="pre">PLUGIN_NAME</span></code> constant whose value is a string that does not</dt><dd><p>contain special characters, and should be easy to enter on the command line.</p>
 </dd>
 </dl>
 </li>
@@ -147,7 +147,7 @@ conditions:</p>
 <section id="the-plugin-interface">
 <h2>The Plugin Interface<a class="headerlink" href="#the-plugin-interface" title="Link to this heading"></a></h2>
 <p>All plugins are either an individual python file or a Python module
-that reside in this directory or installed separately.  Plugins must have one function, <code class="code docutils literal notranslate"><span class="pre">call</span></code>, that
+that reside in this directory or installed separately.  Plugins must have one function, <code class="docutils literal notranslate"><span class="pre">call</span></code>, that
 matches the following signature:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -159,20 +159,20 @@ matches the following signature:</p>
 </div>
 <section id="the-plugincontext">
 <h3>The PluginContext<a class="headerlink" href="#the-plugincontext" title="Link to this heading"></a></h3>
-<p>The <code class="code docutils literal notranslate"><span class="pre">PluginContext</span></code> class, passed as <code class="code docutils literal notranslate"><span class="pre">context</span></code> to the <code class="code docutils literal notranslate"><span class="pre">call</span></code> function, includes
+<p>The <code class="docutils literal notranslate"><span class="pre">PluginContext</span></code> class, passed as <code class="docutils literal notranslate"><span class="pre">context</span></code> to the <code class="docutils literal notranslate"><span class="pre">call</span></code> function, includes
 all information the plugin is given during invocation.  This includes the following:</p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">token</span></code> - The Personal Access Token registered with the CLI to make requests.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token</span></code> - The Personal Access Token registered with the CLI to make requests.</p></li>
 <li><dl class="simple">
-<dt><code class="code docutils literal notranslate"><span class="pre">client</span></code> - The CLI Client object that can make authenticated requests on behalf</dt><dd><p>of the acting user.  This is preferrable to using <cite>requests</cite> or another library
+<dt><code class="docutils literal notranslate"><span class="pre">client</span></code> - The CLI Client object that can make authenticated requests on behalf</dt><dd><p>of the acting user.  This is preferrable to using <cite>requests</cite> or another library
 directly (see below).</p>
 </dd>
 </dl>
 </li>
 </ul>
 <p class="rubric">CLI Client</p>
-<p>The CLI Client provided as <code class="code docutils literal notranslate"><span class="pre">context.client</span></code> can make authenticated API calls on
-behalf of the user using the provided <code class="code docutils literal notranslate"><span class="pre">call_operation</span></code> method.  This method is
+<p>The CLI Client provided as <code class="docutils literal notranslate"><span class="pre">context.client</span></code> can make authenticated API calls on
+behalf of the user using the provided <code class="docutils literal notranslate"><span class="pre">call_operation</span></code> method.  This method is
 invoked with a command and an action, and executes the given CLI command as if
 it were entered into the command line, returning the resulting status code and
 JSON data.</p>
@@ -189,17 +189,17 @@ Plugins are allowed to:</p>
 <p>Any other operation is not supported and may break without notice.</p>
 <section id="methods">
 <h3>Methods<a class="headerlink" href="#methods" title="Link to this heading"></a></h3>
-<p>The <code class="code docutils literal notranslate"><span class="pre">Configuration</span></code> class provides the following methods for plugins to use:</p>
-<p><strong>get_value(key)</strong> Returns the value the current user has set for this key, or <code class="code docutils literal notranslate"><span class="pre">None</span></code>
-if the key does not exist.  Currently supported keys are <code class="code docutils literal notranslate"><span class="pre">region</span></code>, <code class="code docutils literal notranslate"><span class="pre">type</span></code>, and <code class="code docutils literal notranslate"><span class="pre">image</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Configuration</span></code> class provides the following methods for plugins to use:</p>
+<p><strong>get_value(key)</strong> Returns the value the current user has set for this key, or <code class="docutils literal notranslate"><span class="pre">None</span></code>
+if the key does not exist.  Currently supported keys are <code class="docutils literal notranslate"><span class="pre">region</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code>, and <code class="docutils literal notranslate"><span class="pre">image</span></code>.</p>
 <p><strong>plugin_set_value(key, value)</strong> Sets a value in the user’s config for this plugin.
 Plugins can safely set values for any key, and they are namespaced away from other
 config keys.</p>
 <p><strong>plugin_get_value(key)</strong> Returns the value this plugin previously set for the given
-key, or <code class="code docutils literal notranslate"><span class="pre">None</span></code> if not set.  Plugins should assume they are not configured if they
-receive <code class="code docutils literal notranslate"><span class="pre">None</span></code> when getting a value with this method.</p>
+key, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if not set.  Plugins should assume they are not configured if they
+receive <code class="docutils literal notranslate"><span class="pre">None</span></code> when getting a value with this method.</p>
 <p><strong>write_config()</strong> Writes config changes to disk.  This is required to save changes
-after calling <code class="code docutils literal notranslate"><span class="pre">plugin_set_value</span></code> above.</p>
+after calling <code class="docutils literal notranslate"><span class="pre">plugin_set_value</span></code> above.</p>
 </section>
 <section id="sample-code">
 <h3>Sample Code<a class="headerlink" href="#sample-code" title="Link to this heading"></a></h3>
@@ -226,18 +226,18 @@ after calling <code class="code docutils literal notranslate"><span class="pre">
 <section id="id1">
 <h2>Development<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>To develop a plugin, simply create a python source file in this directory that
-has a <code class="code docutils literal notranslate"><span class="pre">call</span></code> function as described above.  To test, simply build the CLI as
-normal (via <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>) or simply by running <code class="code docutils literal notranslate"><span class="pre">./setup.py</span> <span class="pre">install</span></code> in the
+has a <code class="docutils literal notranslate"><span class="pre">call</span></code> function as described above.  To test, simply build the CLI as
+normal (via <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>) or simply by running <code class="docutils literal notranslate"><span class="pre">./setup.py</span> <span class="pre">install</span></code> in the
 root directory of the project (this installs the code without generating new
-baked data, and will only work if you’ve installed the CLI via <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>
+baked data, and will only work if you’ve installed the CLI via <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>
 at least once, however it’s a lot faster).</p>
 <p>To develop a third party plugin, simply create and install your module and register
-it to the CLI.  As long as the <code class="code docutils literal notranslate"><span class="pre">PLUGIN_NAME</span></code> doesn’t change, updated installations
+it to the CLI.  As long as the <code class="docutils literal notranslate"><span class="pre">PLUGIN_NAME</span></code> doesn’t change, updated installations
 should invoke the new code.</p>
 <section id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h3>
-<p>This directory contains two example plugins, <code class="code docutils literal notranslate"><span class="pre">echo.py.example</span></code> and
-<code class="code docutils literal notranslate"><span class="pre">regionstats.py.example</span></code>.  To run these, simply remove the <code class="code docutils literal notranslate"><span class="pre">.example</span></code> at the end
+<p>This directory contains two example plugins, <code class="docutils literal notranslate"><span class="pre">echo.py.example</span></code> and
+<code class="docutils literal notranslate"><span class="pre">regionstats.py.example</span></code>.  To run these, simply remove the <code class="docutils literal notranslate"><span class="pre">.example</span></code> at the end
 of the file and build the CLI as described above.</p>
 <p><a class="reference external" href="https://github.com/linode/linode-cli/tree/main/examples/third-party-plugin">This directory</a>
 contains an example Third Party Plugin module.  This module is installable and

@@ -42,7 +42,7 @@
               <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                v0.0.0.dev+1495f40 (API v4.177.1)
+                v0.0.0.dev+074d50e (API v4.177.1)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -106,25 +106,25 @@
              
   <section id="usage">
 <span id="general-usage"></span><h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
-<p>The Linode CLI is invoked with the <code class="code docutils literal notranslate"><span class="pre">linode-cli</span></code>,
-or with either of its two aliases available: <code class="code docutils literal notranslate"><span class="pre">linode</span></code> and <code class="code docutils literal notranslate"><span class="pre">lin</span></code>.</p>
+<p>The Linode CLI is invoked with the <code class="docutils literal notranslate"><span class="pre">linode-cli</span></code>,
+or with either of its two aliases available: <code class="docutils literal notranslate"><span class="pre">linode</span></code> and <code class="docutils literal notranslate"><span class="pre">lin</span></code>.</p>
 <p>The CLI accepts two primary arguments, <em>command</em>  and <em>action</em>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>&lt;command&gt;<span class="w"> </span>&lt;action&gt;
 </pre></div>
 </div>
 <p><em>command</em> is the part of the CLI you are interacting with, for example “linodes”.
-You can see a list of all available commands by using <code class="code docutils literal notranslate"><span class="pre">--help</span></code>:</p>
+You can see a list of all available commands by using <code class="docutils literal notranslate"><span class="pre">--help</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>--help
 </pre></div>
 </div>
 <p><em>action</em> is the action you want to perform on a given command, for example “list”.
-You can see a list of all available actions for a command with the <code class="code docutils literal notranslate"><span class="pre">--help</span></code> for
+You can see a list of all available actions for a command with the <code class="docutils literal notranslate"><span class="pre">--help</span></code> for
 that command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>--help
 </pre></div>
 </div>
 <p>Some actions don’t require any parameters, but many do.  To see details on how
-to invoke a specific action, use <code class="code docutils literal notranslate"><span class="pre">--help</span></code> for that action:</p>
+to invoke a specific action, use <code class="docutils literal notranslate"><span class="pre">--help</span></code> for that action:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span>--help
 </pre></div>
 </div>
@@ -179,15 +179,15 @@ omit them as parameters to actions and the default value will be used.</p>
 <h2>Specifying List Arguments<a class="headerlink" href="#specifying-list-arguments" title="Link to this heading"></a></h2>
 <p>When running certain commands, you may need to specify multiple values for a list
 argument. This can be done by specifying the argument multiple times for each
-value in the list. For example, to create a Linode with multiple <code class="code docutils literal notranslate"><span class="pre">tags</span></code>
+value in the list. For example, to create a Linode with multiple <code class="docutils literal notranslate"><span class="pre">tags</span></code>
 you can execute the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span>--region<span class="w"> </span>us-east<span class="w"> </span>--type<span class="w"> </span>g6-nanode-1<span class="w"> </span>--tags<span class="w"> </span>tag1<span class="w"> </span>--tags<span class="w"> </span>tag2
 </pre></div>
 </div>
 <p>Lists consisting of nested structures can also be expressed through the command line.
 Duplicated attribute will signal a different object.
-For example, to create a Linode with a public interface on <code class="code docutils literal notranslate"><span class="pre">eth0</span></code> and a VLAN interface
-on <code class="code docutils literal notranslate"><span class="pre">eth1</span></code> you can execute the following:</p>
+For example, to create a Linode with a public interface on <code class="docutils literal notranslate"><span class="pre">eth0</span></code> and a VLAN interface
+on <code class="docutils literal notranslate"><span class="pre">eth1</span></code> you can execute the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--region<span class="w"> </span>us-east<span class="w"> </span>--type<span class="w"> </span>g6-nanode-1<span class="w"> </span>--image<span class="w"> </span>linode/ubuntu22.04<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--root_pass<span class="w"> </span><span class="s2">&quot;myr00tp4ss123&quot;</span><span class="w"> </span><span class="se">\</span>
@@ -202,9 +202,9 @@ on <code class="code docutils literal notranslate"><span class="pre">eth1</span>
 <section id="specifying-nested-arguments">
 <h2>Specifying Nested Arguments<a class="headerlink" href="#specifying-nested-arguments" title="Link to this heading"></a></h2>
 <p>When running certain commands, you may need to specify an argument that is nested
-in another field. These arguments can be specified using a <code class="code docutils literal notranslate"><span class="pre">.</span></code> delimited path to
-the argument. For example, to create a firewall with an inbound policy of <code class="code docutils literal notranslate"><span class="pre">DROP</span></code>
-and an outbound policy of <code class="code docutils literal notranslate"><span class="pre">ACCEPT</span></code>, you can execute the following:</p>
+in another field. These arguments can be specified using a <code class="docutils literal notranslate"><span class="pre">.</span></code> delimited path to
+the argument. For example, to create a firewall with an inbound policy of <code class="docutils literal notranslate"><span class="pre">DROP</span></code>
+and an outbound policy of <code class="docutils literal notranslate"><span class="pre">ACCEPT</span></code>, you can execute the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>firewalls<span class="w"> </span>create<span class="w"> </span>--label<span class="w"> </span>example-firewall<span class="w"> </span>--rules.outbound_policy<span class="w"> </span>ACCEPT<span class="w"> </span>--rules.inbound_policy<span class="w"> </span>DROP
 </pre></div>
 </div>
@@ -214,14 +214,14 @@ and an outbound policy of <code class="code docutils literal notranslate"><span 
 <p>In some cases, certain values for arguments may have unique functionality.</p>
 <section id="null-values">
 <h3>Null Values<a class="headerlink" href="#null-values" title="Link to this heading"></a></h3>
-<p>Arguments marked as nullable can be passed the value <code class="code docutils literal notranslate"><span class="pre">null</span></code> to send an explicit null value to the Linode API:</p>
+<p>Arguments marked as nullable can be passed the value <code class="docutils literal notranslate"><span class="pre">null</span></code> to send an explicit null value to the Linode API:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-update<span class="w"> </span>--rdns<span class="w"> </span>null<span class="w"> </span><span class="m">127</span>.0.0.1
 </pre></div>
 </div>
 </section>
 <section id="empty-lists">
 <h3>Empty Lists<a class="headerlink" href="#empty-lists" title="Link to this heading"></a></h3>
-<p>List arguments can be passed the value <code class="code docutils literal notranslate"><span class="pre">[]</span></code> to send an explicit empty list value to the Linode API:</p>
+<p>List arguments can be passed the value <code class="docutils literal notranslate"><span class="pre">[]</span></code> to send an explicit empty list value to the Linode API:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>networking<span class="w"> </span>ip-share<span class="w"> </span>--linode_id<span class="w"> </span><span class="m">12345</span><span class="w"> </span>--ips<span class="w"> </span><span class="o">[]</span>
 </pre></div>
 </div>
@@ -229,11 +229,11 @@ and an outbound policy of <code class="code docutils literal notranslate"><span 
 </section>
 <section id="suppressing-defaults">
 <h2>Suppressing Defaults<a class="headerlink" href="#suppressing-defaults" title="Link to this heading"></a></h2>
-<p>If you configured default values for <code class="code docutils literal notranslate"><span class="pre">image</span></code>, <code class="code docutils literal notranslate"><span class="pre">authorized_users</span></code>, <code class="code docutils literal notranslate"><span class="pre">region</span></code>,
-database <code class="code docutils literal notranslate"><span class="pre">engine</span></code>, and Linode <code class="code docutils literal notranslate"><span class="pre">type</span></code>, they will be sent for all requests that accept them
+<p>If you configured default values for <code class="docutils literal notranslate"><span class="pre">image</span></code>, <code class="docutils literal notranslate"><span class="pre">authorized_users</span></code>, <code class="docutils literal notranslate"><span class="pre">region</span></code>,
+database <code class="docutils literal notranslate"><span class="pre">engine</span></code>, and Linode <code class="docutils literal notranslate"><span class="pre">type</span></code>, they will be sent for all requests that accept them
 if you do not specify a different value.  If you want to send a request <em>without</em> these
-arguments, you must invoke the CLI with the <code class="code docutils literal notranslate"><span class="pre">--no-defaults</span></code> option.</p>
-<p>For example, to create a Linode with no <code class="code docutils literal notranslate"><span class="pre">image</span></code> after a default Image has been
+arguments, you must invoke the CLI with the <code class="docutils literal notranslate"><span class="pre">--no-defaults</span></code> option.</p>
+<p>For example, to create a Linode with no <code class="docutils literal notranslate"><span class="pre">image</span></code> after a default Image has been
 configured, you would do this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>linodes<span class="w"> </span>create<span class="w"> </span>--region<span class="w"> </span>us-east<span class="w"> </span>--type<span class="w"> </span>g5-standard-2<span class="w"> </span>--no-defaults
 </pre></div>
@@ -243,17 +243,17 @@ configured, you would do this:</p>
 <h2>Suppressing Warnings<a class="headerlink" href="#suppressing-warnings" title="Link to this heading"></a></h2>
 <p>In some situations, like when the CLI is out of date, it will generate a warning
 in addition to its normal output.  If these warnings can interfere with your
-scripts or you otherwise want them disabled, simply add the <code class="code docutils literal notranslate"><span class="pre">--suppress-warnings</span></code>
+scripts or you otherwise want them disabled, simply add the <code class="docutils literal notranslate"><span class="pre">--suppress-warnings</span></code>
 flag to prevent them from being emitted.</p>
 <p>## Suppressing Retries</p>
 <p>Sometimes the API responds with a error that can be ignored. For example a timeout
 or nginx response that can’t be parsed correctly, by default the CLI will retry
 calls on these errors we’ve identified. If you’d like to disable this behavior for
-any reason use the <code class="code docutils literal notranslate"><span class="pre">--no-retry</span></code> flag.</p>
+any reason use the <code class="docutils literal notranslate"><span class="pre">--no-retry</span></code> flag.</p>
 </section>
 <section id="shell-completion">
 <h2>Shell Completion<a class="headerlink" href="#shell-completion" title="Link to this heading"></a></h2>
-<p>To generate a completion file for a given shell type, use the <code class="code docutils literal notranslate"><span class="pre">completion</span></code> command;
+<p>To generate a completion file for a given shell type, use the <code class="docutils literal notranslate"><span class="pre">completion</span></code> command;
 for example to generate completions for bash run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linode-cli<span class="w"> </span>completion<span class="w"> </span>bash
 </pre></div>
@@ -261,7 +261,7 @@ for example to generate completions for bash run:</p>
 <p>The output of this command is suitable to be included in the relevant completion
 files to enable command completion on your shell.</p>
 <p>This command currently supports completions bash and fish shells.</p>
-<p>Use <code class="code docutils literal notranslate"><span class="pre">bashcompinit</span></code> on zsh with the bash completions for support on zsh shells.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">bashcompinit</span></code> on zsh with the bash completions for support on zsh shells.</p>
 <p class="rubric">Next Steps</p>
 <p>To continue to the next step of this guide, continue to the <a class="reference internal" href="04-output.html#general-output"><span class="std std-ref">Output page</span></a>.</p>
 </section>
