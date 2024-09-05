@@ -52,9 +52,9 @@ The format accepted by this command.
 ..  code-block:: bash
 
     linode-cli firewalls list [-h] [--tags [tags] ] [--id id]
-    	[--created created] [--label label] [--updated updated]
-    	[--order-by {tags,id,created,label,updated}]
-    	[--order {asc,desc}]
+        [--created created] [--label label] [--updated updated]
+        [--order-by {tags,id,created,label,updated}]
+        [--order {asc,desc}]
 
 
 
@@ -365,9 +365,9 @@ The format accepted by this command.
 ..  code-block:: bash
 
     linode-cli firewalls view [-h] [--created created] [--tags [tags] ]
-    	[--id id] [--updated updated] [--label label]
-    	[--order-by {created,tags,id,updated,label}]
-    	[--order {asc,desc}] firewallId
+        [--id id] [--updated updated] [--label label]
+        [--order-by {created,tags,id,updated,label}]
+        [--order {asc,desc}] firewallId
 
 
 
@@ -662,12 +662,12 @@ The format accepted by this command.
 ..  code-block:: bash
 
     linode-cli firewalls create [-h] [--rules.inbound inbound]
-    	[--rules.outbound outbound]
-    	[--rules.inbound_policy inbound_policy]
-    	[--rules.outbound_policy outbound_policy]
-    	[--devices.linodes linodes]
-    	[--devices.nodebalancers nodebalancers] [--label label]
-    	[--tags tags]
+        [--rules.outbound outbound]
+        [--rules.inbound_policy inbound_policy]
+        [--rules.outbound_policy outbound_policy]
+        [--devices.linodes linodes]
+        [--devices.nodebalancers nodebalancers] [--label label]
+        [--tags tags]
 
 
 
@@ -696,11 +696,11 @@ Examples of how this command might be used.
 ..  code-block:: bash
 
     linode-cli firewalls create \
-    	--label example-firewall \
-    	--rules.outbound_policy ACCEPT \
-    	--rules.inbound_policy DROP \
-    	--rules.inbound '[{"protocol": "TCP", "ports": "22, 80, 8080, 443", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"], "ipv6": ["2001:DB8::/128"]}, "action": "ACCEPT"}]' \
-    	--rules.outbound '[{"protocol": "TCP", "ports": "49152-65535", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"],"ipv6": ["2001:DB8::/128"]}, "action": "DROP", "label": "outbound-rule123", "description": "An example outbound rule description."}]'
+        --label example-firewall \
+        --rules.outbound_policy ACCEPT \
+        --rules.inbound_policy DROP \
+        --rules.inbound '[{"protocol": "TCP", "ports": "22, 80, 8080, 443", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"], "ipv6": ["2001:DB8::/128"]}, "action": "ACCEPT"}]' \
+        --rules.outbound '[{"protocol": "TCP", "ports": "49152-65535", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"],"ipv6": ["2001:DB8::/128"]}, "action": "DROP", "label": "outbound-rule123", "description": "An example outbound rule description."}]'
 
 
 
@@ -1005,7 +1005,7 @@ The format accepted by this command.
 ..  code-block:: bash
 
     linode-cli firewalls update [-h] [--tags tags] [--label label]
-    	[--status status] firewallId
+        [--status status] firewallId
 
 
 
@@ -1034,7 +1034,7 @@ Examples of how this command might be used.
 ..  code-block:: bash
 
     linode-cli firewalls update 123 \
-    	--status disabled
+        --status disabled
 
 
 
@@ -1485,9 +1485,9 @@ The format accepted by this command.
 ..  code-block:: bash
 
     linode-cli firewalls device-view [-h] [--updated updated]
-    	[--created created] [--id id]
-    	[--order-by {updated,created,id}] [--order {asc,desc}]
-    	firewallId deviceId
+        [--created created] [--id id]
+        [--order-by {updated,created,id}] [--order {asc,desc}]
+        firewallId deviceId
 
 
 
@@ -1516,7 +1516,7 @@ Examples of how this command might be used.
 ..  code-block:: bash
 
     linode-cli firewalls device-view \
-    	123 456
+        123 456
 
 
 
@@ -1712,7 +1712,7 @@ The format accepted by this command.
 ..  code-block:: bash
 
     linode-cli firewalls device-create [-h] [--id id] [--type type]
-    	firewallId
+        firewallId
 
 
 
@@ -1741,8 +1741,8 @@ Examples of how this command might be used.
 ..  code-block:: bash
 
     linode-cli firewalls device-create 123 \
-    	--id 456 \
-    	--type "linode"
+        --id 456 \
+        --type "linode"
 
 
 
@@ -2111,9 +2111,9 @@ The format accepted by this command.
 ..  code-block:: bash
 
     linode-cli firewalls devices-list [-h] [--id id]
-    	[--updated updated] [--created created]
-    	[--order-by {id,updated,created}] [--order {asc,desc}]
-    	firewallId
+        [--updated updated] [--created created]
+        [--order-by {id,updated,created}] [--order {asc,desc}]
+        firewallId
 
 
 
@@ -2382,7 +2382,7 @@ The format accepted by this command.
 ..  code-block:: bash
 
     linode-cli firewalls rules-list [-h] [--order-by {}]
-    	[--order {asc,desc}] firewallId
+        [--order {asc,desc}] firewallId
 
 
 
@@ -2668,8 +2668,8 @@ The format accepted by this command.
 ..  code-block:: bash
 
     linode-cli firewalls rules-update [-h] [--outbound outbound]
-    	[--inbound inbound] [--outbound_policy outbound_policy]
-    	[--inbound_policy inbound_policy] firewallId
+        [--inbound inbound] [--outbound_policy outbound_policy]
+        [--inbound_policy inbound_policy] firewallId
 
 
 
@@ -2698,8 +2698,8 @@ Examples of how this command might be used.
 ..  code-block:: bash
 
     linode-cli firewalls rules-update 123 \
-    	--inbound '[{"action":"ACCEPT", "protocol": "TCP", "ports": "22, 80, 8080, 443", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"], "ipv6": ["2001:DB8::/128"]}}]' \
-    	--outbound '[{"action":"DROP","protocol": "TCP", "ports": "49152-65535", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"], "ipv6": ["2001:DB8::/128`"]}}]'
+        --inbound '[{"action":"ACCEPT", "protocol": "TCP", "ports": "22, 80, 8080, 443", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"], "ipv6": ["2001:DB8::/128"]}}]' \
+        --outbound '[{"action":"DROP","protocol": "TCP", "ports": "49152-65535", "addresses": {"ipv4": ["192.0.2.0/24", "198.51.100.2/32"], "ipv6": ["2001:DB8::/128`"]}}]'
 
 
 
