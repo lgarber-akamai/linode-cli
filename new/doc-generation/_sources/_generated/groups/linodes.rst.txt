@@ -1058,12 +1058,12 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-authorized_keys`
       - :action-table-field-type:`[]str`
       - :action-table-field-example:`ssh-rsa AAAA_...eir-computer`
-      - A list of public SSH keys that will be automatically appended to the root user's ``~/.ssh/authorized_keys`` file when deploying from an Image.
+      - A list of public SSH keys that will be automatically appended to the root user's ``~/.ssh/authorized_keys`` file when deploying from an Image. **(write-only)**
 
     * - :action-table-field-name:`\-\-authorized_users`
       - :action-table-field-type:`[]str`
       - :action-table-field-example:`myUser`
-      - A list of usernames.
+      - A list of usernames. **(write-only)**
 
     * - :action-table-field-name:`\-\-backup_id`
       - :action-table-field-type:`int`
@@ -1078,7 +1078,7 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-booted`
       - :action-table-field-type:`bool`
       - :action-table-field-example:`N/A`
-      - This field defaults to ``true`` if the Linode is created with an Image or from a Backup.
+      - This field defaults to ``true`` if the Linode is created with an Image or from a Backup. **(write-only)**
 
     * - :action-table-field-name:`\-\-firewall_id`
       - :action-table-field-type:`int`
@@ -1088,7 +1088,7 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-group`
       - :action-table-field-type:`str`
       - :action-table-field-example:`Linode-Group`
-      - A deprecated property denoting a group label for this Linode.
+      - A deprecated property denoting a group label for this Linode. **(deprecated)**
 
     * - :action-table-field-name:`\-\-image`
       - :action-table-field-type:`str`
@@ -1113,7 +1113,7 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-root_pass`
       - :action-table-field-type:`str`
       - :action-table-field-example:`aComplexP@ssword`
-      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image.
+      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image. **(write-only)**
 
     * - :action-table-field-name:`\-\-stackscript_data`
       - :action-table-field-type:`json`
@@ -1181,27 +1181,27 @@ interfaces
     * - :action-table-field-name:`\-\-interfaces.ip_ranges`
       - :action-table-field-type:`json`
       - :action-table-field-example:`["10.0.0.64/...c::1:0/112"]`
-      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.ipam_address`
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.1/24`
-      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.ipv4.nat_1_1`
       - :action-table-field-type:`str`
       - :action-table-field-example:`203.0.113.2`
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.ipv4.vpc`
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.2`
-      - The VPC Subnet IPv4 address for this Interface.
+      - The VPC Subnet IPv4 address for this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.label`
       - :action-table-field-type:`str`
       - :action-table-field-example:`example-interface`
-      - The name of this Interface.
+      - The name of this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.primary`
       - :action-table-field-type:`bool`
@@ -1211,7 +1211,7 @@ interfaces
     * - :action-table-field-name:`\-\-interfaces.subnet_id`
       - :action-table-field-type:`int`
       - :action-table-field-example:`101`
-      - The ``id`` of the VPC Subnet for this Interface.
+      - The ``id`` of the VPC Subnet for this Interface. **(nullable)**
 
 
 
@@ -1694,7 +1694,7 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-group`
       - :action-table-field-type:`str`
       - :action-table-field-example:`Linode-Group`
-      - A deprecated property denoting a group label for this Linode.
+      - A deprecated property denoting a group label for this Linode. **(deprecated)**
 
     * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`str`
@@ -1739,12 +1739,12 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-backups.schedule.day`
       - :action-table-field-type:`str`
       - :action-table-field-example:`Saturday`
-      - The day of the week that your Linode's weekly Backup is taken.
+      - The day of the week that your Linode's weekly Backup is taken. **(nullable)**
 
     * - :action-table-field-name:`\-\-backups.schedule.window`
       - :action-table-field-type:`str`
       - :action-table-field-example:`W22`
-      - The window in which your backups will be taken, in UTC.
+      - The window in which your backups will be taken, in UTC. **(nullable)**
 
 
 
@@ -2546,7 +2546,7 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-group`
       - :action-table-field-type:`str`
       - :action-table-field-example:`Linode-Group`
-      - A label used to group Linodes for display.
+      - A label used to group Linodes for display. **(deprecated)**
 
     * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`str`
@@ -3724,22 +3724,22 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-root_pass` :action-table-field-required:`*`
       - :action-table-field-type:`str`
       - :action-table-field-example:`aComplexP@ssword`
-      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image.
+      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image. **(write-only)**
 
     * - :action-table-field-name:`\-\-authorized_keys`
       - :action-table-field-type:`[]str`
       - :action-table-field-example:`ssh-rsa AAAA_...eir-computer`
-      - A list of public SSH keys that will be automatically appended to the root user's ``~/.ssh/authorized_keys`` file when deploying from an Image.
+      - A list of public SSH keys that will be automatically appended to the root user's ``~/.ssh/authorized_keys`` file when deploying from an Image. **(write-only)**
 
     * - :action-table-field-name:`\-\-authorized_users`
       - :action-table-field-type:`[]str`
       - :action-table-field-example:`myUser`
-      - A list of usernames.
+      - A list of usernames. **(write-only)**
 
     * - :action-table-field-name:`\-\-booted`
       - :action-table-field-type:`bool`
       - :action-table-field-example:`N/A`
-      - This field defaults to ``true`` if the Linode is created with an Image or from a Backup.
+      - This field defaults to ``true`` if the Linode is created with an Image or from a Backup. **(write-only)**
 
     * - :action-table-field-name:`\-\-stackscript_data`
       - :action-table-field-type:`json`
@@ -7263,7 +7263,7 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-comments`
       - :action-table-field-type:`str`
       - :action-table-field-example:`This is my main Config`
-      - Optional field for arbitrary User comments on this Config.
+      - Optional field for arbitrary User comments on this Config. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces` :ref:`(section) <commands_linodes_config-create_argument_sections_interfaces>`
       - :action-table-field-type:`json`
@@ -7436,27 +7436,27 @@ interfaces
     * - :action-table-field-name:`\-\-interfaces.ip_ranges`
       - :action-table-field-type:`json`
       - :action-table-field-example:`["10.0.0.64/...c::1:0/112"]`
-      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.ipam_address`
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.1/24`
-      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.ipv4.nat_1_1`
       - :action-table-field-type:`str`
       - :action-table-field-example:`203.0.113.2`
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.ipv4.vpc`
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.2`
-      - The VPC Subnet IPv4 address for this Interface.
+      - The VPC Subnet IPv4 address for this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.label`
       - :action-table-field-type:`str`
       - :action-table-field-example:`example-interface`
-      - The name of this Interface.
+      - The name of this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.primary`
       - :action-table-field-type:`bool`
@@ -7466,7 +7466,7 @@ interfaces
     * - :action-table-field-name:`\-\-interfaces.subnet_id`
       - :action-table-field-type:`int`
       - :action-table-field-example:`101`
-      - The ``id`` of the VPC Subnet for this Interface.
+      - The ``id`` of the VPC Subnet for this Interface. **(nullable)**
 
 
 
@@ -7986,7 +7986,7 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-comments`
       - :action-table-field-type:`str`
       - :action-table-field-example:`This is my main Config`
-      - Optional field for arbitrary User comments on this Config.
+      - Optional field for arbitrary User comments on this Config. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces` :ref:`(section) <commands_linodes_config-update_argument_sections_interfaces>`
       - :action-table-field-type:`json`
@@ -8164,27 +8164,27 @@ interfaces
     * - :action-table-field-name:`\-\-interfaces.ip_ranges`
       - :action-table-field-type:`json`
       - :action-table-field-example:`["10.0.0.64/...c::1:0/112"]`
-      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.ipam_address`
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.1/24`
-      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.ipv4.nat_1_1`
       - :action-table-field-type:`str`
       - :action-table-field-example:`203.0.113.2`
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.ipv4.vpc`
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.2`
-      - The VPC Subnet IPv4 address for this Interface.
+      - The VPC Subnet IPv4 address for this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.label`
       - :action-table-field-type:`str`
       - :action-table-field-example:`example-interface`
-      - The name of this Interface.
+      - The name of this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-interfaces.primary`
       - :action-table-field-type:`bool`
@@ -8194,7 +8194,7 @@ interfaces
     * - :action-table-field-name:`\-\-interfaces.subnet_id`
       - :action-table-field-type:`int`
       - :action-table-field-example:`101`
-      - The ``id`` of the VPC Subnet for this Interface.
+      - The ``id`` of the VPC Subnet for this Interface. **(nullable)**
 
 
 
@@ -9066,17 +9066,17 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-ip_ranges`
       - :action-table-field-type:`[]str`
       - :action-table-field-example:`10.0.0.64/26`
-      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-ipam_address`
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.1/24`
-      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation.
+      - This Network Interface's private IP address in Classless Inter-Domain Routing (CIDR) notation. **(nullable)**
 
     * - :action-table-field-name:`\-\-label`
       - :action-table-field-type:`str`
       - :action-table-field-example:`example-interface`
-      - The name of this Interface.
+      - The name of this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-primary`
       - :action-table-field-type:`bool`
@@ -9086,17 +9086,17 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-subnet_id`
       - :action-table-field-type:`int`
       - :action-table-field-example:`101`
-      - The ``id`` of the VPC Subnet for this Interface.
+      - The ``id`` of the VPC Subnet for this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-ipv4.nat_1_1`
       - :action-table-field-type:`str`
       - :action-table-field-example:`203.0.113.2`
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-ipv4.vpc`
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.2`
-      - The VPC Subnet IPv4 address for this Interface.
+      - The VPC Subnet IPv4 address for this Interface. **(nullable)**
 
 
 
@@ -9393,7 +9393,7 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-ip_ranges`
       - :action-table-field-type:`[]str`
       - :action-table-field-example:`10.0.0.64/26`
-      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface.
+      - An array of IPv4 CIDR VPC Subnet ranges that are routed to this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-primary`
       - :action-table-field-type:`bool`
@@ -9403,12 +9403,12 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-ipv4.nat_1_1`
       - :action-table-field-type:`str`
       - :action-table-field-example:`203.0.113.2`
-      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface.
+      - The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the VPC Subnet IPv4 address assigned to this Interface. **(nullable)**
 
     * - :action-table-field-name:`\-\-ipv4.vpc`
       - :action-table-field-type:`str`
       - :action-table-field-example:`10.0.0.2`
-      - The VPC Subnet IPv4 address for this Interface.
+      - The VPC Subnet IPv4 address for this Interface. **(nullable)**
 
 
 
@@ -10944,12 +10944,12 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-authorized_keys`
       - :action-table-field-type:`[]str`
       - :action-table-field-example:`ssh-rsa AAAA_...eir-computer`
-      - A list of public SSH keys that will be automatically appended to the root user's ``~/.ssh/authorized_keys`` file when deploying from an Image.
+      - A list of public SSH keys that will be automatically appended to the root user's ``~/.ssh/authorized_keys`` file when deploying from an Image. **(write-only)**
 
     * - :action-table-field-name:`\-\-authorized_users`
       - :action-table-field-type:`[]str`
       - :action-table-field-example:`myUser`
-      - A list of usernames.
+      - A list of usernames. **(write-only)**
 
     * - :action-table-field-name:`\-\-filesystem`
       - :action-table-field-type:`str`
@@ -10969,7 +10969,7 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-root_pass`
       - :action-table-field-type:`str`
       - :action-table-field-example:`aComplexP@ssword`
-      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image.
+      - This sets the root user's password on a newly-created Linode Disk when deploying from an Image. **(write-only)**
 
     * - :action-table-field-name:`\-\-stackscript_data`
       - :action-table-field-type:`json`
@@ -13265,7 +13265,7 @@ Additional fields used to execute this request.
     * - :action-table-field-name:`\-\-rdns` :action-table-field-required:`*`
       - :action-table-field-type:`str`
       - :action-table-field-example:`test.example.org`
-      - The reverse DNS assigned to this address.
+      - The reverse DNS assigned to this address. **(nullable)**
 
 
 
