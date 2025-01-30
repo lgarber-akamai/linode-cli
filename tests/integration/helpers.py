@@ -39,6 +39,7 @@ def exec_test_command(args: List[str]):
     process = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     print(process.stdout)
     print(process.stderr)
+    print("STATUS", process.returncode)
     assert process.returncode == 0
     return process
 
