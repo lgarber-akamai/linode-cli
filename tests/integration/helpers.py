@@ -36,7 +36,9 @@ def wait_for_condition(interval: int, timeout: int, condition: Callable):
 
 
 def exec_test_command(args: List[str]):
-    process = subprocess.run(args, stdout=subprocess.PIPE)
+    process = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    print(process.stdout)
+    print(process.stderr)
     assert process.returncode == 0
     return process
 
