@@ -4,6 +4,7 @@ Responsible for managing spec and routing commands to operations.
 
 import contextlib
 import json
+import logging
 import os
 import pickle
 import sys
@@ -23,6 +24,7 @@ from linodecli.output.output_handler import OutputHandler, OutputMode
 
 METHODS = ("get", "post", "put", "delete")
 
+logger = logging.getLogger(__name__)
 
 class CLI:  # pylint: disable=too-many-instance-attributes
     """
@@ -54,6 +56,7 @@ class CLI:  # pylint: disable=too-many-instance-attributes
         """
 
         try:
+            logger.debug("Loading and parsing OpenAPI spec: %s", spec_location)
             spec = self._load_openapi_spec(spec_location)
         except Exception as e:
             print(f"Failed to load spec: {e}")
@@ -72,17 +75,35 @@ class CLI:  # pylint: disable=too-many-instance-attributes
             command = path.extensions.get(ext["command"], "default")
             for m in METHODS:
                 operation = getattr(path, m)
-                if operation is None or ext["skip"] in operation.extensions:
+
+                if operation is None:
                     continue
+
+                operation_fmt = f"\"{m.upper()} {path.path[-1]}\""
+
+                logger.debug("Processing operation: %s", operation_fmt)
+
+                if ext["skip"] in operation.extensions:
+                    logger.debug(
+                        "Skipping operation due to x-linode-cli-skip extension"
+                    )
+                    continue
+
                 action = operation.extensions.get(
                     ext["action"], operation.operationId
                 )
                 if not action:
+                    logger.warning(
+                        "Skipping operation due to unresolvable action: %s", operation_fmt
+                    )
                     continue
+
                 if isinstance(action, list):
                     action = action[0]
+
                 if command not in self.ops:
                     self.ops[command] = {}
+
                 self.ops[command][action] = OpenAPIOperation(
                     command, operation, m, path.parameters
                 )

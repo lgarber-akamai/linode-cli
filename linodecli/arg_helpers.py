@@ -58,6 +58,13 @@ def register_args(parser):
         help="Prints version information and exits.",
     )
 
+    parser.add_argument(
+        "--log-level",
+        "-l",
+        choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
+        help="Set the logging level.",
+    )
+
     register_output_args_shared(parser)
     register_pagination_args_shared(parser)
     register_args_shared(parser)

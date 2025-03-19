@@ -5,6 +5,7 @@ CLI Operation logic
 import argparse
 import glob
 import json
+import logging
 import platform
 import re
 import sys
@@ -28,6 +29,7 @@ from linodecli.exit_codes import ExitCodes
 from linodecli.output.output_handler import OutputHandler
 from linodecli.overrides import OUTPUT_OVERRIDES
 
+logger = logging.getLogger(__name__)
 
 def parse_boolean(value: str) -> bool:
     """
@@ -410,6 +412,22 @@ class OpenAPIOperation:
             [v for v in code_samples_ext if v.get("lang").lower() == "cli"]
             if code_samples_ext is not None
             else []
+        )
+
+        logger.debug(
+            "Successfully built action '%s %s': %s",
+            self.command,
+            self.action,
+            json.dumps({
+                "summary": self.summary,
+                "method": self.method.upper(),
+                "request_model_present": self.request is not None,
+                "response_model_present": self.response_model is not None,
+                "is_filterable": isinstance(self.request, OpenAPIFilteringRequest),
+                "params": [(v.name, v.type) for v in self.params],
+                "url_path": self.url_path,
+                "docs_url": self.docs_url
+            })
         )
 
     @property
