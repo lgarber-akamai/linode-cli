@@ -112,7 +112,7 @@ jobs:
           pip install .[obj,dev]
 
       - name: Install Package
-        run: make install SPEC="${{ inputs.OPENAPI_SPEC_URL }}"
+        run: make install SPEC="${{ inputs.OPENAPI_SPEC_URL }}" BAKE_FLAGS="--debug"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
