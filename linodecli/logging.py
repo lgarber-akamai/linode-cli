@@ -4,7 +4,7 @@ import sys
 from typing import Any
 
 logging.basicConfig(
-    level=logging.DEBUG if "--debug" in sys.argv else logging.WARNING
+    level=logging.DEBUG if "--debug" in sys.argv else logging.WARNING,
 )
 
 logger = logging.getLogger("linodecli")

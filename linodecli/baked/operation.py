@@ -402,9 +402,11 @@ class OpenAPIOperation:
         self.docs_url = self._resolve_operation_docs_url(operation)
 
         if self.docs_url is None:
-            print(
-                f"INFO: Could not resolve docs URL for {operation}",
-                file=sys.stderr,
+            logging.warning(
+                "Could not resolve docs URL for operation",
+                method=self.method.upper(),
+                command=self.command,
+                action=self.action,
             )
 
         code_samples_ext = operation.extensions.get("code-samples")
@@ -412,17 +414,6 @@ class OpenAPIOperation:
             [v for v in code_samples_ext if v.get("lang").lower() == "cli"]
             if code_samples_ext is not None
             else []
-        )
-
-        logging.debug(
-            "Successfully built action",
-            command=self.command,
-            action=self.action,
-            summary=self.summary,
-            method=self.method.upper(),
-            is_filterable=isinstance(self.request, OpenAPIFilteringRequest),
-            url_path=self.url_path,
-            docs_url=self.docs_url,
         )
 
     @property

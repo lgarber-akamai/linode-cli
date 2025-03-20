@@ -18,6 +18,7 @@ from openapi3 import OpenAPI
 from linodecli import logging
 from linodecli.api_request import do_request, get_all_pages
 from linodecli.baked import OpenAPIOperation
+from linodecli.baked.request import OpenAPIFilteringRequest
 from linodecli.configuration import CLIConfig
 from linodecli.exit_codes import ExitCodes
 from linodecli.output.output_handler import OutputHandler, OutputMode
@@ -111,9 +112,32 @@ class CLI:  # pylint: disable=too-many-instance-attributes
                 if command not in self.ops:
                     self.ops[command] = {}
 
-                self.ops[command][action] = OpenAPIOperation(
+                operation = OpenAPIOperation(
                     command, operation, m, path.parameters
                 )
+
+                logging.debug(
+                    "Successfully built command for operation",
+                    method=operation.method.upper(),
+                    command=operation.command,
+                    action=operation.action,
+                    summary=operation.summary,
+                    is_filterable=isinstance(
+                        operation.request, OpenAPIFilteringRequest
+                    ),
+                    url_path=operation.url_path,
+                    args={arg.name: vars(arg) for arg in operation.args},
+                    attrs=(
+                        {
+                            attr.name: vars(attr)
+                            for attr in operation.response_model.attrs
+                        }
+                        if operation.response_model
+                        else {}
+                    ),
+                )
+
+                self.ops[command][action] = operation
 
         # hide the base_url from the spec away
         self.ops["_base_url"] = self.spec.servers[0].url
