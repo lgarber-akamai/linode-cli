@@ -18,6 +18,7 @@ from urllib.parse import urlparse
 import openapi3.paths
 from openapi3.paths import Operation, Parameter
 
+from linodecli import logging
 from linodecli.baked.parsing import simplify_description
 from linodecli.baked.request import (
     OpenAPIFilteringRequest,
@@ -29,7 +30,6 @@ from linodecli.exit_codes import ExitCodes
 from linodecli.output.output_handler import OutputHandler
 from linodecli.overrides import OUTPUT_OVERRIDES
 
-logger = logging.getLogger(__name__)
 
 def parse_boolean(value: str) -> bool:
     """
@@ -414,20 +414,15 @@ class OpenAPIOperation:
             else []
         )
 
-        logger.debug(
-            "Successfully built action '%s %s': %s",
-            self.command,
-            self.action,
-            json.dumps({
-                "summary": self.summary,
-                "method": self.method.upper(),
-                "request_model_present": self.request is not None,
-                "response_model_present": self.response_model is not None,
-                "is_filterable": isinstance(self.request, OpenAPIFilteringRequest),
-                "params": [(v.name, v.type) for v in self.params],
-                "url_path": self.url_path,
-                "docs_url": self.docs_url
-            })
+        logging.debug(
+            "Successfully built action",
+            command=self.command,
+            action=self.action,
+            summary=self.summary,
+            method=self.method.upper(),
+            is_filterable=isinstance(self.request, OpenAPIFilteringRequest),
+            url_path=self.url_path,
+            docs_url=self.docs_url,
         )
 
     @property

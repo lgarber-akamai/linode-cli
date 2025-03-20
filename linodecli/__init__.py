@@ -4,7 +4,6 @@ Argument parser for the linode CLI
 """
 
 import argparse
-import logging
 import os
 import sys
 from importlib.metadata import version
@@ -65,8 +64,6 @@ def main():  # pylint: disable=too-many-branches,too-many-statements
         description="The Linode Command Line Interface.\n\nAliases: lin, linode",
     )
     parsed, args = register_args(parser).parse_known_args()
-
-    logging.basicConfig(level=parsed.log_level or logging.NOTSET)
 
     cli.output_handler.configure(parsed, cli.suppress_warnings)
 

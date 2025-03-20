@@ -4,7 +4,6 @@ Responsible for managing spec and routing commands to operations.
 
 import contextlib
 import json
-import logging
 import os
 import pickle
 import sys
@@ -16,6 +15,7 @@ import requests
 import yaml
 from openapi3 import OpenAPI
 
+from linodecli import logging
 from linodecli.api_request import do_request, get_all_pages
 from linodecli.baked import OpenAPIOperation
 from linodecli.configuration import CLIConfig
@@ -24,7 +24,6 @@ from linodecli.output.output_handler import OutputHandler, OutputMode
 
 METHODS = ("get", "post", "put", "delete")
 
-logger = logging.getLogger(__name__)
 
 class CLI:  # pylint: disable=too-many-instance-attributes
     """
@@ -56,7 +55,9 @@ class CLI:  # pylint: disable=too-many-instance-attributes
         """
 
         try:
-            logger.debug("Loading and parsing OpenAPI spec: %s", spec_location)
+            logging.debug(
+                "Loading and parsing OpenAPI spec", spec_location=spec_location
+            )
             spec = self._load_openapi_spec(spec_location)
         except Exception as e:
             print(f"Failed to load spec: {e}")
@@ -79,12 +80,17 @@ class CLI:  # pylint: disable=too-many-instance-attributes
                 if operation is None:
                     continue
 
-                operation_fmt = f"\"{m.upper()} {path.path[-1]}\""
+                log_ctx = {
+                    "method": m.upper(),
+                    "path": path.path[-1],
+                }
 
-                logger.debug("Processing operation: %s", operation_fmt)
+                logging.debug(
+                    "Attempting to generate command for operation", **log_ctx
+                )
 
                 if ext["skip"] in operation.extensions:
-                    logger.debug(
+                    logging.debug(
                         "Skipping operation due to x-linode-cli-skip extension"
                     )
                     continue
@@ -93,8 +99,9 @@ class CLI:  # pylint: disable=too-many-instance-attributes
                     ext["action"], operation.operationId
                 )
                 if not action:
-                    logger.warning(
-                        "Skipping operation due to unresolvable action: %s", operation_fmt
+                    logging.warning(
+                        "Skipping operation due to unresolvable action",
+                        **log_ctx,
                     )
                     continue
 

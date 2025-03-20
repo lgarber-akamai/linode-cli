@@ -106,7 +106,9 @@ def register_debug_arg(parser: ArgumentParser):
     ArgumentParser that may be shared across the CLI and plugins.
     """
     parser.add_argument(
-        "--debug", action="store_true", help="Enable verbose HTTP debug output."
+        "--debug",
+        action="store_true",
+        help="Enable verbose debug logging, including HTTP debug output.",
     )
 
 
