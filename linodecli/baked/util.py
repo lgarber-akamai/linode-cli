@@ -2,8 +2,9 @@
 Provides various utility functions for use in baking logic.
 """
 
+import re
 from collections import defaultdict
-from typing import Any, Dict, Set, Tuple
+from typing import Any, Dict, List, Set, Tuple
 
 from openapi3.schemas import Schema
 
@@ -51,3 +52,21 @@ def _aggregate_schema_properties(
         # We only want to mark fields that are required by ALL subschema as required
         set(key for key, count in required.items() if count == schema_count),
     )
+
+
+ESCAPED_PATH_DELIMITER_PATTERN = re.compile(r"(?<!\\)\.")
+
+
+def escape_arg_segment(segment: str) -> str:
+    return segment.replace(".", "\\.")
+
+
+def unescape_arg_segment(segment: str) -> str:
+    return segment.replace("\\.", ".")
+
+
+def get_path_segments(path: str) -> List[str]:
+    return [
+        unescape_arg_segment(seg)
+        for seg in ESCAPED_PATH_DELIMITER_PATTERN.split(path)
+    ]
